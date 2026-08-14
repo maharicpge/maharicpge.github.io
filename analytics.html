@@ -1,0 +1,20 @@
+<!-- Compteur de visites GoatCounter -->
+<script data-goatcounter="https://maharicpge.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
+
+<!-- Compteur de téléchargements : compte chaque clic sur un lien PDF -->
+<script>
+  window.addEventListener('load', function () {
+    document.querySelectorAll('a[href$=".pdf"]').forEach(function (lien) {
+      lien.addEventListener('click', function () {
+        if (window.goatcounter) {
+          window.goatcounter.count({
+            path:  'download: ' + lien.getAttribute('href'),
+            title: lien.textContent.trim(),
+            event: true
+          });
+        }
+      });
+    });
+  });
+</script>

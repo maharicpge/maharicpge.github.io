@@ -1,0 +1,25 @@
+project:
+  type: website
+  output-dir: _site
+  resources:
+    - files/
+
+website:
+  title: "Mathématiques CPGE"
+  site-url: https://maharicpge.github.io/
+  navbar:
+    left:
+      - href: index.qmd
+        text: Accueil
+      - cours.qmd
+      - cours01.qmd
+      - td.qmd
+      - annales.qmd
+      - contact.qmd
+  page-footer: "© 2026 - Mathématiques CPGE"
+
+format:
+  html:
+    theme: cosmo
+    toc: true
+    include-after-body: analytics.html

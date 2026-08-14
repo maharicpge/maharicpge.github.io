@@ -1,0 +1,103 @@
+---
+title: "Chapitre 1 : Nombres complexes"
+date: last-modified
+---
+
+# Introduction
+
+Ce chapitre présente les nombres complexes, outil fondamental en mathématiques et en physique.
+
+# 1. Structure de $\mathbb{C}$
+
+## 1.1 Définition
+
+**Définition 1.1**. L'ensemble des nombres complexes, noté $\mathbb{C}$, est l'ensemble des éléments de la forme :
+
+$$
+z = a + ib
+$$
+
+où $a, b \in \mathbb{R}$ et $i$ vérifie $i^2 = -1$.
+
+**Exemple 1.2**. 
+- $z_1 = 3 + 2i$
+- $z_2 = -1 + i$
+- $z_3 = 4$ (nombre réel)
+
+## 1.2 Opérations
+
+**Proposition 1.3**. Soient $z_1 = a_1 + ib_1$ et $z_2 = a_2 + ib_2$ :
+
+$$
+z_1 + z_2 = (a_1 + a_2) + i(b_1 + b_2)
+$$
+
+$$
+z_1 \cdot z_2 = (a_1 a_2 - b_1 b_2) + i(a_1 b_2 + a_2 b_1)
+$$
+
+**Preuve**. Calcul direct en utilisant $i^2 = -1$.
+
+# 2. Module et argument
+
+## 2.1 Module
+
+**Définition 2.1**. Le module de $z = a + ib$ est le réel positif :
+
+$$
+|z| = \sqrt{a^2 + b^2}.
+$$
+
+**Propriété 2.2**. Pour tout $z \in \mathbb{C}$ :
+
+$$
+|z|^2 = z \overline{z}.
+$$
+
+**Démonstration**. Si $z = a + ib$, alors $\overline{z} = a - ib$, donc :
+
+$$
+z \overline{z} = (a + ib)(a - ib) = a^2 - (ib)^2 = a^2 + b^2 = |z|^2.
+$$
+
+## 2.2 Argument
+
+**Définition 2.3**. Pour $z \neq 0$, l'argument de $z$, noté $\arg(z)$, est l'angle $\theta$ tel que :
+
+$$
+z = |z|(\cos\theta + i\sin\theta).
+$$
+
+**Théorème 2.4** (Formule de Moivre). Pour tout $n \in \mathbb{Z}$ et $\theta \in \mathbb{R}$ :
+
+$$
+(\cos\theta + i\sin\theta)^n = \cos(n\theta) + i\sin(n\theta).
+$$
+
+# 3. Applications
+
+## 3.1 Trigonométrie
+
+Les nombres complexes permettent de retrouver facilement les formules de trigonométrie.
+
+**Exemple 3.1**. Linéarisation de $\cos^3(x)$ :
+
+On utilise $e^{ix} = \cos x + i\sin x$, donc :
+
+$$
+\cos^3 x = \left(\frac{e^{ix} + e^{-ix}}{2}\right)^3
+$$
+
+$$
+= \frac{1}{8}(e^{3ix} + 3e^{ix} + 3e^{-ix} + e^{-3ix})
+$$
+
+$$
+= \frac{1}{4}\cos(3x) + \frac{3}{4}\cos(x).
+$$
+
+---
+
+## Documents
+
+- [Version PDF du chapitre](files/cours01.pdf)
