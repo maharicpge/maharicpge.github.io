@@ -1,0 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700&family=Fraunces:wght@600;700&display=swap');
+
+/*-- scss:defaults --*/
+$primary: #6d28d9;          /* couleur principale (violet) */
+$link-color: #6d28d9;       /* liens */
+$navbar-bg: #6d28d9;        /* barre de menu */
+$navbar-fg: #ffffff;        /* texte du menu */
+$body-bg: #f8f6ff;          /* fond des pages */
+$headings-color: #312e81;   /* couleur des titres */
+$footer-bg: #312e81;        /* pied de page */
+$footer-fg: #e0e7ff;
+$font-family-sans-serif: "Source Sans 3", system-ui, sans-serif;
+$headings-font-family: "Fraunces", Georgia, serif;
+
+/*-- scss:rules --*/
+.navbar {
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+}
+
+h1, h2, h3 {
+  letter-spacing: -0.02em;
+}

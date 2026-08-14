@@ -20,6 +20,7 @@ website:
 
 format:
   html:
-    theme: cosmo
+    theme: [minty, custom.scss]
+    css: styles.css
     toc: true
     include-after-body: analytics.html
