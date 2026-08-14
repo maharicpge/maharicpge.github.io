@@ -1,0 +1,79 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Mathématiques en CPGE",
+    "section": "",
+    "text": "Bienvenue sur le site de mathématiques.\nVous trouverez ici :\nVoici une formule mathématique :\n\\[\n\\int_0^\\infty e^{-x^2}\\,dx = \\frac{\\sqrt{\\pi}}{2}.\n\\]"
+  },
+  {
+    "objectID": "index.html#niveau-concerné",
+    "href": "index.html#niveau-concerné",
+    "title": "Mathématiques en CPGE",
+    "section": "Niveau concerné",
+    "text": "Niveau concerné\n\nMPSI / PCSI / PTSI\nMP / PSI / PC"
+  },
+  {
+    "objectID": "index.html#dernières-mises-à-jour",
+    "href": "index.html#dernières-mises-à-jour",
+    "title": "Mathématiques en CPGE",
+    "section": "Dernières mises à jour",
+    "text": "Dernières mises à jour\n\nAjout du chapitre sur les nombres complexes\nCorrigé du TD 2 disponible"
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "About this site"
+  },
+  {
+    "objectID": "cours01.html",
+    "href": "cours01.html",
+    "title": "Chapitre 1 : Nombres complexes",
+    "section": "",
+    "text": "Ce chapitre présente les nombres complexes, outil fondamental en mathématiques et en physique."
+  },
+  {
+    "objectID": "cours01.html#définition",
+    "href": "cours01.html#définition",
+    "title": "Chapitre 1 : Nombres complexes",
+    "section": "1.1 Définition",
+    "text": "1.1 Définition\nDéfinition 1.1. L’ensemble des nombres complexes, noté \\(\\mathbb{C}\\), est l’ensemble des éléments de la forme :\n\\[\nz = a + ib\n\\]\noù \\(a, b \\in \\mathbb{R}\\) et \\(i\\) vérifie \\(i^2 = -1\\).\nExemple 1.2. - \\(z_1 = 3 + 2i\\) - \\(z_2 = -1 + i\\) - \\(z_3 = 4\\) (nombre réel)"
+  },
+  {
+    "objectID": "cours01.html#opérations",
+    "href": "cours01.html#opérations",
+    "title": "Chapitre 1 : Nombres complexes",
+    "section": "1.2 Opérations",
+    "text": "1.2 Opérations\nProposition 1.3. Soient \\(z_1 = a_1 + ib_1\\) et \\(z_2 = a_2 + ib_2\\) :\n\\[\nz_1 + z_2 = (a_1 + a_2) + i(b_1 + b_2)\n\\]\n\\[\nz_1 \\cdot z_2 = (a_1 a_2 - b_1 b_2) + i(a_1 b_2 + a_2 b_1)\n\\]\nPreuve. Calcul direct en utilisant \\(i^2 = -1\\)."
+  },
+  {
+    "objectID": "cours01.html#module",
+    "href": "cours01.html#module",
+    "title": "Chapitre 1 : Nombres complexes",
+    "section": "2.1 Module",
+    "text": "2.1 Module\nDéfinition 2.1. Le module de \\(z = a + ib\\) est le réel positif :\n\\[\n|z| = \\sqrt{a^2 + b^2}.\n\\]\nPropriété 2.2. Pour tout \\(z \\in \\mathbb{C}\\) :\n\\[\n|z|^2 = z \\overline{z}.\n\\]\nDémonstration. Si \\(z = a + ib\\), alors \\(\\overline{z} = a - ib\\), donc :\n\\[\nz \\overline{z} = (a + ib)(a - ib) = a^2 - (ib)^2 = a^2 + b^2 = |z|^2.\n\\]"
+  },
+  {
+    "objectID": "cours01.html#argument",
+    "href": "cours01.html#argument",
+    "title": "Chapitre 1 : Nombres complexes",
+    "section": "2.2 Argument",
+    "text": "2.2 Argument\nDéfinition 2.3. Pour \\(z \\neq 0\\), l’argument de \\(z\\), noté \\(\\arg(z)\\), est l’angle \\(\\theta\\) tel que :\n\\[\nz = |z|(\\cos\\theta + i\\sin\\theta).\n\\]\nThéorème 2.4 (Formule de Moivre). Pour tout \\(n \\in \\mathbb{Z}\\) et \\(\\theta \\in \\mathbb{R}\\) :\n\\[\n(\\cos\\theta + i\\sin\\theta)^n = \\cos(n\\theta) + i\\sin(n\\theta).\n\\]"
+  },
+  {
+    "objectID": "cours01.html#trigonométrie",
+    "href": "cours01.html#trigonométrie",
+    "title": "Chapitre 1 : Nombres complexes",
+    "section": "3.1 Trigonométrie",
+    "text": "3.1 Trigonométrie\nLes nombres complexes permettent de retrouver facilement les formules de trigonométrie.\nExemple 3.1. Linéarisation de \\(\\cos^3(x)\\) :\nOn utilise \\(e^{ix} = \\cos x + i\\sin x\\), donc :\n\\[\n\\cos^3 x = \\left(\\frac{e^{ix} + e^{-ix}}{2}\\right)^3\n\\]\n\\[\n= \\frac{1}{8}(e^{3ix} + 3e^{ix} + 3e^{-ix} + e^{-3ix})\n\\]\n\\[\n= \\frac{1}{4}\\cos(3x) + \\frac{3}{4}\\cos(x).\n\\]"
+  },
+  {
+    "objectID": "cours01.html#documents",
+    "href": "cours01.html#documents",
+    "title": "Chapitre 1 : Nombres complexes",
+    "section": "Documents",
+    "text": "Documents\n\nVersion PDF du chapitre"
+  }
+]
