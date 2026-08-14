@@ -45,7 +45,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-dffeb9308ddab3c06f6ab3add200bfea.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-7a8c080b55ea27eb37b467515007f9ee.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -74,36 +74,8 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
 
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
-
+<link rel="stylesheet" href="styles.css">
 </head>
 
 <body class="nav-fixed quarto-light">
@@ -167,7 +139,7 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#niveau-concerné" id="toc-niveau-concerné" class="nav-link active" data-scroll-target="#niveau-concerné">Niveau concerné</a></li>
+  <li><a href="#mathématiques-en-cpge" id="toc-mathématiques-en-cpge" class="nav-link active" data-scroll-target="#mathématiques-en-cpge">Mathématiques en CPGE</a></li>
   <li><a href="#dernières-mises-à-jour" id="toc-dernières-mises-à-jour" class="nav-link" data-scroll-target="#dernières-mises-à-jour">Dernières mises à jour</a></li>
   </ul>
 </nav>
@@ -194,26 +166,33 @@ window.Quarto = {
 </header>
 
 
-<p>Bienvenue sur le site de mathématiques.</p>
-<p>Vous trouverez ici :</p>
-<ul>
-<li>les fiches de cours ;</li>
-<li>les TD et exercices ;</li>
-<li>les devoirs surveillés ;</li>
-<li>les annales de concours ;</li>
-<li>quelques conseils de méthode.</li>
-</ul>
-<p>Voici une formule mathématique :</p>
-<p><span class="math display">\[
-\int_0^\infty e^{-x^2}\,dx = \frac{\sqrt{\pi}}{2}.
-\]</span></p>
-<section id="niveau-concerné" class="level2">
-<h2 class="anchored" data-anchor-id="niveau-concerné">Niveau concerné</h2>
-<ul>
-<li>MPSI / PCSI / PTSI</li>
-<li>MP / PSI / PC</li>
-</ul>
+<section id="mathématiques-en-cpge" class="level1 hero">
+<h1>Mathématiques en CPGE</h1>
+<p>Cours, TD, annales et méthode pour réussir les concours.</p>
 </section>
+<div class="grid">
+<div class="g-col-12 g-col-md-4">
+<section id="cours" class="level3 card-home">
+<h3 class="anchored" data-anchor-id="cours">📘 Cours</h3>
+<p>Chapitres complets et fiches de synthèse.</p>
+<p><a href="./cours01.html">Voir les cours →</a></p>
+</section>
+</div>
+<div class="g-col-12 g-col-md-4">
+<section id="td" class="level3 card-home">
+<h3 class="anchored" data-anchor-id="td">✏️ TD</h3>
+<p>Énoncés et corrigés des travaux dirigés.</p>
+<p><a href="td.qmd">Voir les TD →</a></p>
+</section>
+</div>
+<div class="g-col-12 g-col-md-4">
+<section id="annales" class="level3 card-home">
+<h3 class="anchored" data-anchor-id="annales">🎓 Annales</h3>
+<p>Sujets et corrigés de concours.</p>
+<p><a href="annales.qmd">Voir les annales →</a></p>
+</section>
+</div>
+</div>
 <section id="dernières-mises-à-jour" class="level2">
 <h2 class="anchored" data-anchor-id="dernières-mises-à-jour">Dernières mises à jour</h2>
 <ul>
