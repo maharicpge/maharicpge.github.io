@@ -9,12 +9,15 @@ website:
   site-url: https://maharicpge.github.io/
   navbar:
     left:
-      - href: index.qmd
-        text: Accueil
-      - cours.qmd
-      - cours01.qmd
-      - td.qmd
-      - annales.qmd
+      - href: cours/index.qmd
+        text: Cours
+      - href: td/index.qmd
+        text: TD
+      - href: annales/index.qmd
+        text: Annales
+      - href: tipe/index.qmd
+        text: TIPE
+      - conseils.qmd
       - contact.qmd
   page-footer: "© 2026 - Mathématiques CPGE"
 
