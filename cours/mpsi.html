@@ -6,8 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="dcterms.date" content="2026-08-15">
 
-<title>Mathématiques en CPGE – Mathématiques CPGE</title>
+<title>Chapitre 1 : Nombres complexes – Mathématiques CPGE</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -29,23 +30,23 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-7a8c080b55ea27eb37b467515007f9ee.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-7a8c080b55ea27eb37b467515007f9ee.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -74,8 +75,37 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
 
-<link rel="stylesheet" href="styles.css">
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../styles.css">
 </head>
 
 <body class="nav-fixed quarto-light">
@@ -85,7 +115,7 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../index.html">
     <span class="navbar-title">Mathématiques CPGE</span>
     </a>
   </div>
@@ -96,27 +126,27 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./cours/index.html"> 
+    <a class="nav-link" href="../cours/index.html"> 
 <span class="menu-text">Cours</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./td/index.html"> 
+    <a class="nav-link" href="../td/index.html"> 
 <span class="menu-text">TD</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./annales/index.html"> 
+    <a class="nav-link" href="../annales/index.html"> 
 <span class="menu-text">Annales</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./tipe/index.html"> 
+    <a class="nav-link" href="../tipe/index.html"> 
 <span class="menu-text">TIPE</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./conseils.html"> 
+    <a class="nav-link" href="../conseils.html"> 
 <span class="menu-text">Conseils et méthode</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./contact.html"> 
+    <a class="nav-link" href="../contact.html"> 
 <span class="menu-text">Contact</span></a>
   </li>  
 </ul>
@@ -135,7 +165,22 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#mathématiques-en-cpge" id="toc-mathématiques-en-cpge" class="nav-link active" data-scroll-target="#mathématiques-en-cpge">Mathématiques en CPGE</a></li>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
+  <li><a href="#structure-de-mathbbc" id="toc-structure-de-mathbbc" class="nav-link" data-scroll-target="#structure-de-mathbbc">1. Structure de <span class="math inline">\(\mathbb{C}\)</span></a>
+  <ul class="collapse">
+  <li><a href="#définition" id="toc-définition" class="nav-link" data-scroll-target="#définition">1.1 Définition</a></li>
+  <li><a href="#opérations" id="toc-opérations" class="nav-link" data-scroll-target="#opérations">1.2 Opérations</a></li>
+  </ul></li>
+  <li><a href="#module-et-argument" id="toc-module-et-argument" class="nav-link" data-scroll-target="#module-et-argument">2. Module et argument</a>
+  <ul class="collapse">
+  <li><a href="#module" id="toc-module" class="nav-link" data-scroll-target="#module">2.1 Module</a></li>
+  <li><a href="#argument" id="toc-argument" class="nav-link" data-scroll-target="#argument">2.2 Argument</a></li>
+  </ul></li>
+  <li><a href="#applications" id="toc-applications" class="nav-link" data-scroll-target="#applications">3. Applications</a>
+  <ul class="collapse">
+  <li><a href="#trigonométrie" id="toc-trigonométrie" class="nav-link" data-scroll-target="#trigonométrie">3.1 Trigonométrie</a></li>
+  <li><a href="#documents" id="toc-documents" class="nav-link" data-scroll-target="#documents">Documents</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -144,7 +189,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Mathématiques en CPGE</h1>
+<h1 class="title">Chapitre 1 : Nombres complexes</h1>
 </div>
 
 
@@ -152,6 +197,12 @@ ul.task-list li input[type="checkbox"] {
 <div class="quarto-title-meta">
 
     
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">August 15, 2026</p>
+    </div>
+  </div>
   
     
   </div>
@@ -161,50 +212,87 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="mathématiques-en-cpge" class="level1 hero">
-<h1>Mathématiques en CPGE</h1>
-<p>Cours, TD, annales, TIPE et conseils pour réussir.</p>
+<section id="introduction" class="level1">
+<h1>Introduction</h1>
+<p>Ce chapitre présente les nombres complexes, outil fondamental en mathématiques et en physique.</p>
 </section>
-<div class="grid">
-<div class="g-col-12 g-col-md-4">
-<section id="cours" class="level3 card-home">
-<h3 class="anchored" data-anchor-id="cours">📘 Cours</h3>
-<p>Chapitres et fiches par filière. <a href="./cours/index.html">Voir les cours →</a></p>
+<section id="structure-de-mathbbc" class="level1">
+<h1>1. Structure de <span class="math inline">\(\mathbb{C}\)</span></h1>
+<section id="définition" class="level2">
+<h2 class="anchored" data-anchor-id="définition">1.1 Définition</h2>
+<p><strong>Définition 1.1</strong>. L’ensemble des nombres complexes, noté <span class="math inline">\(\mathbb{C}\)</span>, est l’ensemble des éléments de la forme :</p>
+<p><span class="math display">\[
+z = a + ib
+\]</span></p>
+<p>où <span class="math inline">\(a, b \in \mathbb{R}\)</span> et <span class="math inline">\(i\)</span> vérifie <span class="math inline">\(i^2 = -1\)</span>.</p>
+<p><strong>Exemple 1.2</strong>. - <span class="math inline">\(z_1 = 3 + 2i\)</span> - <span class="math inline">\(z_2 = -1 + i\)</span> - <span class="math inline">\(z_3 = 4\)</span> (nombre réel)</p>
 </section>
-</div>
-<div class="g-col-12 g-col-md-4">
-<section id="td" class="level3 card-home">
-<h3 class="anchored" data-anchor-id="td">✏️ TD</h3>
-<p>Énoncés et corrigés par filière. <a href="./td/index.html">Voir les TD →</a></p>
+<section id="opérations" class="level2">
+<h2 class="anchored" data-anchor-id="opérations">1.2 Opérations</h2>
+<p><strong>Proposition 1.3</strong>. Soient <span class="math inline">\(z_1 = a_1 + ib_1\)</span> et <span class="math inline">\(z_2 = a_2 + ib_2\)</span> :</p>
+<p><span class="math display">\[
+z_1 + z_2 = (a_1 + a_2) + i(b_1 + b_2)
+\]</span></p>
+<p><span class="math display">\[
+z_1 \cdot z_2 = (a_1 a_2 - b_1 b_2) + i(a_1 b_2 + a_2 b_1)
+\]</span></p>
+<p><strong>Preuve</strong>. Calcul direct en utilisant <span class="math inline">\(i^2 = -1\)</span>.</p>
 </section>
-</div>
-<div class="g-col-12 g-col-md-4">
-<section id="annales" class="level3 card-home">
-<h3 class="anchored" data-anchor-id="annales">🎓 Annales</h3>
-<p>Sujets et corrigés de concours. <a href="./annales/index.html">Voir les annales →</a></p>
 </section>
-</div>
-<div class="g-col-12 g-col-md-4">
-<section id="tipe" class="level3 card-home">
-<h3 class="anchored" data-anchor-id="tipe">🔬 TIPE</h3>
-<p>Ressources et accompagnement TIPE. <a href="./tipe/index.html">Voir TIPE →</a></p>
+<section id="module-et-argument" class="level1">
+<h1>2. Module et argument</h1>
+<section id="module" class="level2">
+<h2 class="anchored" data-anchor-id="module">2.1 Module</h2>
+<p><strong>Définition 2.1</strong>. Le module de <span class="math inline">\(z = a + ib\)</span> est le réel positif :</p>
+<p><span class="math display">\[
+|z| = \sqrt{a^2 + b^2}.
+\]</span></p>
+<p><strong>Propriété 2.2</strong>. Pour tout <span class="math inline">\(z \in \mathbb{C}\)</span> :</p>
+<p><span class="math display">\[
+|z|^2 = z \overline{z}.
+\]</span></p>
+<p><strong>Démonstration</strong>. Si <span class="math inline">\(z = a + ib\)</span>, alors <span class="math inline">\(\overline{z} = a - ib\)</span>, donc :</p>
+<p><span class="math display">\[
+z \overline{z} = (a + ib)(a - ib) = a^2 - (ib)^2 = a^2 + b^2 = |z|^2.
+\]</span></p>
 </section>
-</div>
-<div class="g-col-12 g-col-md-4">
-<section id="conseils" class="level3 card-home">
-<h3 class="anchored" data-anchor-id="conseils">💡 Conseils</h3>
-<p>Méthode, organisation, rédaction. <a href="./conseils.html">Voir les conseils →</a></p>
+<section id="argument" class="level2">
+<h2 class="anchored" data-anchor-id="argument">2.2 Argument</h2>
+<p><strong>Définition 2.3</strong>. Pour <span class="math inline">\(z \neq 0\)</span>, l’argument de <span class="math inline">\(z\)</span>, noté <span class="math inline">\(\arg(z)\)</span>, est l’angle <span class="math inline">\(\theta\)</span> tel que :</p>
+<p><span class="math display">\[
+z = |z|(\cos\theta + i\sin\theta).
+\]</span></p>
+<p><strong>Théorème 2.4</strong> (Formule de Moivre). Pour tout <span class="math inline">\(n \in \mathbb{Z}\)</span> et <span class="math inline">\(\theta \in \mathbb{R}\)</span> :</p>
+<p><span class="math display">\[
+(\cos\theta + i\sin\theta)^n = \cos(n\theta) + i\sin(n\theta).
+\]</span></p>
 </section>
-</div>
-<div class="g-col-12 g-col-md-4">
-<section id="contact" class="level3 card-home">
-<h3 class="anchored" data-anchor-id="contact">✉️ Contact</h3>
-<p>Me contacter. <a href="./contact.html">Contact →</a></p>
 </section>
-</div>
-</div>
+<section id="applications" class="level1">
+<h1>3. Applications</h1>
+<section id="trigonométrie" class="level2">
+<h2 class="anchored" data-anchor-id="trigonométrie">3.1 Trigonométrie</h2>
+<p>Les nombres complexes permettent de retrouver facilement les formules de trigonométrie.</p>
+<p><strong>Exemple 3.1</strong>. Linéarisation de <span class="math inline">\(\cos^3(x)\)</span> :</p>
+<p>On utilise <span class="math inline">\(e^{ix} = \cos x + i\sin x\)</span>, donc :</p>
+<p><span class="math display">\[
+\cos^3 x = \left(\frac{e^{ix} + e^{-ix}}{2}\right)^3
+\]</span></p>
+<p><span class="math display">\[
+= \frac{1}{8}(e^{3ix} + 3e^{ix} + 3e^{-ix} + e^{-3ix})
+\]</span></p>
+<p><span class="math display">\[
+= \frac{1}{4}\cos(3x) + \frac{3}{4}\cos(x).
+\]</span></p>
+<hr>
+</section>
+<section id="documents" class="level2">
+<h2 class="anchored" data-anchor-id="documents">Documents</h2>
+<p><a href="../files/mpsi/cours01.pdf">Chapitre 1 : Nombres complexes</a></p>
 
 
+</section>
+</section>
 
 </main> <!-- /main -->
 <!-- Compteur de visites GoatCounter -->
