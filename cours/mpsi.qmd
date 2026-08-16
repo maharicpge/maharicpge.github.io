@@ -1,104 +1,64 @@
 ---
-title: "Chapitre 1 : Nombres complexes"
-pagetitle: "Chapitre 1 : Nombres complexes - Mathématiques en CPGE"
-date: last-modified
+title: "MPSI (1re année) — Cours"
+pagetitle: "MPSI (1re année) · Cours - Mathématiques en CPGE"
+toc: false
 ---
 
-# Introduction
+## Chapitres au programme
 
-Ce chapitre présente les nombres complexes, outil fondamental en mathématiques et en physique.
+- **[Chapitre 01 — Logique et raisonnement. Quantificateurs, implication, équivalence, raisonnement par récurrence, par l'absurde, par contraposition.](mpsi-chap01.qmd)**
 
-# 1. Structure de $\mathbb{C}$
+- **[Chapitre 02 — Ensembles et applications. Inclusion, produit cartésien, ensemble des parties, injections, surjections, bijections, relations d'équivalence.](mpsi-chap02.qmd)**
 
-## 1.1 Définition
+- **[Chapitre 03 — Calcul algébrique. Sommes simples et doubles, produits, factorielles, coefficients binomiaux, binôme de Newton.](mpsi-chap03.qmd)**
 
-**Définition 1.1**. L'ensemble des nombres complexes, noté $\mathbb{C}$, est l'ensemble des éléments de la forme :
+- **[Chapitre 04 — Nombres complexes et trigonométrie. Formes algébrique et trigonométrique, exponentielle complexe, formules de Moivre et d'Euler, équations du second degré, racines n-ièmes.](mpsi-chap04.qmd)**
 
-$$
-z = a + ib
-$$
+- **[Chapitre 05 — Fonctions usuelles. exp, ln, ch, sh, th, arcsin, arccos, arctan.](mpsi-chap05.qmd)**
 
-où $a, b \in \mathbb{R}$ et $i$ vérifie $i^2 = -1$.
+- **[Chapitre 06 — Équations différentielles linéaires. Ordres 1 et 2, coefficients constants ou non, structure de l'ensemble des solutions.](mpsi-chap06.qmd)**
 
-**Exemple 1.2**. 
-- $z_1 = 3 + 2i$
-- $z_2 = -1 + i$
-- $z_3 = 4$ (nombre réel)
+- **[Chapitre 07 — Systèmes linéaires. Équations linéaires, opérations élémentaires, pivot de Gauss.](mpsi-chap07.qmd)**
 
-## 1.2 Opérations
+- **[Chapitre 08 — Structures algébriques. Groupes, sous-groupes, morphismes, anneaux, corps, $\mathbb{Z}/n\mathbb{Z}$.](mpsi-chap08.qmd)**
 
-**Proposition 1.3**. Soient $z_1 = a_1 + ib_1$ et $z_2 = a_2 + ib_2$ :
+- **[Chapitre 09 — Arithmétique dans ℤ. Division euclidienne, PGCD, PPCM, Bézout, Gauss, nombres premiers.](mpsi-chap09.qmd)**
 
-$$
-z_1 + z_2 = (a_1 + a_2) + i(b_1 + b_2)
-$$
+- **[Chapitre 10 — Polynômes. Anneau $\mathbb{K}[X]$, division euclidienne, racines, multiplicité, d'Alembert-Gauss, factorisation.](mpsi-chap10.qmd)**
 
-$$
-z_1 \cdot z_2 = (a_1 a_2 - b_1 b_2) + i(a_1 b_2 + a_2 b_1)
-$$
+- **[Chapitre 11 — Fractions rationnelles. Décomposition en éléments simples, pôles et parties polaires.](mpsi-chap11.qmd)**
 
-**Preuve**. Calcul direct en utilisant $i^2 = -1$.
+- **[Chapitre 12 — Espaces vectoriels et applications linéaires. Sous-espaces, sommes directes, familles libres et génératrices, bases, noyau, image, isomorphismes.](mpsi-chap12.qmd)**
 
-# 2. Module et argument
+- **[Chapitre 13 — Dimension finie. Base incomplète, dimension d'un espace et d'un sous-espace, théorème du rang.](mpsi-chap13.qmd)**
 
-## 2.1 Module
+- **[Chapitre 14 — Calcul matriciel. Matrices inversibles, matrices par blocs, changement de base.](mpsi-chap14.qmd)**
 
-**Définition 2.1**. Le module de $z = a + ib$ est le réel positif :
+- **[Chapitre 15 — Groupe symétrique et déterminant. Permutations, signatures, déterminants d'une famille, d'un endomorphisme, d'une matrice.](mpsi-chap15.qmd)**
 
-$$
-|z| = \sqrt{a^2 + b^2}.
-$$
+- **[Chapitre 16 — Nombres réels. Borne supérieure, densité de $\mathbb{Q}$ et de $\mathbb{R}\setminus\mathbb{Q}$, intervalles.](mpsi-chap16.qmd)**
 
-**Propriété 2.2**. Pour tout $z \in \mathbb{C}$ :
+- **[Chapitre 17 — Suites numériques. Limites, convergence, suites adjacentes, suites récurrentes.](mpsi-chap17.qmd)**
 
-$$
-|z|^2 = z \overline{z}.
-$$
+- **[Chapitre 18 — Limites et continuité. TVI, bornes atteintes, continuité uniforme (Heine).](mpsi-chap18.qmd)**
 
-**Démonstration**. Si $z = a + ib$, alors $\overline{z} = a - ib$, donc :
+- **[Chapitre 19 — Dérivation. Rolle, accroissements finis, classes $\mathcal{C}^k$.](mpsi-chap19.qmd)**
 
-$$
-z \overline{z} = (a + ib)(a - ib) = a^2 - (ib)^2 = a^2 + b^2 = |z|^2.
-$$
+- **[Chapitre 20 — Développements limités. Taylor-Young, équivalents, applications géométriques et analytiques.](mpsi-chap20.qmd)**
 
-## 2.2 Argument
+- **[Chapitre 21 — Intégration sur un segment. Sommes de Riemann, primitives, IPP, changement de variable.](mpsi-chap21.qmd)**
 
-**Définition 2.3**. Pour $z \neq 0$, l'argument de $z$, noté $\arg(z)$, est l'angle $\theta$ tel que :
+- **[Chapitre 22 — Séries numériques (introduction). Séries à termes positifs, séries géométriques et de Riemann.](mpsi-chap22.qmd)**
 
-$$
-z = |z|(\cos\theta + i\sin\theta).
-$$
+- **[Chapitre 23 — Dénombrement. Cardinal, listes, arrangements, combinaisons.](mpsi-chap23.qmd)**
 
-**Théorème 2.4** (Formule de Moivre). Pour tout $n \in \mathbb{Z}$ et $\theta \in \mathbb{R}$ :
+- **[Chapitre 24 — Espaces probabilisés finis. Probabilité conditionnelle, Bayes, indépendance.](mpsi-chap24.qmd)**
 
-$$
-(\cos\theta + i\sin\theta)^n = \cos(n\theta) + i\sin(n\theta).
-$$
+- **[Chapitre 25 — Variables aléatoires finies. Loi, espérance, variance, lois uniforme, de Bernoulli, binomiale.](mpsi-chap25.qmd)**
 
-# 3. Applications
+- **[Chapitre 26 — Espaces préhilbertiens finis. Produit scalaire, orthogonalité, Gram-Schmidt.](mpsi-chap26.qmd)**
 
-## 3.1 Trigonométrie
+- **[Chapitre 27 — Géométrie affine et euclidienne. Droites, plans, projections orthogonales, isométries en dimension 2 et 3.](mpsi-chap27.qmd)**
 
-Les nombres complexes permettent de retrouver facilement les formules de trigonométrie.
+- **[Chapitre 28 — Courbes planes. Courbes paramétrées, coordonnées polaires, tangentes, asymptotes.](mpsi-chap28.qmd)**
 
-**Exemple 3.1**. Linéarisation de $\cos^3(x)$ :
-
-On utilise $e^{ix} = \cos x + i\sin x$, donc :
-
-$$
-\cos^3 x = \left(\frac{e^{ix} + e^{-ix}}{2}\right)^3
-$$
-
-$$
-= \frac{1}{8}(e^{3ix} + 3e^{ix} + 3e^{-ix} + e^{-3ix})
-$$
-
-$$
-= \frac{1}{4}\cos(3x) + \frac{3}{4}\cos(x).
-$$
-
----
-
-## Documents
-
-[Chapitre 1 : Nombres complexes](../files/mpsi/cours01.pdf)
