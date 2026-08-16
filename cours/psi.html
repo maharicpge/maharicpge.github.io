@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>PSI 2e année (PSI) - Mathématiques en CPGE – Mathématiques en CPGE</title>
+<title>PSI (2e année) · Cours - Mathématiques en CPGE – Mathématiques en CPGE</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -74,40 +74,11 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 <link rel="stylesheet" href="../styles.css">
 </head>
 
-<body class="nav-fixed quarto-light">
+<body class="nav-fixed fullcontent quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -159,21 +130,13 @@ window.Quarto = {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#document-à-télécharger" id="toc-document-à-télécharger" class="nav-link active" data-scroll-target="#document-à-télécharger">Document à télécharger</a></li>
-  </ul>
-</nav>
-    </div>
+    
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">PSI 2e année (PSI)</h1>
+<h1 class="title">PSI (2e année) — Cours</h1>
 </div>
 
 
@@ -190,12 +153,19 @@ window.Quarto = {
 </header>
 
 
-<p>Collez ici votre contenu (votre code LaTeX fonctionne tel quel : <span class="math inline">\(...\)</span> et <span class="math display">\[...\]</span>).</p>
-<section id="document-à-télécharger" class="level2">
-<h2 class="anchored" data-anchor-id="document-à-télécharger">Document à télécharger</h2>
-<!-- Quand le PDF est dans files/, enlevez les symboles de commentaire :
-- [PSI 2e année (PSI) — PDF](../files/cours-psi.pdf)
--->
+<section id="chapitres-au-programme" class="level2">
+<h2 class="anchored" data-anchor-id="chapitres-au-programme">Chapitres au programme</h2>
+<ul>
+<li><p><strong><a href="../cours/psi-chap01.html">Chapitre 01 — Algèbre linéaire et réduction. Trace, valeurs propres, diagonalisation, trigonalisation.</a></strong></p></li>
+<li><p><strong><a href="../cours/psi-chap02.html">Chapitre 02 — Espaces euclidiens. Bases orthonormées, matrices symétriques, théorème spectral.</a></strong></p></li>
+<li><p><strong><a href="../cours/psi-chap03.html">Chapitre 03 — Topologie élémentaire. Normes, ouverts, fermés, continuité en dimension finie.</a></strong></p></li>
+<li><p><strong><a href="../cours/psi-chap04.html">Chapitre 04 — Séries numériques. Convergence absolue, séries de Riemann, séries alternées.</a></strong></p></li>
+<li><p><strong><a href="../cours/psi-chap05.html">Chapitre 05 — Suites et séries de fonctions. Convergence uniforme, théorèmes d’échange.</a></strong></p></li>
+<li><p><strong><a href="../cours/psi-chap06.html">Chapitre 06 — Séries entières. Rayon de convergence, séries entières des fonctions de la physique.</a></strong></p></li>
+<li><p><strong><a href="../cours/psi-chap07.html">Chapitre 07 — Intégration sur un intervalle quelconque. Intégrales généralisées, convergence dominée.</a></strong></p></li>
+<li><p><strong><a href="../cours/psi-chap08.html">Chapitre 08 — Calcul différentiel. Dérivées partielles, gradient, jacobienne, extrema.</a></strong></p></li>
+<li><p><strong><a href="../cours/psi-chap09.html">Chapitre 09 — Probabilités discrètes. Lois géométrique et de Poisson, inégalités probabilistes.</a></strong></p></li>
+</ul>
 
 
 </section>

@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>ECS 2e année - Mathématiques en CPGE – Mathématiques en CPGE</title>
+<title>ECS 2e année (ECG) · Cours - Mathématiques en CPGE – Mathématiques en CPGE</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -74,40 +74,11 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 <link rel="stylesheet" href="../styles.css">
 </head>
 
-<body class="nav-fixed quarto-light">
+<body class="nav-fixed fullcontent quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -159,21 +130,13 @@ window.Quarto = {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#document-à-télécharger" id="toc-document-à-télécharger" class="nav-link active" data-scroll-target="#document-à-télécharger">Document à télécharger</a></li>
-  </ul>
-</nav>
-    </div>
+    
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">ECS 2e année</h1>
+<h1 class="title">ECS 2e année (ECG) — Cours</h1>
 </div>
 
 
@@ -190,12 +153,21 @@ window.Quarto = {
 </header>
 
 
-<p>Collez ici votre contenu (votre code LaTeX fonctionne tel quel : <span class="math inline">\(...\)</span> et <span class="math display">\[...\]</span>).</p>
-<section id="document-à-télécharger" class="level2">
-<h2 class="anchored" data-anchor-id="document-à-télécharger">Document à télécharger</h2>
-<!-- Quand le PDF est dans files/, enlevez les symboles de commentaire :
-- [ECS 2e année — PDF](../files/cours-ecs2.pdf)
--->
+<section id="chapitres-au-programme" class="level2">
+<h2 class="anchored" data-anchor-id="chapitres-au-programme">Chapitres au programme</h2>
+<ul>
+<li><p><strong><a href="../cours/ecs2-chap01.html">Chapitre 01 — Algèbre linéaire (compléments). Sommes directes, projecteurs, symétries.</a></strong></p></li>
+<li><p><strong><a href="../cours/ecs2-chap02.html">Chapitre 02 — Réduction des endomorphismes et matrices. Spectre, diagonalisation, polynômes annulateurs.</a></strong></p></li>
+<li><p><strong><a href="../cours/ecs2-chap03.html">Chapitre 03 — Algèbre bilinéaire. Produit scalaire, bases orthonormées, matrices symétriques.</a></strong></p></li>
+<li><p><strong><a href="../cours/ecs2-chap04.html">Chapitre 04 — Séries numériques. Séries à termes positifs, convergence absolue, séries de Riemann.</a></strong></p></li>
+<li><p><strong><a href="../cours/ecs2-chap05.html">Chapitre 05 — Intégrales généralisées. Critères de convergence pour fonctions positives et par convergence absolue.</a></strong></p></li>
+<li><p><strong><a href="../cours/ecs2-chap06.html">Chapitre 06 — Variables aléatoires discrètes infinies. Lois géométrique et de Poisson, fonctions génératrices.</a></strong></p></li>
+<li><p><strong><a href="../cours/ecs2-chap07.html">Chapitre 07 — Variables aléatoires à densité. Densités, fonction de répartition, espérance, variance, lois usuelles.</a></strong></p></li>
+<li><p><strong><a href="../cours/ecs2-chap08.html">Chapitre 08 — Vecteurs aléatoires. Lois conjointes, marginales, conditionnelles, covariance, corrélation.</a></strong></p></li>
+<li><p><strong><a href="../cours/ecs2-chap09.html">Chapitre 09 — Convergences et approximations. Markov, Tchebychev, loi faible des grands nombres, théorème central limite.</a></strong></p></li>
+<li><p><strong><a href="../cours/ecs2-chap10.html">Chapitre 10 — Estimation statistique. Estimateurs sans biais, risque quadratique, convergence.</a></strong></p></li>
+<li><p><strong><a href="../cours/ecs2-chap11.html">Chapitre 11 — Fonctions de plusieurs variables et optimisation. Gradient, dérivées partielles, matrice hessienne, extrema locaux.</a></strong></p></li>
+</ul>
 
 
 </section>
