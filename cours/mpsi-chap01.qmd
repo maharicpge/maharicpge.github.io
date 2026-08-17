@@ -1,21 +1,22 @@
-
-**MPSI (1re année) — Chapitre 01.** Quantificateurs, implication, équivalence, raisonnement par récurrence, par l'absurde, par contraposition.
-
 ---
 title: "Logique et raisonnement"
 subtitle: "Chapitre 01"
 author: "Said MAHARI"
-date: "2025-09-28"
+date: last-modified
+date-format: "D MMMM YYYY"
 lang: fr
 format:
   html:
     theme: cosmo
     toc: true
     number-sections: true
-    html-math-method: katex   # ← ces 2 lignes activent KaTeX (reconnaît \llbracket)
+    html-math-method: katex
+    css: styles.css
+filters:
+  - custom-numbered-blocks.lua
 ---
 
-
+**MPSI (1re année) — Chapitre 01.** Quantificateurs, implication, équivalence, raisonnement par récurrence, par l'absurde, par contraposition.
 
 Ce chapitre a été réalisé conformément au programme marocain de mathématiques de la filière MPSI.
 
@@ -45,6 +46,7 @@ Soit $(x,a)\in\mathbb{R}^2$.
 1. La négation de $(x=a)$ est $(x\neq a)$.
 2. La négation de $(x>a)$ est $(x\leq a)$.
 3. La négation de (quel que soit $x$ de $\mathbb{R}$, $x$ vérifie $x^2\geq 0$) est (il existe $x$ de $\mathbb{R}$ tel que $x^2<0$).
+
 :::
 
 ## La conjonction

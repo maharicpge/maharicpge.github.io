@@ -1,0 +1,14 @@
+.custom-numbered-block {
+  margin: 1em 0;
+  padding: 0.8em 1em;
+  border-left: 4px solid #555;
+  background-color: #f8f8f8;
+}
+
+.custom-numbered-block > p:first-child {
+  margin-top: 0;
+}
+
+.custom-numbered-block > p:first-child strong {
+  font-size: 1.05em;
+}
