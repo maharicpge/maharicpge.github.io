@@ -1,13 +1,14 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr"><head>
 
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.10.18">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Said MAHARI">
 
-<title>Ensembles et applications - Mathématiques en CPGE – Mathématiques en CPGE</title>
+<title>Ensembles et applications – Mathématiques en CPGE</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -45,7 +46,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-7a8c080b55ea27eb37b467515007f9ee.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-e0d9a45d84245cc5e3b300860d8fa645.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -60,22 +61,66 @@ ul.task-list li input[type="checkbox"] {
   ],
   "show-item-context": false,
   "language": {
-    "search-no-results-text": "No results",
-    "search-matching-documents-text": "matching documents",
-    "search-copy-link-title": "Copy link to search",
-    "search-hide-matches-text": "Hide additional matches",
-    "search-more-match-text": "more match in this document",
-    "search-more-matches-text": "more matches in this document",
-    "search-clear-button-title": "Clear",
+    "search-no-results-text": "Pas de résultats",
+    "search-matching-documents-text": "documents trouvés",
+    "search-copy-link-title": "Copier le lien vers la recherche",
+    "search-hide-matches-text": "Cacher les correspondances additionnelles",
+    "search-more-match-text": "correspondance de plus dans ce document",
+    "search-more-matches-text": "correspondances de plus dans ce document",
+    "search-clear-button-title": "Effacer",
     "search-text-placeholder": "",
-    "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit",
-    "search-label": "Search"
+    "search-detached-cancel-button-title": "Annuler",
+    "search-submit-button-title": "Envoyer",
+    "search-label": "Recherche"
   }
 }</script>
 
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="styles.css">
 </head>
 
 <body class="nav-fixed quarto-light">
@@ -89,8 +134,8 @@ ul.task-list li input[type="checkbox"] {
     <span class="navbar-title">Accueil</span>
     </a>
   </div>
-            <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+            <div id="quarto-search" class="" title="Recherche"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Basculer la navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
@@ -132,10 +177,26 @@ ul.task-list li input[type="checkbox"] {
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
+    <h2 id="toc-title">Sur cette page</h2>
    
   <ul>
-  <li><a href="#document" id="toc-document" class="nav-link active" data-scroll-target="#document">Document</a></li>
+  <li><a href="#vocabulaire-de-la-théorie-des-ensembles" id="toc-vocabulaire-de-la-théorie-des-ensembles" class="nav-link active" data-scroll-target="#vocabulaire-de-la-théorie-des-ensembles"><span class="header-section-number">1</span> Vocabulaire de la théorie des ensembles</a></li>
+  <li><a href="#applications" id="toc-applications" class="nav-link" data-scroll-target="#applications"><span class="header-section-number">2</span> Applications</a></li>
+  <li><a href="#notion-de-famille-fonction-indicatrice" id="toc-notion-de-famille-fonction-indicatrice" class="nav-link" data-scroll-target="#notion-de-famille-fonction-indicatrice"><span class="header-section-number">3</span> Notion de famille – Fonction indicatrice</a>
+  <ul class="collapse">
+  <li><a href="#notion-de-famille" id="toc-notion-de-famille" class="nav-link" data-scroll-target="#notion-de-famille"><span class="header-section-number">3.1</span> Notion de famille</a></li>
+  <li><a href="#fonction-indicatrice" id="toc-fonction-indicatrice" class="nav-link" data-scroll-target="#fonction-indicatrice"><span class="header-section-number">3.2</span> Fonction indicatrice</a></li>
+  </ul></li>
+  <li><a href="#relations-binaires" id="toc-relations-binaires" class="nav-link" data-scroll-target="#relations-binaires"><span class="header-section-number">4</span> Relations binaires</a>
+  <ul class="collapse">
+  <li><a href="#notion-de-relation-binaire" id="toc-notion-de-relation-binaire" class="nav-link" data-scroll-target="#notion-de-relation-binaire"><span class="header-section-number">4.1</span> Notion de relation binaire</a></li>
+  <li><a href="#relations-déquivalence" id="toc-relations-déquivalence" class="nav-link" data-scroll-target="#relations-déquivalence"><span class="header-section-number">4.2</span> Relations d’équivalence</a></li>
+  <li><a href="#relations-dordre" id="toc-relations-dordre" class="nav-link" data-scroll-target="#relations-dordre"><span class="header-section-number">4.3</span> Relations d’ordre</a></li>
+  </ul></li>
+  <li><a href="#document-en-pdf" id="toc-document-en-pdf" class="nav-link" data-scroll-target="#document-en-pdf">Document en PDF</a>
+  <ul class="collapse">
+  <li><a href="#navigation" id="toc-navigation" class="nav-link" data-scroll-target="#navigation">Navigation</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -144,14 +205,27 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Chapitre 02 : Ensembles et applications</h1>
+<h1 class="title">Ensembles et applications</h1>
+<p class="subtitle lead">Chapitre 02</p>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Auteur·rice</div>
+    <div class="quarto-title-meta-contents">
+             <p>Said MAHARI </p>
+          </div>
+  </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">Date de publication</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">17 août 2026</p>
+    </div>
+  </div>
   
     
   </div>
@@ -161,12 +235,468 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p><strong>MPSI (1re année) — Chapitre 02.</strong> Inclusion, produit cartésien, ensemble des parties, injections, surjections, bijections, relations d’équivalence.</p>
-<section id="document" class="level2">
-<h2 class="anchored" data-anchor-id="document">Document</h2>
-<p><em>PDF à venir : déposez le fichier <code>files/mpsi/chap02.pdf</code> puis régénérez la page.</em></p>
+<p><strong>MPSI (1re année) — Chapitre 02.</strong> Vocabulaire de la théorie des ensembles, complémentaire, réunion, intersection, produit cartésien, applications, injection, surjection, bijection, familles, fonction indicatrice, relations binaires.</p>
+<p>Ce chapitre a été réalisé conformément au programme marocain de mathématiques de la filière MPSI.</p>
+<section id="vocabulaire-de-la-théorie-des-ensembles" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Vocabulaire de la théorie des ensembles</h1>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 1.1</strong></p>
+<ol type="1">
+<li>Un <strong>ensemble</strong> est une collection d’objets ;</li>
+<li>Un ensemble qui possède un unique élément <span class="math inline">x</span> s’appelle <em>singleton</em> et se note <span class="math inline">\{x\}</span> ;</li>
+<li>Si <strong>« <span class="math inline">x</span> est un élément d’un ensemble <span class="math inline">E</span> »</strong> (ou <strong>« <span class="math inline">x</span> appartient à <span class="math inline">E</span> »</strong>), on note <span class="math inline">\mathbf{x\in E}</span> ;</li>
+<li>On dit qu’un ensemble <span class="math inline">F</span> est <em>inclus</em> dans un autre ensemble <span class="math inline">E</span> si tout élément de <span class="math inline">F</span> est un élément de <span class="math inline">E</span> (ceci se traduit par <span class="math inline">\forall x\in F,\ x\in E</span> : quel que soit <span class="math inline">x</span> appartenant à <span class="math inline">F</span>, <span class="math inline">x</span> appartient à <span class="math inline">E</span>) et on écrit <span class="math inline">\mathbf{F\subset E}</span>. On dit aussi que <span class="math inline">F</span> est un <em>sous-ensemble</em> (ou une <em>partie</em>) de <span class="math inline">E</span> ;</li>
+<li>Deux ensembles <span class="math inline">F</span> et <span class="math inline">G</span> sont dits <em>égaux</em> si <span class="math inline">F\subset G</span> et <span class="math inline">G\subset F</span>, et on écrit <span class="math inline">\mathbf{F=G}</span> ;</li>
+<li>Si <span class="math inline">F</span> est une partie d’un ensemble <span class="math inline">E</span>, l’ensemble <span class="math inline">\{x\in E \,/\, x\notin F\}</span> est appelé <em>complémentaire</em> de <span class="math inline">F</span> dans <span class="math inline">E</span> et noté <span class="math inline">\mathsf{C}_E F</span> ou <span class="math inline">\overline{F}</span>.</li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 1.1</strong></p>
+<ol type="1">
+<li><span class="math inline">\mathbb{N}=\{0,1,2,3,\cdots\}</span> l’ensemble des nombres <strong>entiers naturels</strong> ;</li>
+<li><span class="math inline">\mathbb{Z}=\{\cdots,-3,-2,-1,0,1,2,3,\cdots\}</span> l’ensemble des nombres <strong>entiers relatifs</strong> ;</li>
+<li><span class="math inline">\mathbb{N}</span> est une partie de <span class="math inline">\mathbb{Z}</span> et <span class="math inline">\mathbb{N}^*=\{1,2,3,\cdots\}</span> est une partie de <span class="math inline">\mathbb{N}</span> et de <span class="math inline">\mathbb{Z}</span> ;</li>
+<li><span class="math inline">\mathbb{Z}</span> est une partie de <span class="math inline">\mathbb{Q}=\left\{\frac{p}{q} \,/\, (p\in\mathbb{Z})\wedge(q\in\mathbb{N}^*)\right\}</span> l’ensemble des nombres <strong>rationnels</strong>, et <span class="math inline">\mathbb{Q}</span> est une partie de <span class="math inline">\mathbb{R}</span> l’ensemble des nombres <strong>réels</strong> ;</li>
+<li><span class="math inline">\mathbb{R}^+=\{x\in\mathbb{R} \,/\, x\geq 0\}</span>, <span class="math inline">\mathbb{R}^-=\{x\in\mathbb{R} \,/\, x\leq 0\}</span>, <span class="math inline">\mathbb{R}^*=\{x\in\mathbb{R} \,/\, x\neq 0\}</span> et l’ensemble des nombres irrationnels <span class="math inline">\mathbb{R}\smallsetminus\mathbb{Q}</span> sont des parties de <span class="math inline">\mathbb{R}</span> ;</li>
+<li>Le complémentaire de <span class="math inline">\mathbb{R}</span> dans <span class="math inline">\mathbb{C}</span> est l’ensemble des nombres <strong>complexes imaginaires</strong>, <em>i.e.</em> : <span class="math display">\mathsf{C}_{\mathbb{C}}\mathbb{R}=\{a+ib \,/\, (a\in\mathbb{R})\wedge(b\in\mathbb{R}^*)\}</span></li>
+</ol>
+</div>
+<div class="proof remark" title="(Attention !)">
+<p><span class="proof-title"><em>Remarque</em>. </span>Il ne faut pas confondre l’ensemble <span class="math inline">\{x\}</span> et l’élément <span class="math inline">x</span>.</p>
+</div>
+<p>À tout ensemble <span class="math inline">E</span> on associe l’ensemble noté <span class="math inline">\varnothing_E</span> et donné par : <span class="math display">\varnothing_E=\{x\in E \,/\, x\neq x\}</span></p>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 1.2 — (Ensemble vide)</strong></p>
+<p>L’ensemble <span class="math inline">\varnothing_E</span> est indépendant de <span class="math inline">E</span> ; on l’appelle <em>ensemble vide</em> et on le note <span class="math inline">\varnothing</span>.</p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Preuve</em>. </span>Considérons deux ensembles <span class="math inline">E</span> et <span class="math inline">F</span> et associons-leur <span class="math inline">\varnothing_E</span> et <span class="math inline">\varnothing_F</span>. L’implication <span class="math inline">P\Longrightarrow Q</span> est toujours vraie si <span class="math inline">\neg P</span> est vraie. On a <span class="math inline">\forall x,\ x=x</span>, donc <span class="math inline">\forall x,\ x\notin\varnothing_E</span>, par suite pour tout <span class="math inline">x</span> l’implication : <span class="math display">x\in\varnothing_E \Longrightarrow x\in\varnothing_F</span> est vraie, d’où <span class="math inline">\varnothing_E\subset\varnothing_F</span>. De même, <span class="math inline">\varnothing_F\subset\varnothing_E</span>. D’où <span class="math inline">\varnothing_E=\varnothing_F</span>.</p>
+</div>
+<div class="proof remark">
+<p><span class="proof-title"><em>Remarque</em>. </span><span class="math inline">\varnothing\subset E</span>.</p>
+</div>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 1.3</strong></p>
+<p>Soit <span class="math inline">E</span> un ensemble. L’ensemble <span class="math inline">\{X \,/\, X\subset E\}</span> est appelé <em>ensemble des parties</em> de <span class="math inline">E</span>, qu’on note <span class="math inline">\mathcal{P}(E)</span>.</p>
+</div>
+<div class="proof remark">
+<p><span class="proof-title"><em>Remarque</em>. </span>Soit un ensemble <span class="math inline">E</span>, on a toujours <span class="math inline">\varnothing,\ E\in\mathcal{P}(E)</span>.</p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 1.2</strong></p>
+<p><span class="math inline">E=\{a,b,c\}</span> donc : <span class="math display">\mathcal{P}(E)=\{\varnothing,\{a\},\{b\},\{c\},\{a,b\},\{a,c\},\{b,c\},\{a,b,c\}\}</span></p>
+</div>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 1.4 — (Réunion &amp; Intersection)</strong></p>
+<p>Soient <span class="math inline">E</span> et <span class="math inline">F</span> deux ensembles.</p>
+<ol type="1">
+<li>L’ensemble <span class="math inline">\{x \,/\, (x\in E)\vee(x\in F)\}</span> s’appelle <em>réunion</em> (ou <em>union</em>) de <span class="math inline">E</span> et <span class="math inline">F</span>, qu’on note <span class="math inline">\mathbf{E\cup F}</span> ;</li>
+<li>L’ensemble <span class="math inline">\{x \,/\, (x\in E)\wedge(x\in F)\}</span> s’appelle <em>intersection</em> de <span class="math inline">E</span> et <span class="math inline">F</span>, qu’on note <span class="math inline">\mathbf{E\cap F}</span>.</li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 1.3</strong></p>
+<p>Soit <span class="math inline">E=[0,1[\,\cup\{\sqrt{2}\}\cup[2,4]</span>, et on se donne les parties de <span class="math inline">E</span> : <span class="math inline">A=\{1/2,3\}\cup[2,5/2]</span> et <span class="math inline">B=[1/2,1[\,\cup\{\sqrt{2},3\}</span>. Alors on a :</p>
+<ol type="1">
+<li><span class="math inline">A\cup B=[1/2,1[\,\cup\{\sqrt{2}\}\cup[2,5/2]\cup\{3\}</span></li>
+<li><span class="math inline">A\cap B=\{1/2,3\}</span></li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 1.1</strong></p>
+<p>Soit <span class="math inline">\Omega</span> un ensemble. Si <span class="math inline">E</span>, <span class="math inline">F</span> et <span class="math inline">G</span> sont des parties de <span class="math inline">\Omega</span>, alors on a les propriétés suivantes :</p>
+<ol type="1">
+<li><strong>Complémentaire</strong> : <span class="math inline">\overline{\varnothing}=\Omega</span> ; <span class="math inline">\overline{\Omega}=\varnothing</span> ; <span class="math inline">\overline{\overline{E}}=E</span> ; si <span class="math inline">F\subset E</span> alors <span class="math inline">\overline{E}\subset\overline{F}</span>.</li>
+<li><strong>Lois de Morgan</strong> : <span class="math display">\mathsf{C}_{\Omega}(E\cup F)=\mathsf{C}_{\Omega}E\cap\mathsf{C}_{\Omega}F \qquad \mathsf{C}_{\Omega}(E\cap F)=\mathsf{C}_{\Omega}E\cup\mathsf{C}_{\Omega}F</span></li>
+<li><strong>Réunion</strong> : <span class="math inline">E\cup F=F\cup E</span> ; <span class="math inline">E\cup(F\cup G)=(E\cup F)\cup G</span> ; <span class="math inline">E\cup E=E</span> ; <span class="math inline">E\cup\varnothing=E</span> ; <span class="math inline">E\cup\Omega=\Omega</span>.</li>
+<li><strong>Intersection</strong> : <span class="math inline">E\cap F=F\cap E</span> ; <span class="math inline">E\cap(F\cap G)=(E\cap F)\cap G</span> ; <span class="math inline">E\cap E=E</span> ; <span class="math inline">E\cap\varnothing=\varnothing</span> ; <span class="math inline">E\cap\Omega=E</span>.</li>
+<li><strong>Réunion et Intersection</strong> : <span class="math display">E\cap(F\cup G)=(E\cap F)\cup(E\cap G) \qquad E\cup(F\cap G)=(E\cup F)\cap(E\cup G)</span></li>
+</ol>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Preuve</em>. </span></p>
+<ol type="1">
+<li><strong>Complémentaire</strong>
+<ul>
+<li>Montrons que <span class="math inline">\Omega=\overline{\varnothing}</span> : on a <span class="math inline">\forall x\in\Omega,\ x\notin\varnothing</span> et <span class="math inline">\forall x\in\overline{\varnothing},\ x\notin\varnothing</span>, donc <span class="math inline">\Omega=\overline{\varnothing}</span>.</li>
+<li>Montrons que <span class="math inline">\overline{\Omega}=\varnothing</span> : on a <span class="math inline">\forall x\in\overline{\Omega},\ x\notin\Omega</span> et <span class="math inline">\forall x\in\varnothing,\ x\notin\Omega</span>, donc <span class="math inline">\overline{\Omega}=\varnothing</span>.</li>
+<li>Montrons que <span class="math inline">\overline{\overline{E}}=E</span> : on a <span class="math inline">\forall x\in\overline{\overline{E}},\ x\notin\overline{E}</span> et <span class="math inline">\forall x\in E,\ x\notin\overline{E}</span>, donc <span class="math inline">\overline{\overline{E}}=E</span>.</li>
+<li>Montrons que si <span class="math inline">F\subset E</span> alors <span class="math inline">\overline{E}\subset\overline{F}</span> : soit <span class="math inline">x\in\overline{E}</span>, donc <span class="math inline">x\notin E</span> et comme <span class="math inline">F\subset E</span> alors <span class="math inline">x\notin F</span>, donc <span class="math inline">x\in\overline{F}</span>. D’où <span class="math inline">\overline{E}\subset\overline{F}</span>.</li>
+</ul></li>
+<li><strong>Lois de Morgan</strong>
+<ul>
+<li>Montrons que <span class="math inline">\mathsf{C}_{\Omega}(E\cup F)=\mathsf{C}_{\Omega}E\cap\mathsf{C}_{\Omega}F</span> : on a <span class="math inline">E\subset E\cup F</span> et <span class="math inline">F\subset E\cup F</span>, donc d’après ce qui précède <span class="math inline">\mathsf{C}_{\Omega}(E\cup F)\subset\mathsf{C}_{\Omega}E</span> et <span class="math inline">\mathsf{C}_{\Omega}(E\cup F)\subset\mathsf{C}_{\Omega}F</span>. Inversement, soit <span class="math inline">x\in\mathsf{C}_{\Omega}E\cap\mathsf{C}_{\Omega}F</span>, donc <span class="math inline">x\notin E</span> et <span class="math inline">x\notin F</span>, donc <span class="math inline">x\notin E\cup F</span>, donc <span class="math inline">x\in\mathsf{C}_{\Omega}(E\cup F)</span>. D’où le résultat.</li>
+<li>Montrons que <span class="math inline">\mathsf{C}_{\Omega}(E\cap F)=\mathsf{C}_{\Omega}E\cup\mathsf{C}_{\Omega}F</span> : on applique ce qui précède à <span class="math inline">\mathsf{C}_{\Omega}E\cup\mathsf{C}_{\Omega}F</span>, ce qui donne : <span class="math display">\mathsf{C}_{\Omega}(\mathsf{C}_{\Omega}E\cup\mathsf{C}_{\Omega}F)=\mathsf{C}_{\Omega}(\mathsf{C}_{\Omega}E)\cap\mathsf{C}_{\Omega}(\mathsf{C}_{\Omega}F)=E\cap F</span> D’où <span class="math inline">\mathsf{C}_{\Omega}(E\cap F)=\mathsf{C}_{\Omega}E\cup\mathsf{C}_{\Omega}F</span>.</li>
+</ul></li>
+<li><strong>4) et 5) Réunion et Intersection</strong> : ces résultats sont immédiats.</li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 1.5</strong></p>
+<ol type="1">
+<li>Soient <span class="math inline">E</span> et <span class="math inline">F</span> deux ensembles, on appelle <em>produit cartésien</em> de <span class="math inline">E</span> et <span class="math inline">F</span>, qu’on note <span class="math inline">E\times F</span>, l’ensemble : <span class="math display">E\times F=\{(x,y) \,/\, (x\in E)\wedge(y\in F)\}</span></li>
+<li>Si <span class="math inline">p</span> est un entier <span class="math inline">\geq 2</span> et <span class="math inline">E_1,E_2,\cdots,E_p</span> des ensembles, de la même façon on définit le produit cartésien des ensembles <span class="math inline">E_1,E_2,\cdots,E_p</span> : <span class="math display">E_1\times\cdots\times E_p=\{(x_1,x_2,\cdots,x_p) \,/\, (x_1\in E_1)\wedge(x_2\in E_2)\wedge\cdots\wedge(x_p\in E_p)\}</span></li>
+<li>Un élément <span class="math inline">(x_1,x_2,\cdots,x_p)</span> du produit cartésien <span class="math inline">E_1\times E_2\times\cdots\times E_p</span> s’appelle <em><span class="math inline">p</span>-uplet</em>.</li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 1.6</strong></p>
+<ol type="1">
+<li>On appelle <em>différence des ensembles</em> <span class="math inline">E</span> et <span class="math inline">F</span> pris dans cet ordre l’ensemble noté <span class="math inline">\mathbf{E\smallsetminus F}</span> et défini par : <span class="math display">E\smallsetminus F=\{x\in E \,/\, x\notin F\}</span></li>
+<li>On appelle <em>différence symétrique</em> des ensembles <span class="math inline">E</span> et <span class="math inline">F</span> l’ensemble noté <span class="math inline">\mathbf{E\,\Delta\, F}</span> et défini par : <span class="math display">E\,\Delta\, F=(E\smallsetminus F)\cup(F\smallsetminus E)</span></li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 1.4</strong></p>
+<ol type="1">
+<li><span class="math inline">\mathsf{C}_E F=E\smallsetminus F</span></li>
+<li><span class="math inline">E\,\Delta\,\varnothing=E</span></li>
+</ol>
+</div>
+</section>
+<section id="applications" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> Applications</h1>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 2.1 — (Application)</strong></p>
+<p>Soient <span class="math inline">E</span> et <span class="math inline">F</span> deux ensembles. On appelle <em>application</em> de <span class="math inline">E</span> dans <span class="math inline">F</span> une correspondance <span class="math inline">f</span> qui à chaque élément <span class="math inline">x</span> de <span class="math inline">E</span> associe un élément et un seul <span class="math inline">y</span> de <span class="math inline">F</span>.</p>
+<ol type="1">
+<li><span class="math inline">E</span> est appelé <em>ensemble de départ</em> de l’application ;</li>
+<li><span class="math inline">F</span> est appelé <em>ensemble d’arrivée</em> de l’application ;</li>
+<li><span class="math inline">y</span> est appelé <em>image</em> de <span class="math inline">x</span> par l’application. On écrit <span class="math inline">y=f(x)</span> ;</li>
+<li><span class="math inline">x</span> est appelé <em>antécédent</em> de <span class="math inline">y</span> par l’application ;</li>
+<li>L’ensemble <span class="math inline">\Gamma=\{(x,f(x)) \,/\, x\in E\}</span> est appelé <em>graphe</em> de l’application <span class="math inline">f</span> et on le note <span class="math inline">\mathbf{gr(f)}</span> : <span class="math display">f : \begin{array}{rcl} E &amp; \longrightarrow &amp; F \\ x &amp; \longmapsto &amp; f(x)\end{array}</span></li>
+<li>L’ensemble des applications de <span class="math inline">E</span> dans <span class="math inline">F</span> est noté <span class="math inline">\mathbf{F^E}</span>.</li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 2.1</strong></p>
+<ol type="1">
+<li>L’application <span class="math inline">\operatorname{Id}_E : E\longrightarrow E,\ x\longmapsto x</span> s’appelle l’application <em>identité</em> dans <span class="math inline">E</span>.</li>
+<li><span class="math inline">E : \mathbb{R}\longrightarrow\mathbb{R},\ x\longmapsto E(x)</span> est une application, où <span class="math inline">E(x):=\max\{n\in\mathbb{Z} \,/\, n\leq x\}</span> qui s’appelle la <em>partie entière</em> de <span class="math inline">x</span>.</li>
+<li>Une application du type <span class="math inline">u : \mathbb{N}\longrightarrow\mathbb{R},\ n\longmapsto u_n</span> s’appelle <em>suite à valeurs réelles</em>, qu’on note brièvement <span class="math inline">(u_n)_{n\in\mathbb{N}}</span>.</li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 2.2</strong></p>
+<p>Soient <span class="math inline">E</span> et <span class="math inline">F</span> deux ensembles. On appelle <em>fonction</em> de <span class="math inline">E</span> dans <span class="math inline">F</span> une correspondance qui à chaque élément <span class="math inline">x</span> de <span class="math inline">E</span> associe au plus un élément <span class="math inline">y</span> de <span class="math inline">F</span>. Si on désigne par <span class="math inline">f</span> la fonction, il existe une partie <span class="math inline">D</span> de <span class="math inline">E</span>, appelée <em>domaine de définition</em> de <span class="math inline">f</span>, donnée par : <span class="math display">D=\{x\in E \,/\, \exists y\in F,\ y=f(x)\}</span> telle que : <span class="math display">f : \begin{array}{rcl} D &amp; \longrightarrow &amp; F \\ x &amp; \longmapsto &amp; f(x)=y\end{array}</span> soit une application. L’ensemble des fonctions de <span class="math inline">E</span> dans <span class="math inline">F</span> est noté <span class="math inline">\mathcal{F}(E,F)</span>.</p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 2.2</strong></p>
+<p>Voici quelques fonctions :</p>
+<ol type="1">
+<li>La fonction <span class="math inline">f_1 : \mathbb{R}\longrightarrow\mathbb{R},\ x\longmapsto\sqrt{x}</span> a pour domaine de définition <span class="math inline">D_{f_1}=\mathbb{R}^+</span> ;</li>
+<li>La fonction <span class="math inline">f_2 : \mathbb{C}\longrightarrow\mathbb{C},\ z\longmapsto\frac{z^2}{1-z}</span> a pour domaine de définition <span class="math inline">D_{f_2}=\mathbb{C}\smallsetminus\{1\}</span> ;</li>
+<li>La fonction <span class="math inline">f_3 : \mathbb{R}\longrightarrow\mathbb{C},\ x\longmapsto\frac{x}{\ln x}</span> a pour domaine de définition <span class="math inline">D_{f_3}=\,]0,1[\,\cup\,]1,+\infty[</span> ;</li>
+<li>La fonction <span class="math inline">f_4 : \mathbb{R}^2\longrightarrow\mathbb{R},\ (x,y)\longmapsto\frac{\ln x}{y}</span> a pour domaine de définition <span class="math inline">D_{f_4}=\,]0,+\infty[\,\times\,\mathbb{R}^*</span> ;</li>
+<li>La fonction <span class="math inline">f_5 : \mathbb{R}^3\longrightarrow\mathbb{R}^2,\ (x,y,z)\longmapsto\left(\frac{1}{1-x},\frac{1}{y^2+z^2}\right)</span> a pour domaine de définition l’ensemble : <span class="math display">D_{f_5}=\{(x,y,z)\in\mathbb{R}^3 \,/\, (x\neq 1)\wedge((y,z)\neq(0,0))\}</span></li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 2.3</strong></p>
+<p>Soit <span class="math inline">f : E\longrightarrow F</span> une application.</p>
+<ol type="1">
+<li>Soit <span class="math inline">A</span> une partie de <span class="math inline">E</span>. L’ensemble <span class="math inline">\{f(x)\in F \,/\, x\in A\}</span> se note <span class="math inline">\mathbf{f(A)}</span> et s’appelle <em>image directe</em> de <span class="math inline">A</span> ;</li>
+<li>Soit <span class="math inline">B</span> une partie de <span class="math inline">F</span>. L’ensemble <span class="math inline">\{x\in E \,/\, f(x)\in B\}</span> se note <span class="math inline">\mathbf{f^{-1}(B)}</span> et s’appelle <em>image réciproque</em> de <span class="math inline">B</span> ;</li>
+<li>Si <span class="math inline">D</span> est une partie de <span class="math inline">E</span>, l’application <span class="math inline">D\longrightarrow F,\ x\longmapsto f(x)</span> s’appelle <em>restriction</em> de <span class="math inline">f</span> à la partie <span class="math inline">D</span>, qu’on note <span class="math inline">\mathbf{f_{/D}}</span> ;</li>
+<li>Inversement, si on note <span class="math inline">f_1=f_{/D}</span>, <span class="math inline">f</span> s’appelle <em>prolongement</em> de <span class="math inline">f_1</span> sur <span class="math inline">E</span> ;</li>
+<li>Soient <span class="math inline">D</span> une partie de <span class="math inline">E</span> et <span class="math inline">C</span> une partie de <span class="math inline">F</span> tels que <span class="math inline">\forall x\in D,\ f(x)\in C</span>. L’application <span class="math inline">D\longrightarrow C,\ x\longmapsto f(x)</span> s’appelle <em>application induite</em> de <span class="math inline">f</span> ;</li>
+<li>Soit <span class="math inline">g : F\longrightarrow G</span> une application. L’application <span class="math inline">E\longrightarrow G,\ x\longmapsto g(f(x))</span> s’appelle <em>application composée</em> de <span class="math inline">f</span> et <span class="math inline">g</span> dans cet ordre et se note <span class="math inline">\mathbf{g\circ f}</span>.</li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 2.3</strong></p>
+<p>Si on note <span class="math inline">f : \mathbb{R}\longrightarrow\mathbb{R},\ x\longmapsto E(x)</span> l’application partie entière, on a :</p>
+<ol type="1">
+<li><span class="math inline">\operatorname{gr}(f)=\{(x,E(x)) \,/\, x\in\mathbb{R}\}</span> ;</li>
+<li><span class="math inline">f(\mathbb{R}^+)=\mathbb{N}</span> (où <span class="math inline">\mathbb{R}^+=\{x\in\mathbb{R} \,/\, x\geq 0\}</span>) ;</li>
+<li><span class="math inline">f^{-1}(\{0\})=[0,1[</span> ;</li>
+<li><span class="math inline">f_{/\mathbb{R}^+}(\mathbb{R}^-)=\{0\}</span> (où <span class="math inline">\mathbb{R}^-=\{x\in\mathbb{R} \,/\, x\leq 0\}</span>) ;</li>
+<li><span class="math inline">f\left([\sqrt{2},2[\right)=\{1\}</span> ;</li>
+<li><span class="math inline">f^{-1}\left([\sqrt{2},2[\right)=\varnothing</span>.</li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 2.4</strong></p>
+<p>Si on note <span class="math inline">g : \mathbb{R}\longrightarrow\mathbb{R},\ x\longmapsto e^x</span>, on a :</p>
+<ol type="1">
+<li><span class="math inline">\operatorname{gr}(g)=\{(x,e^x) \,/\, x\in\mathbb{R}\}</span> ;</li>
+<li><span class="math inline">g(\mathbb{R})=\mathbb{R}^*_+</span> ;</li>
+<li><span class="math inline">g^{-1}(\{0\})=\varnothing</span> ;</li>
+<li><span class="math inline">g(\mathbb{R}^-)=\,]0,1]</span> ;</li>
+<li><span class="math inline">g^{-1}(\mathbb{R}^-)=\varnothing</span>.</li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 2.4</strong></p>
+<p>Soit <span class="math inline">f : E\longrightarrow F</span> une application.</p>
+<ol type="1">
+<li>On dit que <span class="math inline">f</span> est <em>injective</em> si tout élément de <span class="math inline">F</span> possède au plus un antécédent. Autrement dit : <span class="math display">\forall (x,x')\in E^2,\ \left(f(x)=f(x') \Longrightarrow x=x'\right)</span> ou encore : <span class="math display">\forall (x,x')\in E^2,\ \left(x\neq x' \Longrightarrow f(x)\neq f(x')\right)</span></li>
+<li>On dit que <span class="math inline">f</span> est <em>surjective</em> si tout élément de <span class="math inline">F</span> possède au moins un antécédent. Autrement dit : <span class="math display">\forall y\in F,\ \exists x\in E,\ y=f(x)</span></li>
+<li>On dit que <span class="math inline">f</span> est <em>bijective</em> si tout élément de <span class="math inline">F</span> possède un antécédent et un seul. Autrement dit : <span class="math display">\forall y\in F,\ \exists !\, x\in E,\ y=f(x)</span></li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 2.5</strong></p>
+<ol type="1">
+<li>L’application <span class="math inline">\mathbb{R}\longrightarrow\mathbb{Z},\ x\longmapsto E(x)</span> (partie entière) est surjective et non injective.</li>
+<li>L’application <span class="math inline">\mathbb{N}\longrightarrow\mathbb{N},\ n\longmapsto n^2</span> est injective et non surjective.</li>
+<li>L’application <span class="math inline">\mathbb{N}^2\longrightarrow\mathbb{N}^*,\ (p,q)\longmapsto 2^p(2q+1)</span> est bijective (voir exercice 07 du TD01 pour la surjectivité).</li>
+<li>L’application <span class="math inline">\exp : \mathbb{R}\longrightarrow\mathbb{R}^*_+,\ x\longmapsto e^x</span> est bijective.</li>
+<li>L’application <span class="math inline">\mathbb{C}^*\longrightarrow\mathbb{C},\ z\longmapsto z+\frac{1}{z}</span> est non injective et surjective.</li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 2.1</strong></p>
+<ol type="1">
+<li>Une application est bijective si et seulement si elle est à la fois injective et surjective.</li>
+<li>Soit <span class="math inline">f</span> une application bijective de <span class="math inline">E</span> dans <span class="math inline">F</span>. L’application, notée <span class="math inline">f^{-1}</span>, de <span class="math inline">F</span> dans <span class="math inline">E</span> qui à tout élément <span class="math inline">y</span> de <span class="math inline">F</span> lui associe l’unique élément <span class="math inline">x</span> de <span class="math inline">E</span> tel que <span class="math inline">f(x)=y</span> est une bijection de <span class="math inline">F</span> dans <span class="math inline">E</span>, appelée <strong>bijection réciproque</strong> de <span class="math inline">f</span> : <span class="math display">f^{-1} : \begin{array}{rcl} F &amp; \longrightarrow &amp; E \\ y &amp; \longmapsto &amp; f^{-1}(y)=x \text{ tel que } f(x)=y\end{array}</span></li>
+<li><span class="math inline">f^{-1}</span> est l’unique application vérifiant : <span class="math display">f^{-1}\circ f=\operatorname{Id}_E \qquad ; \qquad f\circ f^{-1}=\operatorname{Id}_F</span></li>
+</ol>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Preuve</em>. </span></p>
+<ol type="1">
+<li>Le premier point est immédiat.</li>
+<li>Montrons que <span class="math inline">f^{-1}</span> est une bijection :
+<ul>
+<li>Soient <span class="math inline">y,y'\in F</span>. Il existe <span class="math inline">x,x'\in E</span> tels que <span class="math inline">f(x)=y</span> et <span class="math inline">f(x')=y'</span>. Donc si <span class="math inline">f^{-1}(y)\neq f^{-1}(y')</span> alors <span class="math inline">x\neq x'</span>, donc <span class="math inline">y\neq y'</span> (car <span class="math inline">f</span> est bijective donc injective). D’où <span class="math inline">f^{-1}</span> est bien définie.</li>
+<li>Soient <span class="math inline">y,y'\in F</span> tels que <span class="math inline">f^{-1}(y)=f^{-1}(y')</span>. Il existe <span class="math inline">x,x'\in E</span> tels que <span class="math inline">f(x)=y</span> et <span class="math inline">f(x')=y'</span>. Si <span class="math inline">x=x'</span> alors <span class="math inline">y=y'</span> (car <span class="math inline">f</span> est une application). D’où <span class="math inline">f^{-1}</span> est injective.</li>
+<li>Soit <span class="math inline">x\in E</span>, on a <span class="math inline">f(x)\in F</span> est un antécédent par <span class="math inline">f^{-1}</span> de <span class="math inline">x</span>. Ainsi, on a montré que <span class="math inline">f^{-1}</span> est bijective.</li>
+</ul></li>
+<li>Montrons que <span class="math inline">f^{-1}</span> est unique et qu’on a <span class="math inline">f^{-1}\circ f=\operatorname{Id}_E</span> et <span class="math inline">f\circ f^{-1}=\operatorname{Id}_F</span> :
+<ul>
+<li>Soit <span class="math inline">x\in E</span> et posons <span class="math inline">f(x)=y</span> ; comme <span class="math inline">f</span> est bijective, <span class="math inline">y</span> parcourt <span class="math inline">F</span> lorsque <span class="math inline">x</span> parcourt <span class="math inline">E</span>. On a : <span class="math display">f^{-1}\circ f(x)=f^{-1}(y)=x \qquad \text{et} \qquad f\circ f^{-1}(y)=f(x)=y</span> d’où <span class="math inline">f^{-1}\circ f=\operatorname{Id}_E</span> et <span class="math inline">f\circ f^{-1}=\operatorname{Id}_F</span>.</li>
+<li>Soit <span class="math inline">g</span> une autre application vérifiant les mêmes propriétés que <span class="math inline">f^{-1}</span>. Soit <span class="math inline">y\in F</span>, donc il existe un unique élément <span class="math inline">x\in E</span> tel que <span class="math inline">y=f(x)</span> (car <span class="math inline">f</span> est bijective) (par définition de <span class="math inline">f^{-1}</span> : <span class="math inline">f^{-1}(y)=x</span>). Or, <span class="math inline">g\circ f=\operatorname{Id}_E</span>, donc <span class="math inline">g(y)=g(f(x))=x=f^{-1}(y)</span>, ceci quel que soit <span class="math inline">y</span> de <span class="math inline">F</span>. D’où l’unicité de <span class="math inline">f^{-1}</span>.</li>
+</ul></li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 2.2</strong></p>
+<p>Soient <span class="math inline">f : E\longrightarrow F</span> et <span class="math inline">g : F\longrightarrow G</span> deux applications. Alors :</p>
+<ol type="1">
+<li>Si les applications <span class="math inline">f</span> et <span class="math inline">g</span> sont injectives, alors la composée <span class="math inline">g\circ f</span> l’est aussi.</li>
+<li>Si les applications <span class="math inline">f</span> et <span class="math inline">g</span> sont surjectives, alors la composée <span class="math inline">g\circ f</span> l’est aussi.</li>
+<li>Si les applications <span class="math inline">f</span> et <span class="math inline">g</span> sont bijectives, alors la composée <span class="math inline">g\circ f</span> l’est aussi et on a : <span class="math display">(g\circ f)^{-1}=f^{-1}\circ g^{-1}</span></li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 2.6</strong></p>
+<p>On considère les applications suivantes :</p>
+<ul>
+<li><span class="math inline">g_1 : [0,1[\,\longrightarrow\,[0,1[,\ t\longmapsto\sqrt{t}</span></li>
+<li><span class="math inline">g_2 : [0,1[\,\longrightarrow\,[1,2[,\ t\longmapsto 1+t</span></li>
+<li><span class="math inline">g_3 : [1,2[\,\longrightarrow\,]1,2],\ t\longmapsto 2/t</span></li>
+<li><span class="math inline">g_4 : ]1,2]\longrightarrow\,]0,1],\ t\longmapsto t-1</span></li>
+<li><span class="math inline">g_5 : ]0,1]\longrightarrow\mathbb{R}^-,\ t\longmapsto\ln t</span></li>
+<li><span class="math inline">g : [0,1[\,\longrightarrow\mathbb{R}^-,\ t\longmapsto\ln\frac{1-\sqrt{t}}{1+\sqrt{t}}</span></li>
+</ul>
+<p>On a : <span class="math display">g=g_5\circ g_4\circ g_3\circ g_2\circ g_1</span> Toutes ces applications sont bijectives et on a : <span class="math display">g^{-1}=g_1^{-1}\circ g_2^{-1}\circ g_3^{-1}\circ g_4^{-1}\circ g_5^{-1}</span></p>
+</div>
+</section>
+<section id="notion-de-famille-fonction-indicatrice" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Notion de famille – Fonction indicatrice</h1>
+<section id="notion-de-famille" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="notion-de-famille"><span class="header-section-number">3.1</span> Notion de famille</h2>
+<p>Soit <span class="math inline">I</span> un ensemble non vide dont les éléments seront appelés <em>indices</em>. Soit <span class="math inline">E</span> un ensemble.</p>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 3.1</strong></p>
+<p>Toute application <span class="math inline">x</span> de <span class="math inline">I</span> vers <span class="math inline">E</span> est appelée une <em>famille d’éléments</em> de <span class="math inline">E</span>, indexée par <span class="math inline">I</span>.</p>
+<p>Pour <span class="math inline">i\in I</span>, on note <span class="math inline">x_i</span> plutôt que <span class="math inline">x(i)</span>, et on écrit <span class="math inline">(x_i)_{i\in I}</span> cette famille d’éléments de <span class="math inline">E</span>.</p>
+<p>On note <span class="math inline">E^I</span> l’ensemble des familles d’éléments de <span class="math inline">E</span> indexées par <span class="math inline">I</span>.</p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 3.1</strong></p>
+<p>Voici quelques familles de nombres et d’ensembles :</p>
+<ol type="1">
+<li><span class="math inline">\mathbb{C}=(z_z)_{z\in\mathbb{C}}=(z)_{z\in\mathbb{C}}</span> famille de nombres complexes (c’est une famille infinie) ;</li>
+<li><span class="math inline">\mathbb{U}=\left(e^{i\theta}\right)_{\theta\in\mathbb{R}}</span> famille des nombres complexes de module 1 (c’est une famille infinie) ;</li>
+<li><span class="math inline">\mathbb{U}_n=\left(e^{i\frac{2k\pi}{n}}\right)_{0\leq k\leq n-1}</span> (<span class="math inline">n\in\mathbb{N}^*</span>) famille des racines <span class="math inline">n^{\text{ièmes}}</span> de l’unité (c’est une famille finie) ;</li>
+<li><span class="math inline">\mathbb{R}=(x_x)_{x\in\mathbb{R}}=(x)_{x\in\mathbb{R}}</span> famille des nombres réels (c’est une famille infinie) ;</li>
+<li>Soit <span class="math inline">E</span> un ensemble. <span class="math inline">\mathcal{P}(E)=(X)_{X\in\mathcal{P}(E)}</span> famille des parties de <span class="math inline">E</span> (c’est une famille infinie ou finie) ;</li>
+<li><span class="math inline">\left([a,b]\right)_{\{(a,b)\in\mathbb{R}^2 \,/\, a\leq b\}}</span> famille des segments de <span class="math inline">\mathbb{R}</span> (c’est une famille infinie) ;</li>
+<li><span class="math inline">\left(\mathrm{D}(a,r)\right)_{\{(a,r)\in\mathbb{C}\times\mathbb{R}^*_+\}}</span> famille des disques ouverts de <span class="math inline">\mathbb{C}</span> (c’est une famille infinie).</li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 3.2 — (Réunion &amp; Intersection)</strong></p>
+<p>Soit <span class="math inline">(E_i)_{i\in I}</span> une famille d’ensembles.</p>
+<ol type="1">
+<li><span class="math inline">\bigcup_{i\in I}E_i=\{x \,/\, \exists i\in I,\ x\in E_i\}</span></li>
+<li><span class="math inline">\bigcap_{i\in I}E_i=\{x \,/\, \forall i\in I,\ x\in E_i\}</span></li>
+</ol>
+</div>
+<div class="proof remark">
+<p><span class="proof-title"><em>Remarque</em>. </span><span class="math display">x\in\bigcup_{i\in I}E_i \iff \exists i\in I,\ x\in E_i \qquad ; \qquad x\in\bigcap_{i\in I}E_i \iff \forall i\in I,\ x\in E_i</span></p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 3.2</strong></p>
+<ol type="1">
+<li><span class="math inline">\bigcup_{a&gt;0}[a,+\infty[\,=\mathbb{R}^*_+</span></li>
+<li><span class="math inline">\bigcap_{a&gt;0}[a,+\infty[\,=\varnothing</span></li>
+<li><span class="math inline">\bigcap_{a&lt;0}[a,+\infty[\,=\mathbb{R}^+</span></li>
+<li><span class="math inline">\bigcup_{n\in\mathbb{N}}\{n\}=\mathbb{N}</span></li>
+<li><span class="math inline">\bigcup_{n\in\mathbb{N}^*}\llbracket 1,n\rrbracket=\mathbb{N}^*</span></li>
+<li><span class="math inline">\bigcap_{n\in\mathbb{N}^*}\llbracket 1,n\rrbracket=\{1\}</span></li>
+<li><span class="math inline">\bigcup_{n\in\mathbb{N}^*}\left[\frac{1}{n},n\right]=\,]0,+\infty[</span></li>
+<li><span class="math inline">\bigcap_{n\in\mathbb{N}^*}\left[\frac{1}{n},n\right]=\{1\}</span></li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 3.1</strong></p>
+<p>Soient <span class="math inline">(E_i)_{i\in I}</span>, <span class="math inline">(F_j)_{j\in J}</span> deux familles d’ensembles et <span class="math inline">E</span> un ensemble. Alors on a :</p>
+<p><span class="math display">E\cup\left(\bigcap_{i\in I}E_i\right)=\bigcap_{i\in I}\left(E\cup E_i\right) \qquad E\cap\left(\bigcup_{i\in I}E_i\right)=\bigcup_{i\in I}\left(E\cap E_i\right)</span></p>
+<p><span class="math display">\left(\bigcap_{i\in I}E_i\right)\cup\left(\bigcap_{j\in J}F_j\right)=\bigcap_{\stackrel{i\in I}{j\in J}}\left(E_i\cup F_j\right) \qquad \left(\bigcup_{i\in I}E_i\right)\cap\left(\bigcup_{j\in J}F_j\right)=\bigcup_{\stackrel{i\in I}{j\in J}}\left(E_i\cap F_j\right)</span></p>
+</div>
+</section>
+<section id="fonction-indicatrice" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="fonction-indicatrice"><span class="header-section-number">3.2</span> Fonction indicatrice</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 3.3</strong></p>
+<p>Soit <span class="math inline">\Omega</span> un ensemble et <span class="math inline">A</span> une partie de <span class="math inline">\Omega</span>. On appelle <em>fonction indicatrice</em> de <span class="math inline">A</span> (ou <em>caractéristique</em>) l’application notée <span class="math inline">\mathbf{1}_A</span> et définie par : <span class="math display">\mathbf{1}_A : \begin{array}{rcl} \Omega &amp; \longrightarrow &amp; \{0,1\} \\ x &amp; \longmapsto &amp; \begin{cases} 1, &amp; \text{si } x\in A \\ 0, &amp; \text{sinon}\end{cases}\end{array}</span></p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 3.3</strong></p>
+<ol type="1">
+<li><span class="math inline">\mathbf{1}_{\varnothing}=0</span> ; <span class="math inline">\mathbf{1}_{\Omega}=1</span></li>
+<li>Soit <span class="math inline">x\in\mathbb{R}</span>. On a : <span class="math inline">|x|=x\left(\mathbf{1}_{\mathbb{R}^+}(x)-\mathbf{1}_{\mathbb{R}^-}(x)\right)</span></li>
+<li>Soit <span class="math inline">A</span> une partie de <span class="math inline">\Omega</span>. On a : <span class="math inline">\mathbf{1}_{\overline{A}}=1-\mathbf{1}_A</span></li>
+</ol>
+</div>
+</section>
+</section>
+<section id="relations-binaires" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> Relations binaires</h1>
+<p>Dans ce paragraphe, <span class="math inline">E</span> désigne un ensemble non vide.</p>
+<section id="notion-de-relation-binaire" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="notion-de-relation-binaire"><span class="header-section-number">4.1</span> Notion de relation binaire</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 4.1 — (Relation binaire)</strong></p>
+<ol type="1">
+<li>On appelle <em>relation binaire</em> <span class="math inline">\mathcal{R}</span> sur <span class="math inline">E</span> une partie <span class="math inline">\Gamma</span> du produit cartésien <span class="math inline">E\times E</span>. La partie <span class="math inline">\Gamma</span> est dite <em>graphe</em> de la relation <span class="math inline">\mathcal{R}</span>.</li>
+<li>On dit qu’un élément <span class="math inline">x</span> de <span class="math inline">E</span> est <em>en relation</em> avec un autre élément <span class="math inline">y</span> de <span class="math inline">E</span> si <span class="math inline">(x,y)\in\Gamma</span>, et on écrit : <span class="math display">x\,\mathcal{R}\,y \iff (x,y)\in\Gamma</span></li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 4.1</strong></p>
+<ol type="1">
+<li>La relation d’inclusion sur <span class="math inline">\mathcal{P}(E)</span> est une relation binaire : <span class="math display">\forall (A,B)\in\mathcal{P}(E)^2,\ A\,\mathcal{R}\,B \iff A\subset B</span></li>
+<li>La relation de congruence modulo <span class="math inline">\alpha</span> (<span class="math inline">\alpha\in\mathbb{R}</span>) sur <span class="math inline">\mathbb{R}</span> : <span class="math display">\forall (x,y)\in\mathbb{R}^2,\ x=y\ [\alpha] \iff \exists k\in\mathbb{Z},\ y-x=k\alpha</span> <strong>Cas particulier</strong> : lorsque <span class="math inline">\alpha=0</span>, on obtient la relation d’égalité sur <span class="math inline">\mathbb{R}</span> : <span class="math inline">\forall (x,y)\in\mathbb{R}^2,\ x\,\mathcal{R}\,y \iff x=y</span>. Le graphe de cette relation est l’ensemble <span class="math inline">\{(x,x) \,/\, x\in\mathbb{R}\}</span>.</li>
+<li>La relation de divisibilité sur <span class="math inline">\mathbb{Z}</span> : <span class="math display">\forall (a,b)\in\mathbb{Z}^2,\ a\,\mathcal{R}\,b \iff \exists k\in\mathbb{Z} \,/\, b=ak</span> Le graphe de cette relation est l’ensemble <span class="math inline">\{(a,ak) \,/\, (a,k)\in\mathbb{Z}^2\}</span>.</li>
+<li>La relation <span class="math inline">\leq</span> (inférieur ou égal) sur <span class="math inline">\mathbb{R}</span> : <span class="math display">\forall (x,y)\in\mathbb{R}^2,\ x\,\mathcal{R}\,y \iff x\leq y</span> Le graphe de cette relation est l’ensemble <span class="math inline">\{(x,y)\in\mathbb{R}^2 \,/\, x\leq y\}</span>.</li>
+<li>La relation <span class="math inline">&gt;</span> (supérieur strictement) sur <span class="math inline">\mathbb{R}</span> : <span class="math display">\forall (x,y)\in\mathbb{R}^2,\ x\,\mathcal{R}\,y \iff x&gt;y</span> Le graphe de cette relation est l’ensemble <span class="math inline">\{(x,y)\in\mathbb{R}^2 \,/\, x&gt;y\}</span>.</li>
+<li>La relation <span class="math inline">\mathcal{R}</span> définie sur <span class="math inline">\mathbb{C}</span> par : <span class="math display">\forall (z,z')\in\mathbb{C}^2,\ z\,\mathcal{R}\,z' \iff |z|=|z'|</span> Le graphe de cette relation est l’ensemble <span class="math inline">\{(\rho e^{i\theta},\rho e^{i\theta'}) \,/\, (\rho,\theta,\theta')\in\mathbb{R}^*_+\times\mathbb{R}\times\mathbb{R}\}\cup\{(0,0)\}</span>.</li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 4.2</strong></p>
+<p>Soit <span class="math inline">\mathcal{R}</span> une relation binaire sur <span class="math inline">E</span>.</p>
+<ol type="1">
+<li>On dit que la relation <span class="math inline">\mathcal{R}</span> est <em>réflexive</em> si : <span class="math inline">\forall x\in E,\ x\,\mathcal{R}\,x</span> ;</li>
+<li>On dit que la relation <span class="math inline">\mathcal{R}</span> est <em>symétrique</em> si : <span class="math inline">\forall (x,y)\in E^2,\ \left(x\,\mathcal{R}\,y \Longrightarrow y\,\mathcal{R}\,x\right)</span> ;</li>
+<li>On dit que la relation <span class="math inline">\mathcal{R}</span> est <em>anti-symétrique</em> si : <span class="math inline">\forall (x,y)\in E^2,\ \left(x\,\mathcal{R}\,y \text{ et } y\,\mathcal{R}\,x \Longrightarrow y=x\right)</span> ;</li>
+<li>On dit que la relation <span class="math inline">\mathcal{R}</span> est <em>transitive</em> si : <span class="math inline">\forall (x,y,z)\in E^3,\ \left(x\,\mathcal{R}\,y \text{ et } y\,\mathcal{R}\,z \Longrightarrow x\,\mathcal{R}\,z\right)</span>.</li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 4.2</strong></p>
+<p>On reprend les relations binaires définies dans l’exemple précédent.</p>
+<ol type="1">
+<li>La relation définie en (1) est réflexive, anti-symétrique, transitive et non symétrique ;</li>
+<li>La relation définie en (2) est réflexive, symétrique, transitive et non anti-symétrique ;</li>
+<li>La relation définie en (3) est réflexive, transitive, non symétrique et non anti-symétrique ;</li>
+<li>La relation définie en (4) est réflexive, anti-symétrique, transitive et non symétrique ;</li>
+<li>La relation définie en (5) est transitive, non réflexive, non symétrique et anti-symétrique ;</li>
+<li>La relation définie en (6) est réflexive, symétrique, transitive et non anti-symétrique.</li>
+</ol>
+</div>
+</section>
+<section id="relations-déquivalence" class="level2" data-number="4.2">
+<h2 data-number="4.2" class="anchored" data-anchor-id="relations-déquivalence"><span class="header-section-number">4.2</span> Relations d’équivalence</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 4.3</strong></p>
+<p>Soit <span class="math inline">\mathcal{R}</span> une relation binaire sur <span class="math inline">E</span>. On dit que <span class="math inline">\mathcal{R}</span> est une <em>relation d’équivalence</em> si elle est réflexive, symétrique et transitive.</p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 4.3</strong></p>
+<p>On reprend les relations binaires définies dans l’exemple précédent.</p>
+<ol type="1">
+<li>La relation définie en (1) n’est pas une relation d’équivalence ;</li>
+<li>La relation définie en (2) est une relation d’équivalence ;</li>
+<li>La relation définie en (3) n’est pas une relation d’équivalence ;</li>
+<li>La relation définie en (4) n’est pas une relation d’équivalence ;</li>
+<li>La relation définie en (5) n’est pas une relation d’équivalence ;</li>
+<li>La relation définie en (6) est une relation d’équivalence.</li>
+</ol>
+</div>
+</section>
+<section id="relations-dordre" class="level2" data-number="4.3">
+<h2 data-number="4.3" class="anchored" data-anchor-id="relations-dordre"><span class="header-section-number">4.3</span> Relations d’ordre</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 4.4</strong></p>
+<p>Soit <span class="math inline">\mathcal{R}</span> une relation binaire sur <span class="math inline">E</span>.</p>
+<ol type="1">
+<li>On dit que <span class="math inline">\mathcal{R}</span> est une <em>relation d’ordre</em> si elle est réflexive, anti-symétrique et transitive. On dit, dans ce cas, que <span class="math inline">(E,\mathcal{R})</span> est un <em>ensemble ordonné</em> ;</li>
+<li>On dit que <span class="math inline">\mathcal{R}</span> est une relation d’ordre <em>total</em> si elle vérifie de plus : <span class="math display">\forall (x,y)\in E^2,\ \left(x\,\mathcal{R}\,y \text{ ou } y\,\mathcal{R}\,x\right)</span></li>
+<li>Sinon, on dit que <span class="math inline">\mathcal{R}</span> est une relation d’ordre <em>partiel</em>.</li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 4.4</strong></p>
+<p>On reprend les relations binaires définies dans l’exemple précédent.</p>
+<ol type="1">
+<li>La relation définie en (1) est d’ordre partiel ;</li>
+<li>La relation définie en (2) n’est pas une relation d’ordre ;</li>
+<li>La relation définie en (3) n’est pas une relation d’ordre sur <span class="math inline">\mathbb{Z}</span> ; c’est une relation d’ordre partiel sur <span class="math inline">\mathbb{N}</span> ;</li>
+<li>La relation définie en (4) est d’ordre total sur <span class="math inline">\mathbb{R}</span> et partiel sur <span class="math inline">\mathbb{C}</span> ;</li>
+<li>La relation définie en (5) n’est pas d’ordre ;</li>
+<li>La relation définie en (6) n’est pas d’ordre.</li>
+</ol>
+</div>
+<p>Dans la suite, on notera toute relation d’ordre par <span class="math inline">\preceq</span>, et donc <span class="math inline">(E,\preceq)</span> sera un <em>ensemble ordonné</em>.</p>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 4.5</strong></p>
+<p>Soit <span class="math inline">A</span> une partie de <span class="math inline">E</span>.</p>
+<ol type="1">
+<li>On dit que <span class="math inline">m\in E</span> (respectivement <span class="math inline">M\in E</span>) est un <em>minorant</em> (respectivement <em>majorant</em>) de <span class="math inline">A</span> si et seulement si : <span class="math display">\forall x\in A,\ m\preceq x \quad (\text{respectivement } x\preceq M)</span></li>
+<li>On dit que <span class="math inline">m\in E</span> (respectivement <span class="math inline">M\in E</span>) est un <em>minimum</em> (respectivement <em>maximum</em>) de <span class="math inline">A</span> si : <span class="math display">\begin{cases} m \text{ minorant } (\text{respectivement } M \text{ majorant}) \text{ de } A \\ m\in A \quad (\text{respectivement } M\in A)\end{cases}</span></li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 4.5</strong></p>
+<ol type="1">
+<li>Dans <span class="math inline">(\mathcal{P}(E),\subset)</span>, l’ensemble vide <span class="math inline">\varnothing</span> est un minimum et l’ensemble <span class="math inline">E</span> est un maximum de <span class="math inline">\mathcal{P}(E)</span>.</li>
+<li>Soit <span class="math inline">E=\{a,b,c,d\}</span> et on considère <span class="math inline">(\mathcal{P}(E),\subset)</span>. Soit <span class="math inline">A=\{\varnothing,\{a\},\{b,c\}\}</span>.
+<ul>
+<li>L’ensemble vide <span class="math inline">\varnothing</span> est un minimum de <span class="math inline">A</span>.</li>
+<li><span class="math inline">A</span> n’admet pas de maximum mais il admet des majorants, à savoir <span class="math inline">E</span> et <span class="math inline">\{a,b,c\}</span>.</li>
+</ul></li>
+<li>On considère les ensembles <span class="math inline">A=\{1,-3,i,\sqrt{2}\}</span> et <span class="math inline">B=\mathbb{Q}\cap\,]0,1]</span>.
+<ul>
+<li><span class="math inline">A</span> n’admet ni minorant ni majorant.</li>
+<li>Tout élément de <span class="math inline">\mathbb{R}^-</span> est un minorant de <span class="math inline">B</span> et <span class="math inline">B</span> n’admet pas de minimum.</li>
+<li>Tout élément de <span class="math inline">[1,+\infty[</span> est un majorant de <span class="math inline">B</span> et <span class="math inline">1</span> est un maximum de <span class="math inline">B</span>.</li>
+</ul></li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 4.1</strong></p>
+<p>Le maximum et le minimum sont uniques s’ils existent.</p>
+</div>
+</section>
+</section>
+<section id="document-en-pdf" class="level1 unnumbered">
+<h1 class="unnumbered">Document en PDF</h1>
+<p><strong><a href="PDF/mpsi-chap02.pdf">Chapitre 02 : Ensembles et applications</a></strong></p>
+<section id="navigation" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="navigation">Navigation</h2>
+<div class="chap-nav">
+<p><a href="../cours/mpsi-chap01.html" class="prev">Chapitre 01 : Logique et raisonnement</a></p>
+<p><a href="../cours/mpsi.html" class="home">Menu MPSI</a></p>
+<p><a href="../cours/mpsi-chap03.html" class="next">Chapitre 03 : …</a></p>
+</div>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -214,12 +744,12 @@ ul.task-list li input[type="checkbox"] {
       // flash "checked"
       button.classList.add('code-copy-button-checked');
       var currentTitle = button.getAttribute("title");
-      button.setAttribute("title", "Copied!");
+      button.setAttribute("title", "Copié");
       let tooltip;
       if (window.bootstrap) {
         button.setAttribute("data-bs-toggle", "tooltip");
         button.setAttribute("data-bs-placement", "left");
-        button.setAttribute("data-bs-title", "Copied!");
+        button.setAttribute("data-bs-title", "Copié");
         tooltip = new bootstrap.Tooltip(button, 
           { trigger: "manual", 
             customClass: "code-copy-button-tooltip",

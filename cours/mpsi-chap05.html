@@ -1,13 +1,14 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr"><head>
 
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.10.18">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Said MAHARI">
 
-<title>Fonctions usuelles - Mathématiques en CPGE – Mathématiques en CPGE</title>
+<title>Fonctions usuelles – Mathématiques en CPGE</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -45,7 +46,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-7a8c080b55ea27eb37b467515007f9ee.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-e0d9a45d84245cc5e3b300860d8fa645.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -60,22 +61,66 @@ ul.task-list li input[type="checkbox"] {
   ],
   "show-item-context": false,
   "language": {
-    "search-no-results-text": "No results",
-    "search-matching-documents-text": "matching documents",
-    "search-copy-link-title": "Copy link to search",
-    "search-hide-matches-text": "Hide additional matches",
-    "search-more-match-text": "more match in this document",
-    "search-more-matches-text": "more matches in this document",
-    "search-clear-button-title": "Clear",
+    "search-no-results-text": "Pas de résultats",
+    "search-matching-documents-text": "documents trouvés",
+    "search-copy-link-title": "Copier le lien vers la recherche",
+    "search-hide-matches-text": "Cacher les correspondances additionnelles",
+    "search-more-match-text": "correspondance de plus dans ce document",
+    "search-more-matches-text": "correspondances de plus dans ce document",
+    "search-clear-button-title": "Effacer",
     "search-text-placeholder": "",
-    "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit",
-    "search-label": "Search"
+    "search-detached-cancel-button-title": "Annuler",
+    "search-submit-button-title": "Envoyer",
+    "search-label": "Recherche"
   }
 }</script>
 
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="styles.css">
 </head>
 
 <body class="nav-fixed quarto-light">
@@ -89,8 +134,8 @@ ul.task-list li input[type="checkbox"] {
     <span class="navbar-title">Accueil</span>
     </a>
   </div>
-            <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+            <div id="quarto-search" class="" title="Recherche"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Basculer la navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
@@ -132,10 +177,43 @@ ul.task-list li input[type="checkbox"] {
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
+    <h2 id="toc-title">Sur cette page</h2>
    
   <ul>
-  <li><a href="#document" id="toc-document" class="nav-link active" data-scroll-target="#document">Document</a></li>
+  <li><a href="#fonctions-usuelles" id="toc-fonctions-usuelles" class="nav-link active" data-scroll-target="#fonctions-usuelles"><span class="header-section-number">1</span> Fonctions usuelles</a>
+  <ul class="collapse">
+  <li><a href="#formules-de-dérivation-rappels" id="toc-formules-de-dérivation-rappels" class="nav-link" data-scroll-target="#formules-de-dérivation-rappels"><span class="header-section-number">1.1</span> Formules de dérivation (Rappels)</a></li>
+  <li><a href="#les-fonctions-xlongmapsto-xn-et-xlongmapstosqrtnx" id="toc-les-fonctions-xlongmapsto-xn-et-xlongmapstosqrtnx" class="nav-link" data-scroll-target="#les-fonctions-xlongmapsto-xn-et-xlongmapstosqrtnx"><span class="header-section-number">1.2</span> Les fonctions <span class="math inline">x\longmapsto x^n</span> et <span class="math inline">x\longmapsto\sqrt[n]{x}</span></a>
+  <ul class="collapse">
+  <li><a href="#la-fonction-xlongmapsto-xn" id="toc-la-fonction-xlongmapsto-xn" class="nav-link" data-scroll-target="#la-fonction-xlongmapsto-xn"><span class="header-section-number">1.2.1</span> La fonction <span class="math inline">x\longmapsto x^n</span></a></li>
+  <li><a href="#la-fonction-xlongmapstosqrtnx" id="toc-la-fonction-xlongmapstosqrtnx" class="nav-link" data-scroll-target="#la-fonction-xlongmapstosqrtnx"><span class="header-section-number">1.2.2</span> La fonction <span class="math inline">x\longmapsto\sqrt[n]{x}</span></a></li>
+  <li><a href="#représentation-graphique-des-fonctions-f_n-et-g_n" id="toc-représentation-graphique-des-fonctions-f_n-et-g_n" class="nav-link" data-scroll-target="#représentation-graphique-des-fonctions-f_n-et-g_n"><span class="header-section-number">1.2.3</span> Représentation graphique des fonctions <span class="math inline">f_n</span> et <span class="math inline">g_n</span></a></li>
+  </ul></li>
+  <li><a href="#fonctions-logarithme-exponentielle-et-puissance" id="toc-fonctions-logarithme-exponentielle-et-puissance" class="nav-link" data-scroll-target="#fonctions-logarithme-exponentielle-et-puissance"><span class="header-section-number">1.3</span> Fonctions logarithme, exponentielle et puissance</a>
+  <ul class="collapse">
+  <li><a href="#fonction-logarithme-népérien" id="toc-fonction-logarithme-népérien" class="nav-link" data-scroll-target="#fonction-logarithme-népérien"><span class="header-section-number">1.3.1</span> Fonction logarithme népérien</a></li>
+  <li><a href="#fonction-exponentielle" id="toc-fonction-exponentielle" class="nav-link" data-scroll-target="#fonction-exponentielle"><span class="header-section-number">1.3.2</span> Fonction exponentielle</a></li>
+  <li><a href="#fonctions-exponentielle-et-logarithme-de-base-a" id="toc-fonctions-exponentielle-et-logarithme-de-base-a" class="nav-link" data-scroll-target="#fonctions-exponentielle-et-logarithme-de-base-a"><span class="header-section-number">1.3.3</span> Fonctions exponentielle et logarithme de base <span class="math inline">a</span></a></li>
+  <li><a href="#fonction-puissance" id="toc-fonction-puissance" class="nav-link" data-scroll-target="#fonction-puissance"><span class="header-section-number">1.3.4</span> Fonction puissance</a></li>
+  </ul></li>
+  <li><a href="#fonctions-circulaires" id="toc-fonctions-circulaires" class="nav-link" data-scroll-target="#fonctions-circulaires"><span class="header-section-number">1.4</span> Fonctions circulaires</a>
+  <ul class="collapse">
+  <li><a href="#rappels" id="toc-rappels" class="nav-link" data-scroll-target="#rappels"><span class="header-section-number">1.4.1</span> Rappels</a></li>
+  <li><a href="#réciproques-des-fonctions-circulaires" id="toc-réciproques-des-fonctions-circulaires" class="nav-link" data-scroll-target="#réciproques-des-fonctions-circulaires"><span class="header-section-number">1.4.2</span> Réciproques des fonctions circulaires</a></li>
+  </ul></li>
+  <li><a href="#fonctions-hyperboliques" id="toc-fonctions-hyperboliques" class="nav-link" data-scroll-target="#fonctions-hyperboliques"><span class="header-section-number">1.5</span> Fonctions hyperboliques</a>
+  <ul class="collapse">
+  <li><a href="#fonction-cosinus-hyperbolique" id="toc-fonction-cosinus-hyperbolique" class="nav-link" data-scroll-target="#fonction-cosinus-hyperbolique"><span class="header-section-number">1.5.1</span> Fonction cosinus hyperbolique</a></li>
+  <li><a href="#fonction-sinus-hyperbolique" id="toc-fonction-sinus-hyperbolique" class="nav-link" data-scroll-target="#fonction-sinus-hyperbolique"><span class="header-section-number">1.5.2</span> Fonction sinus hyperbolique</a></li>
+  <li><a href="#fonction-tangente-hyperbolique" id="toc-fonction-tangente-hyperbolique" class="nav-link" data-scroll-target="#fonction-tangente-hyperbolique"><span class="header-section-number">1.5.3</span> Fonction tangente hyperbolique</a></li>
+  <li><a href="#formules-hyperboliques" id="toc-formules-hyperboliques" class="nav-link" data-scroll-target="#formules-hyperboliques"><span class="header-section-number">1.5.4</span> Formules hyperboliques</a></li>
+  <li><a href="#réciproques-des-fonctions-hyperboliques" id="toc-réciproques-des-fonctions-hyperboliques" class="nav-link" data-scroll-target="#réciproques-des-fonctions-hyperboliques"><span class="header-section-number">1.5.5</span> Réciproques des fonctions hyperboliques</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#document-en-pdf" id="toc-document-en-pdf" class="nav-link" data-scroll-target="#document-en-pdf">Document en PDF</a>
+  <ul class="collapse">
+  <li><a href="#navigation" id="toc-navigation" class="nav-link" data-scroll-target="#navigation">Navigation</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -144,14 +222,27 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Chapitre 05 : Fonctions usuelles</h1>
+<h1 class="title">Fonctions usuelles</h1>
+<p class="subtitle lead">Chapitre 05</p>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Auteur·rice</div>
+    <div class="quarto-title-meta-contents">
+             <p>Said MAHARI </p>
+          </div>
+  </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">Date de publication</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">17 août 2026</p>
+    </div>
+  </div>
   
     
   </div>
@@ -161,12 +252,380 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p><strong>MPSI (1re année) — Chapitre 05.</strong> exp, ln, ch, sh, th, arcsin, arccos, arctan.</p>
-<section id="document" class="level2">
-<h2 class="anchored" data-anchor-id="document">Document</h2>
-<p><em>PDF à venir : déposez le fichier <code>files/mpsi/chap05.pdf</code> puis régénérez la page.</em></p>
+<p><strong>MPSI (1re année) — Chapitre 05.</strong> Fonctions <span class="math inline">x\mapsto x^n</span> et <span class="math inline">x\mapsto\sqrt[n]{x}</span>, logarithme népérien, exponentielle, exponentielle et logarithme de base <span class="math inline">a</span>, fonction puissance, fonctions circulaires et leurs réciproques, fonctions hyperboliques et leurs réciproques.</p>
+<p>Ce chapitre a été réalisé conformément au programme marocain de mathématiques de la filière MPSI.</p>
+<section id="fonctions-usuelles" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Fonctions usuelles</h1>
+<section id="formules-de-dérivation-rappels" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="formules-de-dérivation-rappels"><span class="header-section-number">1.1</span> Formules de dérivation (Rappels)</h2>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 1.1</strong></p>
+<ol type="1">
+<li>Si <span class="math inline">f : I \longrightarrow J</span> et <span class="math inline">g : J \longrightarrow K</span>, avec <span class="math inline">I</span>, <span class="math inline">J</span> et <span class="math inline">K</span> des intervalles de <span class="math inline">\mathbb{R}</span>, sont deux fonctions vérifiant :
+<ul>
+<li><span class="math inline">f</span> est dérivable sur <span class="math inline">I</span>,</li>
+<li><span class="math inline">g</span> est dérivable sur <span class="math inline">J</span>,</li>
+</ul>
+alors <span class="math inline">g\circ f</span> est dérivable sur <span class="math inline">I</span> et on a : <span class="math display">\forall x\in I,\ (g\circ f)'(x)=f'(x)\times g'(f(x))</span></li>
+<li>En particulier, si <span class="math inline">f</span> est bijective et <span class="math inline">f'</span> ne s’annule pas sur <span class="math inline">I</span>, alors <span class="math inline">f^{-1}</span> est dérivable et on a : <span class="math display">\forall x\in J,\ (f^{-1})'(x)=\frac{1}{f'(f^{-1}(x))}</span></li>
+</ol>
+</div>
+</section>
+<section id="les-fonctions-xlongmapsto-xn-et-xlongmapstosqrtnx" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="les-fonctions-xlongmapsto-xn-et-xlongmapstosqrtnx"><span class="header-section-number">1.2</span> Les fonctions <span class="math inline">x\longmapsto x^n</span> et <span class="math inline">x\longmapsto\sqrt[n]{x}</span></h2>
+<section id="la-fonction-xlongmapsto-xn" class="level3" data-number="1.2.1">
+<h3 data-number="1.2.1" class="anchored" data-anchor-id="la-fonction-xlongmapsto-xn"><span class="header-section-number">1.2.1</span> La fonction <span class="math inline">x\longmapsto x^n</span></h3>
+<p>Il s’agit d’étudier la fonction <span class="math inline">f_n : x\in\mathbb{R}\longmapsto x^n</span> avec <span class="math inline">n\in\mathbb{N}^*</span> et de dégager ses principales propriétés.</p>
+<ol type="1">
+<li><strong>Domaine de définition :</strong> <span class="math display">D_{f_n}=\mathbb{R}</span></li>
+<li><strong>Dérivée :</strong> la fonction <span class="math inline">f_n</span> est dérivable sur <span class="math inline">\mathbb{R}</span> et on a : <span class="math display">\forall x\in\mathbb{R},\ f_n'(x)=nx^{n-1}</span></li>
+<li><strong>Tableau de variations :</strong>
+<ul>
+<li><strong>Lorsque <span class="math inline">n</span> est pair :</strong> <span class="math inline">f_n'</span> est négative sur <span class="math inline">]-\infty,0[</span> et positive sur <span class="math inline">]0,+\infty[</span> ; <span class="math inline">f_n</span> décroît de <span class="math inline">+\infty</span> à <span class="math inline">0</span> (minimum en <span class="math inline">0</span>) puis croît de <span class="math inline">0</span> à <span class="math inline">+\infty</span>.</li>
+<li><strong>Lorsque <span class="math inline">n</span> est impair :</strong> <span class="math inline">f_n'</span> est positive sur <span class="math inline">\mathbb{R}</span> ; <span class="math inline">f_n</span> est strictement croissante de <span class="math inline">-\infty</span> à <span class="math inline">+\infty</span>.</li>
+</ul></li>
+</ol>
+</section>
+<section id="la-fonction-xlongmapstosqrtnx" class="level3" data-number="1.2.2">
+<h3 data-number="1.2.2" class="anchored" data-anchor-id="la-fonction-xlongmapstosqrtnx"><span class="header-section-number">1.2.2</span> La fonction <span class="math inline">x\longmapsto\sqrt[n]{x}</span></h3>
+<p>Selon le tableau de variations de la fonction <span class="math inline">f_n</span>, on constate qu’elle est bijective lorsque <span class="math inline">n</span> est impair (<span class="math inline">f_n</span> est strictement croissante et continue donc injective, et elle vérifie <span class="math inline">f_n(\mathbb{R})=\mathbb{R}</span>), <em>i.e.</em> l’équation <span class="math inline">y=x^n</span> admet une unique solution. On en déduit que la bijection réciproque de <span class="math inline">f_n</span>, la fonction <span class="math inline">g_n : x\in\mathbb{R}\longmapsto\sqrt[n]{x}</span>, est bien définie.</p>
+<p>Lorsque <span class="math inline">n</span> est pair, <span class="math inline">f_n</span> n’est ni injective ni surjective ; par suite, sa bijection réciproque <span class="math inline">g_n</span> n’est pas définie sur <span class="math inline">\mathbb{R}</span>. Pourtant, on peut définir <span class="math inline">g_n</span> sur <span class="math inline">\mathbb{R}^+</span> lorsque <span class="math inline">n</span> est pair.</p>
+<ol type="1">
+<li><strong>Domaine de définition :</strong>
+<ul>
+<li>Lorsque <span class="math inline">n</span> est pair : <span class="math inline">D_{g_n}=\mathbb{R}^+</span>.</li>
+<li>Lorsque <span class="math inline">n</span> est impair : <span class="math inline">D_{g_n}=\mathbb{R}</span>.</li>
+</ul></li>
+<li><strong>Dérivée :</strong>
+<ul>
+<li>Lorsque <span class="math inline">n</span> est pair : <span class="math inline">\forall x\in\mathbb{R}_+^*,\ g_n'(x)=\frac{1}{n\sqrt[n]{x^{n-1}}}</span>.</li>
+<li>Lorsque <span class="math inline">n</span> est impair : <span class="math inline">\forall x\in\mathbb{R}^*,\ g_n'(x)=\frac{1}{n\sqrt[n]{x^{n-1}}}</span>.</li>
+</ul></li>
+<li><strong>Tableau de variations :</strong>
+<ul>
+<li><strong>Lorsque <span class="math inline">n</span> est pair :</strong> <span class="math inline">g_n</span> est strictement croissante de <span class="math inline">0</span> à <span class="math inline">+\infty</span>.</li>
+<li><strong>Lorsque <span class="math inline">n</span> est impair :</strong> <span class="math inline">g_n</span> est strictement croissante de <span class="math inline">-\infty</span> à <span class="math inline">+\infty</span>.</li>
+</ul></li>
+</ol>
+</section>
+<section id="représentation-graphique-des-fonctions-f_n-et-g_n" class="level3" data-number="1.2.3">
+<h3 data-number="1.2.3" class="anchored" data-anchor-id="représentation-graphique-des-fonctions-f_n-et-g_n"><span class="header-section-number">1.2.3</span> Représentation graphique des fonctions <span class="math inline">f_n</span> et <span class="math inline">g_n</span></h3>
+<p>Lorsque <span class="math inline">g_n</span> est définie, elle est la bijection réciproque de <span class="math inline">f_n</span> ; donc, si on considère un repère orthonormé, les courbes représentatives de ces deux fonctions sont symétriques par rapport à la première bissectrice du repère.</p>
+<!-- ![Courbes de f_n et g_n](img/fn-gn.jpg) -->
+</section>
+</section>
+<section id="fonctions-logarithme-exponentielle-et-puissance" class="level2" data-number="1.3">
+<h2 data-number="1.3" class="anchored" data-anchor-id="fonctions-logarithme-exponentielle-et-puissance"><span class="header-section-number">1.3</span> Fonctions logarithme, exponentielle et puissance</h2>
+<section id="fonction-logarithme-népérien" class="level3" data-number="1.3.1">
+<h3 data-number="1.3.1" class="anchored" data-anchor-id="fonction-logarithme-népérien"><span class="header-section-number">1.3.1</span> Fonction logarithme népérien</h3>
+<p>La fonction <span class="math inline">x\longmapsto\frac{1}{x}</span> est continue sur <span class="math inline">]0,+\infty[</span>, elle admet alors une primitive qui s’annule en 1. C’est la fonction : <span class="math display">\int_1^x \frac{dt}{t}</span></p>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 1.1</strong></p>
+<p>L’unique primitive de la fonction <span class="math inline">x\longmapsto\frac{1}{x}</span> qui s’annule en 1 est appelée <strong>logarithme népérien</strong> et notée <span class="math inline">\ln</span> (ou <span class="math inline">\operatorname{Log}</span>). On a donc : <span class="math display">\forall x\in\mathbb{R}^*_+,\ \ln x=\int_1^x\frac{dt}{t}</span></p>
+</div>
+<p>Soient <span class="math inline">x,y\in]0,+\infty[</span> ; considérons la fonction d’expression <span class="math inline">f(x)=\ln(xy)</span>. On a <span class="math inline">f'(x)=\frac{1}{x}</span>, donc <span class="math inline">f(x)=\ln x+C</span>. Or, <span class="math inline">f(1)=\ln y</span> donc <span class="math inline">C=\ln y</span>. D’où le théorème suivant :</p>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 1.2</strong></p>
+<p><span class="math display">\forall x,y&gt;0,\ \ln(xy)=\ln x+\ln y</span></p>
+</div>
+<div class="custom-numbered-block custom-corollary">
+<p><strong>Corollaire 1.1</strong></p>
+<ul>
+<li>Si <span class="math inline">u</span> est une fonction dérivable qui ne s’annule pas, alors <span class="math inline">\left(\ln(|u|)\right)'=\frac{u'}{u}</span>.</li>
+<li><span class="math inline">\forall x,y\in\mathbb{R}^*,\ \ln(|xy|)=\ln(|x|)+\ln(|y|)</span>.</li>
+<li><span class="math inline">\forall x,y\in\mathbb{R}^*,\ \ln\left(\left|\frac{x}{y}\right|\right)=\ln(|x|)-\ln(|y|)</span>.</li>
+<li><span class="math inline">\forall n\in\mathbb{Z}^*,\ \forall x\in\mathbb{R}^*,\ \ln(|x|^n)=n\ln(|x|)</span>.</li>
+</ul>
+</div>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 1.3 — (Limites du logarithme népérien)</strong></p>
+<p><span class="math display">\lim_{x\to+\infty}\ln x=+\infty \quad;\quad \lim_{x\to 0^+}\ln x=-\infty \quad;\quad \lim_{x\to+\infty}\frac{\ln(x)}{x}=0 \quad;\quad \lim_{x\to 1}\frac{\ln(x)}{x-1}=1</span></p>
+</div>
+<p><strong>Représentation graphique du logarithme</strong></p>
+<!-- ![Courbe du logarithme népérien](img/Log.jpg) -->
+</section>
+<section id="fonction-exponentielle" class="level3" data-number="1.3.2">
+<h3 data-number="1.3.2" class="anchored" data-anchor-id="fonction-exponentielle"><span class="header-section-number">1.3.2</span> Fonction exponentielle</h3>
+<p>La fonction <span class="math inline">\ln</span> est strictement croissante et continue sur <span class="math inline">I=]0,+\infty[</span>, elle définit une bijection de l’intervalle <span class="math inline">I</span> dans <span class="math inline">\ln(I)=\mathbb{R}</span>.</p>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 1.2</strong></p>
+<p>La réciproque du <span class="math inline">\ln</span> est appelée <strong>fonction exponentielle</strong> et notée <span class="math inline">\exp</span> ; elle est définie par : <span class="math display">\exp : \begin{array}{rcl} \mathbb{R} &amp; \longrightarrow &amp; ]0,+\infty[ \\ x &amp; \longmapsto &amp; \exp(x)=y \text{ tel que } \ln y=x\end{array}</span></p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 1.1</strong></p>
+<ol type="1">
+<li>La fonction <span class="math inline">\exp</span> est strictement croissante et continue sur <span class="math inline">\mathbb{R}</span> ; de plus <span class="math inline">\exp(0)=1</span> et <span class="math inline">\exp(1)=e</span>.</li>
+<li>La fonction <span class="math inline">\ln</span> est dérivable sur <span class="math inline">]0,+\infty[</span> et sa dérivée ne s’annule pas, donc la fonction <span class="math inline">\exp</span> est dérivable sur <span class="math inline">\mathbb{R}</span> et : <span class="math display">\forall x\in\mathbb{R},\ \exp'(x)=\frac{1}{\ln'(\exp(x))}=\exp(x)</span></li>
+<li>Dans un repère orthonormé, la courbe de la fonction <span class="math inline">\exp</span> et celle de la fonction <span class="math inline">\ln</span> sont symétriques par rapport à la première bissectrice.</li>
+</ol>
+</div>
+<p>Soient <span class="math inline">x,y\in\mathbb{R}</span> ; notons <span class="math inline">X=\exp(x)</span> et <span class="math inline">Y=\exp(y)</span> : alors <span class="math inline">X</span> et <span class="math inline">Y</span> sont dans <span class="math inline">]0,+\infty[</span> et on peut donc écrire <span class="math inline">\ln(XY)=\ln(X)+\ln(Y)</span>, ce qui donne <span class="math inline">x+y=\ln(XY)</span> ; par conséquent <span class="math inline">\exp(x+y)=XY=\exp(x)\exp(y)</span>. On peut donc énoncer :</p>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 1.4</strong></p>
+<p><span class="math display">\forall x,y\in\mathbb{R},\ \exp(x+y)=\exp(x)\times\exp(y)</span> En particulier, <span class="math inline">\forall x\in\mathbb{R},\ \exp(-x)=\frac{1}{\exp(x)}</span>.</p>
+</div>
+<p><strong>Notation :</strong> <span class="math inline">\exp(x)=e^x</span>. La propriété précédente s’écrit alors : <span class="math display">\forall x,y\in\mathbb{R},\ e^{x+y}=e^x\times e^y</span></p>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 1.5 — (Limites de la fonction exponentielle)</strong></p>
+<p><span class="math display">\lim_{x\to-\infty}e^x=0 \quad;\quad \lim_{x\to+\infty}e^x=+\infty \quad;\quad \lim_{x\to+\infty}\frac{e^x}{x}=+\infty \quad;\quad \lim_{x\to 0}\frac{e^x-1}{x}=1</span></p>
+</div>
+<div class="proof remark">
+<p><span class="proof-title"><em>Remarque</em>. </span>Il en découle <span class="math inline">\lim_{x\to+\infty}xe^{-x}=0</span>.</p>
+</div>
+<p><strong>Représentation graphique de l’exponentielle</strong></p>
+<!-- ![Courbe de l'exponentielle](img/Exp.jpg) -->
+</section>
+<section id="fonctions-exponentielle-et-logarithme-de-base-a" class="level3" data-number="1.3.3">
+<h3 data-number="1.3.3" class="anchored" data-anchor-id="fonctions-exponentielle-et-logarithme-de-base-a"><span class="header-section-number">1.3.3</span> Fonctions exponentielle et logarithme de base <span class="math inline">a</span></h3>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 1.3</strong></p>
+<p>Soit <span class="math inline">a&gt;0</span>. On appelle <strong>exponentielle de base</strong> <span class="math inline">a</span> la fonction notée <span class="math inline">\exp_a</span> définie sur <span class="math inline">\mathbb{R}</span> par : <span class="math display">\forall x\in\mathbb{R},\ \exp_a(x)=e^{x\ln a}</span></p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 1.2</strong></p>
+<ol type="1">
+<li><span class="math inline">\forall x,y\in\mathbb{R},\ \exp_a(x+y)=\exp_a(x)\times\exp_a(y)</span>.</li>
+<li><span class="math inline">\exp_a(0)=1</span> ; <span class="math inline">\exp_a(1)=a</span> ; <span class="math inline">\forall x\in\mathbb{R},\ \exp_e(x)=e^x</span>.</li>
+<li>La fonction <span class="math inline">\exp_a</span> est dérivable sur <span class="math inline">\mathbb{R}</span> et <span class="math inline">\forall x\in\mathbb{R},\ \exp_a'(x)=\ln(a)\times\exp_a(x)</span>.</li>
+<li><span class="math inline">\forall x\in\mathbb{R},\ \exp_{\frac{1}{a}}(x)=\frac{1}{\exp_a(x)}</span>.</li>
+<li><span class="math inline">\forall x\in\mathbb{R},\ \exp_a(x)=a^x</span> et on a les formules suivantes :
+<ul>
+<li><span class="math inline">\forall a&gt;0,\ \forall x\in\mathbb{R},\ \exp_a(x)=e^{x\ln a}</span> ;</li>
+<li><span class="math inline">\forall a&gt;0,\ \forall x\in\mathbb{R},\ \ln(a^x)=x\ln a</span> ;</li>
+<li><span class="math inline">\forall a&gt;0,\ \forall x,y\in\mathbb{R},\ a^{x+y}=a^x\times a^y</span>, <span class="math inline">a^0=1</span> et <span class="math inline">a^1=a</span> ;</li>
+<li><span class="math inline">\forall a&gt;0,\ \forall x\in\mathbb{R},\ a^{-x}=\frac{1}{a^x}</span>, d’où <span class="math inline">\forall a&gt;0,\ \forall x,y\in\mathbb{R},\ a^{x-y}=\frac{a^x}{a^y}</span> ;</li>
+<li><span class="math inline">\forall a&gt;0,\ \forall x,y\in\mathbb{R},\ [a^x]^y=a^{xy}</span>, et donc <span class="math inline">\forall a&gt;0,\ \forall x\in\mathbb{R},\ \left(\frac{1}{a}\right)^x=\frac{1}{a^x}</span> ;</li>
+<li><span class="math inline">\forall a,b&gt;0,\ \forall x\in\mathbb{R},\ a^x\times b^x=(ab)^x</span>, et donc <span class="math inline">\left(\frac{a}{b}\right)^x=\frac{a^x}{b^x}</span> ;</li>
+<li>si <span class="math inline">x\neq 0</span>, <span class="math inline">a^x=b \iff a=b^{\frac{1}{x}}</span>.</li>
+</ul></li>
+<li>Si <span class="math inline">u,v : \mathbb{R}\longrightarrow\mathbb{R}</span> sont deux fonctions avec <span class="math inline">u</span> strictement positive (<em>i.e.</em> <span class="math inline">\forall x\in\mathbb{R},\ u(x)&gt;0</span>), alors :
+<ul>
+<li><span class="math inline">\forall x\in\mathbb{R},\ u(x)^{v(x)}=e^{v(x)\ln(u(x))}</span> ;</li>
+<li><span class="math inline">\forall x\in\mathbb{R},\ \left(u(x)^{v(x)}\right)'=\left(v'(x)\ln(u(x))+\frac{v(x)u'(x)}{u(x)}\right)e^{v(x)\ln(u(x))}</span> ;</li>
+<li>en particulier, pour <span class="math inline">v(x)=\alpha\in\mathbb{R}</span>, on a <span class="math inline">\left(u(x)^{\alpha}\right)'=\alpha u'(x)u(x)^{\alpha-1}</span>.</li>
+</ul></li>
+</ol>
+</div>
+<div class="proof remark">
+<p><span class="proof-title"><em>Remarque</em>. </span>Si <span class="math inline">a\neq 1</span>, la fonction <span class="math inline">\exp_a</span> est strictement monotone et, puisqu’elle est continue, elle est bijective de <span class="math inline">\mathbb{R}</span> dans <span class="math inline">\exp_a(\mathbb{R})=]0,+\infty[</span>.</p>
+</div>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 1.4</strong></p>
+<p>Soit <span class="math inline">a\in\mathbb{R}^*_+\smallsetminus\{1\}</span>. On appelle <strong>logarithme de base <span class="math inline">a</span></strong> la fonction notée <span class="math inline">\log_a</span> définie sur <span class="math inline">]0,+\infty[</span> par : <span class="math display">\forall x\in]0,+\infty[,\ \log_a(x)=\frac{\ln x}{\ln a}</span></p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 1.3</strong></p>
+<ol type="1">
+<li>La fonction <span class="math inline">\log_a</span> est la réciproque de la fonction <span class="math inline">\exp_a</span>.</li>
+<li><span class="math inline">\forall x,y\in\mathbb{R}^*_+,\ \log_a(xy)=\log_a(x)+\log_a(y)</span>.</li>
+<li><span class="math inline">\log_a(1)=0</span> ; <span class="math inline">\log_a(a)=1</span> ; <span class="math inline">\forall x\in\mathbb{R}^*_+,\ \ln x=\log_e(x)</span>.</li>
+<li>La fonction <span class="math inline">\log_a</span> est dérivable et on a <span class="math inline">\forall x&gt;0,\ \log_a'(x)=\frac{1}{x\ln a}</span>.</li>
+<li><span class="math inline">\forall x&gt;0,\ \log_{\frac{1}{a}}(x)=-\log_a(x)</span>.</li>
+</ol>
+</div>
+</section>
+<section id="fonction-puissance" class="level3" data-number="1.3.4">
+<h3 data-number="1.3.4" class="anchored" data-anchor-id="fonction-puissance"><span class="header-section-number">1.3.4</span> Fonction puissance</h3>
+<p>Si <span class="math inline">a</span> est un réel et si <span class="math inline">x&gt;0</span>, alors on a déjà adopté la notation suivante : <span class="math display">x^a=\exp_x(a)=e^{a\ln x}</span> Cela définit la fonction <span class="math inline">f_a : x\in]0,+\infty[\longmapsto x^a\in]0,+\infty[</span>, qui est continue et dérivable avec : <span class="math display">f_a'(x)=ax^{a-1}</span> On a <span class="math inline">\lim_{x\to 0^+}f_a(x)=\begin{cases}0, &amp; \text{si } a&gt;0\\ +\infty, &amp; \text{si } a&lt;0\end{cases}</span>. Donc <span class="math inline">\mathcal{C}_{f_a}</span> admet une asymptote au voisinage de 0 lorsque <span class="math inline">a&lt;0</span>, et lorsque <span class="math inline">a&gt;0</span> : <span class="math display">\frac{f_a(x)-0}{x}=x^{a-1}=e^{(a-1)\ln x}\underset{x\to 0^+}{\longrightarrow}\begin{cases}0, &amp; \text{si } a&gt;1\\ +\infty, &amp; \text{si } 0&lt;a&lt;1\end{cases}</span> Donc <span class="math inline">\mathcal{C}_{f_a}</span> admet une tangente horizontale lorsque <span class="math inline">a&gt;1</span> et une tangente verticale lorsque <span class="math inline">0&lt;a&lt;1</span>.</p>
+<!-- ![Courbes de la fonction puissance](img/Puiss.jpg) -->
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 1.6 — (Propriétés)</strong></p>
+<p>Avec <span class="math inline">x,y&gt;0</span> et <span class="math inline">a,b\in\mathbb{R}</span>, on a :</p>
+<ol type="1">
+<li><span class="math inline">x^a\times x^b=x^{a+b}</span>, et donc <span class="math inline">x^{-a}=\frac{1}{x^a}</span> et <span class="math inline">\frac{x^a}{x^b}=x^{a-b}</span>.</li>
+<li><span class="math inline">(x^a)^b=x^{ab}</span>.</li>
+<li><span class="math inline">(xy)^a=x^a\times y^a</span>.</li>
+<li>Pour <span class="math inline">a</span> non nul, <span class="math inline">y=x^a \iff x=y^{\frac{1}{a}}</span>.</li>
+</ol>
+</div>
+</section>
+</section>
+<section id="fonctions-circulaires" class="level2" data-number="1.4">
+<h2 data-number="1.4" class="anchored" data-anchor-id="fonctions-circulaires"><span class="header-section-number">1.4</span> Fonctions circulaires</h2>
+<section id="rappels" class="level3" data-number="1.4.1">
+<h3 data-number="1.4.1" class="anchored" data-anchor-id="rappels"><span class="header-section-number">1.4.1</span> Rappels</h3>
+<p>Le plan <span class="math inline">\mathcal{P}</span> est muni d’un repère orthonormé direct <span class="math inline">(O,\vec{i},\vec{j})</span>. Soit <span class="math inline">x</span> un réel, et <span class="math inline">M(x)</span> le point du cercle <span class="math inline">\mathcal{C}(O,1)</span>, appelé <strong>le cercle trigonométrique</strong> ou <strong>le cercle unité</strong>, tel que <span class="math inline">(\vec{i},\vec{OM})=x\ [2\pi]</span> ; alors les coordonnées de <span class="math inline">M(x)</span> sont <span class="math inline">(\cos(x),\sin(x))</span>. Lorsque <span class="math inline">x\neq\frac{\pi}{2}\ [\pi]</span>, on pose : <span class="math display">\tan(x)=\frac{\sin(x)}{\cos(x)}</span> et lorsque <span class="math inline">x\neq 0\ [\pi]</span>, on pose : <span class="math display">\cot(x)=\frac{\cos(x)}{\sin(x)}</span></p>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 1.4 — (Formules trigonométriques)</strong></p>
+<ol type="1">
+<li><span class="math inline">\forall x\in\mathbb{R},\ \sin^2 x+\cos^2 x=1</span>.</li>
+<li>Les fonctions sinus et cosinus sont <span class="math inline">2\pi</span>-périodiques, définies, continues et dérivables sur <span class="math inline">\mathbb{R}</span>, à valeurs dans <span class="math inline">[-1,1]</span>, et on a : <span class="math display">\sin'=\cos \quad \textbf{et} \quad \cos'=-\sin</span></li>
+<li>La fonction tangente est <span class="math inline">\pi</span>-périodique, définie, continue et dérivable sur <span class="math inline">\mathbb{R}\smallsetminus\left\{\frac{\pi}{2}+k\pi \,/\, k\in\mathbb{Z}\right\}</span> et on a : <span class="math display">\tan'(x)=1+\tan^2(x)=\frac{1}{\cos^2(x)}</span></li>
+<li>Les fonctions sinus et tangente sont impaires alors que la fonction cosinus est paire.</li>
+<li><span class="math inline">\forall x\in\mathbb{R},\ \sin(\pi-x)=\sin x</span> et <span class="math inline">\cos(\pi-x)=-\cos x</span>.</li>
+<li><strong>Formules d’addition :</strong> <span class="math inline">\forall x,y\in\mathbb{R}</span>, on a :
+<ul>
+<li><span class="math inline">\cos(x+y)=\cos x\cos y-\sin x\sin y</span> ;</li>
+<li><span class="math inline">\sin(x+y)=\sin x\cos y+\cos x\sin y</span> ;</li>
+<li><span class="math inline">\tan(x+y)=\frac{\tan x+\tan y}{1-\tan x\tan y}</span> avec <span class="math inline">x,y,x+y\in\mathbb{R}\smallsetminus\left\{\frac{\pi}{2}+k\pi \,/\, k\in\mathbb{Z}\right\}</span>.</li>
+</ul></li>
+</ol>
+</div>
+<!-- ![Courbes des fonctions circulaires](img/FctCirc.jpg) -->
+</section>
+<section id="réciproques-des-fonctions-circulaires" class="level3" data-number="1.4.2">
+<h3 data-number="1.4.2" class="anchored" data-anchor-id="réciproques-des-fonctions-circulaires"><span class="header-section-number">1.4.2</span> Réciproques des fonctions circulaires</h3>
+<section id="fonction-arcsinus" class="level4" data-number="1.4.2.1">
+<h4 data-number="1.4.2.1" class="anchored" data-anchor-id="fonction-arcsinus"><span class="header-section-number">1.4.2.1</span> Fonction Arcsinus</h4>
+<p>La fonction <span class="math inline">\sin</span> est strictement croissante et continue sur <span class="math inline">I=\left[-\frac{\pi}{2},\frac{\pi}{2}\right]</span> ; elle définit une bijection de <span class="math inline">I</span> dans <span class="math inline">\sin I=J=[-1,1]</span>. Sa bijection réciproque est notée <span class="math inline">\arcsin</span> et appelée <strong>arcsinus</strong> ; elle est définie par : <span class="math display">\arcsin : \begin{array}{rcl} [-1,1] &amp; \longrightarrow &amp; \left[-\frac{\pi}{2},\frac{\pi}{2}\right] \\ x &amp; \longmapsto &amp; \arcsin(x)=y \text{ tel que } \sin(y)=x\end{array}</span> Cette fonction est strictement croissante et continue sur <span class="math inline">[-1,1]</span> ; elle est dérivable sur <span class="math inline">]-1,1[</span> mais ni en <span class="math inline">-1</span> ni en <span class="math inline">1</span> (elle admet une tangente verticale en ces points) ; on a la formule suivante : <span class="math display">\forall x\in]-1,1[,\ \arcsin'(x)=\frac{1}{\cos(\arcsin x)}=\frac{1}{\sqrt{1-x^2}}</span></p>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 1.5 — (Propriétés de arcsin)</strong></p>
+<ol type="1">
+<li><span class="math inline">\forall x\in[-1,1],\ \sin(\arcsin x)=x</span>.</li>
+<li><span class="math inline">\forall x\in\left[-\frac{\pi}{2},\frac{\pi}{2}\right],\ \arcsin(\sin x)=x</span>.</li>
+<li><span class="math inline">\forall x\in[-1,1],\ \arcsin(-x)=-\arcsin x</span> (fonction impaire).</li>
+<li><span class="math inline">\forall x\in[-1,1],\ \cos(\arcsin x)=\sqrt{1-x^2}</span>.</li>
+<li><span class="math inline">\forall x\in[-\pi,\pi],\ \arcsin(\cos x)=\frac{\pi}{2}-|x|</span>.</li>
+</ol>
+</div>
+</section>
+<section id="fonction-arccosinus" class="level4" data-number="1.4.2.2">
+<h4 data-number="1.4.2.2" class="anchored" data-anchor-id="fonction-arccosinus"><span class="header-section-number">1.4.2.2</span> Fonction Arccosinus</h4>
+<p>La fonction <span class="math inline">f:[0,\pi]\longrightarrow[-1,1]</span> définie par <span class="math inline">f(x)=\cos(x)</span> est continue et strictement décroissante ; elle définit donc une bijection de <span class="math inline">[0,\pi]</span> sur <span class="math inline">[-1,1]</span>. Par définition, la bijection réciproque de <span class="math inline">f</span> est appelée fonction <strong>arccosinus</strong> et notée <span class="math inline">\arccos</span> ; elle est définie par : <span class="math display">\arccos : \begin{array}{rcl} [-1,1] &amp; \longrightarrow &amp; [0,\pi] \\ x &amp; \longmapsto &amp; \arccos(x)=y \text{ tel que } \cos y=x\end{array}</span> Cette fonction est strictement décroissante et continue sur <span class="math inline">[-1,1]</span> ; elle est dérivable sur <span class="math inline">]-1,1[</span> mais ni en <span class="math inline">-1</span> ni en <span class="math inline">1</span> (elle admet une tangente verticale en ces points) ; on a la formule suivante : <span class="math display">\forall x\in]-1,1[,\ \arccos'(x)=\frac{-1}{\sin(\arccos x)}=\frac{-1}{\sqrt{1-x^2}}</span></p>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 1.6 — (Propriétés de arccos)</strong></p>
+<ol type="1">
+<li><span class="math inline">\forall x\in[-1,1],\ \cos(\arccos x)=x</span>.</li>
+<li><span class="math inline">\forall x\in[0,\pi],\ \arccos(\cos x)=x</span>.</li>
+<li><span class="math inline">\forall x\in[-1,1],\ \sin(\arccos x)=\sqrt{1-x^2}</span>.</li>
+<li><span class="math inline">\forall x\in[-1,1],\ \arcsin x+\arccos x=\frac{\pi}{2}</span>.</li>
+<li><span class="math inline">\forall x\in[-1,1],\ \arccos(-x)=\pi-\arccos x</span>.</li>
+</ol>
+</div>
+</section>
+<section id="fonction-arctangente" class="level4" data-number="1.4.2.3">
+<h4 data-number="1.4.2.3" class="anchored" data-anchor-id="fonction-arctangente"><span class="header-section-number">1.4.2.3</span> Fonction Arctangente</h4>
+<p>La fonction <span class="math inline">f:\left]-\frac{\pi}{2},\frac{\pi}{2}\right[\longrightarrow\mathbb{R}</span> définie par <span class="math inline">f(x)=\tan(x)</span> est continue et strictement croissante ; elle définit donc une bijection de <span class="math inline">\left]-\frac{\pi}{2},\frac{\pi}{2}\right[</span> sur <span class="math inline">\mathbb{R}</span>. Par définition, la bijection réciproque de <span class="math inline">f</span> est appelée fonction <strong>arctangente</strong> et notée <span class="math inline">\arctan</span> ; elle est définie par : <span class="math display">\arctan : \begin{array}{rcl} \mathbb{R} &amp; \longrightarrow &amp; \left]-\frac{\pi}{2},\frac{\pi}{2}\right[ \\ x &amp; \longmapsto &amp; \arctan(x)=y \text{ tel que } \tan y=x\end{array}</span> Cette fonction est strictement croissante, continue et dérivable sur <span class="math inline">\mathbb{R}</span> ; on a la formule suivante : <span class="math display">\forall x\in\mathbb{R},\ \arctan'(x)=\frac{1}{1+\tan^2(\arctan x)}=\frac{1}{1+x^2}</span></p>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 1.7 — (Propriétés de arctan)</strong></p>
+<ol type="1">
+<li><span class="math inline">\forall x\in\mathbb{R},\ \tan(\arctan x)=x</span>.</li>
+<li><span class="math inline">\forall x\in\left]-\frac{\pi}{2},\frac{\pi}{2}\right[,\ \arctan(\tan x)=x</span>.</li>
+<li><span class="math inline">\forall x\in\mathbb{R},\ \arctan(-x)=-\arctan x</span> (fonction impaire).</li>
+<li><span class="math inline">\forall x\in\mathbb{R}^*_+,\ \arctan x+\arctan\left(\frac{1}{x}\right)=\frac{\pi}{2}</span>.</li>
+<li><span class="math inline">\forall x\in\mathbb{R},\ \arctan x=\arcsin\left(\frac{x}{\sqrt{1+x^2}}\right)</span>.</li>
+</ol>
+</div>
+</section>
+</section>
+</section>
+<section id="fonctions-hyperboliques" class="level2" data-number="1.5">
+<h2 data-number="1.5" class="anchored" data-anchor-id="fonctions-hyperboliques"><span class="header-section-number">1.5</span> Fonctions hyperboliques</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 1.5</strong></p>
+<p>Pour <span class="math inline">x\in\mathbb{R}</span>, la fonction d’expression <span class="math inline">\operatorname{ch}(x)=\frac{e^x+e^{-x}}{2}</span> est appelée <strong>cosinus hyperbolique</strong>, la fonction d’expression <span class="math inline">\operatorname{sh}(x)=\frac{e^x-e^{-x}}{2}</span> est appelée <strong>sinus hyperbolique</strong>, et la fonction d’expression <span class="math inline">\operatorname{th}(x)=\frac{\operatorname{sh}(x)}{\operatorname{ch}(x)}=\frac{e^x-e^{-x}}{e^x+e^{-x}}</span> est appelée <strong>tangente hyperbolique</strong>.</p>
+</div>
+<section id="fonction-cosinus-hyperbolique" class="level3" data-number="1.5.1">
+<h3 data-number="1.5.1" class="anchored" data-anchor-id="fonction-cosinus-hyperbolique"><span class="header-section-number">1.5.1</span> Fonction cosinus hyperbolique</h3>
+<p>La fonction <span class="math inline">\operatorname{ch}</span> est paire, continue et dérivable sur <span class="math inline">\mathbb{R}</span> et <span class="math inline">\operatorname{ch}'(x)=\operatorname{sh}(x)</span> ; on en déduit son tableau de variations et sa courbe.</p>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 1.8 — (Propriétés de ch)</strong></p>
+<ol type="1">
+<li><span class="math inline">\forall x\in\mathbb{R},\ \operatorname{ch}(x)\geq 1</span>.</li>
+<li><span class="math inline">\lim_{x\to+\infty}\frac{\operatorname{ch}(x)}{x}=+\infty</span> et <span class="math inline">\lim_{x\to+\infty}\frac{\operatorname{ch}(x)}{e^x}=\frac{1}{2}</span>.</li>
+</ol>
+</div>
+</section>
+<section id="fonction-sinus-hyperbolique" class="level3" data-number="1.5.2">
+<h3 data-number="1.5.2" class="anchored" data-anchor-id="fonction-sinus-hyperbolique"><span class="header-section-number">1.5.2</span> Fonction sinus hyperbolique</h3>
+<p>La fonction <span class="math inline">\operatorname{sh}</span> est impaire, définie, continue et dérivable sur <span class="math inline">\mathbb{R}</span> et <span class="math inline">\operatorname{sh}'(x)=\operatorname{ch}(x)</span> ; on en déduit son tableau des variations et sa courbe.</p>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 1.9 — (Propriétés de sh)</strong></p>
+<ol type="1">
+<li><span class="math inline">\forall x\in\mathbb{R},\ \operatorname{ch}(x)+\operatorname{sh}(x)=e^x</span> et <span class="math inline">\operatorname{ch}(x)-\operatorname{sh}(x)=e^{-x}</span>.</li>
+<li><span class="math inline">\forall x&gt;0,\ x&lt;\operatorname{sh}(x)&lt;\operatorname{ch}(x)</span>.</li>
+<li><span class="math inline">\lim_{x\to+\infty}\frac{\operatorname{sh}(x)}{x}=+\infty</span> et <span class="math inline">\lim_{x\to+\infty}\frac{\operatorname{sh}(x)}{e^x}=\frac{1}{2}</span>.</li>
+</ol>
+</div>
+</section>
+<section id="fonction-tangente-hyperbolique" class="level3" data-number="1.5.3">
+<h3 data-number="1.5.3" class="anchored" data-anchor-id="fonction-tangente-hyperbolique"><span class="header-section-number">1.5.3</span> Fonction tangente hyperbolique</h3>
+<p>La fonction <span class="math inline">\operatorname{th}</span> est impaire, continue et dérivable sur <span class="math inline">\mathbb{R}</span> et on a : <span class="math display">\forall x\in\mathbb{R},\ \operatorname{th}'(x)=\frac{\operatorname{ch}^2(x)-\operatorname{sh}^2(x)}{\operatorname{ch}^2(x)}=1-\operatorname{th}^2(x)=\frac{1}{\operatorname{ch}^2(x)}</span> D’où les variations et la courbe.</p>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 1.10 — (Propriétés de th)</strong></p>
+<ol type="1">
+<li><span class="math inline">\forall x\in\mathbb{R},\ -1&lt;\operatorname{th}(x)&lt;1</span>.</li>
+<li><span class="math inline">\forall x&gt;0,\ \operatorname{th}(x)&lt;x</span>.</li>
+</ol>
+</div>
+</section>
+<section id="formules-hyperboliques" class="level3" data-number="1.5.4">
+<h3 data-number="1.5.4" class="anchored" data-anchor-id="formules-hyperboliques"><span class="header-section-number">1.5.4</span> Formules hyperboliques</h3>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 1.11 — (Propriétés)</strong></p>
+<ol type="1">
+<li><span class="math inline">\forall x\in\mathbb{R},\ \operatorname{ch}^2(x)-\operatorname{sh}^2(x)=1</span>.</li>
+<li><strong>Formules d’addition :</strong> <span class="math inline">\forall x,y\in\mathbb{R}</span>, on a :
+<ul>
+<li><span class="math inline">\operatorname{ch}(x+y)=\operatorname{ch}(x)\operatorname{ch}(y)+\operatorname{sh}(x)\operatorname{sh}(y)</span> ;</li>
+<li><span class="math inline">\operatorname{sh}(x+y)=\operatorname{sh}(x)\operatorname{ch}(y)+\operatorname{ch}(x)\operatorname{sh}(y)</span> ;</li>
+<li><span class="math inline">\operatorname{th}(x+y)=\frac{\operatorname{th}(x)+\operatorname{th}(y)}{1+\operatorname{th}(x)\operatorname{th}(y)}</span> ;</li>
+<li><span class="math inline">\operatorname{ch}(x)+\operatorname{ch}(y)=2\operatorname{ch}\left(\frac{x+y}{2}\right)\operatorname{ch}\left(\frac{x-y}{2}\right)</span> ;</li>
+<li><span class="math inline">\operatorname{ch}(x)-\operatorname{ch}(y)=2\operatorname{sh}\left(\frac{x+y}{2}\right)\operatorname{sh}\left(\frac{x-y}{2}\right)</span> ;</li>
+<li><span class="math inline">\operatorname{sh}(x)+\operatorname{sh}(y)=2\operatorname{sh}\left(\frac{x+y}{2}\right)\operatorname{ch}\left(\frac{x-y}{2}\right)</span> ;</li>
+<li><span class="math inline">\operatorname{th}(x)+\operatorname{th}(y)=\frac{\operatorname{sh}(x+y)}{\operatorname{ch}(x)\operatorname{ch}(y)}</span>.</li>
+</ul></li>
+</ol>
+</div>
+</section>
+<section id="réciproques-des-fonctions-hyperboliques" class="level3" data-number="1.5.5">
+<h3 data-number="1.5.5" class="anchored" data-anchor-id="réciproques-des-fonctions-hyperboliques"><span class="header-section-number">1.5.5</span> Réciproques des fonctions hyperboliques</h3>
+<section id="fonction-operatornameargch" class="level4" data-number="1.5.5.1">
+<h4 data-number="1.5.5.1" class="anchored" data-anchor-id="fonction-operatornameargch"><span class="header-section-number">1.5.5.1</span> Fonction <span class="math inline">\operatorname{argch}</span></h4>
+<p>La fonction <span class="math inline">\operatorname{ch}</span> définit une bijection de <span class="math inline">[0,+\infty[</span> sur l’intervalle <span class="math inline">[1,+\infty[</span> ; la bijection réciproque est notée <span class="math inline">\operatorname{argch}</span> et appelée <strong>argument cosinus hyperbolique</strong> ; elle est définie par : <span class="math display">\operatorname{argch} : \begin{array}{rcl} [1,+\infty[ &amp; \longrightarrow &amp; [0,+\infty[ \\ x &amp; \longmapsto &amp; \operatorname{argch}(x)=y \text{ tel que } \operatorname{ch}(y)=x\end{array}</span> Cette fonction est continue sur <span class="math inline">[1,+\infty[</span>, strictement croissante, dérivable sur <span class="math inline">]1,+\infty[</span> mais pas en 1 ; sa dérivée est : <span class="math display">\forall x&gt;1,\ \operatorname{argch}'(x)=\frac{1}{\operatorname{sh}(\operatorname{argch}(x))}=\frac{1}{\sqrt{x^2-1}}</span></p>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 1.12 — (Propriétés de argch)</strong></p>
+<ol type="1">
+<li><span class="math inline">\forall x\geq 0,\ \operatorname{argch}(\operatorname{ch}(x))=x</span>.</li>
+<li><span class="math inline">\forall x\geq 1,\ \operatorname{ch}(\operatorname{argch}(x))=x</span>.</li>
+<li><span class="math inline">\forall x\geq 1,\ \operatorname{argch}(x)=\ln\left(x+\sqrt{x^2-1}\right)</span>.</li>
+<li><span class="math inline">\lim_{x\to+\infty}\frac{\operatorname{argch}(x)}{x}=0</span> et <span class="math inline">\lim_{x\to+\infty}\frac{\operatorname{argch}(x)}{\ln(x)}=1</span>.</li>
+</ol>
+</div>
+</section>
+<section id="fonction-operatornameargsh" class="level4" data-number="1.5.5.2">
+<h4 data-number="1.5.5.2" class="anchored" data-anchor-id="fonction-operatornameargsh"><span class="header-section-number">1.5.5.2</span> Fonction <span class="math inline">\operatorname{argsh}</span></h4>
+<p>La fonction <span class="math inline">\operatorname{sh}</span> définit une bijection de <span class="math inline">\mathbb{R}</span> sur <span class="math inline">\mathbb{R}</span> ; la bijection réciproque est notée <span class="math inline">\operatorname{argsh}</span> et appelée <strong>argument sinus hyperbolique</strong> ; elle est définie par : <span class="math display">\operatorname{argsh} : \begin{array}{rcl} \mathbb{R} &amp; \longrightarrow &amp; \mathbb{R} \\ x &amp; \longmapsto &amp; \operatorname{argsh}(x)=y \text{ tel que } \operatorname{sh}(y)=x\end{array}</span> Cette fonction est continue sur <span class="math inline">\mathbb{R}</span>, strictement croissante, dérivable sur <span class="math inline">\mathbb{R}</span> (car la dérivée de <span class="math inline">\operatorname{sh}</span> ne s’annule pas), et sa dérivée est : <span class="math display">\forall x\in\mathbb{R},\ \operatorname{argsh}'(x)=\frac{1}{\operatorname{ch}(\operatorname{argsh}(x))}=\frac{1}{\sqrt{x^2+1}}</span></p>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 1.13 — (Propriétés de argsh)</strong></p>
+<ol type="1">
+<li><span class="math inline">\forall x\in\mathbb{R},\ \operatorname{argsh}(\operatorname{sh}(x))=x</span> et <span class="math inline">\operatorname{sh}(\operatorname{argsh}(x))=x</span>.</li>
+<li><span class="math inline">\forall x\in\mathbb{R},\ \operatorname{argsh}(-x)=-\operatorname{argsh}(x)</span>.</li>
+<li><span class="math inline">\forall x\in\mathbb{R},\ \operatorname{argsh}(x)=\ln\left(x+\sqrt{x^2+1}\right)</span>.</li>
+<li><span class="math inline">\forall x&gt;0,\ x&gt;\operatorname{argsh}(x)</span>.</li>
+<li><span class="math inline">\lim_{x\to+\infty}\frac{\operatorname{argsh}(x)}{x}=0</span> et <span class="math inline">\lim_{x\to+\infty}\frac{\operatorname{argsh}(x)}{\ln(x)}=1</span>.</li>
+</ol>
+</div>
+</section>
+<section id="fonction-operatornameargth" class="level4" data-number="1.5.5.3">
+<h4 data-number="1.5.5.3" class="anchored" data-anchor-id="fonction-operatornameargth"><span class="header-section-number">1.5.5.3</span> Fonction <span class="math inline">\operatorname{argth}</span></h4>
+<p>La fonction <span class="math inline">\operatorname{th}</span> définit une bijection de <span class="math inline">\mathbb{R}</span> sur <span class="math inline">]-1,1[</span> ; la bijection réciproque est notée <span class="math inline">\operatorname{argth}</span> et appelée <strong>argument tangente hyperbolique</strong> ; elle est définie par : <span class="math display">\operatorname{argth} : \begin{array}{rcl} ]-1,1[ &amp; \longrightarrow &amp; \mathbb{R} \\ x &amp; \longmapsto &amp; \operatorname{argth}(x)=y \text{ tel que } \operatorname{th}(y)=x\end{array}</span> Cette fonction est continue sur <span class="math inline">]-1,1[</span>, strictement croissante, dérivable sur <span class="math inline">]-1,1[</span>, et sa dérivée est : <span class="math display">\forall x\in]-1,1[,\ \operatorname{argth}'(x)=\frac{1}{1-\operatorname{th}^2(\operatorname{argth}(x))}=\frac{1}{1-x^2}</span></p>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 1.14 — (Propriétés de argth)</strong></p>
+<ol type="1">
+<li><span class="math inline">\forall x\in\mathbb{R},\ \operatorname{argth}(\operatorname{th}(x))=x</span> et <span class="math inline">\forall x\in]-1,1[,\ \operatorname{th}(\operatorname{argth}(x))=x</span>.</li>
+<li><span class="math inline">\forall x\in]-1,1[,\ \operatorname{argth}(-x)=-\operatorname{argth}(x)</span>.</li>
+<li><span class="math inline">\forall x\in]-1,1[,\ \operatorname{argth}(x)=\frac{1}{2}\ln\left(\frac{1+x}{1-x}\right)</span>.</li>
+<li><span class="math inline">\forall x\in]0,1[,\ x&lt;\operatorname{argth}(x)</span>.</li>
+</ol>
+</div>
+</section>
+</section>
+</section>
+</section>
+<section id="document-en-pdf" class="level1 unnumbered">
+<h1 class="unnumbered">Document en PDF</h1>
+<p><a href="PDF/mpsi-chap05.pdf">Chapitre 05 : Fonctions usuelles</a></p>
+<section id="navigation" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="navigation">Navigation</h2>
+<div class="chap-nav">
+<p><a href="../cours/mpsi-chap04.html" class="prev">Chapitre 04 : Nombres complexes et trigonométrie</a></p>
+<p><a href="../cours/mpsi.html" class="home">Menu MPSI</a></p>
+<p><a href="../cours/mpsi-chap06.html" class="next">Chapitre 06 : Équations différentielles linéaires</a></p>
+</div>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -214,12 +673,12 @@ ul.task-list li input[type="checkbox"] {
       // flash "checked"
       button.classList.add('code-copy-button-checked');
       var currentTitle = button.getAttribute("title");
-      button.setAttribute("title", "Copied!");
+      button.setAttribute("title", "Copié");
       let tooltip;
       if (window.bootstrap) {
         button.setAttribute("data-bs-toggle", "tooltip");
         button.setAttribute("data-bs-placement", "left");
-        button.setAttribute("data-bs-title", "Copied!");
+        button.setAttribute("data-bs-title", "Copié");
         tooltip = new bootstrap.Tooltip(button, 
           { trigger: "manual", 
             customClass: "code-copy-button-tooltip",
