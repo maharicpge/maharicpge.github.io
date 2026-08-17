@@ -7,7 +7,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Said MAHARI">
-<meta name="dcterms.date" content="2025-09-28">
 
 <title>Logique et raisonnement – Mathématiques en CPGE</title>
 <style>
@@ -121,6 +120,7 @@ window.Quarto = {
 </script>
 
 <link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="styles.css">
 </head>
 
 <body class="nav-fixed quarto-light">
@@ -234,7 +234,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Date de publication</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">2025-09-28</p>
+      <p class="date">17 août 2026</p>
     </div>
   </div>
   
@@ -291,7 +291,8 @@ window.Quarto = {
 </tr>
 </tbody>
 </table>
-<div class="example">
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 1.1</strong></p>
 <p>Soit <span class="math inline">(x,a)\in\mathbb{R}^2</span>.</p>
 <ol type="1">
 <li>La négation de <span class="math inline">(x=a)</span> est <span class="math inline">(x\neq a)</span>.</li>
@@ -367,7 +368,8 @@ window.Quarto = {
 </tr>
 </tbody>
 </table>
-<div class="example">
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 1.2</strong></p>
 <p>Soit <span class="math inline">x\in\mathbb{C}</span>.</p>
 <ul>
 <li><span class="math inline">(x^2+x+1=0)\wedge(\operatorname{arg}(x)=\frac{2\pi}{3})</span> donne <span class="math inline">x=j=e^{i\frac{2\pi}{3}}=-\frac{1}{2}+i\frac{\sqrt{3}}{2}</span>.</li>
@@ -441,7 +443,8 @@ window.Quarto = {
 </tr>
 </tbody>
 </table>
-<div class="example">
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 1.3</strong></p>
 <p>Soit <span class="math inline">x\in\mathbb{C}</span>.</p>
 <ul>
 <li><span class="math inline">(x^2-x=0)</span> donne <span class="math inline">(x=0)\vee(x=1)</span>.</li>
@@ -515,7 +518,8 @@ window.Quarto = {
 </tr>
 </tbody>
 </table>
-<div class="example">
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 1.4</strong></p>
 <ul>
 <li>Dans <span class="math inline">\mathbb{C}</span>, <span class="math inline">xy=0 \Longrightarrow (x=0)\vee(y=0)</span>.</li>
 </ul>
@@ -588,7 +592,8 @@ window.Quarto = {
 </tr>
 </tbody>
 </table>
-<div class="example">
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 1.5</strong></p>
 <ul>
 <li><span class="math inline">\left.\begin{array}{l}\text{M est un point}\\ \text{du cercle } \mathscr{C}(O,R)\end{array}\right\} \Leftrightarrow OM=R</span>.</li>
 </ul>
@@ -647,7 +652,8 @@ window.Quarto = {
 </section>
 <section id="propriétés" class="level2" data-number="1.6">
 <h2 data-number="1.6" class="anchored" data-anchor-id="propriétés"><span class="header-section-number">1.6</span> Propriétés</h2>
-<div class="theorem">
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 1.1</strong></p>
 <p>Soient <span class="math inline">A</span>, <span class="math inline">B</span> et <span class="math inline">C</span> trois affirmations. Alors on a :</p>
 <ol type="1">
 <li><span class="math inline">\neg(\neg A) \equiv A</span></li>
@@ -669,7 +675,8 @@ window.Quarto = {
 <li><span class="math inline">\neg(A\Leftrightarrow B) \equiv (A\Leftrightarrow(\neg B)) \equiv ((\neg A) \Leftrightarrow B)</span></li>
 </ol>
 </div>
-<div class="proposition" title="(Quelques tautologies)">
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 1.1 — (Quelques tautologies)</strong></p>
 <p>Soient <span class="math inline">A</span>, <span class="math inline">B</span> et <span class="math inline">C</span> trois affirmations. Les formules suivantes sont des tautologies :</p>
 <ol type="1">
 <li><span class="math inline">A \vee (\neg A)</span> (principe du tiers exclu)</li>
@@ -714,7 +721,8 @@ window.Quarto = {
 <section id="quantificateurs" class="level3" data-number="1.6.1">
 <h3 data-number="1.6.1" class="anchored" data-anchor-id="quantificateurs"><span class="header-section-number">1.6.1</span> Quantificateurs</h3>
 <p>Soit <span class="math inline">\mathcal{R}(x)</span> une assertion dépendant d’une variable <span class="math inline">x</span>. On écrit <span class="math inline">(\exists x \,/\, \mathcal{R}(x))</span> pour dire qu’il existe au moins un des objets <span class="math inline">x</span> pour lequel <span class="math inline">\mathcal{R}(x)</span> est vraie.</p>
-<div class="example">
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 1.6</strong></p>
 <p>Soient <span class="math inline">f : \mathbb{R} \longrightarrow \mathbb{R}</span> une fonction et <span class="math inline">(u_n)_{n\in\mathbb{N}}</span> une suite à valeurs réelles.</p>
 <ol type="1">
 <li><span class="math inline">\forall \varepsilon &gt;0, \exists \alpha &gt;0 \, (\forall x\in\mathbb{R}) \, (|x-x_0|\leq \alpha \Longrightarrow |f(x)-f(x_0)|\leq \varepsilon)</span> exprime la <strong>continuité</strong> de <span class="math inline">f</span> en <span class="math inline">x_0</span>.</li>
@@ -723,7 +731,8 @@ window.Quarto = {
 <li><span class="math inline">\forall M\in\mathbb{R}, \exists n\in\mathbb{N}, \, u_n&gt;M</span> exprime le fait que <span class="math inline">(u_n)_{n\in\mathbb{N}}</span> n’est pas majorée.</li>
 </ol>
 </div>
-<div class="proposition" title="(Règles de distributivité)">
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 1.2 — (Règles de distributivité)</strong></p>
 <p>Soient <span class="math inline">P(x)</span> et <span class="math inline">Q(x)</span> deux expressions dépendant d’une variable <span class="math inline">x</span>. On a :</p>
 <ol type="1">
 <li><span class="math inline">\forall x,\ (P(x)\wedge Q(x))\equiv (\forall x,\ P(x))\wedge(\forall x,\ Q(x))</span></li>
@@ -737,14 +746,16 @@ window.Quarto = {
 <li><span class="math inline">\exists x,\ (P(x)\wedge Q(x))\equiv (\exists x,\ P(x))\wedge(\exists x,\ Q(x))</span> ?</li>
 </ol>
 </div>
-<div class="proposition">
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 1.3</strong></p>
 <p>Soit <span class="math inline">P(x)</span> une expression dépendant d’une variable <span class="math inline">x</span> et <span class="math inline">Q</span> ne l’est pas. On a :</p>
 <ol type="1">
 <li><span class="math inline">\forall x,\ (P(x)\vee Q)\equiv (\forall x,\ P(x))\vee Q</span></li>
 <li><span class="math inline">\exists x,\ (P(x)\wedge Q)\equiv (\exists x,\ P(x))\wedge Q</span></li>
 </ol>
 </div>
-<div class="proposition" title="(Quantification d'une implication)">
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 1.4 — (Quantification d'une implication)</strong></p>
 <ol type="1">
 <li>Si la propriété <span class="math inline">P</span> ne dépend pas de <span class="math inline">x</span> :
 <ol type="a">
@@ -758,7 +769,8 @@ window.Quarto = {
 </ol></li>
 </ol>
 </div>
-<div class="proposition" title="(Négation des quantificateurs)">
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 1.5 — (Négation des quantificateurs)</strong></p>
 <p>Soit <span class="math inline">P(x)</span> une expression dépendant d’une variable <span class="math inline">x</span>. On a :</p>
 <ol type="1">
 <li><span class="math inline">\neg(\forall x,\ P(x)) \equiv (\exists x,\ \neg P(x))</span></li>
@@ -772,7 +784,8 @@ window.Quarto = {
 <section id="raisonnement-par-les-équivalences-successives" class="level3" data-number="1.7.1">
 <h3 data-number="1.7.1" class="anchored" data-anchor-id="raisonnement-par-les-équivalences-successives"><span class="header-section-number">1.7.1</span> Raisonnement par les équivalences successives</h3>
 <p>Pour démontrer qu’une propriété <span class="math inline">P</span> est vraie, on démontre des fois qu’elle est équivalente à une propriété qu’on sait vraie à l’avance.</p>
-<div class="example">
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 1.7</strong></p>
 <p>Soit <span class="math inline">(a,b)\in\mathbb{R}^2</span>. Montrons que <span class="math inline">ab\leq \frac{a^2+b^2}{2}</span> :</p>
 <p>Procédons par des équivalences successives. On a : <span class="math display">
 \begin{aligned}
@@ -782,7 +795,8 @@ ab\leq \frac{a^2+b^2}{2} &amp;\iff 2ab \leq a^2+b^2\\
 \end{aligned}
 </span> La dernière expression équivalente est vraie, on conclut alors que <span class="math inline">ab\leq \frac{a^2+b^2}{2}</span>.</p>
 </div>
-<div class="example">
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 1.8</strong></p>
 <p>Soit <span class="math inline">a\in\mathbb{C}\smallsetminus\{1\}</span> et <span class="math inline">n\in\mathbb{N}</span>. Montrons que <span class="math inline">\sum_{k=0}^n a^k=\frac{1-a^{n+1}}{1-a}</span> :</p>
 <p>Procédons par des équivalences successives. On a : <span class="math display">
 \begin{aligned}
@@ -798,7 +812,8 @@ ab\leq \frac{a^2+b^2}{2} &amp;\iff 2ab \leq a^2+b^2\\
 <section id="raisonnement-par-disjonction-des-cas" class="level2" data-number="1.8">
 <h2 data-number="1.8" class="anchored" data-anchor-id="raisonnement-par-disjonction-des-cas"><span class="header-section-number">1.8</span> Raisonnement par disjonction des cas</h2>
 <p>Pour démontrer qu’une propriété est vraie, on considère tous les cas possibles et on vérifie qu’elle est vraie dans chacun des cas possibles.</p>
-<div class="example">
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 1.9</strong></p>
 <p>On montre que pour tout <span class="math inline">n\in\mathbb{N}</span>, <span class="math inline">n(n+1)</span> est pair : soit <span class="math inline">n</span> un entier naturel et considérons tous les cas possibles :</p>
 <ul>
 <li><strong>Cas 1 :</strong> si <span class="math inline">n</span> est pair alors il existe <span class="math inline">k\in\mathbb{N}</span> tel que <span class="math inline">n=2k</span>, donc <span class="math inline">n(n+1)=2k(2k+1)=2\times k(2k+1)</span>, et par suite, <span class="math inline">n(n+1)</span> est pair.</li>
@@ -806,7 +821,8 @@ ab\leq \frac{a^2+b^2}{2} &amp;\iff 2ab \leq a^2+b^2\\
 </ul>
 <p>D’où <span class="math inline">n(n+1)</span> est pair pour tout <span class="math inline">n</span> de <span class="math inline">\mathbb{N}</span>.</p>
 </div>
-<div class="example">
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 1.10</strong></p>
 <p>Soit <span class="math inline">x\in\mathbb{R}</span>. Montrons que <span class="math inline">x^2+x+1\geq 0</span>.</p>
 <ul>
 <li><strong>Cas 1 :</strong> si <span class="math inline">x\leq -1</span> alors <span class="math inline">x\leq 0</span> et <span class="math inline">x+1\geq 0</span>, donc <span class="math inline">x(x+1)\leq 0</span> et par suite, <span class="math inline">x^2+x+1\geq 1&gt;0</span>.</li>
@@ -817,14 +833,17 @@ ab\leq \frac{a^2+b^2}{2} &amp;\iff 2ab \leq a^2+b^2\\
 <section id="raisonnement-par-contre-exemple" class="level3" data-number="1.8.1">
 <h3 data-number="1.8.1" class="anchored" data-anchor-id="raisonnement-par-contre-exemple"><span class="header-section-number">1.8.1</span> Raisonnement par contre-exemple</h3>
 <p>Soit <span class="math inline">P(x)</span> une propriété dépendant d’un paramètre <span class="math inline">x</span>. Pour montrer que l’affirmation <span class="math inline">(\forall x,\ P(x))</span> est fausse, on démontre que sa négation <span class="math inline">(\exists x,\ \neg P(x))</span> est vraie.</p>
-<div class="example">
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 1.11</strong></p>
 <p>La propriété suivante est-elle vraie : « deux rectangles de même aire ont même périmètre » ?</p>
 <p>Les rectangles de longueurs respectives <span class="math inline">4\,m</span> et <span class="math inline">2\,m</span> et de largeurs respectives <span class="math inline">0{,}5\,m</span> et <span class="math inline">1\,m</span> constituent un contre-exemple.</p>
 </div>
-<div class="example">
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 1.12</strong></p>
 <p>L’affirmation <span class="math inline">(\forall x\in\mathbb{C},\ x^2\geq 0)</span> est fausse puisque les nombres complexes <span class="math inline">i</span> et <span class="math inline">j</span> constituent des contre-exemples.</p>
 </div>
-<div class="example">
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 1.13</strong></p>
 <p>L’affirmation <span class="math inline">(\forall (a,b)\in (\mathbb{R}^+)^2,\ \sqrt{a+b}=\sqrt{a}+\sqrt{b})</span> est fausse puisque <span class="math inline">a=9</span> et <span class="math inline">b=16</span> constituent un contre-exemple.</p>
 </div>
 </section>
@@ -843,23 +862,27 @@ ab\leq \frac{a^2+b^2}{2} &amp;\iff 2ab \leq a^2+b^2\\
 <p>L’implication <span class="math inline">A \Longrightarrow B</span> se traduit par <span class="math inline">(\neg A)\vee B</span>. En général, on prend <span class="math inline">A</span> comme hypothèse et on démontre <span class="math inline">B</span>. Mais dans le raisonnement par l’absurde, on prend comme hypothèse <span class="math inline">A \wedge (\neg B)</span> et on aboutit à une contradiction.</p>
 </div>
 </div>
-<div class="example">
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 1.14</strong></p>
 <p>Soit <span class="math inline">z\in\mathbb{C}</span>. Montrons que si <span class="math inline">z=0</span> alors <span class="math inline">\mathcal{R}e(z)=\mathcal{I}m(z)=0</span> :</p>
 <p>Raisonnons par absurde en supposant que <span class="math inline">z=0</span> et (<span class="math inline">\mathcal{R}e(z)\neq 0</span> ou <span class="math inline">\mathcal{I}m(z)\neq 0</span>).</p>
 <p><span class="math inline">z=0</span> donne <span class="math inline">\mathcal{R}e(z)=-i\mathcal{I}m(z)</span>, donc <span class="math inline">\left(\mathcal{R}e(z)\right)^2=-\left(\mathcal{I}m(z)\right)^2</span>, et par suite, <span class="math inline">\left(\mathcal{R}e(z)\right)^2+\left(\mathcal{I}m(z)\right)^2=0</span>. Or <span class="math inline">\mathcal{R}e(z)\neq 0</span> ou <span class="math inline">\mathcal{I}m(z)\neq 0</span> donc <span class="math inline">\left(\mathcal{R}e(z)\right)^2+\left(\mathcal{I}m(z)\right)^2&gt;0</span>. Contradiction.</p>
 <p>Conclusion : si <span class="math inline">z=0</span> alors <span class="math inline">\mathcal{R}e(z)=\mathcal{I}m(z)=0</span>.</p>
 </div>
-<div class="example">
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 1.15</strong></p>
 <p>Soit <span class="math inline">n\in\mathbb{N}</span>. Montrer que si <span class="math inline">n^2</span> est pair alors <span class="math inline">n</span> l’est aussi :</p>
 <p>Raisonnons par absurde en supposant que <span class="math inline">n^2</span> est pair et <span class="math inline">n</span> ne l’est pas. Donc <span class="math inline">n</span> est impair, et par suite, il existe <span class="math inline">k\in\mathbb{N}</span> tel que <span class="math inline">n=2k+1</span>, donc <span class="math inline">n^2=4k^2+4k+1=2(2k^2+2k)+1</span>, donc <span class="math inline">n^2</span> est impair. Contradiction.</p>
 <p>Conclusion : si <span class="math inline">n^2</span> est pair alors <span class="math inline">n</span> est aussi pair.</p>
 </div>
-<div class="example">
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 1.16</strong></p>
 <p>Soient <span class="math inline">a, b &gt; 0</span>. Montrons que si <span class="math inline">\frac{a}{1+a}=\frac{b}{1+b}</span> alors <span class="math inline">a = b</span> :</p>
 <p>Raisonnons par absurde en supposant que <span class="math inline">\frac{a}{1+a}=\frac{b}{1+b}</span> et <span class="math inline">a\neq b</span>. Comme <span class="math inline">\frac{a}{1+a}=\frac{b}{1+b}</span> alors <span class="math inline">a(1+b) = b(1+a)</span> donc <span class="math inline">a+ab=b+ab</span> d’où <span class="math inline">a=b</span>. Cela conduit à une contradiction.</p>
 <p>Conclusion : si <span class="math inline">\frac{a}{1+a}=\frac{b}{1+b}</span> alors <span class="math inline">a = b</span>.</p>
 </div>
-<div class="example">
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 1.17</strong></p>
 <p>Soit <span class="math inline">(k,k')\in\mathbb{N}^2</span>. Montrons par absurde que si <span class="math inline">kk'=1</span> alors <span class="math inline">k=k'=1</span> :</p>
 <p>Supposons alors que <span class="math inline">kk'=1</span> et (<span class="math inline">k\neq 1</span> ou <span class="math inline">k'\neq 1</span>).</p>
 <ul>
@@ -881,7 +904,8 @@ ab\leq \frac{a^2+b^2}{2} &amp;\iff 2ab \leq a^2+b^2\\
 <p>Soit <span class="math inline">\mathcal{P}(x)</span> une assertion dépendant d’un paramètre <span class="math inline">x</span>. Cette forme est utilisée lorsqu’il s’agit de démontrer qu’il n’existe aucun objet <span class="math inline">x</span> tel que <span class="math inline">\mathcal{P}(x)</span> soit vraie, en supposant qu’il existe un tel <span class="math inline">x</span> et aboutir à une contradiction par la suite.</p>
 </div>
 </div>
-<div class="example">
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 1.18</strong></p>
 <p>Considérons l’assertion <span class="math inline">\mathcal{P}(x)</span> : « Il n’existe aucun <span class="math inline">x</span> de <span class="math inline">\mathbb{R}</span> tel que <span class="math inline">x^2\leq 4</span> et <span class="math inline">1{,}5\leq \sqrt{|x|}</span> ».</p>
 <p>Supposons qu’il existe un tel <span class="math inline">x</span> alors <span class="math inline">x^2\leq 4</span> et <span class="math inline">\underset{\simeq 5{,}06}{(1{,}5)^4}\leq |x|^2</span> : alors 4 est supérieur à 5, ce qui est impossible.</p>
 <p>D’où la propriété <span class="math inline">\mathcal{P}(x)</span> est vraie.</p>
@@ -890,20 +914,24 @@ ab\leq \frac{a^2+b^2}{2} &amp;\iff 2ab \leq a^2+b^2\\
 <section id="raisonnement-par-contraposée" class="level3" data-number="1.8.3">
 <h3 data-number="1.8.3" class="anchored" data-anchor-id="raisonnement-par-contraposée"><span class="header-section-number">1.8.3</span> Raisonnement par contraposée</h3>
 <p>Comme on a déjà mentionné, l’implication <span class="math inline">A \Longrightarrow B</span> se traduit par <span class="math inline">(\neg A)\vee B</span> qui est la même chose que <span class="math inline">(\neg(\neg B))\vee(\neg A)</span> et qui se traduit par <span class="math inline">(\neg B)\Longrightarrow(\neg A)</span>. <span class="math display">A \Longrightarrow B \equiv (\neg B)\Longrightarrow(\neg A)</span> Il s’agit alors dans le raisonnement par contraposée de démontrer l’implication équivalente.</p>
-<div class="example">
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 1.19</strong></p>
 <p>Soit <span class="math inline">n\in\mathbb{N}</span>. Montrons que si <span class="math inline">n^2</span> est pair alors <span class="math inline">n</span> l’est aussi :</p>
 <p>Raisonnons par contraposée, supposons que <span class="math inline">n</span> est impair et montrons que <span class="math inline">n^2</span> l’est aussi. Donc il existe un entier <span class="math inline">k\in\mathbb{N}</span> tel que <span class="math inline">n=2k+1</span>, par suite <span class="math inline">n^2=4k^2+4k+1=2(2k^2+2k)+1</span>, d’où <span class="math inline">n^2</span> est impair.</p>
 <p>Ainsi, si <span class="math inline">n^2</span> est pair alors <span class="math inline">n</span> l’est aussi.</p>
 </div>
-<div class="example">
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 1.20</strong></p>
 <p>Soit <span class="math inline">x\in\mathbb{R}</span>. Montrons que si pour tout <span class="math inline">\varepsilon &gt;0</span>, <span class="math inline">|x|\leq \varepsilon</span> alors <span class="math inline">x=0</span> :</p>
 <p>Raisonnons par contraposée, supposons que <span class="math inline">x\neq 0</span> et montrons qu’il existe <span class="math inline">\varepsilon &gt;0</span> tel que <span class="math inline">|x|&gt; \varepsilon</span>. Si on prend <span class="math inline">\varepsilon =\frac{|x|}{2}&gt;0</span> alors <span class="math inline">|x|&gt; \varepsilon</span>.</p>
 <p>D’où : <span class="math display">\forall \varepsilon &gt;0,\ |x|\leq \varepsilon \Longrightarrow x=0</span></p>
 </div>
-<div class="example">
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 1.21</strong></p>
 <p>Soit <span class="math inline">n\in\mathbb{N}</span>. Montrons que : <span class="math display">\left(\forall m\in\mathbb{N},\ n^2-1\neq 8m\right)\Longrightarrow \left(\exists k\in\mathbb{N},\ n=2k\right)</span> La contraposée s’écrit : <span class="math display">\left(\forall k\in\mathbb{N},\ n\neq 2k\right)\Longrightarrow \left(\exists m\in\mathbb{N},\ n^2-1= 8m\right)</span> Si on suppose <span class="math inline">\left(\forall k\in\mathbb{N},\ n\neq 2k\right)</span> alors <span class="math inline">n</span> est impair, donc il existe un entier <span class="math inline">k\in\mathbb{N}</span> tel que <span class="math inline">n=2k+1</span>, donc <span class="math inline">n^2=4k^2+4k+1=4k(k+1)+1</span>. Or, <span class="math inline">k(k+1)</span> est pair donc il existe <span class="math inline">m\in\mathbb{N}</span> tel que <span class="math inline">k(k+1)=2m</span> et par suite <span class="math inline">n^2=8m+1</span> donc <span class="math inline">n^2-1= 8m</span>. D’où : <span class="math display">\left(\forall m\in\mathbb{N},\ n^2-1\neq 8m\right)\Longrightarrow \left(\exists k\in\mathbb{N},\ n=2k\right)</span></p>
 </div>
-<div class="example">
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 1.22</strong></p>
 <p>Soient <span class="math inline">x_1,\cdots,x_n</span> <span class="math inline">(n\geq 1)</span> et <span class="math inline">M</span> des réels. Montrons que : <span class="math display">x_1+\cdots+x_n=M \Longrightarrow \exists i\in \llbracket 1,n \rrbracket,\ x_i\geq \frac{M}{n}</span> La contraposée s’écrit : <span class="math display">\forall i\in \llbracket 1,n \rrbracket,\ x_i&lt;\frac{M}{n} \Longrightarrow x_1+\cdots+x_n\neq M</span> Donc <span class="math inline">\sum_{i=1}^n x_i&lt;\sum_{i=1}^n\frac{M}{n}=M</span>, par suite <span class="math inline">\sum_{i=1}^n x_i\neq M</span>. D’où : <span class="math display">x_1+\cdots+x_n=M \Longrightarrow \exists i\in \llbracket 1,n \rrbracket,\ x_i\geq \frac{M}{n}</span></p>
 </div>
 </section>
@@ -915,7 +943,8 @@ ab\leq \frac{a^2+b^2}{2} &amp;\iff 2ab \leq a^2+b^2\\
 <li><strong>L’analyse :</strong> on suppose que l’objet existe et on essaie de trouver des conditions nécessaires que doit vérifier cet objet. Ce faisant, on prouve que si l’objet existe, alors il est nécessairement égal à un certain objet <span class="math inline">x_0</span> (ceci assure l’unicité).</li>
 <li><strong>La synthèse :</strong> on considère l’objet <span class="math inline">x_0</span> identifié dans la partie analyse, et on vérifie qu’il a bien les propriétés voulues (ceci assure l’existence).</li>
 </ul>
-<div class="example">
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 1.23</strong></p>
 <p>Montrons que toute application <span class="math inline">f: \mathbb{R}\longrightarrow \mathbb{R}</span> s’écrit de façon unique comme somme d’une application paire et d’une autre impaire :</p>
 <p>Soit <span class="math inline">f: \mathbb{R}\longrightarrow \mathbb{R}</span> une application et procédons par analyse-synthèse :</p>
 <ul>
@@ -932,7 +961,8 @@ ab\leq \frac{a^2+b^2}{2} &amp;\iff 2ab \leq a^2+b^2\\
 </section>
 <section id="raisonnement-par-récurrence" class="level2" data-number="1.10">
 <h2 data-number="1.10" class="anchored" data-anchor-id="raisonnement-par-récurrence"><span class="header-section-number">1.10</span> Raisonnement par récurrence</h2>
-<div class="theorem" title="(Propriétés de $\mathbb{N}$)">
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 1.2 — (Propriétés de $\mathbb{N}$)</strong></p>
 <p>L’ensemble des entiers naturels possède les propriétés suivantes :</p>
 <ul>
 <li><strong>(N1)</strong> Toute partie non vide de <span class="math inline">\mathbb{N}</span> possède un plus petit élément.</li>
@@ -953,7 +983,8 @@ ab\leq \frac{a^2+b^2}{2} &amp;\iff 2ab \leq a^2+b^2\\
 <li>etc.</li>
 </ul>
 <p>La question qui se pose : existe-il un moyen qui assure que cela va être vrai pour tout <span class="math inline">n\in\mathbb{N}</span> ? La réponse est positive : c’est le raisonnement par récurrence.</p>
-<div class="theorem" title="(Récurrence faible)">
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 1.3 — (Récurrence faible)</strong></p>
 <p>Soit <span class="math inline">\mathcal{P}(n)</span> une propriété dépendant d’un paramètre <span class="math inline">n</span> avec <span class="math inline">n\in\mathbb{N}</span>. S’il existe <span class="math inline">n_0 \in\mathbb{N}</span> tel que :</p>
 <ul>
 <li><span class="math inline">(R1)</span> <span class="math inline">\mathcal{P}(n_0)</span> est vraie ;</li>
@@ -968,7 +999,8 @@ ab\leq \frac{a^2+b^2}{2} &amp;\iff 2ab \leq a^2+b^2\\
 <div class="proof remark">
 <p><span class="proof-title"><em>Remarque</em>. </span>La condition <span class="math inline">(R1)</span> s’appelle <strong>l’initialisation</strong> et la condition <span class="math inline">(R2)</span> s’appelle <strong>l’hérédité</strong>.</p>
 </div>
-<div class="example">
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 1.24</strong></p>
 <p>Montrons par récurrence <span class="math inline">\forall n\geq 4,\ \left(\mathcal{P}(n) : n^2\leq 2^n\right)</span> :</p>
 <ul>
 <li><span class="math inline">(R1)</span> Pour <span class="math inline">n=n_0=4</span>, on a <span class="math inline">4^2=16 \leq 2^4=16</span>. Donc la propriété <span class="math inline">\mathcal{P}(n_0)</span> est vraie.</li>
@@ -976,7 +1008,8 @@ ab\leq \frac{a^2+b^2}{2} &amp;\iff 2ab \leq a^2+b^2\\
 </ul>
 <p>Ainsi, d’après le théorème précédent, <span class="math inline">\forall n\geq 4</span>, <span class="math inline">\left(\mathcal{P}(n) : n^2\leq 2^n\right)</span> est vraie.</p>
 </div>
-<div class="example">
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 1.25</strong></p>
 <p>Montrons par récurrence <span class="math inline">\forall n\geq 1,\ \left(\mathcal{P}(n) : \sum_{k=1}^n k=\frac{n(n+1)}{2}\right)</span> :</p>
 <ul>
 <li><span class="math inline">(R1)</span> Pour <span class="math inline">n=1</span>, on a <span class="math inline">\sum_{k=1}^1 k=1=\frac{1(1+1)}{2}</span>. Donc la propriété <span class="math inline">\mathcal{P}(1)</span> est vraie.</li>
@@ -989,7 +1022,8 @@ ab\leq \frac{a^2+b^2}{2} &amp;\iff 2ab \leq a^2+b^2\\
 </span> Donc <span class="math inline">\mathcal{P}(n+1)</span> est vraie. D’où : <span class="math display">\forall n\geq 1,\ \left(\mathcal{P}(n) : \sum_{k=1}^n k=\frac{n(n+1)}{2}\right)</span></li>
 </ul>
 </div>
-<div class="example">
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 1.26</strong></p>
 <p>Montrons par récurrence que <span class="math inline">\forall n\geq 1,\ \left(\mathcal{P}(n) : \sum_{k=1}^n (-1)^k k^2=(-1)^n\sum_{k=1}^n k\right)</span> :</p>
 <ul>
 <li><span class="math inline">(R1)</span> Pour <span class="math inline">n=1</span>, on a <span class="math inline">\sum_{k=1}^1 (-1)^k k^2=-1=(-1)^1\sum_{k=1}^1 k</span>. Donc la propriété <span class="math inline">\mathcal{P}(1)</span> est vraie.</li>
@@ -1003,14 +1037,16 @@ ab\leq \frac{a^2+b^2}{2} &amp;\iff 2ab \leq a^2+b^2\\
 </span> Donc <span class="math inline">\mathcal{P}(n+1)</span> est vraie. D’où : <span class="math display">\forall n\geq 1,\ \left(\mathcal{P}(n) : \sum_{k=1}^n (-1)^k k^2=(-1)^n\sum_{k=1}^n k\right)</span></li>
 </ul>
 </div>
-<div class="example">
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 1.27</strong></p>
 <p>Soit <span class="math inline">(u_n)_{n\in\mathbb{N}}</span> la suite numérique définie par : <span class="math display">\begin{cases} u_0=1\\ \forall n\in\mathbb{N},\ u_{n+1}=\sum_{k=0}^n u_k\end{cases}</span> Montrons par récurrence <span class="math inline">\forall n\in\mathbb{N}^*,\ \left(\mathcal{P}(n) : u_n=2^{n-1}\right)</span> :</p>
 <ul>
 <li><span class="math inline">(R1)</span> Pour <span class="math inline">n=1</span>, <span class="math inline">u_1=\sum_{k=0}^0 u_k=u_0=1=2^{1-1}</span>, donc <span class="math inline">\mathcal{P}(1)</span> est vraie.</li>
 <li><span class="math inline">(R2)</span> Soit <span class="math inline">n\in\mathbb{N}^*</span>. Supposons <span class="math inline">\mathcal{P}(n) : u_n=2^{n-1}</span> et montrons <span class="math inline">\mathcal{P}(n+1) : u_{n+1}=2^{n}</span>. On a : <span class="math display">u_{n+1}=\sum_{k=0}^n u_k=\sum_{k=0}^{n-1} u_k+u_n=2u_n</span> Or d’après l’hypothèse de récurrence, <span class="math inline">u_n=2^{n-1}</span> donc : <span class="math display">u_{n+1}=2\times 2^{n-1}=2^n</span> Donc <span class="math inline">\mathcal{P}(n+1)</span> est vraie. D’où : <span class="math display">\forall n\in\mathbb{N}^*,\ \left(\mathcal{P}(n) : u_n=2^{n-1}\right)</span></li>
 </ul>
 </div>
-<div class="theorem" title="(Récurrence forte)">
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 1.4 — (Récurrence forte)</strong></p>
 <p>Soit <span class="math inline">\mathcal{P}(n)</span> une propriété dépendant d’un paramètre <span class="math inline">n</span> avec <span class="math inline">n\in\mathbb{N}</span> et soit <span class="math inline">n_0\in\mathbb{N}</span> tel que :</p>
 <ul>
 <li><span class="math inline">(R1)</span> <span class="math inline">\mathcal{P}(n_0)</span> est vraie ;</li>
@@ -1021,7 +1057,8 @@ ab\leq \frac{a^2+b^2}{2} &amp;\iff 2ab \leq a^2+b^2\\
 <div class="proof">
 <p><span class="proof-title"><em>Preuve</em>. </span>Même démonstration que le théorème précédent.</p>
 </div>
-<div class="example" title="(Théorème d'Euclide)">
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 1.28 — (Théorème d'Euclide)</strong></p>
 <p>Montrons par récurrence, pour <span class="math inline">n\geq 2</span>, la propriété <span class="math inline">\mathcal{P}(n) :</span> <span class="math inline">n</span> est produit de nombres premiers.</p>
 <ul>
 <li><span class="math inline">(R1)</span> <span class="math inline">2</span> est produit de lui-même et <span class="math inline">2</span> est premier, donc <span class="math inline">\mathcal{P}(2)</span> est vraie.</li>
@@ -1029,21 +1066,24 @@ ab\leq \frac{a^2+b^2}{2} &amp;\iff 2ab \leq a^2+b^2\\
 </ul>
 <p>D’où pour tout <span class="math inline">n</span> supérieur ou égal à 2, <span class="math inline">n</span> est produit de nombres premiers.</p>
 </div>
-<div class="example">
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 1.29</strong></p>
 <p>Soit <span class="math inline">(u_n)_{n\in\mathbb{N}}</span> la suite numérique définie par : <span class="math display">\begin{cases} u_0=1\\ \forall n\in\mathbb{N},\ u_{n+1}=\sum_{k=0}^n u_k\end{cases}</span> Montrons par récurrence <span class="math inline">\forall n\in\mathbb{N}^*,\ \left(\mathcal{P}(n) : u_n=2^{n-1}\right)</span> :</p>
 <ul>
 <li><span class="math inline">(R1)</span> Pour <span class="math inline">n=1</span>, <span class="math inline">u_1=\sum_{k=0}^0 u_k=u_0=1=2^{1-1}</span>, donc <span class="math inline">\mathcal{P}(1)</span> est vraie.</li>
 <li><span class="math inline">(R3)</span> Soit <span class="math inline">n\in\mathbb{N}^*</span>. Supposons : <span class="math display">\forall k\in \llbracket 1,n\rrbracket,\ \mathcal{P}(k) : u_k=2^{k-1}</span> et montrons <span class="math inline">\mathcal{P}(n+1) : u_{n+1}=2^{n}</span>. On a : <span class="math display">u_{n+1}=\sum_{k=0}^n u_k=1+\sum_{k=1}^n u_k</span> Or d’après l’hypothèse de récurrence, <span class="math inline">\forall k\in \llbracket 1,n\rrbracket,\ u_k=2^{k-1}</span> donc : <span class="math display">u_{n+1}=1+\sum_{k=1}^n 2^{k-1}=1+\sum_{k=0}^{n-1} 2^k=1+2^n-1=2^n</span> Donc <span class="math inline">\mathcal{P}(n+1)</span> est vraie. D’où : <span class="math display">\forall n\in\mathbb{N}^*,\ \left(\mathcal{P}(n) : u_n=2^{n-1}\right)</span></li>
 </ul>
 </div>
-<div class="example">
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 1.30</strong></p>
 <p>Soit <span class="math inline">(u_n)_{n\in\mathbb{N}}</span> la suite numérique définie par : <span class="math display">\begin{cases} u_0=1\\ \forall n\in\mathbb{N},\ u_{n+1}=\frac{1}{n+1}\sum_{k=0}^n u_k^2\end{cases}</span> Montrons par récurrence que <span class="math inline">\forall n\in\mathbb{N},\ \left(\mathcal{P}(n) : u_n=1\right)</span> :</p>
 <ul>
 <li><span class="math inline">(R1)</span> Pour <span class="math inline">n=0</span>, <span class="math inline">u_0=1</span>, donc <span class="math inline">\mathcal{P}(0)</span> est vraie.</li>
 <li><span class="math inline">(R3)</span> Soit <span class="math inline">n\in\mathbb{N}</span>. Supposons : <span class="math display">\forall k\in \llbracket 0,n\rrbracket,\ \mathcal{P}(k) : u_k=1</span> et montrons que <span class="math inline">\mathcal{P}(n+1) : u_{n+1}=1</span>. On a : <span class="math display">u_{n+1}=\frac{1}{n+1}\sum_{k=0}^n u_k^2</span> Or d’après l’hypothèse de récurrence, <span class="math inline">\forall k\in \llbracket 0,n\rrbracket,\ u_k=1</span> donc : <span class="math display">u_{n+1}=\frac{1}{n+1}\sum_{k=0}^n 1=\frac{n+1}{n+1}=1</span> Donc <span class="math inline">\mathcal{P}(n+1)</span> est vraie. D’où : <span class="math display">\forall n\in\mathbb{N},\ \left(\mathcal{P}(n) : u_n=1\right)</span></li>
 </ul>
 </div>
-<div class="theorem" title="(Récurrence finie)">
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 1.5 — (Récurrence finie)</strong></p>
 <p>Soit <span class="math inline">\mathcal{P}(n)</span> une propriété dépendant d’un paramètre <span class="math inline">n</span> avec <span class="math inline">n\in\mathbb{N}</span>. S’il existe <span class="math inline">n_0,n_1 \in\mathbb{N}</span> tel que :</p>
 <ul>
 <li><span class="math inline">(R1)</span> <span class="math inline">\mathcal{P}(n_0)</span> est vraie ;</li>
@@ -1061,14 +1101,16 @@ ab\leq \frac{a^2+b^2}{2} &amp;\iff 2ab \leq a^2+b^2\\
 <li><span class="math inline">p</span> est premier si et seulement si : <span class="math display">\forall (a,b)\in\mathbb{Z}^2,\ \left(p\,|\,ab \Longrightarrow (p\,|\,a)\vee(p\,|\,b)\right)</span></li>
 </ol>
 </div>
-<div class="example">
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 1.31</strong></p>
 <p>Soit <span class="math inline">p</span> un nombre premier. Montrons par récurrence sur <span class="math inline">k</span> que : <span class="math display">\forall k \in \{1,\cdots,p-1\},\ p\,|\,C_p^k \qquad \left(C_p^k=\frac{p!}{k!(p-k)!}\right)</span></p>
 <ul>
 <li><span class="math inline">(R1)</span> Pour <span class="math inline">k=1</span>, <span class="math inline">C_p^1=p</span> qui est divisible par <span class="math inline">p</span>.</li>
 <li><span class="math inline">(R4)</span> Soit <span class="math inline">k\in \{1,\cdots,p-2\}</span>, supposons que <span class="math inline">p\,|\,C_p^k</span>. Montrons que <span class="math inline">p\,|\,C_p^{k+1}</span>, on a : <span class="math display">C_p^{k+1}=\frac{p!}{(k+1)!(p-(k+1))!}=\frac{p-k}{k+1}\frac{p!}{k!(p-k)!}=\frac{p-k}{k+1}C_p^k \iff (k+1)C_p^{k+1}=(p-k)C_p^k</span> Comme par hypothèse <span class="math inline">p\,|\,C_p^k</span> alors <span class="math inline">p\,|\,(k+1)C_p^{k+1}</span>. Or, <span class="math inline">p</span> ne divise pas <span class="math inline">k+1</span> et <span class="math inline">p</span> est premier donc <span class="math inline">p</span> divise <span class="math inline">C_p^{k+1}</span>. D’où, d’après le théorème de la récurrence finie, <span class="math inline">\forall k \in \{1,\cdots,p-1\},\ p\,|\,C_p^k</span>.</li>
 </ul>
 </div>
-<div class="theorem" title="(Récurrence multiple)">
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 1.6 — (Récurrence multiple)</strong></p>
 <p>Soient <span class="math inline">\mathcal{P}(n)</span> une propriété dépendant d’un paramètre <span class="math inline">n\in\mathbb{N}</span> et <span class="math inline">q\in\mathbb{N}</span>. S’il existe <span class="math inline">n_0 \in\mathbb{N}</span> tel que :</p>
 <ul>
 <li><span class="math inline">(R5)</span> <span class="math inline">\mathcal{P}(n_0), \mathcal{P}(n_0+1),\cdots,\mathcal{P}(n_0+q-1)</span> sont toutes vraies ;</li>
@@ -1079,7 +1121,8 @@ ab\leq \frac{a^2+b^2}{2} &amp;\iff 2ab \leq a^2+b^2\\
 <div class="proof">
 <p><span class="proof-title"><em>Preuve</em>. </span>Démonstration par l’absurde : supposons qu’il existe <span class="math inline">m\in\mathbb{N}</span> vérifiant <span class="math inline">m&gt;n_0</span> et <span class="math inline">\mathcal{P}(m)</span> est fausse. Considérons alors l’ensemble : <span class="math display">A=\{ n\in\mathbb{N} \,/\, (n&gt;n_0)\wedge(\mathcal{P}(n) \text{ fausse}) \}</span> <span class="math inline">A</span> est une partie non vide (puisque <span class="math inline">m\in A</span>) de <span class="math inline">\mathbb{N}</span>, donc elle admet un plus petit élément <span class="math inline">m_0</span>. On a alors <span class="math inline">\mathcal{P}(m_0)</span> est fausse donc <span class="math inline">m_0\notin \{n_0,n_0+1,\cdots,n_0+q\}</span> (car d’après <span class="math inline">(R5)</span>, <span class="math inline">\mathcal{P}(n_0),\cdots,\mathcal{P}(n_0+q-1)</span> sont toutes vraies) donc <span class="math inline">m_0&gt;n_0+q-1</span>. On a alors : <span class="math display">m_0-q,m_0-q+1,\cdots,m_0-2,m_0-1 \notin A \quad \text{et} \quad \forall n\in\{m_0-q,\cdots,m_0-1\},\ n\geq n_0</span> donc <span class="math inline">\mathcal{P}(m_0-q),\mathcal{P}(m_0-q+1),\cdots,\mathcal{P}(m_0-1)</span> sont toutes vraies. On applique alors <span class="math inline">(R6)</span> aux <span class="math inline">q</span> propriétés <span class="math inline">\mathcal{P}(m_0-q),\cdots,\mathcal{P}(m_0-1)</span> pour obtenir <span class="math inline">\mathcal{P}(m_0)</span> est vraie, ce qui contredit la définition de <span class="math inline">m_0</span>. D’où, l’hypothèse de départ est fausse. Par conséquent, <span class="math inline">\mathcal{P}(n)</span> est vraie pour tout <span class="math inline">n</span> vérifiant <span class="math inline">n\geq n_0</span>.</p>
 </div>
-<div class="example">
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 1.32</strong></p>
 <p>Soit <span class="math inline">(u_n)_{n\in\mathbb{N}}</span> la suite définie par : <span class="math display">\begin{cases} u_0=2,\ u_1=3\\ \forall n\in\mathbb{N},\ u_{n+2}=3u_{n+1}-2u_n\end{cases}</span> Montrons par récurrence double que <span class="math inline">\forall n\in\mathbb{N},\ \mathcal{P}(n) : u_n=2^n+1</span>. On a :</p>
 <ul>
 <li><span class="math inline">(R5)</span> <span class="math inline">\mathcal{P}(0) : u_0=2=2^0+1</span> vraie et <span class="math inline">\mathcal{P}(1) : u_1=3=2^1+1</span> vraie.</li>
@@ -1095,7 +1138,8 @@ u_{n+2}&amp;=3u_{n+1}-2u_n\\
 </span> D’où <span class="math inline">(\mathcal{P}(n+2) : u_{n+2}=2^{n+2}+1)</span>. Par conséquent, <span class="math inline">\forall n\in\mathbb{N},\ u_n=2^n+1</span>.</li>
 </ul>
 </div>
-<div class="theorem" title="(Récurrence partielle)">
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 1.7 — (Récurrence partielle)</strong></p>
 <p>Soit <span class="math inline">\mathcal{P}(n)</span> une propriété dépendant d’un paramètre <span class="math inline">n\in\mathbb{N}</span>. Si on a :</p>
 <ul>
 <li><span class="math inline">(R1)</span> <span class="math inline">\mathcal{P}(1)</span> est vraie ;</li>
@@ -1106,7 +1150,8 @@ u_{n+2}&amp;=3u_{n+1}-2u_n\\
 <div class="proof">
 <p><span class="proof-title"><em>Preuve</em>. </span>Démonstration par l’absurde : supposons qu’il existe <span class="math inline">l\geq 1</span> tel que <span class="math inline">\mathcal{P}(2^l)</span> ne soit pas vraie. Considérons l’ensemble : <span class="math display">A=\{k\in\mathbb{N} \,/\, k\geq 1 \text{ et } \mathcal{P}(2^k) \text{ fausse}\}</span> <span class="math inline">A</span> est une partie de <span class="math inline">\mathbb{N}</span> non vide (puisque <span class="math inline">l\in A</span>), donc <span class="math inline">A</span> admet un plus petit élément <span class="math inline">k_0</span>. On a alors <span class="math inline">\mathcal{P}(n)</span> vraie pour <span class="math inline">n=2^{k_0-1}</span>. D’autre part, d’après <span class="math inline">(R7)</span>, <span class="math inline">\mathcal{P}(2n)</span> est vraie c’est-à-dire que <span class="math inline">\mathcal{P}(2^{k_0})</span> est vraie. Or, <span class="math inline">k_0 \in A</span> donc <span class="math inline">\mathcal{P}(2^{k_0})</span> est fausse. Ce qui est absurde. D’où, l’hypothèse de départ est fausse et par suite <span class="math inline">\mathcal{P}(n)</span> est vraie pour toute puissance entière de 2.</p>
 </div>
-<div class="theorem" title="(Récurrence descendante)">
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 1.8 — (Récurrence descendante)</strong></p>
 <p>Soit <span class="math inline">\mathcal{P}(n)</span> une propriété dépendant d’un paramètre <span class="math inline">n\in\mathbb{N}</span>. Si on a :</p>
 <ul>
 <li><span class="math inline">(R8)</span> <span class="math inline">\mathcal{P}(n)</span> est vraie sur un sous-ensemble infini de <span class="math inline">\mathbb{N}</span> ;</li>
@@ -1122,7 +1167,8 @@ u_{n+2}&amp;=3u_{n+1}-2u_n\\
 </ul>
 <p><strong>Démonstration par absurde du théorème :</strong> soit <span class="math inline">A</span> un sous-ensemble infini de <span class="math inline">\mathbb{N}</span> tel que <span class="math inline">\forall n\in A</span>, <span class="math inline">\mathcal{P}(n)</span> est vraie et supposons qu’il existe <span class="math inline">m</span> de <span class="math inline">\mathbb{N}</span> tel que <span class="math inline">\mathcal{P}(m)</span> soit fausse. Comme <span class="math inline">A</span> est infini alors il existe <span class="math inline">l</span> de <span class="math inline">A</span> tel que <span class="math inline">l\geq m</span>. Posons <span class="math inline">k=l-m</span> donc <span class="math inline">m=l-k</span>. Comme <span class="math inline">l\in A</span> donc <span class="math inline">\mathcal{P}(l)</span> est vraie et d’après <span class="math inline">(*)</span> on aura <span class="math inline">\mathcal{P}(l-k)</span> est vraie c’est-à-dire que <span class="math inline">\mathcal{P}(m)</span> est vraie. Ce qui contredit la définition de <span class="math inline">m</span>. D’où <span class="math inline">\mathcal{P}(n)</span> est vraie pour tout <span class="math inline">n</span> de <span class="math inline">\mathbb{N}</span>.</p>
 </div>
-<div class="example" title="(Utilisation de la récurrence partielle et descendante)">
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 1.33 — (Utilisation de la récurrence partielle et descendante)</strong></p>
 <p>Montrons par récurrence que : <span class="math display">\forall n \in\mathbb{N}^*,\ \mathcal{P}(n) : \forall x_1,\cdots,x_n&gt;0,\quad \overset{\underbrace{\textbf{Moyenne géométrique}}}{(x_1 x_2\cdots x_n)^{\frac{1}{n}}}\leq \overset{\underbrace{\textbf{Moyenne arithmétique}}}{\frac{x_1+\cdots+x_n}{n}}</span></p>
 <p><strong>Étape 1 :</strong> montrons, en utilisant la récurrence partielle, que <span class="math inline">\mathcal{P}(n)</span> est vraie pour tout <span class="math inline">n</span> de la forme <span class="math inline">n=2^k</span> <span class="math inline">(k\in\mathbb{N})</span> :</p>
 <ul>
