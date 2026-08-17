@@ -1,10 +1,393 @@
 ---
-title: "Chapitre 05 : Fonctions usuelles"
-pagetitle: "Fonctions usuelles - Mathématiques en CPGE"
+title: "Fonctions usuelles"
+subtitle: "Chapitre 05"
+author: "Said MAHARI"
+date: last-modified
+date-format: "D MMMM YYYY"
+lang: fr
+format:
+  html:
+    theme: cosmo
+    toc: true
+    number-sections: true
+    html-math-method: katex
+    css: styles.css
+filters:
+  - custom-numbered-blocks.lua
 ---
 
-**MPSI (1re année) — Chapitre 05.** exp, ln, ch, sh, th, arcsin, arccos, arctan.
+**MPSI (1re année) — Chapitre 05.** Fonctions $x\mapsto x^n$ et $x\mapsto\sqrt[n]{x}$, logarithme népérien, exponentielle, exponentielle et logarithme de base $a$, fonction puissance, fonctions circulaires et leurs réciproques, fonctions hyperboliques et leurs réciproques.
 
-## Document
+Ce chapitre a été réalisé conformément au programme marocain de mathématiques de la filière MPSI.
 
-*PDF à venir : déposez le fichier `files/mpsi/chap05.pdf` puis régénérez la page.*
+# Fonctions usuelles
+
+## Formules de dérivation (Rappels)
+
+::: {.theorem}
+1. Si $f : I \longrightarrow J$ et $g : J \longrightarrow K$, avec $I$, $J$ et $K$ des intervalles de $\mathbb{R}$, sont deux fonctions vérifiant :
+   - $f$ est dérivable sur $I$,
+   - $g$ est dérivable sur $J$,
+
+   alors $g\circ f$ est dérivable sur $I$ et on a :
+$$\forall x\in I,\ (g\circ f)'(x)=f'(x)\times g'(f(x))$$
+2. En particulier, si $f$ est bijective et $f'$ ne s'annule pas sur $I$, alors $f^{-1}$ est dérivable et on a :
+$$\forall x\in J,\ (f^{-1})'(x)=\frac{1}{f'(f^{-1}(x))}$$
+:::
+
+## Les fonctions $x\longmapsto x^n$ et $x\longmapsto\sqrt[n]{x}$
+
+### La fonction $x\longmapsto x^n$
+
+Il s'agit d'étudier la fonction $f_n : x\in\mathbb{R}\longmapsto x^n$ avec $n\in\mathbb{N}^*$ et de dégager ses principales propriétés.
+
+1. **Domaine de définition :**
+$$D_{f_n}=\mathbb{R}$$
+2. **Dérivée :** la fonction $f_n$ est dérivable sur $\mathbb{R}$ et on a :
+$$\forall x\in\mathbb{R},\ f_n'(x)=nx^{n-1}$$
+3. **Tableau de variations :**
+   - **Lorsque $n$ est pair :** $f_n'$ est négative sur $]-\infty,0[$ et positive sur $]0,+\infty[$ ; $f_n$ décroît de $+\infty$ à $0$ (minimum en $0$) puis croît de $0$ à $+\infty$.
+   - **Lorsque $n$ est impair :** $f_n'$ est positive sur $\mathbb{R}$ ; $f_n$ est strictement croissante de $-\infty$ à $+\infty$.
+
+### La fonction $x\longmapsto\sqrt[n]{x}$
+
+Selon le tableau de variations de la fonction $f_n$, on constate qu'elle est bijective lorsque $n$ est impair ($f_n$ est strictement croissante et continue donc injective, et elle vérifie $f_n(\mathbb{R})=\mathbb{R}$), *i.e.* l'équation $y=x^n$ admet une unique solution. On en déduit que la bijection réciproque de $f_n$, la fonction $g_n : x\in\mathbb{R}\longmapsto\sqrt[n]{x}$, est bien définie.
+
+Lorsque $n$ est pair, $f_n$ n'est ni injective ni surjective ; par suite, sa bijection réciproque $g_n$ n'est pas définie sur $\mathbb{R}$. Pourtant, on peut définir $g_n$ sur $\mathbb{R}^+$ lorsque $n$ est pair.
+
+1. **Domaine de définition :**
+   - Lorsque $n$ est pair : $D_{g_n}=\mathbb{R}^+$.
+   - Lorsque $n$ est impair : $D_{g_n}=\mathbb{R}$.
+2. **Dérivée :**
+   - Lorsque $n$ est pair : $\forall x\in\mathbb{R}_+^*,\ g_n'(x)=\frac{1}{n\sqrt[n]{x^{n-1}}}$.
+   - Lorsque $n$ est impair : $\forall x\in\mathbb{R}^*,\ g_n'(x)=\frac{1}{n\sqrt[n]{x^{n-1}}}$.
+3. **Tableau de variations :**
+   - **Lorsque $n$ est pair :** $g_n$ est strictement croissante de $0$ à $+\infty$.
+   - **Lorsque $n$ est impair :** $g_n$ est strictement croissante de $-\infty$ à $+\infty$.
+
+### Représentation graphique des fonctions $f_n$ et $g_n$
+
+Lorsque $g_n$ est définie, elle est la bijection réciproque de $f_n$ ; donc, si on considère un repère orthonormé, les courbes représentatives de ces deux fonctions sont symétriques par rapport à la première bissectrice du repère.
+
+<!-- ![Courbes de f_n et g_n](img/fn-gn.jpg) -->
+
+## Fonctions logarithme, exponentielle et puissance
+
+### Fonction logarithme népérien
+
+La fonction $x\longmapsto\frac{1}{x}$ est continue sur $]0,+\infty[$, elle admet alors une primitive qui s'annule en 1. C'est la fonction :
+$$\int_1^x \frac{dt}{t}$$
+
+::: {.definition}
+L'unique primitive de la fonction $x\longmapsto\frac{1}{x}$ qui s'annule en 1 est appelée **logarithme népérien** et notée $\ln$ (ou $\operatorname{Log}$). On a donc :
+$$\forall x\in\mathbb{R}^*_+,\ \ln x=\int_1^x\frac{dt}{t}$$
+:::
+
+Soient $x,y\in]0,+\infty[$ ; considérons la fonction d'expression $f(x)=\ln(xy)$. On a $f'(x)=\frac{1}{x}$, donc $f(x)=\ln x+C$. Or, $f(1)=\ln y$ donc $C=\ln y$. D'où le théorème suivant :
+
+::: {.theorem}
+$$\forall x,y>0,\ \ln(xy)=\ln x+\ln y$$
+:::
+
+::: {.corollary}
+- Si $u$ est une fonction dérivable qui ne s'annule pas, alors $\left(\ln(|u|)\right)'=\frac{u'}{u}$.
+- $\forall x,y\in\mathbb{R}^*,\ \ln(|xy|)=\ln(|x|)+\ln(|y|)$.
+- $\forall x,y\in\mathbb{R}^*,\ \ln\left(\left|\frac{x}{y}\right|\right)=\ln(|x|)-\ln(|y|)$.
+- $\forall n\in\mathbb{Z}^*,\ \forall x\in\mathbb{R}^*,\ \ln(|x|^n)=n\ln(|x|)$.
+:::
+
+::: {.theorem title="(Limites du logarithme népérien)"}
+$$\lim_{x\to+\infty}\ln x=+\infty \quad;\quad \lim_{x\to 0^+}\ln x=-\infty \quad;\quad \lim_{x\to+\infty}\frac{\ln(x)}{x}=0 \quad;\quad \lim_{x\to 1}\frac{\ln(x)}{x-1}=1$$
+:::
+
+**Représentation graphique du logarithme**
+
+<!-- ![Courbe du logarithme népérien](img/Log.jpg) -->
+
+### Fonction exponentielle
+
+La fonction $\ln$ est strictement croissante et continue sur $I=]0,+\infty[$, elle définit une bijection de l'intervalle $I$ dans $\ln(I)=\mathbb{R}$.
+
+::: {.definition}
+La réciproque du $\ln$ est appelée **fonction exponentielle** et notée $\exp$ ; elle est définie par :
+$$\exp : \begin{array}{rcl} \mathbb{R} & \longrightarrow & ]0,+\infty[ \\ x & \longmapsto & \exp(x)=y \text{ tel que } \ln y=x\end{array}$$
+:::
+
+::: {.proposition}
+1. La fonction $\exp$ est strictement croissante et continue sur $\mathbb{R}$ ; de plus $\exp(0)=1$ et $\exp(1)=e$.
+2. La fonction $\ln$ est dérivable sur $]0,+\infty[$ et sa dérivée ne s'annule pas, donc la fonction $\exp$ est dérivable sur $\mathbb{R}$ et :
+$$\forall x\in\mathbb{R},\ \exp'(x)=\frac{1}{\ln'(\exp(x))}=\exp(x)$$
+3. Dans un repère orthonormé, la courbe de la fonction $\exp$ et celle de la fonction $\ln$ sont symétriques par rapport à la première bissectrice.
+:::
+
+Soient $x,y\in\mathbb{R}$ ; notons $X=\exp(x)$ et $Y=\exp(y)$ : alors $X$ et $Y$ sont dans $]0,+\infty[$ et on peut donc écrire $\ln(XY)=\ln(X)+\ln(Y)$, ce qui donne $x+y=\ln(XY)$ ; par conséquent $\exp(x+y)=XY=\exp(x)\exp(y)$. On peut donc énoncer :
+
+::: {.theorem}
+$$\forall x,y\in\mathbb{R},\ \exp(x+y)=\exp(x)\times\exp(y)$$
+En particulier, $\forall x\in\mathbb{R},\ \exp(-x)=\frac{1}{\exp(x)}$.
+:::
+
+**Notation :** $\exp(x)=e^x$. La propriété précédente s'écrit alors :
+$$\forall x,y\in\mathbb{R},\ e^{x+y}=e^x\times e^y$$
+
+::: {.theorem title="(Limites de la fonction exponentielle)"}
+$$\lim_{x\to-\infty}e^x=0 \quad;\quad \lim_{x\to+\infty}e^x=+\infty \quad;\quad \lim_{x\to+\infty}\frac{e^x}{x}=+\infty \quad;\quad \lim_{x\to 0}\frac{e^x-1}{x}=1$$
+:::
+
+::: {.remark}
+Il en découle $\lim_{x\to+\infty}xe^{-x}=0$.
+:::
+
+**Représentation graphique de l'exponentielle**
+
+<!-- ![Courbe de l'exponentielle](img/Exp.jpg) -->
+
+### Fonctions exponentielle et logarithme de base $a$
+
+::: {.definition}
+Soit $a>0$. On appelle **exponentielle de base** $a$ la fonction notée $\exp_a$ définie sur $\mathbb{R}$ par :
+$$\forall x\in\mathbb{R},\ \exp_a(x)=e^{x\ln a}$$
+:::
+
+::: {.proposition}
+1. $\forall x,y\in\mathbb{R},\ \exp_a(x+y)=\exp_a(x)\times\exp_a(y)$.
+2. $\exp_a(0)=1$ ; $\exp_a(1)=a$ ; $\forall x\in\mathbb{R},\ \exp_e(x)=e^x$.
+3. La fonction $\exp_a$ est dérivable sur $\mathbb{R}$ et $\forall x\in\mathbb{R},\ \exp_a'(x)=\ln(a)\times\exp_a(x)$.
+4. $\forall x\in\mathbb{R},\ \exp_{\frac{1}{a}}(x)=\frac{1}{\exp_a(x)}$.
+5. $\forall x\in\mathbb{R},\ \exp_a(x)=a^x$ et on a les formules suivantes :
+   - $\forall a>0,\ \forall x\in\mathbb{R},\ \exp_a(x)=e^{x\ln a}$ ;
+   - $\forall a>0,\ \forall x\in\mathbb{R},\ \ln(a^x)=x\ln a$ ;
+   - $\forall a>0,\ \forall x,y\in\mathbb{R},\ a^{x+y}=a^x\times a^y$, $a^0=1$ et $a^1=a$ ;
+   - $\forall a>0,\ \forall x\in\mathbb{R},\ a^{-x}=\frac{1}{a^x}$, d'où $\forall a>0,\ \forall x,y\in\mathbb{R},\ a^{x-y}=\frac{a^x}{a^y}$ ;
+   - $\forall a>0,\ \forall x,y\in\mathbb{R},\ [a^x]^y=a^{xy}$, et donc $\forall a>0,\ \forall x\in\mathbb{R},\ \left(\frac{1}{a}\right)^x=\frac{1}{a^x}$ ;
+   - $\forall a,b>0,\ \forall x\in\mathbb{R},\ a^x\times b^x=(ab)^x$, et donc $\left(\frac{a}{b}\right)^x=\frac{a^x}{b^x}$ ;
+   - si $x\neq 0$, $a^x=b \iff a=b^{\frac{1}{x}}$.
+6. Si $u,v : \mathbb{R}\longrightarrow\mathbb{R}$ sont deux fonctions avec $u$ strictement positive (*i.e.* $\forall x\in\mathbb{R},\ u(x)>0$), alors :
+   - $\forall x\in\mathbb{R},\ u(x)^{v(x)}=e^{v(x)\ln(u(x))}$ ;
+   - $\forall x\in\mathbb{R},\ \left(u(x)^{v(x)}\right)'=\left(v'(x)\ln(u(x))+\frac{v(x)u'(x)}{u(x)}\right)e^{v(x)\ln(u(x))}$ ;
+   - en particulier, pour $v(x)=\alpha\in\mathbb{R}$, on a $\left(u(x)^{\alpha}\right)'=\alpha u'(x)u(x)^{\alpha-1}$.
+:::
+
+::: {.remark}
+Si $a\neq 1$, la fonction $\exp_a$ est strictement monotone et, puisqu'elle est continue, elle est bijective de $\mathbb{R}$ dans $\exp_a(\mathbb{R})=]0,+\infty[$.
+:::
+
+::: {.definition}
+Soit $a\in\mathbb{R}^*_+\smallsetminus\{1\}$. On appelle **logarithme de base $a$** la fonction notée $\log_a$ définie sur $]0,+\infty[$ par :
+$$\forall x\in]0,+\infty[,\ \log_a(x)=\frac{\ln x}{\ln a}$$
+:::
+
+::: {.proposition}
+1. La fonction $\log_a$ est la réciproque de la fonction $\exp_a$.
+2. $\forall x,y\in\mathbb{R}^*_+,\ \log_a(xy)=\log_a(x)+\log_a(y)$.
+3. $\log_a(1)=0$ ; $\log_a(a)=1$ ; $\forall x\in\mathbb{R}^*_+,\ \ln x=\log_e(x)$.
+4. La fonction $\log_a$ est dérivable et on a $\forall x>0,\ \log_a'(x)=\frac{1}{x\ln a}$.
+5. $\forall x>0,\ \log_{\frac{1}{a}}(x)=-\log_a(x)$.
+:::
+
+### Fonction puissance
+
+Si $a$ est un réel et si $x>0$, alors on a déjà adopté la notation suivante :
+$$x^a=\exp_x(a)=e^{a\ln x}$$
+Cela définit la fonction $f_a : x\in]0,+\infty[\longmapsto x^a\in]0,+\infty[$, qui est continue et dérivable avec :
+$$f_a'(x)=ax^{a-1}$$
+On a $\lim_{x\to 0^+}f_a(x)=\begin{cases}0, & \text{si } a>0\\ +\infty, & \text{si } a<0\end{cases}$. Donc $\mathcal{C}_{f_a}$ admet une asymptote au voisinage de 0 lorsque $a<0$, et lorsque $a>0$ :
+$$\frac{f_a(x)-0}{x}=x^{a-1}=e^{(a-1)\ln x}\underset{x\to 0^+}{\longrightarrow}\begin{cases}0, & \text{si } a>1\\ +\infty, & \text{si } 0<a<1\end{cases}$$
+Donc $\mathcal{C}_{f_a}$ admet une tangente horizontale lorsque $a>1$ et une tangente verticale lorsque $0<a<1$.
+
+<!-- ![Courbes de la fonction puissance](img/Puiss.jpg) -->
+
+::: {.theorem title="(Propriétés)"}
+Avec $x,y>0$ et $a,b\in\mathbb{R}$, on a :
+
+1. $x^a\times x^b=x^{a+b}$, et donc $x^{-a}=\frac{1}{x^a}$ et $\frac{x^a}{x^b}=x^{a-b}$.
+2. $(x^a)^b=x^{ab}$.
+3. $(xy)^a=x^a\times y^a$.
+4. Pour $a$ non nul, $y=x^a \iff x=y^{\frac{1}{a}}$.
+:::
+
+## Fonctions circulaires
+
+### Rappels
+
+Le plan $\mathcal{P}$ est muni d'un repère orthonormé direct $(O,\vec{i},\vec{j})$. Soit $x$ un réel, et $M(x)$ le point du cercle $\mathcal{C}(O,1)$, appelé **le cercle trigonométrique** ou **le cercle unité**, tel que $(\vec{i},\vec{OM})=x\ [2\pi]$ ; alors les coordonnées de $M(x)$ sont $(\cos(x),\sin(x))$. Lorsque $x\neq\frac{\pi}{2}\ [\pi]$, on pose :
+$$\tan(x)=\frac{\sin(x)}{\cos(x)}$$
+et lorsque $x\neq 0\ [\pi]$, on pose :
+$$\cot(x)=\frac{\cos(x)}{\sin(x)}$$
+
+::: {.proposition title="(Formules trigonométriques)"}
+1. $\forall x\in\mathbb{R},\ \sin^2 x+\cos^2 x=1$.
+2. Les fonctions sinus et cosinus sont $2\pi$-périodiques, définies, continues et dérivables sur $\mathbb{R}$, à valeurs dans $[-1,1]$, et on a :
+$$\sin'=\cos \quad \textbf{et} \quad \cos'=-\sin$$
+3. La fonction tangente est $\pi$-périodique, définie, continue et dérivable sur $\mathbb{R}\smallsetminus\left\{\frac{\pi}{2}+k\pi \,/\, k\in\mathbb{Z}\right\}$ et on a :
+$$\tan'(x)=1+\tan^2(x)=\frac{1}{\cos^2(x)}$$
+4. Les fonctions sinus et tangente sont impaires alors que la fonction cosinus est paire.
+5. $\forall x\in\mathbb{R},\ \sin(\pi-x)=\sin x$ et $\cos(\pi-x)=-\cos x$.
+6. **Formules d'addition :** $\forall x,y\in\mathbb{R}$, on a :
+   - $\cos(x+y)=\cos x\cos y-\sin x\sin y$ ;
+   - $\sin(x+y)=\sin x\cos y+\cos x\sin y$ ;
+   - $\tan(x+y)=\frac{\tan x+\tan y}{1-\tan x\tan y}$ avec $x,y,x+y\in\mathbb{R}\smallsetminus\left\{\frac{\pi}{2}+k\pi \,/\, k\in\mathbb{Z}\right\}$.
+:::
+
+<!-- ![Courbes des fonctions circulaires](img/FctCirc.jpg) -->
+
+### Réciproques des fonctions circulaires
+
+#### Fonction Arcsinus
+
+La fonction $\sin$ est strictement croissante et continue sur $I=\left[-\frac{\pi}{2},\frac{\pi}{2}\right]$ ; elle définit une bijection de $I$ dans $\sin I=J=[-1,1]$. Sa bijection réciproque est notée $\arcsin$ et appelée **arcsinus** ; elle est définie par :
+$$\arcsin : \begin{array}{rcl} [-1,1] & \longrightarrow & \left[-\frac{\pi}{2},\frac{\pi}{2}\right] \\ x & \longmapsto & \arcsin(x)=y \text{ tel que } \sin(y)=x\end{array}$$
+Cette fonction est strictement croissante et continue sur $[-1,1]$ ; elle est dérivable sur $]-1,1[$ mais ni en $-1$ ni en $1$ (elle admet une tangente verticale en ces points) ; on a la formule suivante :
+$$\forall x\in]-1,1[,\ \arcsin'(x)=\frac{1}{\cos(\arcsin x)}=\frac{1}{\sqrt{1-x^2}}$$
+
+::: {.proposition title="(Propriétés de arcsin)"}
+1. $\forall x\in[-1,1],\ \sin(\arcsin x)=x$.
+2. $\forall x\in\left[-\frac{\pi}{2},\frac{\pi}{2}\right],\ \arcsin(\sin x)=x$.
+3. $\forall x\in[-1,1],\ \arcsin(-x)=-\arcsin x$ (fonction impaire).
+4. $\forall x\in[-1,1],\ \cos(\arcsin x)=\sqrt{1-x^2}$.
+5. $\forall x\in[-\pi,\pi],\ \arcsin(\cos x)=\frac{\pi}{2}-|x|$.
+:::
+
+#### Fonction Arccosinus
+
+La fonction $f:[0,\pi]\longrightarrow[-1,1]$ définie par $f(x)=\cos(x)$ est continue et strictement décroissante ; elle définit donc une bijection de $[0,\pi]$ sur $[-1,1]$. Par définition, la bijection réciproque de $f$ est appelée fonction **arccosinus** et notée $\arccos$ ; elle est définie par :
+$$\arccos : \begin{array}{rcl} [-1,1] & \longrightarrow & [0,\pi] \\ x & \longmapsto & \arccos(x)=y \text{ tel que } \cos y=x\end{array}$$
+Cette fonction est strictement décroissante et continue sur $[-1,1]$ ; elle est dérivable sur $]-1,1[$ mais ni en $-1$ ni en $1$ (elle admet une tangente verticale en ces points) ; on a la formule suivante :
+$$\forall x\in]-1,1[,\ \arccos'(x)=\frac{-1}{\sin(\arccos x)}=\frac{-1}{\sqrt{1-x^2}}$$
+
+::: {.proposition title="(Propriétés de arccos)"}
+1. $\forall x\in[-1,1],\ \cos(\arccos x)=x$.
+2. $\forall x\in[0,\pi],\ \arccos(\cos x)=x$.
+3. $\forall x\in[-1,1],\ \sin(\arccos x)=\sqrt{1-x^2}$.
+4. $\forall x\in[-1,1],\ \arcsin x+\arccos x=\frac{\pi}{2}$.
+5. $\forall x\in[-1,1],\ \arccos(-x)=\pi-\arccos x$.
+:::
+
+#### Fonction Arctangente
+
+La fonction $f:\left]-\frac{\pi}{2},\frac{\pi}{2}\right[\longrightarrow\mathbb{R}$ définie par $f(x)=\tan(x)$ est continue et strictement croissante ; elle définit donc une bijection de $\left]-\frac{\pi}{2},\frac{\pi}{2}\right[$ sur $\mathbb{R}$. Par définition, la bijection réciproque de $f$ est appelée fonction **arctangente** et notée $\arctan$ ; elle est définie par :
+$$\arctan : \begin{array}{rcl} \mathbb{R} & \longrightarrow & \left]-\frac{\pi}{2},\frac{\pi}{2}\right[ \\ x & \longmapsto & \arctan(x)=y \text{ tel que } \tan y=x\end{array}$$
+Cette fonction est strictement croissante, continue et dérivable sur $\mathbb{R}$ ; on a la formule suivante :
+$$\forall x\in\mathbb{R},\ \arctan'(x)=\frac{1}{1+\tan^2(\arctan x)}=\frac{1}{1+x^2}$$
+
+::: {.proposition title="(Propriétés de arctan)"}
+1. $\forall x\in\mathbb{R},\ \tan(\arctan x)=x$.
+2. $\forall x\in\left]-\frac{\pi}{2},\frac{\pi}{2}\right[,\ \arctan(\tan x)=x$.
+3. $\forall x\in\mathbb{R},\ \arctan(-x)=-\arctan x$ (fonction impaire).
+4. $\forall x\in\mathbb{R}^*_+,\ \arctan x+\arctan\left(\frac{1}{x}\right)=\frac{\pi}{2}$.
+5. $\forall x\in\mathbb{R},\ \arctan x=\arcsin\left(\frac{x}{\sqrt{1+x^2}}\right)$.
+:::
+
+## Fonctions hyperboliques
+
+::: {.definition}
+Pour $x\in\mathbb{R}$, la fonction d'expression $\operatorname{ch}(x)=\frac{e^x+e^{-x}}{2}$ est appelée **cosinus hyperbolique**, la fonction d'expression $\operatorname{sh}(x)=\frac{e^x-e^{-x}}{2}$ est appelée **sinus hyperbolique**, et la fonction d'expression $\operatorname{th}(x)=\frac{\operatorname{sh}(x)}{\operatorname{ch}(x)}=\frac{e^x-e^{-x}}{e^x+e^{-x}}$ est appelée **tangente hyperbolique**.
+:::
+
+### Fonction cosinus hyperbolique
+
+La fonction $\operatorname{ch}$ est paire, continue et dérivable sur $\mathbb{R}$ et $\operatorname{ch}'(x)=\operatorname{sh}(x)$ ; on en déduit son tableau de variations et sa courbe.
+
+::: {.proposition title="(Propriétés de ch)"}
+1. $\forall x\in\mathbb{R},\ \operatorname{ch}(x)\geq 1$.
+2. $\lim_{x\to+\infty}\frac{\operatorname{ch}(x)}{x}=+\infty$ et $\lim_{x\to+\infty}\frac{\operatorname{ch}(x)}{e^x}=\frac{1}{2}$.
+:::
+
+### Fonction sinus hyperbolique
+
+La fonction $\operatorname{sh}$ est impaire, définie, continue et dérivable sur $\mathbb{R}$ et $\operatorname{sh}'(x)=\operatorname{ch}(x)$ ; on en déduit son tableau des variations et sa courbe.
+
+::: {.proposition title="(Propriétés de sh)"}
+1. $\forall x\in\mathbb{R},\ \operatorname{ch}(x)+\operatorname{sh}(x)=e^x$ et $\operatorname{ch}(x)-\operatorname{sh}(x)=e^{-x}$.
+2. $\forall x>0,\ x<\operatorname{sh}(x)<\operatorname{ch}(x)$.
+3. $\lim_{x\to+\infty}\frac{\operatorname{sh}(x)}{x}=+\infty$ et $\lim_{x\to+\infty}\frac{\operatorname{sh}(x)}{e^x}=\frac{1}{2}$.
+:::
+
+### Fonction tangente hyperbolique
+
+La fonction $\operatorname{th}$ est impaire, continue et dérivable sur $\mathbb{R}$ et on a :
+$$\forall x\in\mathbb{R},\ \operatorname{th}'(x)=\frac{\operatorname{ch}^2(x)-\operatorname{sh}^2(x)}{\operatorname{ch}^2(x)}=1-\operatorname{th}^2(x)=\frac{1}{\operatorname{ch}^2(x)}$$
+D'où les variations et la courbe.
+
+::: {.proposition title="(Propriétés de th)"}
+1. $\forall x\in\mathbb{R},\ -1<\operatorname{th}(x)<1$.
+2. $\forall x>0,\ \operatorname{th}(x)<x$.
+:::
+
+### Formules hyperboliques
+
+::: {.proposition title="(Propriétés)"}
+1. $\forall x\in\mathbb{R},\ \operatorname{ch}^2(x)-\operatorname{sh}^2(x)=1$.
+2. **Formules d'addition :** $\forall x,y\in\mathbb{R}$, on a :
+   - $\operatorname{ch}(x+y)=\operatorname{ch}(x)\operatorname{ch}(y)+\operatorname{sh}(x)\operatorname{sh}(y)$ ;
+   - $\operatorname{sh}(x+y)=\operatorname{sh}(x)\operatorname{ch}(y)+\operatorname{ch}(x)\operatorname{sh}(y)$ ;
+   - $\operatorname{th}(x+y)=\frac{\operatorname{th}(x)+\operatorname{th}(y)}{1+\operatorname{th}(x)\operatorname{th}(y)}$ ;
+   - $\operatorname{ch}(x)+\operatorname{ch}(y)=2\operatorname{ch}\left(\frac{x+y}{2}\right)\operatorname{ch}\left(\frac{x-y}{2}\right)$ ;
+   - $\operatorname{ch}(x)-\operatorname{ch}(y)=2\operatorname{sh}\left(\frac{x+y}{2}\right)\operatorname{sh}\left(\frac{x-y}{2}\right)$ ;
+   - $\operatorname{sh}(x)+\operatorname{sh}(y)=2\operatorname{sh}\left(\frac{x+y}{2}\right)\operatorname{ch}\left(\frac{x-y}{2}\right)$ ;
+   - $\operatorname{th}(x)+\operatorname{th}(y)=\frac{\operatorname{sh}(x+y)}{\operatorname{ch}(x)\operatorname{ch}(y)}$.
+:::
+
+### Réciproques des fonctions hyperboliques
+
+#### Fonction $\operatorname{argch}$
+
+La fonction $\operatorname{ch}$ définit une bijection de $[0,+\infty[$ sur l'intervalle $[1,+\infty[$ ; la bijection réciproque est notée $\operatorname{argch}$ et appelée **argument cosinus hyperbolique** ; elle est définie par :
+$$\operatorname{argch} : \begin{array}{rcl} [1,+\infty[ & \longrightarrow & [0,+\infty[ \\ x & \longmapsto & \operatorname{argch}(x)=y \text{ tel que } \operatorname{ch}(y)=x\end{array}$$
+Cette fonction est continue sur $[1,+\infty[$, strictement croissante, dérivable sur $]1,+\infty[$ mais pas en 1 ; sa dérivée est :
+$$\forall x>1,\ \operatorname{argch}'(x)=\frac{1}{\operatorname{sh}(\operatorname{argch}(x))}=\frac{1}{\sqrt{x^2-1}}$$
+
+::: {.proposition title="(Propriétés de argch)"}
+1. $\forall x\geq 0,\ \operatorname{argch}(\operatorname{ch}(x))=x$.
+2. $\forall x\geq 1,\ \operatorname{ch}(\operatorname{argch}(x))=x$.
+3. $\forall x\geq 1,\ \operatorname{argch}(x)=\ln\left(x+\sqrt{x^2-1}\right)$.
+4. $\lim_{x\to+\infty}\frac{\operatorname{argch}(x)}{x}=0$ et $\lim_{x\to+\infty}\frac{\operatorname{argch}(x)}{\ln(x)}=1$.
+:::
+
+#### Fonction $\operatorname{argsh}$
+
+La fonction $\operatorname{sh}$ définit une bijection de $\mathbb{R}$ sur $\mathbb{R}$ ; la bijection réciproque est notée $\operatorname{argsh}$ et appelée **argument sinus hyperbolique** ; elle est définie par :
+$$\operatorname{argsh} : \begin{array}{rcl} \mathbb{R} & \longrightarrow & \mathbb{R} \\ x & \longmapsto & \operatorname{argsh}(x)=y \text{ tel que } \operatorname{sh}(y)=x\end{array}$$
+Cette fonction est continue sur $\mathbb{R}$, strictement croissante, dérivable sur $\mathbb{R}$ (car la dérivée de $\operatorname{sh}$ ne s'annule pas), et sa dérivée est :
+$$\forall x\in\mathbb{R},\ \operatorname{argsh}'(x)=\frac{1}{\operatorname{ch}(\operatorname{argsh}(x))}=\frac{1}{\sqrt{x^2+1}}$$
+
+::: {.proposition title="(Propriétés de argsh)"}
+1. $\forall x\in\mathbb{R},\ \operatorname{argsh}(\operatorname{sh}(x))=x$ et $\operatorname{sh}(\operatorname{argsh}(x))=x$.
+2. $\forall x\in\mathbb{R},\ \operatorname{argsh}(-x)=-\operatorname{argsh}(x)$.
+3. $\forall x\in\mathbb{R},\ \operatorname{argsh}(x)=\ln\left(x+\sqrt{x^2+1}\right)$.
+4. $\forall x>0,\ x>\operatorname{argsh}(x)$.
+5. $\lim_{x\to+\infty}\frac{\operatorname{argsh}(x)}{x}=0$ et $\lim_{x\to+\infty}\frac{\operatorname{argsh}(x)}{\ln(x)}=1$.
+:::
+
+#### Fonction $\operatorname{argth}$
+
+La fonction $\operatorname{th}$ définit une bijection de $\mathbb{R}$ sur $]-1,1[$ ; la bijection réciproque est notée $\operatorname{argth}$ et appelée **argument tangente hyperbolique** ; elle est définie par :
+$$\operatorname{argth} : \begin{array}{rcl} ]-1,1[ & \longrightarrow & \mathbb{R} \\ x & \longmapsto & \operatorname{argth}(x)=y \text{ tel que } \operatorname{th}(y)=x\end{array}$$
+Cette fonction est continue sur $]-1,1[$, strictement croissante, dérivable sur $]-1,1[$, et sa dérivée est :
+$$\forall x\in]-1,1[,\ \operatorname{argth}'(x)=\frac{1}{1-\operatorname{th}^2(\operatorname{argth}(x))}=\frac{1}{1-x^2}$$
+
+::: {.proposition title="(Propriétés de argth)"}
+1. $\forall x\in\mathbb{R},\ \operatorname{argth}(\operatorname{th}(x))=x$ et $\forall x\in]-1,1[,\ \operatorname{th}(\operatorname{argth}(x))=x$.
+2. $\forall x\in]-1,1[,\ \operatorname{argth}(-x)=-\operatorname{argth}(x)$.
+3. $\forall x\in]-1,1[,\ \operatorname{argth}(x)=\frac{1}{2}\ln\left(\frac{1+x}{1-x}\right)$.
+4. $\forall x\in]0,1[,\ x<\operatorname{argth}(x)$.
+:::
+
+
+
+# Document en PDF {-}
+[Chapitre 05 : Fonctions usuelles](PDF/mpsi-chap05.pdf)
+
+
+
+## Navigation {-}
+
+::: {.chap-nav}
+[Chapitre 04 : Nombres complexes et trigonométrie](mpsi-chap04.qmd){.prev}
+
+[Menu MPSI](mpsi.qmd){.home}
+
+[Chapitre 06 : Équations différentielles linéaires](mpsi-chap06.qmd){.next}
+:::
+
+

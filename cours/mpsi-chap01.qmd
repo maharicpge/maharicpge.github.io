@@ -4,6 +4,17 @@ subtitle: "Chapitre 01"
 author: "Said MAHARI"
 date: last-modified
 date-format: "D MMMM YYYY"
+sidebar:
+  style: docked
+  contents:
+    - href: cours/index.qmd
+      text: "← Tous les cours"
+    - section: "MPSI — 1re année"
+      contents:
+        - cours/mpsi-chap01.qmd
+        - cours/mpsi-chap02.qmd
+        # - cours/mpsi-chap03.qmd
+
 lang: fr
 format:
   html:
@@ -802,6 +813,23 @@ Ainsi, on a montré $\mathcal{P}(n-1)$.
 **Conclusion :**
 $$\forall n\in\mathbb{N}^*,\ \forall x_1,\cdots,x_n>0,\quad (x_1 x_2\cdots x_n)^{\frac{1}{n}}\leq \frac{x_1+\cdots+x_n}{n}$$
 :::
-# Document en PDF
 
-*[Chapitre 01 : Logique et raisonnement](PDF/mpsi-chap01.pdf)*
+
+
+
+## Document en PDF {-}
+
+**[Chapitre 01 : Logique et raisonnement](PDF/mpsi-chap01.pdf)**
+
+
+
+
+## Navigation {-}
+
+::: {.chap-nav}
+[Accueil](../index.qmd){.prev}
+
+[Menu MPSI](mpsi.qmd){.home}
+
+[Chapitre 02 : Ensembles et applications](mpsi-chap02.qmd){.next}
+:::
