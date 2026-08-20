@@ -1,10 +1,407 @@
 ---
-title: "Chapitre 10 : Polynômes"
-pagetitle: "Polynômes - Mathématiques en CPGE"
+title: "Polynômes"
+subtitle: "Chapitre 10"
+author: "Said MAHARI"
+date: last-modified
+date-format: "D MMMM YYYY"
+lang: fr
+format:
+  html:
+    theme: cosmo
+    toc: true
+    number-sections: true
+    html-math-method: katex
+    css: styles.css
+filters:
+  - custom-numbered-blocks.lua
 ---
 
-**MPSI (1re année) — Chapitre 10.** Anneau $\mathbb{K}[X]$, division euclidienne, racines, multiplicité, d'Alembert-Gauss, factorisation.
+**MPSI (1re année) — Chapitre 10.** Anneau $\mathbb{K}[X]$, opérations et degré, division euclidienne, pgcd et Bézout, racines et multiplicité, théorème de d'Alembert-Gauss, factorisation dans $\mathbb{C}[X]$ et $\mathbb{R}[X]$.
 
-## Document
+Ce chapitre a été réalisé conformément au programme marocain de mathématiques de la filière MPSI.
 
-*PDF à venir : déposez le fichier `files/mpsi/chap10.pdf` puis régénérez la page.*
+# Polynômes {-}
+
+Dans ce chapitre, $\mathbb{K}$ désigne l'un des corps $\mathbb{Q}$, $\mathbb{R}$ ou $\mathbb{C}$. Les polynômes sont des objets très simples mais aux propriétés extrêmement riches : leur arithmétique présente une grande analogie avec celle des entiers.
+
+# Définitions et opérations
+
+## Définitions
+
+::: {.definition}
+Un **polynôme** à coefficients dans $\mathbb{K}$ est une expression de la forme
+$$P(X)=a_nX^n+a_{n-1}X^{n-1}+\cdots+a_2X^2+a_1X+a_0,$$
+avec $n\in\mathbb{N}$ et $a_0,a_1,\ldots,a_n\in\mathbb{K}$. L'ensemble des polynômes est noté $\mathbb{K}[X]$.
+
+- $X$ est appelé **indéterminée** ;
+- les $a_i$ sont appelés les **coefficients** du polynôme ;
+- si tous les coefficients sont nuls, $P$ est le **polynôme nul**, noté $0$ ;
+- on appelle **degré** de $P$ le plus grand entier $i$ tel que $a_i\neq 0$ ; on le note $\deg P$. Par convention $\deg(0)=-\infty$ ;
+- un polynôme de la forme $P=a_0$ avec $a_0\in\mathbb{K}$ est un **polynôme constant**. Si $a_0\neq 0$, son degré est $0$.
+:::
+
+::: {.example}
+- $X^3-5X+\frac34$ est un polynôme de degré $3$.
+- $X^n+1$ est un polynôme de degré $n$.
+- $2$ est un polynôme constant, de degré $0$.
+:::
+
+## Opérations sur les polynômes
+
+- **Égalité.** $P=a_nX^n+\cdots+a_0$ et $Q=b_nX^n+\cdots+b_0$ sont égaux si et seulement si $\forall i,\ a_i=b_i$.
+- **Addition.** $P+Q=(a_n+b_n)X^n+(a_{n-1}+b_{n-1})X^{n-1}+\cdots+(a_1+b_1)X+(a_0+b_0)$.
+- **Multiplication.** $P\times Q=c_rX^r+\cdots+c_0$ avec $r=n+m$ et $c_k=\sum_{i+j=k}a_ib_j$.
+- **Multiplication par un scalaire.** Si $\lambda\in\mathbb{K}$, $\lambda\cdot P$ est le polynôme dont le $i$-ème coefficient est $\lambda a_i$.
+
+::: {.example}
+Soient $P=aX^3+bX^2+cX+d$ et $Q=\alpha X^2+\beta X+\gamma$. Alors :
+$$P+Q=aX^3+(b+\alpha)X^2+(c+\beta)X+(d+\gamma)$$
+$$P\times Q=(a\alpha)X^5+(a\beta+b\alpha)X^4+(a\gamma+b\beta+c\alpha)X^3+(b\gamma+c\beta+d\alpha)X^2+(c\gamma+d\beta)X+d\gamma$$
+Enfin $P=Q$ si et seulement si $a=0$, $b=\alpha$, $c=\beta$ et $d=\gamma$. La multiplication par un scalaire $\lambda\cdot P$ équivaut à multiplier le polynôme constant $\lambda$ par $P$.
+:::
+
+::: {.proposition}
+Pour $P,Q,R\in\mathbb{K}[X]$ :
+
+- $0+P=P$, $\quad P+Q=Q+P$, $\quad (P+Q)+R=P+(Q+R)$ ;
+- $1\cdot P=P$, $\quad P\times Q=Q\times P$, $\quad (P\times Q)\times R=P\times(Q\times R)$ ;
+- $P\times(Q+R)=P\times Q+P\times R$.
+:::
+
+Pour le degré, il faut faire attention :
+
+::: {.proposition}
+Soient $P$ et $Q$ deux polynômes à coefficients dans $\mathbb{K}$.
+$$\deg(P\times Q)=\deg P+\deg Q \qquad \deg(P+Q)\leq\max(\deg P,\deg Q)$$
+:::
+
+On note $\mathbb{K}_n[X]=\{P\in\mathbb{K}[X]\mid \deg P\leq n\}$. Si $P,Q\in\mathbb{K}_n[X]$ alors $P+Q\in\mathbb{K}_n[X]$.
+
+::: {.theorem}
+1. $(\mathbb{K}[X],+,\times)$ est un anneau commutatif intègre d'unité $1$.
+2. $(\mathbb{K}[X],+,\cdot)$ est un $\mathbb{K}$-espace vectoriel dont une base est la famille $(X^n)_{n\in\mathbb{N}}$.
+3. $(\mathbb{K}_n[X],+,\cdot)$ est un $\mathbb{K}$-espace vectoriel dont une base est la famille $(X^k)_{0\leq k\leq n}$.
+:::
+
+::: {.remark}
+- $(\mathbb{K}[X],+,\cdot)$ est de dimension infinie.
+- $(\mathbb{K}_n[X],+,\cdot)$ est de dimension finie et $\dim\mathbb{K}_n[X]=n+1$.
+:::
+
+## Vocabulaire
+
+::: {.definition}
+- Les polynômes comportant un seul terme non nul (du type $a_kX^k$) sont appelés **monômes**.
+- Soit $P=a_nX^n+\cdots+a_0$ avec $a_n\neq 0$. On appelle **terme dominant** le monôme $a_nX^n$ ; le coefficient $a_n$ est le **coefficient dominant** de $P$.
+- Si le coefficient dominant est $1$, on dit que $P$ est **unitaire**.
+:::
+
+::: {.example}
+$P(X)=(X-1)(X^n+X^{n-1}+\cdots+X+1)=\left(X^{n+1}+X^n+\cdots+X\right)-\left(X^n+\cdots+1\right)=X^{n+1}-1$.
+$P$ est donc un polynôme de degré $n+1$, unitaire, somme de deux monômes.
+:::
+
+::: {.remark}
+Tout polynôme est donc une somme finie de monômes.
+:::
+
+::: {.remark}
+Si $P=\sum_{k=0}^m a_kX^k$ et $Q=\sum_{k=0}^n b_kX^k\in\mathbb{K}[X]$ avec $a_m,b_n\neq 0$, alors :
+$$\deg(P+Q)=\max(\deg P,\deg Q) \iff \begin{cases} m\neq n \\ \text{ou} \\ m=n \text{ mais } b_n\neq -a_n\end{cases}$$
+:::
+
+::: {.exercise}
+1. Soit $P(X)=3X^3-2$, $Q(X)=X^2+X-1$, $R(X)=aX+b$. Calculer $P+Q$, $P\times Q$, $(P+Q)\times R$ et $P\times Q\times R$. Trouver $a$ et $b$ afin que le degré de $P-QR$ soit le plus petit possible.
+2. Calculer $(X+1)^5-(X-1)^5$.
+3. Déterminer le degré de $(X^2+X+1)^n-aX^{2n}-bX^{2n-1}$ en fonction de $a,b$.
+4. Montrer que si $\deg P\neq\deg Q$ alors $\deg(P+Q)=\max(\deg P,\deg Q)$. Donner un contre-exemple dans le cas $\deg P=\deg Q$.
+:::
+
+# Arithmétique des polynômes
+
+## Division euclidienne
+
+::: {.definition}
+Soient $A,B\in\mathbb{K}[X]$. On dit que $B$ **divise** $A$ s'il existe $Q\in\mathbb{K}[X]$ tel que $A=BQ$. On note alors $B\mid A$.
+:::
+
+::: {.proposition}
+Soient $A,B,C\in\mathbb{K}[X]$.
+
+1. Si $A\mid B$ et $B\mid A$, alors il existe $\lambda\in\mathbb{K}^*$ tel que $A=\lambda B$.
+2. Si $A\mid B$ et $B\mid C$ alors $A\mid C$.
+3. Si $C\mid A$ et $C\mid B$ alors $C\mid(AU+BV)$ pour tous $U,V\in\mathbb{K}[X]$.
+:::
+
+::: {.theorem title="(Division euclidienne)"}
+Soient $A,B\in\mathbb{K}[X]$ avec $B\neq 0$. Il existe un unique polynôme $Q$ et un unique polynôme $R$ tels que :
+$$A=BQ+R \quad \text{et} \quad \deg R<\deg B.$$
+$Q$ est le **quotient**, $R$ le **reste** ; $R=0$ si et seulement si $B\mid A$.
+:::
+
+::: {.proof}
+**Unicité.** Si $A=BQ+R$ et $A=BQ'+R'$, alors $B(Q-Q')=R'-R$. Or $\deg(R'-R)<\deg B$, donc $Q'-Q=0$, d'où $Q=Q'$ et $R=R'$.
+
+**Existence.** Récurrence sur $\deg A$. Si $\deg A=0$ et $\deg B>0$, on pose $Q=0$, $R=A$ ; si $\deg B=0$, on pose $Q=A/B$, $R=0$. On suppose l'existence vraie pour $\deg A\leq n-1$. Soient $A=a_nX^n+\cdots+a_0$ ($a_n\neq 0$) et $B=b_mX^m+\cdots+b_0$ ($b_m\neq 0$). Si $n<m$, on pose $Q=0$, $R=A$. Si $n\geq m$, on écrit $A=B\cdot\frac{a_n}{b_m}X^{n-m}+A_1$ avec $\deg A_1\leq n-1$, et on applique l'hypothèse de récurrence à $A_1$.
+:::
+
+::: {.example}
+Pour $A=2X^4-X^3-2X^2+3X-1$ et $B=X^2-X+1$, on trouve $Q=2X^2+X-3$ et $R=-X+2$. On n'oublie pas de vérifier qu'effectivement $A=BQ+R$.
+:::
+
+::: {.example}
+Pour $X^4-3X^3+X+1$ divisé par $X^2+2$, on trouve un quotient égal à $X^2-3X-2$ et un reste égal à $7X+5$.
+:::
+
+## pgcd, Bézout, Gauss
+
+::: {.proposition}
+Soient $A,B\in\mathbb{K}[X]$ avec $A\neq 0$ ou $B\neq 0$. Il existe un unique polynôme unitaire de plus grand degré qui divise à la fois $A$ et $B$.
+:::
+
+Cet unique polynôme est le **pgcd** de $A$ et $B$, noté $\operatorname{pgcd}(A,B)$.
+
+::: {.remark}
+- $\operatorname{pgcd}(A,B)$ est unitaire ;
+- si $A\mid B$ et $A\neq 0$, $\operatorname{pgcd}(A,B)=\frac{1}{\lambda}A$ où $\lambda$ est le coefficient dominant de $A$ ;
+- pour tout $\lambda\in\mathbb{K}^*$, $\operatorname{pgcd}(\lambda A,B)=\operatorname{pgcd}(A,B)$ ;
+- comme pour les entiers : si $A=BQ+R$ alors $\operatorname{pgcd}(A,B)=\operatorname{pgcd}(B,R)$ : c'est ce qui justifie l'algorithme d'Euclide.
+:::
+
+**Algorithme d'Euclide.** On calcule les divisions euclidiennes successives ; le degré du reste diminue à chaque division ; on arrête lorsque le reste est nul : le pgcd est le dernier reste non nul (rendu unitaire).
+
+::: {.example}
+Calculons le pgcd de $A=X^4-1$ et $B=X^3-1$ :
+$$\begin{aligned} X^4-1 &= (X^3-1)\times X+(X-1) \\ X^3-1 &= (X-1)(X^2+X+1)+0 \end{aligned}$$
+Le pgcd est le dernier reste non nul : $\operatorname{pgcd}(X^4-1,X^3-1)=X-1$.
+:::
+
+::: {.example}
+Pour $A=X^5+X^4+2X^3+X^2+X+2$ et $B=X^4+2X^3+X^2-4$ :
+$$\begin{aligned} X^5+X^4+2X^3+X^2+X+2 &= (X^4+2X^3+X^2-4)(X-1)+3X^3+2X^2+5X-2 \\ X^4+2X^3+X^2-4 &= (3X^3+2X^2+5X-2)\times\tfrac19(3X+4)-\tfrac{14}{9}(X^2+X+2) \\ 3X^3+2X^2+5X-2 &= (X^2+X+2)(3X-1)+0 \end{aligned}$$
+Ainsi $\operatorname{pgcd}(A,B)=X^2+X+2$.
+:::
+
+::: {.definition}
+$A$ et $B$ sont **premiers entre eux** si $\operatorname{pgcd}(A,B)=1$.
+:::
+
+::: {.theorem title="(Bézout)"}
+Soient $A,B\in\mathbb{K}[X]$ avec $A\neq 0$ ou $B\neq 0$ ; on note $D=\operatorname{pgcd}(A,B)$. Il existe deux polynômes $U,V\in\mathbb{K}[X]$ tels que :
+$$AU+BV=D$$
+:::
+
+::: {.corollary}
+$A$ et $B$ sont premiers entre eux si et seulement s'il existe $U,V$ tels que $AU+BV=1$.
+:::
+
+::: {.example}
+Nous avons calculé $\operatorname{pgcd}(X^4-1,X^3-1)=X-1$. En remontant l'algorithme d'Euclide : $X-1=(X^4-1)\times 1+(X^3-1)\times(-X)$. Donc $U=1$ et $V=-X$ conviennent.
+:::
+
+::: {.corollary title="(Lemme de Gauss)"}
+Si $A\mid BC$ et $\operatorname{pgcd}(A,B)=1$ alors $A\mid C$.
+:::
+
+::: {.corollary title="(Lemme d'Euclide)"}
+Si $A\mid C$, $B\mid C$ et $\operatorname{pgcd}(A,B)=1$ alors $AB\mid C$.
+:::
+
+## ppcm
+
+::: {.proposition}
+Soient $A,B\in\mathbb{K}[X]$ non nuls. Il existe un unique polynôme unitaire $M$ de plus petit degré tel que $A\mid M$ et $B\mid M$ : c'est le **ppcm**, noté $\operatorname{ppcm}(A,B)$. De plus, si $C$ vérifie $A\mid C$ et $B\mid C$, alors $M\mid C$.
+:::
+
+::: {.example}
+$$\operatorname{ppcm}\left(X(X-2)^2(X^2+1)^4,\ (X+1)(X-2)^3(X^2+1)^3\right)=X(X+1)(X-2)^3(X^2+1)^4$$
+:::
+
+# Racines d'un polynôme, factorisation
+
+## Formule de Taylor
+
+::: {.remark}
+Par analogie avec la dérivée d'une fonction, si $P(X)=a_0+a_1X+\cdots+a_nX^n\in\mathbb{K}[X]$, alors le polynôme $P'(X)=a_1+2a_2X+\cdots+na_nX^{n-1}$ est le **polynôme dérivé** de $P$.
+:::
+
+::: {.proposition}
+Toute famille $(P_k)_{0\leq k\leq n}$ de $\mathbb{K}[X]$ **échelonnée en degré**, c'est-à-dire
+$$0\leq\deg(P_0)<\deg(P_1)<\cdots<\deg(P_{n-1})<\deg(P_n),$$
+est libre.
+:::
+
+::: {.theorem title="(Formule de Taylor)"}
+Si $P\in\mathbb{K}[X]$ et $\alpha\in\mathbb{K}$ alors :
+$$P=\sum_{k=0}^{+\infty}\frac{P^{(k)}(\alpha)}{k!}(X-\alpha)^k$$
+:::
+
+## Racines et multiplicité
+
+::: {.definition}
+Soit $P=a_nX^n+\cdots+a_0\in\mathbb{K}[X]$. Pour $x\in\mathbb{K}$, on note $P(x)=a_nx^n+\cdots+a_1x+a_0$. On associe ainsi à $P$ la **fonction polynôme** $P:\mathbb{K}\to\mathbb{K},\ x\mapsto P(x)$.
+:::
+
+::: {.definition}
+$\alpha\in\mathbb{K}$ est une **racine** (ou un **zéro**) de $P$ si $P(\alpha)=0$.
+:::
+
+::: {.proposition}
+$$P(\alpha)=0 \iff X-\alpha \text{ divise } P$$
+:::
+
+::: {.proof}
+La division euclidienne de $P$ par $X-\alpha$ donne $P=Q\cdot(X-\alpha)+R$ où $R$ est une constante car $\deg R<\deg(X-\alpha)=1$. Donc $P(\alpha)=0\iff R(\alpha)=0\iff R=0\iff X-\alpha\mid P$.
+:::
+
+::: {.definition}
+Soit $k\in\mathbb{N}^*$. $\alpha$ est une **racine de multiplicité $k$** de $P$ si $(X-\alpha)^k$ divise $P$ alors que $(X-\alpha)^{k+1}$ ne divise pas $P$. Pour $k=1$ on parle de **racine simple**, pour $k=2$ de **racine double**, etc.
+:::
+
+::: {.proposition}
+Il y a équivalence entre :
+
+- (i) $\alpha$ est une racine de multiplicité $k$ de $P$ ;
+- (ii) il existe $Q\in\mathbb{K}[X]$ tel que $P=(X-\alpha)^kQ$ avec $Q(\alpha)\neq 0$ ;
+- (iii) $P(\alpha)=P'(\alpha)=\cdots=P^{(k-1)}(\alpha)=0$ et $P^{(k)}(\alpha)\neq 0$.
+:::
+
+## Théorème de d'Alembert-Gauss
+
+::: {.theorem title="(d'Alembert-Gauss)"}
+Tout polynôme à coefficients complexes de degré $n\geq 1$ a au moins une racine dans $\mathbb{C}$.
+:::
+
+::: {.example}
+Soit $P(X)=aX^2+bX+c$ ($a\neq 0$) à coefficients réels :
+
+- si $\Delta>0$, $P$ admet $2$ racines réelles distinctes $\frac{-b\pm\sqrt{\Delta}}{2a}$ ;
+- si $\Delta<0$, $P$ admet $2$ racines complexes distinctes $\frac{-b\pm i\sqrt{|\Delta|}}{2a}$ ;
+- si $\Delta=0$, $P$ admet une racine réelle double $\frac{-b}{2a}$.
+
+En tenant compte des multiplicités, on a donc toujours exactement $2$ racines.
+:::
+
+::: {.example}
+$P(X)=X^n-1$ admet $n$ racines distinctes : si $\alpha$ était racine de multiplicité $\geq 2$, alors $P(\alpha)=0$ et $P'(\alpha)=0$, donc $\alpha^n=1$ et $n\alpha^{n-1}=0$, d'où $\alpha=0$ : contradiction. (Ce sont les racines $n$-ièmes de l'unité.)
+:::
+
+::: {.theorem}
+Soit $P\in\mathbb{K}[X]$ de degré $n\geq 1$. Alors $P$ admet au plus $n$ racines dans $\mathbb{K}$.
+:::
+
+::: {.corollary}
+Tout polynôme non constant admet exactement un nombre de racines dans $\mathbb{C}$ égal à son degré.
+:::
+
+::: {.corollary}
+Tout polynôme qui admet un nombre de racines strictement supérieur à son degré est nul.
+:::
+
+::: {.exercise}
+Soit $P\in\mathbb{R}[X]$ tel que $\forall z\in\mathbb{C},\ |P(z)|=1$. Montrer que $P$ est constant.
+:::
+
+::: {.solution}
+Raisonnons par absurde en supposant $P$ non constant : $P=a_nX^n+\cdots+a_0$ avec $a_n\neq 0$ et $n\geq 1$. Pour $z>0$ :
+$$|a_n|z^n\left|1+\frac{a_{n-1}}{a_nz}+\cdots+\frac{a_0}{a_nz^n}\right|=|P(z)|=\frac{1}{|P(z)|}=\frac{1}{|a_n|z^n\left|1+\frac{a_{n-1}}{a_nz}+\cdots+\frac{a_0}{a_nz^n}\right|}$$
+Le premier membre tend vers $+\infty$ lorsque $z\to+\infty$ tandis que le second tend vers $0$ : absurde. D'où $P$ est constant, $P=\pm 1$.
+:::
+
+## Polynômes irréductibles et factorisation
+
+::: {.definition}
+Soit $P\in\mathbb{K}[X]$ de degré $\geq 1$. $P$ est **irréductible** si, pour tout $Q\in\mathbb{K}[X]$ divisant $P$, soit $Q\in\mathbb{K}^*$, soit il existe $\lambda\in\mathbb{K}^*$ tel que $Q=\lambda P$.
+:::
+
+::: {.remark}
+- Un polynôme irréductible est donc un polynôme non constant dont les seuls diviseurs sont les constantes non nulles ou lui-même (à une constante multiplicative près).
+- La notion de polynôme irréductible pour $\mathbb{K}[X]$ correspond à celle de nombre premier pour $\mathbb{Z}$.
+- Dans le cas contraire, $P$ est **réductible** : il existe $A,B\in\mathbb{K}[X]$ tels que $P=AB$ avec $\deg A\geq 1$ et $\deg B\geq 1$.
+:::
+
+::: {.example}
+- Tous les polynômes de degré $1$ sont irréductibles.
+- $X^2-1=(X-1)(X+1)$ est réductible dans $\mathbb{R}[X]$.
+- $X^2+1=(X-i)(X+i)$ est réductible dans $\mathbb{C}[X]$ mais irréductible dans $\mathbb{R}[X]$.
+- $X^2-2=(X-\sqrt2)(X+\sqrt2)$ est réductible dans $\mathbb{R}[X]$ mais irréductible dans $\mathbb{Q}[X]$.
+:::
+
+::: {.theorem title="(Factorisation)"}
+Tout polynôme non constant $A\in\mathbb{K}[X]$ s'écrit comme un produit de polynômes irréductibles unitaires :
+$$A=\lambda P_1^{k_1}P_2^{k_2}\cdots P_r^{k_r}$$
+où $\lambda\in\mathbb{K}^*$, $r\in\mathbb{N}^*$, $k_i\in\mathbb{N}^*$ et les $P_i$ sont irréductibles distincts. De plus cette décomposition est unique à l'ordre près des facteurs.
+:::
+
+::: {.theorem}
+Les polynômes irréductibles de $\mathbb{C}[X]$ sont les polynômes de degré $1$. Donc pour $P\in\mathbb{C}[X]$ de degré $n\geq 1$ :
+$$P=\lambda(X-\alpha_1)^{k_1}(X-\alpha_2)^{k_2}\cdots(X-\alpha_r)^{k_r}$$
+où les $\alpha_i$ sont les racines distinctes de $P$ et les $k_i$ leurs multiplicités.
+:::
+
+::: {.theorem}
+Les polynômes irréductibles de $\mathbb{R}[X]$ sont les polynômes de degré $1$ ainsi que les polynômes de degré $2$ de discriminant $\Delta<0$. Pour $P\in\mathbb{R}[X]$ de degré $n\geq 1$ :
+$$P=\lambda(X-\alpha_1)^{k_1}\cdots(X-\alpha_r)^{k_r}Q_1^{\ell_1}\cdots Q_s^{\ell_s}$$
+où les $\alpha_i$ sont les racines réelles distinctes et les $Q_i=X^2+\beta_iX+\gamma_i$ irréductibles avec $\Delta_i=\beta_i^2-4\gamma_i<0$.
+:::
+
+::: {.example}
+$P(X)=2X^4(X-1)^3(X^2+1)^2(X^2+X+1)$ est déjà décomposé en facteurs irréductibles dans $\mathbb{R}[X]$ ; dans $\mathbb{C}[X]$ :
+$$P(X)=2X^4(X-1)^3(X-i)^2(X+i)^2(X-j)(X-j^2) \quad \text{où } j=e^{\frac{2i\pi}{3}}=\frac{-1+i\sqrt3}{2}$$
+:::
+
+::: {.example}
+Soit $P(X)=X^4+1$.
+
+- Sur $\mathbb{C}$ : $P(X)=\left(X-\tfrac{\sqrt2}{2}(1+i)\right)\left(X+\tfrac{\sqrt2}{2}(1+i)\right)\left(X-\tfrac{\sqrt2}{2}(1-i)\right)\left(X+\tfrac{\sqrt2}{2}(1-i)\right)$.
+- Sur $\mathbb{R}$ : en regroupant les facteurs à racines conjuguées :
+$$P(X)=\left(X^2+\sqrt2X+1\right)\left(X^2-\sqrt2X+1\right)$$
+:::
+
+## Relations de Viète
+
+::: {.theorem title="(Relations de Viète)"}
+Soit $P=a_nX^n+\cdots+a_0\in\mathbb{K}[X]$ avec $a_n\neq 0$ et $n\geq 1$, admettant $n$ racines $x_1,\cdots,x_n$ : $P=a_n\prod_{k=1}^n(X-x_k)$. En posant $\sigma_k=\sum_{1\leq i_1<\cdots<i_k\leq n}x_{i_1}\cdots x_{i_k}$, on a :
+$$\sigma_k=(-1)^k\frac{a_{n-k}}{a_n}$$
+:::
+
+::: {.example}
+Pour un trinôme $P=aX^2+bX+c=a(X-x_1)(X-x_2)$ (avec $a\neq 0$) :
+$$x_1+x_2=-\frac{b}{a} \qquad x_1x_2=\frac{c}{a}$$
+:::
+
+## Polynôme d'interpolation de Lagrange
+
+::: {.theorem title="(Interpolation de Lagrange)"}
+On se donne des éléments distincts $x_0,\cdots,x_n$ et des éléments $y_0,\cdots,y_n$ de $\mathbb{K}$, et on définit :
+$$L_i=\frac{\prod_{j=0,\,j\neq i}^n(X-x_j)}{\prod_{j=0,\,j\neq i}^n(x_i-x_j)} \quad (0\leq i\leq n)$$
+Alors il existe un unique polynôme $P\in\mathbb{K}_n[X]$ tel que $P(x_k)=y_k$ pour $0\leq k\leq n$, donné par $P=\sum_{i=0}^n y_iL_i$.
+:::
+
+::: {.corollary}
+Les polynômes $Q$ vérifiant $Q(x_k)=y_k$ pour $0\leq k\leq n$ sont de la forme :
+$$Q=P+R\prod_{i=0}^n(X-x_i)$$
+avec $R\in\mathbb{K}[X]$ quelconque.
+:::
+
+::: {.exercise}
+1. Trouver un polynôme $P(X)\in\mathbb{Z}[X]$ de degré minimal tel que $\frac12$ soit racine simple, $\sqrt2$ racine double et $i$ racine triple.
+2. Montrer : $P(\alpha)=0$ et $P'(\alpha)=0 \iff \alpha$ est racine de multiplicité $\geq 2$.
+3. Montrer que pour $P\in\mathbb{C}[X]$ : $P$ admet une racine de multiplicité $\geq 2 \iff P$ et $P'$ ne sont pas premiers entre eux.
+4. Factoriser $P(X)=(2X^2+X-2)^2(X^4-1)^3$ et $Q(X)=3(X^2-1)^2\left(X^2-X+\frac14\right)$ dans $\mathbb{C}[X]$ ; en déduire pgcd et ppcm. Mêmes questions dans $\mathbb{R}[X]$.
+5. Si $\operatorname{pgcd}(A,B)=1$, montrer que $\operatorname{pgcd}(A+B,A\times B)=1$.
+:::
+
+# Document en PDF {-}
+
+[Chapitre 10 : Polynômes](PDF/mpsi-chap10.pdf)
+
+# Navigation {-}
+
+::: {.chap-nav}
+[Chapitre 09 : Arithmétique dans ℤ](mpsi-chap09.qmd){.prev}
+
+[Menu MPSI](mpsi.qmd){.home}
+
+[Chapitre 11 : Fractions rationnelles](mpsi-chap11.qmd){.next}
+:::

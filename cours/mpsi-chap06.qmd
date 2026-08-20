@@ -20,7 +20,7 @@ filters:
 
 Ce chapitre a été réalisé conformément au programme marocain de mathématiques de la filière MPSI.
 
-# Équations différentielles linéaires
+# Équations différentielles linéaires {-}
 
 Lorsqu'un corps tombe en chute libre sans frottement, il n'est soumis qu'à son poids $\vec{P}$. Par le principe fondamental de la mécanique : $\vec{P}=m\vec{a}$. Tous les vecteurs sont verticaux donc $mg=ma$, où $g$ est la constante de gravitation, $a$ l'accélération verticale et $m$ la masse. On obtient $a=g$. L'accélération étant la dérivée de la vitesse par rapport au temps, on obtient :
 $$\frac{dv(t)}{dt}=g$$
@@ -30,9 +30,9 @@ Le cas d'un parachutiste est plus compliqué : le modèle précédent ne tient p
 $$\frac{dv(t)}{dt}=g-fv(t)$$
 C'est une relation entre la vitesse $v$ et sa dérivée : il s'agit d'une **équation différentielle**. Il n'est pas évident de trouver quelle est la fonction $v$ qui convient. Le but de ce chapitre est d'apprendre comment déterminer $v(t)$, ce qui permettra d'en déduire la position $x(t)$ à tout instant.
 
-## Définition
+# Définition
 
-### Introduction
+## Introduction
 
 Une équation différentielle est une équation :
 
@@ -61,7 +61,7 @@ Il est aussi facile de vérifier qu'une fonction donnée est bien solution d'une
 2. Soit l'équation différentielle $x^2y''-2y+2x=0$. Vérifier que $y(x)=kx^2+x$ est une solution sur $\mathbb{R}$, pour tout $k\in\mathbb{R}$.
 :::
 
-### Définition
+## Définition
 
 ::: {.definition}
 - Une **équation différentielle** d'ordre $n$ est une équation de la forme
@@ -91,7 +91,7 @@ $$y(x)=\ln\left(-\frac{1}{x}+c\right)$$
 qui est une solution sur chaque intervalle $I$ où elle est définie et dérivable. Cet intervalle dépend de la constante $c$ : si $c<0$, $I=]\frac1c,0[$ ; si $c=0$, $I=]-\infty,0[$ ; si $c>0$, $I=]\frac1c,+\infty[$.
 :::
 
-### Équation différentielle linéaire
+## Équation différentielle linéaire
 
 On ne sait pas résoudre toutes les équations différentielles. On se concentre dans ce chapitre sur deux types d'équations : les équations différentielles linéaires du premier ordre et celles du second ordre à coefficients constants.
 
@@ -140,7 +140,7 @@ Autrement dit, on trouve toutes les solutions en ajoutant une solution particuli
 3. Soit l'équation $y'=y(1-y)$. Montrer que si $y$ est une solution non nulle de cette équation, alors $z=2y$ n'est pas solution. Que peut-on en conclure ?
 :::
 
-## Équation différentielle linéaire du premier ordre
+# Équation différentielle linéaire du premier ordre
 
 ::: {.definition}
 Une équation différentielle **linéaire du premier ordre** est une équation du type :
@@ -152,7 +152,7 @@ Dans la suite on supposera que $a$ et $b$ sont des fonctions continues sur $I$. 
 
 On va commencer par résoudre le cas où $a$ est une constante et $b=0$, puis $a$ sera une fonction (et toujours $b=0$), et on terminera par le cas général où $a$ et $b$ sont deux fonctions.
 
-### $y'=ay$
+## $y'=ay$
 
 ::: {.theorem}
 Soit $a$ un réel. Les solutions sur $\mathbb{R}$ de l'équation différentielle
@@ -182,7 +182,7 @@ $$z'(x)=y'(x)e^{-ax}+y(x)\left(-ae^{-ax}\right)=e^{-ax}\left(y'(x)-ay(x)\right)$
 Mais $y$ est solution de $(E)$, donc $y'(x)-ay(x)=0$. On en déduit que $z'(x)=0$ pour tout réel $x$ : $z$ est constante sur $\mathbb{R}$, il existe une constante $k$ telle que $z(x)=k$ pour tout $x$. D'où $y(x)e^{-ax}=k$, donc $y(x)=ke^{ax}$.
 :::
 
-### $y'=a(x)y$
+## $y'=a(x)y$
 
 Le théorème suivant affirme que, lorsque $a$ est une fonction, résoudre l'équation $y'=a(x)y$ revient à déterminer une primitive $A$ de $a$ (ce qui n'est pas toujours possible explicitement).
 
@@ -214,7 +214,7 @@ $$\begin{array}{rl}
 Comment résoudre l'équation différentielle $x^2y'=y$ ? On se place sur $I_+=]0,+\infty[$ ou $I_-=]-\infty,0[$. L'équation devient $y'=\frac{1}{x^2}y$. Donc $a(x)=\frac{1}{x^2}$, dont une primitive est $A(x)=-\frac1x$. Ainsi les solutions cherchées sont $y(x)=ke^{-\frac1x}$, où $k\in\mathbb{R}$.
 :::
 
-### $y'=a(x)y+b(x)$
+## $y'=a(x)y+b(x)$
 
 Il nous reste le cas général de l'équation linéaire d'ordre $1$ avec second membre :
 $$y'=a(x)y+b(x) \qquad (E)$$
@@ -252,7 +252,7 @@ On fixe $c=0$ : $y_0(x)=\left(\frac12 e^{2x}+e^x\right)e^{-x}=\frac12 e^{x}+1$. 
 $$y(x)=\frac12 e^{x}+1+ke^{-x}, \qquad k\in\mathbb{R}.$$
 :::
 
-### Théorème de Cauchy-Lipschitz
+## Théorème de Cauchy-Lipschitz
 
 ::: {.theorem title="(Théorème de Cauchy-Lipschitz)"}
 Soit $y'=a(x)y+b(x)$ une équation différentielle linéaire du premier ordre, où $a,b:I\to\mathbb{R}$ sont continues sur un intervalle ouvert $I$. Alors, pour tout $x_0\in I$ et pour tout $y_0\in\mathbb{R}$, il existe une et une seule solution $y$ telle que $y(x_0)=y_0$.
@@ -269,7 +269,7 @@ $$y(1)=2 \iff \frac12 e+1+ke^{-1}=2 \iff \frac{k}{e}=1-\frac{e}{2} \iff k=e-\fra
 Ainsi la solution cherchée est $y(x)=\frac12 e^{x}+1+\left(e-\frac{e^2}{2}\right)e^{-x}$, et c'est la seule.
 :::
 
-### Courbes intégrales
+## Courbes intégrales
 
 ::: {.definition}
 Une **courbe intégrale** d'une équation différentielle $(E)$ est le graphe d'une solution de $(E)$.
@@ -281,7 +281,7 @@ Le théorème de Cauchy-Lipschitz se reformule ainsi : « Par chaque point $(x_0
 Les solutions de l'équation $y'+y=x$ sont les $y(x)=x-1+ke^{-x}$, $k\in\mathbb{R}$, définies sur $I=\mathbb{R}$. Pour chaque point $(x_0,y_0)\in\mathbb{R}^2$, il existe une unique solution $y$ telle que $y(x_0)=y_0$ ; le graphe de cette solution est la courbe intégrale passant par $(x_0,y_0)$.
 :::
 
-### Exemples
+## Exemples
 
 ::: {.example}
 On considère l'équation différentielle $(E)$ : $x^3y'+(2-3x^2)y=x^3$.
@@ -318,9 +318,9 @@ définie sur $]-\infty,-1[$ ou $]-1,+\infty[$.
 4. Par la méthode de variation de la constante, trouver une solution particulière de $y'-2xy=3xe^{x^2}$. Même travail avec $y'+2y=\sin(3x)e^{-2x}$.
 :::
 
-## Équation différentielle linéaire du second ordre à coefficients constants
+# Équation différentielle linéaire du second ordre à coefficients constants
 
-### Définition
+## Définition
 
 Une équation différentielle linéaire du second ordre, à coefficients constants, est une équation de la forme
 $$ay''+by'+cy=g(x) \qquad (E)$$
@@ -334,7 +334,7 @@ L'ensemble des solutions de l'équation homogène $(E_0)$ est un $\mathbb{R}$-es
 
 Nous admettons ce résultat.
 
-### Équation homogène
+## Équation homogène
 
 On cherche une solution de $(E_0)$ sous la forme $y(x)=e^{rx}$, où $r\in\mathbb{C}$ est une constante à déterminer :
 $$ay''+by'+cy=0 \iff (ar^2+br+c)e^{rx}=0 \iff ar^2+br+c=0$$
@@ -370,7 +370,7 @@ car $2ar_0+b=P'(r_0)=0$, où $P(r)=ar^2+br+c$. Une base est $\{e^{r_0x},xe^{r_0x
 3. Si $\Delta<0$ : racines conjuguées $r_1=\alpha+i\beta$, $r_2=\alpha-i\beta$ ; les solutions complexes $Y_1=e^{(\alpha+i\beta)x}$, $Y_2=e^{(\alpha-i\beta)x}$ donnent, par parties réelles et imaginaires, deux solutions réelles $y_1=e^{\alpha x}\cos(\beta x)$, $y_2=e^{\alpha x}\sin(\beta x)$, linéairement indépendantes. Une base est $\{e^{\alpha x}\cos(\beta x),e^{\alpha x}\sin(\beta x)\}$.
 :::
 
-### Équation avec second membre
+## Équation avec second membre
 
 Nous passons au cas général avec un second membre $g$ continu sur un intervalle ouvert $I$ :
 $$ay''+by'+cy=g(x) \qquad (E)$$
@@ -386,7 +386,7 @@ Dans la pratique, on cherche d'abord les solutions de l'équation homogène, pui
 Les solutions générales de $(E)$ s'obtiennent en ajoutant les solutions générales de l'équation homogène $(E_0)$ à une solution particulière de $(E)$.
 :::
 
-### Recherche d'une solution particulière
+## Recherche d'une solution particulière
 
 On donne deux cas particuliers importants et une méthode générale.
 
@@ -448,9 +448,9 @@ $$\lambda\cos x+\mu\sin x+\ln(\cos x)\cos x+x\sin x, \qquad \lambda,\mu\in\mathb
 3. Résoudre $2y''-2y'+\frac12 y=0$. Trouver la solution ayant une limite finie lorsque $x\to+\infty$. Résoudre $2y''-2y'+\frac12 y=x-1$.
 :::
 
-## Problèmes conduisant à des équations différentielles
+# Problèmes conduisant à des équations différentielles
 
-### Parachutiste
+## Parachutiste
 
 Revenons sur l'exemple du parachutiste : sa vitesse verticale vérifie
 $$\frac{dv(t)}{dt}=g-fv(t)$$
@@ -468,7 +468,7 @@ en prenant comme convention $x(0)=0$.
 
 Ceci n'est bien sûr qu'un **modèle**, mais il permet de mettre en évidence des propriétés vérifiées par les conditions expérimentales, comme la vitesse limite par exemple.
 
-### Demi-vie
+## Demi-vie
 
 Dans un tissu radioactif, la vitesse de désintégration des noyaux est proportionnelle au nombre $N(t)$ de noyaux présents à l'instant $t$. Il existe donc une constante $\lambda>0$ telle que :
 $$N'(t)=-\lambda N(t)$$
@@ -483,7 +483,7 @@ $$N(t)=N_0e^{-\lambda t}=N_0e^{-\frac{t}{\tau}}=N_0e^{-\frac{t}{\tau_{1/2}}\ln 2
 Notez que $\tau_{1/2}$ ne dépend pas de $N_0$, et c'est bien le temps nécessaire pour que la moitié des noyaux se désintègrent, quel que soit l'instant initial :
 $$N(t+\tau_{1/2})=N_0\,2^{-\frac{t+\tau_{1/2}}{\tau_{1/2}}}=N_0\,2^{-\frac{t}{\tau_{1/2}}-1}=\frac12 N_0\,2^{-\frac{t}{\tau_{1/2}}}=\frac{N(t)}{2}$$
 
-### Modèles d'évolution
+## Modèles d'évolution
 
 On considère une culture de bactéries en milieu clos ; $N_0$ est le nombre de bactéries introduites à $t=0$.
 
@@ -506,7 +506,7 @@ Il est clair que $0<N(t)<1$ pour tout $t\geq 0$, et $N(t)\to 1$ lorsque $t\to+\i
 
 Le modèle de Verhulst a l'avantage de bien faire apparaître un comportement asymptotique particulier : le nombre de bactéries finit par se stabiliser.
 
-### Masse attachée à un ressort
+## Masse attachée à un ressort
 
 Une masse est attachée à un ressort. Les forces qui s'appliquent à cette masse sont : un poids $\vec P$, une réaction $\vec R=-\vec P$, une force de rappel $\vec T$, une force de frottement $\vec F$.
 

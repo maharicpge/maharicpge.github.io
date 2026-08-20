@@ -1,0 +1,133 @@
+
+\RequirePackage{xspace}
+\def\func#1{\operatorname{#1}}
+\def\ker{\operatorname{Ker}}
+\def\im{\operatorname{Im}}
+\def\re{\operatorname{Re}}
+
+
+%\DeclareMathOperator{\mat}{Mat}
+\DeclareMathOperator{\rg}{rg}
+\DeclareMathOperator{\vect}{Vect}
+\DeclareMathOperator{\tr}{Tr}
+\DeclareMathOperator{\Com}{Com}
+\DeclareMathOperator{\codim}{codim}
+\DeclareMathOperator{\Diag}{diag}
+\DeclareMathOperator{\id}{id}
+\DeclareMathOperator{\grad}{grad}
+\DeclareMathOperator{\dg}{deg}
+\DeclareMathOperator{\dm}{dim}
+\DeclareMathOperator{\gl}{GL}
+
+\newcommand{\ssit}{si et seulement si }
+\newcommand{\Un}{\ensuremath{\mathbb U}_n }
+\newcommand{\cvu}{\textsc{cvu}\xspace}
+\newcommand{\cvs}{\textsc{cvs}\xspace}
+\newcommand{\cvn}{\textsc{cvn}\xspace}
+\newcommand{\cpm}{\textsc{cpm}\xspace}
+\newcommand{\dse}{\textsc{dse}\xspace}
+
+\def\Det{\det\nolimits}
+\let\Tr\tr
+\let\Im\im
+
+\newcommand\ic[1]{\left[\,#1\,]}
+\newcommand\iic[1]{\left[\mkern-3mu\left[#1\right]\mkern-3mu\right]}
+\newcommand\R{\mathbb R}
+\newcommand\K{\mathbb K}
+\newcommand\N{\mathbb N}
+\newcommand\Z{\mathbb Z}
+\newcommand\Q{\mathbb Q}
+\def\C{\mathbb C}
+\def\M#1#2{\mathcal M_{#1}(#2)}
+\newcommand\GL[2]{\mathrm{GL}_{#1}(#2)}
+\renewcommand\L{\mathcal L}
+
+
+\newcommand\nm[1]{\left\Vert#1\right\Vert}
+\newcommand{\nmm}[1]{|\!|\!|#1|\!|\!|}
+\newcommand\pr[1]{\left(#1\right)}
+\newcommand\vabs[1]{\left|#1\right|}
+\newcommand{\qsi}[1]{\chi_{#1}}
+\let\Chi\chi
+\newcommand{\e}{\mathrm e}
+\newcommand\diag{\mathop{\mathrm{diag}}\nolimits}
+
+
+
+\newcommand\Ls{\L^{*}}
+\newcommand\W{\mathcal W}
+\newcommand\Ws{\W^{*}}
+\newcommand\wh\widehat
+\newcommand\wt{\widetilde}
+\newcommand\inti{\int_{-\infty}^{+\infty}}
+\newcommand\SU{\mathrm{SU}(2,\C)}
+%\newcommand\vect[1]{\mathrm{Vect}\left\{#1\right\}}
+\newcommand\Mn[2]{\mathcal M_{#1}(#2)}
+%\newcommand\Chi{\raisebox{.4ex}{$\chi$}}
+\newcommand\impl[2]{$#1\Rightarrow #2\big)$}
+
+
+\newcommand{\Pmatrix}[1]{\begin{pmatrix}#1\end{pmatrix}}
+\newcommand\VMatrix[1]{\begin{vmatrix}#1\end{vmatrix}}
+
+\let\vep\varepsilon
+\let\o\overline
+\let\ds\displaystyle
+\let\lra\longrightarrow
+\let\Vect\vect
+\let\ioe\leqslant
+\let\soe\geqslant
+\let\qlq\forall
+\let\ssi\Longleftrightarrow
+\let\impliq\Longrightarrow
+
+\def\sous{\underset} %En dessous
+\def\sur{\overset} %En dessus
+\def\i{\infty}    %+ l'infini
+\def\vers{\longrightarrow} %Fleche
+\let\qlq=\forall %qlq soit
+\let\exis=\exists %il exist
+\let\eq=\thicksim %equivalent
+\let\L=\pounds %Applications lineaires
+\newcommand{\ev}{espace vectoriel }
+\newcommand{\evs}{espaces vectoriels }
+
+
+\newcommand\be{\begin{enumerate}}
+\newcommand\ee{\end{enumerate}}
+\newcommand\bi{\begin{itemize}}
+\newcommand\ei{\end{itemize}}
+\newcommand{\bca}{\begin{cases}}
+\newcommand{\eca}{\end{cases}}
+
+\newcommand{\mn}[2]{\mathcal M_{#1}(#2)}
+
+\def\dt{{\operator@font d}}
+\def\d{{\operator@font d}}
+\def\dd#1#2{
+	\frac{\partial#1}{\partial#2}
+  }
+\def\ddeux#1#2#3{
+	\def\a{#2}\def\b{#3} 
+	\ifx\a\b \frac{\partial^{2}#1}{\partial\a^{2}}
+	\else \frac{\partial^{2}#1}{\partial\a\partial\b}
+	\fi
+}
+
+
+
+
+\newcommand{\numer}[2][]{\begingroup%
+	\def\@parametre{#1}\def\@valeur{b}%
+	\sffamily\bfseries%
+	\ifx\@parametre\@valeur\else\color{colstroke}\fi%
+	#2%
+	\endgroup}
+	
+\newcommand{\hp}{\textcolor{black!75}{\scriptsize\scshape (H.P.)}}
+\newcommand\cqfd{\par\vspace*{-\parskip}\hfill{\bfseries CQFD.}\\}
+\newcommand\cqabs{\par\vspace*{-\parskip}\hfill{\bfseries Ce qui est absurde.}\\}
+\newcommand\enlarge[1][1]{\enlargethispage{#1\baselineskip}}
+\newcommand\jumpnum[1][enumi]{\item[\hskip-1ex]\stepcounter{#1}}
+\newcommand\nom[1]{\textsc{#1}}

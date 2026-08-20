@@ -1,0 +1,25 @@
+# _quarto.yml
+project:
+  type: book
+
+book:
+  title: "Cours de Mathématiques MPSI"
+  author: "Said MAHARI"
+  date: "18 August 2026"
+  chapters:
+    - index.qmd
+    - cours/mpsi-chap01.qmd
+    - cours/mpsi-chap02.qmd
+    # Ajoutez vos chapitres ici au fur et à mesure
+
+format:
+  html:
+    theme: cosmo
+    toc: true
+    number-sections: true
+    html-math-method:
+      method: katex
+      macro-file: maths.def  # Injection automatique de toutes vos macros LaTeX
+    css: styles.css          # Pour reproduire le style de boite.sty
+filters:
+  - custom-numbered-blocks.lua # Votre filtre pour la numérotation des théorèmes

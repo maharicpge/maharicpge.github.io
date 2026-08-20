@@ -1,10 +1,300 @@
 ---
-title: "Chapitre 18 : Limites et continuité"
-pagetitle: "Limites et continuité - Mathématiques en CPGE"
+title: "Limites et continuité"
+subtitle: "Chapitre 18"
+author: "Said MAHARI"
+date: last-modified
+date-format: "D MMMM YYYY"
+lang: fr
+format:
+  html:
+    theme: cosmo
+    toc: true
+    number-sections: true
+    html-math-method: katex
+    css: styles.css
+filters:
+  - custom-numbered-blocks.lua
 ---
 
-**MPSI (1re année) — Chapitre 18.** TVI, bornes atteintes, continuité uniforme (Heine).
+**MPSI (1re année) — Chapitre 18.** Limites d'une fonction, théorème des gendarmes, continuité en un point et sur un intervalle, théorème des valeurs intermédiaires, bornes atteintes (Weierstrass), bijection monotone, continuité uniforme (théorème de Heine).
 
-## Document
+Ce chapitre a été réalisé conformément au programme marocain de mathématiques de la filière MPSI.
 
-*PDF à venir : déposez le fichier `files/mpsi/chap18.pdf` puis régénérez la page.*
+# Limites et continuité
+
+## Notion de fonction (Rappels)
+
+::: {.definition}
+Une **fonction** $f$ d'une variable réelle à valeurs réelles est une correspondance $f:D\to\mathbb{R}$ où chaque élément du domaine $D\subset\mathbb{R}$ est associé au plus à un élément de $\mathbb{R}$. Si $U\subset\mathbb{R}$ est un domaine tel que $f:U\to\mathbb{R}$ soit une application, on appelle $U$ le **domaine de définition** de $f$. On désigne par $\mathcal{F}(D,\mathbb{K})$ l'ensemble des fonctions de $D$ à valeurs dans $\mathbb{K}$.
+:::
+
+On munit $\mathcal{F}(U,\mathbb{K})$ de la somme, du produit, de la multiplication par un scalaire, de $\max(f,g)$, $\min(f,g)$ et de la composée $g\circ f$.
+
+::: {.definition title="(Fonctions bornées)"}
+Soit $f:U\to\mathbb{R}$. On dit que :
+
+- $f$ est **majorée** sur $U$ si $\exists M\in\mathbb{R},\ \forall x\in U,\ f(x)\leq M$ ;
+- $f$ est **minorée** sur $U$ si $\exists m\in\mathbb{R},\ \forall x\in U,\ f(x)\geq m$ ;
+- $f$ est **bornée** sur $U$ si elle est à la fois majorée et minorée, c'est-à-dire $\exists M\in\mathbb{R},\ \forall x\in U,\ |f(x)|\leq M$.
+:::
+
+::: {.definition title="(Monotonie)"}
+Soit $f:U\to\mathbb{R}$. On dit que :
+
+- $f$ est **croissante** sur $U$ si $\forall x,y\in U,\ x\leq y \Longrightarrow f(x)\leq f(y)$ ;
+- $f$ est **strictement croissante** si $\forall x,y\in U,\ x<y \Longrightarrow f(x)<f(y)$ ;
+- $f$ est **décroissante** (resp. **strictement décroissante**) si $-f$ est croissante (resp. strictement croissante) ;
+- $f$ est **monotone** si elle est croissante ou décroissante.
+:::
+
+::: {.definition title="(Parité, périodicité)"}
+Soit $I$ un intervalle symétrique par rapport à $0$ et $f:I\to\mathbb{R}$. On dit que $f$ est **paire** si $\forall x\in I,\ f(-x)=f(x)$, et **impaire** si $\forall x\in I,\ f(-x)=-f(x)$. Une fonction $f:\mathbb{R}\to\mathbb{R}$ est **périodique** de période $T>0$ si $\forall x\in\mathbb{R},\ f(x+T)=f(x)$.
+:::
+
+::: {.definition title="(Fonction lipschitzienne)"}
+On dit que $f:U\to\mathbb{K}$ est **lipschitzienne** s'il existe $k\geq 0$ tel que :
+$$\forall x,y\in U,\ |f(y)-f(x)|\leq k\,|y-x|$$
+On dit aussi que $f$ est $k$-lipschitzienne.
+:::
+
+::: {.example}
+- $f_1:x\mapsto x^2$ n'est pas lipschitzienne sur $\mathbb{R}$ ;
+- $f_2:x\mapsto|x|$ est $1$-lipschitzienne ;
+- $f_3:x\mapsto x^2$ est $2$-lipschitzienne sur $[-1,1]$ ;
+- $f_4:x\mapsto\sin x$ est $1$-lipschitzienne.
+:::
+
+## Limites d'une fonction
+
+### Voisinages et limite en un point
+
+::: {.definition title="(Voisinages)"}
+Soit $f:I\to\mathbb{K}$ définie sur un intervalle $I$ de $\mathbb{R}$, et $x_0\in\overline{\mathbb{R}}$ un point de $I$ ou une extrémité de $I$.
+
+1. Si $x_0$ est fini, on appelle **voisinage** de $x_0$ tout intervalle $]x_0-\delta,x_0+\delta[$ avec $\delta>0$ (ou $\delta=+\infty$) ;
+2. si $x_0=+\infty$, un **voisinage** de $x_0$ est tout intervalle $]A,+\infty[$ avec $A\in\mathbb{R}\cup\{-\infty\}$ ;
+3. si $x_0=-\infty$, un **voisinage** de $x_0$ est tout intervalle $]-\infty,A[$.
+
+On dit qu'une propriété portant sur $f$ est vraie **au voisinage de $x_0$** si elle est vraie sur l'intersection de $I$ avec un voisinage de $x_0$.
+:::
+
+::: {.definition title="(Limite en un point)"}
+Soit $\ell\in\mathbb{K}$. On dit que **$f$ a pour limite $\ell$ en $x_0$** si :
+$$\forall\varepsilon>0,\ \exists\delta>0,\ \forall x\in I,\ |x-x_0|<\delta \Longrightarrow |f(x)-\ell|<\varepsilon$$
+On note $\lim_{x\to x_0}f(x)=\ell$. On définit de même les limites infinies en $x_0$ (par exemple $f\to+\infty$ en $x_0$ si $\forall A>0,\ \exists\delta>0,\ \forall x\in I,\ |x-x_0|<\delta \Longrightarrow f(x)>A$).
+:::
+
+::: {.definition title="(Limites à gauche et à droite)"}
+On appelle **limite à droite** en $x_0$ de $f$ la limite de $f_{|]x_0,b[}$ en $x_0$, notée $\lim_{x_0^+}f$ ; on définit de même la **limite à gauche** $\lim_{x_0^-}f$. On a : $f$ admet une limite en $x_0$ si et seulement si $f$ admet une limite à gauche et à droite en $x_0$ et $\lim_{x_0^-}f=\lim_{x_0^+}f$.
+:::
+
+::: {.example}
+- $\lim_{x\to x_0}\sqrt{x}=\sqrt{x_0}$ pour tout $x_0\geq 0$ ;
+- la fonction partie entière $E$ n'a pas de limite aux points $x_0\in\mathbb{Z}$ (par exemple $\lim_{2^+}E=2$ et $\lim_{2^-}E=1$).
+:::
+
+### Limites en l'infini
+
+::: {.definition}
+Soit $f:I\to\mathbb{K}$ définie sur $I=]a,+\infty[$. On dit que **$f$ a pour limite $\ell$ en $+\infty$** si :
+$$\forall\varepsilon>0,\ \exists B>0,\ \forall x\in I,\ x>B \Longrightarrow |f(x)-\ell|<\varepsilon$$
+On définit de même la limite en $-\infty$ et les limites infinies en $\pm\infty$.
+:::
+
+::: {.example}
+Pour tout $n\geq 1$ : $\lim_{x\to+\infty}x^n=+\infty$, $\lim_{x\to-\infty}x^n=+\infty$ si $n$ est pair et $-\infty$ si $n$ est impair, et $\lim_{\pm\infty}\frac{1}{x^n}=0$. Pour $P(x)=a_nx^n+\cdots+a_0$ et $Q(x)=b_mx^m+\cdots+b_0$ avec $a_n>0$, $b_m>0$ :
+$$\lim_{x\to+\infty}\frac{P(x)}{Q(x)}=\begin{cases}+\infty & \text{si } n>m\\ \frac{a_n}{b_m} & \text{si } n=m\\ 0 & \text{si } n<m\end{cases}$$
+:::
+
+### Propriétés des limites
+
+::: {.theorem title="(Unicité de la limite)"}
+La limite d'une fonction, si elle existe, est unique.
+:::
+
+::: {.proposition title="(Stabilité des inégalités)"}
+Soit $f:I\to\mathbb{R}$ et $x_0$ un point ou une extrémité de $I$, avec $\lim_{x\to x_0}f=l\in\overline{\mathbb{R}}$.
+
+1. S'il existe un voisinage $V_{x_0}$ tel que $\forall x\in V_{x_0}\cap I,\ f(x)\leq k$, alors $l\leq k$.
+2. Si $l<k$, alors il existe un voisinage $V_{x_0}$ tel que $\forall x\in V_{x_0}\cap I,\ f(x)<k$.
+:::
+
+::: {.theorem title="(Opérations sur les limites)"}
+Soient $f,g$ deux fonctions admettant des limites $l,l'$ en $x_0$. Alors, lorsque les expressions ont un sens :
+
+- $\alpha f+\beta g \to \alpha l+\beta l'$ ;
+- $f\cdot g \to l\cdot l'$ ;
+- si $l\neq 0$, $\frac{1}{f}\to\frac{1}{l}$ ;
+- si $l=\pm\infty$, $\frac1f\to 0$.
+
+Les cas non couverts (par exemple $+\infty-\infty$, $0\times\infty$, $\frac{\infty}{\infty}$, $\frac00$) sont des **formes indéterminées**.
+:::
+
+::: {.theorem title="(Théorème des gendarmes)"}
+Soient $f,g,h:I\to\mathbb{R}$, $x_0$ un point ou une extrémité de $I$ et $l\in\mathbb{R}$ telles que :
+
+1. $f(x),h(x)\underset{x\to x_0}{\longrightarrow}l$ ;
+2. $\exists V_{x_0},\ \forall x\in V_{x_0}\cap I,\ f(x)\leq g(x)\leq h(x)$.
+
+Alors $g$ admet une limite en $x_0$ et $\lim_{x\to x_0}g=l$.
+:::
+
+::: {.theorem title="(Limite par majoration / minoration)"}
+Soient $f,g:I\to\mathbb{R}$ et $x_0$ un point ou une extrémité de $I$.
+
+1. Si $g(x)\underset{x\to x_0}{\longrightarrow}+\infty$ et $\exists V_{x_0},\ \forall x\in V_{x_0}\cap I,\ g(x)\leq f(x)$, alors $f(x)\underset{x\to x_0}{\longrightarrow}+\infty$ ;
+2. si $g(x)\underset{x\to x_0}{\longrightarrow}-\infty$ et $\exists V_{x_0},\ \forall x\in V_{x_0}\cap I,\ f(x)\leq g(x)$, alors $f(x)\underset{x\to x_0}{\longrightarrow}-\infty$.
+:::
+
+::: {.proposition title="(Caractérisation séquentielle de la limite)"}
+Soit $f:I\to\mathbb{K}$ et $x_0$ un point ou une extrémité de $I$. Alors :
+$$\lim_{x\to x_0}f(x)=l \iff \forall (u_n)\subset I,\ \left(\lim_{n\to+\infty}u_n=x_0 \Longrightarrow \lim_{n\to+\infty}f(u_n)=l\right)$$
+:::
+
+::: {.proof}
+$(\Rightarrow)$ Soit $\varepsilon>0$. Comme $f(x)\to l$ en $x_0$, il existe $\delta>0$ tel que $|x-x_0|<\delta \Longrightarrow |f(x)-l|<\varepsilon$. Comme $u_n\to x_0$, il existe $N$ tel que $n\geq N \Longrightarrow |u_n-x_0|<\delta$ ; alors $|f(u_n)-l|<\varepsilon$. Donc $f(u_n)\to l$.
+
+$(\Leftarrow)$ Par contraposée : si $f$ n'a pas pour limite $l$ en $x_0$, alors $\exists\varepsilon_0>0,\ \forall\delta>0,\ \exists x_\delta\in I$ tel que $|x_\delta-x_0|<\delta$ et $|f(x_\delta)-l|>\varepsilon_0$. En choisissant $\delta=1/n$, on construit une suite $(u_n)$ avec $u_n\to x_0$ et $|f(u_n)-l|>\varepsilon_0$ : donc $f(u_n)$ ne tend pas vers $l$.
+:::
+
+## Continuité
+
+### Continuité en un point, continuité globale
+
+::: {.definition}
+Soit $f:I\to\mathbb{K}$ et $x_0\in I$. On dit que $f$ est **continue en $x_0$** si $f$ admet une limite en $x_0$ et $\lim_{x\to x_0}f(x)=f(x_0)$, c'est-à-dire :
+$$\forall\varepsilon>0,\ \exists\delta>0,\ \forall x\in I,\ |x-x_0|<\delta \Longrightarrow |f(x)-f(x_0)|<\varepsilon$$
+On dit que $f$ est **continue sur $I$** si elle est continue en tout point de $I$.
+:::
+
+::: {.example}
+Les fonctions constantes, $x\mapsto\sqrt{x}$, $\sin$, $\cos$, $x\mapsto|x|$, $\exp$, $\ln$ sont continues sur leur domaine de définition. La fonction partie entière $E$ n'est pas continue aux points de $\mathbb{Z}$ (mais elle est continue à droite en chaque entier).
+:::
+
+::: {.theorem title="(Opérations sur les fonctions continues)"}
+Si $f,g$ sont continues en $x_0$, alors $\alpha f+\beta g$, $f\cdot g$ et (si $f(x_0)\neq 0$) $\frac{g}{f}$ sont continues en $x_0$. Si $f$ est continue sur $I$ et $g$ continue sur $J$ avec $f(I)\subset J$, alors $g\circ f$ est continue sur $I$.
+:::
+
+::: {.proposition title="(Caractérisation séquentielle de la continuité)"}
+Soit $f:I\to\mathbb{K}$ et $x_0\in I$. Alors :
+$$f \text{ continue en } x_0 \iff \forall (u_n)\to x_0,\ \left(f(u_n)\right)\to f(x_0)$$
+:::
+
+::: {.remark}
+On retiendra surtout l'implication : si $f$ est continue sur $I$ et $(u_n)$ est une suite convergente de limite $\ell\in I$, alors $f(u_n)\to f(\ell)$. On l'utilisera intensivement pour l'étude des suites récurrentes $u_{n+1}=f(u_n)$ : si $f$ est continue et $u_n\to\ell$, alors $f(\ell)=\ell$.
+:::
+
+::: {.definition title="(Prolongement par continuité)"}
+Soit $I$ un intervalle, $x_0\in I$ et $f:I\smallsetminus\{x_0\}\to\mathbb{R}$. On dit que $f$ est **prolongeable par continuité** en $x_0$ si $f$ admet une limite finie $\ell$ en $x_0$. On définit alors le **prolongement par continuité** $\tilde f$ par $\tilde f(x)=f(x)$ si $x\neq x_0$ et $\tilde f(x_0)=\ell$ ; $\tilde f$ est continue en $x_0$.
+:::
+
+::: {.example}
+La fonction $f(x)=x\sin\left(\frac1x\right)$ ($x\neq 0$) vérifie $|f(x)|\leq|x|$, donc $f(x)\to 0$ en $0$ : elle est prolongeable par continuité en $0$ et son prolongement $\tilde f(x)=x\sin(1/x)$ ($x\neq 0$), $\tilde f(0)=0$, est continu en $0$.
+:::
+
+## Continuité sur un intervalle
+
+### Théorème des valeurs intermédiaires
+
+::: {.theorem title="(Théorème des valeurs intermédiaires)"}
+Soit $f:[a,b]\to\mathbb{R}$ une fonction continue sur un segment. Pour tout réel $y$ compris entre $f(a)$ et $f(b)$, il existe $c\in[a,b]$ tel que $f(c)=y$.
+:::
+
+::: {.proof}
+Supposons $f(a)\leq y\leq f(b)$ et considérons $A=\{x\in[a,b]\,/\,f(x)\leq y\}$. $A$ est non vide (car $a\in A$) et majoré par $b$ : il admet une borne supérieure $c=\sup A$.
+
+- Montrons $f(c)\leq y$ : comme $c=\sup A$, il existe une suite $(u_n)\subset A$ avec $u_n\to c$. Pour tout $n$, $f(u_n)\leq y$ ; comme $f$ est continue en $c$, $f(u_n)\to f(c)$, donc par passage à la limite $f(c)\leq y$.
+- Montrons $f(c)\geq y$ : si $c=b$, c'est acquis puisque $f(b)\geq y$. Sinon, pour tout $x\in]c,b]$, $x\notin A$ donc $f(x)>y$ ; comme $f$ est continue en $c$ (limite à droite), $f(c)\geq y$.
+
+Donc $f(c)=y$.
+:::
+
+::: {.corollary}
+Soit $f:[a,b]\to\mathbb{R}$ continue. Si $f(a)\cdot f(b)\leq 0$, alors il existe $c\in[a,b]$ tel que $f(c)=0$.
+:::
+
+::: {.corollary}
+Soit $f:I\to\mathbb{R}$ continue sur un intervalle $I$. Alors $f(I)$ est un intervalle.
+:::
+
+::: {.proof}
+Soient $y_1,y_2\in f(I)$ avec $y_1\leq y_2$, et $y\in[y_1,y_2]$. Il existe $x_1,x_2\in I$ avec $y_1=f(x_1)$, $y_2=f(x_2)$ ; donc $y$ est compris entre $f(x_1)$ et $f(x_2)$. D'après le TVI appliqué sur l'intervalle d'extrémités $x_1,x_2$, il existe $x$ tel que $y=f(x)$, donc $y\in f(I)$.
+:::
+
+::: {.example}
+- Tout polynôme de degré impair possède au moins une racine réelle : si $P(x)=a_nx^n+\cdots+a_0$ avec $n$ impair et $a_n>0$, alors $\lim_{-\infty}P=-\infty$ et $\lim_{+\infty}P=+\infty$, donc il existe $a,b$ avec $f(a)<0<f(b)$, et le corollaire conclut.
+- Pour tout $y\in\mathbb{R}$, l'équation $x+e^x=y$ admet une solution : la fonction $f(x)=x+e^x$ est continue, $\lim_{-\infty}f=-\infty$ et $\lim_{+\infty}f=+\infty$.
+:::
+
+### Fonctions continues sur un segment : bornes atteintes
+
+::: {.theorem title="(Théorème de Weierstrass : bornes atteintes)"}
+Soit $f:[a,b]\to\mathbb{R}$ continue sur un segment. Alors $f$ est bornée sur $[a,b]$ et elle atteint ses bornes : il existe $m,M$ tels que $f([a,b])=[m,M]$, c'est-à-dire il existe $c,d\in[a,b]$ tels que $\forall x\in[a,b],\ f(c)\leq f(x)\leq f(d)$.
+:::
+
+::: {.proof}
+- **$f$ est bornée.** Supposons par l'absurde que $f$ ne soit pas majorée. Alors pour tout $n\geq 0$, il existe $x_n\in[a,b]$ avec $f(x_n)\geq n$. Par le théorème de Bolzano-Weierstrass, on extrait une sous-suite $x_{\varphi(n)}\to\ell\in[a,b]$. Comme $f$ est continue en $\ell$, $f(x_{\varphi(n)})\to f(\ell)$ ; mais $f(x_{\varphi(n)})\geq\varphi(n)\to+\infty$, contradiction. Donc $f$ est majorée ; de même $f$ est minorée.
+- **Les bornes sont atteintes.** $f([a,b])$ est un intervalle borné (TVI), notons $M=\sup f([a,b])$. Il existe une suite $y_n\in f([a,b])$ avec $y_n\to M$ ; soit $x_n$ avec $f(x_n)=y_n$. Par Bolzano-Weierstrass, $x_{\varphi(n)}\to\ell\in[a,b]$ ; par continuité $f(x_{\varphi(n)})\to f(\ell)$, donc $M=f(\ell)\in f([a,b])$. De même pour le minimum.
+:::
+
+## Fonctions monotones et bijections
+
+::: {.theorem title="(Bijection monotone)"}
+Soit $f:I\to\mathbb{R}$ continue et strictement monotone sur un intervalle $I$. Alors :
+
+1. $f$ réalise une bijection de $I$ vers l'intervalle image $J=f(I)$ ;
+2. la bijection réciproque $f^{-1}:J\to I$ est continue et strictement monotone, avec le même sens de variation que $f$.
+:::
+
+::: {.example}
+$f(x)=x^2$ n'est pas injective sur $\mathbb{R}$, mais ses restrictions $f_1:[0,+\infty[\to[0,+\infty[$ et $f_2:]-\infty,0]\to[0,+\infty[$ sont des bijections, de réciproques $f_1^{-1}(y)=\sqrt{y}$ et $f_2^{-1}(y)=-\sqrt{y}$.
+:::
+
+## Continuité uniforme (Théorème de Heine)
+
+::: {.definition title="(Continuité uniforme)"}
+Soit $f:I\to\mathbb{K}$. On dit que $f$ est **uniformément continue** sur $I$ si :
+$$\forall\varepsilon>0,\ \exists\delta>0,\ \forall(x,y)\in I^2,\ |x-y|\leq\delta \Longrightarrow |f(x)-f(y)|\leq\varepsilon$$
+(La différence avec la continuité simple : $\delta$ ne dépend que de $\varepsilon$, pas du point.)
+:::
+
+::: {.remark}
+- Toute fonction uniformément continue sur $I$ est continue sur $I$. La réciproque est fausse en général : $x\mapsto x^2$ n'est pas uniformément continue sur $\mathbb{R}$, et $x\mapsto\frac1x$ ne l'est pas sur $]0,1]$.
+- Toute fonction lipschitzienne est uniformément continue.
+:::
+
+::: {.theorem title="(Théorème de Heine)"}
+Toute fonction continue sur un segment $[a,b]$ est uniformément continue sur $[a,b]$.
+:::
+
+::: {.proof}
+Par l'absurde : supposons $f$ continue sur $[a,b]$ mais non uniformément continue. Alors il existe $\varepsilon_0>0$ tel que $\forall\delta>0,\ \exists(x,y)\in[a,b]^2$ avec $|x-y|<\delta$ et $|f(x)-f(y)|\geq\varepsilon_0$. En prenant $\delta=1/n$, on obtient deux suites $(x_n),(y_n)$ de $[a,b]$ avec $|x_n-y_n|<1/n$ et $|f(x_n)-f(y_n)|\geq\varepsilon_0$.
+
+Par Bolzano-Weierstrass, on extrait $x_{\varphi(n)}\to\ell\in[a,b]$ ; comme $|y_{\varphi(n)}-x_{\varphi(n)}|<1/\varphi(n)\to 0$, on a aussi $y_{\varphi(n)}\to\ell$. Par continuité de $f$ en $\ell$, $f(x_{\varphi(n)})\to f(\ell)$ et $f(y_{\varphi(n)})\to f(\ell)$, donc $|f(x_{\varphi(n)})-f(y_{\varphi(n)})|\to 0$, ce qui contredit $|f(x_n)-f(y_n)|\geq\varepsilon_0$. D'où le résultat.
+:::
+
+::: {.exercise}
+Soit $f:[0,1]\to[0,1]$ une application croissante.
+
+1. On suppose qu'il existe $x\in[0,1]$ et $k\in\mathbb{N}^*$ tels que $f^k(x)=x$. Montrer que $x$ est un point fixe de $f$ (i.e. $f(x)=x$).
+2. Montrer que $f$ admet un point fixe. (*Indication :* construire deux suites adjacentes $(a_n)$, $(b_n)$ avec $a_n\leq f(a_n)\leq f(b_n)\leq b_n$ et montrer que leur limite commune est un point fixe.)
+:::
+
+::: {.solution}
+1. Par l'absurde : si $f(x)\neq x$, alors $f(x)>x$ ou $f(x)<x$. Comme $f$ est croissante, $f(x)>x \Longrightarrow x=f^k(x)\geq f^{k-1}(x)\geq\cdots\geq f(x)>x$, absurde ; de même dans l'autre cas. D'où $f(x)=x$.
+2. On pose $a_0=0$, $b_0=1$ et $c_n=\frac{a_n+b_n}{2}$, puis $a_{n+1}=c_n$ si $f(c_n)\leq c_n$ et $a_{n+1}=a_n$ sinon ; $b_{n+1}=b_0$ si $f(c_n)\leq c_n$ et $b_{n+1}=c_n$ sinon. On vérifie $a_n\leq a_{n+1}\leq b_{n+1}\leq b_n$, $b_n-a_n=\frac{1}{2^n}$ et $a_n\leq f(a_n)\leq f(b_n)\leq b_n$. Les suites $(a_n)$, $(b_n)$ sont adjacentes, de limite commune $\ell$ ; en passant à la limite (et en utilisant la monotonie), on obtient $f(\ell)=\ell$.
+:::
+
+# Document en PDF {-}
+
+[Chapitre 18 : Limites et continuité](PDF/mpsi-chap18.pdf)
+
+## Navigation {-}
+
+::: {.chap-nav}
+[Chapitre 17 : Suites numériques](mpsi-chap17.qmd){.prev}
+
+[Menu MPSI](mpsi.qmd){.home}
+
+[Chapitre 19 : Dérivation](mpsi-chap19.qmd){.next}
+:::

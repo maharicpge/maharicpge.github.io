@@ -77,7 +77,27 @@
 /* ===== Icônes vectorielles en filigrane sur les cartes ===== */
 .card-home {
   position: relative;
+  overf/* ========== Bulles des cartes de filières ========== */
+.card-home {
+  position: relative;
   overflow: hidden;
+  display: block;
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.07);
+  border-radius: 16px;
+  padding: 1.4em 1.2em;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card-home:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.12);
+}
+
+.card-home h2, .card-home h3 {
+  margin-top: 0.4em;
+}low: hidden;
 }
 
 .card-home::after {
@@ -141,3 +161,81 @@
 .grid > :nth-child(10) .card-home::after {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23d9534f' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M3 9l9-6 9 6'/%3E%3Cpath d='M5 9v10M19 9v10M9 12v5M12 12v5M15 12v5'/%3E%3Cpath d='M3 20h18'/%3E%3C/svg%3E");
 }
+
+
+
+
+
+
+
+/* ============================================================
+   BOÎTES MATHÉMATIQUES (Version Quarto / custom-numbered-block)
+   ============================================================ */
+
+/* Structure commune : espace suffisant pour le titre flottant */
+.custom-numbered-block {
+  position: relative;
+  margin: 2.5em 0 1.5em 0; /* Marge haute importante pour le titre */
+  padding: 1.2em 1em 1em 1em;
+  border-radius: 5pt;
+  border: 2px solid #555;
+  background-color: #f8f8f8;
+  page-break-inside: avoid;
+}
+
+/* Le titre (premier paragraphe en gras) : bien positionné au-dessus */
+.custom-numbered-block > p:first-child {
+  position: absolute;
+  top: -0.9em;
+  left: 1em;
+  margin: 0;
+  padding: 0.1em 0.6em;
+  border-radius: 5pt;
+  border: 1px solid #999;
+  background: #fff;
+  font-size: 0.95em;
+  z-index: 10;
+}
+
+/* --- Couleurs spécifiques par type (reproduction de boite.sty) --- */
+
+/* Théorème : fond blue!5, bordure orange */
+.custom-theorem { background-color: #f2f7ff; border-color: #ff8c00; }
+.custom-theorem > p:first-child { background-color: #cce0ff; border-color: #ff8c00; }
+
+/* Proposition : fond blue!5, bordure bleue */
+.custom-proposition { background-color: #f2f7ff; border-color: #0055cc; }
+.custom-proposition > p:first-child { background-color: #cce0ff; border-color: #0055cc; }
+
+/* Définition : fond purple!5, bordure brune */
+.custom-definition { background-color: #faf5ff; border-color: #8b4513; }
+.custom-definition > p:first-child { background-color: #e6ccff; border-color: #8b4513; }
+
+/* Exemple : fond blanc, bordure grise */
+.custom-example { background-color: #ffffff; border-color: #cccccc; }
+.custom-example > p:first-child { background-color: #e8e8e8; border-color: #999; }
+
+/* Remarque : fond blanc, bordure cyan */
+.custom-remark { background-color: #ffffff; border-color: #00cccc; }
+.custom-remark > p:first-child { background-color: #ccf5f5; border-color: #00cccc; }
+
+/* Preuve (Démonstration) : fond blanc, bordure bleue pointillée */
+.custom-proof { background-color: #ffffff; border-color: #3377cc; border-style: dashed; }
+.custom-proof > p:first-child { background-color: #cce0ff; border-color: #3377cc; }
+/* Symbole QED à la fin */
+.custom-proof::after { content: "∎"; float: right; font-size: 1.2em; font-weight: bold; margin-top: -1.5em; }
+
+/* Corollaire : fond gris clair, bordure rouge */
+.custom-corollary { background-color: #f7f7f7; border-color: #cc0000; }
+.custom-corollary > p:first-child { background-color: #cce0ff; border-color: #cc0000; }
+
+/* Exercice : fond green!10, bordure noire */
+.custom-exercise { background-color: #f0fff0; border-color: #000000; }
+.custom-exercise > p:first-child { background-color: #ccffcc; border-color: #000000; }
+
+/* Solution / Réponse : fond green!10, bordure noire pointillée */
+.custom-solution { background-color: #f0fff0; border-color: #000000; border-style: dashed; }
+.custom-solution > p:first-child { background-color: #ccffcc; border-color: #000000; }
+
+/* Bloc libre (callout-note) : géré nativement par Quarto, mais on peut ajuster */
+.callout-note { margin-top: 2em; }

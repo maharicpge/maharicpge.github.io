@@ -1,10 +1,314 @@
 ---
-title: "Chapitre 14 : Calcul matriciel"
-pagetitle: "Calcul matriciel - Mathématiques en CPGE"
+title: "Calcul matriciel"
+subtitle: "Chapitre 14"
+author: "Said MAHARI"
+date: last-modified
+date-format: "D MMMM YYYY"
+lang: fr
+format:
+  html:
+    theme: cosmo
+    toc: true
+    number-sections: true
+    html-math-method: katex
+    css: styles.css
+filters:
+  - custom-numbered-blocks.lua
 ---
 
-**MPSI (1re année) — Chapitre 14.** Matrices inversibles, matrices par blocs, changement de base.
+**MPSI (1re année) — Chapitre 14.** Définitions et opérations sur les matrices, produit matriciel, puissances, transposition et trace, matrices inversibles, calcul par blocs, algorithme de Gauss-Jordan, matrice d'une application linéaire, changement de base.
 
-## Document
+Ce chapitre a été réalisé conformément au programme marocain de mathématiques de la filière MPSI.
 
-*PDF à venir : déposez le fichier `files/mpsi/chap14.pdf` puis régénérez la page.*
+Dans ce chapitre, $\mathbb{K}$ désigne un corps ; on peut penser à $\mathbb{Q}$, $\mathbb{R}$ ou $\mathbb{C}$.
+
+# Calcul matriciel {-}
+
+# Définitions et opérations
+
+## Définitions
+
+::: {.definition}
+Une **matrice** $A$ est un tableau rectangulaire d'éléments de $\mathbb{K}$.
+
+- Elle est dite de **taille** $n\times p$ si le tableau possède $n$ lignes et $p$ colonnes ;
+- les nombres du tableau sont les **coefficients** de $A$ ;
+- le coefficient situé à la $i$-ème ligne et à la $j$-ème colonne est noté $a_{i,j}$.
+:::
+
+$$A=\begin{pmatrix} a_{1,1} & a_{1,2} & \dots & a_{1,p}\\ a_{2,1} & a_{2,2} & \dots & a_{2,p}\\ \vdots & \vdots & \ddots & \vdots\\ a_{n,1} & a_{n,2} & \dots & a_{n,p}\end{pmatrix} \quad \text{ou} \quad A=\big(a_{i,j}\big)_{\substack{1\leq i\leq n\\ 1\leq j\leq p}}$$
+
+::: {.example}
+$$A=\begin{pmatrix} 1 & -2 & 5\\ 0 & 3 & 7 \end{pmatrix}$$
+est une matrice $2\times 3$ avec, par exemple, $a_{1,1}=1$ et $a_{2,3}=7$.
+:::
+
+::: {.definition}
+- Deux matrices sont **égales** lorsqu'elles ont la même taille et que les coefficients correspondants sont égaux.
+- L'ensemble des matrices à $n$ lignes et $p$ colonnes à coefficients dans $\mathbb{K}$ est noté $M_{n,p}(\mathbb{K})$. On note $M_n(\mathbb{K})$ au lieu de $M_{n,n}(\mathbb{K})$.
+:::
+
+## Matrices particulières
+
+::: {.definition}
+- Si $n=p$, la matrice est dite **carrée** ; les éléments $a_{1,1},a_{2,2},\ldots,a_{n,n}$ forment sa **diagonale principale**.
+- Une matrice qui n'a qu'une seule ligne est une **matrice ligne** ; une matrice qui n'a qu'une seule colonne est une **matrice colonne**.
+- La matrice dont tous les coefficients sont nuls est la **matrice nulle**, notée $0_{n,p}$ (ou $0$).
+- Une matrice carrée est **triangulaire supérieure** (resp. **inférieure**) si ses éléments en dessous (resp. au-dessus) de la diagonale sont nuls ; elle est **diagonale** si elle est à la fois triangulaire supérieure et inférieure.
+:::
+
+## Addition et multiplication par un scalaire
+
+::: {.definition}
+Soient $A=\big(a_{ij}\big)$ et $B=\big(b_{ij}\big)$ deux matrices de même taille $n\times p$. Leur **somme** est $C=A+B$ définie par $c_{ij}=a_{ij}+b_{ij}$. Le **produit** de $A$ par un scalaire $\alpha\in\mathbb{K}$ est la matrice $\big(\alpha a_{ij}\big)$, notée $\alpha A$. La **différence** est $A-B=A+(-B)$.
+:::
+
+::: {.example}
+$$A=\begin{pmatrix} 3 & -2\\ 1 & 7 \end{pmatrix}, \quad B=\begin{pmatrix} 0 & 5\\ 2 & -1 \end{pmatrix} \quad\Rightarrow\quad A+B=\begin{pmatrix} 3 & 3\\ 3 & 6 \end{pmatrix}.$$
+:::
+
+::: {.proposition}
+Soient $A,B,C\in M_{n,p}(\mathbb{K})$ et $\alpha,\beta\in\mathbb{K}$. Alors : $A+B=B+A$ ; $A+(B+C)=(A+B)+C$ ; $A+0=A$ ; $(\alpha+\beta)A=\alpha A+\beta A$ ; $\alpha(A+B)=\alpha A+\alpha B$.
+:::
+
+## Produit de matrices
+
+Le produit $AB$ de deux matrices $A$ et $B$ est défini si et seulement si le nombre de colonnes de $A$ est égal au nombre de lignes de $B$.
+
+::: {.definition}
+Soient $A=\big(a_{ij}\big)$ une matrice $n\times p$ et $B=\big(b_{ij}\big)$ une matrice $p\times q$. Alors le produit $C=AB$ est la matrice $n\times q$ définie par :
+$$c_{ij}=\sum_{k=1}^p a_{ik}b_{kj}=a_{i1}b_{1j}+a_{i2}b_{2j}+\cdots+a_{ip}b_{pj}.$$
+:::
+
+::: {.example}
+$$A=\begin{pmatrix} 1 & 2 & 3\\ 2 & 3 & 4 \end{pmatrix}, \quad B=\begin{pmatrix} 1 & 2\\ -1 & 1\\ 1 & 1 \end{pmatrix} \quad\Rightarrow\quad AB=\begin{pmatrix} 2 & 7\\ 3 & 11 \end{pmatrix}.$$
+Par exemple $c_{11}=1\times1+2\times(-1)+3\times1=2$.
+:::
+
+::: {.remark}
+Le produit d'un vecteur ligne $u=\begin{pmatrix} a_1 & \cdots & a_n\end{pmatrix}$ par un vecteur colonne $v=\begin{pmatrix} b_1\\ \vdots\\ b_n\end{pmatrix}$ est la matrice $1\times1$ dont l'unique coefficient est $a_1b_1+\cdots+a_nb_n$ : c'est le **produit scalaire** de $u$ et $v$. Calculer $c_{ij}$ dans $AB$ revient donc à calculer le produit scalaire de la $i$-ème ligne de $A$ par la $j$-ème colonne de $B$.
+:::
+
+::: {.remark title="(Pièges à éviter)"}
+- **Le produit n'est pas commutatif en général :** il se peut que $AB$ soit défini mais pas $BA$, ou que les deux soient définis mais $AB\neq BA$. Par exemple :
+$$\begin{pmatrix} 5 & 1\\ 3 & -2 \end{pmatrix}\begin{pmatrix} 2 & 0\\ 4 & 3 \end{pmatrix}=\begin{pmatrix} 14 & 3\\ -2 & -6 \end{pmatrix} \quad \text{mais} \quad \begin{pmatrix} 2 & 0\\ 4 & 3 \end{pmatrix}\begin{pmatrix} 5 & 1\\ 3 & -2 \end{pmatrix}=\begin{pmatrix} 10 & 2\\ 29 & -2 \end{pmatrix}.$$
+- **$AB=0$ n'implique pas $A=0$ ou $B=0$ :** avec $A=\begin{pmatrix} 0 & -1\\ 0 & 5 \end{pmatrix}$ et $B=\begin{pmatrix} 2 & -3\\ 0 & 0 \end{pmatrix}$, on a $AB=0$.
+- **$AB=AC$ n'implique pas $B=C$.**
+:::
+
+::: {.proposition}
+Malgré ces difficultés, le produit vérifie : $A(BC)=(AB)C$ (associativité) ; $A(B+C)=AB+AC$ et $(B+C)A=BA+CA$ (distributivité) ; $A\cdot0=0$ et $0\cdot A=0$.
+:::
+
+::: {.definition title="(Matrice identité)"}
+La **matrice identité** $I_n$ est la matrice carrée dont les éléments diagonaux valent $1$ et tous les autres $0$. C'est l'élément neutre pour le produit.
+:::
+
+::: {.proposition}
+Si $A$ est une matrice $n\times p$, alors $I_n\cdot A=A$ et $A\cdot I_p=A$.
+:::
+
+## Puissances d'une matrice
+
+::: {.definition}
+Pour $A\in M_n(\mathbb{K})$, on définit $A^0=I_n$ et $A^{p+1}=A^p\times A$ ; autrement dit $A^p=\underbrace{A\times\cdots\times A}_{p\text{ facteurs}}$.
+:::
+
+::: {.example}
+Pour $A=\begin{pmatrix} 1 & 0 & 1\\ 0 & -1 & 0\\ 0 & 0 & 2 \end{pmatrix}$, on conjecture puis on montre par récurrence :
+$$A^p=\begin{pmatrix} 1 & 0 & 2^p-1\\ 0 & (-1)^p & 0\\ 0 & 0 & 2^p \end{pmatrix}.$$
+:::
+
+::: {.proposition title="(Formule du binôme)"}
+Soient $A,B\in M_n(\mathbb{K})$ qui **commutent** ($AB=BA$). Alors, pour tout $p\geq 0$ :
+$$(A+B)^p=\sum_{k=0}^p \binom{p}{k}A^{p-k}B^k.$$
+:::
+
+::: {.remark title="(Attention)"}
+Comme la multiplication n'est pas commutative, $(A+B)^2=A^2+AB+BA+B^2$, qui n'est **pas** en général $A^2+2AB+B^2$.
+:::
+
+::: {.example}
+Soit $A=\begin{pmatrix} 1&1&1&1\\ 0&1&2&1\\ 0&0&1&3\\ 0&0&0&1 \end{pmatrix}$. On pose $N=A-I$, qui est **nilpotente** : $N^4=0$. Comme $A=I+N$ et $IN=NI$, la formule du binôme donne, pour $p\geq 3$ :
+$$A^p=I+pN+\tfrac{p(p-1)}{2}N^2+\tfrac{p(p-1)(p-2)}{6}N^3=\begin{pmatrix} 1&p&p^2&p(p^2-p+1)\\ 0&1&2p&p(3p-2)\\ 0&0&1&3p\\ 0&0&0&1 \end{pmatrix}.$$
+:::
+
+## Transposition, trace et symétrie
+
+::: {.definition}
+La **transposée** $A^T$ (ou $^t\!A$) de la matrice $A=\big(a_{ij}\big)$ de taille $n\times p$ est la matrice de taille $p\times n$ définie par $(A^T)_{ij}=a_{ji}$ : la $i$-ème ligne de $A$ devient la $i$-ème colonne de $A^T$.
+:::
+
+::: {.example}
+$$\begin{pmatrix} 1&2&3\\ 4&5&-6\\ -7&8&9 \end{pmatrix}^T=\begin{pmatrix} 1&4&-7\\ 2&5&8\\ 3&-6&9 \end{pmatrix} \qquad (1\ \ -2\ \ 5)^T=\begin{pmatrix} 1\\ -2\\ 5 \end{pmatrix}$$
+:::
+
+::: {.theorem}
+$(A+B)^T=A^T+B^T$ ; $(\alpha A)^T=\alpha A^T$ ; $(A^T)^T=A$ ; $\boxed{(AB)^T=B^TA^T}$ ; si $A$ est inversible, $A^T$ l'est aussi et $(A^T)^{-1}=(A^{-1})^T$.
+:::
+
+::: {.definition}
+La **trace** d'une matrice carrée $A$ est la somme de ses éléments diagonaux : $\operatorname{Tr}A=a_{11}+a_{22}+\cdots+a_{nn}$.
+:::
+
+::: {.theorem}
+Soient $A,B\in M_n(\mathbb{K})$. Alors : $\operatorname{Tr}(A+B)=\operatorname{Tr}A+\operatorname{Tr}B$ ; $\operatorname{Tr}(\alpha A)=\alpha\operatorname{Tr}A$ ; $\operatorname{Tr}(A^T)=\operatorname{Tr}A$ ; $\operatorname{Tr}(AB)=\operatorname{Tr}(BA)$.
+:::
+
+::: {.definition}
+Une matrice carrée $A$ est **symétrique** si $A=A^T$ (i.e. $a_{ij}=a_{ji}$) ; elle est **antisymétrique** si $A^T=-A$.
+:::
+
+::: {.example}
+Pour toute matrice $B$, les matrices $BB^T$ et $B^TB$ sont symétriques. Toute matrice $A$ se décompose de façon **unique** en $A=\underbrace{\tfrac12(A+A^T)}_{\text{symétrique}}+\underbrace{\tfrac12(A-A^T)}_{\text{antisymétrique}}$.
+:::
+
+# Calcul par blocs
+
+On peut définir la **somme** et le **produit par blocs** des matrices, à condition que les blocs aient des tailles compatibles : si $A=\begin{pmatrix} M_1 & N_1\\ O_1 & P_1 \end{pmatrix}$ et $B=\begin{pmatrix} M_2 & N_2\\ O_2 & P_2 \end{pmatrix}$, alors
+$$A+B=\begin{pmatrix} M_1+M_2 & N_1+N_2\\ O_1+O_2 & P_1+P_2 \end{pmatrix} \qquad AB=\begin{pmatrix} M_1M_2+N_1O_2 & M_1N_2+N_1P_2\\ O_1M_2+P_1O_2 & O_1N_2+P_1P_2 \end{pmatrix}.$$
+
+::: {.example}
+Soit $E$ un $\mathbb{K}$-espace vectoriel de dimension $n$, $F$ et $G$ deux sous-espaces supplémentaires, et $\mathcal{B}$ une base adaptée à la somme directe $F\oplus G$ (avec $\dim F=r$). Alors la projection $p$ sur $F$ parallèlement à $G$ et la symétrie $s$ par rapport à $F$ parallèlement à $G$ ont pour matrices dans $\mathcal{B}$ :
+$$\operatorname{Mat}_{\mathcal{B}}(p)=J_r(n,n)=\begin{pmatrix} I_r & 0\\ 0 & 0 \end{pmatrix} \qquad \operatorname{Mat}_{\mathcal{B}}(s)=\begin{pmatrix} I_r & 0\\ 0 & -I_{n-r} \end{pmatrix}=2J_r(n,n)-I_n.$$
+:::
+
+::: {.proposition}
+- Le produit de deux matrices triangulaires supérieures (resp. inférieures) est triangulaire supérieure (resp. inférieure) ; le produit de deux matrices diagonales est diagonal.
+- Si $D=\operatorname{Diag}(\alpha_1,\ldots,\alpha_n)$ est diagonale, alors $D^p=\operatorname{Diag}(\alpha_1^p,\ldots,\alpha_n^p)$.
+- Une matrice triangulaire est inversible si et seulement si ses éléments diagonaux sont tous non nuls.
+:::
+
+# Matrices inversibles
+
+## Définition et premières propriétés
+
+::: {.definition}
+Soit $A$ une matrice carrée $n\times n$. S'il existe une matrice carrée $B$ telle que $AB=I$ et $BA=I$, on dit que $A$ est **inversible** ; $B$ est l'**inverse** de $A$, noté $A^{-1}$. L'ensemble des matrices inversibles de $M_n(\mathbb{K})$ est noté $GL_n(\mathbb{K})$. On note $A^{-p}=(A^{-1})^p$.
+:::
+
+::: {.example}
+- $A=\begin{pmatrix} 1 & 2\\ 0 & 3 \end{pmatrix}$ est inversible d'inverse $A^{-1}=\begin{pmatrix} 1 & -\frac23\\ 0 & \frac13 \end{pmatrix}$.
+- $\begin{pmatrix} 3 & 0\\ 5 & 0 \end{pmatrix}$ n'est **pas** inversible (aucun produit à gauche ou à droite ne donne $I$).
+- $I_n$ est inversible et $I_n^{-1}=I_n$ ; la matrice nulle $0_n$ n'est pas inversible.
+:::
+
+::: {.proposition}
+Si $A$ est inversible, son inverse est **unique** ; $A^{-1}$ est inversible et $(A^{-1})^{-1}=A$ ; si $A,B$ sont inversibles, $AB$ est inversible et $\boxed{(AB)^{-1}=B^{-1}A^{-1}}$ (attention à l'inversion de l'ordre) ; si $AC=BC$ avec $C$ inversible, alors $A=B$.
+:::
+
+## Inverse d'une matrice $2\times2$
+
+::: {.proposition}
+Si $ad-bc\neq 0$, alors $A=\begin{pmatrix} a & b\\ c & d \end{pmatrix}$ est inversible et :
+$$A^{-1}=\frac{1}{ad-bc}\begin{pmatrix} d & -b\\ -c & a \end{pmatrix}.$$
+Inversement, si $ad-bc=0$, la matrice $A$ n'est pas inversible.
+:::
+
+## Algorithme de Gauss-Jordan
+
+Pour inverser une matrice $A$, on effectue des opérations élémentaires sur les lignes de $A$ jusqu'à la transformer en $I$, en faisant **simultanément** les mêmes opérations en partant de $I$ : on aboutit à $A^{-1}$. En pratique, on part du tableau augmenté $(A\mid I)$ et on aboutit à $(I\mid A^{-1})$. Les opérations élémentaires sont : $L_i\leftarrow\lambda L_i$ ($\lambda\neq0$) ; $L_i\leftarrow L_i+\lambda L_j$ ; $L_i\leftrightarrow L_j$.
+
+::: {.example}
+Calculons l'inverse de $A=\begin{pmatrix} 1 & 2 & 1\\ 4 & 0 & -1\\ -1 & 2 & 2 \end{pmatrix}$ :
+$$\left(\begin{array}{ccc|ccc} 1&2&1&1&0&0\\ 4&0&-1&0&1&0\\ -1&2&2&0&0&1 \end{array}\right) \xrightarrow[L_3\leftarrow L_3+L_1]{L_2\leftarrow L_2-4L_1} \left(\begin{array}{ccc|ccc} 1&2&1&1&0&0\\ 0&-8&-5&-4&1&0\\ 0&4&3&1&0&1 \end{array}\right)$$
+$$\xrightarrow[L_3\leftarrow L_3-4L_2]{L_2\leftarrow-\frac18 L_2} \left(\begin{array}{ccc|ccc} 1&2&1&1&0&0\\ 0&1&\frac58&\frac12&-\frac18&0\\ 0&0&\frac12&-1&\frac12&1 \end{array}\right) \xrightarrow{L_3\leftarrow 2L_3} \left(\begin{array}{ccc|ccc} 1&2&1&1&0&0\\ 0&1&\frac58&\frac12&-\frac18&0\\ 0&0&1&-2&1&2 \end{array}\right)$$
+$$\xrightarrow[L_1\leftarrow L_1-2L_2-L_3]{L_2\leftarrow L_2-\frac58 L_3} \left(\begin{array}{ccc|ccc} 1&0&0&-\frac12&\frac12&\frac12\\ 0&1&0&\frac74&-\frac34&-\frac54\\ 0&0&1&-2&1&2 \end{array}\right)$$
+Ainsi $A^{-1}=\frac14\begin{pmatrix} -2 & 2 & 2\\ 7 & -3 & -5\\ -8 & 4 & 8 \end{pmatrix}$. On vérifie rapidement que $A\times A^{-1}=I$.
+:::
+
+## Matrices élémentaires et systèmes linéaires
+
+::: {.definition}
+Les **matrices élémentaires** $E_{L_i\leftarrow\lambda L_i}$, $E_{L_i\leftarrow L_i+\lambda L_j}$, $E_{L_i\leftrightarrow L_j}$ sont les matrices obtenues en appliquant l'opération élémentaire correspondante à la matrice identité $I_n$. Le produit $E\times A$ réalise l'opération élémentaire sur $A$. Elles sont inversibles, avec :
+$$\big(E_{L_i\leftarrow L_i+\alpha L_j}\big)^{-1}=E_{L_i\leftarrow L_i-\alpha L_j}, \quad \big(E_{L_i\leftarrow\lambda L_i}\big)^{-1}=E_{L_i\leftarrow\frac1\lambda L_i}, \quad \big(E_{L_i\leftrightarrow L_j}\big)^{-1}=E_{L_i\leftrightarrow L_j}.$$
+:::
+
+::: {.theorem}
+Une matrice carrée $A$ est inversible si et seulement si sa forme échelonnée réduite est la matrice identité $I_n$.
+:::
+
+::: {.corollary}
+Les assertions suivantes sont équivalentes : (i) $A$ est inversible ; (ii) le système $AX=0$ a une unique solution $X=0$ ; (iii) pour tout second membre $b$, le système $AX=b$ a une unique solution $X$.
+:::
+
+::: {.proposition}
+Si la matrice $A$ est inversible, alors la solution du système $AX=b$ est unique et est : $\boxed{X=A^{-1}b}$.
+:::
+
+# Matrice d'une application linéaire
+
+::: {.definition}
+Soit $f:E\to F$ linéaire, $\mathcal{B}=(e_1,\ldots,e_p)$ une base de $E$ et $\mathcal{B}'=(f_1,\ldots,f_n)$ une base de $F$. La **matrice de $f$** dans les bases $\mathcal{B},\mathcal{B}'$ est la matrice dont la $j$-ème colonne est formée des coordonnées de $f(e_j)$ dans $\mathcal{B}'$. On la note $\operatorname{Mat}_{\mathcal{B},\mathcal{B}'}(f)$.
+:::
+
+::: {.example}
+Soit $f:\mathbb{R}^3\to\mathbb{R}^2$, $(x_1,x_2,x_3)\mapsto(x_1+x_2-x_3,\ x_1-2x_2+3x_3)$. Dans les bases canoniques :
+$$\operatorname{Mat}_{\mathcal{B},\mathcal{B}'}(f)=\begin{pmatrix} 1 & 1 & -1\\ 1 & -2 & 3 \end{pmatrix}.$$
+:::
+
+::: {.proposition}
+$\operatorname{Mat}_{\mathcal{B},\mathcal{B}''}(g\circ f)=\operatorname{Mat}_{\mathcal{B}',\mathcal{B}''}(g)\times\operatorname{Mat}_{\mathcal{B},\mathcal{B}'}(f)$ ; $\operatorname{Mat}_{\mathcal{B}}(f^p)=\big(\operatorname{Mat}_{\mathcal{B}}(f)\big)^p$. Si $Y=\operatorname{Mat}_{\mathcal{B}'}(y)$ et $X=\operatorname{Mat}_{\mathcal{B}}(x)$, alors $y=f(x)\iff Y=AX$.
+:::
+
+::: {.theorem}
+Soit $f:E\to F$ linéaire avec $\dim E=\dim F$, et $A=\operatorname{Mat}_{\mathcal{B},\mathcal{B}'}(f)$. Alors $f$ est bijective si et seulement si $A$ est inversible ; dans ce cas $\operatorname{Mat}_{\mathcal{B}',\mathcal{B}}(f^{-1})=A^{-1}$.
+:::
+
+# Changement de base
+
+::: {.definition}
+Soit $E$ de dimension finie $n$, $\mathcal{B}$ et $\mathcal{B}'$ deux bases de $E$. La **matrice de passage** de $\mathcal{B}$ vers $\mathcal{B}'$, notée $P_{\mathcal{B},\mathcal{B}'}$ (ou $P_{\mathcal{B}}^{\mathcal{B}'}$), est la matrice carrée dont la $j$-ème colonne est formée des coordonnées du $j$-ème vecteur de $\mathcal{B}'$ dans la base $\mathcal{B}$.
+:::
+
+::: {.proposition}
+$P_{\mathcal{B},\mathcal{B}'}=\operatorname{Mat}_{\mathcal{B}',\mathcal{B}}(\operatorname{id}_E)$ ; elle est inversible et $P_{\mathcal{B}',\mathcal{B}}=\big(P_{\mathcal{B},\mathcal{B}'}\big)^{-1}$ ; $P_{\mathcal{B},\mathcal{B}''}=P_{\mathcal{B},\mathcal{B}'}\times P_{\mathcal{B}',\mathcal{B}''}$.
+:::
+
+::: {.proposition title="(Changement de base)"}
+Soit $X$ (resp. $X'$) la matrice des coordonnées d'un vecteur $x$ dans $\mathcal{B}$ (resp. $\mathcal{B}'$). Alors $\boxed{X=P_{\mathcal{B},\mathcal{B}'}\,X'}$. Si $A=\operatorname{Mat}_{\mathcal{B}}(f)$ et $B=\operatorname{Mat}_{\mathcal{B}'}(f)$, alors $\boxed{B=P^{-1}AP}$ avec $P=P_{\mathcal{B},\mathcal{B}'}$. Plus généralement, $B=Q^{-1}AP$ avec $P$ et $Q$ les matrices de passage aux nouvelles bases de $E$ et $F$.
+:::
+
+::: {.example}
+Soit $f$ l'endomorphisme de $\mathbb{R}^3$ dont la matrice dans $\mathcal{B}_1$ est $A=\begin{pmatrix} 1&0&-6\\ -2&2&-7\\ 0&0&3 \end{pmatrix}$. Avec $P=P_{\mathcal{B}_1,\mathcal{B}_2}=\begin{pmatrix} 1&0&-3\\ 2&-1&-1\\ 0&0&1 \end{pmatrix}$ et $P^{-1}=\begin{pmatrix} 1&0&3\\ 2&-1&5\\ 0&0&1 \end{pmatrix}$, on obtient :
+$$B=P^{-1}AP=\begin{pmatrix} 1&0&0\\ 0&2&0\\ 0&0&3 \end{pmatrix}.$$
+C'est tout l'intérêt d'un changement de base : se ramener à une matrice diagonale, dont les puissances $B^k$ (donc $A^k=P B^k P^{-1}$) sont immédiates.
+:::
+
+# Noyau, image, rang ; matrices équivalentes et semblables
+
+::: {.definition}
+On appelle **application linéaire associée canoniquement** à $A\in M_{n,p}(\mathbb{K})$ l'application $f\in\mathcal{L}(\mathbb{K}^p,\mathbb{K}^n)$ telle que $\operatorname{Mat}_{\mathcal{B},\mathcal{B}'}(f)=A$ dans les bases canoniques. On note $\ker A$, $\operatorname{Im}A$ et $\operatorname{rg}A$ le noyau, l'image et le rang de $f$.
+:::
+
+::: {.example}
+Pour $A=\begin{pmatrix} 1&2&-1\\ 2&3&0 \end{pmatrix}$ : $\ker A=\operatorname{Vect}\begin{pmatrix} 3\\ -2\\ -1 \end{pmatrix}$, $\operatorname{Im}A=\mathbb{K}^2$ et $\operatorname{rg}A=2$.
+:::
+
+::: {.definition}
+Deux matrices $A,B\in M_{n,p}(\mathbb{K})$ sont **équivalentes** s'il existe $P\in GL_p(\mathbb{K})$ et $Q\in GL_n(\mathbb{K})$ inversibles telles que $B=QAP$. Deux matrices carrées $A,B\in M_n(\mathbb{K})$ sont **semblables** s'il existe $P\in GL_n(\mathbb{K})$ telle que $B=P^{-1}AP$.
+:::
+
+::: {.proposition}
+Deux matrices équivalentes représentent la même application linéaire dans des bases différentes ; deux matrices semblables représentent le même endomorphisme dans des bases différentes. Deux matrices équivalentes ont même rang ; une matrice et sa transposée ont même rang.
+:::
+
+::: {.exercise}
+1. Calculer l'inverse des matrices $\begin{pmatrix} 3&1\\ 7&2 \end{pmatrix}$, $\begin{pmatrix} 2&-3\\ -5&4 \end{pmatrix}$, $\begin{pmatrix} 0&2\\ 3&0 \end{pmatrix}$ et, suivant $\alpha$, de $\begin{pmatrix} \alpha+1&1\\ 2&\alpha \end{pmatrix}$.
+2. Calculer l'inverse de $\begin{pmatrix} 1&3&0\\ 2&1&-1\\ -2&1&1 \end{pmatrix}$ par l'algorithme de Gauss-Jordan.
+3. Soit $A=\begin{pmatrix} 2&2&1\\ 1&3&1\\ 1&2&2 \end{pmatrix}$. Montrer que $A$ est semblable à $\operatorname{Diag}(1,1,5)$ et en déduire $A^n$ pour tout $n\in\mathbb{N}^*$.
+:::
+
+# Document en PDF {-}
+
+[Chapitre 14 : Calcul matriciel](PDF/mpsi-chap14.pdf)
+
+# Navigation {-}
+
+::: {.chap-nav}
+[Chapitre 13 : Dimension finie](mpsi-chap13.qmd){.prev}
+
+[Menu MPSI](mpsi.qmd){.home}
+
+[Chapitre 15 : Déterminants](mpsi-chap15.qmd){.next}
+:::

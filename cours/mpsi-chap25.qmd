@@ -1,10 +1,167 @@
 ---
-title: "Chapitre 25 : Variables aléatoires finies"
-pagetitle: "Variables aléatoires finies - Mathématiques en CPGE"
+title: "Espaces probabilisés finis"
+subtitle: "Chapitre 25"
+author: "Said MAHARI"
+date: last-modified
+date-format: "D MMMM YYYY"
+lang: fr
+format:
+  html:
+    theme: cosmo
+    toc: true
+    number-sections: true
+    html-math-method: katex
+    css: styles.css
+filters:
+  - custom-numbered-blocks.lua
 ---
 
-**MPSI (1re année) — Chapitre 25.** Loi, espérance, variance, lois uniforme, de Bernoulli, binomiale.
+**MPSI (1re année) — Chapitre 25.** Espaces probabilisés finis, probabilité d'un événement, probabilité uniforme, probabilités conditionnelles, formule des probabilités totales, formule de Bayes, indépendance.
 
-## Document
+Ce chapitre a été réalisé conformément au programme marocain de mathématiques de la filière MPSI.
 
-*PDF à venir : déposez le fichier `files/mpsi/chap25.pdf` puis régénérez la page.*
+# Espaces probabilisés finis {-}
+
+Dans tout ce chapitre, $\Omega$ désigne un ensemble fini non vide appelé **univers**, dont les éléments sont appelés **éventualités** ou **résultats**.
+
+# Probabilités sur un ensemble fini
+
+## Définition
+
+::: {.definition title="(Probabilité)"}
+Une **probabilité** sur $\Omega$ est une application $P:\mathcal{P}(\Omega)\longrightarrow\mathbb{R}^+$ vérifiant :
+1. $P(\Omega)=1$ ;
+2. Pour toutes parties disjointes $A,B\subset\Omega$ : $P(A\cup B)=P(A)+P(B)$.
+
+Le couple $(\Omega,P)$ est appelé **espace probabilisé fini**. Les parties de $\Omega$ sont appelées **événements**.
+:::
+
+::: {.definition title="(Événement)"}
+Un **événement** est une partie de $\Omega$. Un événement $A$ est dit **réalisé** si l'éventualité obtenue appartient à $A$. L'événement $\Omega$ est l'**événement certain**, et $\varnothing$ est l'**événement impossible**.
+:::
+
+::: {.definition title="(Événement contraire)"}
+L'**événement contraire** de $A$ est $\bar A=\Omega\setminus A$.
+:::
+
+## Probabilité uniforme
+
+::: {.definition title="(Probabilité uniforme)"}
+On dit que la probabilité $P$ sur $\Omega$ est **uniforme** si toutes les éventualités ont la même probabilité. Alors pour toute partie $A\subset\Omega$ :
+$$P(A)=\frac{\operatorname{Card}(A)}{\operatorname{Card}(\Omega)}$$
+:::
+
+::: {.example}
+Lors du lancer d'un dé équilibré à 6 faces, la probabilité est uniforme sur $\Omega=\{1,2,3,4,5,6\}$. La probabilité d'obtenir un nombre pair est $P(\{2,4,6\})=\frac{3}{6}=\frac12$.
+:::
+
+## Probabilité d'un événement
+
+::: {.proposition title="(Propriétés)"}
+Soit $P$ une probabilité sur $\Omega$.
+1. $P(\varnothing)=0$.
+2. Pour toute partie $A\subset\Omega$ : $P(\bar A)=1-P(A)$.
+3. $0\leq P(A)\leq 1$ pour tout événement $A$.
+:::
+
+## Probabilité de la réunion de deux événements
+
+::: {.proposition}
+Pour toutes parties $A,B\subset\Omega$ :
+$$P(A\cup B)=P(A)+P(B)-P(A\cap B)$$
+:::
+
+::: {.example}
+Lors du lancer d'un dé équilibré, soit $A$=« obtenir un nombre pair » et $B$=« obtenir un nombre $\geq 4$ ». Alors $A\cap B=\{4,6\}$, donc $P(A\cup B)=\frac36+\frac36-\frac26=\frac46=\frac23$.
+:::
+
+# Probabilités conditionnelles
+
+## Définition
+
+::: {.definition title="(Probabilité conditionnelle)"}
+Soient $A$ et $B$ deux événements avec $P(B)>0$. La **probabilité conditionnelle** de $A$ sachant $B$ est :
+$$P(A|B)=\frac{P(A\cap B)}{P(B)}$$
+:::
+
+::: {.example}
+On lance un dé équilibré. Soit $A$=« obtenir un nombre pair » et $B$=« obtenir un nombre $\leq 3$ ». Alors $A\cap B=\{2\}$, donc $P(A|B)=\frac{1/6}{3/6}=\frac13$.
+:::
+
+## Propriétés
+
+::: {.proposition}
+Soit $B$ un événement avec $P(B)>0$. L'application $A\mapsto P(A|B)$ est une probabilité sur $\Omega$, appelée **probabilité conditionnelle sachant $B$**.
+:::
+
+::: {.proposition title="(Formule des probabilités composées)"}
+Si $P(A)>0$ et $P(B)>0$, alors :
+$$P(A\cap B)=P(A)P(B|A)=P(B)P(A|B)$$
+:::
+
+## Formule des probabilités totales
+
+::: {.theorem title="(Formule des probabilités totales)"}
+Soient $A_1,\ldots,A_n$ des événements formant un **système complet d'événements** (c'est-à-dire deux à deux incompatibles et dont la réunion est $\Omega$), avec $P(A_i)>0$ pour tout $i$. Alors pour tout événement $B$ :
+$$P(B)=\sum_{i=1}^{n}P(A_i)P(B|A_i)$$
+:::
+
+## Formule de Bayes
+
+::: {.theorem title="(Formule de Bayes)"}
+Soient $A_1,\ldots,A_n$ un système complet d'événements avec $P(A_i)>0$ pour tout $i$. Soit $B$ un événement avec $P(B)>0$. Alors pour tout $i$ :
+$$P(A_i|B)=\frac{P(A_i)P(B|A_i)}{\sum_{j=1}^{n}P(A_j)P(B|A_j)}$$
+:::
+
+::: {.example title="(Problème des urnes)"}
+Une urne $U_1$ contient 3 boules blanches et 2 boules noires. Une urne $U_2$ contient 1 boule blanche et 3 boules noires. On choisit une urne au hasard puis on tire une boule. Quelle est la probabilité que la boule tirée soit blanche ?
+Par la formule des probabilités totales : $P(B)=\frac12\cdot\frac35+\frac12\cdot\frac14=\frac{3}{10}+\frac18=\frac{11}{40}$.
+:::
+
+# Indépendance
+
+## Définition
+
+::: {.definition title="(Indépendance de deux événements)"}
+Deux événements $A$ et $B$ sont **indépendants** si :
+$$P(A\cap B)=P(A)P(B)$$
+:::
+
+::: {.remark}
+Si $P(B)>0$, l'indépendance de $A$ et $B$ équivaut à $P(A|B)=P(A)$.
+:::
+
+::: {.example}
+Lors du lancer de deux dés équilibrés, l'événement « le premier dé donne 6 » et l'événement « le deuxième dé donne 6 » sont indépendants.
+:::
+
+## Indépendance mutuelle
+
+::: {.definition title="(Indépendance mutuelle)"}
+Des événements $A_1,\ldots,A_n$ sont **mutuellement indépendants** si pour tout sous-ensemble $\{i_1,\ldots,i_k\}\subset\{1,\ldots,n\}$ :
+$$P(A_{i_1}\cap\cdots\cap A_{i_k})=P(A_{i_1})\cdots P(A_{i_k})$$
+:::
+
+::: {.remark title="(Attention !)"}
+L'indépendance deux à deux n'implique pas l'indépendance mutuelle. Il faut vérifier toutes les intersections.
+:::
+
+::: {.exercise}
+\sauteligne
+1. On lance un dé équilibré. Soient $A$=« obtenir un nombre pair », $B$=« obtenir un nombre impair », $C$=« obtenir 1 ou 2 ». Les événements $A$, $B$, $C$ sont-ils indépendants deux à deux ? Mutuellement indépendants ?
+2. On tire deux cartes d'un jeu de 52 cartes. Soient $A$=« la première carte est un as » et $B$=« la deuxième carte est un as ». Les événements $A$ et $B$ sont-ils indépendants si le tirage est avec remise ? Sans remise ?
+:::
+
+# Document en PDF {-}
+
+[Chapitre 25 : Espaces probabilisés finis](PDF/mpsi-chap25.pdf)
+
+## Navigation {-}
+
+::: {.chap-nav}
+[Chapitre 24 : Dénombrement](mpsi-chap24.qmd){.prev}
+
+[Menu MPSI](mpsi.qmd){.home}
+
+[Chapitre 26 : Variables aléatoires finies](mpsi-chap26.qmd){.next}
+:::

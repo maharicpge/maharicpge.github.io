@@ -1,10 +1,518 @@
 ---
-title: "Chapitre 21 : Intégration sur un segment"
-pagetitle: "Intégration sur un segment - Mathématiques en CPGE"
+title: "Intégration sur un segment"
+subtitle: "Chapitre 21"
+author: "Said MAHARI"
+date: last-modified
+date-format: "D MMMM YYYY"
+lang: fr
+format:
+  html:
+    theme: cosmo
+    toc: true
+    number-sections: true
+    html-math-method: katex
+    css: styles.css
+filters:
+  - custom-numbered-blocks.lua
 ---
 
-**MPSI (1re année) — Chapitre 21.** Sommes de Riemann, primitives, IPP, changement de variable.
+**MPSI (1re année) — Chapitre 21.** Continuité uniforme (Heine), fonctions en escalier, fonctions continues par morceaux, construction de l'intégrale sur un segment, théorème fondamental du calcul intégral, primitives, intégration par parties, changement de variable, formules de Taylor-Lagrange, sommes de Riemann, méthode des trapèzes.
 
-## Document
+Ce chapitre a été réalisé conformément au programme marocain de mathématiques de la filière MPSI.
 
-*PDF à venir : déposez le fichier `files/mpsi/chap21.pdf` puis régénérez la page.*
+# Intégration sur un segment {-}
+
+Pour commencer, refaites donc un tour du côté du chapitre « Techniques élémentaires de calcul intégral ». Dans tout ce chapitre, $a$ et $b$ sont deux réels, $\mathbb{K}$ est l'un des corps $\mathbb{R}$ ou $\mathbb{C}$, et $I,J,\ldots$ sont des intervalles. Quand on notera $[a,b]$, il sera sous-entendu que $a\leq b$.
+
+# Continuité uniforme
+
+::: {.definition title="(Continuité uniforme)"}
+Soit $f : I \longrightarrow \mathbb{C}$ une fonction. On dit que $f$ est **uniformément continue** sur $I$ si :
+$$\forall \varepsilon>0,\ \exists \alpha>0,\ \forall x,y\in I,\ |x-y|<\alpha \Longrightarrow |f(x)-f(y)|<\varepsilon.$$
+:::
+
+Dire que $f$ est continue sur $I$, c'est dire que $f$ est continue en tout point $y$ de $I$, c'est-à-dire : $\forall y\in I,\ \forall\varepsilon>0,\ \exists\alpha_{y,\varepsilon}>0,\ \forall x\in I,\ |x-y|<\alpha_{y,\varepsilon}\Rightarrow|f(x)-f(y)|<\varepsilon$. Avec la continuité, on se fixe donc un point $y$ et un niveau $\varepsilon$, et on récupère un $\alpha_{y,\varepsilon}$ qui dépend a priori de $y$ et de $\varepsilon$. Avec la continuité **uniforme**, on obtient un $\alpha_\varepsilon$ en ayant seulement fixé $\varepsilon$ : cet $\alpha_\varepsilon$ est donc **valable pour tout point** $y\in I$. L'adjectif « uniforme » est précisément là pour signifier cette indépendance de $\alpha_\varepsilon$ par rapport à $y$.
+
+::: {.theorem title="(Lien entre continuité, continuité uniforme et lipschitzianité)"}
+1. Toute fonction uniformément continue sur un intervalle y est continue.
+2. Toute fonction lipschitzienne sur un intervalle y est uniformément continue.
+:::
+
+::: {.proof}
+(i) Évident ! S'il existe un $\alpha$ uniforme valable pour tout point, alors bien sûr il en existe un pour chacun.
+
+(ii) Soit $f : I\to\mathbb{C}$ une fonction $K$-lipschitzienne sur $I$ pour un certain $K>0$. Soit $\varepsilon>0$. Posons $\alpha=\frac{\varepsilon}{K}$. Alors pour tous $x,y\in I$ pour lesquels $|x-y|<\alpha$ : $|f(x)-f(y)|\leq K|x-y|<K\alpha=\varepsilon$.
+:::
+
+Le théorème précédent n'a pas de réciproque en général, sauf l'assertion (i) dans le cas d'un **segment**.
+
+::: {.theorem title="(Théorème de Heine)"}
+Toute fonction continue sur un **segment** y est uniformément continue.
+:::
+
+::: {.proof}
+Soit $f\in\mathcal{C}([a,b],\mathbb{C})$. Supposons par l'absurde que $f$ n'est pas uniformément continue sur $[a,b]$. Ainsi, pour un certain $\varepsilon>0$ : $\forall\alpha>0,\ \exists x,y\in[a,b],\ |x-y|<\alpha$ et $|f(x)-f(y)|\geq\varepsilon$.
+
+Pour tout $n\in\mathbb{N}^*$, pour $\alpha=2^{-n}$, il existe donc deux réels $x_n,y_n\in[a,b]$ pour lesquels $|x_n-y_n|<2^{-n}$ et $|f(x_n)-f(y_n)|\geq\varepsilon$. Bornée entre $a$ et $b$, la suite $(x_n)_{n\in\mathbb{N}}$ possède une suite extraite convergente $\left(x_{\varphi(n)}\right)_{n\in\mathbb{N}}$ d'après le théorème de Bolzano-Weierstrass, disons de limite $\ell\in[a,b]$. Or $|x_{\varphi(n)}-y_{\varphi(n)}|<2^{-\varphi(n)}$ avec $\lim_{n\to+\infty}\varphi(n)=+\infty$, donc $\lim_{n\to+\infty}y_{\varphi(n)}=\ell$ par encadrement. Pour conclure, passons à la limite dans l'inégalité $|f(x_{\varphi(n)})-f(y_{\varphi(n)})|\geq\varepsilon$ en utilisant la continuité de $f$ en $\ell$ : $0=|f(\ell)-f(\ell)|\geq\varepsilon>0$ — contradiction.
+:::
+
+# Fonctions en escalier, fonctions continues par morceaux
+
+## Fonctions en escalier
+
+::: {.definition title="(Subdivision d'un segment)"}
+On appelle **subdivision** de $[a,b]$ toute famille $\sigma=(x_0,\ldots,x_n)$ de $[a,b]$ pour laquelle $a=x_0<\cdots<x_n=b$. Le réel strictement positif $\min_{0\leq i\leq n-1}(x_{i+1}-x_i)$ est appelé le **pas** de $\sigma$.
+:::
+
+Une subdivision de $[a,b]$ est une famille, mais en présence de deux subdivisions de $[a,b]$, nous nous autoriserons par abus de langage à parler de leur réunion ou de l'inclusion de l'une dans l'autre. Par exemple, la subdivision $(0,1,3,5)$ de $[0,5]$ est incluse dans la subdivision $(0,1,2,3,4,5)$ et la réunion des subdivisions $(0,1,3,5)$ et $(0,1,2,5)$ vaut $(0,1,2,3,5)$.
+
+::: {.definition title="(Fonction en escalier, subdivision adaptée)"}
+On dit qu'une fonction $f : [a,b]\longrightarrow\mathbb{C}$ est **en escalier** si pour une certaine subdivision $(x_0,\ldots,x_n)$ de $[a,b]$, dite **adaptée** à $f$ :
+$$f \text{ est constante sur } ]x_i,x_{i+1}[ \text{ pour tout } i\in\llbracket 0,n-1\rrbracket.$$
+Cette définition ne garantit nullement l'unicité de la subdivision adaptée $(x_0,\ldots,x_n)$ et elle n'impose aucune valeur à $f$ en $x_0,\ldots,x_n$.
+:::
+
+::: {.theorem title="(Propriétés élémentaires des fonctions en escalier)"}
+Soient $f : [a,b]\to\mathbb{C}$ et $g : [a,b]\to\mathbb{C}$ deux fonctions en escalier et $\lambda,\mu\in\mathbb{C}$.
+
+- **Ajout de points à une subdivision adaptée :** lorsqu'on ajoute un nombre fini de points à une subdivision de $[a,b]$ adaptée à $f$, le résultat est encore une subdivision de $[a,b]$ adaptée à $f$.
+- **Opérations sur les fonctions en escalier :** la réunion d'une subdivision de $[a,b]$ adaptée à $f$ et d'une subdivision de $[a,b]$ adaptée à $g$ est une subdivision de $[a,b]$ adaptée à $f$ **et** à $g$. Les fonctions $|f|$, $\operatorname{Re}(f)$, $\operatorname{Im}(f)$, $\lambda f+\mu g$ et $fg$ sont elles aussi en escalier sur $[a,b]$.
+:::
+
+## Fonctions continues par morceaux
+
+::: {.definition title="(Fonction continue par morceaux, subdivision adaptée)"}
+On dit qu'une fonction $f : [a,b]\longrightarrow\mathbb{C}$ est **continue par morceaux** si pour une certaine subdivision $(x_0,\ldots,x_n)$ de $[a,b]$, dite **adaptée** à $f$ : $f_{|]x_i,x_{i+1}[}$ est continue sur $]x_i,x_{i+1}[$ et **prolongeable par continuité en $x_i$ et $x_{i+1}$** pour tout $i\in\llbracket 0,n-1\rrbracket$.
+
+L'ensemble des fonctions continues par morceaux sur $[a,b]$ à valeurs dans $\mathbb{K}$ est noté $\mathcal{CM}([a,b],\mathbb{K})$.
+:::
+
+Toute fonction en escalier et toute fonction continue sont continues par morceaux. Le théorème « Propriétés élémentaires des fonctions en escalier » reste valable pour les fonctions continues par morceaux. En particulier, $\mathcal{CM}([a,b],\mathbb{K})$ est à la fois un sous-espace vectoriel et un sous-anneau de $\mathbb{K}^{[a,b]}$.
+
+::: {.remark}
+Attention ! Des fonctions aussi simples que la fonction inverse et la fonction logarithme ne sont pas continues par morceaux sur $[0,1]$ quand bien même on les prolonge artificiellement en $0$, car le prolongement ne pourra jamais se faire par continuité. L'exigence de prolongement par continuité de la définition n'est pas anodine.
+:::
+
+::: {.theorem title="(Caractère borné d'une fonction continue par morceaux)"}
+Toute fonction continue par morceaux sur $[a,b]$ est bornée et possède donc une norme infinie $\|f\|_\infty$.
+:::
+
+::: {.proof}
+Soit $f\in\mathcal{CM}([a,b],\mathbb{C})$. Notons $(x_0,\ldots,x_n)$ une subdivision de $[a,b]$ adaptée à $f$. Pour tout $i\in\llbracket 0,n-1\rrbracket$, le prolongement par continuité de la fonction réelle $|f|_{|]x_i,x_{i+1}[}$ à $[x_i,x_{i+1}]$ est borné d'après le théorème des bornes atteintes, disons par un certain $M_i$ en valeur absolue. Le maximum des réels positifs $M_1,\ldots,M_n$ et $|f(x_0)|,\ldots,|f(x_n)|$ majore dès lors $|f|$ sur $[a,b]$ tout entier.
+:::
+
+Attention ! Bornée oui… mais elle n'atteint pas forcément ses bornes ! Faites un dessin.
+
+## Approximation uniforme par des fonctions en escalier
+
+On rappelle que pour toutes fonctions $f,g\in\mathcal{CM}([a,b],\mathbb{C})$ :
+$$\|f\|_\infty=0 \iff f=0 \quad \text{et} \quad \|f+g\|_\infty\leq\|f\|_\infty+\|g\|_\infty \ \ (\text{inégalité triangulaire}).$$
+
+::: {.definition title="(Distance uniforme et convergence uniforme)"}
+- **Distance uniforme :** pour toutes fonctions $f,g\in\mathcal{CM}([a,b],\mathbb{C})$, le réel $\|f-g\|_\infty$ est appelé la **distance uniforme** entre $f$ et $g$.
+- **Convergence uniforme :** soient $(f_p)_{p\in\mathbb{N}}\in\mathcal{CM}([a,b],\mathbb{C})^{\mathbb{N}}$ une suite de fonctions et $f\in\mathcal{CM}([a,b],\mathbb{C})$. On dit que la suite $(f_p)_{p\in\mathbb{N}}$ **converge uniformément** vers $f$ sur $[a,b]$ si $\lim_{p\to+\infty}\|f_p-f\|_\infty=0$.
+:::
+
+Il existe tout plein de distances en mathématiques, pas seulement celle à laquelle on est habitué dans le plan ou l'espace. Nous venons de définir une notion de distance sur l'ensemble $\mathcal{CM}([a,b],\mathbb{C})$ des fonctions continues par morceaux.
+
+::: {.theorem title="(Approximation uniforme d'une fonction continue par morceaux par des fonctions en escalier)"}
+Toute fonction continue par morceaux sur $[a,b]$ à valeurs dans $\mathbb{K}$ est la limite uniforme d'une suite de fonctions en escalier sur $[a,b]$ à valeurs dans $\mathbb{K}$.
+:::
+
+En d'autres termes, par analogie avec la définition de la densité d'une partie de $\mathbb{R}$, l'ensemble des fonctions en escalier sur $[a,b]$ à valeurs dans $\mathbb{K}$ est dense dans $\mathcal{CM}([a,b],\mathbb{K})$ au sens de la convergence uniforme.
+
+::: {.proof}
+Soit $f\in\mathcal{CM}([a,b],\mathbb{K})$. Il nous suffit de montrer que pour tout $\varepsilon>0$, il existe une fonction $\varphi : [a,b]\to\mathbb{K}$ en escalier pour laquelle $\|f-\varphi\|_\infty\leq\varepsilon$. (Si on veut ensuite une suite $(\varphi_p)_{p\in\mathbb{N}}$, on peut par exemple choisir $\varepsilon=2^{-p}$ pour tout $p\in\mathbb{N}$.) Fixons donc $\varepsilon>0$.
+
+- **Cas où $f$ est continue sur $[a,b]$ :** d'après le théorème de Heine, $f$ est uniformément continue sur $[a,b]$, donc il existe un réel $\alpha>0$ pour lequel pour tous $x,y\in[a,b]$ : $|x-y|<\alpha\Rightarrow|f(x)-f(y)|<\varepsilon$. Fixons un entier $n\in\mathbb{N}^*$ pour lequel $\frac{b-a}{n}<\alpha$ et posons $x_k=a+k\frac{b-a}{n}$ pour tout $k\in\llbracket 0,n\rrbracket$. Notons enfin $\varphi$ la fonction définie sur $[a,b]$ par : $\forall i\in\llbracket 0,n-1\rrbracket,\ \forall x\in[x_i,x_{i+1}[,\ \varphi(x)=f(x_i)$ et $\varphi(b)=f(b)$. Par construction, $\varphi$ est en escalier sur $[a,b]$.
+
+Il reste à vérifier que $\|f-\varphi\|_\infty\leq\varepsilon$. Or pour tout $x\in[a,b[$, $x$ appartient à $[x_i,x_{i+1}[$ pour un certain $i\in\llbracket 0,n-1\rrbracket$, donc $|x-x_i|<x_{i+1}-x_i<\alpha$, donc $|f(x)-\varphi(x)|=|f(x)-f(x_i)|<\varepsilon$ par continuité uniforme, et comme c'est vrai pour tout $x$ : $\|f-\varphi\|_\infty\leq\varepsilon$.
+
+- **Cas général :** soit $(x_0,\ldots,x_n)$ une subdivision de $[a,b]$ adaptée à $f$. Grâce au point précédent, $f$ étant continue sur $]x_i,x_{i+1}[$ et prolongeable par continuité en $x_i$ et $x_{i+1}$, il existe pour tout $i\in\llbracket 0,n-1\rrbracket$ une fonction en escalier $\varphi_i : [x_i,x_{i+1}]\to\mathbb{K}$ pour laquelle $|f(x)-\varphi_i(x)|\leq\varepsilon$ pour tout $x\in]x_i,x_{i+1}[$. On en tire une fonction en escalier $\varphi$ sur $[a,b]$ en « accolant » $\varphi_1,\ldots,\varphi_n$ les unes à la suite des autres, sauf aux points de subdivision où l'on pose $\varphi(x_i)=f(x_i)$ pour tout $i\in\llbracket 0,n\rrbracket$. Ainsi $\|f-\varphi\|_\infty\leq\varepsilon$.
+:::
+
+En vue d'une utilisation ultérieure, remarquez bien que dans cette preuve, si $f$ est réelle positive, $\varphi$ l'est aussi car les valeurs de $\varphi$ ont été choisies comme des valeurs de $f$. A fortiori, dans ce cas, $f$ est la limite uniforme d'une suite de fonctions en escalier réelles positives.
+
+# Construction de l'intégrale
+
+Le principe « base × hauteur » va nous permettre de définir l'intégrale d'une fonction en escalier assez facilement, mais c'est l'intégrale d'une fonction continue que nous visons. Comment définir « l'aire sous la courbe » pour une fonction continue quelconque ? Réponse : par approximation de celle-ci par des fonctions en escalier grâce au résultat de densité précédent.
+
+Soyons plus précis. Pour construire l'intégrale d'une fonction continue, on a commencé par augmenter le stock des fonctions étudiées en introduisant le concept de fonction continue par morceaux. L'espace vectoriel $\mathcal{CM}([a,b],\mathbb{C})$ contient ainsi à la fois celui des fonctions en escalier sur $[a,b]$ (qui nous intéresse peu mais sur lequel nous savons définir facilement l'intégrale), et $\mathcal{C}([a,b],\mathbb{C})$ (qui nous intéresse mais sur lequel nous ne savons pas définir l'intégrale). Par densité, la notion d'intégrale d'une fonction en escalier va être étendue aux fonctions continues par morceaux. En particulier, les fonctions continues auront ainsi chacune une intégrale. Ce qui est assez cocasse dans cette affaire de densité, c'est que l'intersection de $\mathcal{C}([a,b],\mathbb{C})$ et de l'ensemble des fonctions en escalier sur $[a,b]$ est toute petite : c'est juste l'ensemble des fonctions constantes. La construction de l'intégrale consiste donc à transporter un concept d'un premier endroit vers un deuxième qui n'a presque rien à voir avec le premier. Vive la densité !
+
+## Intégrale d'une fonction en escalier
+
+::: {.theorem title="(Intégrale d'une fonction en escalier)"}
+Soient $f : [a,b]\to\mathbb{C}$ en escalier et $(x_0,\ldots,x_n)$ une subdivision de $[a,b]$ adaptée à $f$. Si $y_i$ désigne pour tout $i\in\llbracket 0,n-1\rrbracket$ la valeur de $f$ sur $]x_i,x_{i+1}[$, le nombre complexe $\sum_{i=0}^{n-1}y_i(x_{i+1}-x_i)$ ne dépend pas de la subdivision $(x_0,\ldots,x_n)$ choisie.
+
+On l'appelle l'**intégrale de $f$ sur $[a,b]$**, notée $\int_{[a,b]}f$ ou $\int_{[a,b]}f(t)\,dt$.
+:::
+
+On définit ici directement l'intégrale d'une fonction en escalier **complexe**. Une telle intégrale ne peut bien sûr pas être interprétée en termes d'« aire sous la courbe », fût-elle algébrique.
+
+::: {.proof}
+Pour toute subdivision $\sigma=(x_0,\ldots,x_n)$ de $[a,b]$ adaptée à $f$, posons $I_\sigma=\sum_{i=0}^{n-1}y_i(x_{i+1}-x_i)$.
+
+- Soient $\sigma=(x_0,\ldots,x_n)$ et $\sigma'$ deux subdivisions de $[a,b]$ adaptées à $f$. On suppose $\sigma'$ incluse dans $\sigma$, ce qui permet d'écrire $\sigma'=\left(x_{\varphi(0)},\ldots,x_{\varphi(n')}\right)$ pour un certain $n'\in\mathbb{N}$ et une certaine fonction $\varphi : \llbracket 0,n'\rrbracket\to\llbracket 0,n\rrbracket$ strictement croissante pour laquelle $\varphi(0)=0$ et $\varphi(n')=n$ — c'est le principe des suites extraites. Pour tout $i\in\llbracket 0,n-1\rrbracket$, notons $y_i$ la valeur de $f$ sur $]x_i,x_{i+1}[$, et pour tout $j\in\llbracket 0,n'-1\rrbracket$, $y'_j$ sa valeur sur $]x_{\varphi(j)},x_{\varphi(j+1)}[$ (on a $y'_j=y_k$ pour $k$ entre $\varphi(j)$ et $\varphi(j+1)-1$). Alors :
+$$I_{\sigma'}=\sum_{j=0}^{n'-1}y'_j\left(x_{\varphi(j+1)}-x_{\varphi(j)}\right)=\sum_{j=0}^{n'-1}\sum_{k=\varphi(j)}^{\varphi(j+1)-1}y_k(x_{k+1}-x_k)=\sum_{i=0}^{n-1}y_i(x_{i+1}-x_i)=I_\sigma.$$
+- Montrons enfin que $I_\sigma$ ne dépend pas du choix de $\sigma$. Soient $\sigma,\sigma'$ deux subdivisions de $[a,b]$ adaptées à $f$. La réunion de $\sigma$ et $\sigma'$ est encore une subdivision de $[a,b]$ adaptée à $f$ et contient à la fois $\sigma$ et $\sigma'$, donc d'après le point précédent : $I_\sigma=I_{\sigma\cup\sigma'}=I_{\sigma'}$.
+:::
+
+::: {.example}
+Pour tout $n\in\mathbb{N}$ :
+$$\int_{[0,n+1]}\frac{\lfloor t\rfloor}{2}\,dt=\sum_{k=0}^{n}\frac{k}{2}\big((k+1)-k\big)=\sum_{k=0}^{n}\frac{k}{2}=\frac{n(n+1)(2n+1)}{6}.$$
+:::
+
+::: {.theorem title="(Deux propriétés de l'intégrale d'une fonction en escalier)"}
+Soient $f : [a,b]\to\mathbb{C}$ et $g : [a,b]\to\mathbb{C}$ en escalier et $\lambda,\mu\in\mathbb{C}$.
+
+1. **Linéarité :** $\int_{[a,b]}(\lambda f+\mu g)=\lambda\int_{[a,b]}f+\mu\int_{[a,b]}g$.
+2. **Inégalité triangulaire et même mieux :** $\left|\int_{[a,b]}f\right|\leq\int_{[a,b]}\|f\|\leq(b-a)\|f\|_\infty$.
+:::
+
+::: {.proof}
+Donnons-nous une subdivision $(x_0,\ldots,x_n)$ de $[a,b]$ adaptée à $f$ et à $g$, donc à $\lambda f+\mu g$ et $\|f\|$.
+
+(i) $\int_{[a,b]}(\lambda f+\mu g)=\sum_{i=0}^{n-1}(\lambda f+\mu g)\left(\frac{x_i+x_{i+1}}{2}\right)(x_{i+1}-x_i)=\lambda\sum_{i=0}^{n-1}f\left(\frac{x_i+x_{i+1}}{2}\right)(x_{i+1}-x_i)+\mu\sum_{i=0}^{n-1}g\left(\frac{x_i+x_{i+1}}{2}\right)(x_{i+1}-x_i)=\lambda\int_{[a,b]}f+\mu\int_{[a,b]}g$.
+
+(ii) $\left|\int_{[a,b]}f\right|=\left|\sum_{i=0}^{n-1}f\left(\frac{x_i+x_{i+1}}{2}\right)(x_{i+1}-x_i)\right|\leq\sum_{i=0}^{n-1}\left|f\left(\frac{x_i+x_{i+1}}{2}\right)\right|(x_{i+1}-x_i)=\int_{[a,b]}\|f\|\leq\sum_{k=0}^{n-1}\|f\|_\infty(x_{i+1}-x_i)=(b-a)\|f\|_\infty$.
+:::
+
+## Intégrale d'une fonction continue par morceaux
+
+Nous avons vu qu'il existe toujours une suite $(\varphi_p)_{p\in\mathbb{N}}$ de fonctions en escalier sur $[a,b]$ dont $f$ est la limite uniforme. On aurait bien envie du coup de définir l'intégrale $\int_{[a,b]}f$ comme la limite $\lim_{p\to+\infty}\int_{[a,b]}\varphi_p$, dans l'idée que l'aire algébrique sous $\varphi_p$ tend vers l'aire algébrique sous $f$ lorsque $p$ tend vers $+\infty$. Cette « définition » pose hélas trois problèmes : la limite existe-t-elle ? Ne dépend-elle pas du choix de la suite $(\varphi_p)$ ? Pour les fonctions en escalier, la limite obtenue coïncide-t-elle bien avec l'intégrale du paragraphe précédent ?
+
+::: {.theorem title="(Intégrale d'une fonction continue par morceaux)"}
+Soit $f\in\mathcal{CM}([a,b],\mathbb{C})$. Pour toute suite de fonctions en escalier $(\varphi_p)_{p\in\mathbb{N}}$ sur $[a,b]$ qui converge uniformément vers $f$, la suite $\left(\int_{[a,b]}\varphi_p\right)_{p\in\mathbb{N}}$ converge et sa limite ne dépend pas du choix de $(\varphi_p)_{p\in\mathbb{N}}$.
+
+Cette limite unique est appelée l'**intégrale de $f$ sur $[a,b]$** et notée $\int_{[a,b]}f$ ou $\int_{[a,b]}f(t)\,dt$. En outre, si $f$ est en escalier sur $[a,b]$, cette définition coïncide avec la précédente.
+:::
+
+::: {.proof}
+- Soient $(\varphi_p)_{p\in\mathbb{N}}$ et $(\psi_p)_{p\in\mathbb{N}}$ deux suites de fonctions en escalier sur $[a,b]$ dont $f$ est la limite uniforme. Pour tout $p\in\mathbb{N}$, d'après les deux propriétés de l'intégrale d'une fonction en escalier déjà démontrées :
+$$\left|\int_{[a,b]}\varphi_p-\int_{[a,b]}\psi_p\right|=\left|\int_{[a,b]}(\varphi_p-\psi_p)\right|\leq(b-a)\|\varphi_p-\psi_p\|_\infty\leq(b-a)\left(\|f-\varphi_p\|_\infty+\|f-\psi_p\|_\infty\right).$$
+Il en découle par encadrement que si jamais les suites $\left(\int_{[a,b]}\varphi_p\right)$ et $\left(\int_{[a,b]}\psi_p\right)$ convergent, elles ont la même limite, indépendante de $(\varphi_p)$ et $(\psi_p)$.
+
+- Il reste à montrer que la suite $\left(\int_{[a,b]}\varphi_p\right)_{p\in\mathbb{N}}$ converge. Or $\lim_{p\to+\infty}\|f-\varphi_p\|_\infty=0$, donc $\|f-\varphi_p\|_\infty\leq 1$ à partir d'un certain rang, et ainsi $\|\varphi_p\|_\infty=\|\varphi_p-f+f\|_\infty\leq\|f\|_\infty+\|f-\varphi_p\|_\infty\leq\|f\|_\infty+1$, donc $\left|\int_{[a,b]}\varphi_p\right|\leq\int_{[a,b]}\|\varphi_p\|\leq(b-a)(\|f\|_\infty+1)$. Bornée, la suite $\left(\int_{[a,b]}\varphi_p\right)_{p\in\mathbb{N}}$ possède alors une suite extraite convergente de limite $\ell$ d'après le théorème de Bolzano-Weierstrass. Ainsi, d'après l'inégalité appliquée à $\varphi_p$ et $\varphi_{\theta(p)}$ : $\left|\int_{[a,b]}\varphi_p-\int_{[a,b]}\varphi_{\theta(p)}\right|\leq(b-a)\left(\|f-\varphi_p\|_\infty+\|f-\varphi_{\theta(p)}\|_\infty\right)$, donc $\lim_{p\to+\infty}\int_{[a,b]}\varphi_p=\ell$ par encadrement.
+
+- Que dire enfin si $f$ est en escalier sur $[a,b]$ ? Nous pouvons dans ce cas poser $\varphi_p=f$ pour tout $p\in\mathbb{N}$ et aussitôt $\lim_{p\to+\infty}\|f-\varphi_p\|_\infty=0$. La limite $\lim_{p\to+\infty}\int_{[a,b]}\varphi_p$ se trouve ainsi égale à l'intégrale $\int_{[a,b]}f$ de $f$ au sens des fonctions en escalier. Nos deux définitions de l'intégrale d'une fonction en escalier coïncident.
+:::
+
+On vous demandera souvent de « justifier la bonne définition » de telle ou telle intégrale. Il s'agit simplement de montrer que la fonction intégrée est continue — éventuellement par morceaux — sur le segment concerné.
+
+::: {.example}
+- L'intégrale $\int_{[0,1]}\frac{\ln(1+t)}{t}\,dt$ est bien définie car la fonction $t\mapsto\frac{\ln(1+t)}{t}$ est continue sur $]0,1]$ et prolongeable par continuité en $0$ par la valeur $1$.
+- L'intégrale $\int_{[0,\pi]}\frac{\operatorname{sh}^2 t}{1-\cos t}\,dt$ est bien définie car la fonction $t\mapsto\frac{\operatorname{sh}^2 t}{1-\cos t}$ est continue sur $]0,\pi]$ et prolongeable par continuité en $0$ par la valeur $2$ : $\frac{\operatorname{sh}^2 t}{1-\cos t}\underset{t\to 0}{\sim}\frac{t^2}{\frac{t^2}{2}}\underset{t\to 0}{\sim}2$.
+:::
+
+## Propriétés de l'intégrale
+
+::: {.theorem title="(Propriétés de l'intégrale d'une fonction continue par morceaux)"}
+Soient $f,g\in\mathcal{CM}([a,b],\mathbb{C})$.
+
+1. **Linéarité :** pour tous $\lambda,\mu\in\mathbb{C}$ : $\int_{[a,b]}(\lambda f+\mu g)=\lambda\int_{[a,b]}f+\mu\int_{[a,b]}g$.
+2. **Inégalité triangulaire :** $\left|\int_{[a,b]}f\right|\leq\int_{[a,b]}\|f\|$.
+3. **Relation de Chasles :** pour tout $c\in[a,b]$ : $\int_{[a,b]}f=\int_{[a,c]}f+\int_{[c,b]}f$.
+4. **Lien avec les parties réelle et imaginaire :** $\int_{[a,b]}f=\int_{[a,b]}\operatorname{Re}(f)+i\int_{[a,b]}\operatorname{Im}(f)$. En particulier, si $f$ est réelle, son intégrale sur $[a,b]$ est un réel.
+5. **Modification d'un nombre fini de valeurs :** si $f$ et $g$ sont égales sur $[a,b]$ sauf en un nombre fini de points : $\int_{[a,b]}f=\int_{[a,b]}g$.
+:::
+
+::: {.proof}
+Les propriétés se démontrent toutes de la même façon. On la prouve d'abord pour les fonctions en escalier, puis dans le cas général par passage à la limite. Donnons-nous une fois pour toutes une suite de fonctions en escalier $(\varphi_p)_{p\in\mathbb{N}}$ sur $[a,b]$ dont $f$ est la limite uniforme et une suite $(\psi_p)_{p\in\mathbb{N}}$ dont $g$ est la limite uniforme.
+
+(i) Pour tout $p\in\mathbb{N}$ : $\|(\lambda f+\mu g)-(\lambda\varphi_p+\mu\psi_p)\|_\infty\leq|\lambda|\,\|f-\varphi_p\|_\infty+|\mu|\,\|g-\psi_p\|_\infty$, donc par encadrement $\lim_{p\to+\infty}\|(\lambda f+\mu g)-(\lambda\varphi_p+\mu\psi_p)\|_\infty=0$. Enfin, par linéarité de l'intégrale d'une fonction en escalier : $\int_{[a,b]}(\lambda f+\mu g)=\lim_{p\to+\infty}\int_{[a,b]}(\lambda\varphi_p+\mu\psi_p)=\lambda\int_{[a,b]}f+\mu\int_{[a,b]}g$.
+
+(ii) Pour tout $p\in\mathbb{N}$ : $\big||f|-|\varphi_p|\big|\leq|f-\varphi_p|$, donc $\big|\|f\|-|\varphi_p|\big|_\infty\leq\|f-\varphi_p\|_\infty$, donc par encadrement $\lim_{p\to+\infty}\big|\|f\|-|\varphi_p|\big|_\infty=0$. En retour, d'après l'inégalité triangulaire pour les fonctions en escalier : $\left|\int_{[a,b]}f\right|=\lim_{p\to+\infty}\left|\int_{[a,b]}\varphi_p\right|\leq\lim_{p\to+\infty}\int_{[a,b]}\|\varphi_p\|=\int_{[a,b]}\|f\|$.
+
+(iii) **Cas où $f$ est en escalier :** quitte à ajouter le point $c$ à la subdivision $(x_0,\ldots,x_n)$, on peut supposer que $x_k=c$ pour un certain $k\in\llbracket 0,n\rrbracket$. La fonction $f_{|[a,c]}$ est alors en escalier sur $[a,c]$ de subdivision adaptée $(x_0,\ldots,x_k)$ et $f_{|[c,b]}$ l'est sur $[c,b]$ de subdivision adaptée $(x_k,\ldots,x_n)$. Enfin : $\int_{[a,b]}f=\sum_{i=0}^{k-1}f\left(\frac{x_i+x_{i+1}}{2}\right)(x_{i+1}-x_i)+\sum_{i=k}^{n-1}f\left(\frac{x_i+x_{i+1}}{2}\right)(x_{i+1}-x_i)=\int_{[a,c]}f+\int_{[c,b]}f$.
+
+**Cas général :** pour tout $p\in\mathbb{N}$, $\varphi_{p\,[a,c]}$ et $\varphi_{p\,[c,b]}$ sont en escalier et $\|f_{|[a,c]}-\varphi_{p\,[a,c]}\|_\infty\leq\|f-\varphi_p\|_\infty$, donc $\lim_{p\to+\infty}\|f_{|[a,c]}-\varphi_{p\,[a,c]}\|_\infty=0$ par encadrement, et de même $\lim_{p\to+\infty}\|f_{|[c,b]}-\varphi_{p\,[c,b]}\|_\infty=0$. Ainsi, $f_{|[a,c]}$ est la limite uniforme de $\left(\varphi_{p\,[a,c]}\right)_{p\in\mathbb{N}}$ et $f_{|[c,b]}$ de $\left(\varphi_{p\,[c,b]}\right)_{p\in\mathbb{N}}$. Finalement : $\int_{[a,b]}f=\lim_{p\to+\infty}\int_{[a,b]}\varphi_p=\lim_{p\to+\infty}\left(\int_{[a,c]}\varphi_{p\,[a,c]}+\int_{[c,b]}\varphi_{p\,[c,b]}\right)=\int_{[a,c]}f+\int_{[c,b]}f$.
+
+(iv) **Cas où $f$ est en escalier :** $\int_{[a,b]}f=\sum_{i=0}^{n-1}f\left(\frac{x_i+x_{i+1}}{2}\right)(x_{i+1}-x_i)=\sum_{i=0}^{n-1}\operatorname{Re}(f)\left(\frac{x_i+x_{i+1}}{2}\right)(x_{i+1}-x_i)+i\sum_{i=0}^{n-1}\operatorname{Im}(f)\left(\frac{x_i+x_{i+1}}{2}\right)(x_{i+1}-x_i)=\int_{[a,b]}\operatorname{Re}(f)+i\int_{[a,b]}\operatorname{Im}(f)$. Le cas général se traite par passage à la limite comme ci-dessus.
+
+(v) Si $f$ et $g$ sont égales sauf en un nombre fini de points, $g-f$ est nulle partout sauf en ces points, donc est en escalier sur $[a,b]$ et son intégrale vaut $\int_{[a,b]}(g-f)=0$. Par linéarité enfin : $\int_{[a,b]}f=\int_{[a,b]}g$.
+:::
+
+::: {.theorem title="(Propriétés de l'intégrale d'une fonction continue par morceaux réelle)"}
+Soient $f,g\in\mathcal{CM}([a,b],\mathbb{R})$.
+
+1. **Positivité :** si $f\geq 0$, alors $\int_{[a,b]}f\geq 0$.
+2. **Croissance :** si $f\leq g$, alors $\int_{[a,b]}f\leq\int_{[a,b]}g$.
+3. **Positivité stricte :** si $f$ est positive sur $[a,b]$, strictement en au moins un point de continuité, et si $a<b$, alors $\int_{[a,b]}f>0$.
+4. **Nullité avec signe constant :** si $f$ est **continue** et de signe constant et si $\int_{[a,b]}f=0$ avec $a<b$, alors $f$ est identiquement nulle sur $[a,b]$.
+:::
+
+Attention ! Continuité et signe constant sont essentiels dans l'assertion (iv) !
+
+::: {.proof}
+Donnons-nous une fois pour toutes une suite de fonctions en escalier $(\varphi_p)_{p\in\mathbb{N}}$ sur $[a,b]$ dont $f$ est la limite uniforme et une suite $(\psi_p)_{p\in\mathbb{N}}$ dont $g$ est la limite uniforme.
+
+(i) Comme $f\geq 0$, on peut choisir la fonction $\varphi_p$ positive pour tout $p\in\mathbb{N}$, et ainsi : $\int_{[a,b]}f=\lim_{p\to+\infty}\int_{[a,b]}\varphi_p=\lim_{p\to+\infty}\sum_{i=1}^{n-1}\varphi_p\left(\frac{x_i+x_{i+1}}{2}\right)(x_{i+1}-x_i)\geq 0$.
+
+(ii) Comme $f\leq g$ : $\int_{[a,b]}(g-f)\geq 0$ par positivité, puis $\int_{[a,b]}f\leq\int_{[a,b]}g$ par linéarité.
+
+(iii) Par hypothèse, $f$ est continue en un certain $x_0\in[a,b]$ pour lequel $f(x_0)>0$, donc elle est minorée par $\frac{f(x_0)}{2}$ sur un certain voisinage $[x_0^-,x_0^+]$ contenant $x_0$ avec $a\leq x_0^-<x_0^+\leq b$. La fonction $\varphi=\frac{f(x_0)}{2}\mathds{1}_{[x_0^-,x_0^+]}$ définie sur $[a,b]$ est alors en escalier et $\varphi\leq f$ par construction — notamment parce que $f$ est positive — donc par croissance de l'intégrale : $\int_{[a,b]}f\geq\int_{[a,b]}\varphi=\frac{f(x_0)}{2}(x_0^+-x_0^-)>0$.
+
+(iv) On peut supposer $f$ positive quitte à la remplacer par $-f$. Il s'agit de montrer par contraposition que si $f$ n'est pas identiquement nulle sur $[a,b]$, alors $\int_{[a,b]}f>0$, mais c'est une simple conséquence de (iii).
+:::
+
+La notation $\int_{[a,b]}f$ nous a imposé l'inégalité $a\leq b$ jusqu'ici car nous sommions dans le sens croissant avec nos $x_{i+1}-x_i\geq 0$. Pour tout intervalle $I$ et pour tous $f\in\mathcal{CM}(I,\mathbb{C})$ et $a,b\in I$, on pose à présent :
+$$\int_a^b f=\int_a^b f(t)\,dt=\int_{[a,b]}f \ \ \text{si } a\leq b \quad \text{et} \quad \int_a^b f=\int_a^b f(t)\,dt=-\int_{[b,a]}f \ \ \text{si } b<a.$$
+Cette nouvelle notation s'utilise comme la précédente, mais attention, avec un petit changement quand même en cas d'inégalités : si $b<a$, alors $\int_a^b f\leq\int_b^a\|f\|$, et si de plus $f\geq 0$, alors $\int_a^b f\leq 0$.
+
+::: {.example}
+On pose pour tout $x\geq 0$ : $A(x)=\int_0^1\frac{e^t\,dt}{1+xt}$. La fonction $A$ ainsi définie est décroissante sur $\mathbb{R}^+$.
+:::
+
+::: {.proof}
+Soient $x,y\geq 0$ pour lesquels $x<y$. Pour tout $t\in[0,1]$ : $\frac{e^t}{1+yt}\leq\frac{e^t}{1+xt}$, donc par croissance de l'intégrale : $A(y)=\int_0^1\frac{e^t\,dt}{1+yt}\leq\int_0^1\frac{e^t\,dt}{1+xt}=A(x)$.
+:::
+
+Attention ! Impossible ici de dériver $A$ pour prouver sa monotonie car rien ne nous dit que $A$ est dérivable. Si $A$ avait été de la forme $x\mapsto\int_0^x f(t)\,dt$ pour une certaine fonction continue $f$, nous aurions pu la dériver grâce au théorème fondamental du calcul intégral — démontré plus loin — mais la variable $x$ n'est pas ici au bon endroit.
+
+::: {.theorem title="(Intégrales d'une fonction paire/impaire/périodique)"}
+1. **Fonctions paires/impaires :** soit $f\in\mathcal{CM}([-a,a],\mathbb{C})$. Si $f$ est paire : $\int_{-a}^{a}f(x)\,dx=2\int_0^a f(x)\,dx$, et si $f$ est impaire : $\int_{-a}^{a}f(x)\,dx=0$.
+2. **Fonctions périodiques :** pour toute fonction $f\in\mathcal{CM}(\mathbb{R},\mathbb{C})$ $T$-périodique : $\int_a^{a+T}f(x)\,dx=\int_0^T f(x)\,dx$.
+:::
+
+# Intégration et dérivation
+
+## Rappels sur les primitives
+
+::: {.theorem title="(Primitives, « unicité » à constante additive près)"}
+Soit $f : I\longrightarrow\mathbb{C}$ une fonction. On dit qu'une fonction $F : I\to\mathbb{C}$ est **une** primitive de $f$ sur $I$ si $F$ est dérivable sur $I$ de dérivée $f$.
+
+« Unicité » à constante additive près : si $f$ possède une primitive $F$ sur $I$, ses primitives en général sont toutes les fonctions $F+\lambda$, $\lambda$ décrivant $\mathbb{C}$.
+:::
+
+Attention ! Quand il en existe, il n'existe jamais qu'une seule primitive, ne dites donc pas « la » primitive !
+
+Rappelons au cas où que nous savons primitiver aisément un certain nombre de fonctions classiques : les fonctions de la forme $x\mapsto e^{ax}\cos(bx)$ ou $x\mapsto e^{ax}\sin(bx)$ avec $a,b\in\mathbb{R}^*$ grâce à l'exponentielle complexe ; les fonctions de la forme $x\mapsto\sin^m x\cos^n x$ avec $m,n\in\mathbb{N}$ par linéarisation ; les fonctions rationnelles par décomposition en éléments simples. Les tableaux ci-dessous donnent enfin la liste des quelques primitives qu'il faut connaître à tout prix.
+
+| Fonction | Primitive | | Fonction | Primitive |
+|---|---|---|---|---|
+| $e^x$ | $e^x$ | | $\operatorname{sh}x$ | $\operatorname{ch}x$ |
+| $\ln x$ | $x\ln x-x$ | | $\operatorname{ch}x$ | $\operatorname{sh}x$ |
+| $\frac{1}{x}$ | $\ln\|x\|$ | | $\operatorname{th}x$ | $\ln\operatorname{ch}x$ |
+| $x^\alpha\ (\alpha\neq-1)$ | $\frac{x^{\alpha+1}}{\alpha+1}$ | | $\frac{1}{1+x^2}$ | $\operatorname{Arctan}x$ |
+| $\sin x$ | $-\cos x$ | | $\frac{1}{\sqrt{1-x^2}}$ | $\operatorname{Arcsin}x$ |
+| $\cos x$ | $\sin x$ | | $\tan x$ | $-\ln\|\cos x\|$ |
+
+## Le théorème fondamental du calcul intégral
+
+::: {.example}
+Il est facile de construire une fonction continue **par morceaux** n'admettant pas de primitive. C'est ce qui arrive à la fonction indicatrice $\mathds{1}_{\{1\}}$ sur $[0,2]$. Raisonnons par l'absurde en supposant que $\mathds{1}_{\{1\}}$ possède une primitive $F$ sur $[0,2]$. La fonction $F'$ est alors identiquement nulle sur l'intervalle $[0,1[$, donc $F$ y est constante, disons de valeur $\lambda$. De même, $F'$ est nulle sur $]1,2]$, donc $F$ y est constante, disons de valeur $\mu$. Cependant, $F$ est continue sur $[0,2]$, donc $F(1)=\lambda=\mu$, donc $F$ est constante sur $[0,2]$ tout entier. Finalement $1=\mathds{1}_{\{1\}}(1)=F'(1)=0$ — contradiction.
+:::
+
+::: {.theorem title="(Théorème fondamental du calcul intégral)"}
+Soient $f\in\mathcal{C}(I,\mathbb{C})$ et $a,b\in I$.
+
+1. **Primitivation :** la fonction $x\mapsto\int_a^x f(t)\,dt$ est une primitive de $f$ sur $I$. Ainsi, toute fonction continue possède une primitive. Pour tout $A\in\mathbb{C}$, la fonction $x\mapsto A+\int_a^x f(t)\,dt$ est l'unique primitive de $f$ sur $I$ de valeur $A$ en $a$.
+2. **Calcul intégral :** pour toute primitive $F$ de $f$ : $\int_a^b f(x)\,dx=F(b)-F(a)$.
+:::
+
+On note généralement $[F]_a^b$ ou $F(x)\Big|_{x=a}^{x=b}$ la quantité $F(b)-F(a)$. L'assertion (i) est un théorème d'**existence** de primitives pour les fonctions **continues**. En outre, la fonction $f$ étant continue, sa primitive $x\mapsto\int_a^x f$ est mieux que dérivable : c'est une fonction **de classe $\mathcal{C}^1$**.
+
+::: {.proof}
+(i) Montrons que la fonction $F : x\mapsto\int_a^x f$ est une primitive de $f$ sur $I$. Fixons pour cela $x\in I$ et montrons que $F$ est dérivable en $x$ avec $F'(x)=f(x)$. Soit $\varepsilon>0$. Par continuité en $x$, il existe un réel $\alpha>0$ pour lequel pour tout $s\in I$ : $|s-x|<\alpha\Rightarrow|f(s)-f(x)|<\varepsilon$. Pour tout $t\in I\smallsetminus\{x\}$ pour lequel $|t-x|<\alpha$ : $\int_x^t f(s)\,ds=F(t)-F(x)$ et $\int_x^t f(x)\,ds=f(x)(t-x)$, donc :
+$$\left|\frac{F(t)-F(x)}{t-x}-f(x)\right|=\frac{1}{|t-x|}\left|\int_x^t(f(s)-f(x))\,ds\right|\leq\begin{cases}\frac{1}{t-x}\int_x^t\varepsilon\,ds=\varepsilon & \text{si } t>x\\ \frac{1}{x-t}\int_t^x\varepsilon\,ds=\varepsilon & \text{si } x>t.\end{cases}$$
+Conclusion : $\lim_{t\to x}\frac{F(t)-F(x)}{t-x}=f(x)$, donc $F$ est dérivable en $x$ et $F'(x)=f(x)$.
+
+(ii) La fonction $F$ est une primitive de $f$ qui vaut $F(a)$ en $a$ et c'est la seule, donc $F(x)=F(a)+\int_a^x f$ pour tout $x\in I$ d'après (i). Il reste à évaluer en $b$.
+:::
+
+::: {.example}
+Pour tout $\alpha>-1$ : $\int_0^1 x^\alpha\,dx=\left[\frac{x^{\alpha+1}}{\alpha+1}\right]_{x=0}^{x=1}=\frac{1}{\alpha+1}$. Intégrale très courante, à connaître **par cœur** !
+:::
+
+::: {.example}
+$\int_0^1 e^{e^t+t}\,dt=\left[e^{e^t}\right]_{t=0}^{t=1}=e^e-e$. Et sans bornes : $\int e^{e^x+x}\,dx=e^{e^x}$.
+:::
+
+Attention ! Le théorème fondamental du calcul intégral montre que certaines fonctions définies par des intégrales sont dérivables — et même de classe $\mathcal{C}^1$ — mais pas n'importe lesquelles ! Uniquement des fonctions de la forme $x\mapsto\int_a^x f(t)\,dt$ (le même $x$ aux deux endroits !). Face à un problème d'un autre type, soit on parvient à se ramener à la forme ci-dessus, soit on trouve une autre idée.
+
+::: {.example}
+La fonction $\varphi : x\mapsto\int_0^1 e^{xt^2}\,dt$ est définie et dérivable sur $\mathbb{R}^*_+$ de dérivée $x\mapsto\frac{e^x}{2x}-\frac{1}{2x}\int_0^1 e^{xt^2}\,dt$.
+:::
+
+::: {.proof}
+Pour tout $x>0$ : $\varphi(x)\underset{u=t\sqrt{x}}{=}\sqrt{x}\int_0^{\sqrt{x}}e^{u^2}\,du=F(\sqrt{x})\sqrt{x}$ où $F$ est la fonction $x\mapsto\int_0^x e^{u^2}\,du$. D'après le théorème fondamental du calcul intégral, $F$ est une primitive sur $\mathbb{R}$ de la fonction continue $u\mapsto e^{u^2}$. Ainsi, $\varphi$ est dérivable sur $\mathbb{R}^*_+$ et pour tout $x>0$ : $\varphi'(x)=F'(\sqrt{x})\frac{1}{2\sqrt{x}}\cdot\sqrt{x}+F(\sqrt{x})\cdot\frac{1}{2\sqrt{x}}$… en développant correctement : $\varphi'(x)=\frac{e^x}{2x}-\frac{\varphi(x)}{2x}$.
+:::
+
+::: {.theorem title="(Un petit résultat utile)"}
+Pour toute fonction $f\in\mathcal{C}([a,b],\mathbb{R})$ : $\int_a^b f=\lim_{x\to b^-}\int_a^x f=\lim_{x\to a^+}\int_x^b f$.
+:::
+
+::: {.proof}
+Pour la première égalité, notons $F$ la fonction $x\mapsto\int_a^x f$ sur $[a,b]$. Comme $f$ est continue sur $[a,b]$, $F$ est une primitive de $f$ d'après le théorème fondamental du calcul intégral, donc $F$ **est continue en $b$** et c'est fini : $\int_a^b f=F(b)=\lim_{x\to b^-}F(x)=\lim_{x\to b^-}\int_a^x f$.
+:::
+
+## Intégration par parties et changement de variable
+
+::: {.theorem title="(Intégration par parties ou IPP)"}
+Soient $u,v\in\mathcal{C}^1(I,\mathbb{C})$ et $a,b\in I$.
+$$\int_a^b u'v=[uv]_a^b-\int_a^b uv'.$$
+:::
+
+::: {.proof}
+Comme $u$ et $v$ sont de classe $\mathcal{C}^1$, les fonctions $(uv)'$, $u'v$ et $uv'$ sont continues, donc d'après le théorème fondamental du calcul intégral et par linéarité de l'intégrale :
+$$[uv]_a^b=\int_a^b(uv)'=\int_a^b(u'v+uv')=\int_a^b u'v+\int_a^b uv'.$$
+:::
+
+::: {.theorem title="(Changement de variable)"}
+Soient $\varphi\in\mathcal{C}^1(I,\mathbb{R})$ à valeurs dans $J$, $f\in\mathcal{C}(J,\mathbb{C})$ et $a,b\in I$.
+$$\int_a^b f(\varphi(t))\varphi'(t)\,dt=\int_{\varphi(a)}^{\varphi(b)}f(x)\,dx.$$
+:::
+
+Pour retrouver vite la formule, on dérive la relation « $x=\varphi(t)$ » : $\frac{dx}{dt}=\varphi'(t)$, donc $dx=\varphi'(t)\,dt$, puis $f(x)\,dx=f(\varphi(t))\varphi'(t)\,dt$. Enfin, on intègre — pendant que $t$ varie de $a$ à $b$, $x=\varphi(t)$ varie de $\varphi(a)$ à $\varphi(b)$.
+
+::: {.proof}
+Continue, $f$ possède une primitive $F$ de classe $\mathcal{C}^1$, et comme $\varphi$ est de classe $\mathcal{C}^1$, la fonction $(F\circ\varphi)'=f\circ\varphi\times\varphi'$ est continue. Du coup, d'après le théorème fondamental du calcul intégral :
+$$\int_a^b f(\varphi(t))\varphi'(t)\,dt=[F\circ\varphi]_a^b=F(\varphi(b))-F(\varphi(a))=[F]_{\varphi(a)}^{\varphi(b)}=\int_{\varphi(a)}^{\varphi(b)}f(x)\,dx.$$
+:::
+
+::: {.example}
+$\int_0^{2\pi}\frac{1-\cos x}{x^2}\,dx=\int_0^{2\pi}\frac{\sin x}{x}\,dx$.
+:::
+
+::: {.proof}
+Les fonctions $x\mapsto\frac{1-\cos x}{x^2}$ et $x\mapsto\frac{\sin x}{x}$ sont continues sur $]0,2\pi]$ et prolongeables par continuité en $0$ par les valeurs $\frac12$ et $1$ respectivement, donc les intégrales $\int_0^{2\pi}\frac{1-\cos x}{x^2}\,dx$ et $\int_0^{2\pi}\frac{\sin x}{x}\,dx$ sont bien définies. Ensuite, formellement :
+$$\int\frac{(1-\cos x)}{x^2}\,dx\underset{\text{IPP}}{=}(1-\cos u)\times\left(-\frac{1}{u}\right)-\int\sin x\times\left(-\frac{1}{x}\right)dx=\cos u-\frac{1}{u}+\int\frac{\sin x}{x}\,dx.$$
+Hélas, la fonction $x\mapsto\frac{1-\cos x}{x^2}$ a beau être de classe $\mathcal{C}^1$ sur $[0,2\pi]$, la fonction $x\mapsto-\frac{1}{x}$ ne l'est pas : elle est de classe $\mathcal{C}^1$ seulement sur $]0,2\pi]$. Comment procéder dès lors à une intégration par parties sur $[0,2\pi]$ ? Réponse : par un passage à la limite grâce au théorème fondamental du calcul intégral. En l'occurrence, pour tout $\varepsilon\in]0,2\pi]$ :
+$$\int_\varepsilon^{2\pi}\frac{1-\cos x}{x^2}\,dx\underset{\text{IPP}}{=}\left[\cos x-\frac{1}{x}\right]_{x=\varepsilon}^{x=2\pi}+\int_\varepsilon^{2\pi}\frac{\sin x}{x}\,dx=\frac{1-\cos\varepsilon}{\varepsilon}+\int_\varepsilon^{2\pi}\frac{\sin x}{x}\,dx.$$
+On conclut en faisant simplement tendre $\varepsilon$ vers $0^+$ et en observant que : $\int_0^{2\pi}\frac{1-\cos x}{x^2}\,dx=\lim_{\varepsilon\to 0^+}\int_\varepsilon^{2\pi}\frac{1-\cos x}{x^2}\,dx$ et $\int_0^{2\pi}\frac{\sin x}{x}\,dx=\lim_{\varepsilon\to 0^+}\int_\varepsilon^{2\pi}\frac{\sin x}{x}\,dx$.
+:::
+
+## Limites d'intégrales
+
+Attention ! Nous aurons souvent à calculer des limites du genre $\lim_{n\to+\infty}\int_a^b f_n(t)\,dt$ ou $\lim_{x\to x_0}\int_a^b f(x,t)\,dt$. En MPSI, nous nous en sortirons toujours en utilisant le théorème d'encadrement, mais en général :
+$$\lim_{n\to+\infty}\int_a^b f_n(t)\,dt\neq\int_a^b\lim_{n\to+\infty}f_n(t)\,dt \quad \text{et} \quad \lim_{x\to x_0}\int_a^b f(x,t)\,dt\neq\int_a^b\lim_{x\to x_0}f(x,t)\,dt.$$
+
+::: {.example}
+Pour tout $n\in\mathbb{N}^*$, notons $f_n$ la fonction $t\mapsto nt^{n-1}$ sur $[0,1[$ prolongée en $1$ par la valeur $f_n(1)=0$. Cette fonction est continue par morceaux. Pour tout $t\in[0,1]$ : $\lim_{n\to+\infty}f_n(t)=0$, donc $\int_0^1\lim_{n\to+\infty}f_n(t)\,dt=\int_0^1 0\,dt=0$, mais au contraire : $\int_0^1 f_n(t)\,dt=[t^n]_{t=0}^{t=1}=1\xrightarrow[n\to+\infty]{}1\neq 0$. Aïe !
+:::
+
+::: {.example}
+Pour toute fonction $f\in\mathcal{CM}([0,1],\mathbb{R})$ : $\lim_{n\to+\infty}\int_0^1 t^n f(t)\,dt=0$.
+:::
+
+::: {.proof}
+Continue par morceaux, $f$ est bornée sur le segment $[0,1]$. Dès lors, pour tout $n\in\mathbb{N}$ :
+$$\left|\int_0^1 t^n f(t)\,dt\right|\leq\int_0^1 t^n|f(t)|\,dt\leq\|f\|_\infty\int_0^1 t^n\,dt=\frac{\|f\|_\infty}{n+1}$$
+— d'où le résultat par encadrement.
+:::
+
+::: {.example}
+$\lim_{x\to 0^+}\int_x^{2x}\frac{e^t}{t}\,dt=\ln 2$.
+:::
+
+::: {.proof}
+Pour tous $x>0$ et $t\in[x,2x]$ : $\frac{1}{t}\leq\frac{e^t}{t}\leq\frac{e^{2x}}{t}$, donc $\int_x^{2x}\frac{dt}{t}\leq\int_x^{2x}\frac{e^t}{t}\,dt\leq e^{2x}\int_x^{2x}\frac{dt}{t}$ par croissance de l'intégrale, donc après calcul : $\ln 2\leq\int_x^{2x}\frac{e^t}{t}\,dt\leq e^{2x}\ln 2$ et on conclut par encadrement.
+:::
+
+# Formules de Taylor-Lagrange
+
+::: {.theorem title="(Formule de Taylor-Lagrange avec reste intégral)"}
+Soient $f\in\mathcal{C}^{n+1}(I,\mathbb{C})$ et $a,b\in I$.
+$$f(b)=\sum_{k=0}^{n}\frac{f^{(k)}(a)}{k!}(b-a)^k+\int_a^b\frac{f^{(n+1)}(t)}{n!}(b-t)^n\,dt.$$
+Pour $n=0$, cette formule n'est jamais que le théorème fondamental du calcul intégral.
+:::
+
+::: {.proof}
+Fixons $I$, $a$ et $b$ et montrons par récurrence sur $n$ que le résultat est vrai de toute fonction de classe $\mathcal{C}^{n+1}$ sur $I$.
+
+**Initialisation :** pour tout $f\in\mathcal{C}^1(I,\mathbb{C})$ : $f(b)=f(a)+\int_a^b f'(t)\,dt$.
+
+**Hérédité :** soit $n\in\mathbb{N}$. On suppose le résultat vrai de toute fonction de classe $\mathcal{C}^{n+1}$ sur $I$. Soit $f\in\mathcal{C}^{n+2}(I,\mathbb{C})$. Alors $f$ est de classe $\mathcal{C}^{n+1}$ sur $I$, donc par hypothèse de récurrence :
+$$f(b)=\sum_{k=0}^{n}\frac{f^{(k)}(a)}{k!}(b-a)^k+\int_a^b\frac{f^{(n+1)}(t)}{n!}(b-t)^n\,dt\underset{\text{IPP}}{=}\sum_{k=0}^{n}\frac{f^{(k)}(a)}{k!}(b-a)^k+\left[\frac{f^{(n+1)}(t)}{n!}\times\left(-\frac{(b-t)^{n+1}}{n+1}\right)\right]_{t=a}^{t=b}-\int_a^b\frac{f^{(n+2)}(t)}{n!}\times\left(-\frac{(b-t)^{n+1}}{n+1}\right)dt$$
+$$=\sum_{k=0}^{n+1}\frac{f^{(k)}(a)}{k!}(b-a)^k+\int_a^b\frac{f^{(n+2)}(t)}{(n+1)!}(b-t)^{n+1}\,dt.$$
+:::
+
+::: {.example}
+Pour tout $x\geq 0$ : $x-\frac{x^2}{2}\leq\ln(1+x)\leq x-\frac{x^2}{2}+\frac{x^3}{3}$.
+:::
+
+::: {.proof}
+On pourrait effectuer deux études de fonctions, mais il y a mieux. Fixons $x\geq 0$ et appliquons la formule de Taylor-Lagrange avec reste intégral à la fonction $t\mapsto\ln(1+t)$ de classe $\mathcal{C}^4$ entre $0$ et $x$ :
+
+- à l'ordre 2 : $\ln(1+x)=x-\frac{x^2}{2}+\int_0^x\frac{(x-t)^2}{(1+t)^3}\,dt$, or $x\geq 0$, donc $\int_0^x\frac{(x-t)^2}{(1+t)^3}\,dt\geq 0$.
+- à l'ordre 3 : $\ln(1+x)=x-\frac{x^2}{2}+\frac{x^3}{3}-\int_0^x\frac{(x-t)^3}{(1+t)^4}\,dt$, or $x\geq 0$, donc $\int_0^x\frac{(x-t)^3}{(1+t)^4}\,dt\geq 0$.
+:::
+
+::: {.theorem title="(Inégalité de Taylor-Lagrange)"}
+Soient $f\in\mathcal{C}^{n+1}(I,\mathbb{C})$ et $a,b\in I$.
+$$\left|f(b)-\sum_{k=0}^{n}\frac{f^{(k)}(a)}{k!}(b-a)^k\right|\leq\frac{|b-a|^{n+1}}{(n+1)!}\left\|f^{(n+1)}\right\|_\infty,$$
+où la norme infinie est calculée sur le segment d'extrémités $a$ et $b$.
+:::
+
+::: {.proof}
+Le réel $\|f^{(n+1)}\|_\infty$ est bien défini d'après le théorème des bornes atteintes. Si $a\leq b$ :
+$$f(b)-\sum_{k=0}^{n}\frac{f^{(k)}(a)}{k!}(b-a)^k=\int_a^b\frac{f^{(n+1)}(t)}{n!}(b-t)^n\,dt\leq\int_a^b\frac{|f^{(n+1)}(t)|}{n!}|b-t|^n\,dt\leq\|f^{(n+1)}\|_\infty\int_a^b\frac{(b-t)^n}{n!}\,dt=\|f^{(n+1)}\|_\infty\left[-\frac{(b-t)^{n+1}}{(n+1)!}\right]_{t=a}^{t=b}=\frac{|b-a|^{n+1}}{(n+1)!}\|f^{(n+1)}\|_\infty.$$
+Si $b<a$, on fait pareil en inversant l'ordre des bornes dans les majorations post-inégalité triangulaire.
+:::
+
+::: {.example}
+Pour tout $z\in\mathbb{C}$ : $e^z=\sum_{k=0}^{+\infty}\frac{z^k}{k!}$.
+:::
+
+::: {.proof}
+Soit $z\in\mathbb{C}$ fixé. La fonction $t\mapsto f(t)=e^{tz}$ est de classe $\mathcal{C}^\infty$ sur $[0,1]$ et pour tous $n\in\mathbb{N}$ et $t\in[0,1]$ : $|f^{(n+1)}(t)|=|z^{n+1}e^{tz}|=\|z\|^{n+1}e^{t\operatorname{Re}(z)}\leq\|z\|^{n+1}e^{|\operatorname{Re}(z)|}$, donc d'après l'inégalité de Taylor-Lagrange :
+$$\left|e^z-\sum_{k=0}^{n}\frac{z^k}{k!}\right|=\left|f(1)-\sum_{k=0}^{n}\frac{f^{(k)}(0)}{k!}\right|\leq\frac{\|z\|^{n+1}}{(n+1)!}e^{|\operatorname{Re}(z)|}.$$
+On conclut par encadrement.
+:::
+
+# Approximations d'intégrales
+
+## Sommes de Riemann ou méthode des rectangles
+
+::: {.theorem title="(Sommes de Riemann ou méthode des rectangles)"}
+Pour toute fonction $f\in\mathcal{CM}([a,b],\mathbb{C})$ :
+$$\int_a^b f(x)\,dx=\lim_{n\to+\infty}\frac{b-a}{n}\sum_{k=0}^{n-1}f\left(a+k\frac{b-a}{n}\right)=\lim_{n\to+\infty}\frac{b-a}{n}\sum_{k=1}^{n}f\left(a+k\frac{b-a}{n}\right).$$
+Si de plus $f$ est de classe $\mathcal{C}^1$ : $\int_a^b f(x)\,dx=\frac{b-a}{n}\sum_{k=0}^{n-1}f\left(a+k\frac{b-a}{n}\right)+O\left(\frac{1}{n}\right)$.
+:::
+
+Ce théorème affirme en particulier l'existence des deux limites. On ne comprend les sommes de Riemann qu'en les dessinant : l'aire du domaine coloré vaut $\frac{b-a}{n}\sum_{k=0}^{n-1}f\left(a+k\frac{b-a}{n}\right)$ (méthode des rectangles à gauche), ou $\frac{b-a}{n}\sum_{k=1}^{n}f\left(a+k\frac{b-a}{n}\right)$ (rectangles à droite).
+
+::: {.proof}
+Nous prouverons le résultat dans le seul cas où $f$ est $K$-lipschitzienne pour un certain $K>0$ — c'est vrai en particulier si $f$ est de classe $\mathcal{C}^1$ sur le **segment** $[a,b]$ d'après le théorème des bornes atteintes et l'inégalité des accroissements finis. Pour tout $n\in\mathbb{N}^*$, si on pose $x_k=a+k\frac{b-a}{n}$ pour tout $k\in\llbracket 0,n\rrbracket$ :
+$$\left|\int_a^b f(x)\,dx-\frac{b-a}{n}\sum_{k=0}^{n-1}f(x_k)\right|=\left|\sum_{k=0}^{n-1}\int_{x_k}^{x_{k+1}}(f(x)-f(x_k))\,dx\right|\leq\sum_{k=0}^{n-1}\int_{x_k}^{x_{k+1}}|f(x)-f(x_k)|\,dx\leq\sum_{k=0}^{n-1}\int_{x_k}^{x_{k+1}}K(x-x_k)\,dx=\sum_{k=0}^{n-1}K\left[\frac{(x-x_k)^2}{2}\right]_{x=x_k}^{x=x_{k+1}}=\sum_{k=0}^{n-1}\frac{K(b-a)^2}{2n^2}=\frac{K(b-a)^2}{2n}.$$
+Le théorème d'encadrement montre finalement à la fois la convergence des sommes de Riemann et la majoration de l'écart en $O\left(\frac{1}{n}\right)$.
+:::
+
+Quand on veut reconnaître quelque part une somme de Riemann, on se ramène généralement au cas particulier suivant, sur lequel la forme de la fonction $f$ est facile à lire. Pour toute fonction $f\in\mathcal{CM}([0,1],\mathbb{C})$ :
+$$\lim_{n\to+\infty}\frac{1}{n}\sum_{k=0}^{n-1}f\left(\frac{k}{n}\right)=\lim_{n\to+\infty}\frac{1}{n}\sum_{k=1}^{n}f\left(\frac{k}{n}\right)=\int_0^1 f(t)\,dt.$$
+
+::: {.example}
+$\lim_{n\to+\infty}\sum_{k=1}^{n}\frac{1}{n+k}=\ln 2$.
+:::
+
+::: {.proof}
+Par continuité de $x\mapsto\frac{1}{1+x}$ sur $[0,1]$ :
+$$\sum_{k=1}^{n}\frac{1}{n+k}=\frac{1}{n}\sum_{k=1}^{n}\frac{1}{1+\frac{k}{n}}\xrightarrow[n\to+\infty]{}\int_0^1\frac{dt}{1+t}=\ln 2.$$
+:::
+
+## Méthode des trapèzes
+
+L'erreur commise dans le cas $\mathcal{C}^1$ de la méthode des rectangles est un $O\left(\frac{1}{n}\right)$ si $n$ désigne le nombre de termes sommés. Cette majoration de l'erreur n'est pas très bonne car $\frac{1}{n}$ ne tend pas vers $0$ rapidement lorsque $n$ tend vers $+\infty$. La méthode des trapèzes présentée ci-dessous — hors programme — est proche de la précédente mais converge un peu plus vite.
+
+::: {.theorem title="(Méthode des trapèzes)"}
+Pour toute fonction $f\in\mathcal{CM}([a,b],\mathbb{C})$ :
+$$\int_a^b f(x)\,dx=\lim_{n\to+\infty}\frac{b-a}{n}\left(\frac{f(a)+f(b)}{2}+\sum_{k=1}^{n-1}f\left(a+k\frac{b-a}{n}\right)\right).$$
+Si de plus $f$ est de classe $\mathcal{C}^2$ : $\int_a^b f(x)\,dx=\frac{b-a}{n}\left(\frac{f(a)+f(b)}{2}+\sum_{k=1}^{n-1}f\left(a+k\frac{b-a}{n}\right)\right)+O\left(\frac{1}{n^2}\right)$.
+:::
+
+Étrangement, le terme $\frac{b-a}{n}\sum_{k=1}^{n-1}f\left(a+k\frac{b-a}{n}\right)$ est presque le terme que nous donnait la méthode des rectangles, aux bornes près. L'idée, c'est qu'au lieu d'approximer $f$ par un plateau sur $[x_k,x_{k+1}]$ pour tout $k$, on l'approxime maintenant par une fonction affine et les rectangles sont remplacés par des trapèzes (dont l'aire est $A=\frac{(B+b)\times h}{2}$). Un petit calcul redonne la formule :
+$$\frac{b-a}{n}\sum_{k=0}^{n-1}\frac{f(x_k)+f(x_{k+1})}{2}=\frac{b-a}{n}\left(\frac{f(x_0)+f(x_n)}{2}+\sum_{k=1}^{n-1}f(x_k)\right)=\frac{b-a}{n}\left(\frac{f(a)+f(b)}{2}+\sum_{k=1}^{n-1}f\left(a+k\frac{b-a}{n}\right)\right).$$
+
+# Document en PDF {-}
+
+[Chapitre 21 : Intégration sur un segment](PDF/mpsi-chap21.pdf)
+
+## Navigation {-}
+
+::: {.chap-nav}
+[Chapitre 20 : Développements limités](mpsi-chap20.qmd){.prev}
+
+[Menu MPSI](mpsi.qmd){.home}
+
+[Chapitre 22 : Intégration sur un intervalle quelconque](mpsi-chap22.qmd){.next}
+:::

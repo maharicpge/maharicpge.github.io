@@ -1,10 +1,195 @@
 ---
-title: "Chapitre 26 : Espaces préhilbertiens finis"
-pagetitle: "Espaces préhilbertiens finis - Mathématiques en CPGE"
+title: "Variables aléatoires finies"
+subtitle: "Chapitre 26"
+author: "Said MAHARI"
+date: last-modified
+date-format: "D MMMM YYYY"
+lang: fr
+format:
+  html:
+    theme: cosmo
+    toc: true
+    number-sections: true
+    html-math-method: katex
+    css: styles.css
+filters:
+  - custom-numbered-blocks.lua
 ---
 
-**MPSI (1re année) — Chapitre 26.** Produit scalaire, orthogonalité, Gram-Schmidt.
+**MPSI (1re année) — Chapitre 26.** Variables aléatoires finies, loi d'une variable aléatoire, espérance, variance, écart-type, lois uniforme, de Bernoulli et binomiale.
 
-## Document
+Ce chapitre a été réalisé conformément au programme marocain de mathématiques de la filière MPSI.
 
-*PDF à venir : déposez le fichier `files/mpsi/chap26.pdf` puis régénérez la page.*
+# Variables aléatoires finies {-}
+
+Dans tout ce chapitre, $(\Omega,P)$ désigne un espace probabilisé fini.
+
+# Variables aléatoires finies
+
+## Définition
+
+::: {.definition title="(Variable aléatoire finie)"}
+Une **variable aléatoire finie** sur $(\Omega,P)$ est une application $X:\Omega\longrightarrow\mathbb{R}$ dont l'image $X(\Omega)$ est un ensemble fini.
+:::
+
+::: {.example}
+Lors du lancer d'un dé équilibré, la variable $X$ qui associe à chaque résultat sa valeur est une variable aléatoire finie avec $X(\Omega)=\{1,2,3,4,5,6\}$.
+:::
+
+## Loi d'une variable aléatoire
+
+::: {.definition title="(Loi d'une variable aléatoire)"}
+Soit $X$ une variable aléatoire finie avec $X(\Omega)=\{x_1,\ldots,x_n\}$. La **loi** de $X$ est l'application qui associe à chaque $x_i$ la probabilité $P(X=x_i)$.
+:::
+
+::: {.example}
+Lors du lancer d'un dé équilibré, la loi de $X$ est donnée par $P(X=k)=\frac16$ pour $k\in\{1,\ldots,6\}$.
+:::
+
+::: {.proposition}
+Soit $X$ une variable aléatoire finie. Alors :
+$$\sum_{x\in X(\Omega)}P(X=x)=1$$
+:::
+
+::: {.definition title="(Support)"}
+Le **support** d'une variable aléatoire finie $X$ est l'ensemble $X(\Omega)$ des valeurs prises par $X$.
+:::
+
+# Loi d'une fonction d'une variable aléatoire
+
+::: {.proposition}
+Soit $X$ une variable aléatoire finie et $g:\mathbb{R}\longrightarrow\mathbb{R}$ une fonction. Alors $g\circ X$ est une variable aléatoire finie. Pour tout $y\in g(X(\Omega))$ :
+$$P(g(X)=y)=\sum_{x\in X(\Omega),\,g(x)=y}P(X=x)$$
+:::
+
+::: {.example}
+Soit $X$ la variable aléatoire donnant le résultat du lancer d'un dé équilibré, et $g(x)=x^2$. Alors $g(X)$ prend les valeurs $\{1,4,9,16,25,36\}$ avec les mêmes probabilités.
+:::
+
+# Espérance
+
+## Définition
+
+::: {.definition title="(Espérance)"}
+Soit $X$ une variable aléatoire finie avec $X(\Omega)=\{x_1,\ldots,x_n\}$. L'**espérance** de $X$ est :
+$$E(X)=\sum_{i=1}^{n}x_iP(X=x_i)$$
+:::
+
+::: {.example}
+Lors du lancer d'un dé équilibré : $E(X)=\frac{1+2+3+4+5+6}{6}=\frac72$.
+:::
+
+## Propriétés
+
+::: {.proposition title="(Linéarité de l'espérance)"}
+Soient $X$ et $Y$ deux variables aléatoires finies et $\lambda,\mu\in\mathbb{R}$. Alors :
+$$E(\lambda X+\mu Y)=\lambda E(X)+\mu E(Y)$$
+:::
+
+::: {.proposition title="(Espérance d'une constante)"}
+Pour toute constante $a\in\mathbb{R}$ : $E(a)=a$.
+:::
+
+::: {.proposition title="(Espérance d'une fonction)"}
+Soit $X$ une variable aléatoire finie et $g:\mathbb{R}\longrightarrow\mathbb{R}$. Alors :
+$$E(g(X))=\sum_{x\in X(\Omega)}g(x)P(X=x)$$
+:::
+
+::: {.proposition title="(Croissance)"}
+Si $X\leq Y$ (c'est-à-dire $\forall\omega\in\Omega$, $X(\omega)\leq Y(\omega)$), alors $E(X)\leq E(Y)$.
+:::
+
+# Variance
+
+## Définition
+
+::: {.definition title="(Variance)"}
+Soit $X$ une variable aléatoire finie. La **variance** de $X$ est :
+$$V(X)=E\left((X-E(X))^2\right)$$
+:::
+
+::: {.definition title="(Écart-type)"}
+L'**écart-type** de $X$ est $\sigma(X)=\sqrt{V(X)}$.
+:::
+
+## Propriétés
+
+::: {.proposition title="(Formule de la variance)"}
+$$V(X)=E(X^2)-(E(X))^2$$
+:::
+
+::: {.proposition}
+Soient $X$ une variable aléatoire finie et $\lambda,\mu\in\mathbb{R}$. Alors :
+$$V(\lambda X+\mu)=\lambda^2V(X)$$
+:::
+
+::: {.proposition}
+$V(X)=0$ si et seulement si $X$ est constante (presque sûrement).
+:::
+
+::: {.proposition title="(Variance d'une somme)"}
+Si $X$ et $Y$ sont deux variables aléatoires finies, alors :
+$$V(X+Y)=V(X)+V(Y)+2\operatorname{Cov}(X,Y)$$
+où $\operatorname{Cov}(X,Y)=E(XY)-E(X)E(Y)$ est la **covariance** de $X$ et $Y$.
+:::
+
+# Lois usuelles
+
+## Loi uniforme
+
+::: {.definition title="(Loi uniforme)"}
+On dit que $X$ suit la **loi uniforme** sur $\{1,\ldots,n\}$ si $P(X=k)=\frac1n$ pour tout $k\in\{1,\ldots,n\}$. On note $X\sim\mathcal{U}(\{1,\ldots,n\})$. Alors :
+$$E(X)=\frac{n+1}{2},\qquad V(X)=\frac{n^2-1}{12}$$
+:::
+
+## Loi de Bernoulli
+
+::: {.definition title="(Loi de Bernoulli)"}
+On dit que $X$ suit la **loi de Bernoulli** de paramètre $p\in[0,1]$ si $X$ prend les valeurs $0$ et $1$ avec $P(X=1)=p$ et $P(X=0)=1-p$. On note $X\sim\mathcal{B}(p)$. Alors :
+$$E(X)=p,\qquad V(X)=p(1-p)$$
+:::
+
+## Loi binomiale
+
+::: {.definition title="(Loi binomiale)"}
+On dit que $X$ suit la **loi binomiale** de paramètres $n\in\mathbb{N}^*$ et $p\in[0,1]$ si :
+$$P(X=k)=\binom{n}{k}p^k(1-p)^{n-k}\quad\text{pour }k\in\{0,\ldots,n\}$$
+On note $X\sim\mathcal{B}(n,p)$. Alors :
+$$E(X)=np,\qquad V(X)=np(1-p)$$
+:::
+
+::: {.example title="(Lancer de dé)"}
+On lance 10 fois un dé équilibré. Soit $X$ le nombre de fois où l'on obtient 6. Alors $X\sim\mathcal{B}\left(10,\frac16\right)$, donc $E(X)=10\cdot\frac16=\frac{10}{6}=\frac53$ et $V(X)=10\cdot\frac16\cdot\frac56=\frac{5}{36}\cdot 10$.
+:::
+
+::: {.remark title="(Lien Bernoulli-Binomiale)"}
+Une variable binomiale $\mathcal{B}(n,p)$ est la somme de $n$ variables de Bernoulli indépendantes de paramètre $p$.
+:::
+
+::: {.exercise}
+\sauteligne
+1. On lance un dé équilibré. Soit $X$ le résultat. Calculer $E(X)$ et $V(X)$.
+2. On lance une pièce équilibrée 5 fois. Soit $X$ le nombre de « pile ». Déterminer la loi de $X$, son espérance et sa variance.
+3. On lance un dé équilibré 3 fois. Soit $X$ le nombre de fois où l'on obtient 6. Calculer $E(X)$ et $V(X)$.
+:::
+
+::: {.solution}
+\sauteligne
+1. $E(X)=\frac72$, $V(X)=\frac{35}{12}$.
+2. $X\sim\mathcal{B}\left(5,\frac12\right)$, donc $E(X)=\frac52$, $V(X)=\frac54$.
+3. $X\sim\mathcal{B}\left(3,\frac16\right)$, donc $E(X)=\frac36=\frac12$, $V(X)=3\cdot\frac16\cdot\frac56=\frac{5}{12}$.
+:::
+
+# Document en PDF {-}
+
+[Chapitre 26 : Variables aléatoires finies](PDF/mpsi-chap26.pdf)
+
+## Navigation {-}
+
+::: {.chap-nav}
+[Chapitre 25 : Espaces probabilisés finis](mpsi-chap25.qmd){.prev}
+
+[Menu MPSI](mpsi.qmd){.home}
+
+[Chapitre 27 : Espaces préhilbertiens finis](mpsi-chap27.qmd){.next}
+:::

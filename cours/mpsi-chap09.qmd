@@ -1,10 +1,470 @@
 ---
-title: "Chapitre 09 : Arithmétique dans ℤ"
-pagetitle: "Arithmétique dans ℤ - Mathématiques en CPGE"
+title: "Arithmétique dans ℤ"
+subtitle: "Chapitre 09"
+author: "Said MAHARI"
+date: last-modified
+date-format: "D MMMM YYYY"
+lang: fr
+format:
+  html:
+    theme: cosmo
+    toc: true
+    number-sections: true
+    html-math-method: katex
+    css: styles.css
+filters:
+  - custom-numbered-blocks.lua
 ---
 
-**MPSI (1re année) — Chapitre 09.** Division euclidienne, PGCD, PPCM, Bézout, Gauss, nombres premiers.
+**MPSI (1re année) — Chapitre 09.** Divisibilité, division euclidienne, PGCD, PPCM, théorèmes de Bézout et de Gauss, nombres premiers, valuation $p$-adique, congruences.
 
-## Document
+Ce chapitre a été réalisé conformément au programme marocain de mathématiques de la filière MPSI.
 
-*PDF à venir : déposez le fichier `files/mpsi/chap09.pdf` puis régénérez la page.*
+# Arithmétique dans ℤ {-}
+
+Ce petit résumé est réalisé suivant le programme marocain de la filière MPSI et présente quelques résultats fondamentaux d'arithmétique, agrémentés de petits exercices d'application. Les détails seront donnés en classe suite à la demande des élèves.
+
+# Notion de divisibilité dans $\mathbb{Z}$
+
+::: {.definition}
+Si $a$ et $b$ sont deux entiers tel que $a$ est non nul, on dit que $a$ **divise** $b$, ou que $b$ est **divisible** par $a$, s'il existe un entier $q$ tel que $b=aq$. On dit encore que $a$ est un **diviseur** de $b$, ou que $b$ est un **multiple** de $a$. On note, dans ce cas, $a\mid b$, et on note $\mathcal{D}(b)$ l'ensemble des diviseurs positifs de $b$ et $\mathcal{M}(a)$ l'ensemble des multiples positifs de $a$.
+:::
+
+::: {.proposition}
+Voici quelques propriétés :
+
+- Tout entier $a\in\mathbb{Z}^*$ divise $0$ et est divisible par $1$ et $a$ ;
+- Si $a\mid b$ et $b\mid c$ alors $a\mid c$ ;
+- Soit $m$ un entier non nul, $a\mid b$ est équivalent à $ma\mid mb$ ;
+- Si $a\mid b$ et $a\mid c$, alors $a\mid bx+cy$ pour tous entiers $x,y$. En particulier, $a\mid b-c$ et $a\mid b+c$.
+:::
+
+::: {.exercise}
+Soient $x, y$ des entiers. Montrer que $3x+2y$ est divisible par $7$ si et seulement si $4x+5y$ l'est aussi.
+:::
+
+::: {.definition title="(Relation d'association)"}
+On dit que deux entiers $a$ et $b$ sont **associés** si $b=\pm a$, ou encore si $a\mid b$ et $b\mid a$.
+:::
+
+::: {.exercise}
+1. Montrer que la relation d'association des entiers est une relation d'équivalence et donner la classe d'un entier $n$.
+2. Soit $(k,k')\in\mathbb{Z}^2$. Montrer que :
+$$kk'=1 \iff k=k'=1 \text{ ou } k=k'=-1$$
+:::
+
+# Théorème de la division euclidienne
+
+::: {.theorem title="(Division euclidienne)"}
+Soit $b$ un entier strictement positif. Tout entier $a$ s'écrit, de manière unique, sous la forme $a=bq+r$, où $q$ et $r$ sont des entiers, avec $0\leq r<b$. On appelle $q$ le **quotient** et $r$ le **reste** de la division euclidienne de $a$ par $b$.
+:::
+
+::: {.remark}
+- $\operatorname{sgn}(q)=\operatorname{sgn}(a)$ ;
+- Si $b<0$, pour effectuer la division euclidienne de $a$ par $b$, on effectue la division euclidienne de $a$ par $|b|$ :
+$$\exists! (q',r')\in \mathbb{Z}\times \llbracket 0,|b|-1\rrbracket \ / \ a=q'|b|+r'$$
+puis on prend $(q,r)=(\operatorname{sgn}(b)q',r')$.
+:::
+
+::: {.remark}
+Le théorème précédent est très important puisqu'il permet de procéder par un raisonnement par disjonction des cas (où le nombre des cas est fini) en considérant le reste $r$ de la division euclidienne de $a$ par un certain $n\in\mathbb{N}^*$.
+:::
+
+::: {.exercise}
+Soit $a$ un entier quelconque. Déterminer le reste de la division euclidienne de $a^2$ par 4.
+:::
+
+::: {.exercise}
+Montrer que $n^3-n$ est divisible à la fois par 2 et 3.
+:::
+
+# Notion de plus grand commun diviseur
+
+::: {.definition title="(Plus grand commun diviseur)"}
+Un entier divisant à la fois l'entier $a$ et l'entier $b$ (non tous les deux nuls) est appelé **diviseur commun** de $a$ et $b$. Le plus grand nombre strictement positif parmi ces diviseurs communs est appelé le **plus grand commun diviseur** de $a$ et $b$, on le note $\operatorname{pgcd}(a,b)$ ou $a\wedge b$.
+
+On dit que $a$ et $b$ sont **premiers entre eux** si $\operatorname{pgcd}(a,b)=1$.
+:::
+
+::: {.example}
+On a :
+$$\mathcal{D}(42)=\{1,2,3,6,7,14,21,42\} \quad ; \quad \mathcal{D}(15)=\{1,3,5,15\}$$
+donc $\operatorname{pgcd}(42,15)=3$.
+:::
+
+::: {.remark}
+- Attention le pgcd est défini pour $(a,b)\in\mathbb{Z}^2\smallsetminus\{(0,0)\}$, et on a : $\operatorname{pgcd}(a,b)>0$.
+- $\operatorname{pgcd}(a,b)=|a| \iff a\mid b$.
+:::
+
+::: {.proposition}
+On a les propriétés suivantes :
+
+- Pour tout entier $c$, $\operatorname{pgcd}(a,b)=\operatorname{pgcd}(a,b+ac)=\operatorname{pgcd}(a+bc,b)$ ;
+- Si $r$ est le reste de la division euclidienne de $a$ par $b$ alors $\operatorname{pgcd}(a,b)=\operatorname{pgcd}(b,r)$.
+:::
+
+::: {.exercise}
+Montrer que pour tout entier naturel $n$, la fraction $\frac{21n+4}{14n+3}$ est irréductible.
+:::
+
+::: {.theorem title="(Algorithme d'Euclide)"}
+La proposition précédente fournit un algorithme pour calculer le PGCD de deux entiers $a$ et $b$.
+
+Supposons $a>b>0$. Soit $r_1$ le reste dans la division euclidienne de $a$ par $b$. Si $r_1=0$, alors $\operatorname{pgcd}(a,b)=b$ ; sinon, soit $r_2$ le reste dans la division euclidienne de $b$ par $r_1$. Si $r_2=0$, alors $\operatorname{pgcd}(a,b)=\operatorname{pgcd}(b,r_1)=r_1$ ; sinon, soit $r_3$ le reste dans la division euclidienne de $r_1$ par $r_2$, etc.
+
+Le processus s'arrête nécessairement car les restes forment une suite d'entiers décroissante et minorée. Le dernier reste non nul $r_n$ est égal au PGCD de $a$ et $b$. En effet, la proposition précédente montre que $\operatorname{pgcd}(a,b)=\operatorname{pgcd}(b,r_1)=\operatorname{pgcd}(r_1,r_2)=\cdots=\operatorname{pgcd}(r_{n-1},r_n)=r_n$.
+:::
+
+L'algorithme d'Euclide est un résultat très important puisqu'il a deux conséquences particulièrement importantes :
+
+::: {.corollary}
+Si $d=\operatorname{pgcd}(a,b)$ alors il existe deux entiers $u$ et $v$ tels que :
+$$au+bv=d.$$
+:::
+
+::: {.remark}
+- La réciproque est fausse (il suffit de prendre $a=b=2$ et $u=v=1$).
+- Les entiers $u$ et $v$ s'appellent les coefficients de Bézout. Le couple $(u,v)$ des coefficients de Bézout n'est pas unique. Par exemple :
+$$1=3\times 1+2\times (-1)=3\times (-1)+2\times 2=3\times 3+2\times (-4)$$
+- Si $a$ et $b$ sont de signe quelconque, on applique l'algorithme d'Euclide à $|a|$ et $|b|$ et on aura :
+$$\exists (u',v')\in\mathbb{Z}^2 \ / \ d=|a|u'+|b|v'$$
+puis on prend $u=\operatorname{sgn}(a)u'$ et $v=\operatorname{sgn}(b)v'$.
+:::
+
+::: {.corollary title="(Théorème de Bézout)"}
+$a$ et $b$ sont premiers entre eux si et seulement si il existe deux entiers $u$ et $v$ tels que :
+$$au+bv=1$$
+:::
+
+::: {.example}
+- Déterminons le PGCD de 75 et 55 en utilisant l'algorithme d'Euclide :
+$$\begin{aligned} 75 &= 55\times 1 +20 \\ 55 &= 20\times 2 +15 \\ 20 &= 15\times 1 + 5 \\ 15 &= 5\times 3 +0 \end{aligned}$$
+donc $\operatorname{pgcd}(75,55)=5$.
+- Déterminons, maintenant, des coefficients de Bézout :
+$$5=20-15\times 1=20-(55-20\times 2)\times 1=75-55-(55-(75-55)\times 2)\times 1=75\times 3+55\times (-4)$$
+donc $u=3$ et $v=-4$.
+:::
+
+::: {.example}
+Déterminons le PGCD de 156 et 39 en utilisant l'algorithme d'Euclide :
+$$156=39\times 4+0$$
+donc $\operatorname{pgcd}(156,39)=39$ et des coefficients de Bézout sont : $u=1$ et $v=-3$.
+:::
+
+::: {.example}
+- Déterminons le PGCD de 169 et 38 en utilisant l'algorithme d'Euclide :
+$$\begin{aligned} 169 &= 38\times 4 +17 \\ 38 &= 17\times 2 +4 \\ 17 &= 4\times 4 + 1 \\ 4 &= 1\times 4 +0 \end{aligned}$$
+donc $\operatorname{pgcd}(169,38)=1$.
+- Déterminons, maintenant, des coefficients de Bézout :
+$$1=17-4\times 4=17-(38-17\times 2)\times 4=169-38\times 4-(38-(169-38\times 4)\times 2)\times 4=169\times 9+38\times (-40)$$
+donc $u=9$ et $v=-40$.
+:::
+
+::: {.corollary}
+- $\mathcal{D}(a)\cap \mathcal{D}(b)=\mathcal{D}(a\wedge b)$ ;
+- Si $d\mid a$ et $d\mid b$ alors $\operatorname{pgcd}(a,b)=|d|\operatorname{pgcd}(a/d,b/d)$.
+:::
+
+::: {.exercise}
+Soient $a$ et $b$ deux entiers non nuls. Montrer que :
+$$\exists !(a',b')\in \left(\mathbb{Z}^*\right)^2 \ / \ \begin{cases} a=da' \\ b=db' \\ a'\wedge b'=1 \\ d=a\wedge b \end{cases}$$
+:::
+
+::: {.definition title="(PGCD de plusieurs entiers)"}
+Soit $(a_k)_{1\leq k\leq n}$ une famille d'entiers non tous nuls.
+
+- On définit le **PGCD** des $a_k$ comme étant le plus grand entier strictement positif parmi leurs diviseurs communs. On le note $\operatorname{pgcd}(a_1,\cdots,a_n)$ ou $a_1\wedge \cdots \wedge a_n$.
+- On dit que les $a_k$ sont **premiers entre eux** si : $\operatorname{pgcd}(a_1,\cdots,a_n)=1$.
+:::
+
+::: {.example}
+On a :
+
+- $\operatorname{pgcd}(64,32,8,36,48,128)=4$ ;
+- $\operatorname{pgcd}(8,24,6,15)=1$.
+:::
+
+::: {.remark title="(Attention !)"}
+Il y a une différence entre « premiers entre eux » (ou « premiers entre eux dans leur ensemble ») et « premiers entre eux deux à deux ». Par exemple, $2,6,9$ sont premiers entre eux mais ils ne sont pas premiers entre eux deux à deux.
+:::
+
+Les propriétés du PGCD de deux entiers se généralisent comme suit :
+
+::: {.proposition}
+- $\bigcap_{k=1}^n\mathcal{D}(a_k)=\mathcal{D}\left(\operatorname{pgcd}(a_1,\cdots,a_n)\right)$ ;
+- Si au moins deux entiers parmi les $a_k$ sont premiers entre eux alors : $\operatorname{pgcd}(a_1,\cdots,a_n)=1$.
+:::
+
+::: {.theorem title="(Théorème de Bézout)"}
+- Si $d=\operatorname{pgcd}(a_1,\cdots,a_n)$ alors il existe des entiers $u_1,\cdots, u_n$ tels que :
+$$u_1a_1+\cdots +u_na_n=d$$
+- Les $a_k$ sont premiers entre eux si et seulement si il existe des entiers $u_1,\cdots, u_n$ tels que :
+$$u_1a_1+\cdots +u_na_n=1$$
+:::
+
+::: {.exercise}
+Soit $n\in\mathbb{N}^*$.
+
+1. Soient $a,b_1,\cdots, b_n$ des entiers non nuls. Montrer que :
+$$a\wedge b_1=\cdots = a\wedge b_n=1 \iff a\wedge \prod_{k=1}^n b_k =1$$
+2. Soit $(a,b)\in (\mathbb{Z}^*)^2$. Montrer que :
+$$a\wedge b=1 \iff a^n \wedge b^n=1$$
+3. Soient $a_1,\cdots, a_n$ des entiers premiers entre eux deux à deux. Pour $k\in \llbracket 1,n\rrbracket$, on pose : $b_k=\prod_{i=1,i\neq k}^n a_i$. Montrer que les $b_k$ sont premiers entre eux.
+:::
+
+# Notion de plus petit commun multiple
+
+::: {.definition title="(Plus petit commun multiple)"}
+Un entier à la fois divisible par $a$ et par $b$ ($a,b\neq 0$) est appelé un **multiple commun** de $a$ et $b$. Le plus petit nombre strictement positif parmi ces multiples communs est appelé le **plus petit commun multiple** de $a$ et $b$ et noté $\operatorname{ppcm}(a,b)$ ou $a\vee b$.
+:::
+
+::: {.remark}
+Si $b=0$, on note $\operatorname{ppcm}(a,0)=0$.
+:::
+
+::: {.example}
+On a :
+$$\mathcal{M}(18)=\{0,18,36,54,72,90,\cdots\} \quad ; \quad \mathcal{M}(15)=\{0,15,30,45,60,75,90,\cdots\}$$
+donc $\operatorname{ppcm}(18,15)=90$.
+:::
+
+::: {.definition title="(PPCM de plusieurs entiers)"}
+On définit le **PPCM** de plusieurs entiers $a_1,\cdots,a_n$ ($\neq 0$) comme étant l'entier $m$ vérifiant :
+$$m=\min \bigcap_{k=1}^n \mathcal{M}(a_k)\smallsetminus\{0\}$$
+On le note $\operatorname{ppcm}(a_1,\cdots,a_n)$ ou $a_1\vee \cdots \vee a_n$.
+:::
+
+::: {.example}
+On a :
+
+- $\operatorname{ppcm}(64,32,8,36,48,128)=384$ ;
+- $\operatorname{ppcm}(8,24,6,15)=120$.
+:::
+
+# Quelques résultats fondamentaux
+
+::: {.theorem title="(Lemme d'Euclide)"}
+Soient $a,b$ et $c$ trois entiers tels que $\operatorname{pgcd}(a,b)=1$. Alors on a :
+$$a\mid c \text{ et } b\mid c \Longrightarrow ab\mid c.$$
+:::
+
+::: {.theorem title="(Lemme de Gauss)"}
+Soient $a,b$ et $c$ trois entiers tels que $\operatorname{pgcd}(a,b)=1$. Alors on a :
+$$a\mid bc \Longrightarrow a\mid c.$$
+:::
+
+::: {.proposition}
+Soient $a$ et $b$ deux entiers. Alors on a :
+
+- $\mathcal{M}(a)\cap \mathcal{M}(b)=\mathcal{M}(\operatorname{ppcm}(a,b))$ ;
+- $|ab|=\operatorname{pgcd}(a,b)\times \operatorname{ppcm}(a,b)$ ;
+- $\operatorname{pgcd}(a,b)=1 \iff \operatorname{ppcm}(a,b)=|ab|$.
+:::
+
+::: {.exercise title="(Équation diophantienne)"}
+Soit $(a,b,c)\in\mathbb{Z}^3$ tel que $(a,b)\neq (0,0)$. Considérons l'équation d'inconnue $(x,y)$ :
+$$ax+by=c \qquad (1)$$
+Posons $d=\operatorname{pgcd}(a,b)$.
+
+(a) Que dire si $d$ ne divise pas $c$ ? Dans le cas contraire, montrer que l'équation $(1)$ est équivalente à une équation du type :
+$$a'x+b'y=c' \qquad (2)$$
+avec $\operatorname{pgcd}(a',b')=1$.
+
+(b) Étant donné une solution particulière $(x_0,y_0)$ de l'équation $(2)$, résoudre l'équation $(1)$.
+
+(c) Appliquer lorsque $a=189,\ b=255$ et $c=27$.
+:::
+
+::: {.exercise}
+Soit $(a,b)\in\mathbb{N}^2$. Étant donné un couple de coefficients de Bézout $(u_0,v_0)$, trouver tous les couples de coefficients de Bézout $(u,v)$, c'est-à-dire les couples vérifiant : $au+bv=d$.
+:::
+
+::: {.definition title="(Nombres premiers)"}
+Un entier naturel $p>1$ est dit **premier** s'il possède exactement deux diviseurs naturels, à savoir $1$ et $p$.
+:::
+
+::: {.example}
+$2,3,5,7,11,13,17,\ldots$ sont des nombres premiers.
+:::
+
+::: {.remark title="(Règle importante)"}
+Soit $n\in\mathbb{N}$ tel que $n\geq 2$. Si $n$ n'est pas premier alors le plus petit nombre premier $p$ qui le divise vérifie : $p\leq \sqrt{n}$.
+
+Par contraposée, si tous les nombres premiers $p$ tels que $p\leq \sqrt{n}$ ne divisent pas $n$, alors $n$ est premier.
+:::
+
+::: {.exercise}
+Parmi les nombres suivants : $67, 77, 87, 97$, lesquels sont-ils premiers ?
+:::
+
+::: {.remark}
+Une méthode pour obtenir les nombres premiers est le crible d'Ératosthène. Pour une description détaillée du crible suivre le [lien](https://bit.ly/Crible_Era).
+:::
+
+::: {.proposition}
+Soient $a,b\in\mathbb{Z}$ et $p$ un nombre premier. Alors on a :
+$$p\mid ab \iff p\mid a \text{ ou } p\mid b$$
+:::
+
+::: {.exercise title="(Caractérisation d'un nombre premier)"}
+Soit $p\in\mathbb{N}$ tel que $p>1$. Montrer que :
+$$\left( p \text{ est premier} \right) \iff \left( \forall (a,b)\in\mathbb{Z}^2,\ p\mid ab \iff p\mid a \text{ ou } p\mid b \right)$$
+:::
+
+::: {.theorem title="(Théorème d'Euclide)"}
+L'ensemble des nombres premiers est infini.
+:::
+
+::: {.theorem title="(Théorème fondamental de l'arithmétique)"}
+Tout entier naturel non nul $n$ se décompose de façon unique en produit de nombres premiers. Autrement dit, $n$ s'écrit :
+$$n=\prod_{p\in \mathcal{P}}p^{v_p(n)}$$
+avec $\mathcal{P}$ l'ensemble des nombres premiers et $v_p(n)$ le plus grand entier naturel $m$ tel que $p^m$ ($p$ premier) divise $n$. $v_p(n)$ s'appelle la valuation $p$-adique de $n$.
+:::
+
+::: {.exercise}
+Calculer $v_2(54),\ v_3(54),\ v_5(54),\ v_7(54)$ et $v_p(54)$ avec $p\in\mathcal{P}$ et $p\leq 11$. Décomposer 54 en produit de nombres premiers.
+:::
+
+::: {.exercise}
+Soient $p,q \in \mathcal{P}$ et $k\in\mathbb{N}$. Calculer $v_p(q^k)$.
+:::
+
+::: {.proposition title="(Propriétés de la valuation)"}
+Soit $(a,b)\in (\mathbb{N}^*)^2$. Alors on a :
+
+- $\forall p\in\mathcal{P},\ v_p(ab)=v_p(a)+v_p(b)$ ;
+- $a\mid b \iff \left(\forall p\in\mathcal{P}\right)\ v_p(a)\leq v_p(b)$.
+:::
+
+::: {.exercise}
+Soit $n=\prod_{p\in\mathcal{P}}p^{v_p(n)}$. Donner la décomposition en produit de nombres premiers de tous les diviseurs de $n$, et déduire le nombre de ses diviseurs.
+:::
+
+::: {.proposition title="(PGCD et PPCM)"}
+Soit $(a,b)\in (\mathbb{N}^*)^2$. Alors on a :
+$$\operatorname{pgcd}(a,b)=\prod_{p\in\mathcal{P}}p^{\min(v_p(a),v_p(b))} \quad ; \quad \operatorname{ppcm}(a,b)=\prod_{p\in\mathcal{P}}p^{\max(v_p(a),v_p(b))}$$
+:::
+
+::: {.exercise}
+Déterminer $\operatorname{pgcd}(255,354)$ et $\operatorname{ppcm}(255,354)$.
+:::
+
+::: {.exercise}
+Soit $a,b\in\mathbb{N}^*$. Montrer que : $a\mid b \iff a^2\mid b^2$.
+:::
+
+::: {.exercise}
+Soit $n\in\mathbb{N}^*$. Montrer que si $n$ est à la fois un carré parfait et un cube parfait, alors il est la puissance sixième d'un entier.
+:::
+
+# Relation de congruence
+
+Soit $n\in\mathbb{N}^*$.
+
+::: {.definition}
+Soit $(a,b)\in\mathbb{Z}^2$.
+
+On dit que $b$ est **congru modulo $n$** à $a$ et on écrit : $b\equiv a \ [n]$ ou $b\equiv_n a$, si $n\mid b-a$.
+
+On note $\overline{a}$ la classe d'équivalence d'un entier $a$ et $\mathbb{Z}/n\mathbb{Z}$ l'ensemble des classes d'équivalence.
+:::
+
+::: {.example}
+On a :
+
+- $a\equiv_2 0$ si $a$ est pair et $a\equiv_2 1$ sinon ;
+- $169 \equiv_3 1$ ;
+- $\forall a\in\mathbb{Z},\ a\equiv_1 0$ ;
+- $a\mid b \iff b\equiv_a 0$ ;
+- $a\wedge b=1 \iff \exists u\in\mathbb{Z},\ ua\equiv_b 1 \iff \exists v\in\mathbb{Z},\ vb\equiv_a 1$.
+:::
+
+::: {.theorem}
+La relation de congruence modulo $n$ est une relation d'équivalence et la classe d'un entier $a$ s'écrit :
+$$\overline{a}=\{a+kn \ / \ k\in\mathbb{Z}\}$$
+De plus, on a : $\mathbb{Z}=\bigcup_{a\in \llbracket 0,n-1\rrbracket}\overline{a}$.
+:::
+
+::: {.proposition}
+1. La relation de congruence modulo $n$ est compatible avec la somme et la multiplication dans $\mathbb{Z}$. Autrement dit, elle vérifie la propriété suivante :
+$$\left(a\equiv_n b \text{ et } c\equiv_n d\right) \Longrightarrow \left(a+c\equiv_n b+d \text{ et } ac\equiv_n bd\right)$$
+2. Si $a\equiv_n b$ alors $\forall m\in\mathbb{N}^*,\ a^m\equiv_n b^m$ ;
+3. Associativité : $a+(b+c)\equiv_n (a+b)+c$ ;
+4. Commutativité : $a+b\equiv_n b+a$ et $ab\equiv_n ba$ ;
+5. Éléments neutres : $a+0\equiv_n a$ et $a\times 1\equiv_n a$ ;
+6. Symétrie : $a+(-a)\equiv_n 0$ ;
+7. Distributivité : $a(b+c)\equiv_n ab+ac$.
+:::
+
+::: {.corollary}
+Pour $a,b\in\mathbb{Z}$, on note $\overline{a}+\overline{b}=\{x+y \ / \ x\in \overline{a} \text{ et } y\in \overline{b}\}$ et $\overline{a}\,\overline{b}=\{xy \ / \ x\in \overline{a} \text{ et } y\in \overline{b}\}$. Alors les propriétés précédentes s'énoncent encore :
+
+| | | |
+|---|---|---|
+| $\overline{a}+\overline{b}=\overline{a+b}$ | $\overline{a}\,\overline{b}=\overline{ab}$ | $\forall m\in\mathbb{N}^*,\ \overline{a}^m=\overline{a^m}$ |
+| $\overline{a}+(\overline{b}+\overline{c})=(\overline{a}+\overline{b})+\overline{c}$ | $\overline{a}+\overline{b}=\overline{b}+\overline{a}$ | $\overline{a}\,\overline{b}=\overline{b}\,\overline{a}$ |
+| $\overline{a}+\overline{0}=\overline{a}$ | $\overline{a}\,\overline{1}=\overline{a}$ | $\overline{a}+\overline{-a}=\overline{0}$ |
+| $\overline{a}(\overline{b}+\overline{c})=\overline{a}\,\overline{b}+\overline{a}\,\overline{c}$ | | |
+:::
+
+::: {.exercise}
+Déterminer le dernier chiffre dans l'écriture décimale de $7^{7^7}$.
+:::
+
+::: {.exercise}
+Soit $n\in\mathbb{N}$. Montrer que $5\mid(3^{n+1}+2^{3n+5})$.
+:::
+
+::: {.theorem title="(Petit théorème de Fermat)"}
+$$\forall a\in\mathbb{Z},\ a^n\equiv_n a$$
+avec $n\in\mathcal{P}$.
+:::
+
+::: {.proposition}
+Pour $n\in\mathbb{N}$ tel que $n\geq 2$, on a :
+$$n \text{ premier} \iff \forall a\in\mathbb{Z},\ \left(n\nmid a \Longrightarrow a^{n-1}\equiv_n 1\right)$$
+:::
+
+::: {.remark}
+Les deux résultats précédents s'énoncent encore :
+
+- $\forall x\in\mathbb{Z}/n\mathbb{Z},\ x^n=x$ ;
+- $n \text{ premier} \iff \forall x\in\mathbb{Z}/n\mathbb{Z},\ \left(x\neq \overline{0}\Longrightarrow x^{n-1}=\overline{1}\right)$.
+:::
+
+::: {.exercise title="(Théorème de Wilson)"}
+Soit $n\geq 2$. Montrer que :
+$$n \text{ premier} \iff (n-1)!\equiv_n -1$$
+:::
+
+::: {.exercise}
+1. Soient $a_1,\cdots,a_n$ des entiers et $m_1,\cdots, m_n$ des entiers naturels non nuls premiers entre eux deux à deux. Résoudre le système d'inconnue $x\in\mathbb{Z}$ suivant :
+$$\begin{cases} x\equiv a_1 \ [m_1] \\ \vdots \\ x\equiv a_n \ [m_n] \end{cases}$$
+2. En déduire les solutions du système suivant :
+$$\begin{cases} x\equiv_3 1 \\ x\equiv_5 2 \\ x\equiv_7 3 \end{cases}$$
+:::
+
+::: {.exercise}
+Déterminer les triplets $(a,b,c)\in (\mathbb{N}^*)^3$ tels que :
+$$\operatorname{ppcm}(a,b)=42;\quad \operatorname{pgcd}(a,c)=3;\quad a+b+c=29$$
+:::
+
+::: {.exercise title="(Formule de Legendre)"}
+Soient $n\in\mathbb{N}^*$ et $p\in\mathcal{P}$. Montrer que :
+$$v_p(n!)=\sum_{k=1}^{+\infty}E\left( \frac{n}{p^k}\right)$$
+:::
+
+# Document en PDF {-}
+
+[Chapitre 09 : Arithmétique dans ℤ](PDF/mpsi-chap09.pdf)
+
+# Navigation {-}
+
+::: {.chap-nav}
+[Chapitre 08 : Structures algébriques](mpsi-chap08.qmd){.prev}
+
+[Menu MPSI](mpsi.qmd){.home}
+
+[Chapitre 10 : Polynômes](mpsi-chap10.qmd){.next}
+:::
