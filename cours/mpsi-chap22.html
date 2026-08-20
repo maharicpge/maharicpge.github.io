@@ -1,13 +1,14 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr"><head>
 
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.10.18">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Said MAHARI">
 
-<title>Séries numériques (introduction) - Mathématiques en CPGE – Mathématiques en CPGE</title>
+<title>Intégration sur un intervalle quelconque – Mathématiques en CPGE</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -45,7 +46,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-7a8c080b55ea27eb37b467515007f9ee.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-e0d9a45d84245cc5e3b300860d8fa645.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -60,22 +61,66 @@ ul.task-list li input[type="checkbox"] {
   ],
   "show-item-context": false,
   "language": {
-    "search-no-results-text": "No results",
-    "search-matching-documents-text": "matching documents",
-    "search-copy-link-title": "Copy link to search",
-    "search-hide-matches-text": "Hide additional matches",
-    "search-more-match-text": "more match in this document",
-    "search-more-matches-text": "more matches in this document",
-    "search-clear-button-title": "Clear",
+    "search-no-results-text": "Pas de résultats",
+    "search-matching-documents-text": "documents trouvés",
+    "search-copy-link-title": "Copier le lien vers la recherche",
+    "search-hide-matches-text": "Cacher les correspondances additionnelles",
+    "search-more-match-text": "correspondance de plus dans ce document",
+    "search-more-matches-text": "correspondances de plus dans ce document",
+    "search-clear-button-title": "Effacer",
     "search-text-placeholder": "",
-    "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit",
-    "search-label": "Search"
+    "search-detached-cancel-button-title": "Annuler",
+    "search-submit-button-title": "Envoyer",
+    "search-label": "Recherche"
   }
 }</script>
 
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="styles.css">
 </head>
 
 <body class="nav-fixed quarto-light">
@@ -89,8 +134,8 @@ ul.task-list li input[type="checkbox"] {
     <span class="navbar-title">Accueil</span>
     </a>
   </div>
-            <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+            <div id="quarto-search" class="" title="Recherche"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Basculer la navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
@@ -119,6 +164,10 @@ ul.task-list li input[type="checkbox"] {
     <a class="nav-link" href="../contact.html"> 
 <span class="menu-text">Contact</span></a>
   </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../apropos.html"> 
+<span class="menu-text">À propos</span></a>
+  </li>  
 </ul>
           </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
@@ -132,10 +181,28 @@ ul.task-list li input[type="checkbox"] {
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
+    <h2 id="toc-title">Sur cette page</h2>
    
   <ul>
-  <li><a href="#document" id="toc-document" class="nav-link active" data-scroll-target="#document">Document</a></li>
+  <li><a href="#intégration-sur-un-intervalle-quelconque" id="toc-intégration-sur-un-intervalle-quelconque" class="nav-link active" data-scroll-target="#intégration-sur-un-intervalle-quelconque">Intégration sur un intervalle quelconque</a></li>
+  <li><a href="#intégrales-généralisées" id="toc-intégrales-généralisées" class="nav-link" data-scroll-target="#intégrales-généralisées"><span class="header-section-number">1</span> Intégrales généralisées</a>
+  <ul class="collapse">
+  <li><a href="#définition-de-la-convergence" id="toc-définition-de-la-convergence" class="nav-link" data-scroll-target="#définition-de-la-convergence"><span class="header-section-number">1.1</span> Définition de la convergence</a></li>
+  <li><a href="#propriétés" id="toc-propriétés" class="nav-link" data-scroll-target="#propriétés"><span class="header-section-number">1.2</span> Propriétés</a></li>
+  <li><a href="#fonctions-à-valeurs-réelles" id="toc-fonctions-à-valeurs-réelles" class="nav-link" data-scroll-target="#fonctions-à-valeurs-réelles"><span class="header-section-number">1.3</span> Fonctions à valeurs réelles</a></li>
+  </ul></li>
+  <li><a href="#absolue-convergence-fonctions-intégrables" id="toc-absolue-convergence-fonctions-intégrables" class="nav-link" data-scroll-target="#absolue-convergence-fonctions-intégrables"><span class="header-section-number">2</span> Absolue convergence, fonctions intégrables</a>
+  <ul class="collapse">
+  <li><a href="#définition" id="toc-définition" class="nav-link" data-scroll-target="#définition"><span class="header-section-number">2.1</span> Définition</a></li>
+  <li><a href="#méthodes-de-calculs" id="toc-méthodes-de-calculs" class="nav-link" data-scroll-target="#méthodes-de-calculs"><span class="header-section-number">2.2</span> Méthodes de calculs</a></li>
+  <li><a href="#espaces-fonctionnels" id="toc-espaces-fonctionnels" class="nav-link" data-scroll-target="#espaces-fonctionnels"><span class="header-section-number">2.3</span> Espaces fonctionnels</a></li>
+  </ul></li>
+  <li><a href="#plan-détude" id="toc-plan-détude" class="nav-link" data-scroll-target="#plan-détude"><span class="header-section-number">3</span> Plan d’étude</a></li>
+  <li><a href="#autour-de-lintégrale-de-dirichlet" id="toc-autour-de-lintégrale-de-dirichlet" class="nav-link" data-scroll-target="#autour-de-lintégrale-de-dirichlet"><span class="header-section-number">4</span> Autour de l’intégrale de Dirichlet</a></li>
+  <li><a href="#document-en-pdf" id="toc-document-en-pdf" class="nav-link" data-scroll-target="#document-en-pdf">Document en PDF</a>
+  <ul class="collapse">
+  <li><a href="#navigation" id="toc-navigation" class="nav-link" data-scroll-target="#navigation">Navigation</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -144,14 +211,27 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Chapitre 22 : Séries numériques (introduction)</h1>
+<h1 class="title">Intégration sur un intervalle quelconque</h1>
+<p class="subtitle lead">Chapitre 22</p>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Auteur·rice</div>
+    <div class="quarto-title-meta-contents">
+             <p>Said MAHARI </p>
+          </div>
+  </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">Date de publication</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">19 août 2026</p>
+    </div>
+  </div>
   
     
   </div>
@@ -161,12 +241,257 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p><strong>MPSI (1re année) — Chapitre 22.</strong> Séries à termes positifs, séries géométriques et de Riemann.</p>
-<section id="document" class="level2">
-<h2 class="anchored" data-anchor-id="document">Document</h2>
-<p><em>PDF à venir : déposez le fichier <code>files/mpsi/chap22.pdf</code> puis régénérez la page.</em></p>
+<p><strong>MPSI (1re année) — Chapitre 22.</strong> Intégrales généralisées, intégrales de référence, propriétés (linéarité, Chasles, positivité), convergence absolue, fonctions intégrables, théorèmes de comparaison, méthodes de calcul (primitives, IPP, changement de variable), espaces <span class="math inline">L^1</span> et <span class="math inline">L^2</span>, intégrale de Dirichlet.</p>
+<p>Ce chapitre a été réalisé conformément au programme marocain de mathématiques de la filière MPSI.</p>
+<section id="intégration-sur-un-intervalle-quelconque" class="level1 unnumbered">
+<h1 class="unnumbered">Intégration sur un intervalle quelconque</h1>
+<p><strong>Notations.</strong> <span class="math inline">\mathbb{K}</span> désigne <span class="math inline">\mathbb{R}</span> ou <span class="math inline">\mathbb{C}</span> ; <span class="math inline">a,b</span> désignent deux réels tels que <span class="math inline">a&lt;b</span> ; <span class="math inline">I</span> désigne un intervalle de <span class="math inline">\mathbb{R}</span> ; <span class="math inline">f</span> et <span class="math inline">g</span> désignent des fonctions continues par morceaux sur <span class="math inline">I</span> à valeurs dans <span class="math inline">\mathbb{K}</span>.</p>
+</section>
+<section id="intégrales-généralisées" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Intégrales généralisées</h1>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 2.1 — (Continuité par morceaux sur $I$)</strong></p>
+<p>Soit <span class="math inline">f\in\mathcal{F}(I,\mathbb{K})</span>. La fonction <span class="math inline">f</span> est <strong>continue par morceaux sur <span class="math inline">I</span></strong> si pour tout <span class="math inline">(x,y)\in I^2</span> tel que <span class="math inline">x&lt;y</span>, la fonction <span class="math inline">f</span> est continue par morceaux sur <span class="math inline">[x,y]</span>.</p>
+</div>
+<section id="définition-de-la-convergence" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="définition-de-la-convergence"><span class="header-section-number">1.1</span> Définition de la convergence</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 2.2 — (Convergence)</strong></p>
+<ul>
+<li><strong>Si <span class="math inline">I=[a,b[</span>.</strong> L’intégrale généralisée <span class="math inline">\int_a^b f(t)\,dt</span> <strong>converge</strong> si <span class="math inline">x\mapsto\int_a^x f(t)\,dt</span> possède une limite finie lorsque <span class="math inline">x</span> tend vers <span class="math inline">b</span>.</li>
+<li><strong>Si <span class="math inline">I=]a,b]</span>.</strong> L’intégrale généralisée <span class="math inline">\int_a^b f(t)\,dt</span> <strong>converge</strong> si <span class="math inline">x\mapsto\int_x^b f(t)\,dt</span> possède une limite finie lorsque <span class="math inline">x</span> tend vers <span class="math inline">a</span>.</li>
+<li><strong>Si <span class="math inline">I=]a,b[</span>.</strong> L’intégrale généralisée <span class="math inline">\int_a^b f(t)\,dt</span> <strong>converge</strong> s’il existe <span class="math inline">c\in]a,b[</span> tel que <span class="math inline">\int_a^c f(t)\,dt</span> et <span class="math inline">\int_c^b f(t)\,dt</span> soient convergentes.</li>
+</ul>
+<p>Dans tous les cas, si l’intégrale ne converge pas, elle <strong>diverge</strong>.</p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 2.1</strong></p>
+<ol type="1">
+<li>Étudier la convergence de <span class="math inline">\int_0^1\frac{dt}{1+t^2}</span> et <span class="math inline">\int_0^1\frac{dt}{1+t}</span>.</li>
+<li>Montrer que l’intégrale <span class="math inline">\int_0^{+\infty}\cos(t)\,dt</span> est divergente.</li>
+<li>Étudier la convergence de <span class="math inline">\int_0^1\ln(t)\,dt</span>. Que constatez-vous ?</li>
+<li>Soit <span class="math inline">f</span> la fonction définie, pour tout entier naturel <span class="math inline">n</span> non nul, par <span class="math inline">f(n)=n</span>, qui est affine sur <span class="math inline">\left[n-\frac{1}{n^3},n+\frac{1}{n^3}\right]</span> et qui vaut <span class="math inline">0</span> sinon. Représenter graphiquement <span class="math inline">f</span> puis montrer que <span class="math inline">\int_{\mathbb{R}^+}f</span> converge. Que constatez-vous ?</li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 2.1 — (Intégrales de référence)</strong></p>
+<ol type="1">
+<li><strong>Intégrales de Riemann sur <span class="math inline">[1,+\infty[</span>.</strong> <span class="math inline">\int_1^{+\infty}\frac{dt}{t^\alpha}</span> converge si et seulement si <span class="math inline">\alpha&gt;1</span>. Alors, <span class="math inline">\int_1^{+\infty}\frac{dt}{t^\alpha}=\frac{1}{\alpha-1}</span>.</li>
+<li><strong>Intégrales de Riemann sur <span class="math inline">]0,1]</span>.</strong> <span class="math inline">\int_0^1\frac{dt}{t^\alpha}</span> converge si et seulement si <span class="math inline">\alpha&lt;1</span>. Alors, <span class="math inline">\int_0^1\frac{dt}{t^\alpha}=\frac{1}{1-\alpha}</span>.</li>
+<li><strong>Fonction exponentielle.</strong> <span class="math inline">\int_0^{+\infty}e^{-\alpha t}\,dt</span> converge si et seulement si <span class="math inline">\alpha&gt;0</span>. Alors, <span class="math inline">\int_0^{+\infty}e^{-\alpha t}\,dt=\frac{1}{\alpha}</span>.</li>
+<li><strong>Fonction logarithme.</strong> <span class="math inline">\int_0^1\ln(t)\,dt</span> converge. De plus, <span class="math inline">\int_0^1\ln(t)\,dt=-1</span>.</li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 2.2</strong></p>
+<ol type="1">
+<li>Montrer que <span class="math inline">\int_0^{+\infty}\frac{dx}{1+x^\alpha}</span> converge si et seulement si <span class="math inline">\alpha&gt;1</span>.</li>
+<li>Montrer que, si <span class="math inline">f</span> est continue par morceaux, positive et décroissante sur <span class="math inline">\mathbb{R}^+</span>, alors <span class="math inline">\int_0^{+\infty}f(x)\,dx</span> converge <span class="math inline">\iff</span> <span class="math inline">\sum f(n)</span> converge.</li>
+</ol>
+</div>
+</section>
+<section id="propriétés" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="propriétés"><span class="header-section-number">1.2</span> Propriétés</h2>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 2.1 — (Intégrale faussement impropre)</strong></p>
+<p>Soit <span class="math inline">f</span> une fonction continue par morceaux sur le segment <span class="math inline">[a,b]</span>. Alors, les intégrales de <span class="math inline">f</span> sur <span class="math inline">[a,b]</span>, <span class="math inline">]a,b]</span>, <span class="math inline">]a,b[</span> et <span class="math inline">[a,b[</span> sont égales.</p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 2.3</strong></p>
+<p>Montrer que <span class="math inline">\int_0^1 t\ln(t)\,dt</span> est convergente.</p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 2.2 — (Linéarité)</strong></p>
+<p>Soit <span class="math inline">\lambda\in\mathbb{K}</span>. Si <span class="math inline">\int_a^b f(t)\,dt</span> et <span class="math inline">\int_a^b g(t)\,dt</span> convergent, alors <span class="math inline">\int_a^b(f(t)+\lambda g(t))\,dt</span> converge et <span class="math display">\int_a^b(f(t)+\lambda g(t))\,dt=\int_a^b f(t)\,dt+\lambda\int_a^b g(t)\,dt.</span></p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 2.3 — (Relation de Chasles)</strong></p>
+<p>On suppose que <span class="math inline">\int_a^b f(t)\,dt</span> converge et <span class="math inline">c\in]a,b[</span>. Alors <span class="math inline">\int_a^c f(t)\,dt</span> et <span class="math inline">\int_c^b f(t)\,dt</span> convergent et <span class="math display">\int_a^b f(t)\,dt=\int_a^c f(t)\,dt+\int_c^b f(t)\,dt.</span></p>
+</div>
+</section>
+<section id="fonctions-à-valeurs-réelles" class="level2" data-number="1.3">
+<h2 data-number="1.3" class="anchored" data-anchor-id="fonctions-à-valeurs-réelles"><span class="header-section-number">1.3</span> Fonctions à valeurs réelles</h2>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 2.4 — (Positivité, croissance)</strong></p>
+<p>On suppose que <span class="math inline">\int_a^b f(t)\,dt</span> et <span class="math inline">\int_a^b g(t)\,dt</span> convergent.</p>
+<ol type="1">
+<li><strong>Positivité :</strong> si pour tout <span class="math inline">x\in I</span>, <span class="math inline">f(x)\geq 0</span>, alors <span class="math inline">\int_a^b f(t)\,dt\geq 0</span>.</li>
+<li><strong>Croissance :</strong> si pour tout <span class="math inline">x\in I</span>, <span class="math inline">f(x)\leq g(x)</span>, alors <span class="math inline">\int_a^b f(t)\,dt\leq\int_a^b g(t)\,dt</span>.</li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 2.5 — (Fonctions à valeurs positives)</strong></p>
+<p>Si <span class="math inline">f</span> est à valeurs positives sur <span class="math inline">[a,b[</span>, alors <span class="math inline">\int_a^b f(t)\,dt</span> converge si et seulement si <span class="math inline">x\mapsto\int_a^x f(t)\,dt</span> est majorée sur <span class="math inline">[a,b[</span>.</p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 2.6 — (Domination locale)</strong></p>
+<p>Soient <span class="math inline">f,g</span> deux fonctions continues de <span class="math inline">[a,b[</span> dans <span class="math inline">\mathbb{R}^+</span>. S’il existe un réel <span class="math inline">c</span> tel que <span class="math inline">\forall x\in[c,b[,\ 0\leq f(x)\leq g(x)</span> et <span class="math inline">\int_c^b g(t)\,dt</span> converge, alors <span class="math inline">\int_c^b f(t)\,dt</span> converge.</p>
+</div>
+<div class="custom-numbered-block custom-corollary">
+<p><strong>Corollaire 2.1</strong></p>
+<p>Soient <span class="math inline">f,g</span> deux fonctions continues de <span class="math inline">[a,b[</span> dans <span class="math inline">\mathbb{R}^+</span>. Si <span class="math inline">f(t)=O_b(g(t))</span> et <span class="math inline">\int_c^b g(t)\,dt</span> converge, alors <span class="math inline">\int_c^b f(t)\,dt</span> converge.</p>
+</div>
+</section>
+</section>
+<section id="absolue-convergence-fonctions-intégrables" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> Absolue convergence, fonctions intégrables</h1>
+<section id="définition" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="définition"><span class="header-section-number">2.1</span> Définition</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 3.1 — (Convergence absolue)</strong></p>
+<p>L’intégrale <span class="math inline">\int_a^b f(t)\,dt</span> est <strong>absolument convergente</strong> si l’intégrale <span class="math inline">\int_a^b\|f(t)\|\,dt</span> est convergente.</p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 3.1</strong></p>
+<p>Soit <span class="math inline">\alpha&gt;1</span>. Montrer que l’intégrale <span class="math inline">\int_0^{+\infty}\frac{\sin(x)}{1+x^\alpha}\,dt</span> est absolument convergente.</p>
+</div>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 3.1 — (Absolue convergence ⇒ convergence, intégrabilité)</strong></p>
+<p>Si l’intégrale <span class="math inline">\int_a^b f(t)\,dt</span> est absolument convergente, alors elle est convergente. La fonction <span class="math inline">f</span> est alors <strong>intégrable</strong> sur <span class="math inline">I</span>. La valeur de son intégrale sera notée <span class="math inline">\int_a^b f(t)\,dt</span> ou <span class="math inline">\int_I f(t)\,dt</span> ou <span class="math inline">\int_I f</span>.</p>
+</div>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 3.2 — (Inégalité triangulaire)</strong></p>
+<p>Si <span class="math inline">\int_a^b f(t)\,dt</span> est absolument convergente, alors <span class="math display">\left|\int_a^b f(t)\,dt\right|\leq\int_a^b\|f(t)\|\,dt.</span></p>
+</div>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 3.3</strong></p>
+<p>Soit <span class="math inline">f : I\to\mathbb{K}</span> une fonction continue et intégrable sur <span class="math inline">I</span>. Si <span class="math inline">\int_I\|f\|=0</span>, alors <span class="math inline">f\equiv 0</span> sur <span class="math inline">I</span>.</p>
+</div>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 3.4 — (Théorème de comparaison)</strong></p>
+<p>On suppose que <span class="math inline">I=[a,b[</span>.</p>
+<ol type="1">
+<li>Si <span class="math inline">\|f\|\leq\|g\|</span> sur <span class="math inline">I</span> et <span class="math inline">g</span> est intégrable sur <span class="math inline">I</span>, alors <span class="math inline">f</span> est intégrable sur <span class="math inline">I</span>.</li>
+<li>Si <span class="math inline">f=O_b(g)</span> et <span class="math inline">g</span> est intégrable sur <span class="math inline">I</span>, alors <span class="math inline">f</span> est intégrable sur <span class="math inline">I</span>.</li>
+<li>Si <span class="math inline">f(t)\sim_b g(t)</span>, alors <span class="math inline">f</span> est intégrable sur <span class="math inline">I</span> si et seulement si <span class="math inline">g</span> est intégrable sur <span class="math inline">I</span>.</li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 3.2</strong></p>
+<p>Étudier l’intégrabilité des fonctions suivantes :</p>
+<ol type="1">
+<li><span class="math inline">t\mapsto\frac{\sin(t)}{t^2}</span> sur <span class="math inline">[1,+\infty[</span> ;</li>
+<li><span class="math inline">t\mapsto t\cos(t)</span> et <span class="math inline">-1</span> sur <span class="math inline">]0,+\infty[</span> ;</li>
+<li><span class="math inline">t\mapsto\frac{1}{1-t^2}</span> sur <span class="math inline">[0,1[</span>.</li>
+</ol>
+</div>
+</section>
+<section id="méthodes-de-calculs" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="méthodes-de-calculs"><span class="header-section-number">2.2</span> Méthodes de calculs</h2>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 3.5 — (Primitive)</strong></p>
+<p>Soit <span class="math inline">f</span> une fonction continue sur <span class="math inline">[a,b[</span> possédant une primitive <span class="math inline">F</span>. Alors <span class="math inline">\int_a^b f(t)\,dt</span> converge si et seulement si <span class="math inline">F</span> possède une limite finie en <span class="math inline">b</span>. Si ces propriétés sont vérifiées, <span class="math display">\int_a^b f(t)\,dt=\lim_{x\to b^-}F(x)-F(a).</span></p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 3.3</strong></p>
+<p>Reprendre les exemples des intégrales de Riemann.</p>
+</div>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 3.6 — (Intégration par parties)</strong></p>
+<p>Soient <span class="math inline">f</span> et <span class="math inline">g</span> deux fonctions de classe <span class="math inline">\mathcal{C}^1</span> sur <span class="math inline">I</span>. Si la fonction <span class="math inline">fg</span> a une limite finie en <span class="math inline">a</span> et en <span class="math inline">b</span>, alors les intégrales <span class="math inline">\int_a^b f'(t)g(t)\,dt</span> et <span class="math inline">\int_a^b f(t)g'(t)\,dt</span> sont de même nature. Si ces quantités sont convergentes, en notant <span class="math inline">[f(t)g(t)]_a^b=\lim_{x\to b^-}(f(x)g(x))-\lim_{x\to a^+}(f(x)g(x))</span>, on obtient la relation <span class="math display">\int_a^b f'(t)g(t)\,dt=[f(t)g(t)]_a^b-\int_a^b f(t)g'(t)\,dt.</span></p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 3.4 — (Fonction Gamma d'Euler)</strong></p>
+<p>Pour tout nombre réel <span class="math inline">x</span>, on pose, sous réserve d’existence, <span class="math display">\Gamma(x)=\int_0^{+\infty}t^{x-1}e^{-t}\,dt.</span> 1. Déterminer le domaine de définition de <span class="math inline">\Gamma</span>. 2. Montrer que pour tout réel <span class="math inline">x</span> strictement positif, <span class="math inline">\Gamma(x+1)=x\Gamma(x)</span>. 3. Pour tout entier naturel <span class="math inline">n</span>, déterminer <span class="math inline">\Gamma(n+1)</span>.</p>
+</div>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 3.7 — (Changement de variable)</strong></p>
+<p>Soit <span class="math inline">f : ]a,b[\to\mathbb{K}</span> une fonction continue par morceaux et <span class="math inline">\varphi</span> telle que : (i) <span class="math inline">\varphi(]\alpha,\beta[)=]a,b[</span> ; (ii) <span class="math inline">\varphi</span> est de classe <span class="math inline">\mathcal{C}^1</span> sur <span class="math inline">]\alpha,\beta[</span> ; (iii) <span class="math inline">\varphi</span> est strictement monotone.</p>
+<p>Alors, les intégrales <span class="math inline">\int_a^b f(t)\,dt</span> et <span class="math inline">\int_\alpha^\beta f(\varphi(u))|\varphi'(u)|\,du</span> sont de même nature. Si ces quantités sont convergentes, <span class="math display">\int_a^b f(t)\,dt=\int_\alpha^\beta f(\varphi(u))\,|\varphi'(u)|\,du.</span></p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 3.5</strong></p>
+<p>Calculer, si <span class="math inline">a&lt;b</span> :</p>
+<ol type="1">
+<li><span class="math inline">\int_0^{\pi/2}\frac{dt}{1+\cos^2(t)}</span> ;</li>
+<li><span class="math inline">\int_a^b\frac{dt}{\sqrt{(t-a)(b-t)}}</span>.</li>
+</ol>
+</div>
+</section>
+<section id="espaces-fonctionnels" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="espaces-fonctionnels"><span class="header-section-number">2.3</span> Espaces fonctionnels</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 3.2 — ($L^1$, $L^2$)</strong></p>
+<ol type="1">
+<li>L’ensemble des fonctions continues par morceaux <strong>intégrables</strong> sur <span class="math inline">I</span>, à valeurs dans <span class="math inline">\mathbb{K}</span>, est noté <span class="math inline">L^1(I,\mathbb{K})</span>.</li>
+<li>L’ensemble des fonctions continues par morceaux sur <span class="math inline">I</span>, à valeurs dans <span class="math inline">\mathbb{K}</span>, de <strong>carré intégrable</strong>, i.e.&nbsp;pour lesquelles <span class="math inline">\|f\|^2</span> est intégrable sur <span class="math inline">I</span>, est noté <span class="math inline">L^2(I,\mathbb{K})</span>.</li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 3.6</strong></p>
+<ol type="1">
+<li>Déterminer une fonction <span class="math inline">f</span> qui appartienne à <span class="math inline">L^1(]0,1],\mathbb{R})</span> mais pas à <span class="math inline">L^2(]0,1],\mathbb{R})</span>.</li>
+<li>Déterminer une fonction <span class="math inline">f</span> qui appartienne à <span class="math inline">L^2([1,+\infty[,\mathbb{R})</span> mais pas à <span class="math inline">L^1([1,+\infty[,\mathbb{R})</span>.</li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 3.8 — (Structure d'espace vectoriel)</strong></p>
+<p><span class="math inline">L^1(I,\mathbb{K})</span> est un espace vectoriel.</p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 3.1 — (Structure préhilbertienne)</strong></p>
+<ol type="1">
+<li>Si <span class="math inline">f</span> et <span class="math inline">g</span> appartiennent à <span class="math inline">L^2(I,\mathbb{K})</span>, leur produit <span class="math inline">f\cdot g</span> appartient à <span class="math inline">L^1(I,\mathbb{K})</span>.</li>
+<li>L’ensemble <span class="math inline">L^2(I,\mathbb{K})</span> est un <span class="math inline">\mathbb{K}</span>-espace vectoriel.</li>
+<li><strong>Inégalité de Cauchy-Schwarz.</strong> Pour tout <span class="math inline">(f,g)\in L^2(I,\mathbb{R})^2</span>, <span class="math display">\left|\int_I fg\right|\leq\sqrt{\int_I\|f\|^2}\cdot\sqrt{\int_I\|g\|^2}.</span> De plus, si <span class="math inline">f</span> et <span class="math inline">g</span> sont continues, <span class="math inline">(f,g)\mapsto\int_I fg</span> est un produit scalaire. La norme associée est notée <span class="math inline">\|f\|_2=\left(\int_I\|f\|^2\right)^{1/2}</span>.</li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 3.7</strong></p>
+<p>Montrer que <span class="math inline">L^2([0,1],\mathbb{R})\subset L^1([0,1],\mathbb{R})</span>.</p>
+</div>
+</section>
+</section>
+<section id="plan-détude" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Plan d’étude</h1>
+<p>On suppose qu’il faille étudier l’intégrale <span class="math inline">\int_I f(t)\,dt</span>.</p>
+<ol type="1">
+<li>Étudier la régularité de <span class="math inline">f</span> en identifiant les points où <span class="math inline">f</span> n’est pas continue.</li>
+<li>Découper l’intervalle <span class="math inline">I</span> en intervalles d’études dont les points incertains sont des bornes.</li>
+<li>Choisir entre les stratégies suivantes :
+<ul>
+<li><strong>a)</strong> Prolongement par continuité ?</li>
+<li><strong>b)</strong> Calcul d’une primitive ?</li>
+<li><strong>c)</strong> Si la fonction est de signe constant, déterminer une comparaison à une intégrale de référence : équivalent, majoration, …</li>
+<li><strong>d)</strong> Si la fonction n’est pas de signe constant : (i) étude d’intégrabilité (se ramener au point précédent) ; (ii) effectuer un changement de variable, une intégration par parties vers une fonction intégrable ; (iii) …</li>
+</ul></li>
+</ol>
+</section>
+<section id="autour-de-lintégrale-de-dirichlet" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> Autour de l’intégrale de Dirichlet</h1>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 5.1</strong></p>
+<ol type="1">
+<li>Montrer que <span class="math inline">\int_0^1\frac{\sin(t)}{t}\,dt</span> est convergente.</li>
+<li>Deux méthodes :
+<ul>
+<li><ol type="a">
+<li>Montrer que la série de terme général <span class="math inline">\int_{n\pi}^{(n+1)\pi}\frac{\sin(t)}{t}\,dt</span> est convergente. En déduire que <span class="math inline">\int_1^{+\infty}\frac{\sin(t)}{t}\,dt</span> converge.</li>
+</ol></li>
+<li><ol start="2" type="a">
+<li>À l’aide d’une intégration par parties, montrer directement que <span class="math inline">\int_1^{+\infty}\frac{\sin(t)}{t}\,dt</span> converge.</li>
+</ol></li>
+</ul></li>
+<li>En déduire que <span class="math inline">\int_0^{+\infty}\frac{\sin(t)}{t}\,dt</span> converge.</li>
+<li>Pour tout entier naturel <span class="math inline">n</span>, montrer que <span class="math inline">\int_{n\pi}^{(n+1)\pi}\frac{\|\sin(t)\|}{t}\,dt&gt;\frac{2}{(n+1)\pi}</span>.</li>
+<li>En déduire que <span class="math inline">t\mapsto\frac{\sin(t)}{t}</span> n’est pas intégrable sur <span class="math inline">\mathbb{R}^+</span>.</li>
+<li>Soit <span class="math inline">x&gt;0</span>. Appliquer la formule d’intégration par parties avec <span class="math inline">u : t\mapsto-\cos(t)</span> et <span class="math inline">v : t\mapsto\frac{1}{t}</span> sur l’intervalle <span class="math inline">[x,2\pi]</span>. Que dire lorsque <span class="math inline">x\to 0</span> ?</li>
+</ol>
+</div>
+</section>
+<section id="document-en-pdf" class="level1 unnumbered">
+<h1 class="unnumbered">Document en PDF</h1>
+<p><a href="PDF/mpsi-chap22.pdf">Chapitre 22 : Intégration sur un intervalle quelconque</a></p>
+<section id="navigation" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="navigation">Navigation</h2>
+<div class="chap-nav">
+<p><a href="../cours/mpsi-chap21.html" class="prev">Chapitre 21 : Intégration sur un segment</a></p>
+<p><a href="../cours/mpsi.html" class="home">Menu MPSI</a></p>
+<p><a href="../cours/mpsi-chap23.html" class="next">Chapitre 23 : Séries numériques</a></p>
+</div>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -214,12 +539,12 @@ ul.task-list li input[type="checkbox"] {
       // flash "checked"
       button.classList.add('code-copy-button-checked');
       var currentTitle = button.getAttribute("title");
-      button.setAttribute("title", "Copied!");
+      button.setAttribute("title", "Copié");
       let tooltip;
       if (window.bootstrap) {
         button.setAttribute("data-bs-toggle", "tooltip");
         button.setAttribute("data-bs-placement", "left");
-        button.setAttribute("data-bs-title", "Copied!");
+        button.setAttribute("data-bs-title", "Copié");
         tooltip = new bootstrap.Tooltip(button, 
           { trigger: "manual", 
             customClass: "code-copy-button-tooltip",

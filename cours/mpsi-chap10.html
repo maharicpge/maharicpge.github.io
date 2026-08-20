@@ -1,13 +1,14 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr"><head>
 
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.10.18">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Said MAHARI">
 
-<title>Polynômes - Mathématiques en CPGE – Mathématiques en CPGE</title>
+<title>Polynômes – Mathématiques en CPGE</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -45,7 +46,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-7a8c080b55ea27eb37b467515007f9ee.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-e0d9a45d84245cc5e3b300860d8fa645.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -60,22 +61,36 @@ ul.task-list li input[type="checkbox"] {
   ],
   "show-item-context": false,
   "language": {
-    "search-no-results-text": "No results",
-    "search-matching-documents-text": "matching documents",
-    "search-copy-link-title": "Copy link to search",
-    "search-hide-matches-text": "Hide additional matches",
-    "search-more-match-text": "more match in this document",
-    "search-more-matches-text": "more matches in this document",
-    "search-clear-button-title": "Clear",
+    "search-no-results-text": "Pas de résultats",
+    "search-matching-documents-text": "documents trouvés",
+    "search-copy-link-title": "Copier le lien vers la recherche",
+    "search-hide-matches-text": "Cacher les correspondances additionnelles",
+    "search-more-match-text": "correspondance de plus dans ce document",
+    "search-more-matches-text": "correspondances de plus dans ce document",
+    "search-clear-button-title": "Effacer",
     "search-text-placeholder": "",
-    "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit",
-    "search-label": "Search"
+    "search-detached-cancel-button-title": "Annuler",
+    "search-submit-button-title": "Envoyer",
+    "search-label": "Recherche"
   }
 }</script>
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
 
 <script type="text/javascript">
 const typesetMath = (el) => {
@@ -105,6 +120,7 @@ window.Quarto = {
 </script>
 
 <link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="styles.css">
 </head>
 
 <body class="nav-fixed quarto-light">
@@ -118,8 +134,8 @@ window.Quarto = {
     <span class="navbar-title">Accueil</span>
     </a>
   </div>
-            <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+            <div id="quarto-search" class="" title="Recherche"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Basculer la navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
@@ -148,6 +164,10 @@ window.Quarto = {
     <a class="nav-link" href="../contact.html"> 
 <span class="menu-text">Contact</span></a>
   </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../apropos.html"> 
+<span class="menu-text">À propos</span></a>
+  </li>  
 </ul>
           </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
@@ -161,10 +181,33 @@ window.Quarto = {
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
+    <h2 id="toc-title">Sur cette page</h2>
    
   <ul>
-  <li><a href="#document" id="toc-document" class="nav-link active" data-scroll-target="#document">Document</a></li>
+  <li><a href="#polynômes" id="toc-polynômes" class="nav-link active" data-scroll-target="#polynômes">Polynômes</a></li>
+  <li><a href="#définitions-et-opérations" id="toc-définitions-et-opérations" class="nav-link" data-scroll-target="#définitions-et-opérations"><span class="header-section-number">1</span> Définitions et opérations</a>
+  <ul class="collapse">
+  <li><a href="#définitions" id="toc-définitions" class="nav-link" data-scroll-target="#définitions"><span class="header-section-number">1.1</span> Définitions</a></li>
+  <li><a href="#opérations-sur-les-polynômes" id="toc-opérations-sur-les-polynômes" class="nav-link" data-scroll-target="#opérations-sur-les-polynômes"><span class="header-section-number">1.2</span> Opérations sur les polynômes</a></li>
+  <li><a href="#vocabulaire" id="toc-vocabulaire" class="nav-link" data-scroll-target="#vocabulaire"><span class="header-section-number">1.3</span> Vocabulaire</a></li>
+  </ul></li>
+  <li><a href="#arithmétique-des-polynômes" id="toc-arithmétique-des-polynômes" class="nav-link" data-scroll-target="#arithmétique-des-polynômes"><span class="header-section-number">2</span> Arithmétique des polynômes</a>
+  <ul class="collapse">
+  <li><a href="#division-euclidienne" id="toc-division-euclidienne" class="nav-link" data-scroll-target="#division-euclidienne"><span class="header-section-number">2.1</span> Division euclidienne</a></li>
+  <li><a href="#pgcd-bézout-gauss" id="toc-pgcd-bézout-gauss" class="nav-link" data-scroll-target="#pgcd-bézout-gauss"><span class="header-section-number">2.2</span> pgcd, Bézout, Gauss</a></li>
+  <li><a href="#ppcm" id="toc-ppcm" class="nav-link" data-scroll-target="#ppcm"><span class="header-section-number">2.3</span> ppcm</a></li>
+  </ul></li>
+  <li><a href="#racines-dun-polynôme-factorisation" id="toc-racines-dun-polynôme-factorisation" class="nav-link" data-scroll-target="#racines-dun-polynôme-factorisation"><span class="header-section-number">3</span> Racines d’un polynôme, factorisation</a>
+  <ul class="collapse">
+  <li><a href="#formule-de-taylor" id="toc-formule-de-taylor" class="nav-link" data-scroll-target="#formule-de-taylor"><span class="header-section-number">3.1</span> Formule de Taylor</a></li>
+  <li><a href="#racines-et-multiplicité" id="toc-racines-et-multiplicité" class="nav-link" data-scroll-target="#racines-et-multiplicité"><span class="header-section-number">3.2</span> Racines et multiplicité</a></li>
+  <li><a href="#théorème-de-dalembert-gauss" id="toc-théorème-de-dalembert-gauss" class="nav-link" data-scroll-target="#théorème-de-dalembert-gauss"><span class="header-section-number">3.3</span> Théorème de d’Alembert-Gauss</a></li>
+  <li><a href="#polynômes-irréductibles-et-factorisation" id="toc-polynômes-irréductibles-et-factorisation" class="nav-link" data-scroll-target="#polynômes-irréductibles-et-factorisation"><span class="header-section-number">3.4</span> Polynômes irréductibles et factorisation</a></li>
+  <li><a href="#relations-de-viète" id="toc-relations-de-viète" class="nav-link" data-scroll-target="#relations-de-viète"><span class="header-section-number">3.5</span> Relations de Viète</a></li>
+  <li><a href="#polynôme-dinterpolation-de-lagrange" id="toc-polynôme-dinterpolation-de-lagrange" class="nav-link" data-scroll-target="#polynôme-dinterpolation-de-lagrange"><span class="header-section-number">3.6</span> Polynôme d’interpolation de Lagrange</a></li>
+  </ul></li>
+  <li><a href="#document-en-pdf" id="toc-document-en-pdf" class="nav-link" data-scroll-target="#document-en-pdf">Document en PDF</a></li>
+  <li><a href="#navigation" id="toc-navigation" class="nav-link" data-scroll-target="#navigation">Navigation</a></li>
   </ul>
 </nav>
     </div>
@@ -173,14 +216,27 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Chapitre 10 : Polynômes</h1>
+<h1 class="title">Polynômes</h1>
+<p class="subtitle lead">Chapitre 10</p>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Auteur·rice</div>
+    <div class="quarto-title-meta-contents">
+             <p>Said MAHARI </p>
+          </div>
+  </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">Date de publication</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">18 août 2026</p>
+    </div>
+  </div>
   
     
   </div>
@@ -190,10 +246,391 @@ window.Quarto = {
 </header>
 
 
-<p><strong>MPSI (1re année) — Chapitre 10.</strong> Anneau <span class="math inline">\(\mathbb{K}[X]\)</span>, division euclidienne, racines, multiplicité, d’Alembert-Gauss, factorisation.</p>
-<section id="document" class="level2">
-<h2 class="anchored" data-anchor-id="document">Document</h2>
-<p><em>PDF à venir : déposez le fichier <code>files/mpsi/chap10.pdf</code> puis régénérez la page.</em></p>
+<p><strong>MPSI (1re année) — Chapitre 10.</strong> Anneau <span class="math inline">\mathbb{K}[X]</span>, opérations et degré, division euclidienne, pgcd et Bézout, racines et multiplicité, théorème de d’Alembert-Gauss, factorisation dans <span class="math inline">\mathbb{C}[X]</span> et <span class="math inline">\mathbb{R}[X]</span>.</p>
+<p>Ce chapitre a été réalisé conformément au programme marocain de mathématiques de la filière MPSI.</p>
+<section id="polynômes" class="level1 unnumbered">
+<h1 class="unnumbered">Polynômes</h1>
+<p>Dans ce chapitre, <span class="math inline">\mathbb{K}</span> désigne l’un des corps <span class="math inline">\mathbb{Q}</span>, <span class="math inline">\mathbb{R}</span> ou <span class="math inline">\mathbb{C}</span>. Les polynômes sont des objets très simples mais aux propriétés extrêmement riches : leur arithmétique présente une grande analogie avec celle des entiers.</p>
+</section>
+<section id="définitions-et-opérations" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Définitions et opérations</h1>
+<section id="définitions" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="définitions"><span class="header-section-number">1.1</span> Définitions</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 2.1</strong></p>
+<p>Un <strong>polynôme</strong> à coefficients dans <span class="math inline">\mathbb{K}</span> est une expression de la forme <span class="math display">P(X)=a_nX^n+a_{n-1}X^{n-1}+\cdots+a_2X^2+a_1X+a_0,</span> avec <span class="math inline">n\in\mathbb{N}</span> et <span class="math inline">a_0,a_1,\ldots,a_n\in\mathbb{K}</span>. L’ensemble des polynômes est noté <span class="math inline">\mathbb{K}[X]</span>.</p>
+<ul>
+<li><span class="math inline">X</span> est appelé <strong>indéterminée</strong> ;</li>
+<li>les <span class="math inline">a_i</span> sont appelés les <strong>coefficients</strong> du polynôme ;</li>
+<li>si tous les coefficients sont nuls, <span class="math inline">P</span> est le <strong>polynôme nul</strong>, noté <span class="math inline">0</span> ;</li>
+<li>on appelle <strong>degré</strong> de <span class="math inline">P</span> le plus grand entier <span class="math inline">i</span> tel que <span class="math inline">a_i\neq 0</span> ; on le note <span class="math inline">\deg P</span>. Par convention <span class="math inline">\deg(0)=-\infty</span> ;</li>
+<li>un polynôme de la forme <span class="math inline">P=a_0</span> avec <span class="math inline">a_0\in\mathbb{K}</span> est un <strong>polynôme constant</strong>. Si <span class="math inline">a_0\neq 0</span>, son degré est <span class="math inline">0</span>.</li>
+</ul>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 2.1</strong></p>
+<ul>
+<li><span class="math inline">X^3-5X+\frac34</span> est un polynôme de degré <span class="math inline">3</span>.</li>
+<li><span class="math inline">X^n+1</span> est un polynôme de degré <span class="math inline">n</span>.</li>
+<li><span class="math inline">2</span> est un polynôme constant, de degré <span class="math inline">0</span>.</li>
+</ul>
+</div>
+</section>
+<section id="opérations-sur-les-polynômes" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="opérations-sur-les-polynômes"><span class="header-section-number">1.2</span> Opérations sur les polynômes</h2>
+<ul>
+<li><strong>Égalité.</strong> <span class="math inline">P=a_nX^n+\cdots+a_0</span> et <span class="math inline">Q=b_nX^n+\cdots+b_0</span> sont égaux si et seulement si <span class="math inline">\forall i,\ a_i=b_i</span>.</li>
+<li><strong>Addition.</strong> <span class="math inline">P+Q=(a_n+b_n)X^n+(a_{n-1}+b_{n-1})X^{n-1}+\cdots+(a_1+b_1)X+(a_0+b_0)</span>.</li>
+<li><strong>Multiplication.</strong> <span class="math inline">P\times Q=c_rX^r+\cdots+c_0</span> avec <span class="math inline">r=n+m</span> et <span class="math inline">c_k=\sum_{i+j=k}a_ib_j</span>.</li>
+<li><strong>Multiplication par un scalaire.</strong> Si <span class="math inline">\lambda\in\mathbb{K}</span>, <span class="math inline">\lambda\cdot P</span> est le polynôme dont le <span class="math inline">i</span>-ème coefficient est <span class="math inline">\lambda a_i</span>.</li>
+</ul>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 2.2</strong></p>
+<p>Soient <span class="math inline">P=aX^3+bX^2+cX+d</span> et <span class="math inline">Q=\alpha X^2+\beta X+\gamma</span>. Alors : <span class="math display">P+Q=aX^3+(b+\alpha)X^2+(c+\beta)X+(d+\gamma)</span> <span class="math display">P\times Q=(a\alpha)X^5+(a\beta+b\alpha)X^4+(a\gamma+b\beta+c\alpha)X^3+(b\gamma+c\beta+d\alpha)X^2+(c\gamma+d\beta)X+d\gamma</span> Enfin <span class="math inline">P=Q</span> si et seulement si <span class="math inline">a=0</span>, <span class="math inline">b=\alpha</span>, <span class="math inline">c=\beta</span> et <span class="math inline">d=\gamma</span>. La multiplication par un scalaire <span class="math inline">\lambda\cdot P</span> équivaut à multiplier le polynôme constant <span class="math inline">\lambda</span> par <span class="math inline">P</span>.</p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 2.1</strong></p>
+<p>Pour <span class="math inline">P,Q,R\in\mathbb{K}[X]</span> :</p>
+<ul>
+<li><span class="math inline">0+P=P</span>, <span class="math inline">\quad P+Q=Q+P</span>, <span class="math inline">\quad (P+Q)+R=P+(Q+R)</span> ;</li>
+<li><span class="math inline">1\cdot P=P</span>, <span class="math inline">\quad P\times Q=Q\times P</span>, <span class="math inline">\quad (P\times Q)\times R=P\times(Q\times R)</span> ;</li>
+<li><span class="math inline">P\times(Q+R)=P\times Q+P\times R</span>.</li>
+</ul>
+</div>
+<p>Pour le degré, il faut faire attention :</p>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 2.2</strong></p>
+<p>Soient <span class="math inline">P</span> et <span class="math inline">Q</span> deux polynômes à coefficients dans <span class="math inline">\mathbb{K}</span>. <span class="math display">\deg(P\times Q)=\deg P+\deg Q \qquad \deg(P+Q)\leq\max(\deg P,\deg Q)</span></p>
+</div>
+<p>On note <span class="math inline">\mathbb{K}_n[X]=\{P\in\mathbb{K}[X]\mid \deg P\leq n\}</span>. Si <span class="math inline">P,Q\in\mathbb{K}_n[X]</span> alors <span class="math inline">P+Q\in\mathbb{K}_n[X]</span>.</p>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 2.1</strong></p>
+<ol type="1">
+<li><span class="math inline">(\mathbb{K}[X],+,\times)</span> est un anneau commutatif intègre d’unité <span class="math inline">1</span>.</li>
+<li><span class="math inline">(\mathbb{K}[X],+,\cdot)</span> est un <span class="math inline">\mathbb{K}</span>-espace vectoriel dont une base est la famille <span class="math inline">(X^n)_{n\in\mathbb{N}}</span>.</li>
+<li><span class="math inline">(\mathbb{K}_n[X],+,\cdot)</span> est un <span class="math inline">\mathbb{K}</span>-espace vectoriel dont une base est la famille <span class="math inline">(X^k)_{0\leq k\leq n}</span>.</li>
+</ol>
+</div>
+<div class="proof remark">
+<p><span class="proof-title"><em>Remarque</em>. </span></p>
+<ul>
+<li><span class="math inline">(\mathbb{K}[X],+,\cdot)</span> est de dimension infinie.</li>
+<li><span class="math inline">(\mathbb{K}_n[X],+,\cdot)</span> est de dimension finie et <span class="math inline">\dim\mathbb{K}_n[X]=n+1</span>.</li>
+</ul>
+</div>
+</section>
+<section id="vocabulaire" class="level2" data-number="1.3">
+<h2 data-number="1.3" class="anchored" data-anchor-id="vocabulaire"><span class="header-section-number">1.3</span> Vocabulaire</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 2.2</strong></p>
+<ul>
+<li>Les polynômes comportant un seul terme non nul (du type <span class="math inline">a_kX^k</span>) sont appelés <strong>monômes</strong>.</li>
+<li>Soit <span class="math inline">P=a_nX^n+\cdots+a_0</span> avec <span class="math inline">a_n\neq 0</span>. On appelle <strong>terme dominant</strong> le monôme <span class="math inline">a_nX^n</span> ; le coefficient <span class="math inline">a_n</span> est le <strong>coefficient dominant</strong> de <span class="math inline">P</span>.</li>
+<li>Si le coefficient dominant est <span class="math inline">1</span>, on dit que <span class="math inline">P</span> est <strong>unitaire</strong>.</li>
+</ul>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 2.3</strong></p>
+<p><span class="math inline">P(X)=(X-1)(X^n+X^{n-1}+\cdots+X+1)=\left(X^{n+1}+X^n+\cdots+X\right)-\left(X^n+\cdots+1\right)=X^{n+1}-1</span>. <span class="math inline">P</span> est donc un polynôme de degré <span class="math inline">n+1</span>, unitaire, somme de deux monômes.</p>
+</div>
+<div class="proof remark">
+<p><span class="proof-title"><em>Remarque</em>. </span>Tout polynôme est donc une somme finie de monômes.</p>
+</div>
+<div class="proof remark">
+<p><span class="proof-title"><em>Remarque</em>. </span>Si <span class="math inline">P=\sum_{k=0}^m a_kX^k</span> et <span class="math inline">Q=\sum_{k=0}^n b_kX^k\in\mathbb{K}[X]</span> avec <span class="math inline">a_m,b_n\neq 0</span>, alors : <span class="math display">\deg(P+Q)=\max(\deg P,\deg Q) \iff \begin{cases} m\neq n \\ \text{ou} \\ m=n \text{ mais } b_n\neq -a_n\end{cases}</span></p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 2.1</strong></p>
+<ol type="1">
+<li>Soit <span class="math inline">P(X)=3X^3-2</span>, <span class="math inline">Q(X)=X^2+X-1</span>, <span class="math inline">R(X)=aX+b</span>. Calculer <span class="math inline">P+Q</span>, <span class="math inline">P\times Q</span>, <span class="math inline">(P+Q)\times R</span> et <span class="math inline">P\times Q\times R</span>. Trouver <span class="math inline">a</span> et <span class="math inline">b</span> afin que le degré de <span class="math inline">P-QR</span> soit le plus petit possible.</li>
+<li>Calculer <span class="math inline">(X+1)^5-(X-1)^5</span>.</li>
+<li>Déterminer le degré de <span class="math inline">(X^2+X+1)^n-aX^{2n}-bX^{2n-1}</span> en fonction de <span class="math inline">a,b</span>.</li>
+<li>Montrer que si <span class="math inline">\deg P\neq\deg Q</span> alors <span class="math inline">\deg(P+Q)=\max(\deg P,\deg Q)</span>. Donner un contre-exemple dans le cas <span class="math inline">\deg P=\deg Q</span>.</li>
+</ol>
+</div>
+</section>
+</section>
+<section id="arithmétique-des-polynômes" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> Arithmétique des polynômes</h1>
+<section id="division-euclidienne" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="division-euclidienne"><span class="header-section-number">2.1</span> Division euclidienne</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 3.1</strong></p>
+<p>Soient <span class="math inline">A,B\in\mathbb{K}[X]</span>. On dit que <span class="math inline">B</span> <strong>divise</strong> <span class="math inline">A</span> s’il existe <span class="math inline">Q\in\mathbb{K}[X]</span> tel que <span class="math inline">A=BQ</span>. On note alors <span class="math inline">B\mid A</span>.</p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 3.1</strong></p>
+<p>Soient <span class="math inline">A,B,C\in\mathbb{K}[X]</span>.</p>
+<ol type="1">
+<li>Si <span class="math inline">A\mid B</span> et <span class="math inline">B\mid A</span>, alors il existe <span class="math inline">\lambda\in\mathbb{K}^*</span> tel que <span class="math inline">A=\lambda B</span>.</li>
+<li>Si <span class="math inline">A\mid B</span> et <span class="math inline">B\mid C</span> alors <span class="math inline">A\mid C</span>.</li>
+<li>Si <span class="math inline">C\mid A</span> et <span class="math inline">C\mid B</span> alors <span class="math inline">C\mid(AU+BV)</span> pour tous <span class="math inline">U,V\in\mathbb{K}[X]</span>.</li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 3.1 — (Division euclidienne)</strong></p>
+<p>Soient <span class="math inline">A,B\in\mathbb{K}[X]</span> avec <span class="math inline">B\neq 0</span>. Il existe un unique polynôme <span class="math inline">Q</span> et un unique polynôme <span class="math inline">R</span> tels que : <span class="math display">A=BQ+R \quad \text{et} \quad \deg R&lt;\deg B.</span> <span class="math inline">Q</span> est le <strong>quotient</strong>, <span class="math inline">R</span> le <strong>reste</strong> ; <span class="math inline">R=0</span> si et seulement si <span class="math inline">B\mid A</span>.</p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Preuve</em>. </span><strong>Unicité.</strong> Si <span class="math inline">A=BQ+R</span> et <span class="math inline">A=BQ'+R'</span>, alors <span class="math inline">B(Q-Q')=R'-R</span>. Or <span class="math inline">\deg(R'-R)&lt;\deg B</span>, donc <span class="math inline">Q'-Q=0</span>, d’où <span class="math inline">Q=Q'</span> et <span class="math inline">R=R'</span>.</p>
+<p><strong>Existence.</strong> Récurrence sur <span class="math inline">\deg A</span>. Si <span class="math inline">\deg A=0</span> et <span class="math inline">\deg B&gt;0</span>, on pose <span class="math inline">Q=0</span>, <span class="math inline">R=A</span> ; si <span class="math inline">\deg B=0</span>, on pose <span class="math inline">Q=A/B</span>, <span class="math inline">R=0</span>. On suppose l’existence vraie pour <span class="math inline">\deg A\leq n-1</span>. Soient <span class="math inline">A=a_nX^n+\cdots+a_0</span> (<span class="math inline">a_n\neq 0</span>) et <span class="math inline">B=b_mX^m+\cdots+b_0</span> (<span class="math inline">b_m\neq 0</span>). Si <span class="math inline">n&lt;m</span>, on pose <span class="math inline">Q=0</span>, <span class="math inline">R=A</span>. Si <span class="math inline">n\geq m</span>, on écrit <span class="math inline">A=B\cdot\frac{a_n}{b_m}X^{n-m}+A_1</span> avec <span class="math inline">\deg A_1\leq n-1</span>, et on applique l’hypothèse de récurrence à <span class="math inline">A_1</span>.</p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 3.1</strong></p>
+<p>Pour <span class="math inline">A=2X^4-X^3-2X^2+3X-1</span> et <span class="math inline">B=X^2-X+1</span>, on trouve <span class="math inline">Q=2X^2+X-3</span> et <span class="math inline">R=-X+2</span>. On n’oublie pas de vérifier qu’effectivement <span class="math inline">A=BQ+R</span>.</p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 3.2</strong></p>
+<p>Pour <span class="math inline">X^4-3X^3+X+1</span> divisé par <span class="math inline">X^2+2</span>, on trouve un quotient égal à <span class="math inline">X^2-3X-2</span> et un reste égal à <span class="math inline">7X+5</span>.</p>
+</div>
+</section>
+<section id="pgcd-bézout-gauss" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="pgcd-bézout-gauss"><span class="header-section-number">2.2</span> pgcd, Bézout, Gauss</h2>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 3.2</strong></p>
+<p>Soient <span class="math inline">A,B\in\mathbb{K}[X]</span> avec <span class="math inline">A\neq 0</span> ou <span class="math inline">B\neq 0</span>. Il existe un unique polynôme unitaire de plus grand degré qui divise à la fois <span class="math inline">A</span> et <span class="math inline">B</span>.</p>
+</div>
+<p>Cet unique polynôme est le <strong>pgcd</strong> de <span class="math inline">A</span> et <span class="math inline">B</span>, noté <span class="math inline">\operatorname{pgcd}(A,B)</span>.</p>
+<div class="proof remark">
+<p><span class="proof-title"><em>Remarque</em>. </span></p>
+<ul>
+<li><span class="math inline">\operatorname{pgcd}(A,B)</span> est unitaire ;</li>
+<li>si <span class="math inline">A\mid B</span> et <span class="math inline">A\neq 0</span>, <span class="math inline">\operatorname{pgcd}(A,B)=\frac{1}{\lambda}A</span> où <span class="math inline">\lambda</span> est le coefficient dominant de <span class="math inline">A</span> ;</li>
+<li>pour tout <span class="math inline">\lambda\in\mathbb{K}^*</span>, <span class="math inline">\operatorname{pgcd}(\lambda A,B)=\operatorname{pgcd}(A,B)</span> ;</li>
+<li>comme pour les entiers : si <span class="math inline">A=BQ+R</span> alors <span class="math inline">\operatorname{pgcd}(A,B)=\operatorname{pgcd}(B,R)</span> : c’est ce qui justifie l’algorithme d’Euclide.</li>
+</ul>
+</div>
+<p><strong>Algorithme d’Euclide.</strong> On calcule les divisions euclidiennes successives ; le degré du reste diminue à chaque division ; on arrête lorsque le reste est nul : le pgcd est le dernier reste non nul (rendu unitaire).</p>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 3.3</strong></p>
+<p>Calculons le pgcd de <span class="math inline">A=X^4-1</span> et <span class="math inline">B=X^3-1</span> : <span class="math display">\begin{aligned} X^4-1 &amp;= (X^3-1)\times X+(X-1) \\ X^3-1 &amp;= (X-1)(X^2+X+1)+0 \end{aligned}</span> Le pgcd est le dernier reste non nul : <span class="math inline">\operatorname{pgcd}(X^4-1,X^3-1)=X-1</span>.</p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 3.4</strong></p>
+<p>Pour <span class="math inline">A=X^5+X^4+2X^3+X^2+X+2</span> et <span class="math inline">B=X^4+2X^3+X^2-4</span> : <span class="math display">\begin{aligned} X^5+X^4+2X^3+X^2+X+2 &amp;= (X^4+2X^3+X^2-4)(X-1)+3X^3+2X^2+5X-2 \\ X^4+2X^3+X^2-4 &amp;= (3X^3+2X^2+5X-2)\times\tfrac19(3X+4)-\tfrac{14}{9}(X^2+X+2) \\ 3X^3+2X^2+5X-2 &amp;= (X^2+X+2)(3X-1)+0 \end{aligned}</span> Ainsi <span class="math inline">\operatorname{pgcd}(A,B)=X^2+X+2</span>.</p>
+</div>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 3.2</strong></p>
+<p><span class="math inline">A</span> et <span class="math inline">B</span> sont <strong>premiers entre eux</strong> si <span class="math inline">\operatorname{pgcd}(A,B)=1</span>.</p>
+</div>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 3.2 — (Bézout)</strong></p>
+<p>Soient <span class="math inline">A,B\in\mathbb{K}[X]</span> avec <span class="math inline">A\neq 0</span> ou <span class="math inline">B\neq 0</span> ; on note <span class="math inline">D=\operatorname{pgcd}(A,B)</span>. Il existe deux polynômes <span class="math inline">U,V\in\mathbb{K}[X]</span> tels que : <span class="math display">AU+BV=D</span></p>
+</div>
+<div class="custom-numbered-block custom-corollary">
+<p><strong>Corollaire 3.1</strong></p>
+<p><span class="math inline">A</span> et <span class="math inline">B</span> sont premiers entre eux si et seulement s’il existe <span class="math inline">U,V</span> tels que <span class="math inline">AU+BV=1</span>.</p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 3.5</strong></p>
+<p>Nous avons calculé <span class="math inline">\operatorname{pgcd}(X^4-1,X^3-1)=X-1</span>. En remontant l’algorithme d’Euclide : <span class="math inline">X-1=(X^4-1)\times 1+(X^3-1)\times(-X)</span>. Donc <span class="math inline">U=1</span> et <span class="math inline">V=-X</span> conviennent.</p>
+</div>
+<div class="custom-numbered-block custom-corollary">
+<p><strong>Corollaire 3.2 — (Lemme de Gauss)</strong></p>
+<p>Si <span class="math inline">A\mid BC</span> et <span class="math inline">\operatorname{pgcd}(A,B)=1</span> alors <span class="math inline">A\mid C</span>.</p>
+</div>
+<div class="custom-numbered-block custom-corollary">
+<p><strong>Corollaire 3.3 — (Lemme d'Euclide)</strong></p>
+<p>Si <span class="math inline">A\mid C</span>, <span class="math inline">B\mid C</span> et <span class="math inline">\operatorname{pgcd}(A,B)=1</span> alors <span class="math inline">AB\mid C</span>.</p>
+</div>
+</section>
+<section id="ppcm" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="ppcm"><span class="header-section-number">2.3</span> ppcm</h2>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 3.3</strong></p>
+<p>Soient <span class="math inline">A,B\in\mathbb{K}[X]</span> non nuls. Il existe un unique polynôme unitaire <span class="math inline">M</span> de plus petit degré tel que <span class="math inline">A\mid M</span> et <span class="math inline">B\mid M</span> : c’est le <strong>ppcm</strong>, noté <span class="math inline">\operatorname{ppcm}(A,B)</span>. De plus, si <span class="math inline">C</span> vérifie <span class="math inline">A\mid C</span> et <span class="math inline">B\mid C</span>, alors <span class="math inline">M\mid C</span>.</p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 3.6</strong></p>
+<p><span class="math display">\operatorname{ppcm}\left(X(X-2)^2(X^2+1)^4,\ (X+1)(X-2)^3(X^2+1)^3\right)=X(X+1)(X-2)^3(X^2+1)^4</span></p>
+</div>
+</section>
+</section>
+<section id="racines-dun-polynôme-factorisation" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Racines d’un polynôme, factorisation</h1>
+<section id="formule-de-taylor" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="formule-de-taylor"><span class="header-section-number">3.1</span> Formule de Taylor</h2>
+<div class="proof remark">
+<p><span class="proof-title"><em>Remarque</em>. </span>Par analogie avec la dérivée d’une fonction, si <span class="math inline">P(X)=a_0+a_1X+\cdots+a_nX^n\in\mathbb{K}[X]</span>, alors le polynôme <span class="math inline">P'(X)=a_1+2a_2X+\cdots+na_nX^{n-1}</span> est le <strong>polynôme dérivé</strong> de <span class="math inline">P</span>.</p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 4.1</strong></p>
+<p>Toute famille <span class="math inline">(P_k)_{0\leq k\leq n}</span> de <span class="math inline">\mathbb{K}[X]</span> <strong>échelonnée en degré</strong>, c’est-à-dire <span class="math display">0\leq\deg(P_0)&lt;\deg(P_1)&lt;\cdots&lt;\deg(P_{n-1})&lt;\deg(P_n),</span> est libre.</p>
+</div>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 4.1 — (Formule de Taylor)</strong></p>
+<p>Si <span class="math inline">P\in\mathbb{K}[X]</span> et <span class="math inline">\alpha\in\mathbb{K}</span> alors : <span class="math display">P=\sum_{k=0}^{+\infty}\frac{P^{(k)}(\alpha)}{k!}(X-\alpha)^k</span></p>
+</div>
+</section>
+<section id="racines-et-multiplicité" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="racines-et-multiplicité"><span class="header-section-number">3.2</span> Racines et multiplicité</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 4.1</strong></p>
+<p>Soit <span class="math inline">P=a_nX^n+\cdots+a_0\in\mathbb{K}[X]</span>. Pour <span class="math inline">x\in\mathbb{K}</span>, on note <span class="math inline">P(x)=a_nx^n+\cdots+a_1x+a_0</span>. On associe ainsi à <span class="math inline">P</span> la <strong>fonction polynôme</strong> <span class="math inline">P:\mathbb{K}\to\mathbb{K},\ x\mapsto P(x)</span>.</p>
+</div>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 4.2</strong></p>
+<p><span class="math inline">\alpha\in\mathbb{K}</span> est une <strong>racine</strong> (ou un <strong>zéro</strong>) de <span class="math inline">P</span> si <span class="math inline">P(\alpha)=0</span>.</p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 4.2</strong></p>
+<p><span class="math display">P(\alpha)=0 \iff X-\alpha \text{ divise } P</span></p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Preuve</em>. </span>La division euclidienne de <span class="math inline">P</span> par <span class="math inline">X-\alpha</span> donne <span class="math inline">P=Q\cdot(X-\alpha)+R</span> où <span class="math inline">R</span> est une constante car <span class="math inline">\deg R&lt;\deg(X-\alpha)=1</span>. Donc <span class="math inline">P(\alpha)=0\iff R(\alpha)=0\iff R=0\iff X-\alpha\mid P</span>.</p>
+</div>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 4.3</strong></p>
+<p>Soit <span class="math inline">k\in\mathbb{N}^*</span>. <span class="math inline">\alpha</span> est une <strong>racine de multiplicité <span class="math inline">k</span></strong> de <span class="math inline">P</span> si <span class="math inline">(X-\alpha)^k</span> divise <span class="math inline">P</span> alors que <span class="math inline">(X-\alpha)^{k+1}</span> ne divise pas <span class="math inline">P</span>. Pour <span class="math inline">k=1</span> on parle de <strong>racine simple</strong>, pour <span class="math inline">k=2</span> de <strong>racine double</strong>, etc.</p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 4.3</strong></p>
+<p>Il y a équivalence entre :</p>
+<ul>
+<li><ol type="i">
+<li><span class="math inline">\alpha</span> est une racine de multiplicité <span class="math inline">k</span> de <span class="math inline">P</span> ;</li>
+</ol></li>
+<li><ol start="2" type="i">
+<li>il existe <span class="math inline">Q\in\mathbb{K}[X]</span> tel que <span class="math inline">P=(X-\alpha)^kQ</span> avec <span class="math inline">Q(\alpha)\neq 0</span> ;</li>
+</ol></li>
+<li><ol start="3" type="i">
+<li><span class="math inline">P(\alpha)=P'(\alpha)=\cdots=P^{(k-1)}(\alpha)=0</span> et <span class="math inline">P^{(k)}(\alpha)\neq 0</span>.</li>
+</ol></li>
+</ul>
+</div>
+</section>
+<section id="théorème-de-dalembert-gauss" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="théorème-de-dalembert-gauss"><span class="header-section-number">3.3</span> Théorème de d’Alembert-Gauss</h2>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 4.2 — (d'Alembert-Gauss)</strong></p>
+<p>Tout polynôme à coefficients complexes de degré <span class="math inline">n\geq 1</span> a au moins une racine dans <span class="math inline">\mathbb{C}</span>.</p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 4.1</strong></p>
+<p>Soit <span class="math inline">P(X)=aX^2+bX+c</span> (<span class="math inline">a\neq 0</span>) à coefficients réels :</p>
+<ul>
+<li>si <span class="math inline">\Delta&gt;0</span>, <span class="math inline">P</span> admet <span class="math inline">2</span> racines réelles distinctes <span class="math inline">\frac{-b\pm\sqrt{\Delta}}{2a}</span> ;</li>
+<li>si <span class="math inline">\Delta&lt;0</span>, <span class="math inline">P</span> admet <span class="math inline">2</span> racines complexes distinctes <span class="math inline">\frac{-b\pm i\sqrt{|\Delta|}}{2a}</span> ;</li>
+<li>si <span class="math inline">\Delta=0</span>, <span class="math inline">P</span> admet une racine réelle double <span class="math inline">\frac{-b}{2a}</span>.</li>
+</ul>
+<p>En tenant compte des multiplicités, on a donc toujours exactement <span class="math inline">2</span> racines.</p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 4.2</strong></p>
+<p><span class="math inline">P(X)=X^n-1</span> admet <span class="math inline">n</span> racines distinctes : si <span class="math inline">\alpha</span> était racine de multiplicité <span class="math inline">\geq 2</span>, alors <span class="math inline">P(\alpha)=0</span> et <span class="math inline">P'(\alpha)=0</span>, donc <span class="math inline">\alpha^n=1</span> et <span class="math inline">n\alpha^{n-1}=0</span>, d’où <span class="math inline">\alpha=0</span> : contradiction. (Ce sont les racines <span class="math inline">n</span>-ièmes de l’unité.)</p>
+</div>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 4.3</strong></p>
+<p>Soit <span class="math inline">P\in\mathbb{K}[X]</span> de degré <span class="math inline">n\geq 1</span>. Alors <span class="math inline">P</span> admet au plus <span class="math inline">n</span> racines dans <span class="math inline">\mathbb{K}</span>.</p>
+</div>
+<div class="custom-numbered-block custom-corollary">
+<p><strong>Corollaire 4.1</strong></p>
+<p>Tout polynôme non constant admet exactement un nombre de racines dans <span class="math inline">\mathbb{C}</span> égal à son degré.</p>
+</div>
+<div class="custom-numbered-block custom-corollary">
+<p><strong>Corollaire 4.2</strong></p>
+<p>Tout polynôme qui admet un nombre de racines strictement supérieur à son degré est nul.</p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 4.1</strong></p>
+<p>Soit <span class="math inline">P\in\mathbb{R}[X]</span> tel que <span class="math inline">\forall z\in\mathbb{C},\ |P(z)|=1</span>. Montrer que <span class="math inline">P</span> est constant.</p>
+</div>
+<div class="proof solution">
+<p><span class="proof-title"><em>Solution</em>. </span>Raisonnons par absurde en supposant <span class="math inline">P</span> non constant : <span class="math inline">P=a_nX^n+\cdots+a_0</span> avec <span class="math inline">a_n\neq 0</span> et <span class="math inline">n\geq 1</span>. Pour <span class="math inline">z&gt;0</span> : <span class="math display">|a_n|z^n\left|1+\frac{a_{n-1}}{a_nz}+\cdots+\frac{a_0}{a_nz^n}\right|=|P(z)|=\frac{1}{|P(z)|}=\frac{1}{|a_n|z^n\left|1+\frac{a_{n-1}}{a_nz}+\cdots+\frac{a_0}{a_nz^n}\right|}</span> Le premier membre tend vers <span class="math inline">+\infty</span> lorsque <span class="math inline">z\to+\infty</span> tandis que le second tend vers <span class="math inline">0</span> : absurde. D’où <span class="math inline">P</span> est constant, <span class="math inline">P=\pm 1</span>.</p>
+</div>
+</section>
+<section id="polynômes-irréductibles-et-factorisation" class="level2" data-number="3.4">
+<h2 data-number="3.4" class="anchored" data-anchor-id="polynômes-irréductibles-et-factorisation"><span class="header-section-number">3.4</span> Polynômes irréductibles et factorisation</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 4.4</strong></p>
+<p>Soit <span class="math inline">P\in\mathbb{K}[X]</span> de degré <span class="math inline">\geq 1</span>. <span class="math inline">P</span> est <strong>irréductible</strong> si, pour tout <span class="math inline">Q\in\mathbb{K}[X]</span> divisant <span class="math inline">P</span>, soit <span class="math inline">Q\in\mathbb{K}^*</span>, soit il existe <span class="math inline">\lambda\in\mathbb{K}^*</span> tel que <span class="math inline">Q=\lambda P</span>.</p>
+</div>
+<div class="proof remark">
+<p><span class="proof-title"><em>Remarque</em>. </span></p>
+<ul>
+<li>Un polynôme irréductible est donc un polynôme non constant dont les seuls diviseurs sont les constantes non nulles ou lui-même (à une constante multiplicative près).</li>
+<li>La notion de polynôme irréductible pour <span class="math inline">\mathbb{K}[X]</span> correspond à celle de nombre premier pour <span class="math inline">\mathbb{Z}</span>.</li>
+<li>Dans le cas contraire, <span class="math inline">P</span> est <strong>réductible</strong> : il existe <span class="math inline">A,B\in\mathbb{K}[X]</span> tels que <span class="math inline">P=AB</span> avec <span class="math inline">\deg A\geq 1</span> et <span class="math inline">\deg B\geq 1</span>.</li>
+</ul>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 4.3</strong></p>
+<ul>
+<li>Tous les polynômes de degré <span class="math inline">1</span> sont irréductibles.</li>
+<li><span class="math inline">X^2-1=(X-1)(X+1)</span> est réductible dans <span class="math inline">\mathbb{R}[X]</span>.</li>
+<li><span class="math inline">X^2+1=(X-i)(X+i)</span> est réductible dans <span class="math inline">\mathbb{C}[X]</span> mais irréductible dans <span class="math inline">\mathbb{R}[X]</span>.</li>
+<li><span class="math inline">X^2-2=(X-\sqrt2)(X+\sqrt2)</span> est réductible dans <span class="math inline">\mathbb{R}[X]</span> mais irréductible dans <span class="math inline">\mathbb{Q}[X]</span>.</li>
+</ul>
+</div>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 4.4 — (Factorisation)</strong></p>
+<p>Tout polynôme non constant <span class="math inline">A\in\mathbb{K}[X]</span> s’écrit comme un produit de polynômes irréductibles unitaires : <span class="math display">A=\lambda P_1^{k_1}P_2^{k_2}\cdots P_r^{k_r}</span> où <span class="math inline">\lambda\in\mathbb{K}^*</span>, <span class="math inline">r\in\mathbb{N}^*</span>, <span class="math inline">k_i\in\mathbb{N}^*</span> et les <span class="math inline">P_i</span> sont irréductibles distincts. De plus cette décomposition est unique à l’ordre près des facteurs.</p>
+</div>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 4.5</strong></p>
+<p>Les polynômes irréductibles de <span class="math inline">\mathbb{C}[X]</span> sont les polynômes de degré <span class="math inline">1</span>. Donc pour <span class="math inline">P\in\mathbb{C}[X]</span> de degré <span class="math inline">n\geq 1</span> : <span class="math display">P=\lambda(X-\alpha_1)^{k_1}(X-\alpha_2)^{k_2}\cdots(X-\alpha_r)^{k_r}</span> où les <span class="math inline">\alpha_i</span> sont les racines distinctes de <span class="math inline">P</span> et les <span class="math inline">k_i</span> leurs multiplicités.</p>
+</div>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 4.6</strong></p>
+<p>Les polynômes irréductibles de <span class="math inline">\mathbb{R}[X]</span> sont les polynômes de degré <span class="math inline">1</span> ainsi que les polynômes de degré <span class="math inline">2</span> de discriminant <span class="math inline">\Delta&lt;0</span>. Pour <span class="math inline">P\in\mathbb{R}[X]</span> de degré <span class="math inline">n\geq 1</span> : <span class="math display">P=\lambda(X-\alpha_1)^{k_1}\cdots(X-\alpha_r)^{k_r}Q_1^{\ell_1}\cdots Q_s^{\ell_s}</span> où les <span class="math inline">\alpha_i</span> sont les racines réelles distinctes et les <span class="math inline">Q_i=X^2+\beta_iX+\gamma_i</span> irréductibles avec <span class="math inline">\Delta_i=\beta_i^2-4\gamma_i&lt;0</span>.</p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 4.4</strong></p>
+<p><span class="math inline">P(X)=2X^4(X-1)^3(X^2+1)^2(X^2+X+1)</span> est déjà décomposé en facteurs irréductibles dans <span class="math inline">\mathbb{R}[X]</span> ; dans <span class="math inline">\mathbb{C}[X]</span> : <span class="math display">P(X)=2X^4(X-1)^3(X-i)^2(X+i)^2(X-j)(X-j^2) \quad \text{où } j=e^{\frac{2i\pi}{3}}=\frac{-1+i\sqrt3}{2}</span></p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 4.5</strong></p>
+<p>Soit <span class="math inline">P(X)=X^4+1</span>.</p>
+<ul>
+<li>Sur <span class="math inline">\mathbb{C}</span> : <span class="math inline">P(X)=\left(X-\tfrac{\sqrt2}{2}(1+i)\right)\left(X+\tfrac{\sqrt2}{2}(1+i)\right)\left(X-\tfrac{\sqrt2}{2}(1-i)\right)\left(X+\tfrac{\sqrt2}{2}(1-i)\right)</span>.</li>
+<li>Sur <span class="math inline">\mathbb{R}</span> : en regroupant les facteurs à racines conjuguées : <span class="math display">P(X)=\left(X^2+\sqrt2X+1\right)\left(X^2-\sqrt2X+1\right)</span></li>
+</ul>
+</div>
+</section>
+<section id="relations-de-viète" class="level2" data-number="3.5">
+<h2 data-number="3.5" class="anchored" data-anchor-id="relations-de-viète"><span class="header-section-number">3.5</span> Relations de Viète</h2>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 4.7 — (Relations de Viète)</strong></p>
+<p>Soit <span class="math inline">P=a_nX^n+\cdots+a_0\in\mathbb{K}[X]</span> avec <span class="math inline">a_n\neq 0</span> et <span class="math inline">n\geq 1</span>, admettant <span class="math inline">n</span> racines <span class="math inline">x_1,\cdots,x_n</span> : <span class="math inline">P=a_n\prod_{k=1}^n(X-x_k)</span>. En posant <span class="math inline">\sigma_k=\sum_{1\leq i_1&lt;\cdots&lt;i_k\leq n}x_{i_1}\cdots x_{i_k}</span>, on a : <span class="math display">\sigma_k=(-1)^k\frac{a_{n-k}}{a_n}</span></p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 4.6</strong></p>
+<p>Pour un trinôme <span class="math inline">P=aX^2+bX+c=a(X-x_1)(X-x_2)</span> (avec <span class="math inline">a\neq 0</span>) : <span class="math display">x_1+x_2=-\frac{b}{a} \qquad x_1x_2=\frac{c}{a}</span></p>
+</div>
+</section>
+<section id="polynôme-dinterpolation-de-lagrange" class="level2" data-number="3.6">
+<h2 data-number="3.6" class="anchored" data-anchor-id="polynôme-dinterpolation-de-lagrange"><span class="header-section-number">3.6</span> Polynôme d’interpolation de Lagrange</h2>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 4.8 — (Interpolation de Lagrange)</strong></p>
+<p>On se donne des éléments distincts <span class="math inline">x_0,\cdots,x_n</span> et des éléments <span class="math inline">y_0,\cdots,y_n</span> de <span class="math inline">\mathbb{K}</span>, et on définit : <span class="math display">L_i=\frac{\prod_{j=0,\,j\neq i}^n(X-x_j)}{\prod_{j=0,\,j\neq i}^n(x_i-x_j)} \quad (0\leq i\leq n)</span> Alors il existe un unique polynôme <span class="math inline">P\in\mathbb{K}_n[X]</span> tel que <span class="math inline">P(x_k)=y_k</span> pour <span class="math inline">0\leq k\leq n</span>, donné par <span class="math inline">P=\sum_{i=0}^n y_iL_i</span>.</p>
+</div>
+<div class="custom-numbered-block custom-corollary">
+<p><strong>Corollaire 4.3</strong></p>
+<p>Les polynômes <span class="math inline">Q</span> vérifiant <span class="math inline">Q(x_k)=y_k</span> pour <span class="math inline">0\leq k\leq n</span> sont de la forme : <span class="math display">Q=P+R\prod_{i=0}^n(X-x_i)</span> avec <span class="math inline">R\in\mathbb{K}[X]</span> quelconque.</p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 4.2</strong></p>
+<ol type="1">
+<li>Trouver un polynôme <span class="math inline">P(X)\in\mathbb{Z}[X]</span> de degré minimal tel que <span class="math inline">\frac12</span> soit racine simple, <span class="math inline">\sqrt2</span> racine double et <span class="math inline">i</span> racine triple.</li>
+<li>Montrer : <span class="math inline">P(\alpha)=0</span> et <span class="math inline">P'(\alpha)=0 \iff \alpha</span> est racine de multiplicité <span class="math inline">\geq 2</span>.</li>
+<li>Montrer que pour <span class="math inline">P\in\mathbb{C}[X]</span> : <span class="math inline">P</span> admet une racine de multiplicité <span class="math inline">\geq 2 \iff P</span> et <span class="math inline">P'</span> ne sont pas premiers entre eux.</li>
+<li>Factoriser <span class="math inline">P(X)=(2X^2+X-2)^2(X^4-1)^3</span> et <span class="math inline">Q(X)=3(X^2-1)^2\left(X^2-X+\frac14\right)</span> dans <span class="math inline">\mathbb{C}[X]</span> ; en déduire pgcd et ppcm. Mêmes questions dans <span class="math inline">\mathbb{R}[X]</span>.</li>
+<li>Si <span class="math inline">\operatorname{pgcd}(A,B)=1</span>, montrer que <span class="math inline">\operatorname{pgcd}(A+B,A\times B)=1</span>.</li>
+</ol>
+</div>
+</section>
+</section>
+<section id="document-en-pdf" class="level1 unnumbered">
+<h1 class="unnumbered">Document en PDF</h1>
+<p><a href="PDF/mpsi-chap10.pdf">Chapitre 10 : Polynômes</a></p>
+</section>
+<section id="navigation" class="level1 unnumbered">
+<h1 class="unnumbered">Navigation</h1>
+<div class="chap-nav">
+<p><a href="../cours/mpsi-chap09.html" class="prev">Chapitre 09 : Arithmétique dans ℤ</a></p>
+<p><a href="../cours/mpsi.html" class="home">Menu MPSI</a></p>
+<p><a href="../cours/mpsi-chap11.html" class="next">Chapitre 11 : Fractions rationnelles</a></p>
+</div>
 
 
 </section>
@@ -243,12 +680,12 @@ window.Quarto = {
       // flash "checked"
       button.classList.add('code-copy-button-checked');
       var currentTitle = button.getAttribute("title");
-      button.setAttribute("title", "Copied!");
+      button.setAttribute("title", "Copié");
       let tooltip;
       if (window.bootstrap) {
         button.setAttribute("data-bs-toggle", "tooltip");
         button.setAttribute("data-bs-placement", "left");
-        button.setAttribute("data-bs-title", "Copied!");
+        button.setAttribute("data-bs-title", "Copié");
         tooltip = new bootstrap.Tooltip(button, 
           { trigger: "manual", 
             customClass: "code-copy-button-tooltip",

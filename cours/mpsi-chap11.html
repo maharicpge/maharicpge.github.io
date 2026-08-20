@@ -1,13 +1,14 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr"><head>
 
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.10.18">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Said MAHARI">
 
-<title>Fractions rationnelles - Mathématiques en CPGE – Mathématiques en CPGE</title>
+<title>Fractions rationnelles – Mathématiques en CPGE</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -45,7 +46,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-7a8c080b55ea27eb37b467515007f9ee.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-e0d9a45d84245cc5e3b300860d8fa645.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -60,22 +61,66 @@ ul.task-list li input[type="checkbox"] {
   ],
   "show-item-context": false,
   "language": {
-    "search-no-results-text": "No results",
-    "search-matching-documents-text": "matching documents",
-    "search-copy-link-title": "Copy link to search",
-    "search-hide-matches-text": "Hide additional matches",
-    "search-more-match-text": "more match in this document",
-    "search-more-matches-text": "more matches in this document",
-    "search-clear-button-title": "Clear",
+    "search-no-results-text": "Pas de résultats",
+    "search-matching-documents-text": "documents trouvés",
+    "search-copy-link-title": "Copier le lien vers la recherche",
+    "search-hide-matches-text": "Cacher les correspondances additionnelles",
+    "search-more-match-text": "correspondance de plus dans ce document",
+    "search-more-matches-text": "correspondances de plus dans ce document",
+    "search-clear-button-title": "Effacer",
     "search-text-placeholder": "",
-    "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit",
-    "search-label": "Search"
+    "search-detached-cancel-button-title": "Annuler",
+    "search-submit-button-title": "Envoyer",
+    "search-label": "Recherche"
   }
 }</script>
 
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="styles.css">
 </head>
 
 <body class="nav-fixed quarto-light">
@@ -89,8 +134,8 @@ ul.task-list li input[type="checkbox"] {
     <span class="navbar-title">Accueil</span>
     </a>
   </div>
-            <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+            <div id="quarto-search" class="" title="Recherche"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Basculer la navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
@@ -119,6 +164,10 @@ ul.task-list li input[type="checkbox"] {
     <a class="nav-link" href="../contact.html"> 
 <span class="menu-text">Contact</span></a>
   </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../apropos.html"> 
+<span class="menu-text">À propos</span></a>
+  </li>  
 </ul>
           </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
@@ -132,10 +181,15 @@ ul.task-list li input[type="checkbox"] {
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
+    <h2 id="toc-title">Sur cette page</h2>
    
   <ul>
-  <li><a href="#document" id="toc-document" class="nav-link active" data-scroll-target="#document">Document</a></li>
+  <li><a href="#fractions-rationnelles" id="toc-fractions-rationnelles" class="nav-link active" data-scroll-target="#fractions-rationnelles">Fractions rationnelles</a></li>
+  <li><a href="#définitions" id="toc-définitions" class="nav-link" data-scroll-target="#définitions"><span class="header-section-number">1</span> Définitions</a></li>
+  <li><a href="#décomposition-en-éléments-simples-sur-mathbbc" id="toc-décomposition-en-éléments-simples-sur-mathbbc" class="nav-link" data-scroll-target="#décomposition-en-éléments-simples-sur-mathbbc"><span class="header-section-number">2</span> Décomposition en éléments simples sur <span class="math inline">\mathbb{C}</span></a></li>
+  <li><a href="#décomposition-en-éléments-simples-sur-mathbbr" id="toc-décomposition-en-éléments-simples-sur-mathbbr" class="nav-link" data-scroll-target="#décomposition-en-éléments-simples-sur-mathbbr"><span class="header-section-number">3</span> Décomposition en éléments simples sur <span class="math inline">\mathbb{R}</span></a></li>
+  <li><a href="#document-en-pdf" id="toc-document-en-pdf" class="nav-link" data-scroll-target="#document-en-pdf">Document en PDF</a></li>
+  <li><a href="#navigation" id="toc-navigation" class="nav-link" data-scroll-target="#navigation">Navigation</a></li>
   </ul>
 </nav>
     </div>
@@ -144,14 +198,27 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Chapitre 11 : Fractions rationnelles</h1>
+<h1 class="title">Fractions rationnelles</h1>
+<p class="subtitle lead">Chapitre 11</p>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Auteur·rice</div>
+    <div class="quarto-title-meta-contents">
+             <p>Said MAHARI </p>
+          </div>
+  </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">Date de publication</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">18 août 2026</p>
+    </div>
+  </div>
   
     
   </div>
@@ -161,10 +228,97 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p><strong>MPSI (1re année) — Chapitre 11.</strong> Décomposition en éléments simples, pôles et parties polaires.</p>
-<section id="document" class="level2">
-<h2 class="anchored" data-anchor-id="document">Document</h2>
-<p><em>PDF à venir : déposez le fichier <code>files/mpsi/chap11.pdf</code> puis régénérez la page.</em></p>
+<p><strong>MPSI (1re année) — Chapitre 11.</strong> Fractions rationnelles, zéros et pôles, degré, partie polynomiale, décomposition en éléments simples sur <span class="math inline">\mathbb{C}</span> et sur <span class="math inline">\mathbb{R}</span>, pôles et parties polaires.</p>
+<p>Ce chapitre a été réalisé conformément au programme marocain de mathématiques de la filière MPSI.</p>
+<section id="fractions-rationnelles" class="level1 unnumbered">
+<h1 class="unnumbered">Fractions rationnelles</h1>
+<p>Une fraction rationnelle est le quotient de deux polynômes. Toute fraction rationnelle se décompose en une somme de fractions rationnelles élémentaires, les « éléments simples », différents sur <span class="math inline">\mathbb{C}</span> ou sur <span class="math inline">\mathbb{R}</span>.</p>
+</section>
+<section id="définitions" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Définitions</h1>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 2.1</strong></p>
+<p>Une <strong>fraction rationnelle</strong> à coefficients dans <span class="math inline">\mathbb{K}</span> est une expression de la forme <span class="math display">F=\frac{P}{Q}</span> où <span class="math inline">P,Q\in\mathbb{K}[X]</span> sont deux polynômes et <span class="math inline">Q\neq 0</span>.</p>
+<ul>
+<li>Les racines de <span class="math inline">P</span> sont les <strong>zéros</strong> de <span class="math inline">F</span> ;</li>
+<li>les racines de <span class="math inline">Q</span> sont les <strong>pôles</strong> de <span class="math inline">F</span> ;</li>
+<li>le <strong>degré</strong> de <span class="math inline">F</span> est défini par : <span class="math inline">\deg(F)=\deg(P)-\deg(Q)</span>.</li>
+</ul>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 2.1</strong></p>
+<p>Soit <span class="math inline">F=\frac{(X-1)X^3}{(X-2)(X+1)^2}</span> :</p>
+<ul>
+<li>les zéros de <span class="math inline">F</span> sont <span class="math inline">1</span> et <span class="math inline">0</span> ;</li>
+<li>les pôles de <span class="math inline">F</span> sont <span class="math inline">2</span> (pôle simple) et <span class="math inline">-1</span> (pôle double) ;</li>
+<li>le degré de <span class="math inline">F</span> est <span class="math inline">1</span>.</li>
+</ul>
+</div>
+</section>
+<section id="décomposition-en-éléments-simples-sur-mathbbc" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> Décomposition en éléments simples sur <span class="math inline">\mathbb{C}</span></h1>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 3.1</strong></p>
+<p>Soit <span class="math inline">P/Q</span> une fraction rationnelle avec <span class="math inline">P,Q\in\mathbb{C}[X]</span> et <span class="math inline">Q=(X-\alpha_1)^{k_1}\cdots(X-\alpha_r)^{k_r}</span>. Alors il existe une et une seule écriture : <span class="math display">\frac{P}{Q}=E+\frac{a_{1,1}}{(X-\alpha_1)^{k_1}}+\frac{a_{1,2}}{(X-\alpha_1)^{k_1-1}}+\cdots+\frac{a_{1,k_1}}{X-\alpha_1}+\cdots+\frac{a_{r,1}}{(X-\alpha_r)^{k_r}}+\cdots+\frac{a_{r,k_r}}{X-\alpha_r}</span></p>
+</div>
+<p>Le polynôme <span class="math inline">E</span> s’appelle la <strong>partie polynomiale</strong> (ou <strong>partie entière</strong>). Les termes <span class="math inline">\frac{a}{(X-\alpha)^i}</span> sont les <strong>éléments simples</strong> sur <span class="math inline">\mathbb{C}</span>.</p>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 3.1</strong></p>
+<ul>
+<li>Vérifier que <span class="math inline">\frac{1}{X^2+1}=\frac{a}{X+i}+\frac{b}{X-i}</span> avec <span class="math inline">a=\frac12 i</span> et <span class="math inline">b=-\frac12 i</span>.</li>
+<li>Vérifier que <span class="math inline">\frac{X^4-8X^2+9X-7}{(X-2)^2(X+3)}=X+1-\frac{1}{(X-2)^2}+\frac{2}{X-2}-\frac{1}{X+3}</span>.</li>
+</ul>
+</div>
+<p><strong>Méthode.</strong> On commence par déterminer la partie polynomiale : si <span class="math inline">\deg Q&gt;\deg P</span> alors <span class="math inline">E(X)=0</span> ; sinon on effectue la division euclidienne de <span class="math inline">P</span> par <span class="math inline">Q</span> : <span class="math inline">P=QE+R</span> donc <span class="math inline">\frac{P}{Q}=E+\frac{R}{Q}</span> avec <span class="math inline">\deg R&lt;\deg Q</span>. On factorise ensuite le dénominateur, on écrit la décomposition théorique, puis on détermine les coefficients (par identification, par multiplication par <span class="math inline">(X-\alpha)^k</span> puis évaluation, ou par valeurs particulières).</p>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 3.2</strong></p>
+<p>Décomposons <span class="math inline">\frac{P}{Q}=\frac{X^5-2X^3+4X^2-8X+11}{X^3-3X+2}</span>.</p>
+<ul>
+<li><strong>Partie polynomiale.</strong> La division euclidienne donne <span class="math inline">P(X)=(X^2+1)Q(X)+2X^2-5X+9</span> : donc <span class="math inline">E(X)=X^2+1</span> et <span class="math inline">\frac{P}{Q}=X^2+1+\frac{2X^2-5X+9}{Q}</span>.</li>
+<li><strong>Factorisation du dénominateur.</strong> <span class="math inline">Q</span> a pour racine évidente <span class="math inline">1</span> (double) et <span class="math inline">-2</span> (simple) : <span class="math inline">Q(X)=(X-1)^2(X+2)</span>.</li>
+<li><strong>Décomposition théorique.</strong> <span class="math inline">\frac{P}{Q}=E(X)+\frac{a}{(X-1)^2}+\frac{b}{X-1}+\frac{c}{X+2}</span>.</li>
+<li><strong>Coefficients par identification.</strong> En réduisant au même dénominateur : <span class="math inline">(b+c)X^2+(a+b-2c)X+2a-2b+c=2X^2-5X+9</span>, d’où <span class="math inline">b+c=2</span>, <span class="math inline">a+b-2c=-5</span>, <span class="math inline">2a-2b+c=9</span> : l’unique solution est <span class="math inline">a=2</span>, <span class="math inline">b=-1</span>, <span class="math inline">c=3</span>. Donc : <span class="math display">\frac{P}{Q}=X^2+1+\frac{2}{(X-1)^2}-\frac{1}{X-1}+\frac{3}{X+2}</span></li>
+<li><strong>Coefficients par multiplication.</strong> Notons <span class="math inline">\frac{P'(X)}{Q(X)}=\frac{2X^2-5X+9}{(X-1)^2(X+2)}</span>. Pour <span class="math inline">a</span> : <span class="math inline">F_1(X)=(X-1)^2\frac{P'(X)}{Q(X)}=\frac{2X^2-5X+9}{X+2}</span>, donc <span class="math inline">a=F_1(1)=2</span>. Pour <span class="math inline">c</span> : <span class="math inline">F_2(X)=(X+2)\frac{P'(X)}{Q(X)}=\frac{2X^2-5X+9}{(X-1)^2}</span>, donc <span class="math inline">c=F_2(-2)=3</span>. Pour <span class="math inline">b</span> : en évaluant la décomposition en <span class="math inline">x=0</span> : <span class="math inline">\frac{9}{2}=a-b+\frac{c}{2}</span>, donc <span class="math inline">b=-1</span>.</li>
+</ul>
+</div>
+</section>
+<section id="décomposition-en-éléments-simples-sur-mathbbr" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Décomposition en éléments simples sur <span class="math inline">\mathbb{R}</span></h1>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 4.1</strong></p>
+<p>Soit <span class="math inline">P/Q</span> une fraction rationnelle avec <span class="math inline">P,Q\in\mathbb{R}[X]</span>. Alors <span class="math inline">P/Q</span> s’écrit de manière unique comme somme :</p>
+<ul>
+<li>d’une partie polynomiale <span class="math inline">E(X)</span> ;</li>
+<li>d’éléments simples du type <span class="math inline">\frac{a}{(X-\alpha)^i}</span> ;</li>
+<li>d’éléments simples du type <span class="math inline">\frac{aX+b}{(X^2+\alpha X+\beta)^i}</span> ;</li>
+</ul>
+<p>où les <span class="math inline">X-\alpha</span> et <span class="math inline">X^2+\alpha X+\beta</span> sont les facteurs irréductibles de <span class="math inline">Q(X)</span> et les exposants <span class="math inline">i</span> inférieurs ou égaux à la puissance correspondante dans cette factorisation.</p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 4.1</strong></p>
+<p>Décomposition de <span class="math inline">\frac{P(X)}{Q(X)}=\frac{3X^4+5X^3+11X^2+5X+3}{(X^2+X+1)^2(X-1)}</span>. Comme <span class="math inline">\deg P&lt;\deg Q</span>, <span class="math inline">E(X)=0</span> ; le dénominateur est déjà factorisé sur <span class="math inline">\mathbb{R}</span> car <span class="math inline">X^2+X+1</span> est irréductible. La décomposition théorique est : <span class="math display">\frac{P(X)}{Q(X)}=\frac{aX+b}{(X^2+X+1)^2}+\frac{cX+d}{X^2+X+1}+\frac{e}{X-1}</span> En menant les calculs au mieux, on obtient : <span class="math display">\frac{P(X)}{Q(X)}=\frac{2X+1}{(X^2+X+1)^2}-\frac{1}{X^2+X+1}+\frac{3}{X-1}</span></p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 4.1</strong></p>
+<ol type="1">
+<li>Soit <span class="math inline">Q(X)=(X-2)^2(X^2-1)^3(X^2+1)^4</span>. Pour <span class="math inline">P\in\mathbb{R}[X]</span>, quelle est la forme théorique de la décomposition en éléments simples sur <span class="math inline">\mathbb{C}</span> ? Et sur <span class="math inline">\mathbb{R}</span> ?</li>
+<li>Décomposer en éléments simples sur <span class="math inline">\mathbb{R}</span> et <span class="math inline">\mathbb{C}</span> : <span class="math inline">\frac{1}{X^2-1}</span> ; <span class="math inline">\frac{X^2+1}{(X-1)^2}</span> ; <span class="math inline">\frac{X}{X^3-1}</span>.</li>
+<li>Décomposer en éléments simples sur <span class="math inline">\mathbb{R}</span> : <span class="math inline">\frac{X^2+X+1}{(X-1)(X+2)^2}</span> ; <span class="math inline">\frac{2X^2-X}{(X^2+2)^2}</span> ; <span class="math inline">\frac{X^6}{(X^2+1)^2}</span>.</li>
+<li>Soit <span class="math inline">F(X)=\frac{2X^2+7X-20}{X+2}</span>. Déterminer l’équation de l’asymptote oblique en <span class="math inline">\pm\infty</span> et étudier la position du graphe de <span class="math inline">F</span> par rapport à cette droite.</li>
+</ol>
+</div>
+</section>
+<section id="document-en-pdf" class="level1 unnumbered">
+<h1 class="unnumbered">Document en PDF</h1>
+<p><a href="PDF/mpsi-chap11.pdf">Chapitre 11 : Fractions rationnelles</a></p>
+</section>
+<section id="navigation" class="level1 unnumbered">
+<h1 class="unnumbered">Navigation</h1>
+<div class="chap-nav">
+<p><a href="../cours/mpsi-chap10.html" class="prev">Chapitre 10 : Polynômes</a></p>
+<p><a href="../cours/mpsi.html" class="home">Menu MPSI</a></p>
+<p><a href="../cours/mpsi-chap12.html" class="next">Chapitre 12 : Espaces vectoriels et applications linéaires</a></p>
+</div>
 
 
 </section>
@@ -214,12 +368,12 @@ ul.task-list li input[type="checkbox"] {
       // flash "checked"
       button.classList.add('code-copy-button-checked');
       var currentTitle = button.getAttribute("title");
-      button.setAttribute("title", "Copied!");
+      button.setAttribute("title", "Copié");
       let tooltip;
       if (window.bootstrap) {
         button.setAttribute("data-bs-toggle", "tooltip");
         button.setAttribute("data-bs-placement", "left");
-        button.setAttribute("data-bs-title", "Copied!");
+        button.setAttribute("data-bs-title", "Copié");
         tooltip = new bootstrap.Tooltip(button, 
           { trigger: "manual", 
             customClass: "code-copy-button-tooltip",

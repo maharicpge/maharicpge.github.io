@@ -1,13 +1,14 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr"><head>
 
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.10.18">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Said MAHARI">
 
-<title>Espaces vectoriels et applications linéaires - Mathématiques en CPGE – Mathématiques en CPGE</title>
+<title>Espaces vectoriels et applications linéaires – Mathématiques en CPGE</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -45,7 +46,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-7a8c080b55ea27eb37b467515007f9ee.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-e0d9a45d84245cc5e3b300860d8fa645.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -60,22 +61,66 @@ ul.task-list li input[type="checkbox"] {
   ],
   "show-item-context": false,
   "language": {
-    "search-no-results-text": "No results",
-    "search-matching-documents-text": "matching documents",
-    "search-copy-link-title": "Copy link to search",
-    "search-hide-matches-text": "Hide additional matches",
-    "search-more-match-text": "more match in this document",
-    "search-more-matches-text": "more matches in this document",
-    "search-clear-button-title": "Clear",
+    "search-no-results-text": "Pas de résultats",
+    "search-matching-documents-text": "documents trouvés",
+    "search-copy-link-title": "Copier le lien vers la recherche",
+    "search-hide-matches-text": "Cacher les correspondances additionnelles",
+    "search-more-match-text": "correspondance de plus dans ce document",
+    "search-more-matches-text": "correspondances de plus dans ce document",
+    "search-clear-button-title": "Effacer",
     "search-text-placeholder": "",
-    "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit",
-    "search-label": "Search"
+    "search-detached-cancel-button-title": "Annuler",
+    "search-submit-button-title": "Envoyer",
+    "search-label": "Recherche"
   }
 }</script>
 
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="styles.css">
 </head>
 
 <body class="nav-fixed quarto-light">
@@ -89,8 +134,8 @@ ul.task-list li input[type="checkbox"] {
     <span class="navbar-title">Accueil</span>
     </a>
   </div>
-            <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+            <div id="quarto-search" class="" title="Recherche"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Basculer la navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
@@ -119,6 +164,10 @@ ul.task-list li input[type="checkbox"] {
     <a class="nav-link" href="../contact.html"> 
 <span class="menu-text">Contact</span></a>
   </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../apropos.html"> 
+<span class="menu-text">À propos</span></a>
+  </li>  
 </ul>
           </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
@@ -132,10 +181,38 @@ ul.task-list li input[type="checkbox"] {
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
+    <h2 id="toc-title">Sur cette page</h2>
    
   <ul>
-  <li><a href="#document" id="toc-document" class="nav-link active" data-scroll-target="#document">Document</a></li>
+  <li><a href="#espaces-vectoriels-et-applications-linéaires" id="toc-espaces-vectoriels-et-applications-linéaires" class="nav-link active" data-scroll-target="#espaces-vectoriels-et-applications-linéaires">Espaces vectoriels et applications linéaires</a></li>
+  <li><a href="#définitions-exemples-faits-de-base" id="toc-définitions-exemples-faits-de-base" class="nav-link" data-scroll-target="#définitions-exemples-faits-de-base"><span class="header-section-number">1</span> Définitions, exemples, faits de base</a>
+  <ul class="collapse">
+  <li><a href="#définition-et-exemples" id="toc-définition-et-exemples" class="nav-link" data-scroll-target="#définition-et-exemples"><span class="header-section-number">1.1</span> Définition et exemples</a></li>
+  <li><a href="#règles-de-calcul" id="toc-règles-de-calcul" class="nav-link" data-scroll-target="#règles-de-calcul"><span class="header-section-number">1.2</span> Règles de calcul</a></li>
+  </ul></li>
+  <li><a href="#combinaisons-linéaires-familles-libres-génératrices-bases" id="toc-combinaisons-linéaires-familles-libres-génératrices-bases" class="nav-link" data-scroll-target="#combinaisons-linéaires-familles-libres-génératrices-bases"><span class="header-section-number">2</span> Combinaisons linéaires, familles libres, génératrices, bases</a>
+  <ul class="collapse">
+  <li><a href="#combinaisons-linéaires" id="toc-combinaisons-linéaires" class="nav-link" data-scroll-target="#combinaisons-linéaires"><span class="header-section-number">2.1</span> Combinaisons linéaires</a></li>
+  <li><a href="#familles-libres-et-liées" id="toc-familles-libres-et-liées" class="nav-link" data-scroll-target="#familles-libres-et-liées"><span class="header-section-number">2.2</span> Familles libres et liées</a></li>
+  <li><a href="#familles-génératrices" id="toc-familles-génératrices" class="nav-link" data-scroll-target="#familles-génératrices"><span class="header-section-number">2.3</span> Familles génératrices</a></li>
+  <li><a href="#bases-et-coordonnées" id="toc-bases-et-coordonnées" class="nav-link" data-scroll-target="#bases-et-coordonnées"><span class="header-section-number">2.4</span> Bases et coordonnées</a></li>
+  </ul></li>
+  <li><a href="#sous-espaces-vectoriels" id="toc-sous-espaces-vectoriels" class="nav-link" data-scroll-target="#sous-espaces-vectoriels"><span class="header-section-number">3</span> Sous-espaces vectoriels</a>
+  <ul class="collapse">
+  <li><a href="#définition-critère-réduit-intersection" id="toc-définition-critère-réduit-intersection" class="nav-link" data-scroll-target="#définition-critère-réduit-intersection"><span class="header-section-number">3.1</span> Définition, critère réduit, intersection</a></li>
+  <li><a href="#sous-espace-engendré-par-une-partie" id="toc-sous-espace-engendré-par-une-partie" class="nav-link" data-scroll-target="#sous-espace-engendré-par-une-partie"><span class="header-section-number">3.2</span> Sous-espace engendré par une partie</a></li>
+  <li><a href="#sommes-sommes-directes-supplémentaires" id="toc-sommes-sommes-directes-supplémentaires" class="nav-link" data-scroll-target="#sommes-sommes-directes-supplémentaires"><span class="header-section-number">3.3</span> Sommes, sommes directes, supplémentaires</a></li>
+  </ul></li>
+  <li><a href="#applications-linéaires" id="toc-applications-linéaires" class="nav-link" data-scroll-target="#applications-linéaires"><span class="header-section-number">4</span> Applications linéaires</a>
+  <ul class="collapse">
+  <li><a href="#définition-et-exemples-1" id="toc-définition-et-exemples-1" class="nav-link" data-scroll-target="#définition-et-exemples-1"><span class="header-section-number">4.1</span> Définition et exemples</a></li>
+  <li><a href="#relations-avec-les-bases" id="toc-relations-avec-les-bases" class="nav-link" data-scroll-target="#relations-avec-les-bases"><span class="header-section-number">4.2</span> Relations avec les bases</a></li>
+  <li><a href="#noyau-image-injectivité-surjectivité" id="toc-noyau-image-injectivité-surjectivité" class="nav-link" data-scroll-target="#noyau-image-injectivité-surjectivité"><span class="header-section-number">4.3</span> Noyau, image, injectivité, surjectivité</a></li>
+  <li><a href="#opérations-sur-les-applications-linéaires" id="toc-opérations-sur-les-applications-linéaires" class="nav-link" data-scroll-target="#opérations-sur-les-applications-linéaires"><span class="header-section-number">4.4</span> Opérations sur les applications linéaires</a></li>
+  <li><a href="#projecteurs-et-symétries" id="toc-projecteurs-et-symétries" class="nav-link" data-scroll-target="#projecteurs-et-symétries"><span class="header-section-number">4.5</span> Projecteurs et symétries</a></li>
+  </ul></li>
+  <li><a href="#document-en-pdf" id="toc-document-en-pdf" class="nav-link" data-scroll-target="#document-en-pdf">Document en PDF</a></li>
+  <li><a href="#navigation" id="toc-navigation" class="nav-link" data-scroll-target="#navigation">Navigation</a></li>
   </ul>
 </nav>
     </div>
@@ -144,14 +221,27 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Chapitre 12 : Espaces vectoriels et applications linéaires</h1>
+<h1 class="title">Espaces vectoriels et applications linéaires</h1>
+<p class="subtitle lead">Chapitre 12</p>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Auteur·rice</div>
+    <div class="quarto-title-meta-contents">
+             <p>Said MAHARI </p>
+          </div>
+  </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">Date de publication</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">18 août 2026</p>
+    </div>
+  </div>
   
     
   </div>
@@ -161,10 +251,311 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p><strong>MPSI (1re année) — Chapitre 12.</strong> Sous-espaces, sommes directes, familles libres et génératrices, bases, noyau, image, isomorphismes.</p>
-<section id="document" class="level2">
-<h2 class="anchored" data-anchor-id="document">Document</h2>
-<p><em>PDF à venir : déposez le fichier <code>files/mpsi/chap12.pdf</code> puis régénérez la page.</em></p>
+<p><strong>MPSI (1re année) — Chapitre 12.</strong> Structure d’espace vectoriel, sous-espaces vectoriels, sommes directes, familles libres et génératrices, bases, applications linéaires, noyau, image, isomorphismes, projecteurs et symétries.</p>
+<p>Ce chapitre a été réalisé conformément au programme marocain de mathématiques de la filière MPSI.</p>
+<section id="espaces-vectoriels-et-applications-linéaires" class="level1 unnumbered">
+<h1 class="unnumbered">Espaces vectoriels et applications linéaires</h1>
+<p>Dans la suite, <span class="math inline">\mathbb{K}</span> désigne <span class="math inline">\mathbb{R}</span> ou <span class="math inline">\mathbb{C}</span>, sauf mention explicite.</p>
+</section>
+<section id="définitions-exemples-faits-de-base" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Définitions, exemples, faits de base</h1>
+<section id="définition-et-exemples" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="définition-et-exemples"><span class="header-section-number">1.1</span> Définition et exemples</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 2.1</strong></p>
+<p>Un <strong>espace vectoriel</strong> sur <span class="math inline">\mathbb{K}</span> est un triplet <span class="math inline">(E,+,\cdot)</span> où :</p>
+<ul>
+<li><span class="math inline">E</span> est un ensemble non vide dont les éléments sont appelés <strong>vecteurs</strong> ;</li>
+<li><span class="math inline">+</span> est une loi de composition interne sur <span class="math inline">E</span> ;</li>
+<li><span class="math inline">\cdot</span> est une loi externe de domaine d’opérateurs <span class="math inline">\mathbb{K}</span> (application de <span class="math inline">E\times\mathbb{K}</span> dans <span class="math inline">E</span>) ;</li>
+</ul>
+<p>tel que :</p>
+<ol type="1">
+<li><span class="math inline">(E,+)</span> est un groupe commutatif de neutre <span class="math inline">0_E</span> ;</li>
+<li><span class="math inline">\forall\lambda,\mu\in\mathbb{K},\ \forall x\in E,\ (\lambda+\mu)\cdot x=\lambda\cdot x+\mu\cdot x</span> ;</li>
+<li><span class="math inline">\forall\lambda\in\mathbb{K},\ \forall x,y\in E,\ \lambda\cdot(x+y)=\lambda\cdot x+\lambda\cdot y</span> ;</li>
+<li><span class="math inline">\forall\lambda,\mu\in\mathbb{K},\ \forall x\in E,\ \lambda\cdot(\mu\cdot x)=(\lambda\mu)\cdot x</span> ;</li>
+<li><span class="math inline">\forall x\in E,\ 1_{\mathbb{K}}\cdot x=x</span>.</li>
+</ol>
+<p>Les éléments de <span class="math inline">\mathbb{K}</span> sont appelés <strong>scalaires</strong>.</p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 2.1</strong></p>
+<ol type="1">
+<li><span class="math inline">E=\mathbb{K}^3</span> muni des lois usuelles est un <span class="math inline">\mathbb{K}</span>-espace vectoriel de neutre <span class="math inline">0_{\mathbb{K}^3}=(0,0,0)</span>.</li>
+<li>Plus généralement, <span class="math inline">\mathbb{K}^n</span> est un <span class="math inline">\mathbb{K}</span>-espace vectoriel.</li>
+<li><span class="math inline">(\mathbb{K}[X],+,\cdot)</span> est un espace vectoriel.</li>
+<li>Si <span class="math inline">X</span> est un ensemble non vide, <span class="math inline">(\mathcal{F}(X,\mathbb{K}),+,\cdot)</span> est un <span class="math inline">\mathbb{K}</span>-espace vectoriel ; en particulier, l’ensemble des suites numériques <span class="math inline">\mathbb{K}^{\mathbb{N}}</span> est un espace vectoriel.</li>
+<li>Si <span class="math inline">\mathbb{L}</span> est un corps et <span class="math inline">\mathbb{K}</span> un sous-corps de <span class="math inline">\mathbb{L}</span>, alors <span class="math inline">(\mathbb{L},+,\cdot)</span> est un <span class="math inline">\mathbb{K}</span>-espace vectoriel : ainsi <span class="math inline">\mathbb{C}</span> est un <span class="math inline">\mathbb{R}</span>-espace vectoriel et un <span class="math inline">\mathbb{Q}</span>-espace vectoriel.</li>
+</ol>
+</div>
+</section>
+<section id="règles-de-calcul" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="règles-de-calcul"><span class="header-section-number">1.2</span> Règles de calcul</h2>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 2.1</strong></p>
+<p>Soit <span class="math inline">(E,+,\cdot)</span> un <span class="math inline">\mathbb{K}</span>-espace vectoriel.</p>
+<ol type="1">
+<li>Pour <span class="math inline">x\in E</span>, l’application <span class="math inline">\lambda\mapsto\lambda\cdot x</span> est un morphisme de groupes de <span class="math inline">(\mathbb{K},+)</span> dans <span class="math inline">(E,+)</span> ; en particulier <span class="math inline">0_{\mathbb{K}}\cdot x=0_E</span>, et <span class="math inline">\forall\lambda\in\mathbb{K},\ \forall n\in\mathbb{Z},\ (n\lambda)\cdot x=n(\lambda\cdot x)</span> ; en prenant <span class="math inline">\lambda=1</span> et <span class="math inline">n=-1</span> : <span class="math inline">-1_{\mathbb{K}}\cdot x=-x</span>.</li>
+<li>Pour <span class="math inline">\lambda\in\mathbb{K}</span>, l’application <span class="math inline">x\mapsto\lambda\cdot x</span> est un endomorphisme de groupes de <span class="math inline">(E,+)</span> : <span class="math inline">\lambda\cdot 0_E=0_E</span> ; de plus <span class="math inline">\lambda\cdot(nx)=n(\lambda\cdot x)</span>, d’où <span class="math inline">\lambda\cdot(-x)=-\lambda\cdot x</span>.</li>
+<li>Pour <span class="math inline">\lambda\in\mathbb{K}</span> et <span class="math inline">x\in E</span> : <span class="math inline">\lambda\cdot x=0_E \iff \lambda=0_{\mathbb{K}} \text{ ou } x=0_E</span>.</li>
+<li><strong>Distributivité étendue :</strong> <span class="math inline">\left(\sum_{i=1}^n\lambda_i\right)\cdot x=\sum_{i=1}^n(\lambda_i\cdot x)</span> et <span class="math inline">\lambda\cdot\left(\sum_{i=1}^n x_i\right)=\sum_{i=1}^n(\lambda\cdot x_i)</span>.</li>
+</ol>
+</div>
+<div class="proof" title="(du point 3)">
+<p><span class="proof-title"><em>Preuve</em>. </span>Si <span class="math inline">\lambda\cdot x=0_E</span> avec <span class="math inline">\lambda\neq 0_{\mathbb{K}}</span>, alors : <span class="math display">x=1_{\mathbb{K}}\cdot x=\left(\lambda\frac{1}{\lambda}\right)\cdot x=\frac{1}{\lambda}(\lambda\cdot x)=\frac{1}{\lambda}\cdot 0_E=0_E.</span></p>
+</div>
+</section>
+</section>
+<section id="combinaisons-linéaires-familles-libres-génératrices-bases" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> Combinaisons linéaires, familles libres, génératrices, bases</h1>
+<section id="combinaisons-linéaires" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="combinaisons-linéaires"><span class="header-section-number">2.1</span> Combinaisons linéaires</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 3.1</strong></p>
+<p>Soient <span class="math inline">n\in\mathbb{N}^*</span> et <span class="math inline">x_1,\ldots,x_n\in E</span>. Une <strong>combinaison linéaire</strong> de <span class="math inline">x_1,\ldots,x_n</span> est une expression de la forme <span class="math display">\sum_{i=1}^n\alpha_i x_i \quad \text{avec } \alpha_1,\ldots,\alpha_n\in\mathbb{K}.</span> On remarque que <span class="math inline">\sum_{i=1}^n 0_{\mathbb{K}}\, x_i=0_E</span>.</p>
+</div>
+</section>
+<section id="familles-libres-et-liées" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="familles-libres-et-liées"><span class="header-section-number">2.2</span> Familles libres et liées</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 3.2</strong></p>
+<p>Soit <span class="math inline">n\in\mathbb{N}^*</span>. La famille <span class="math inline">(x_1,\ldots,x_n)</span> est <strong>libre</strong> si : <span class="math display">\forall(\alpha_1,\ldots,\alpha_n)\in\mathbb{K}^n,\ \sum_{i=1}^n\alpha_i x_i=0_E \Rightarrow \alpha_1=\alpha_2=\cdots=\alpha_n=0_{\mathbb{K}}.</span> Lorsqu’elle n’est pas libre, on dit qu’elle est <strong>liée</strong> : il existe <span class="math inline">(\alpha_1,\ldots,\alpha_n)\neq(0,\ldots,0)</span> tel que <span class="math inline">\sum_{i=1}^n\alpha_i x_i=0_E</span> (relation de dépendance linéaire non triviale).</p>
+</div>
+<div class="proof remark">
+<p><span class="proof-title"><em>Remarque</em>. </span></p>
+<ul>
+<li>Si l’un des <span class="math inline">x_i</span> est nul, la famille est liée.</li>
+<li>Si l’un des <span class="math inline">x_i</span> est combinaison linéaire des autres, la famille est liée.</li>
+<li>Réciproquement, si la famille est liée, l’un des <span class="math inline">x_i</span> est combinaison linéaire des autres. Autrement dit : <span class="math inline">(x_1,\ldots,x_n)</span> est liée si et seulement si l’un des <span class="math inline">x_i</span> est combinaison linéaire des autres ; par contraposée, elle est libre si et seulement si aucun des <span class="math inline">x_i</span> n’est combinaison linéaire des autres.</li>
+</ul>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 3.1</strong></p>
+<ol type="1">
+<li>Soit <span class="math inline">x\in E</span> ; on note <span class="math inline">\mathbb{K}x=\{\alpha\cdot x\ /\ \alpha\in\mathbb{K}\}</span>. Si <span class="math inline">x\neq 0_E</span>, <span class="math inline">\mathbb{K}x</span> est la <strong>droite vectorielle</strong> engendrée par <span class="math inline">x</span> ; <span class="math inline">y</span> est <strong>colinéaire</strong> à <span class="math inline">x</span> si <span class="math inline">y\in\mathbb{K}x</span>. Pour <span class="math inline">x,y\neq 0_E</span> : <span class="math inline">(x,y)</span> est liée si et seulement si <span class="math inline">y</span> est colinéaire à <span class="math inline">x</span>.</li>
+<li>Dans <span class="math inline">E=\mathbb{R}^3</span>, la famille <span class="math inline">((1,2,1),(1,-1,1),(2,1,3))</span> est <strong>libre</strong> : en écrivant <span class="math inline">\alpha x+\beta y+\gamma z=0</span>, le pivot de Gauss donne <span class="math inline">\alpha=\beta=\gamma=0</span>.</li>
+<li>Dans <span class="math inline">E=\mathbb{R}^3</span>, la famille <span class="math inline">((1,1,1),(1,-1,2),(1,3,\lambda))</span> est libre si et seulement si <span class="math inline">\lambda\neq 0</span> (le pivot donne <span class="math inline">2\lambda\gamma=0</span>).</li>
+<li>Dans <span class="math inline">\mathbb{K}[X]</span>, toute famille de polynômes échelonnée en degrés (<span class="math inline">0\leq\deg P_1&lt;\cdots&lt;\deg P_n</span>) est libre ; en particulier <span class="math inline">(X^k)_{0\leq k\leq n}</span> est libre.</li>
+<li>Dans <span class="math inline">\mathcal{F}(\mathbb{R},\mathbb{R})</span> : la famille <span class="math inline">(t\mapsto e^{\alpha_k t})</span> avec <span class="math inline">\alpha_1&lt;\cdots&lt;\alpha_r</span> est libre (faire tendre <span class="math inline">t\to-\infty</span>) ; la famille <span class="math inline">(\cos(kt))_{k\in\mathbb{N}}</span> est libre (intégrer contre <span class="math inline">\cos(lt)</span> sur <span class="math inline">[0,2\pi]</span>) ; la famille <span class="math inline">(\cos^k t)_{k\in\mathbb{N}}</span> est libre.</li>
+</ol>
+</div>
+</section>
+<section id="familles-génératrices" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="familles-génératrices"><span class="header-section-number">2.3</span> Familles génératrices</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 3.3</strong></p>
+<p>La famille <span class="math inline">(x_1,\ldots,x_n)</span> est <strong>génératrice</strong> (ou <strong>engendre</strong> <span class="math inline">E</span>) si tout vecteur de <span class="math inline">E</span> est combinaison linéaire de <span class="math inline">x_1,\ldots,x_n</span>.</p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 3.2</strong></p>
+<p><span class="math inline">(X^n)_{n\in\mathbb{N}}</span> est une famille génératrice de <span class="math inline">\mathbb{K}[X]</span> ; d’après la formule de Taylor, <span class="math inline">\forall a\in\mathbb{K}</span>, <span class="math inline">((X-a)^n)_{n\in\mathbb{N}}</span> est aussi génératrice.</p>
+</div>
+</section>
+<section id="bases-et-coordonnées" class="level2" data-number="2.4">
+<h2 data-number="2.4" class="anchored" data-anchor-id="bases-et-coordonnées"><span class="header-section-number">2.4</span> Bases et coordonnées</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 3.4</strong></p>
+<p>Une famille <span class="math inline">(x_i)_{i\in I}</span> est une <strong>base</strong> de <span class="math inline">E</span> si elle est à la fois libre et génératrice.</p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 3.3</strong></p>
+<ol type="1">
+<li>La famille canonique <span class="math inline">(e_1,\ldots,e_n)</span> est une base de <span class="math inline">\mathbb{K}^n</span>, appelée <strong>base canonique</strong>.</li>
+<li><span class="math inline">(1_{\mathbb{K}})</span> est une base de <span class="math inline">\mathbb{K}</span> ; <span class="math inline">(1,i)</span> est une base du <span class="math inline">\mathbb{R}</span>-espace vectoriel <span class="math inline">\mathbb{C}</span>.</li>
+<li><span class="math inline">(X^n)_{n\in\mathbb{N}}</span> est une base de <span class="math inline">\mathbb{K}[X]</span>.</li>
+<li><span class="math inline">(x,y)</span> est une base de <span class="math inline">\mathbb{K}^2</span> si et seulement si <span class="math inline">\alpha\delta-\beta\gamma\neq 0</span>, où <span class="math inline">x=(\alpha,\beta)</span> et <span class="math inline">y=(\gamma,\delta)</span>.</li>
+<li>Dans <span class="math inline">\mathbb{R}^3</span>, <span class="math inline">((1,1,1),(1,0,2),(2,1,-1))</span> est une base.</li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 3.1 — (Coordonnées)</strong></p>
+<p>Si <span class="math inline">E</span> admet une base <span class="math inline">\mathcal{B}=(e_1,\ldots,e_n)</span>, alors pour tout <span class="math inline">x\in E</span>, il existe un unique <span class="math inline">n</span>-uplet <span class="math inline">(\alpha_1,\ldots,\alpha_n)\in\mathbb{K}^n</span> tel que <span class="math inline">x=\sum_{i=1}^n\alpha_i e_i</span>. On l’appelle le <span class="math inline">n</span>-uplet des <strong>coordonnées</strong> de <span class="math inline">x</span> dans <span class="math inline">\mathcal{B}</span>.</p>
+</div>
+<div class="proof" title="(unicité)">
+<p><span class="proof-title"><em>Preuve</em>. </span>L’existence est assurée car <span class="math inline">\mathcal{B}</span> est génératrice. Si <span class="math inline">x=\sum\alpha_i e_i=\sum\beta_i e_i</span>, alors <span class="math inline">\sum(\alpha_i-\beta_i)e_i=0_E</span> ; or <span class="math inline">\mathcal{B}</span> est libre donc <span class="math inline">\forall i,\ \alpha_i-\beta_i=0</span>.</p>
+</div>
+</section>
+</section>
+<section id="sous-espaces-vectoriels" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Sous-espaces vectoriels</h1>
+<section id="définition-critère-réduit-intersection" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="définition-critère-réduit-intersection"><span class="header-section-number">3.1</span> Définition, critère réduit, intersection</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 4.1</strong></p>
+<p>Soit <span class="math inline">E</span> un <span class="math inline">\mathbb{K}</span>-espace vectoriel et <span class="math inline">F\subset E</span>. On dit que <span class="math inline">F</span> est un <strong>sous-espace vectoriel</strong> de <span class="math inline">E</span> si :</p>
+<ol type="1">
+<li><span class="math inline">F</span> est un sous-groupe de <span class="math inline">(E,+)</span> ;</li>
+<li><span class="math inline">\forall\lambda\in\mathbb{K},\ \forall x\in F,\ \lambda\cdot x\in F</span>.</li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 4.1 — (Critère réduit)</strong></p>
+<p><span class="math inline">F\subset E</span> est un sous-espace vectoriel si et seulement si <span class="math inline">F\neq\varnothing</span> et <span class="math inline">\forall x,y\in F,\ \forall\alpha\in\mathbb{K},\ \alpha x+y\in F</span>.</p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 4.1</strong></p>
+<ol type="1">
+<li><span class="math inline">\{0_E\}</span> et <span class="math inline">E</span> sont des sous-espaces vectoriels de <span class="math inline">E</span>.</li>
+<li><span class="math inline">\mathbb{K}_n[X]=\{P\in\mathbb{K}[X]\ /\ \deg P\leq n\}</span> est un sous-espace vectoriel de <span class="math inline">\mathbb{K}[X]</span>.</li>
+<li><span class="math inline">\mathcal{C}(I,\mathbb{R})</span>, <span class="math inline">\mathcal{D}(I,\mathbb{R})</span>, <span class="math inline">\mathcal{C}^\infty(I,\mathbb{R})</span>, l’ensemble des fonctions paires, l’ensemble des fonctions impaires sont des sous-espaces vectoriels de <span class="math inline">\mathcal{F}(I,\mathbb{R})</span>.</li>
+<li>L’ensemble des suites convergentes, ainsi que l’ensemble des suites de limite <span class="math inline">0</span>, sont des sous-espaces vectoriels de <span class="math inline">\mathbb{C}^{\mathbb{N}}</span>.</li>
+<li>L’ensemble des solutions <span class="math inline">\mathrm{Sol}(S)</span> d’un système linéaire <strong>homogène</strong> de <span class="math inline">n</span> équations à <span class="math inline">p</span> inconnues est un sous-espace vectoriel de <span class="math inline">\mathbb{K}^p</span> ; en particulier, <span class="math inline">\{x\in\mathbb{K}^p\ /\ a_1x_1+\cdots+a_px_p=0\}</span> est un sous-espace vectoriel.</li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 4.2</strong></p>
+<p>Une intersection quelconque de sous-espaces vectoriels est un sous-espace vectoriel.</p>
+</div>
+</section>
+<section id="sous-espace-engendré-par-une-partie" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="sous-espace-engendré-par-une-partie"><span class="header-section-number">3.2</span> Sous-espace engendré par une partie</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 4.2</strong></p>
+<p>L’intersection de tous les sous-espaces vectoriels contenant <span class="math inline">\{x_1,\ldots,x_n\}</span> est le plus petit sous-espace vectoriel contenant <span class="math inline">x_1,\ldots,x_n</span> ; on le note <span class="math inline">\mathrm{Vect}(x_1,\ldots,x_n)</span> et on l’appelle le <strong>sous-espace engendré</strong> par la famille. C’est l’ensemble des combinaisons linéaires de <span class="math inline">x_1,\ldots,x_n</span>.</p>
+</div>
+<div class="proof remark">
+<p><span class="proof-title"><em>Remarque</em>. </span>Si <span class="math inline">x_n\in\mathrm{Vect}(x_1,\ldots,x_{n-1})</span>, alors <span class="math inline">\mathrm{Vect}(x_1,\ldots,x_n)=\mathrm{Vect}(x_1,\ldots,x_{n-1})</span>. En particulier, pour <span class="math inline">x\neq 0_E</span>, <span class="math inline">\mathrm{Vect}(x)=\mathbb{K}x</span>.</p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 4.2</strong></p>
+<ol type="1">
+<li>Dans <span class="math inline">\mathbb{R}^3</span>, <span class="math inline">F=\mathrm{Vect}((1,1,-1),(2,1,1))</span> est le plan d’équation cartésienne <span class="math inline">-2x+3y+z=0</span>.</li>
+<li>Le sous-espace de <span class="math inline">\mathbb{R}^3</span> d’équations <span class="math inline">x-2y+z=0</span> et <span class="math inline">2x-y+3z=0</span> est <span class="math inline">\mathrm{Vect}((5,1,-3))</span>.</li>
+<li>Le sous-espace d’équation <span class="math inline">x+y-z=0</span> est <span class="math inline">\mathrm{Vect}((-1,1,0),(1,0,1))</span>.</li>
+</ol>
+</div>
+</section>
+<section id="sommes-sommes-directes-supplémentaires" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="sommes-sommes-directes-supplémentaires"><span class="header-section-number">3.3</span> Sommes, sommes directes, supplémentaires</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 4.3</strong></p>
+<p>Soient <span class="math inline">F_1,\ldots,F_n</span> des sous-espaces vectoriels de <span class="math inline">E</span>. L’ensemble <span class="math display">F_1+\cdots+F_n=\{x_1+\cdots+x_n\ /\ (x_1,\ldots,x_n)\in F_1\times\cdots\times F_n\}</span> est un sous-espace vectoriel de <span class="math inline">E</span>, appelé <strong>somme</strong> des <span class="math inline">F_i</span> ; c’est aussi <span class="math inline">\mathrm{Vect}\left(\bigcup_{i=1}^n F_i\right)</span>.</p>
+</div>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 4.1 — (Sommes directes)</strong></p>
+<p>Les assertions suivantes sont équivalentes :</p>
+<ol type="1">
+<li><span class="math inline">\forall(x_1,\ldots,x_n)\in F_1\times\cdots\times F_n,\ \sum_{i=1}^n x_i=0_E \Rightarrow \forall i,\ x_i=0_E</span> ;</li>
+<li>tout <span class="math inline">x\in\sum_{i=1}^n F_i</span> s’écrit de façon <strong>unique</strong> <span class="math inline">x=\sum_{i=1}^n x_i</span> avec <span class="math inline">x_i\in F_i</span> ;</li>
+<li><span class="math inline">\forall j,\ F_j\cap\sum_{i\neq j}F_i=\{0_E\}</span>.</li>
+</ol>
+<p>Lorsqu’elles sont vérifiées, on dit que la somme est <strong>directe</strong> et on écrit <span class="math inline">F_1\oplus\cdots\oplus F_n</span>.</p>
+</div>
+<div class="proof remark">
+<p><span class="proof-title"><em>Remarque</em>. </span>Pour deux sous-espaces, <span class="math inline">F+G</span> est directe si et seulement si <span class="math inline">F\cap G=\{0_E\}</span>. Cette condition ne se généralise pas : dans <span class="math inline">\mathbb{R}^2</span>, pour <span class="math inline">F=\mathrm{Vect}((1,0))</span>, <span class="math inline">G=\mathrm{Vect}((0,1))</span>, <span class="math inline">H=\mathrm{Vect}((1,1))</span>, on a <span class="math inline">F\cap G=G\cap H=F\cap H=\{0\}</span> mais <span class="math inline">F+G+H</span> n’est pas directe car <span class="math inline">(1,1)-(1,0)-(0,1)=(0,0)</span>.</p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 4.3</strong></p>
+<ol type="1">
+<li><span class="math inline">(x_1,\ldots,x_n)</span> est libre si et seulement si la somme <span class="math inline">\sum_{i=1}^n\mathbb{K}x_i</span> est directe.</li>
+<li>Dans <span class="math inline">\mathcal{F}(\mathbb{R},\mathbb{R})</span>, si <span class="math inline">\mathcal{P}</span> désigne les fonctions paires et <span class="math inline">\mathcal{I}</span> les fonctions impaires, alors <span class="math inline">\mathbb{R}^{\mathbb{R}}=\mathcal{P}\oplus\mathcal{I}</span> (analyse-synthèse : <span class="math inline">g(x)=\frac{f(x)+f(-x)}{2}</span>, <span class="math inline">h(x)=\frac{f(x)-f(-x)}{2}</span>).</li>
+<li>Si <span class="math inline">F=\mathrm{Vect}(x_1,\ldots,x_m)</span> et <span class="math inline">G=\mathrm{Vect}(y_1,\ldots,y_n)</span>, alors <span class="math inline">F+G</span> est directe si et seulement si la famille recollée <span class="math inline">(x_1,\ldots,x_m,y_1,\ldots,y_n)</span> est libre.</li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 4.4</strong></p>
+<p>Les sous-espaces <span class="math inline">F_1,\ldots,F_n</span> sont <strong>supplémentaires</strong> si <span class="math inline">\bigoplus_{i=1}^n F_i=E</span>. Pour deux sous-espaces : <span class="math inline">E=F\oplus G \iff F\cap G=\{0_E\}</span> et <span class="math inline">F+G=E</span>.</p>
+</div>
+</section>
+</section>
+<section id="applications-linéaires" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> Applications linéaires</h1>
+<section id="définition-et-exemples-1" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="définition-et-exemples-1"><span class="header-section-number">4.1</span> Définition et exemples</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 5.1</strong></p>
+<p>Soient <span class="math inline">E,F</span> deux <span class="math inline">\mathbb{K}</span>-espaces vectoriels et <span class="math inline">f:E\to F</span>. On dit que <span class="math inline">f</span> est <strong>linéaire</strong> si :</p>
+<ol type="1">
+<li><span class="math inline">f</span> est un morphisme de groupes de <span class="math inline">(E,+)</span> dans <span class="math inline">(F,+)</span> ;</li>
+<li><span class="math inline">\forall x\in E,\ \forall\alpha\in\mathbb{K},\ f(\alpha x)=\alpha f(x)</span>.</li>
+</ol>
+<p>On note <span class="math inline">\mathcal{L}(E,F)</span> l’ensemble des applications linéaires de <span class="math inline">E</span> dans <span class="math inline">F</span> ; si <span class="math inline">E=F</span>, on note <span class="math inline">\mathcal{L}(E)</span> et ses éléments sont appelés <strong>endomorphismes</strong>.</p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 5.1 — (Critère plus léger)</strong></p>
+<p><span class="math inline">f</span> est linéaire si et seulement si <span class="math inline">\forall\alpha\in\mathbb{K},\ \forall x,y\in E,\ f(\alpha x+y)=\alpha f(x)+f(y)</span>.</p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 5.1</strong></p>
+<ol type="1">
+<li>Si <span class="math inline">\mathcal{B}=(e_1,\ldots,e_n)</span> est la base canonique de <span class="math inline">\mathbb{K}^n</span>, la <span class="math inline">i</span>-ème forme coordonnée <span class="math inline">e_i^*:x=\sum\alpha_j e_j\mapsto\alpha_i</span> est linéaire.</li>
+<li><span class="math inline">f\mapsto\int_a^b f</span> est linéaire de <span class="math inline">\mathcal{C}([a,b],\mathbb{R})</span> dans <span class="math inline">\mathbb{R}</span>.</li>
+<li><span class="math inline">u\mapsto\lim u</span> est <span class="math inline">\mathbb{C}</span>-linéaire sur l’espace des suites complexes convergentes.</li>
+<li><span class="math inline">P\mapsto P'</span> est un endomorphisme de <span class="math inline">\mathbb{K}[X]</span>.</li>
+<li>Les applications <span class="math inline">\mathbb{R}</span>-linéaires de <span class="math inline">\mathbb{C}</span> dans <span class="math inline">\mathbb{C}</span> sont celles du type <span class="math inline">\varphi_{a,b}:z\mapsto az+b\overline{z}</span>.</li>
+<li>Les applications <span class="math inline">\mathbb{K}</span>-linéaires de <span class="math inline">\mathbb{K}</span> dans <span class="math inline">\mathbb{K}</span> sont celles du type <span class="math inline">x\mapsto ax</span>.</li>
+</ol>
+</div>
+</section>
+<section id="relations-avec-les-bases" class="level2" data-number="4.2">
+<h2 data-number="4.2" class="anchored" data-anchor-id="relations-avec-les-bases"><span class="header-section-number">4.2</span> Relations avec les bases</h2>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 5.1</strong></p>
+<p>Soit <span class="math inline">E</span> un espace vectoriel admettant une base finie <span class="math inline">\mathcal{B}=(e_1,\ldots,e_p)</span>, <span class="math inline">V</span> un espace vectoriel et <span class="math inline">v_1,\ldots,v_p\in V</span>. Il existe une <strong>unique</strong> application linéaire <span class="math inline">f:E\to V</span> telle que <span class="math inline">\forall i,\ f(e_i)=v_i</span>. En particulier, deux applications linéaires qui coïncident sur une base sont égales.</p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 5.2 — (Homothéties)</strong></p>
+<p>Pour <span class="math inline">\lambda\in\mathbb{K}</span>, <span class="math inline">h_\lambda:x\mapsto\lambda x</span> est un endomorphisme de <span class="math inline">E</span> appelé <strong>homothétie</strong> de rapport <span class="math inline">\lambda</span> ; <span class="math inline">h_0</span> est l’application nulle et <span class="math inline">h_1=\mathrm{Id}_E</span>.</p>
+</div>
+</section>
+<section id="noyau-image-injectivité-surjectivité" class="level2" data-number="4.3">
+<h2 data-number="4.3" class="anchored" data-anchor-id="noyau-image-injectivité-surjectivité"><span class="header-section-number">4.3</span> Noyau, image, injectivité, surjectivité</h2>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 5.2</strong></p>
+<p>Soit <span class="math inline">f\in\mathcal{L}(E,F)</span>.</p>
+<ol type="1">
+<li><span class="math inline">f(0_E)=0_F</span> et <span class="math inline">f</span> conserve les combinaisons linéaires : <span class="math inline">f\left(\sum_{k=1}^n\lambda_k x_k\right)=\sum_{k=1}^n\lambda_k f(x_k)</span>.</li>
+<li><strong>Image d’un sev :</strong> si <span class="math inline">E_1</span> est un sev de <span class="math inline">E</span>, alors <span class="math inline">f(E_1)</span> est un sev de <span class="math inline">F</span> ; en particulier <span class="math inline">\mathrm{Im}\,f=f(E)</span> est un sev de <span class="math inline">F</span>, et <span class="math inline">f</span> est surjective si et seulement si <span class="math inline">\mathrm{Im}\,f=F</span>. De plus <span class="math inline">f(\mathrm{Vect}(S))=\mathrm{Vect}(f(S))</span>.</li>
+<li><strong>Image réciproque d’un sev :</strong> si <span class="math inline">F_1</span> est un sev de <span class="math inline">F</span>, alors <span class="math inline">f^{-1}(F_1)</span> est un sev de <span class="math inline">E</span> ; en particulier le <strong>noyau</strong> <span class="math inline">\ker f=f^{-1}(\{0_F\})=\{x\in E\ /\ f(x)=0_F\}</span> est un sev de <span class="math inline">E</span>.</li>
+<li><span class="math inline">f</span> est injective si et seulement si <span class="math inline">\ker f=\{0_E\}</span>.</li>
+<li>Si <span class="math inline">f</span> est injective, elle transforme toute famille libre en famille libre ; si <span class="math inline">E</span> admet une base finie <span class="math inline">\mathcal{B}</span> : <span class="math inline">f</span> injective <span class="math inline">\iff f(\mathcal{B})</span> libre.</li>
+<li><span class="math inline">f</span> est surjective si et seulement si l’image d’une famille génératrice est génératrice.</li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 5.3 — (Composition, isomorphismes)</strong></p>
+<ol type="1">
+<li>Si <span class="math inline">f\in\mathcal{L}(E,F)</span> et <span class="math inline">g\in\mathcal{L}(F,G)</span>, alors <span class="math inline">g\circ f\in\mathcal{L}(E,G)</span>.</li>
+<li>Si <span class="math inline">f</span> est une application linéaire bijective (<strong>isomorphisme</strong>), alors <span class="math inline">f^{-1}</span> est linéaire, donc isomorphisme de <span class="math inline">F</span> dans <span class="math inline">E</span>.</li>
+<li>L’ensemble <span class="math inline">\mathrm{Aut}(E)</span> des automorphismes de <span class="math inline">E</span> est un sous-groupe de <span class="math inline">(\mathfrak{S}(E),\circ)</span>.</li>
+</ol>
+</div>
+</section>
+<section id="opérations-sur-les-applications-linéaires" class="level2" data-number="4.4">
+<h2 data-number="4.4" class="anchored" data-anchor-id="opérations-sur-les-applications-linéaires"><span class="header-section-number">4.4</span> Opérations sur les applications linéaires</h2>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 5.4</strong></p>
+<p>Muni de <span class="math inline">(f+g)(x)=f(x)+g(x)</span> et <span class="math inline">(\alpha\cdot f)(x)=\alpha f(x)</span>, l’ensemble <span class="math inline">\mathcal{L}(E,F)</span> est un <span class="math inline">\mathbb{K}</span>-espace vectoriel. De plus, <span class="math inline">(\mathcal{L}(E),+,\circ,\cdot)</span> est une <span class="math inline">\mathbb{K}</span>-<strong>algèbre</strong> (anneau, espace vectoriel, et <span class="math inline">\forall\alpha,\ (\alpha f)\circ g=f\circ(\alpha g)=\alpha(f\circ g)</span>).</p>
+</div>
+</section>
+<section id="projecteurs-et-symétries" class="level2" data-number="4.5">
+<h2 data-number="4.5" class="anchored" data-anchor-id="projecteurs-et-symétries"><span class="header-section-number">4.5</span> Projecteurs et symétries</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 5.2</strong></p>
+<p>Soit <span class="math inline">f\in\mathcal{L}(E)</span>. On dit que <span class="math inline">f</span> est un <strong>projecteur</strong> si <span class="math inline">f\circ f=f</span> ; on dit que <span class="math inline">f</span> est une <strong>symétrie</strong> si <span class="math inline">f\circ f=\mathrm{Id}_E</span>.</p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 5.3 — (Exemple standard)</strong></p>
+<p>Si <span class="math inline">E=F\oplus G</span>, tout <span class="math inline">x\in E</span> s’écrit de façon unique <span class="math inline">x=x_F+x_G</span>. La projection <span class="math inline">p_{F,G}:x\mapsto x_F</span> est un projecteur : <span class="math inline">F=\mathrm{Im}\,p_{F,G}=\ker(p_{F,G}-\mathrm{Id}_E)</span> et <span class="math inline">G=\ker p_{F,G}</span>. La symétrie <span class="math inline">s_{F,G}:x\mapsto x_F-x_G</span> vérifie <span class="math inline">F=\{x\ /\ s(x)=x\}</span> et <span class="math inline">G=\ker(s_{F,G}+\mathrm{Id}_E)</span>.</p>
+</div>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 5.2 — (Forme générique)</strong></p>
+<p>Si <span class="math inline">p</span> est un projecteur de <span class="math inline">E</span>, alors <span class="math inline">E=\mathrm{Im}\,p\oplus\ker p</span> et <span class="math inline">p</span> est la projection sur <span class="math inline">\mathrm{Im}\,p</span> parallèlement à <span class="math inline">\ker p</span>. Si <span class="math inline">s</span> est une symétrie, alors pour <span class="math inline">F=\ker(s-\mathrm{Id}_E)</span> et <span class="math inline">G=\ker(s+\mathrm{Id}_E)</span>, on a <span class="math inline">E=F\oplus G</span> et <span class="math inline">s=s_{F,G}</span>.</p>
+</div>
+</section>
+</section>
+<section id="document-en-pdf" class="level1 unnumbered">
+<h1 class="unnumbered">Document en PDF</h1>
+<p><a href="PDF/mpsi-chap12.pdf">Chapitre 12 : Espaces vectoriels et applications linéaires</a></p>
+</section>
+<section id="navigation" class="level1 unnumbered">
+<h1 class="unnumbered">Navigation</h1>
+<div class="chap-nav">
+<p><a href="../cours/mpsi-chap11.html" class="prev">Chapitre 11 : Fractions rationnelles</a></p>
+<p><a href="../cours/mpsi.html" class="home">Menu MPSI</a></p>
+<p><a href="../cours/mpsi-chap13.html" class="next">Chapitre 13 : Dimension finie</a></p>
+</div>
 
 
 </section>
@@ -214,12 +605,12 @@ ul.task-list li input[type="checkbox"] {
       // flash "checked"
       button.classList.add('code-copy-button-checked');
       var currentTitle = button.getAttribute("title");
-      button.setAttribute("title", "Copied!");
+      button.setAttribute("title", "Copié");
       let tooltip;
       if (window.bootstrap) {
         button.setAttribute("data-bs-toggle", "tooltip");
         button.setAttribute("data-bs-placement", "left");
-        button.setAttribute("data-bs-title", "Copied!");
+        button.setAttribute("data-bs-title", "Copié");
         tooltip = new bootstrap.Tooltip(button, 
           { trigger: "manual", 
             customClass: "code-copy-button-tooltip",

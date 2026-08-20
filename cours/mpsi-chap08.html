@@ -1,13 +1,14 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr"><head>
 
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.10.18">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Said MAHARI">
 
-<title>Structures algébriques - Mathématiques en CPGE – Mathématiques en CPGE</title>
+<title>Structures algébriques – Mathématiques en CPGE</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -45,7 +46,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-7a8c080b55ea27eb37b467515007f9ee.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-e0d9a45d84245cc5e3b300860d8fa645.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -60,22 +61,36 @@ ul.task-list li input[type="checkbox"] {
   ],
   "show-item-context": false,
   "language": {
-    "search-no-results-text": "No results",
-    "search-matching-documents-text": "matching documents",
-    "search-copy-link-title": "Copy link to search",
-    "search-hide-matches-text": "Hide additional matches",
-    "search-more-match-text": "more match in this document",
-    "search-more-matches-text": "more matches in this document",
-    "search-clear-button-title": "Clear",
+    "search-no-results-text": "Pas de résultats",
+    "search-matching-documents-text": "documents trouvés",
+    "search-copy-link-title": "Copier le lien vers la recherche",
+    "search-hide-matches-text": "Cacher les correspondances additionnelles",
+    "search-more-match-text": "correspondance de plus dans ce document",
+    "search-more-matches-text": "correspondances de plus dans ce document",
+    "search-clear-button-title": "Effacer",
     "search-text-placeholder": "",
-    "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit",
-    "search-label": "Search"
+    "search-detached-cancel-button-title": "Annuler",
+    "search-submit-button-title": "Envoyer",
+    "search-label": "Recherche"
   }
 }</script>
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
 
 <script type="text/javascript">
 const typesetMath = (el) => {
@@ -105,6 +120,7 @@ window.Quarto = {
 </script>
 
 <link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="styles.css">
 </head>
 
 <body class="nav-fixed quarto-light">
@@ -118,8 +134,8 @@ window.Quarto = {
     <span class="navbar-title">Accueil</span>
     </a>
   </div>
-            <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+            <div id="quarto-search" class="" title="Recherche"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Basculer la navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
@@ -148,6 +164,10 @@ window.Quarto = {
     <a class="nav-link" href="../contact.html"> 
 <span class="menu-text">Contact</span></a>
   </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../apropos.html"> 
+<span class="menu-text">À propos</span></a>
+  </li>  
 </ul>
           </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
@@ -161,10 +181,36 @@ window.Quarto = {
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
+    <h2 id="toc-title">Sur cette page</h2>
    
   <ul>
-  <li><a href="#document" id="toc-document" class="nav-link active" data-scroll-target="#document">Document</a></li>
+  <li><a href="#lois-de-composition-interne-monoïdes" id="toc-lois-de-composition-interne-monoïdes" class="nav-link active" data-scroll-target="#lois-de-composition-interne-monoïdes"><span class="header-section-number">1</span> Lois de composition interne, monoïdes</a>
+  <ul class="collapse">
+  <li><a href="#définition" id="toc-définition" class="nav-link" data-scroll-target="#définition"><span class="header-section-number">1.1</span> Définition</a></li>
+  <li><a href="#vocabulaire" id="toc-vocabulaire" class="nav-link" data-scroll-target="#vocabulaire"><span class="header-section-number">1.2</span> Vocabulaire</a></li>
+  <li><a href="#monoïdes" id="toc-monoïdes" class="nav-link" data-scroll-target="#monoïdes"><span class="header-section-number">1.3</span> Monoïdes</a></li>
+  <li><a href="#éléments-inversibles" id="toc-éléments-inversibles" class="nav-link" data-scroll-target="#éléments-inversibles"><span class="header-section-number">1.4</span> Éléments inversibles</a></li>
+  <li><a href="#éléments-réguliers" id="toc-éléments-réguliers" class="nav-link" data-scroll-target="#éléments-réguliers"><span class="header-section-number">1.5</span> Éléments réguliers</a></li>
+  <li><a href="#itérés-dun-élément-pour-une-loi-dans-un-monoïde" id="toc-itérés-dun-élément-pour-une-loi-dans-un-monoïde" class="nav-link" data-scroll-target="#itérés-dun-élément-pour-une-loi-dans-un-monoïde"><span class="header-section-number">1.6</span> Itérés d’un élément pour une loi dans un monoïde</a></li>
+  </ul></li>
+  <li><a href="#groupes" id="toc-groupes" class="nav-link" data-scroll-target="#groupes"><span class="header-section-number">2</span> Groupes</a>
+  <ul class="collapse">
+  <li><a href="#définitions-et-exemples" id="toc-définitions-et-exemples" class="nav-link" data-scroll-target="#définitions-et-exemples"><span class="header-section-number">2.1</span> Définitions et exemples</a></li>
+  <li><a href="#sous-groupes" id="toc-sous-groupes" class="nav-link" data-scroll-target="#sous-groupes"><span class="header-section-number">2.2</span> Sous-groupes</a></li>
+  <li><a href="#sous-groupes-de-mathbbz" id="toc-sous-groupes-de-mathbbz" class="nav-link" data-scroll-target="#sous-groupes-de-mathbbz"><span class="header-section-number">2.3</span> Sous-groupes de <span class="math inline">\mathbb{Z}</span></a></li>
+  <li><a href="#sous-groupe-engendré-par-une-partie" id="toc-sous-groupe-engendré-par-une-partie" class="nav-link" data-scroll-target="#sous-groupe-engendré-par-une-partie"><span class="header-section-number">2.4</span> Sous-groupe engendré par une partie</a></li>
+  <li><a href="#morphismes-de-groupes" id="toc-morphismes-de-groupes" class="nav-link" data-scroll-target="#morphismes-de-groupes"><span class="header-section-number">2.5</span> Morphismes de groupes</a></li>
+  </ul></li>
+  <li><a href="#anneaux-et-corps" id="toc-anneaux-et-corps" class="nav-link" data-scroll-target="#anneaux-et-corps"><span class="header-section-number">3</span> Anneaux et corps</a>
+  <ul class="collapse">
+  <li><a href="#définitions-règles-de-calcul-exemples" id="toc-définitions-règles-de-calcul-exemples" class="nav-link" data-scroll-target="#définitions-règles-de-calcul-exemples"><span class="header-section-number">3.1</span> Définitions, règles de calcul, exemples</a></li>
+  <li><a href="#anneaux-intègres" id="toc-anneaux-intègres" class="nav-link" data-scroll-target="#anneaux-intègres"><span class="header-section-number">3.2</span> Anneaux intègres</a></li>
+  <li><a href="#corps" id="toc-corps" class="nav-link" data-scroll-target="#corps"><span class="header-section-number">3.3</span> Corps</a></li>
+  <li><a href="#sous-anneaux-sous-corps-et-morphismes-danneaux" id="toc-sous-anneaux-sous-corps-et-morphismes-danneaux" class="nav-link" data-scroll-target="#sous-anneaux-sous-corps-et-morphismes-danneaux"><span class="header-section-number">3.4</span> Sous-anneaux, sous-corps et morphismes d’anneaux</a></li>
+  </ul></li>
+  <li><a href="#lanneau-mathbbznmathbbz-récapitulatif" id="toc-lanneau-mathbbznmathbbz-récapitulatif" class="nav-link" data-scroll-target="#lanneau-mathbbznmathbbz-récapitulatif"><span class="header-section-number">4</span> L’anneau <span class="math inline">\mathbb{Z}/n\mathbb{Z}</span> : récapitulatif</a></li>
+  <li><a href="#document-en-pdf" id="toc-document-en-pdf" class="nav-link" data-scroll-target="#document-en-pdf">Document en PDF</a></li>
+  <li><a href="#navigation" id="toc-navigation" class="nav-link" data-scroll-target="#navigation">Navigation</a></li>
   </ul>
 </nav>
     </div>
@@ -173,14 +219,27 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Chapitre 08 : Structures algébriques</h1>
+<h1 class="title">Structures algébriques</h1>
+<p class="subtitle lead">Chapitre 08</p>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Auteur·rice</div>
+    <div class="quarto-title-meta-contents">
+             <p>Said MAHARI </p>
+          </div>
+  </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">Date de publication</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">17 août 2026</p>
+    </div>
+  </div>
   
     
   </div>
@@ -190,10 +249,444 @@ window.Quarto = {
 </header>
 
 
-<p><strong>MPSI (1re année) — Chapitre 08.</strong> Groupes, sous-groupes, morphismes, anneaux, corps, <span class="math inline">\(\mathbb{Z}/n\mathbb{Z}\)</span>.</p>
-<section id="document" class="level2">
-<h2 class="anchored" data-anchor-id="document">Document</h2>
-<p><em>PDF à venir : déposez le fichier <code>files/mpsi/chap08.pdf</code> puis régénérez la page.</em></p>
+<p><strong>MPSI (1re année) — Chapitre 08.</strong> Lois de composition interne, monoïdes, groupes, sous-groupes, morphismes de groupes, anneaux, corps, anneaux <span class="math inline">\mathbb{Z}/n\mathbb{Z}</span>.</p>
+<p>Ce chapitre a été réalisé conformément au programme marocain de mathématiques de la filière MPSI.</p>
+<section id="lois-de-composition-interne-monoïdes" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Lois de composition interne, monoïdes</h1>
+<section id="définition" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="définition"><span class="header-section-number">1.1</span> Définition</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 1.1</strong></p>
+<p>Soit <span class="math inline">E</span> un ensemble non vide. Une <strong>loi de composition interne</strong> (LCI en abrégé) est une application : <span class="math display">\top : E\times E \longrightarrow E</span> On adopte une notation infixe : pour <span class="math inline">(x,y)\in E\times E</span>, on notera <span class="math inline">x\top y</span> au lieu de <span class="math inline">\top(x,y)</span>. On peut utiliser divers symboles tels que <span class="math inline">\top,\times,+,\cdot,\circ,\otimes,\dotplus</span>…</p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 1.1</strong></p>
+<ul>
+<li>Opérations usuelles <span class="math inline">+</span> et <span class="math inline">\times</span> sur les ensembles de nombres <span class="math inline">(\mathbb{N},\mathbb{Z},\mathbb{Q},\mathbb{R},\mathbb{C})</span> ;</li>
+<li>soit <span class="math inline">n\in\mathbb{N}^*</span> ; sur <span class="math inline">\mathbb{K}^n</span> (<span class="math inline">\mathbb{K}=\mathbb{R}</span> ou <span class="math inline">\mathbb{C}</span>), on définit pour <span class="math inline">x=(x_1,\cdots,x_n)</span>, <span class="math inline">y=(y_1,\cdots,y_n)</span> : <span class="math display">x+y=(x_1+y_1,\cdots,x_n+y_n) \quad ; \quad x\times y=(x_1 y_1,\cdots,x_n y_n)</span></li>
+<li><span class="math inline">\cap</span>, <span class="math inline">\cup</span> et <span class="math inline">\Delta</span> sur <span class="math inline">\mathcal{P}(X)</span> où <span class="math inline">X</span> est un ensemble quelconque ;</li>
+<li>l’addition des vecteurs sur le plan vectoriel et l’espace vectoriel de dimension 3 ;</li>
+<li>le produit vectoriel sur l’espace vectoriel de dimension 3 ;</li>
+<li>si <span class="math inline">X</span> est un ensemble alors la composition <span class="math inline">\circ</span> est une loi de composition interne sur <span class="math inline">\mathcal{F}(X,X)</span> ;</li>
+<li>sur l’ensemble des suites numériques <span class="math inline">\mathbb{K}^{\mathbb{N}}</span>, on définit <span class="math inline">(u_n)_n+(v_n)_n=(u_n+v_n)_n</span>.</li>
+</ul>
+</div>
+</section>
+<section id="vocabulaire" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="vocabulaire"><span class="header-section-number">1.2</span> Vocabulaire</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 1.2 — (Associativité)</strong></p>
+<p><span class="math inline">\top</span> est <strong>associative</strong> si et seulement si <span class="math display">\forall a,b,c\in E,\ (a\top b)\top c=a\top(b\top c)</span> Si c’est le cas, on se passe de parenthèses.</p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 1.2</strong></p>
+<p>Les exemples de lois de composition interne précédentes sont toutes associatives sauf le produit vectoriel.</p>
+</div>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 1.3 — (Élément neutre)</strong></p>
+<p><span class="math inline">e\in E</span> est <strong>élément neutre</strong> pour <span class="math inline">\top</span> si et seulement si <span class="math display">\forall x\in E,\ x\top e=e\top x=x</span></p>
+</div>
+<p>Il ne peut exister qu’un seul neutre : en effet si <span class="math inline">e_1</span> et <span class="math inline">e_2</span> sont deux éléments neutres pour la loi <span class="math inline">\top</span>, alors <span class="math inline">e_1=e_1\top e_2=e_2</span>.</p>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 1.4 — (Commutativité)</strong></p>
+<p>Soient <span class="math inline">a,b\in E</span>. On dit que <span class="math inline">a</span> et <span class="math inline">b</span> <strong>commutent</strong> (pour <span class="math inline">\top</span>) si et seulement si <span class="math inline">a\top b=b\top a</span>. La loi <span class="math inline">\top</span> est dite <strong>commutative</strong> si et seulement si <span class="math inline">\forall a,b\in E,\ a\top b=b\top a</span>.</p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 1.3</strong></p>
+<ul>
+<li><span class="math inline">+</span> et <span class="math inline">\times</span> sur les ensembles usuels <span class="math inline">(\mathbb{N},\mathbb{Z},\mathbb{Q},\mathbb{R},\mathbb{C})</span> et sur <span class="math inline">\mathbb{K}^n</span> sont commutatives ;</li>
+<li>sur <span class="math inline">E=\mathcal{F}(X,X)</span>, <span class="math inline">\circ</span> n’est pas commutative dès que <span class="math inline">X</span> a au moins deux éléments : en effet, supposons que <span class="math inline">X</span> possède deux éléments <span class="math inline">a,b</span> avec <span class="math inline">a\neq b</span> ; considérons <span class="math inline">f : x\mapsto a</span> et <span class="math inline">g : x\mapsto b</span> : on a <span class="math inline">f\circ g(a)=a</span> et <span class="math inline">g\circ f(a)=b\neq a</span>, donc <span class="math inline">g\circ f\neq f\circ g</span> ;</li>
+<li>l’addition des vecteurs est commutative, ainsi que <span class="math inline">+</span> sur <span class="math inline">\mathbb{K}^{\mathbb{N}}</span>.</li>
+</ul>
+</div>
+</section>
+<section id="monoïdes" class="level2" data-number="1.3">
+<h2 data-number="1.3" class="anchored" data-anchor-id="monoïdes"><span class="header-section-number">1.3</span> Monoïdes</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 1.5</strong></p>
+<p>Un <strong>monoïde</strong> est un couple <span class="math inline">(E,\top)</span> où <span class="math inline">E</span> est un ensemble (non vide) et <span class="math inline">\top</span> une loi de composition interne associative admettant un neutre sur <span class="math inline">E</span>.</p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 1.4</strong></p>
+<ul>
+<li><span class="math inline">(\mathbb{N},+)</span>, <span class="math inline">(\mathbb{N},\times)</span>, <span class="math inline">(\mathbb{Z},+)</span>, <span class="math inline">(\mathbb{R},+)</span>, <span class="math inline">(\mathbb{R},\times)</span> ;</li>
+<li><span class="math inline">(\mathbb{K}^n,+)</span> de neutre <span class="math inline">(0,\cdots,0)</span> ; <span class="math inline">(\mathbb{K}^n,\times)</span> de neutre <span class="math inline">(1,\cdots,1)</span> ;</li>
+<li><span class="math inline">(\mathcal{F}(X,X),\circ)</span> de neutre <span class="math inline">\mathrm{Id}_X</span> ;</li>
+<li><span class="math inline">(\mathcal{F}(X,\mathbb{R}),\times)</span> de neutre la fonction constante égale à 1 ; <span class="math inline">(\mathcal{F}(X,\mathbb{R}),+)</span> de neutre la fonction nulle ;</li>
+<li><span class="math inline">(\mathbb{K}^{\mathbb{N}},+)</span> de neutre la suite nulle.</li>
+</ul>
+</div>
+<p>Un monoïde est dit <strong>commutatif</strong> lorsque <span class="math inline">\top</span> est commutative. Dans ce cas il est fréquent d’utiliser une notation additive <span class="math inline">+</span> pour remplacer <span class="math inline">\top</span> ; on note généralement <span class="math inline">0_E</span> le neutre de <span class="math inline">+</span> sur <span class="math inline">E</span>.</p>
+</section>
+<section id="éléments-inversibles" class="level2" data-number="1.4">
+<h2 data-number="1.4" class="anchored" data-anchor-id="éléments-inversibles"><span class="header-section-number">1.4</span> Éléments inversibles</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 1.6</strong></p>
+<p>Soit <span class="math inline">(E,\top)</span> un monoïde, <span class="math inline">e</span> l’élément neutre de <span class="math inline">\top</span>, et <span class="math inline">x\in E</span>. <span class="math inline">x</span> est <strong>inversible à gauche</strong> (respectivement à droite) s’il existe <span class="math inline">y\in E</span> tel que <span class="math inline">y\top x=e</span> (respectivement <span class="math inline">x\top y=e</span>). <span class="math inline">x</span> est <strong>inversible</strong> si <span class="math inline">x</span> admet un inverse à gauche et à droite.</p>
+</div>
+<p><strong>Unicité.</strong> Supposons <span class="math inline">x</span> inversible. Soient <span class="math inline">y,z\in E</span> avec <span class="math inline">y\top x=x\top z=e</span>. Alors <span class="math display">y=y\top e=y\top(x\top z)=(y\top x)\top z=e\top z=z</span> Donc <span class="math inline">y=z</span>. Ceci prouve que si <span class="math inline">x</span> est inversible, ses inverses à gauche et à droite sont égaux. L’unique élément de <span class="math inline">E</span> tel que <span class="math inline">y\top x=x\top y=e</span> s’appelle <strong>l’inverse de <span class="math inline">x</span></strong> pour <span class="math inline">\top</span> et se note <span class="math inline">x^{-1}</span>.</p>
+<div class="proof remark">
+<p><span class="proof-title"><em>Remarque</em>. </span>Pour une loi additive on parle plutôt d’opposé et on note <span class="math inline">-x</span> au lieu de <span class="math inline">x^{-1}</span>.</p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 1.1</strong></p>
+<ul>
+<li>Si <span class="math inline">x</span> est inversible, <span class="math inline">x^{-1}</span> aussi et <span class="math inline">(x^{-1})^{-1}=x</span> ;</li>
+<li>si <span class="math inline">x</span> et <span class="math inline">x'</span> sont inversibles alors <span class="math inline">x\top x'</span> aussi et <span class="math inline">(x\top x')^{-1}=x'^{-1}\top x^{-1}</span>.</li>
+</ul>
+</div>
+</section>
+<section id="éléments-réguliers" class="level2" data-number="1.5">
+<h2 data-number="1.5" class="anchored" data-anchor-id="éléments-réguliers"><span class="header-section-number">1.5</span> Éléments réguliers</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 1.7</strong></p>
+<p><span class="math inline">x\in E</span> est <strong>régulier à gauche</strong> si et seulement si <span class="math inline">\forall y,z\in E,\ x\top y=x\top z\Rightarrow y=z</span>, et <span class="math inline">x\in E</span> est <strong>régulier à droite</strong> si et seulement si <span class="math inline">\forall y,z\in E,\ y\top x=z\top x\Rightarrow y=z</span>. <span class="math inline">x</span> est <strong>régulier</strong> si et seulement si <span class="math inline">x</span> est régulier à droite et à gauche.</p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 1.2</strong></p>
+<p>Si <span class="math inline">x</span> est inversible à gauche (respectivement à droite) alors <span class="math inline">x</span> est régulier à gauche (respectivement à droite). En particulier, si <span class="math inline">x</span> est inversible, alors <span class="math inline">x</span> est régulier.</p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Preuve</em>. </span>En effet, soit <span class="math inline">x'</span> un inverse de <span class="math inline">x</span> à gauche, et <span class="math inline">y,z\in E</span>. Alors : <span class="math display">x\top y=x\top z \Rightarrow x'\top(x\top y)=x'\top(x\top z) \Rightarrow (x'\top x)\top y=(x'\top x)\top z \Rightarrow e\top y=e\top z \Rightarrow y=z</span></p>
+</div>
+<div class="proof remark" title="(Piège !)">
+<p><span class="proof-title"><em>Remarque</em>. </span>La réciproque est fausse !</p>
+<ul>
+<li>Si l’on considère <span class="math inline">(\mathbb{N},\times)</span>, tout élément non nul est régulier mais le seul inversible de <span class="math inline">(\mathbb{N},\times)</span> est <span class="math inline">1</span>.</li>
+<li>Dans <span class="math inline">(\mathbb{Z}/6\mathbb{Z},\dot\times)</span>, <span class="math inline">\overline{2}\neq\overline{0}</span> et <span class="math inline">\overline{2}</span> n’est pas régulier. En effet <span class="math inline">\overline{2}\dot\times\overline{3}=\overline{2}\dot\times\overline{0}</span> et <span class="math inline">\overline{3}\neq\overline{0}</span>.</li>
+</ul>
+</div>
+</section>
+<section id="itérés-dun-élément-pour-une-loi-dans-un-monoïde" class="level2" data-number="1.6">
+<h2 data-number="1.6" class="anchored" data-anchor-id="itérés-dun-élément-pour-une-loi-dans-un-monoïde"><span class="header-section-number">1.6</span> Itérés d’un élément pour une loi dans un monoïde</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 1.8</strong></p>
+<p>Soit <span class="math inline">(E,\top)</span> un monoïde de neutre <span class="math inline">e</span>. On définit pour <span class="math inline">n\in\mathbb{N}</span>, <span class="math inline">x^n</span> par :</p>
+<ul>
+<li><span class="math inline">x^0=e</span> ;</li>
+<li><span class="math inline">\forall k\in\mathbb{N},\ x^{k+1}=x^k\top x</span>.</li>
+</ul>
+<p>Si <span class="math inline">\top</span> est commutative et notée de manière additive, on note <span class="math inline">nx</span> au lieu de <span class="math inline">x^n</span>, qui se définit alors par <span class="math inline">0x=0_E</span> et <span class="math inline">\forall k\in\mathbb{N},\ (k+1)x=kx+x</span>.</p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 1.3</strong></p>
+<ol type="1">
+<li><span class="math inline">\forall n,m\in\mathbb{N},\ \forall x\in E,\ x^{m+n}=x^m\top x^n=x^n\top x^m</span> (en notation additive <span class="math inline">(n+m)x=nx+mx</span>) ;</li>
+<li><span class="math inline">\forall m,n\in\mathbb{N},\ \forall x\in E,\ (x^n)^m=x^{nm}</span> (en notation additive <span class="math inline">m(nx)=(mn)x</span>) ;</li>
+<li>soient <span class="math inline">x,y\in E</span> tels que <span class="math inline">x\top y=y\top x</span> ; alors <span class="math inline">\forall p,q\in\mathbb{N},\ x^p\top y^q=y^q\top x^p</span> ;</li>
+<li>soient <span class="math inline">x,y\in E</span> tels que <span class="math inline">x\top y=y\top x</span> ; alors <span class="math inline">\forall n\in\mathbb{N},\ (x\top y)^n=x^n\top y^n</span> ;</li>
+<li>soit <span class="math inline">x\in E</span> inversible pour <span class="math inline">\top</span> ; pour <span class="math inline">n\in\mathbb{N}^*</span>, on pose <span class="math inline">x^{-n}=(x^{-1})^n</span> ; on a les mêmes propriétés pour <span class="math inline">m,n\in\mathbb{Z}</span>.</li>
+</ol>
+</div>
+<p>Les démonstrations se font par récurrence et sont laissées en exercice.</p>
+</section>
+</section>
+<section id="groupes" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> Groupes</h1>
+<section id="définitions-et-exemples" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="définitions-et-exemples"><span class="header-section-number">2.1</span> Définitions et exemples</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 2.1</strong></p>
+<p>Un <strong>groupe</strong> est un monoïde <span class="math inline">(G,\cdot)</span> tel que tout élément de <span class="math inline">G</span> admet un inverse pour « <span class="math inline">\cdot</span> ». Le groupe <span class="math inline">(G,\cdot)</span> sera dit <strong>commutatif</strong> (ou <strong>abélien</strong>) si et seulement si « <span class="math inline">\cdot</span> » l’est.</p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 2.1</strong></p>
+<p>Si <span class="math inline">(E_1,\top_1),\cdots,(E_n,\top_n)</span> sont des groupes alors <span class="math inline">E=\prod_{k=1}^n E_k</span> muni de la loi <span class="math display">\forall x=(x_1,\cdots,x_n),y=(y_1,\cdots,y_n)\in E,\quad x\top y=(x_1\top_1 y_1,\cdots,x_n\top_n y_n)</span> est un groupe. De plus, si les groupes <span class="math inline">(E_k,\top_k)</span> sont commutatifs alors <span class="math inline">(E,\top)</span> l’est aussi.</p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 2.1</strong></p>
+<ul>
+<li><span class="math inline">(\mathbb{Z},+)</span>, <span class="math inline">(\mathbb{Q},+)</span>, <span class="math inline">(\mathbb{R},+)</span>, <span class="math inline">(\mathbb{C},+)</span> sont des groupes commutatifs ;</li>
+<li><span class="math inline">(\mathbb{K}^n,+)</span> et <span class="math inline">((\mathbb{K}^*)^n,\times)</span> sont des groupes commutatifs ;</li>
+<li>pour <span class="math inline">n\in\mathbb{N}^*</span>, <span class="math inline">(\mathbb{Z}/n\mathbb{Z},\dot+)</span> est un groupe (commutatif) ;</li>
+<li>soit <span class="math inline">(E,\cdot)</span> un monoïde ; on note <span class="math inline">\mathcal{U}(E)</span> l’ensemble des éléments inversibles de <span class="math inline">E</span> par « <span class="math inline">\cdot</span> » ; alors <span class="math inline">(\mathcal{U}(E),\cdot)</span> est un groupe ;</li>
+<li>pour <span class="math inline">(\mathbb{Z},\times)</span>, <span class="math inline">\mathcal{U}(\mathbb{Z})=\{\pm1\}</span> ; pour <span class="math inline">(\mathbb{K},\times)</span>, <span class="math inline">\mathcal{U}(\mathbb{K})=\mathbb{K}^*</span> ;</li>
+<li>soit <span class="math inline">X\neq\varnothing</span> ; l’ensemble <span class="math inline">\mathfrak{S}(X)</span> des bijections de <span class="math inline">X</span> dans <span class="math inline">X</span> muni de <span class="math inline">\circ</span> est un groupe, non commutatif dès que <span class="math inline">X</span> possède trois éléments distincts ; en particulier, pour <span class="math inline">n\in\mathbb{N}^*</span>, on note <span class="math inline">S_n=\mathfrak{S}(\llbracket 1,n\rrbracket)</span> : <span class="math inline">(S_n,\circ)</span> est appelé le <strong>groupe symétrique</strong>, non commutatif dès que <span class="math inline">n\geq 3</span> et fini de cardinal <span class="math inline">n!</span> ;</li>
+<li>l’ensemble des <span class="math inline">\overline{k}</span> avec <span class="math inline">k\wedge n=1</span> muni de <span class="math inline">\dot\times</span> est un groupe commutatif fini ; par exemple <span class="math inline">\mathcal{U}(\mathbb{Z}/12\mathbb{Z})=\{\overline{1},\overline{5},\overline{7},\overline{11}\}</span> ;</li>
+<li><span class="math inline">(\mathbb{K}^{\mathbb{N}},+)</span> est un groupe commutatif.</li>
+</ul>
+</div>
+<div class="proof remark">
+<p><span class="proof-title"><em>Remarque</em>. </span>Soit <span class="math inline">(G,\cdot)</span> un groupe, <span class="math inline">a\in G</span>. Alors <span class="math inline">f_a : x\in G\mapsto x\cdot a</span> est une permutation de <span class="math inline">G</span> (d’inverse <span class="math inline">f_{a^{-1}}</span>).</p>
+</div>
+<p><strong>Application.</strong> Soit <span class="math inline">G</span> un groupe fini commutatif, <span class="math inline">n=\mathrm{Card}(G)</span>. Alors <span class="math inline">\forall x\in G,\ x^n=e</span>.</p>
+<div class="proof">
+<p><span class="proof-title"><em>Preuve</em>. </span>Notons <span class="math inline">G=\{x_0,x_1,\cdots,x_{n-1}\}</span> et soit <span class="math inline">p=x_0x_1\cdots x_{n-1}</span>. Soit <span class="math inline">a\in G</span> ; l’ensemble <span class="math inline">\{ax_0,ax_1,\cdots,ax_{n-1}\}</span> n’est autre que <span class="math inline">G</span> car <span class="math inline">x\mapsto ax</span> est une permutation de <span class="math inline">G</span>. La loi de <span class="math inline">G</span> étant commutative, <span class="math inline">p=(ax_0)(ax_1)\cdots(ax_{n-1})=a^np</span>. Or <span class="math inline">p\in G</span> et <span class="math inline">p</span> est inversible donc régulier, donc <span class="math inline">a^n=pp^{-1}=e</span>.</p>
+</div>
+<p>Ainsi, soit <span class="math inline">n\in\mathbb{N}^*</span> : pour <span class="math inline">x\in\mathbb{Z}/n\mathbb{Z}</span> muni de <span class="math inline">\dot+</span>, <span class="math inline">nx=\overline{0}</span> ; pour <span class="math inline">x\in\mathcal{U}(\mathbb{Z}/n\mathbb{Z})</span> muni de <span class="math inline">\dot\times</span>, <span class="math inline">x^{\varphi(n)}=\overline{1}</span>. En particulier, si <span class="math inline">n</span> est premier, on retrouve le <strong>petit théorème de Fermat</strong> : <span class="math inline">\forall a\in\mathbb{Z},\ n\nmid a \Rightarrow a^{n-1}\equiv 1\ [n]</span>.</p>
+</section>
+<section id="sous-groupes" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="sous-groupes"><span class="header-section-number">2.2</span> Sous-groupes</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 2.2</strong></p>
+<p>Soit <span class="math inline">(G,\cdot)</span> un groupe et <span class="math inline">H\subset G</span>. On dit que <span class="math inline">H</span> est un <strong>sous-groupe</strong> de <span class="math inline">G</span> si :</p>
+<ol type="1">
+<li><span class="math inline">H\neq\varnothing</span> ;</li>
+<li><span class="math inline">\forall x,y\in H,\ x\cdot y\in H</span> ;</li>
+<li><span class="math inline">\forall x\in H,\ x^{-1}\in H</span>.</li>
+</ol>
+</div>
+<div class="proof remark">
+<p><span class="proof-title"><em>Remarque</em>. </span>Soit <span class="math inline">(G,\cdot)</span> un groupe de neutre <span class="math inline">e</span>.</p>
+<ul>
+<li>Si <span class="math inline">H</span> est un sous-groupe de <span class="math inline">G</span>, alors <span class="math inline">e\in H</span>.</li>
+<li><span class="math inline">H\subset G</span> est un sous-groupe de <span class="math inline">G</span> si et seulement si : (1) <span class="math inline">e\in H</span> ; (2) <span class="math inline">\forall x,y\in H,\ x^{-1}\cdot y\in H</span>.</li>
+<li>En notation additive, <span class="math inline">H</span> est un sous-groupe de <span class="math inline">(G,+)</span> si et seulement si : <span class="math inline">H\neq\varnothing</span>, <span class="math inline">\forall x,y\in H,\ x+y\in H</span> et <span class="math inline">\forall x\in H,\ -x\in H</span>.</li>
+</ul>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 2.2</strong></p>
+<ul>
+<li><span class="math inline">G</span> et <span class="math inline">\{e\}</span> sont des sous-groupes de <span class="math inline">G</span> ;</li>
+<li><span class="math inline">\mathbb{Z}</span> est un sous-groupe de <span class="math inline">(\mathbb{Q},+)</span> ; <span class="math inline">\mathbb{Q}</span> est un sous-groupe de <span class="math inline">(\mathbb{R},+)</span> ; <span class="math inline">\mathbb{R}</span> est un sous-groupe de <span class="math inline">(\mathbb{C},+)</span> ;</li>
+<li><span class="math inline">\mathbb{U}</span> est un sous-groupe de <span class="math inline">(\mathbb{C}^*,\times)</span> ; pour tout <span class="math inline">n\in\mathbb{N}^*</span>, <span class="math inline">\mathbb{U}_n</span> est un sous-groupe de <span class="math inline">(\mathbb{C}^*,\times)</span>.</li>
+</ul>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 2.2</strong></p>
+<p>Une intersection quelconque de sous-groupes est un sous-groupe. En d’autres termes, soit <span class="math inline">(G,\cdot)</span> un groupe de neutre <span class="math inline">e</span>, <span class="math inline">I</span> un ensemble non vide et <span class="math inline">(H_i)_{i\in I}</span> une famille de sous-groupes. Alors <span class="math inline">\bigcap_{i\in I}H_i</span> est un sous-groupe de <span class="math inline">G</span>.</p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Preuve</em>. </span>Pour tout <span class="math inline">i\in I</span>, <span class="math inline">e\in H_i</span> car <span class="math inline">H_i</span> est un sous-groupe. Soient <span class="math inline">x,y\in\bigcap_{i\in I}H_i</span> ; alors pour tout <span class="math inline">i\in I</span>, <span class="math inline">x\in H_i</span> et <span class="math inline">y\in H_i</span> donc <span class="math inline">x^{-1}\cdot y\in H_i</span>, d’où <span class="math inline">x^{-1}\cdot y\in\bigcap_{i\in I}H_i</span>.</p>
+</div>
+</section>
+<section id="sous-groupes-de-mathbbz" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="sous-groupes-de-mathbbz"><span class="header-section-number">2.3</span> Sous-groupes de <span class="math inline">\mathbb{Z}</span></h2>
+<p>Pour <span class="math inline">n\in\mathbb{N}</span> on note <span class="math inline">n\mathbb{Z}=\{np\ /\ p\in\mathbb{Z}\}</span> l’ensemble des multiples de <span class="math inline">n</span> dans <span class="math inline">\mathbb{Z}</span> ; <span class="math inline">n\mathbb{Z}</span> est un sous-groupe de <span class="math inline">(\mathbb{Z},+)</span>.</p>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 2.1</strong></p>
+<p>Soit <span class="math inline">H</span> un sous-groupe de <span class="math inline">(\mathbb{Z},+)</span>. Alors il existe <span class="math inline">n\in\mathbb{N}</span> tel que <span class="math inline">H=n\mathbb{Z}</span>.</p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Preuve</em>. </span>Si <span class="math inline">H=\{0\}</span>, alors <span class="math inline">H=0\mathbb{Z}</span>. Si <span class="math inline">H\neq\{0\}</span>, soit <span class="math inline">x\in H</span>, <span class="math inline">x\neq 0</span> ; alors <span class="math inline">-x\in H</span>, donc <span class="math inline">H</span> contient un entier naturel non nul, c’est-à-dire <span class="math inline">H\cap\mathbb{N}^*\neq\varnothing</span>. Soit <span class="math inline">n=\min(H\cap\mathbb{N}^*)</span>. Montrons que <span class="math inline">H=n\mathbb{Z}</span> :</p>
+<ul>
+<li><span class="math inline">n\in H</span> donc <span class="math inline">2n\in H</span> puis, par récurrence, <span class="math inline">\forall k\in\mathbb{N},\ kn\in H</span> ; de même <span class="math inline">-n\in H</span> donc <span class="math inline">\forall k\in\mathbb{Z},\ kn\in H</span>. Ainsi <span class="math inline">n\mathbb{Z}\subset H</span>.</li>
+<li>Soit <span class="math inline">m\in H</span> ; il existe <span class="math inline">(q,r)\in\mathbb{Z}^2</span> tels que <span class="math inline">m=nq+r</span> et <span class="math inline">0\leq r\leq n-1</span>. Or <span class="math inline">nq\in n\mathbb{Z}</span> et <span class="math inline">r=m-nq\in H</span> car <span class="math inline">H</span> est un sous-groupe. Si <span class="math inline">r&gt;0</span>, alors <span class="math inline">r\in H\cap\mathbb{N}^*</span> et <span class="math inline">r&lt;n</span>, ce qui contredit la définition de <span class="math inline">n</span>. Donc <span class="math inline">r=0</span>, donc <span class="math inline">m=nq\in n\mathbb{Z}</span>, donc <span class="math inline">H\subset n\mathbb{Z}</span>.</li>
+</ul>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 2.1</strong></p>
+<p>Soit <span class="math inline">(a,b)\in\mathbb{Z}^2\smallsetminus\{(0,0)\}</span>. En utilisant la propriété montrée ci-dessus, montrer que : <span class="math display">a\mathbb{Z}+b\mathbb{Z}=(a\wedge b)\mathbb{Z} \quad ; \quad a\mathbb{Z}\cap b\mathbb{Z}=(a\vee b)\mathbb{Z}</span> où <span class="math inline">a\wedge b</span> désigne le pgcd de <span class="math inline">a</span> et <span class="math inline">b</span>, et <span class="math inline">a\vee b</span> leur ppcm.</p>
+</div>
+</section>
+<section id="sous-groupe-engendré-par-une-partie" class="level2" data-number="2.4">
+<h2 data-number="2.4" class="anchored" data-anchor-id="sous-groupe-engendré-par-une-partie"><span class="header-section-number">2.4</span> Sous-groupe engendré par une partie</h2>
+<p>Soit <span class="math inline">S\subset G</span> ; considérons l’ensemble <span class="math inline">\mathcal{F}</span> des sous-groupes <span class="math inline">H</span> tels que <span class="math inline">S\subset H</span> (on remarque que <span class="math inline">\mathcal{F}\neq\varnothing</span> car <span class="math inline">G\in\mathcal{F}</span>). L’intersection de tous les sous-groupes de <span class="math inline">G</span> qui contiennent <span class="math inline">S</span> est un sous-groupe, noté <span class="math inline">\langle S\rangle</span> : c’est le plus petit sous-groupe qui contient <span class="math inline">S</span>, appelé <strong>sous-groupe engendré par</strong> <span class="math inline">S</span>. On dira que <span class="math inline">S</span> <strong>engendre</strong> <span class="math inline">G</span> si et seulement si <span class="math inline">\langle S\rangle=G</span>. On remarque que <span class="math inline">\langle\varnothing\rangle=\{e\}</span>.</p>
+<p>Pour <span class="math inline">x\in G</span>, on montre que <span class="math inline">\langle x\rangle=\{x^k\ /\ k\in\mathbb{Z}\}</span>.</p>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 2.3</strong></p>
+<p>On dit que <span class="math inline">G</span> est <strong>monogène</strong> s’il existe <span class="math inline">x\in G</span> tel que <span class="math inline">G=\langle x\rangle</span>. On dit que <span class="math inline">G</span> est <strong>cyclique</strong> s’il est monogène et fini.</p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 2.3</strong></p>
+<ul>
+<li><span class="math inline">(\mathbb{Z},+)</span> est monogène car <span class="math inline">\mathbb{Z}=\langle 1\rangle=\langle -1\rangle</span> ; <span class="math inline">n\mathbb{Z}=\langle n\rangle</span> dans <span class="math inline">(\mathbb{Z},+)</span> ;</li>
+<li><span class="math inline">(\mathbb{U}_n,\times)</span> est cyclique car <span class="math inline">\mathbb{U}_n=\langle\omega\rangle</span> où <span class="math inline">\omega=e^{\frac{2i\pi}{n}}</span> ;</li>
+<li><span class="math inline">(\mathbb{Z}/n\mathbb{Z},\dot+)</span> est cyclique car <span class="math inline">\mathbb{Z}/n\mathbb{Z}=\langle\overline{1}\rangle</span>.</li>
+</ul>
+</div>
+<p><strong>Conséquence.</strong> Un groupe monogène est forcément commutatif ; donc un groupe non commutatif ne peut être monogène.</p>
+</section>
+<section id="morphismes-de-groupes" class="level2" data-number="2.5">
+<h2 data-number="2.5" class="anchored" data-anchor-id="morphismes-de-groupes"><span class="header-section-number">2.5</span> Morphismes de groupes</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 2.4</strong></p>
+<p>Soient <span class="math inline">(G,\cdot)</span> et <span class="math inline">(H,\star)</span> deux groupes et <span class="math inline">f : G\to H</span>. On dit que <span class="math inline">f</span> est un <strong>morphisme</strong> de groupes si et seulement si <span class="math inline">\forall x,y\in G,\ f(x\cdot y)=f(x)\star f(y)</span>.</p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 2.4</strong></p>
+<ul>
+<li><span class="math inline">\ln</span> est un morphisme de groupes de <span class="math inline">(\mathbb{R}_+^*,\times)</span> dans <span class="math inline">(\mathbb{R},+)</span> ; <span class="math inline">\exp</span> est un morphisme de <span class="math inline">(\mathbb{R},+)</span> dans <span class="math inline">(\mathbb{R}_+^*,\times)</span> ;</li>
+<li>pour <span class="math inline">\alpha\in\mathbb{R}</span>, <span class="math inline">x\mapsto x^\alpha</span> est un morphisme de <span class="math inline">(\mathbb{R}_+^*,\times)</span> dans <span class="math inline">(\mathbb{R}_+^*,\times)</span> ;</li>
+<li><span class="math inline">z\mapsto|z|</span> est un morphisme de <span class="math inline">(\mathbb{C}^*,\times)</span> dans <span class="math inline">(\mathbb{R}_+^*,\times)</span> ; <span class="math inline">z\mapsto\overline{z}</span> est un morphisme de <span class="math inline">(\mathbb{C}^*,\times)</span> dans <span class="math inline">(\mathbb{C}^*,\times)</span> ;</li>
+<li><span class="math inline">t\mapsto e^{it}</span> est un morphisme de <span class="math inline">(\mathbb{R},+)</span> dans <span class="math inline">(\mathbb{U},\times)</span>.</li>
+</ul>
+</div>
+<p><strong>Vocabulaire.</strong> Un morphisme de groupes bijectif est appelé <strong>isomorphisme</strong> ; un morphisme de <span class="math inline">G</span> dans <span class="math inline">G</span> est un <strong>endomorphisme</strong> ; un endomorphisme bijectif est un <strong>automorphisme</strong>.</p>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 2.3</strong></p>
+<p>Soient <span class="math inline">(G,\cdot)</span> et <span class="math inline">(H,\star)</span> deux groupes et <span class="math inline">f : G\to H</span> un morphisme de groupes. Alors :</p>
+<ol type="1">
+<li><span class="math inline">f(e_G)=e_H</span> ;</li>
+<li>pour <span class="math inline">x\in G</span> : <span class="math inline">\forall n\in\mathbb{Z},\ f(x^n)=(f(x))^n</span> et <span class="math inline">f(x^{-1})=(f(x))^{-1}</span> ;</li>
+<li>soit <span class="math inline">G_1</span> un sous-groupe de <span class="math inline">(G,\cdot)</span> ; alors <span class="math inline">f(G_1)</span> est un sous-groupe de <span class="math inline">(H,\star)</span> ;</li>
+<li>soit <span class="math inline">H_1</span> un sous-groupe de <span class="math inline">(H,\star)</span> ; alors <span class="math inline">f^{-1}(H_1)</span> est un sous-groupe de <span class="math inline">(G,\cdot)</span> ; en particulier, <span class="math inline">f^{-1}(\{e_H\})=\{x\in G\ /\ f(x)=e_H\}</span> est un sous-groupe de <span class="math inline">(G,\cdot)</span> appelé <strong>noyau</strong> de <span class="math inline">f</span> et noté <span class="math inline">\ker f</span> ;</li>
+<li><span class="math inline">f</span> est injective si et seulement si <span class="math inline">\ker f=\{e_G\}</span>.</li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 2.4 — (Composée de deux morphismes)</strong></p>
+<ol type="1">
+<li>Soient <span class="math inline">(G,\cdot)</span>, <span class="math inline">(H,\star)</span> et <span class="math inline">(L,\top)</span> trois groupes et <span class="math inline">f : G\to H</span>, <span class="math inline">g : H\to L</span> des morphismes de groupes. Alors <span class="math inline">g\circ f</span> est un morphisme de <span class="math inline">(G,\cdot)</span> dans <span class="math inline">(L,\top)</span>.</li>
+<li>Soit <span class="math inline">f : G\to H</span> un isomorphisme de groupes. Alors <span class="math inline">f^{-1}</span> est un isomorphisme de <span class="math inline">(H,\star)</span> dans <span class="math inline">(G,\cdot)</span>.</li>
+</ol>
+</div>
+<p><strong>Application.</strong> Soit <span class="math inline">(G,\cdot)</span> un groupe. On note <span class="math inline">\mathrm{Aut}(G)</span> l’ensemble des automorphismes de <span class="math inline">G</span>. Alors <span class="math inline">\mathrm{Aut}(G)</span> est un sous-groupe de <span class="math inline">(\mathfrak{S}(G),\circ)</span>.</p>
+</section>
+</section>
+<section id="anneaux-et-corps" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Anneaux et corps</h1>
+<section id="définitions-règles-de-calcul-exemples" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="définitions-règles-de-calcul-exemples"><span class="header-section-number">3.1</span> Définitions, règles de calcul, exemples</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 3.1</strong></p>
+<p>Un <strong>anneau</strong> est un triplet <span class="math inline">(A,+,\times)</span> où <span class="math inline">A</span> est un ensemble non vide, <span class="math inline">+</span> et <span class="math inline">\times</span> des lois de composition internes telles que :</p>
+<ol type="1">
+<li><span class="math inline">(A,+)</span> est un groupe commutatif de neutre <span class="math inline">0_A</span> (on parle de zéro de <span class="math inline">A</span>) ;</li>
+<li><span class="math inline">(A,\times)</span> est un monoïde de neutre <span class="math inline">1_A</span> ;</li>
+<li><span class="math inline">\times</span> est distributive à gauche et à droite par rapport à <span class="math inline">+</span> : <span class="math inline">\forall a,b,c\in A,\ (a+b)\times c=a\times c+b\times c</span> et <span class="math inline">c\times(a+b)=c\times a+c\times b</span>.</li>
+</ol>
+<p>L’anneau <span class="math inline">(A,+,\times)</span> est <strong>commutatif</strong> si et seulement si <span class="math inline">\times</span> est commutative.</p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 3.1</strong></p>
+<ul>
+<li><span class="math inline">(\mathbb{Z},+,\times)</span>, <span class="math inline">(\mathbb{R},+,\times)</span>, <span class="math inline">(\mathbb{C},+,\times)</span> ;</li>
+<li><span class="math inline">(\mathbb{K}^n,+,\times)</span> est un anneau commutatif ;</li>
+<li>si <span class="math inline">X</span> est un ensemble, <span class="math inline">(\mathcal{F}(X,\mathbb{K}),+,\times)</span> est un anneau ;</li>
+<li>pour <span class="math inline">n\in\mathbb{N}^*</span>, <span class="math inline">(\mathbb{Z}/n\mathbb{Z},\dot+,\dot\times)</span> est un anneau.</li>
+</ul>
+</div>
+<p><strong>Vocabulaire.</strong> Les éléments inversibles pour <span class="math inline">\times</span> s’appellent les <strong>unités</strong> de <span class="math inline">A</span>, dont l’ensemble se note <span class="math inline">\mathcal{U}(A)</span> ; <span class="math inline">(\mathcal{U}(A),\times)</span> est un groupe appelé le <strong>groupe des unités</strong> de <span class="math inline">A</span>. Par exemple, <span class="math inline">\mathcal{U}(\mathbb{Z})=\{\pm1\}</span>, <span class="math inline">\mathcal{U}(\mathbb{R})=\mathbb{R}^*</span>, <span class="math inline">\mathcal{U}(\mathbb{Z}/n\mathbb{Z})=\{\overline{k}\ /\ k\in\llbracket 1,n\rrbracket \text{ et } k\wedge n=1\}</span>.</p>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 3.1 — (Règles de calcul)</strong></p>
+<p>Soit <span class="math inline">(A,+,\times)</span> un anneau de neutres <span class="math inline">0_A</span> et <span class="math inline">1_A</span>. Alors :</p>
+<ol type="1">
+<li><strong>Élément absorbant :</strong> <span class="math inline">\forall x\in A,\ 0_A\times x=x\times 0_A=0_A</span> (donc <span class="math inline">0_A</span> n’est jamais inversible, et on écarte systématiquement le cas trivial <span class="math inline">1_A=0_A</span>) ;</li>
+<li><strong>Itérations de <span class="math inline">+</span> et <span class="math inline">\times</span> :</strong> <span class="math inline">\forall x,y\in A,\ \forall n\in\mathbb{Z},\ x\times(ny)=(nx)\times y=n(x\times y)</span>, et <span class="math inline">-1_A\times x=x\times(-1_A)=-x</span> ;</li>
+<li><strong>Règle des signes :</strong> <span class="math inline">(-y)\times x=y\times(-x)=-(x\times y)</span> et <span class="math inline">(-y)\times(-x)=y\times x</span> ;</li>
+<li><strong>Distributivité étendue :</strong> pour <span class="math inline">a\in A</span>, <span class="math inline">n\in\mathbb{N}^*</span>, <span class="math inline">b_1,\cdots,b_n\in A</span> : <span class="math inline">a\times\sum_{k=1}^n b_k=\sum_{k=1}^n a\times b_k</span> ;</li>
+<li><strong>Formule du binôme :</strong> pour <span class="math inline">a,b\in A</span> tels que <span class="math inline">a\times b=b\times a</span>, <span class="math inline">\forall n\in\mathbb{N}</span> : <span class="math display">(a+b)^n=\sum_{k=0}^n \binom{n}{k}a^k b^{n-k}</span></li>
+<li><strong>Factorisation :</strong> pour <span class="math inline">a,b\in A</span> tels que <span class="math inline">a\times b=b\times a</span>, <span class="math inline">\forall n\in\mathbb{N}^*</span> : <span class="math display">b^n-a^n=(b-a)\sum_{k=0}^{n-1}b^k a^{n-1-k}</span></li>
+</ol>
+</div>
+<div class="proof remark" title="(Piège !)">
+<p><span class="proof-title"><em>Remarque</em>. </span>Si <span class="math inline">a\times b\neq b\times a</span>, la formule du binôme peut être fausse : pour <span class="math inline">n=2</span>, <span class="math inline">(a+b)^2=a^2+a\times b+b\times a+b^2</span>, et il y a égalité avec <span class="math inline">a^2+2a\times b+b^2</span> si et seulement si <span class="math inline">a\times b=b\times a</span>.</p>
+</div>
+</section>
+<section id="anneaux-intègres" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="anneaux-intègres"><span class="header-section-number">3.2</span> Anneaux intègres</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 3.2</strong></p>
+<p>Un anneau <span class="math inline">(A,+,\times)</span> est <strong>intègre</strong> si et seulement si :</p>
+<ol type="1">
+<li><span class="math inline">(A,+,\times)</span> est commutatif ;</li>
+<li><span class="math inline">\forall x,y\in A,\ x\times y=0_A\Rightarrow x=0_A</span> ou <span class="math inline">y=0_A</span>.</li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 3.2</strong></p>
+<ul>
+<li><span class="math inline">(\mathbb{Z},+,\times)</span> est un anneau intègre ;</li>
+<li><span class="math inline">(\mathbb{Z}/6\mathbb{Z},\dot+,\dot\times)</span> n’est pas intègre : <span class="math inline">\overline{2}\dot\times\overline{3}=\overline{0}</span> mais <span class="math inline">\overline{2}\neq\overline{0}</span> et <span class="math inline">\overline{3}\neq\overline{0}</span> ;</li>
+<li>soit <span class="math inline">n\in\mathbb{N}^*</span> ; alors <span class="math inline">(\mathbb{Z}/n\mathbb{Z},\dot+,\dot\times)</span> est intègre si et seulement si <span class="math inline">n</span> est premier.</li>
+</ul>
+</div>
+<div class="proof" title="(ℤ/nℤ intègre ⟺ n premier)">
+<p><span class="proof-title"><em>Preuve</em>. </span>(<span class="math inline">\Rightarrow</span>) Par contraposée : supposons que <span class="math inline">n</span> n’est pas premier ; alors <span class="math inline">n=pq</span> avec <span class="math inline">p,q\in\llbracket 2,n-1\rrbracket</span>, d’où <span class="math inline">\overline{0}=\overline{n}=\overline{p}\dot\times\overline{q}</span> avec <span class="math inline">\overline{p}\neq\overline{0}</span> et <span class="math inline">\overline{q}\neq\overline{0}</span> : <span class="math inline">\mathbb{Z}/n\mathbb{Z}</span> n’est pas intègre.</p>
+<p>(<span class="math inline">\Leftarrow</span>) Supposons <span class="math inline">n</span> premier, et soient <span class="math inline">x,y\in\mathbb{Z}/n\mathbb{Z}</span> avec <span class="math inline">x\dot\times y=\overline{0}</span>. Il existe <span class="math inline">k,l\in\llbracket 0,n-1\rrbracket</span> tels que <span class="math inline">x=\overline{k}</span> et <span class="math inline">y=\overline{l}</span>. Ainsi <span class="math inline">\overline{0}=\overline{kl}</span> donc <span class="math inline">n\mid kl</span>. Or <span class="math inline">n</span> est premier donc <span class="math inline">n\mid k</span> ou <span class="math inline">n\mid l</span>, donc <span class="math inline">\overline{k}=\overline{0}</span> ou <span class="math inline">\overline{l}=\overline{0}</span>.</p>
+</div>
+<div class="proof remark">
+<p><span class="proof-title"><em>Remarque</em>. </span>Si <span class="math inline">(A,+,\times)</span> est intègre, alors tout élément non nul de <span class="math inline">A</span> est régulier pour <span class="math inline">\times</span> : si <span class="math inline">a\neq 0_A</span> et <span class="math inline">a\times b=a\times c</span>, alors <span class="math inline">a\times(b-c)=0</span> donc <span class="math inline">b-c=0</span>, c’est-à-dire <span class="math inline">b=c</span>.</p>
+</div>
+</section>
+<section id="corps" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="corps"><span class="header-section-number">3.3</span> Corps</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 3.3</strong></p>
+<p>Un anneau commutatif <span class="math inline">(\mathbb{K},+,\times)</span> est un <strong>corps</strong> si et seulement si tout élément non nul est inversible par <span class="math inline">\times</span>.</p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 3.3</strong></p>
+<ul>
+<li><span class="math inline">(\mathbb{Q},+,\times)</span>, <span class="math inline">(\mathbb{R},+,\times)</span>, <span class="math inline">(\mathbb{C},+,\times)</span> sont des corps ;</li>
+<li>tout corps est un anneau intègre : soit <span class="math inline">(\mathbb{K},+,\times)</span> un corps, <span class="math inline">x,y\in\mathbb{K}</span> avec <span class="math inline">x\times y=0_\mathbb{K}</span> ; si <span class="math inline">x\neq 0_\mathbb{K}</span>, alors <span class="math inline">x</span> est inversible donc <span class="math inline">x^{-1}\times x\times y=0_\mathbb{K}\Rightarrow y=0_\mathbb{K}</span> ;</li>
+<li>soit <span class="math inline">n\in\mathbb{N}^*</span> ; <span class="math inline">(\mathbb{Z}/n\mathbb{Z},\dot+,\dot\times)</span> est un corps si et seulement si <span class="math inline">n</span> est premier. Si <span class="math inline">p</span> est un nombre premier, on note en général <span class="math inline">\mathbb{F}_p</span> au lieu de <span class="math inline">\mathbb{Z}/p\mathbb{Z}</span>.</li>
+</ul>
+</div>
+</section>
+<section id="sous-anneaux-sous-corps-et-morphismes-danneaux" class="level2" data-number="3.4">
+<h2 data-number="3.4" class="anchored" data-anchor-id="sous-anneaux-sous-corps-et-morphismes-danneaux"><span class="header-section-number">3.4</span> Sous-anneaux, sous-corps et morphismes d’anneaux</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 3.4</strong></p>
+<p>Soit <span class="math inline">(A,+,\times)</span> un anneau et <span class="math inline">B\subset A</span>. On dit que <span class="math inline">B</span> est un <strong>sous-anneau</strong> de <span class="math inline">A</span> si :</p>
+<ol type="1">
+<li><span class="math inline">B</span> est un sous-groupe de <span class="math inline">(A,+)</span> (i.e.&nbsp;<span class="math inline">0_A\in B</span> et <span class="math inline">\forall x,y\in B,\ x-y\in B</span>) ;</li>
+<li><span class="math inline">B</span> est stable par <span class="math inline">\times</span> : <span class="math inline">\forall x,y\in B,\ x\times y\in B</span> ;</li>
+<li><span class="math inline">1_A\in B</span>.</li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 3.4</strong></p>
+<ul>
+<li><span class="math inline">\mathbb{Z}</span> est un sous-anneau de <span class="math inline">\mathbb{C}</span>, et <span class="math inline">\mathbb{Z}</span> est l’unique sous-anneau de <span class="math inline">\mathbb{Z}</span> ;</li>
+<li><span class="math inline">\mathbb{Z}[i]=\{a+ib\ /\ a,b\in\mathbb{Z}\}</span> est un sous-anneau de <span class="math inline">\mathbb{C}</span> ;</li>
+<li><span class="math inline">2\mathbb{Z}=\{2m\ /\ m\in\mathbb{Z}\}</span> vérifie (1) et (2) mais pas (3) : ce n’est donc pas un sous-anneau.</li>
+</ul>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 3.2</strong></p>
+<p>Une intersection de sous-anneaux est un sous-anneau.</p>
+</div>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 3.5</strong></p>
+<p>Soit <span class="math inline">(L,+,\times)</span> un corps et <span class="math inline">\mathbb{K}\subset L</span>. On dit que <span class="math inline">\mathbb{K}</span> est un <strong>sous-corps</strong> de <span class="math inline">L</span> si <span class="math inline">\mathbb{K}</span> est un sous-anneau de <span class="math inline">L</span> et <span class="math inline">\forall x\in\mathbb{K}\smallsetminus\{0\},\ x^{-1}\in\mathbb{K}</span>.</p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 3.5 — (ℚ[√5] est un sous-corps de ℝ)</strong></p>
+<p>On pose <span class="math inline">\mathbb{Q}[\sqrt{5}]=\{a+b\sqrt{5}\ /\ a,b\in\mathbb{Q}\}</span>.</p>
+<ul>
+<li><span class="math inline">\mathbb{Q}\subset\mathbb{Q}[\sqrt{5}]</span> ; la somme et le produit de deux éléments de <span class="math inline">\mathbb{Q}[\sqrt{5}]</span> sont dans <span class="math inline">\mathbb{Q}[\sqrt{5}]</span> : donc <span class="math inline">\mathbb{Q}[\sqrt{5}]</span> est un sous-anneau de <span class="math inline">(\mathbb{R},+,\times)</span>.</li>
+<li>Soit <span class="math inline">x=a+b\sqrt{5}\in\mathbb{Q}[\sqrt{5}]\smallsetminus\{0\}</span>. Alors <span class="math inline">a-b\sqrt{5}\neq 0</span> (sinon <span class="math inline">\sqrt{5}\in\mathbb{Q}</span> ou <span class="math inline">b=0</span>, cas tous deux impossibles), et : <span class="math display">\frac{1}{x}=\frac{a-b\sqrt{5}}{a^2+5b^2}=\frac{a}{a^2+5b^2}-\frac{b}{a^2+5b^2}\sqrt{5}\in\mathbb{Q}[\sqrt{5}]</span> Donc <span class="math inline">\mathbb{Q}[\sqrt{5}]</span> est un sous-corps de <span class="math inline">\mathbb{R}</span>.</li>
+</ul>
+</div>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 3.6 — (Morphisme d'anneaux)</strong></p>
+<p>Soient <span class="math inline">(A,+,\times)</span> et <span class="math inline">(B,\dot+,\dot\times)</span> deux anneaux. Alors <span class="math inline">f : A\to B</span> est un <strong>morphisme d’anneaux</strong> si :</p>
+<ol type="1">
+<li><span class="math inline">f</span> est un morphisme de groupes de <span class="math inline">(A,+)</span> dans <span class="math inline">(B,\dot+)</span> : <span class="math inline">\forall x,y\in A,\ f(x+y)=f(x)\dot+f(y)</span> ;</li>
+<li><span class="math inline">\forall x,y\in A,\ f(x\times y)=f(x)\dot\times f(y)</span> ;</li>
+<li><span class="math inline">f(1_A)=1_B</span>.</li>
+</ol>
+</div>
+<div class="proof remark">
+<p><span class="proof-title"><em>Remarque</em>. </span>Soient <span class="math inline">f : \mathbb{K}\to A</span> un morphisme d’anneaux avec <span class="math inline">\mathbb{K}</span> un corps. Alors <span class="math inline">f</span> est injective : en effet, si <span class="math inline">x\in\mathbb{K}\smallsetminus\{0_\mathbb{K}\}</span>, alors <span class="math inline">1_A=f\left(x\times\frac{1}{x}\right)=f(x)f\left(\frac{1}{x}\right)</span> donc <span class="math inline">f(x)\neq 0_A</span>, d’où <span class="math inline">\ker f=\{0_\mathbb{K}\}</span>. Autrement dit, <span class="math inline">A</span> contient (via <span class="math inline">f</span>) une copie de <span class="math inline">\mathbb{K}</span>.</p>
+</div>
+</section>
+</section>
+<section id="lanneau-mathbbznmathbbz-récapitulatif" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> L’anneau <span class="math inline">\mathbb{Z}/n\mathbb{Z}</span> : récapitulatif</h1>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 4.1</strong></p>
+<p>Soit <span class="math inline">n\in\mathbb{N}^*</span>.</p>
+<ol type="1">
+<li><span class="math inline">(\mathbb{Z}/n\mathbb{Z},\dot+)</span> est un groupe commutatif, cyclique d’ordre <span class="math inline">n</span>, engendré par <span class="math inline">\overline{1}</span> ; en particulier <span class="math inline">\forall x\in\mathbb{Z}/n\mathbb{Z},\ nx=\overline{0}</span> ;</li>
+<li><span class="math inline">(\mathbb{Z}/n\mathbb{Z},\dot+,\dot\times)</span> est un anneau commutatif ;</li>
+<li><span class="math inline">\overline{k}</span> est inversible pour <span class="math inline">\dot\times</span> si et seulement si <span class="math inline">k\wedge n=1</span> ; ainsi <span class="math inline">(\mathcal{U}(\mathbb{Z}/n\mathbb{Z}),\dot\times)</span> est un groupe commutatif et, pour <span class="math inline">x\in\mathcal{U}(\mathbb{Z}/n\mathbb{Z})</span>, <span class="math inline">x^{\varphi(n)}=\overline{1}</span> ;</li>
+<li><span class="math inline">\mathbb{Z}/n\mathbb{Z}</span> est intègre, et même un corps, si et seulement si <span class="math inline">n</span> est premier (on note alors <span class="math inline">\mathbb{F}_p</span>).</li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 4.1</strong></p>
+<ol type="1">
+<li>Montrer que <span class="math inline">(\mathbb{Z}[i],+,\times)</span> est un anneau (entiers de Gauss).</li>
+<li>Soit <span class="math inline">H\subset\mathbb{C}^*</span>. Montrer que si <span class="math inline">(H,\times)</span> est un sous-groupe fini de <span class="math inline">(\mathbb{C}^*,\times)</span>, alors il existe <span class="math inline">n\in\mathbb{N}^*</span> tel que <span class="math inline">H=\mathbb{U}_n</span>.</li>
+<li>Soit <span class="math inline">H\subset\mathbb{R}</span>. Montrer que si <span class="math inline">H</span> est un sous-groupe de <span class="math inline">(\mathbb{R},+)</span>, alors soit il existe <span class="math inline">\alpha\in\mathbb{R}</span> tel que <span class="math inline">H=\alpha\mathbb{Z}</span>, soit <span class="math inline">H</span> est dense dans <span class="math inline">\mathbb{R}</span>. Application : montrer que toute fonction continue sur <span class="math inline">\mathbb{R}</span> admettant <span class="math inline">1</span> et <span class="math inline">\sqrt{2}</span> comme périodes est constante.</li>
+<li>Soit <span class="math inline">\mathbb{K}=\mathbb{Q}[\sqrt{5}]</span>. Déterminer les morphismes d’anneaux de <span class="math inline">\mathbb{K}</span> dans <span class="math inline">\mathbb{R}</span>.</li>
+</ol>
+</div>
+</section>
+<section id="document-en-pdf" class="level1 unnumbered">
+<h1 class="unnumbered">Document en PDF</h1>
+<p><a href="PDF/mpsi-chap08.pdf">Chapitre 08 : Structures algébriques</a></p>
+</section>
+<section id="navigation" class="level1 unnumbered">
+<h1 class="unnumbered">Navigation</h1>
+<div class="chap-nav">
+<p><a href="../cours/mpsi-chap07.html" class="prev">Chapitre 07 : Systèmes linéaires</a></p>
+<p><a href="../cours/mpsi.html" class="home">Menu MPSI</a></p>
+<p><a href="../cours/mpsi-chap09.html" class="next">Chapitre 09 : Arithmétique dans <span class="math inline">ℤ</span></a></p>
+</div>
 
 
 </section>
@@ -243,12 +736,12 @@ window.Quarto = {
       // flash "checked"
       button.classList.add('code-copy-button-checked');
       var currentTitle = button.getAttribute("title");
-      button.setAttribute("title", "Copied!");
+      button.setAttribute("title", "Copié");
       let tooltip;
       if (window.bootstrap) {
         button.setAttribute("data-bs-toggle", "tooltip");
         button.setAttribute("data-bs-placement", "left");
-        button.setAttribute("data-bs-title", "Copied!");
+        button.setAttribute("data-bs-title", "Copié");
         tooltip = new bootstrap.Tooltip(button, 
           { trigger: "manual", 
             customClass: "code-copy-button-tooltip",

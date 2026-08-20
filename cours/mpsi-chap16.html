@@ -1,13 +1,14 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr"><head>
 
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.10.18">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Said MAHARI">
 
-<title>Nombres réels - Mathématiques en CPGE – Mathématiques en CPGE</title>
+<title>Nombres réels – Mathématiques en CPGE</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -45,7 +46,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-7a8c080b55ea27eb37b467515007f9ee.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-e0d9a45d84245cc5e3b300860d8fa645.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -60,22 +61,36 @@ ul.task-list li input[type="checkbox"] {
   ],
   "show-item-context": false,
   "language": {
-    "search-no-results-text": "No results",
-    "search-matching-documents-text": "matching documents",
-    "search-copy-link-title": "Copy link to search",
-    "search-hide-matches-text": "Hide additional matches",
-    "search-more-match-text": "more match in this document",
-    "search-more-matches-text": "more matches in this document",
-    "search-clear-button-title": "Clear",
+    "search-no-results-text": "Pas de résultats",
+    "search-matching-documents-text": "documents trouvés",
+    "search-copy-link-title": "Copier le lien vers la recherche",
+    "search-hide-matches-text": "Cacher les correspondances additionnelles",
+    "search-more-match-text": "correspondance de plus dans ce document",
+    "search-more-matches-text": "correspondances de plus dans ce document",
+    "search-clear-button-title": "Effacer",
     "search-text-placeholder": "",
-    "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit",
-    "search-label": "Search"
+    "search-detached-cancel-button-title": "Annuler",
+    "search-submit-button-title": "Envoyer",
+    "search-label": "Recherche"
   }
 }</script>
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
 
 <script type="text/javascript">
 const typesetMath = (el) => {
@@ -105,6 +120,7 @@ window.Quarto = {
 </script>
 
 <link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="styles.css">
 </head>
 
 <body class="nav-fixed quarto-light">
@@ -118,8 +134,8 @@ window.Quarto = {
     <span class="navbar-title">Accueil</span>
     </a>
   </div>
-            <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+            <div id="quarto-search" class="" title="Recherche"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Basculer la navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
@@ -148,6 +164,10 @@ window.Quarto = {
     <a class="nav-link" href="../contact.html"> 
 <span class="menu-text">Contact</span></a>
   </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../apropos.html"> 
+<span class="menu-text">À propos</span></a>
+  </li>  
 </ul>
           </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
@@ -161,10 +181,30 @@ window.Quarto = {
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
+    <h2 id="toc-title">Sur cette page</h2>
    
   <ul>
-  <li><a href="#document" id="toc-document" class="nav-link active" data-scroll-target="#document">Document</a></li>
+  <li><a href="#nombres-réels" id="toc-nombres-réels" class="nav-link active" data-scroll-target="#nombres-réels"><span class="header-section-number">1</span> Nombres réels</a></li>
+  <li><a href="#lensemble-des-nombres-réels" id="toc-lensemble-des-nombres-réels" class="nav-link" data-scroll-target="#lensemble-des-nombres-réels">L’ensemble des nombres réels</a>
+  <ul class="collapse">
+  <li><a href="#rappels-et-propriétés" id="toc-rappels-et-propriétés" class="nav-link" data-scroll-target="#rappels-et-propriétés"><span class="header-section-number">1.1</span> Rappels et propriétés</a></li>
+  </ul></li>
+  <li><a href="#supremum-et-infimum" id="toc-supremum-et-infimum" class="nav-link" data-scroll-target="#supremum-et-infimum"><span class="header-section-number">2</span> Supremum et infimum</a>
+  <ul class="collapse">
+  <li><a href="#majorant-minorant-partie-bornée" id="toc-majorant-minorant-partie-bornée" class="nav-link" data-scroll-target="#majorant-minorant-partie-bornée"><span class="header-section-number">2.1</span> Majorant, minorant, partie bornée</a></li>
+  <li><a href="#supremum-infimum" id="toc-supremum-infimum" class="nav-link" data-scroll-target="#supremum-infimum"><span class="header-section-number">2.2</span> Supremum, infimum</a></li>
+  </ul></li>
+  <li><a href="#intervalles" id="toc-intervalles" class="nav-link" data-scroll-target="#intervalles"><span class="header-section-number">3</span> Intervalles</a>
+  <ul class="collapse">
+  <li><a href="#définition-et-exemples" id="toc-définition-et-exemples" class="nav-link" data-scroll-target="#définition-et-exemples"><span class="header-section-number">3.1</span> Définition et exemples</a></li>
+  <li><a href="#caractérisation-des-intervalles" id="toc-caractérisation-des-intervalles" class="nav-link" data-scroll-target="#caractérisation-des-intervalles"><span class="header-section-number">3.2</span> Caractérisation des intervalles</a></li>
+  </ul></li>
+  <li><a href="#densité" id="toc-densité" class="nav-link" data-scroll-target="#densité"><span class="header-section-number">4</span> Densité</a>
+  <ul class="collapse">
+  <li><a href="#définition" id="toc-définition" class="nav-link" data-scroll-target="#définition"><span class="header-section-number">4.1</span> Définition</a></li>
+  <li><a href="#densité-de-mathbbq" id="toc-densité-de-mathbbq" class="nav-link" data-scroll-target="#densité-de-mathbbq"><span class="header-section-number">4.2</span> Densité de <span class="math inline">\mathbb{Q}</span></a></li>
+  <li><a href="#densité-des-irrationnels" id="toc-densité-des-irrationnels" class="nav-link" data-scroll-target="#densité-des-irrationnels"><span class="header-section-number">4.3</span> Densité des irrationnels</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -173,14 +213,27 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Chapitre 16 : Nombres réels</h1>
+<h1 class="title">Nombres réels</h1>
+<p class="subtitle lead">Chapitre 16</p>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Auteur·rice</div>
+    <div class="quarto-title-meta-contents">
+             <p>Said MAHARI </p>
+          </div>
+  </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">Date de publication</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">18 août 2026</p>
+    </div>
+  </div>
   
     
   </div>
@@ -190,12 +243,204 @@ window.Quarto = {
 </header>
 
 
-<p><strong>MPSI (1re année) — Chapitre 16.</strong> Borne supérieure, densité de <span class="math inline">\(\mathbb{Q}\)</span> et de <span class="math inline">\(\mathbb{R}\setminus\mathbb{Q}\)</span>, intervalles.</p>
-<section id="document" class="level2">
-<h2 class="anchored" data-anchor-id="document">Document</h2>
-<p><em>PDF à venir : déposez le fichier <code>files/mpsi/chap16.pdf</code> puis régénérez la page.</em></p>
+<p><strong>MPSI (1re année) — Chapitre 16.</strong> Propriété de la borne supérieure, supremum et infimum, propriété d’Archimède, densité de <span class="math inline">\mathbb{Q}</span> et de <span class="math inline">\mathbb{R}\smallsetminus\mathbb{Q}</span>, caractérisation des intervalles.</p>
+<p>Ce chapitre a été réalisé conformément au programme marocain de mathématiques de la filière MPSI.</p>
+<section id="nombres-réels" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Nombres réels</h1>
+<p>L’ensemble <span class="math inline">\mathbb{R}</span> est le cadre naturel de l’analyse. Ce qui le distingue de <span class="math inline">\mathbb{Q}</span>, c’est la <strong>propriété de la borne supérieure</strong> : toute partie non vide majorée admet une borne supérieure. C’est cette propriété qui permet de démontrer l’existence de limites, de bornes, et qui fonde le calcul différentiel et intégral.</p>
+</section>
+<section id="lensemble-des-nombres-réels" class="level1 unnumbered">
+<h1 class="unnumbered">L’ensemble des nombres réels</h1>
+<section id="rappels-et-propriétés" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="rappels-et-propriétés"><span class="header-section-number">1.1</span> Rappels et propriétés</h2>
+<div class="proof remark">
+<p><span class="proof-title"><em>Remarque</em>. </span>On rappelle la chaîne d’inclusions : <span class="math display">\mathbb{N}\subset\mathbb{Z}\subset\mathbb{Q}\subset\mathbb{R}</span> où <span class="math inline">\mathbb{Q}=\left\{\frac{p}{q}\,/\,(p,q)\in\mathbb{Z}\times\mathbb{N}^*\right\}</span> est l’ensemble des nombres <strong>rationnels</strong>, et <span class="math inline">\mathbb{R}\smallsetminus\mathbb{Q}</span> l’ensemble des nombres <strong>irrationnels</strong>.</p>
+<p>L’ensemble <span class="math inline">\mathbb{R}</span> est un <strong>corps totalement ordonné</strong> : on peut y additionner, multiplier, comparer deux éléments, et toutes les règles usuelles du calcul s’y appliquent. Mais ce qui caractérifie <span class="math inline">\mathbb{R}</span> (et le distingue de <span class="math inline">\mathbb{Q}</span>), c’est la propriété de la borne supérieure ci-dessous.</p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 2.1</strong></p>
+<p><span class="math inline">\sqrt{2}</span> est irrationnel : supposons par l’absurde que <span class="math inline">\sqrt{2}\in\mathbb{Q}</span>, et écrivons <span class="math inline">\sqrt{2}=\frac{p}{q}</span> avec <span class="math inline">(p,q)\in\mathbb{N}^*\times\mathbb{N}^*</span> et la fraction irréductible. Alors <span class="math inline">p^2=2q^2</span>, donc <span class="math inline">p^2</span> est pair, donc <span class="math inline">p</span> est pair (car le carré d’un impair est impair). Écrivons <span class="math inline">p=2p'</span> : alors <span class="math inline">4p'^2=2q^2</span>, donc <span class="math inline">q^2=2p'^2</span>, donc <span class="math inline">q</span> est pair aussi. Ceci contredit le fait que la fraction <span class="math inline">\frac{p}{q}</span> est irréductible. D’où <span class="math inline">\sqrt{2}\notin\mathbb{Q}</span>.</p>
+</div>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 2.1 — (Propriété d'Archimède)</strong></p>
+<p>Pour tous réels <span class="math inline">x</span> et <span class="math inline">y&gt;0</span>, il existe un entier <span class="math inline">n\in\mathbb{N}</span> tel que <span class="math inline">ny&gt;x</span>. Autrement dit : <span class="math display">\forall x&gt;0,\ \exists n\in\mathbb{N}^*,\ \frac{1}{n}&lt;x</span></p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Preuve</em>. </span>Supposons par l’absurde qu’il existe <span class="math inline">x&gt;0</span> tel que <span class="math inline">\forall n\in\mathbb{N}^*,\ \frac{1}{n}\geq x</span>, c’est-à-dire <span class="math inline">nx\leq 1</span>. Alors <span class="math inline">A=\{nx\,/\,n\in\mathbb{N}\}</span> est une partie de <span class="math inline">\mathbb{R}</span> non vide et majorée par <span class="math inline">1</span> ; elle admet donc une borne supérieure <span class="math inline">s=\sup A</span>. Par caractérisation de la borne supérieure avec <span class="math inline">\varepsilon=x&gt;0</span>, il existe <span class="math inline">n\in\mathbb{N}</span> tel que <span class="math inline">s-x&lt;nx</span>. Mais alors $(n+1)x=nx+x&lt;s+xs+? $ … plus simplement : <span class="math inline">s-x&lt;nx</span> donne <span class="math inline">(n+1)x&lt;s+x</span>, or <span class="math inline">nx\leq s</span> ; en fait <span class="math inline">s-x&lt;nx\leq s</span> montre que <span class="math inline">(n+1)x\in A</span> vérifie <span class="math inline">(n+1)x&gt;s-x+x</span>… en résumé : <span class="math inline">(n+1)x&gt;s</span> contredit que <span class="math inline">s</span> majore <span class="math inline">A</span>. D’où la propriété d’Archimède.</p>
+</div>
+<div class="proof remark" title="(Propriété du plus petit élément)">
+<p><span class="proof-title"><em>Remarque</em>. </span>Toute partie non vide de <span class="math inline">\mathbb{Z}</span> minorée admet un plus petit élément (et toute partie non vide de <span class="math inline">\mathbb{N}</span> admet un plus petit élément). C’est cette propriété qui permettra de démontrer la densité de <span class="math inline">\mathbb{Q}</span>.</p>
+</div>
+</section>
+</section>
+<section id="supremum-et-infimum" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> Supremum et infimum</h1>
+<section id="majorant-minorant-partie-bornée" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="majorant-minorant-partie-bornée"><span class="header-section-number">2.1</span> Majorant, minorant, partie bornée</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 3.1</strong></p>
+<p>Soit <span class="math inline">A</span> une partie non vide de <span class="math inline">\mathbb{R}</span>.</p>
+<ol type="1">
+<li>On dit que <span class="math inline">M\in\mathbb{R}</span> est un <strong>majorant</strong> de <span class="math inline">A</span> si <span class="math inline">\forall x\in A,\ x\leq M</span>. On dit que <span class="math inline">A</span> est <strong>majorée</strong>.</li>
+<li>On dit que <span class="math inline">m\in\mathbb{R}</span> est un <strong>minorant</strong> de <span class="math inline">A</span> si <span class="math inline">\forall x\in A,\ m\leq x</span>. On dit que <span class="math inline">A</span> est <strong>minorée</strong>.</li>
+<li>On dit que <span class="math inline">A</span> est <strong>bornée</strong> si elle est à la fois majorée et minorée.</li>
+<li>Un <strong>maximum</strong> (resp. <strong>minimum</strong>) de <span class="math inline">A</span> est un majorant (resp. minorant) qui appartient à <span class="math inline">A</span>.</li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 3.1</strong></p>
+<p>Soit <span class="math inline">A=]0,1[</span>.</p>
+<ul>
+<li>Les majorants de <span class="math inline">A</span> sont les <span class="math inline">M\geq 1</span> ; <span class="math inline">A</span> n’admet pas de maximum.</li>
+<li>Les minorants de <span class="math inline">A</span> sont les <span class="math inline">m\leq 0</span> ; <span class="math inline">A</span> n’admet pas de minimum.</li>
+<li><span class="math inline">A</span> est bornée.</li>
+</ul>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 3.2</strong></p>
+<p>Soit <span class="math inline">A=\left\{\frac{1}{n}\,/\,n\in\mathbb{N}^*\right\}</span>. Alors <span class="math inline">A</span> admet un maximum <span class="math inline">\max A=1</span> (atteint en <span class="math inline">n=1</span>), et <span class="math inline">0</span> est un minorant qui n’appartient pas à <span class="math inline">A</span> (donc pas de minimum).</p>
+</div>
+</section>
+<section id="supremum-infimum" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="supremum-infimum"><span class="header-section-number">2.2</span> Supremum, infimum</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 3.2</strong></p>
+<p>Soit <span class="math inline">A</span> une partie non vide de <span class="math inline">\mathbb{R}</span>.</p>
+<ol type="1">
+<li>Si <span class="math inline">A</span> est majorée, on appelle <strong>borne supérieure</strong> de <span class="math inline">A</span>, notée <span class="math inline">\sup A</span>, le plus petit des majorants de <span class="math inline">A</span>.</li>
+<li>Si <span class="math inline">A</span> est minorée, on appelle <strong>borne inférieure</strong> de <span class="math inline">A</span>, notée <span class="math inline">\inf A</span>, le plus grand des minorants de <span class="math inline">A</span>.</li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 3.1 — (Propriété de la borne supérieure)</strong></p>
+<p>Toute partie non vide de <span class="math inline">\mathbb{R}</span> majorée admet une borne supérieure dans <span class="math inline">\mathbb{R}</span>. (De même, toute partie non vide minorée admet une borne inférieure.)</p>
+</div>
+<div class="proof remark">
+<p><span class="proof-title"><em>Remarque</em>. </span>Cette propriété est <strong>fausse dans <span class="math inline">\mathbb{Q}</span></strong> : par exemple <span class="math inline">A=\{r\in\mathbb{Q}\,/\,r^2&lt;2\}</span> est non vide et majorée dans <span class="math inline">\mathbb{Q}</span>, mais n’admet pas de borne supérieure dans <span class="math inline">\mathbb{Q}</span> (sa borne supérieure dans <span class="math inline">\mathbb{R}</span> est <span class="math inline">\sqrt{2}\notin\mathbb{Q}</span>).</p>
+</div>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 3.2 — (Caractérisation de la borne supérieure)</strong></p>
+<p>Soit <span class="math inline">A</span> une partie non vide et majorée de <span class="math inline">\mathbb{R}</span>, et <span class="math inline">s\in\mathbb{R}</span>. Alors <span class="math inline">s=\sup A</span> si et seulement si :</p>
+<ol type="1">
+<li><span class="math inline">\forall x\in A,\ x\leq s</span> ;</li>
+<li><span class="math inline">\forall \varepsilon&gt;0,\ \exists x\in A,\ s-\varepsilon&lt;x</span>.</li>
+</ol>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Preuve</em>. </span>(<span class="math inline">\Rightarrow</span>) Si <span class="math inline">s=\sup A</span>, alors (1) est vraie car <span class="math inline">s</span> est un majorant. Si (2) était fausse, il existerait <span class="math inline">\varepsilon&gt;0</span> tel que <span class="math inline">\forall x\in A,\ x\leq s-\varepsilon</span> ; alors <span class="math inline">s-\varepsilon</span> serait un majorant de <span class="math inline">A</span> strictement plus petit que <span class="math inline">s</span>, contredisant que <span class="math inline">s</span> est le plus petit majorant.</p>
+<p>(<span class="math inline">\Leftarrow</span>) D’après (1), <span class="math inline">s</span> est un majorant de <span class="math inline">A</span>. Soit <span class="math inline">M</span> un majorant quelconque de <span class="math inline">A</span>. D’après (2), pour tout <span class="math inline">\varepsilon&gt;0</span> il existe <span class="math inline">x\in A</span> tel que <span class="math inline">s-\varepsilon&lt;x\leq M</span>, donc <span class="math inline">s\leq M+\varepsilon</span>. Ceci étant vrai pour tout <span class="math inline">\varepsilon&gt;0</span>, on obtient <span class="math inline">s\leq M</span>. Donc <span class="math inline">s</span> est le plus petit des majorants : <span class="math inline">s=\sup A</span>.</p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 3.1 — (Supremum et maximum)</strong></p>
+<p>Soit <span class="math inline">A</span> une partie non vide et majorée de <span class="math inline">\mathbb{R}</span>. Alors : <span class="math display">\sup A\in A \iff \sup A=\max A</span></p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 3.2 — (Supremum d'une somme)</strong></p>
+<p>Soient <span class="math inline">A,B</span> deux parties non vides et majorées de <span class="math inline">\mathbb{R}</span>. On note <span class="math inline">A+B=\{a+b\,/\,(a,b)\in A\times B\}</span>. Alors : <span class="math display">\sup(A+B)=\sup A+\sup B</span></p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Preuve</em>. </span>Pour tout <span class="math inline">(a,b)\in A\times B</span>, <span class="math inline">a\leq\sup A</span> et <span class="math inline">b\leq\sup B</span>, donc <span class="math inline">a+b\leq\sup A+\sup B</span> : ainsi <span class="math inline">\sup A+\sup B</span> majore <span class="math inline">A+B</span>. Soit <span class="math inline">\varepsilon&gt;0</span> ; il existe <span class="math inline">a\in A</span> tel que <span class="math inline">a&gt;\sup A-\frac{\varepsilon}{2}</span> et <span class="math inline">b\in B</span> tel que <span class="math inline">b&gt;\sup B-\frac{\varepsilon}{2}</span> ; alors <span class="math inline">a+b&gt;\sup A+\sup B-\varepsilon</span>. D’après la caractérisation de la borne supérieure, <span class="math inline">\sup(A+B)=\sup A+\sup B</span>.</p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 3.1</strong></p>
+<p>Soient <span class="math inline">A,B</span> deux parties non vides et majorées de <span class="math inline">\mathbb{R}</span>.</p>
+<ol type="1">
+<li>Montrer que si <span class="math inline">A\subset B</span> alors <span class="math inline">\sup A\leq\sup B</span>.</li>
+<li>Montrer que <span class="math inline">\sup(A\cup B)=\max(\sup A,\sup B)</span>.</li>
+<li>Montrer que <span class="math inline">\sup(A\times B)=\sup A\times\sup B</span> lorsque <span class="math inline">A,B\subset\mathbb{R}^*_+</span>.</li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 3.3</strong></p>
+<p><span class="math inline">\sup\,]0,1[\,=1</span> (pas de maximum) ; <span class="math inline">\sup\left\{\frac{1}{n}\,/\,n\in\mathbb{N}^*\right\}=1=\max</span> ; <span class="math inline">\inf\left\{\frac{1}{n}\,/\,n\in\mathbb{N}^*\right\}=0</span> (pas de minimum).</p>
+</div>
+</section>
+</section>
+<section id="intervalles" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Intervalles</h1>
+<section id="définition-et-exemples" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="définition-et-exemples"><span class="header-section-number">3.1</span> Définition et exemples</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 4.1</strong></p>
+<p>Une partie <span class="math inline">I</span> de <span class="math inline">\mathbb{R}</span> est un <strong>intervalle</strong> si : <span class="math display">\forall (a,b)\in I^2,\ a\leq b \Longrightarrow [a,b]\subset I</span></p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 4.1</strong></p>
+<ul>
+<li><span class="math inline">\mathbb{R}</span>, <span class="math inline">[a,b]</span>, <span class="math inline">]a,b[</span>, <span class="math inline">[a,b[</span>, <span class="math inline">]a,b]</span>, <span class="math inline">[a,+\infty[</span>, <span class="math inline">]a,+\infty[</span>, <span class="math inline">]-\infty,b]</span>, <span class="math inline">]-\infty,b[</span> sont des intervalles.</li>
+<li><span class="math inline">\mathbb{Q}</span>, <span class="math inline">\mathbb{Z}</span>, <span class="math inline">\mathbb{R}\smallsetminus\{0\}</span>, <span class="math inline">]0,1]\cup[2,3[</span> ne sont <strong>pas</strong> des intervalles.</li>
+</ul>
+</div>
+</section>
+<section id="caractérisation-des-intervalles" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="caractérisation-des-intervalles"><span class="header-section-number">3.2</span> Caractérisation des intervalles</h2>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 4.1 — (Caractérisation des intervalles)</strong></p>
+<p>Soit <span class="math inline">I</span> une partie non vide de <span class="math inline">\mathbb{R}</span>. On pose <span class="math inline">a=\inf I\in\mathbb{R}\cup\{-\infty\}</span> et <span class="math inline">b=\sup I\in\mathbb{R}\cup\{+\infty\}</span>. Alors <span class="math inline">I</span> est un intervalle si et seulement si <span class="math inline">I</span> est l’un des intervalles : <span class="math display">]a,b[,\quad [a,b[,\quad ]a,b],\quad [a,b]</span> (avec les conventions évidentes lorsque <span class="math inline">a=-\infty</span> ou <span class="math inline">b=+\infty</span>).</p>
+</div>
+<div class="proof" title="(Sens direct, cas $I=]a,b[$ ou $[a,b[$ etc.)">
+<p><span class="proof-title"><em>Preuve</em>. </span>Soit <span class="math inline">I</span> un intervalle non vide borné, <span class="math inline">a=\inf I</span>, <span class="math inline">b=\sup I</span>. Montrons par exemple que si <span class="math inline">a\notin I</span> et <span class="math inline">b\notin I</span> alors <span class="math inline">I=]a,b[</span>. Soit <span class="math inline">x</span> tel que <span class="math inline">a&lt;x&lt;b</span>. Comme <span class="math inline">x&gt;b</span> est impossible (<span class="math inline">b</span> majore <span class="math inline">I</span>) et <span class="math inline">x&lt;a</span> aussi, supposons <span class="math inline">x\notin I</span> avec <span class="math inline">a&lt;x&lt;b</span>. Puisque <span class="math inline">a=\inf I</span>, il existe <span class="math inline">u\in I</span> avec <span class="math inline">a\leq u&lt;x</span> ; puisque <span class="math inline">b=\sup I</span>, il existe <span class="math inline">v\in I</span> avec <span class="math inline">x&lt;v\leq b</span>. Alors <span class="math inline">u\leq x\leq v</span> avec <span class="math inline">u,v\in I</span> ; comme <span class="math inline">I</span> est un intervalle, <span class="math inline">x\in I</span>, contradiction. Donc <span class="math inline">]a,b[\subset I\subset]a,b[</span>, d’où <span class="math inline">I=]a,b[</span>. Les autres cas se traitent de même.</p>
+</div>
+<div class="proof remark">
+<p><span class="proof-title"><em>Remarque</em>. </span>Autrement dit, les intervalles de <span class="math inline">\mathbb{R}</span> sont exactement les parties « sans trou ». C’est cette propriété qui caractérise <span class="math inline">\mathbb{R}</span> parmi les corps ordonnés : <span class="math inline">\mathbb{Q}</span> possède des « trous » (par exemple <span class="math inline">\{r\in\mathbb{Q}\,/\,r^2&lt;2\}</span> est un intervalle « troué » de <span class="math inline">\mathbb{Q}</span>).</p>
+</div>
+</section>
+</section>
+<section id="densité" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> Densité</h1>
+<section id="définition" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="définition"><span class="header-section-number">4.1</span> Définition</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 5.1</strong></p>
+<p>Une partie <span class="math inline">D</span> de <span class="math inline">\mathbb{R}</span> est dite <strong>dense</strong> dans <span class="math inline">\mathbb{R}</span> si tout intervalle ouvert non vide de <span class="math inline">\mathbb{R}</span> contient un élément de <span class="math inline">D</span> : <span class="math display">\forall (a,b)\in\mathbb{R}^2,\ a&lt;b \Longrightarrow \exists d\in D,\ a&lt;d&lt;b</span></p>
+</div>
+</section>
+<section id="densité-de-mathbbq" class="level2" data-number="4.2">
+<h2 data-number="4.2" class="anchored" data-anchor-id="densité-de-mathbbq"><span class="header-section-number">4.2</span> Densité de <span class="math inline">\mathbb{Q}</span></h2>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 5.1 — (Densité de $\mathbb{Q}$ dans $\mathbb{R}$)</strong></p>
+<p><span class="math inline">\mathbb{Q}</span> est dense dans <span class="math inline">\mathbb{R}</span> : tout intervalle ouvert non vide de <span class="math inline">\mathbb{R}</span> contient un nombre rationnel.</p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Preuve</em>. </span>Soient <span class="math inline">a&lt;b</span> deux réels. Par la propriété d’Archimède appliquée à <span class="math inline">\frac{1}{b-a}&gt;0</span>, il existe <span class="math inline">n\in\mathbb{N}^*</span> tel que <span class="math inline">\frac{1}{n}&lt;b-a</span>. Considérons l’ensemble <span class="math inline">K=\{k\in\mathbb{Z}\,/\,k&gt;na\}</span> : il est non vide (Archimède) et minoré par <span class="math inline">na</span>, donc il admet un plus petit élément <span class="math inline">k_0</span> (propriété du plus petit élément de <span class="math inline">\mathbb{Z}</span>). Alors <span class="math inline">k_0-1\leq na&lt;k_0</span>, d’où : <span class="math display">a&lt;\frac{k_0}{n}\leq a+\frac{1}{n}&lt;a+(b-a)=b</span> Ainsi <span class="math inline">r=\frac{k_0}{n}\in\mathbb{Q}</span> vérifie <span class="math inline">a&lt;r&lt;b</span>. D’où la densité de <span class="math inline">\mathbb{Q}</span>.</p>
+</div>
+</section>
+<section id="densité-des-irrationnels" class="level2" data-number="4.3">
+<h2 data-number="4.3" class="anchored" data-anchor-id="densité-des-irrationnels"><span class="header-section-number">4.3</span> Densité des irrationnels</h2>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 5.2 — (Densité de $\mathbb{R}\smallsetminus\mathbb{Q}$)</strong></p>
+<p>L’ensemble des nombres irrationnels est dense dans <span class="math inline">\mathbb{R}</span>.</p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Preuve</em>. </span>Soient <span class="math inline">a&lt;b</span>. Par densité de <span class="math inline">\mathbb{Q}</span> appliquée à <span class="math inline">a-\sqrt{2}&lt;b-\sqrt{2}</span>, il existe <span class="math inline">r\in\mathbb{Q}</span> tel que <span class="math inline">a-\sqrt{2}&lt;r&lt;b-\sqrt{2}</span>. Posons <span class="math inline">x=r+\sqrt{2}</span> : alors <span class="math inline">a&lt;x&lt;b</span>. Si <span class="math inline">x</span> était rationnel, alors <span class="math inline">\sqrt{2}=x-r</span> serait rationnel, contradiction. Donc <span class="math inline">x\in\mathbb{R}\smallsetminus\mathbb{Q}</span> et <span class="math inline">a&lt;x&lt;b</span>.</p>
+</div>
+<div class="custom-numbered-block custom-corollary">
+<p><strong>Corollaire 5.1</strong></p>
+<p>Entre deux réels distincts quelconques, il existe une infinité de nombres rationnels et une infinité de nombres irrationnels.</p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 5.1</strong></p>
+<p>Entre <span class="math inline">1</span> et <span class="math inline">2</span> : <span class="math inline">\frac{3}{2}\in\mathbb{Q}</span> et <span class="math inline">1+\frac{\sqrt{2}}{2}\in\mathbb{R}\smallsetminus\mathbb{Q}</span> appartiennent à <span class="math inline">]1,2[</span>.</p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 5.1</strong></p>
+<ol type="1">
+<li>Montrer que <span class="math inline">\sqrt{2}+\sqrt{3}</span> est irrationnel.</li>
+<li>Soit <span class="math inline">x\in\mathbb{R}</span>. Montrer que <span class="math inline">x=\sup\{r\in\mathbb{Q}\,/\,r\leq x\}</span>.</li>
+<li>Soient <span class="math inline">a,b\in\mathbb{R}</span> tels que <span class="math inline">\forall r\in\mathbb{Q},\ (r\geq a\Rightarrow r\geq b)</span>. Montrer que <span class="math inline">b\leq a</span>.</li>
+</ol>
+</div>
+<p>Document en PDF {-}</p>
+<p><a href="PDF/mpsi-chap16.pdf">Chapitre 16 : Nombres réels</a></p>
+<p>Navigation {-}</p>
+<div class="chap-nav">
+<p><a href="../cours/mpsi-chap15.html" class="prev">Chapitre 15 : Groupe symétrique et déterminant</a></p>
+<p><a href="../cours/mpsi.html" class="home">Menu MPSI</a></p>
+<p><a href="../cours/mpsi-chap17.html" class="next">Chapitre 17 : Suites numériques</a></p>
+</div>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -243,12 +488,12 @@ window.Quarto = {
       // flash "checked"
       button.classList.add('code-copy-button-checked');
       var currentTitle = button.getAttribute("title");
-      button.setAttribute("title", "Copied!");
+      button.setAttribute("title", "Copié");
       let tooltip;
       if (window.bootstrap) {
         button.setAttribute("data-bs-toggle", "tooltip");
         button.setAttribute("data-bs-placement", "left");
-        button.setAttribute("data-bs-title", "Copied!");
+        button.setAttribute("data-bs-title", "Copié");
         tooltip = new bootstrap.Tooltip(button, 
           { trigger: "manual", 
             customClass: "code-copy-button-tooltip",

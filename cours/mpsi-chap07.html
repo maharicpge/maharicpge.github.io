@@ -1,13 +1,14 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr"><head>
 
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.10.18">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Said MAHARI">
 
-<title>Systèmes linéaires - Mathématiques en CPGE – Mathématiques en CPGE</title>
+<title>Systèmes linéaires – Mathématiques en CPGE</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -45,7 +46,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-7a8c080b55ea27eb37b467515007f9ee.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-e0d9a45d84245cc5e3b300860d8fa645.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -60,22 +61,66 @@ ul.task-list li input[type="checkbox"] {
   ],
   "show-item-context": false,
   "language": {
-    "search-no-results-text": "No results",
-    "search-matching-documents-text": "matching documents",
-    "search-copy-link-title": "Copy link to search",
-    "search-hide-matches-text": "Hide additional matches",
-    "search-more-match-text": "more match in this document",
-    "search-more-matches-text": "more matches in this document",
-    "search-clear-button-title": "Clear",
+    "search-no-results-text": "Pas de résultats",
+    "search-matching-documents-text": "documents trouvés",
+    "search-copy-link-title": "Copier le lien vers la recherche",
+    "search-hide-matches-text": "Cacher les correspondances additionnelles",
+    "search-more-match-text": "correspondance de plus dans ce document",
+    "search-more-matches-text": "correspondances de plus dans ce document",
+    "search-clear-button-title": "Effacer",
     "search-text-placeholder": "",
-    "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit",
-    "search-label": "Search"
+    "search-detached-cancel-button-title": "Annuler",
+    "search-submit-button-title": "Envoyer",
+    "search-label": "Recherche"
   }
 }</script>
 
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="styles.css">
 </head>
 
 <body class="nav-fixed quarto-light">
@@ -89,8 +134,8 @@ ul.task-list li input[type="checkbox"] {
     <span class="navbar-title">Accueil</span>
     </a>
   </div>
-            <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+            <div id="quarto-search" class="" title="Recherche"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Basculer la navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
@@ -119,6 +164,10 @@ ul.task-list li input[type="checkbox"] {
     <a class="nav-link" href="../contact.html"> 
 <span class="menu-text">Contact</span></a>
   </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../apropos.html"> 
+<span class="menu-text">À propos</span></a>
+  </li>  
 </ul>
           </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
@@ -132,10 +181,35 @@ ul.task-list li input[type="checkbox"] {
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
+    <h2 id="toc-title">Sur cette page</h2>
    
   <ul>
-  <li><a href="#document" id="toc-document" class="nav-link active" data-scroll-target="#document">Document</a></li>
+  <li><a href="#systèmes-linéaires" id="toc-systèmes-linéaires" class="nav-link active" data-scroll-target="#systèmes-linéaires">Systèmes linéaires</a></li>
+  <li><a href="#introduction-aux-systèmes-déquations-linéaires" id="toc-introduction-aux-systèmes-déquations-linéaires" class="nav-link" data-scroll-target="#introduction-aux-systèmes-déquations-linéaires"><span class="header-section-number">1</span> Introduction aux systèmes d’équations linéaires</a>
+  <ul class="collapse">
+  <li><a href="#exemple-deux-droites-dans-le-plan" id="toc-exemple-deux-droites-dans-le-plan" class="nav-link" data-scroll-target="#exemple-deux-droites-dans-le-plan"><span class="header-section-number">1.1</span> Exemple : deux droites dans le plan</a></li>
+  <li><a href="#résolution-par-substitution" id="toc-résolution-par-substitution" class="nav-link" data-scroll-target="#résolution-par-substitution"><span class="header-section-number">1.2</span> Résolution par substitution</a></li>
+  <li><a href="#exemple-deux-plans-dans-lespace" id="toc-exemple-deux-plans-dans-lespace" class="nav-link" data-scroll-target="#exemple-deux-plans-dans-lespace"><span class="header-section-number">1.3</span> Exemple : deux plans dans l’espace</a></li>
+  <li><a href="#résolution-par-la-méthode-de-cramer" id="toc-résolution-par-la-méthode-de-cramer" class="nav-link" data-scroll-target="#résolution-par-la-méthode-de-cramer"><span class="header-section-number">1.4</span> Résolution par la méthode de Cramer</a></li>
+  <li><a href="#résolution-par-inversion-de-matrice" id="toc-résolution-par-inversion-de-matrice" class="nav-link" data-scroll-target="#résolution-par-inversion-de-matrice"><span class="header-section-number">1.5</span> Résolution par inversion de matrice</a></li>
+  </ul></li>
+  <li><a href="#théorie-des-systèmes-linéaires" id="toc-théorie-des-systèmes-linéaires" class="nav-link" data-scroll-target="#théorie-des-systèmes-linéaires"><span class="header-section-number">2</span> Théorie des systèmes linéaires</a>
+  <ul class="collapse">
+  <li><a href="#définitions" id="toc-définitions" class="nav-link" data-scroll-target="#définitions"><span class="header-section-number">2.1</span> Définitions</a></li>
+  <li><a href="#différents-types-de-systèmes" id="toc-différents-types-de-systèmes" class="nav-link" data-scroll-target="#différents-types-de-systèmes"><span class="header-section-number">2.2</span> Différents types de systèmes</a></li>
+  <li><a href="#systèmes-homogènes" id="toc-systèmes-homogènes" class="nav-link" data-scroll-target="#systèmes-homogènes"><span class="header-section-number">2.3</span> Systèmes homogènes</a></li>
+  </ul></li>
+  <li><a href="#résolution-par-la-méthode-du-pivot-de-gauss" id="toc-résolution-par-la-méthode-du-pivot-de-gauss" class="nav-link" data-scroll-target="#résolution-par-la-méthode-du-pivot-de-gauss"><span class="header-section-number">3</span> Résolution par la méthode du pivot de Gauss</a>
+  <ul class="collapse">
+  <li><a href="#systèmes-échelonnés" id="toc-systèmes-échelonnés" class="nav-link" data-scroll-target="#systèmes-échelonnés"><span class="header-section-number">3.1</span> Systèmes échelonnés</a></li>
+  <li><a href="#opérations-sur-les-équations-dun-système" id="toc-opérations-sur-les-équations-dun-système" class="nav-link" data-scroll-target="#opérations-sur-les-équations-dun-système"><span class="header-section-number">3.2</span> Opérations sur les équations d’un système</a></li>
+  <li><a href="#méthode-du-pivot-de-gauss" id="toc-méthode-du-pivot-de-gauss" class="nav-link" data-scroll-target="#méthode-du-pivot-de-gauss"><span class="header-section-number">3.3</span> Méthode du pivot de Gauss</a></li>
+  <li><a href="#systèmes-homogènes-1" id="toc-systèmes-homogènes-1" class="nav-link" data-scroll-target="#systèmes-homogènes-1"><span class="header-section-number">3.4</span> Systèmes homogènes</a></li>
+  </ul></li>
+  <li><a href="#document-en-pdf" id="toc-document-en-pdf" class="nav-link" data-scroll-target="#document-en-pdf">Document en PDF</a>
+  <ul class="collapse">
+  <li><a href="#navigation" id="toc-navigation" class="nav-link" data-scroll-target="#navigation">Navigation</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -144,14 +218,27 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Chapitre 07 : Systèmes linéaires</h1>
+<h1 class="title">Systèmes linéaires</h1>
+<p class="subtitle lead">Chapitre 07</p>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Auteur·rice</div>
+    <div class="quarto-title-meta-contents">
+             <p>Said MAHARI </p>
+          </div>
+  </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">Date de publication</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">17 août 2026</p>
+    </div>
+  </div>
   
     
   </div>
@@ -161,12 +248,257 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p><strong>MPSI (1re année) — Chapitre 07.</strong> Équations linéaires, opérations élémentaires, pivot de Gauss.</p>
-<section id="document" class="level2">
-<h2 class="anchored" data-anchor-id="document">Document</h2>
-<p><em>PDF à venir : déposez le fichier <code>files/mpsi/chap07.pdf</code> puis régénérez la page.</em></p>
+<p><strong>MPSI (1re année) — Chapitre 07.</strong> Équations linéaires, systèmes linéaires, substitution, méthode de Cramer, inversion de matrice, opérations élémentaires sur les lignes, systèmes échelonnés, pivot de Gauss, systèmes homogènes.</p>
+<p>Ce chapitre a été réalisé conformément au programme marocain de mathématiques de la filière MPSI.</p>
+<section id="systèmes-linéaires" class="level1 unnumbered">
+<h1 class="unnumbered">Systèmes linéaires</h1>
+<p>L’algèbre linéaire est un outil essentiel pour toutes les branches des mathématiques, en particulier lorsqu’il s’agit de modéliser puis de résoudre numériquement des problèmes issus de divers domaines : sciences physiques ou mécaniques, sciences du vivant, chimie, économie, sciences de l’ingénieur… Les systèmes linéaires forment la base calculatoire de l’algèbre linéaire. Le but de ce chapitre est essentiellement pratique : il s’agit de <strong>résoudre des systèmes linéaires</strong>.</p>
+</section>
+<section id="introduction-aux-systèmes-déquations-linéaires" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Introduction aux systèmes d’équations linéaires</h1>
+<section id="exemple-deux-droites-dans-le-plan" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="exemple-deux-droites-dans-le-plan"><span class="header-section-number">1.1</span> Exemple : deux droites dans le plan</h2>
+<p>L’équation d’une droite dans le plan <span class="math inline">(Oxy)</span> s’écrit <span class="math display">ax+by=e</span> où <span class="math inline">a</span>, <span class="math inline">b</span> et <span class="math inline">e</span> sont des paramètres réels, <span class="math inline">a</span> et <span class="math inline">b</span> n’étant pas simultanément nuls. Cette équation s’appelle <strong>équation linéaire</strong> dans les variables (ou inconnues) <span class="math inline">x</span> et <span class="math inline">y</span>.</p>
+<p>Par exemple, <span class="math inline">2x+3y=6</span> est une équation linéaire, alors que les équations suivantes ne sont pas des équations linéaires : <span class="math display">2x+y^2=1 \quad \text{ou} \quad y=\sin(x) \quad \text{ou} \quad x=\sqrt{y}.</span></p>
+<p>Considérons maintenant deux droites <span class="math inline">D_1</span> et <span class="math inline">D_2</span> et cherchons les points qui sont simultanément sur ces deux droites. Un point <span class="math inline">(x,y)</span> est dans l’intersection <span class="math inline">D_1\cap D_2</span> s’il est solution du système : <span class="math display">(S)\qquad \begin{cases} ax+by &amp;= e \\ cx+dy &amp;= f \end{cases}</span></p>
+<p>Trois cas se présentent alors :</p>
+<ol type="1">
+<li>Les droites <span class="math inline">D_1</span> et <span class="math inline">D_2</span> se coupent en un seul point : le système <span class="math inline">(S)</span> a une seule solution.</li>
+<li>Les droites <span class="math inline">D_1</span> et <span class="math inline">D_2</span> sont parallèles : le système <span class="math inline">(S)</span> n’a pas de solution.</li>
+<li>Les droites <span class="math inline">D_1</span> et <span class="math inline">D_2</span> sont confondues : le système <span class="math inline">(S)</span> a une infinité de solutions.</li>
+</ol>
+<p>Nous verrons plus loin que ces trois cas de figure (une seule solution, aucune solution, une infinité de solutions) sont les seuls qui peuvent se présenter pour n’importe quel système d’équations linéaires.</p>
+</section>
+<section id="résolution-par-substitution" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="résolution-par-substitution"><span class="header-section-number">1.2</span> Résolution par substitution</h2>
+<p>Pour savoir s’il existe une ou plusieurs solutions à un système linéaire, et les calculer, une première méthode est la <strong>substitution</strong>. Par exemple pour le système : <span class="math display">(S)\qquad \begin{cases} 3x+2y &amp;= 1 \\ 2x-7y &amp;= -2 \end{cases}</span></p>
+<p>Nous réécrivons la première ligne <span class="math inline">3x+2y=1</span> sous la forme <span class="math inline">y=\frac12-\frac32 x</span>, et nous remplaçons (nous <em>substituons</em>) le <span class="math inline">y</span> de la seconde équation par l’expression <span class="math inline">\frac12-\frac32 x</span>. Nous obtenons un système équivalent : <span class="math display">\begin{cases} y &amp;= \frac12-\frac32 x \\ 2x-7\left(\frac12-\frac32 x\right) &amp;= -2 \end{cases}</span></p>
+<p>La seconde équation ne contient maintenant que des <span class="math inline">x</span>, et on peut la résoudre : <span class="math display">\begin{cases} y &amp;= \frac12-\frac32 x \\ \left(2+7\times\frac32\right)x &amp;= -2+\frac72 \end{cases} \iff \begin{cases} y &amp;= \frac12-\frac32 x \\ x &amp;= \frac{3}{25} \end{cases}</span></p>
+<p>Il ne reste plus qu’à remplacer dans la première ligne la valeur de <span class="math inline">x</span> obtenue : <span class="math display">\begin{cases} y &amp;= \frac{8}{25} \\ x &amp;= \frac{3}{25} \end{cases}</span></p>
+<p>Le système <span class="math inline">(S)</span> admet donc une solution unique <span class="math inline">\left(\frac{3}{25},\frac{8}{25}\right)</span>. L’ensemble des solutions est donc <span class="math display">\mathcal{S}=\left\{\left(\frac{3}{25},\frac{8}{25}\right)\right\}.</span></p>
+</section>
+<section id="exemple-deux-plans-dans-lespace" class="level2" data-number="1.3">
+<h2 data-number="1.3" class="anchored" data-anchor-id="exemple-deux-plans-dans-lespace"><span class="header-section-number">1.3</span> Exemple : deux plans dans l’espace</h2>
+<p>Dans l’espace <span class="math inline">(Oxyz)</span>, une équation linéaire est l’équation d’un plan : <span class="math display">ax+by+cz=d</span> (on suppose ici que <span class="math inline">a</span>, <span class="math inline">b</span> et <span class="math inline">c</span> ne sont pas simultanément nuls). L’intersection de deux plans dans l’espace correspond au système suivant à <span class="math inline">2</span> équations et <span class="math inline">3</span> inconnues : <span class="math display">\begin{cases} ax+by+cz &amp;= d \\ a'x+b'y+c'z &amp;= d' \end{cases}</span></p>
+<p>Trois cas se présentent alors :</p>
+<ul>
+<li>les plans sont parallèles (et distincts) et il n’y a alors aucune solution au système ;</li>
+<li>les plans sont confondus et il y a une infinité de solutions au système ;</li>
+<li>les plans se coupent en une droite et il y a une infinité de solutions.</li>
+</ul>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 2.1</strong></p>
+<ol type="1">
+<li>Le système <span class="math inline">\begin{cases} 2x+3y-4z &amp;= 7 \\ 4x+6y-8z &amp;= -1 \end{cases}</span> n’a pas de solution. En effet, en divisant par <span class="math inline">2</span> la seconde équation, on obtient le système équivalent <span class="math inline">\begin{cases} 2x+3y-4z &amp;= 7 \\ 2x+3y-4z &amp;= -\frac12 \end{cases}</span>. Les deux lignes sont clairement incompatibles : aucun <span class="math inline">(x,y,z)</span> ne peut vérifier à la fois <span class="math inline">2x+3y-4z=7</span> et <span class="math inline">2x+3y-4z=-\frac12</span>. L’ensemble des solutions est donc <span class="math inline">\mathcal{S}=\varnothing</span>.</li>
+<li>Pour le système <span class="math inline">\begin{cases} 2x+3y-4z &amp;= 7 \\ 4x+6y-8z &amp;= 14 \end{cases}</span>, les deux équations définissent le même plan ! Le système est donc équivalent à une seule équation : <span class="math inline">2x+3y-4z=7</span>. Si on réécrit cette équation sous la forme <span class="math inline">z=\frac12 x+\frac34 y-\frac74</span>, alors on peut décrire l’ensemble des solutions sous la forme : <span class="math display">\mathcal{S}=\left\{(x,y,\tfrac12 x+\tfrac34 y-\tfrac74) \mid x,y\in\mathbb{R}\right\}.</span></li>
+<li>Soit le système <span class="math inline">\begin{cases} 7x+2y-2z &amp;= 1 \\ 2x+3y+2z &amp;= 1 \end{cases}</span>. Par substitution : <span class="math display">\begin{cases} 7x+2y-2z &amp;= 1 \\ 2x+3y+2z &amp;= 1 \end{cases} \iff \begin{cases} z &amp;= \frac72 x+y-\frac12 \\ 9x+5y &amp;= 2 \end{cases} \iff \begin{cases} z &amp;= \frac{17}{10}x-\frac{1}{10} \\ y &amp;= -\frac95 x+\frac25 \end{cases}</span> Pour décrire l’ensemble des solutions, on peut choisir <span class="math inline">x</span> comme paramètre : <span class="math display">\mathcal{S}=\left\{\left(x,\,-\tfrac95 x+\tfrac25,\,\tfrac{17}{10}x-\tfrac{1}{10}\right) \mid x\in\mathbb{R}\right\}.</span> Géométriquement : nous avons trouvé une équation paramétrique de la droite définie par l’intersection des deux plans.</li>
+</ol>
+</div>
+<p>Du point de vue du nombre de solutions, nous constatons qu’il n’y a que deux possibilités : aucune solution ou une infinité de solutions. Mais les deux derniers cas ci-dessus sont néanmoins très différents géométriquement. Si on considère trois plans dans l’espace, une autre possibilité apparaît : il se peut que les trois plans s’intersectent en un seul point.</p>
+</section>
+<section id="résolution-par-la-méthode-de-cramer" class="level2" data-number="1.4">
+<h2 data-number="1.4" class="anchored" data-anchor-id="résolution-par-la-méthode-de-cramer"><span class="header-section-number">1.4</span> Résolution par la méthode de Cramer</h2>
+<p>On note <span class="math inline">\begin{vmatrix} a &amp; b \\ c &amp; d \end{vmatrix}=ad-bc</span> le <strong>déterminant</strong>. On considère le cas d’un système de <span class="math inline">2</span> équations à <span class="math inline">2</span> inconnues : <span class="math display">\begin{cases} ax+by &amp;= e \\ cx+dy &amp;= f \end{cases}</span></p>
+<p>Si <span class="math inline">ad-bc\neq 0</span>, on trouve une unique solution dont les coordonnées <span class="math inline">(x,y)</span> sont : <span class="math display">x=\frac{\begin{vmatrix} e &amp; b \\ f &amp; d \end{vmatrix}}{\begin{vmatrix} a &amp; b \\ c &amp; d \end{vmatrix}} \qquad y=\frac{\begin{vmatrix} a &amp; e \\ c &amp; f \end{vmatrix}}{\begin{vmatrix} a &amp; b \\ c &amp; d \end{vmatrix}}</span></p>
+<p>Notez que le dénominateur égale le déterminant pour les deux coordonnées et est donc non nul. Pour le numérateur de la première coordonnée <span class="math inline">x</span>, on remplace la première colonne par le second membre ; pour la seconde coordonnée <span class="math inline">y</span>, on remplace la seconde colonne par le second membre.</p>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 2.2</strong></p>
+<p>Résolvons le système <span class="math inline">\begin{cases} tx-2y &amp;= 1 \\ 3x+ty &amp;= 1 \end{cases}</span> suivant la valeur du paramètre <span class="math inline">t\in\mathbb{R}</span>.</p>
+<p>Le déterminant associé au système est <span class="math inline">\begin{vmatrix} t &amp; -2 \\ 3 &amp; t \end{vmatrix}=t^2+6</span> et ne s’annule jamais. Il existe donc une unique solution <span class="math inline">(x,y)</span> et elle vérifie : <span class="math display">x=\frac{\begin{vmatrix} 1 &amp; -2 \\ 1 &amp; t \end{vmatrix}}{t^2+6}=\frac{t+2}{t^2+6}, \qquad y=\frac{\begin{vmatrix} t &amp; 1 \\ 3 &amp; 1 \end{vmatrix}}{t^2+6}=\frac{t-3}{t^2+6}.</span> Pour chaque <span class="math inline">t</span>, l’ensemble des solutions est <span class="math inline">\mathcal{S}=\left\{\left(\frac{t+2}{t^2+6},\frac{t-3}{t^2+6}\right)\right\}</span>.</p>
+</div>
+</section>
+<section id="résolution-par-inversion-de-matrice" class="level2" data-number="1.5">
+<h2 data-number="1.5" class="anchored" data-anchor-id="résolution-par-inversion-de-matrice"><span class="header-section-number">1.5</span> Résolution par inversion de matrice</h2>
+<p>En termes matriciels, le système linéaire <span class="math display">\begin{cases} ax+by &amp;= e \\ cx+dy &amp;= f \end{cases}</span> est équivalent à <span class="math display">AX=Y \quad \text{où} \quad A=\begin{pmatrix} a &amp; b \\ c &amp; d \end{pmatrix}, \quad X=\begin{pmatrix} x \\ y \end{pmatrix}, \quad Y=\begin{pmatrix} e \\ f \end{pmatrix}.</span></p>
+<p>Si le déterminant de la matrice <span class="math inline">A</span> est non nul, c’est-à-dire si <span class="math inline">ad-bc\neq 0</span>, alors la matrice <span class="math inline">A</span> est inversible et <span class="math display">A^{-1}=\frac{1}{ad-bc}\begin{pmatrix} d &amp; -b \\ -c &amp; a \end{pmatrix}</span> et l’unique solution <span class="math inline">X=\begin{pmatrix} x \\ y \end{pmatrix}</span> du système est donnée par <span class="math display">X=A^{-1}Y.</span></p>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 2.3</strong></p>
+<p>Résolvons le système <span class="math inline">\begin{cases} x+y &amp;= 1 \\ x+t^2y &amp;= t \end{cases}</span> suivant la valeur du paramètre <span class="math inline">t\in\mathbb{R}</span>.</p>
+<p>Le déterminant du système est <span class="math inline">\begin{vmatrix} 1 &amp; 1 \\ 1 &amp; t^2 \end{vmatrix}=t^2-1</span>.</p>
+<p><strong>Premier cas : <span class="math inline">t\neq 1</span> et <span class="math inline">t\neq -1</span>.</strong> Alors <span class="math inline">t^2-1\neq 0</span>. La matrice <span class="math inline">A=\begin{pmatrix} 1 &amp; 1 \\ 1 &amp; t^2 \end{pmatrix}</span> est inversible d’inverse <span class="math inline">A^{-1}=\frac{1}{t^2-1}\begin{pmatrix} t^2 &amp; -1 \\ -1 &amp; 1 \end{pmatrix}</span>. Et la solution <span class="math inline">X=\begin{pmatrix} x \\ y \end{pmatrix}</span> est <span class="math display">X=A^{-1}Y=\frac{1}{t^2-1}\begin{pmatrix} t^2 &amp; -1 \\ -1 &amp; 1 \end{pmatrix}\begin{pmatrix} 1 \\ t \end{pmatrix}=\frac{1}{t^2-1}\begin{pmatrix} t^2-t \\ t-1 \end{pmatrix}=\begin{pmatrix} \frac{t}{t+1} \\ \frac{1}{t+1} \end{pmatrix}.</span> Pour chaque <span class="math inline">t\neq\pm 1</span>, l’ensemble des solutions est <span class="math inline">\mathcal{S}=\left\{\left(\frac{t}{t+1},\frac{1}{t+1}\right)\right\}</span>.</p>
+<p><strong>Deuxième cas : <span class="math inline">t=1</span>.</strong> Le système s’écrit alors <span class="math inline">\begin{cases} x+y &amp;= 1 \\ x+y &amp;= 1 \end{cases}</span> et les deux équations sont identiques. Il y a une infinité de solutions : <span class="math inline">\mathcal{S}=\{(x,1-x) \mid x\in\mathbb{R}\}</span>.</p>
+<p><strong>Troisième cas : <span class="math inline">t=-1</span>.</strong> Le système s’écrit <span class="math inline">\begin{cases} x+y &amp;= 1 \\ x+y &amp;= -1 \end{cases}</span> ; les deux équations sont clairement incompatibles et donc <span class="math inline">\mathcal{S}=\varnothing</span>.</p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 2.1</strong></p>
+<ol type="1">
+<li>Tracer les droites d’équations <span class="math inline">\begin{cases} x-2y &amp;= -1 \\ -x+3y &amp;= 3 \end{cases}</span> et résoudre le système de trois façons différentes : substitution, méthode de Cramer, inverse d’une matrice. Idem avec <span class="math inline">\begin{cases} 2x-y &amp;= 4 \\ 3x+3y &amp;= -5 \end{cases}</span>.</li>
+<li>Résoudre suivant la valeur du paramètre <span class="math inline">t\in\mathbb{R}</span> : <span class="math inline">\begin{cases} 4x-3y &amp;= t \\ 2x-y &amp;= t^2 \end{cases}</span>.</li>
+<li>Discuter et résoudre suivant la valeur du paramètre <span class="math inline">t\in\mathbb{R}</span> : <span class="math inline">\begin{cases} tx-y &amp;= 1 \\ x+(t-2)y &amp;= -1 \end{cases}</span>. Idem avec <span class="math inline">\begin{cases} (t-1)x+y &amp;= 1 \\ 2x+ty &amp;= -1 \end{cases}</span>.</li>
+</ol>
+</div>
+</section>
+</section>
+<section id="théorie-des-systèmes-linéaires" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> Théorie des systèmes linéaires</h1>
+<section id="définitions" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="définitions"><span class="header-section-number">2.1</span> Définitions</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 3.1</strong></p>
+<p>On appelle <strong>équation linéaire</strong> dans les variables (ou <strong>inconnues</strong>) <span class="math inline">x_1,\ldots,x_p</span> toute relation de la forme <span class="math display">a_1x_1+\cdots+a_px_p=b,</span> où <span class="math inline">a_1,\ldots,a_p</span> et <span class="math inline">b</span> sont des nombres réels donnés.</p>
+</div>
+<div class="proof remark">
+<p><span class="proof-title"><em>Remarque</em>. </span></p>
+<ul>
+<li>Il importe d’insister sur le fait que ces équations linéaires sont <em>implicites</em>, c’est-à-dire qu’elles décrivent des relations entre les variables, mais ne donnent pas directement les valeurs que peuvent prendre les variables.</li>
+<li><em>Résoudre</em> une équation signifie donc la rendre <em>explicite</em>, c’est-à-dire rendre plus apparentes les valeurs que les variables peuvent prendre.</li>
+<li>On peut aussi considérer des équations linéaires de nombres rationnels ou de nombres complexes.</li>
+</ul>
+</div>
+<p>Soit <span class="math inline">n\geq 1</span> un entier.</p>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 3.2</strong></p>
+<p>Un <strong>système de <span class="math inline">n</span> équations linéaires à <span class="math inline">p</span> inconnues</strong> est une liste de <span class="math inline">n</span> équations linéaires.</p>
+</div>
+<p>On écrit usuellement de tels systèmes en <span class="math inline">n</span> lignes placées les unes sous les autres.</p>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 3.1</strong></p>
+<p>Le système suivant a <span class="math inline">2</span> équations et <span class="math inline">3</span> inconnues : <span class="math display">\begin{cases} x_1-3x_2+x_3 &amp;= 1 \\ -2x_1+4x_2-3x_3 &amp;= 9 \end{cases}</span></p>
+</div>
+<p>La forme générale d’un système linéaire de <span class="math inline">n</span> équations à <span class="math inline">p</span> inconnues est la suivante : <span class="math display">\begin{cases} a_{11}x_1+a_{12}x_2+a_{13}x_3+\cdots+a_{1p}x_p &amp;= b_1 &amp; (\leftarrow \text{équation } 1) \\ a_{21}x_1+a_{22}x_2+a_{23}x_3+\cdots+a_{2p}x_p &amp;= b_2 &amp; (\leftarrow \text{équation } 2) \\ \qquad\vdots \\ a_{i1}x_1+a_{i2}x_2+a_{i3}x_3+\cdots+a_{ip}x_p &amp;= b_i &amp; (\leftarrow \text{équation } i) \\ \qquad\vdots \\ a_{n1}x_1+a_{n2}x_2+a_{n3}x_3+\cdots+a_{np}x_p &amp;= b_n &amp; (\leftarrow \text{équation } n) \end{cases}</span></p>
+<p>Les nombres <span class="math inline">a_{ij}</span>, <span class="math inline">i=1,\ldots,n</span>, <span class="math inline">j=1,\ldots,p</span>, sont les <strong>coefficients</strong> du système. Ce sont des données. Les nombres <span class="math inline">b_i</span>, <span class="math inline">i=1,\ldots,n</span>, constituent le <strong>second membre</strong> du système et sont également des données. Il convient de bien observer comment on a rangé le système en lignes (une ligne par équation) numérotées de <span class="math inline">1</span> à <span class="math inline">n</span> par l’indice <span class="math inline">i</span>, et en colonnes : les termes correspondant à une même inconnue <span class="math inline">x_j</span> sont alignés verticalement les uns sous les autres. L’indice <span class="math inline">j</span> varie de <span class="math inline">1</span> à <span class="math inline">p</span>. La notation avec double indice <span class="math inline">a_{ij}</span> correspond à ce rangement : le premier indice (ici <span class="math inline">i</span>) est le numéro de <em>ligne</em> et le second indice (ici <span class="math inline">j</span>) est le numéro de <em>colonne</em>. Il est extrêmement important de toujours respecter cette convention.</p>
+<p>Dans l’exemple précédent, on a <span class="math inline">n=2</span> (nombre d’équations = nombre de lignes), <span class="math inline">p=3</span> (nombre d’inconnues) et <span class="math inline">a_{11}=1</span>, <span class="math inline">a_{12}=-3</span>, <span class="math inline">a_{13}=1</span>, <span class="math inline">a_{21}=-2</span>, <span class="math inline">a_{22}=4</span>, <span class="math inline">a_{23}=-3</span>, <span class="math inline">b_1=1</span> et <span class="math inline">b_2=9</span>.</p>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 3.3</strong></p>
+<p>Une <strong>solution</strong> du système linéaire est une liste de <span class="math inline">p</span> nombres réels <span class="math inline">(s_1,s_2,\ldots,s_p)</span> (un <span class="math inline">p</span>-uplet) tels que, si l’on substitue <span class="math inline">s_1</span> pour <span class="math inline">x_1</span>, <span class="math inline">s_2</span> pour <span class="math inline">x_2</span>, etc., dans le système linéaire, on obtient une égalité. L’<strong>ensemble des solutions du système</strong> est l’ensemble de tous ces <span class="math inline">p</span>-uplets.</p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 3.2</strong></p>
+<p>Le système <span class="math display">\begin{cases} x_1-3x_2+x_3 &amp;= 1 \\ -2x_1+4x_2-3x_3 &amp;= 9 \end{cases}</span> admet comme solution <span class="math inline">(-18,-6,1)</span>, c’est-à-dire <span class="math display">x_1=-18, \qquad x_2=-6, \qquad x_3=1.</span> Par contre, <span class="math inline">(7,2,0)</span> ne satisfait que la première équation. Ce n’est donc pas une solution du système.</p>
+</div>
+<p>En règle générale, on s’attache à déterminer l’ensemble des solutions d’un système linéaire. C’est ce que l’on appelle <strong>résoudre</strong> le système linéaire. Ceci amène à poser la définition suivante.</p>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 3.4</strong></p>
+<p>On dit que deux systèmes linéaires sont <strong>équivalents</strong> s’ils ont le même ensemble de solutions.</p>
+</div>
+<p>À partir de là, le jeu pour résoudre un système linéaire donné consistera à le transformer en un système équivalent dont la résolution sera plus simple que celle du système de départ. Nous verrons plus loin comment procéder de façon systématique pour arriver à ce but.</p>
+</section>
+<section id="différents-types-de-systèmes" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="différents-types-de-systèmes"><span class="header-section-number">2.2</span> Différents types de systèmes</h2>
+<p>Voici un résultat théorique important pour les systèmes linéaires.</p>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 3.1</strong></p>
+<p>Un système d’équations linéaires n’a soit aucune solution, soit une seule solution, soit une infinité de solutions.</p>
+</div>
+<p>En particulier, si vous trouvez <span class="math inline">2</span> solutions différentes à un système linéaire, alors c’est que vous pouvez en trouver une infinité ! Un système linéaire qui n’a aucune solution est dit <strong>incompatible</strong>. La preuve de ce théorème sera vue dans un chapitre ultérieur (« Matrices »).</p>
+</section>
+<section id="systèmes-homogènes" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="systèmes-homogènes"><span class="header-section-number">2.3</span> Systèmes homogènes</h2>
+<p>Un cas particulier important est celui des <strong>systèmes homogènes</strong>, pour lesquels <span class="math inline">b_1=b_2=\cdots=b_n=0</span>, c’est-à-dire dont le second membre est nul. De tels systèmes sont toujours compatibles car ils admettent toujours la solution <span class="math inline">s_1=s_2=\cdots=s_p=0</span>. Cette solution est appelée <em>solution triviale</em>. Géométriquement, dans le cas <span class="math inline">2\times 2</span>, un système homogène correspond à deux droites qui passent par l’origine, <span class="math inline">(0,0)</span> étant donc toujours solution.</p>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 3.1</strong></p>
+<ol type="1">
+<li>Écrire un système linéaire de <span class="math inline">4</span> équations et <span class="math inline">3</span> inconnues qui n’a aucune solution. Idem avec une infinité de solutions. Idem avec une solution unique.</li>
+<li>Résoudre le système à <span class="math inline">n</span> équations et <span class="math inline">n</span> inconnues dont les équations sont <span class="math inline">(L_i)</span> : <span class="math inline">x_i-x_{i+1}=1</span> pour <span class="math inline">i=1,\ldots,n-1</span> et <span class="math inline">(L_n)</span> : <span class="math inline">x_n=1</span>.</li>
+<li>Résoudre les systèmes suivants : <span class="math display">\begin{cases} x_1+2x_2+3x_3+4x_4 &amp;= 0 \\ x_2+2x_3+3x_4 &amp;= 9 \\ x_3+2x_4 &amp;= 0 \end{cases} \quad \begin{cases} x_1+2x_2+3x_3 &amp;= 1 \\ x_1+x_2+x_3 &amp;= 2 \\ x_1-x_2+x_3 &amp;= 3 \end{cases} \quad \begin{cases} x_1+x_2 &amp;= 1 \\ x_2+x_3 &amp;= 2 \\ x_3+x_4 &amp;= 3 \\ x_1+2x_2+2x_3+x_4 &amp;= 0 \end{cases}</span></li>
+<li>Montrer que si un système linéaire <em>homogène</em> a une solution <span class="math inline">(x_1,\ldots,x_p)\neq(0,\ldots,0)</span>, alors il admet une infinité de solutions.</li>
+</ol>
+</div>
+</section>
+</section>
+<section id="résolution-par-la-méthode-du-pivot-de-gauss" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Résolution par la méthode du pivot de Gauss</h1>
+<section id="systèmes-échelonnés" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="systèmes-échelonnés"><span class="header-section-number">3.1</span> Systèmes échelonnés</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 4.1</strong></p>
+<p>Un système est <strong>échelonné</strong> si :</p>
+<ul>
+<li>le nombre de coefficients nuls commençant une ligne croît strictement ligne après ligne.</li>
+</ul>
+<p>Il est <strong>échelonné réduit</strong> si en plus :</p>
+<ul>
+<li>le premier coefficient non nul d’une ligne vaut <span class="math inline">1</span> ;</li>
+<li>et c’est le seul élément non nul de sa colonne.</li>
+</ul>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 4.1</strong></p>
+<ul>
+<li><span class="math inline">\begin{cases} 2x_1+3x_2+2x_3-x_4 &amp;= 5 \\ -x_2-2x_3 &amp;= 4 \\ 3x_4 &amp;= 1 \end{cases}</span> est échelonné (mais pas réduit).</li>
+<li><span class="math inline">\begin{cases} 2x_1+3x_2+2x_3-x_4 &amp;= 5 \\ -2x_3 &amp;= 4 \\ x_3+x_4 &amp;= 1 \end{cases}</span> n’est pas échelonné (la dernière ligne commence avec la même variable que la ligne au-dessus).</li>
+</ul>
+</div>
+<p>Il se trouve que les systèmes linéaires sous une forme échelonnée réduite sont particulièrement simples à résoudre.</p>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 4.2</strong></p>
+<p>Le système linéaire suivant à <span class="math inline">3</span> équations et <span class="math inline">4</span> inconnues est échelonné et réduit : <span class="math display">\begin{cases} x_1+2x_3 &amp;= 25 \\ x_2-2x_3 &amp;= 16 \\ x_4 &amp;= 1 \end{cases}</span> Ce système se résout trivialement en <span class="math display">\begin{cases} x_1 &amp;= 25-2x_3 \\ x_2 &amp;= 16+2x_3 \\ x_4 &amp;= 1 \end{cases}</span> En d’autres termes, pour toute valeur de <span class="math inline">x_3</span> réelle, les valeurs de <span class="math inline">x_1</span>, <span class="math inline">x_2</span> et <span class="math inline">x_4</span> calculées ci-dessus fournissent une solution du système, et on les a ainsi toutes obtenues. On peut donc décrire entièrement l’ensemble des solutions : <span class="math display">\mathcal{S}=\{(25-2x_3,\,16+2x_3,\,x_3,\,1) \mid x_3\in\mathbb{R}\}.</span></p>
+</div>
+</section>
+<section id="opérations-sur-les-équations-dun-système" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="opérations-sur-les-équations-dun-système"><span class="header-section-number">3.2</span> Opérations sur les équations d’un système</h2>
+<p>Nous allons utiliser trois opérations élémentaires sur les équations (c’est-à-dire sur les lignes) qui sont :</p>
+<ol type="1">
+<li><span class="math inline">L_i \leftarrow \lambda L_i</span> avec <span class="math inline">\lambda\neq 0</span> : on peut multiplier une équation par un réel non nul.</li>
+<li><span class="math inline">L_i \leftarrow L_i+\lambda L_j</span> avec <span class="math inline">\lambda\in\mathbb{R}</span> (et <span class="math inline">j\neq i</span>) : on peut ajouter à l’équation <span class="math inline">L_i</span> un multiple d’une autre équation <span class="math inline">L_j</span>.</li>
+<li><span class="math inline">L_i \leftrightarrow L_j</span> : on peut échanger deux équations.</li>
+</ol>
+<p>Ces trois opérations élémentaires ne changent pas les solutions d’un système linéaire ; autrement dit ces opérations transforment un système linéaire en un système linéaire équivalent.</p>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 4.3</strong></p>
+<p>Utilisons ces opérations élémentaires pour résoudre le système suivant : <span class="math display">\begin{cases} x+y+7z &amp;= -1 \\ 2x-y+5z &amp;= -5 \\ -x-3y-9z &amp;= -5 \end{cases}</span></p>
+<p>Commençons par l’opération <span class="math inline">L_2 \leftarrow L_2-2L_1</span> : on soustrait à la deuxième équation deux fois la première équation. On obtient un système équivalent avec une nouvelle deuxième ligne (plus simple) : <span class="math display">\begin{cases} x+y+7z &amp;= -1 \\ -3y-9z &amp;= -3 &amp; (L_2 \leftarrow L_2-2L_1) \\ -x-3y-9z &amp;= -5 \end{cases}</span></p>
+<p>Puis <span class="math inline">L_3 \leftarrow L_3+L_1</span> : <span class="math display">\begin{cases} x+y+7z &amp;= -1 \\ -3y-9z &amp;= -3 \\ -2y-2z &amp;= -6 &amp; (L_3 \leftarrow L_3+L_1) \end{cases}</span></p>
+<p>On continue pour faire apparaître un coefficient <span class="math inline">1</span> en tête de la deuxième ligne ; pour cela on divise la ligne <span class="math inline">L_2</span> par <span class="math inline">-3</span> : <span class="math display">\begin{cases} x+y+7z &amp;= -1 \\ y+3z &amp;= 1 &amp; (L_2 \leftarrow -\tfrac13 L_2) \\ -2y-2z &amp;= -6 \end{cases}</span></p>
+<p>On continue ainsi : <span class="math display">\begin{cases} x+y+7z &amp;= -1 \\ y+3z &amp;= 1 \\ 4z &amp;= -4 &amp; (L_3 \leftarrow L_3+2L_2) \end{cases} \qquad \begin{cases} x+y+7z &amp;= -1 \\ y+3z &amp;= 1 \\ z &amp;= -1 &amp; (L_3 \leftarrow \tfrac14 L_3) \end{cases}</span></p>
+<p><span class="math display">\begin{cases} x+y+7z &amp;= -1 \\ y &amp;= 4 &amp; (L_2 \leftarrow L_2-3L_3) \\ z &amp;= -1 \end{cases} \qquad \begin{cases} x+y &amp;= 6 &amp; (L_1 \leftarrow L_1-7L_3) \\ y &amp;= 4 \\ z &amp;= -1 \end{cases}</span></p>
+<p>On aboutit à un système réduit et échelonné : <span class="math display">\begin{cases} x &amp;= 2 &amp; (L_1 \leftarrow L_1-L_2) \\ y &amp;= 4 \\ z &amp;= -1 \end{cases}</span></p>
+<p>On obtient ainsi <span class="math inline">x=2</span>, <span class="math inline">y=4</span> et <span class="math inline">z=-1</span> et l’unique solution du système est <span class="math inline">(2,4,-1)</span>.</p>
+</div>
+<p>La méthode utilisée pour cet exemple est reprise et généralisée dans le paragraphe suivant.</p>
+</section>
+<section id="méthode-du-pivot-de-gauss" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="méthode-du-pivot-de-gauss"><span class="header-section-number">3.3</span> Méthode du pivot de Gauss</h2>
+<p>La méthode du pivot de Gauss permet de trouver les solutions de n’importe quel système linéaire. Nous allons décrire cet algorithme sur un exemple. Il s’agit d’une description précise d’une suite d’opérations à effectuer, qui dépendent de la situation et d’un ordre précis. Ce processus aboutit toujours (et en plus assez rapidement) à un système échelonné puis réduit, qui conduit immédiatement aux solutions du système.</p>
+<p><strong>Partie A. Passage à une forme échelonnée.</strong> Soit le système suivant à résoudre : <span class="math display">\begin{cases} -x_2+2x_3+13x_4 &amp;= 5 \\ x_1-2x_2+3x_3+17x_4 &amp;= 4 \\ -x_1+3x_2-3x_3-20x_4 &amp;= -1 \end{cases}</span></p>
+<p>Pour appliquer la méthode du pivot de Gauss, il faut d’abord que le premier coefficient de la première ligne soit non nul. Comme ce n’est pas le cas ici, on échange les deux premières lignes par l’opération élémentaire <span class="math inline">L_1 \leftrightarrow L_2</span> : <span class="math display">\begin{cases} x_1-2x_2+3x_3+17x_4 &amp;= 4 &amp; (L_1 \leftrightarrow L_2) \\ -x_2+2x_3+13x_4 &amp;= 5 \\ -x_1+3x_2-3x_3-20x_4 &amp;= -1 \end{cases}</span></p>
+<p>Nous avons déjà un coefficient <span class="math inline">1</span> devant le <span class="math inline">x_1</span> de la première ligne. On dit que nous avons un <strong>pivot</strong> en position <span class="math inline">(1,1)</span> (première ligne, première colonne). Ce pivot sert de base pour éliminer tous les autres termes sur la même colonne. Il n’y a pas de terme <span class="math inline">x_1</span> sur la deuxième ligne. Faisons disparaître le terme <span class="math inline">x_1</span> de la troisième ligne ; pour cela on fait l’opération élémentaire <span class="math inline">L_3 \leftarrow L_3+L_1</span> : <span class="math display">\begin{cases} x_1-2x_2+3x_3+17x_4 &amp;= 4 \\ -x_2+2x_3+13x_4 &amp;= 5 \\ x_2-3x_4 &amp;= 3 &amp; (L_3 \leftarrow L_3+L_1) \end{cases}</span></p>
+<p>On change le signe de la seconde ligne (<span class="math inline">L_2 \leftarrow -L_2</span>) pour faire apparaître <span class="math inline">1</span> au coefficient du pivot <span class="math inline">(2,2)</span> (deuxième ligne, deuxième colonne) : <span class="math display">\begin{cases} x_1-2x_2+3x_3+17x_4 &amp;= 4 \\ x_2-2x_3-13x_4 &amp;= -5 &amp; (L_2 \leftarrow -L_2) \\ x_2-3x_4 &amp;= 3 \end{cases}</span></p>
+<p>On fait disparaître le terme <span class="math inline">x_2</span> de la troisième ligne, puis on fait apparaître un coefficient <span class="math inline">1</span> pour le pivot de la position <span class="math inline">(3,3)</span> : <span class="math display">\begin{cases} x_1-2x_2+3x_3+17x_4 &amp;= 4 \\ x_2-2x_3-13x_4 &amp;= -5 \\ 2x_3+10x_4 &amp;= 8 &amp; (L_3 \leftarrow L_3-L_2) \end{cases} \qquad \begin{cases} x_1-2x_2+3x_3+17x_4 &amp;= 4 \\ x_2-2x_3-13x_4 &amp;= -5 \\ x_3+5x_4 &amp;= 4 &amp; (L_3 \leftarrow \tfrac12 L_3) \end{cases}</span></p>
+<p>Le système est maintenant sous forme échelonnée.</p>
+<p><strong>Partie B. Passage à une forme réduite.</strong> Il reste à le mettre sous la forme échelonnée réduite. Pour cela, on ajoute à une ligne des multiples adéquats des lignes situées au-dessous d’elle, en allant du bas à droite vers le haut à gauche. On fait apparaître des <span class="math inline">0</span> sur la troisième colonne en utilisant le pivot de la troisième ligne : <span class="math display">\begin{cases} x_1-2x_2+3x_3+17x_4 &amp;= 4 \\ x_2-3x_4 &amp;= 3 &amp; (L_2 \leftarrow L_2+2L_3) \\ x_3+5x_4 &amp;= 4 \end{cases} \qquad \begin{cases} x_1-2x_2+2x_4 &amp;= -8 &amp; (L_1 \leftarrow L_1-3L_3) \\ x_2-3x_4 &amp;= 3 \\ x_3+5x_4 &amp;= 4 \end{cases}</span></p>
+<p>On fait apparaître des <span class="math inline">0</span> sur la deuxième colonne (en utilisant le pivot de la deuxième ligne) : <span class="math display">\begin{cases} x_1-4x_4 &amp;= -2 &amp; (L_1 \leftarrow L_1+2L_2) \\ x_2-3x_4 &amp;= 3 \\ x_3+5x_4 &amp;= 4 \end{cases}</span></p>
+<p>Le système est sous forme échelonnée réduite.</p>
+<p><strong>Partie C. Solutions.</strong> Le système est maintenant très simple à résoudre. En choisissant <span class="math inline">x_4</span> comme variable libre, on peut exprimer <span class="math inline">x_1,x_2,x_3</span> en fonction de <span class="math inline">x_4</span> : <span class="math display">x_1=4x_4-2, \quad x_2=3x_4+3, \quad x_3=-5x_4+4.</span> Ce qui permet d’obtenir toutes les solutions du système : <span class="math display">\mathcal{S}=\{(4x_4-2,\,3x_4+3,\,-5x_4+4,\,x_4) \mid x_4\in\mathbb{R}\}.</span></p>
+</section>
+<section id="systèmes-homogènes-1" class="level2" data-number="3.4">
+<h2 data-number="3.4" class="anchored" data-anchor-id="systèmes-homogènes-1"><span class="header-section-number">3.4</span> Systèmes homogènes</h2>
+<p>Le fait que l’on puisse toujours se ramener à un système échelonné réduit implique le résultat suivant :</p>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 4.1</strong></p>
+<p>Tout système homogène d’équations linéaires dont le nombre d’inconnues est strictement plus grand que le nombre d’équations a une infinité de solutions.</p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 4.4</strong></p>
+<p>Considérons le système homogène <span class="math display">\begin{cases} 3x_1+3x_2-2x_3-x_5 &amp;= 0 \\ -x_1-x_2+x_3+3x_4+x_5 &amp;= 0 \\ 2x_1+2x_2-x_3+2x_4+2x_5 &amp;= 0 \\ x_3+8x_4+4x_5 &amp;= 0 \end{cases}</span></p>
+<p>Sa forme échelonnée réduite est <span class="math display">\begin{cases} x_1+x_2+13x_5 &amp;= 0 \\ x_3+20x_5 &amp;= 0 \\ x_4-2x_5 &amp;= 0 \end{cases}</span></p>
+<p>On pose comme variables libres <span class="math inline">x_2</span> et <span class="math inline">x_5</span> pour avoir <span class="math display">x_1=-x_2-13x_5, \qquad x_3=-20x_5, \qquad x_4=2x_5,</span> et l’ensemble des solutions : <span class="math display">\mathcal{S}=\{(-x_2-13x_5,\,x_2,\,-20x_5,\,2x_5,\,x_5) \mid x_2,x_5\in\mathbb{R}\}</span> qui est bien infini.</p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 4.1</strong></p>
+<ol type="1">
+<li>Écrire un système linéaire à <span class="math inline">4</span> équations et <span class="math inline">5</span> inconnues qui soit échelonné mais pas réduit. Idem avec échelonné, non réduit, dont tous les coefficients sont <span class="math inline">0</span> ou <span class="math inline">+1</span>. Idem avec échelonné et réduit.</li>
+<li>Résoudre les systèmes échelonnés suivants : <span class="math display">\begin{cases} 2x_1-x_2+x_4 &amp;= 1 \\ x_2+x_3-2x_4 &amp;= 3 \\ 2x_3+x_4 &amp;= 4 \\ x_4 &amp;= -2 \end{cases} \quad \begin{cases} x_1+x_2+x_4 &amp;= 0 \\ x_2+x_3 &amp;= 0 \\ 2x_3+x_4 &amp;= 0 \end{cases} \quad \begin{cases} x_1+2x_2+x_4 &amp;= 0 \\ 2x_3-3x_4 &amp;= 0 \end{cases}</span></li>
+<li>Si l’on passe d’un système <span class="math inline">(S)</span> par une des trois opérations élémentaires à un système <span class="math inline">(S')</span>, alors quelle opération permet de passer de <span class="math inline">(S')</span> à <span class="math inline">(S)</span> ?</li>
+<li>Résoudre les systèmes linéaires suivants par la méthode du pivot de Gauss : <span class="math display">\begin{cases} 2x+y+z &amp;= 3 \\ x-y+3z &amp;= 8 \\ x+2y-z &amp;= -3 \end{cases} \qquad \begin{cases} 2x_1+4x_2-6x_3-2x_4 &amp;= 2 \\ 3x_1+6x_2-7x_3+4x_4 &amp;= 2 \\ 5x_1+10x_2-11x_3+6x_4 &amp;= 3 \end{cases}</span></li>
+<li>Résoudre le système suivant, selon les valeurs de <span class="math inline">a,b\in\mathbb{R}</span> : <span class="math display">\begin{cases} x+y-z &amp;= a \\ -x+2z &amp;= b \\ 2y+2z &amp;= 4 \end{cases}</span></li>
+</ol>
+</div>
+</section>
+</section>
+<section id="document-en-pdf" class="level1 unnumbered">
+<h1 class="unnumbered">Document en PDF</h1>
+<p><a href="PDF/mpsi-chap07.pdf">Chapitre 07 : Systèmes linéaires</a></p>
+<section id="navigation" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="navigation">Navigation</h2>
+<div class="chap-nav">
+<p><a href="../cours/mpsi-chap06.html" class="prev">Chapitre 06 : Équations différentielles linéaires</a></p>
+<p><a href="../cours/mpsi.html" class="home">Menu MPSI</a></p>
+<p><a href="../cours/mpsi-chap08.html" class="next">Chapitre 08 : Structures algébriques</a></p>
+</div>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -214,12 +546,12 @@ ul.task-list li input[type="checkbox"] {
       // flash "checked"
       button.classList.add('code-copy-button-checked');
       var currentTitle = button.getAttribute("title");
-      button.setAttribute("title", "Copied!");
+      button.setAttribute("title", "Copié");
       let tooltip;
       if (window.bootstrap) {
         button.setAttribute("data-bs-toggle", "tooltip");
         button.setAttribute("data-bs-placement", "left");
-        button.setAttribute("data-bs-title", "Copied!");
+        button.setAttribute("data-bs-title", "Copié");
         tooltip = new bootstrap.Tooltip(button, 
           { trigger: "manual", 
             customClass: "code-copy-button-tooltip",

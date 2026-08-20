@@ -1,13 +1,14 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr"><head>
 
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.10.18">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Said MAHARI">
 
-<title>Intégration sur un segment - Mathématiques en CPGE – Mathématiques en CPGE</title>
+<title>Intégration sur un segment – Mathématiques en CPGE</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -45,7 +46,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-7a8c080b55ea27eb37b467515007f9ee.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-e0d9a45d84245cc5e3b300860d8fa645.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -60,22 +61,66 @@ ul.task-list li input[type="checkbox"] {
   ],
   "show-item-context": false,
   "language": {
-    "search-no-results-text": "No results",
-    "search-matching-documents-text": "matching documents",
-    "search-copy-link-title": "Copy link to search",
-    "search-hide-matches-text": "Hide additional matches",
-    "search-more-match-text": "more match in this document",
-    "search-more-matches-text": "more matches in this document",
-    "search-clear-button-title": "Clear",
+    "search-no-results-text": "Pas de résultats",
+    "search-matching-documents-text": "documents trouvés",
+    "search-copy-link-title": "Copier le lien vers la recherche",
+    "search-hide-matches-text": "Cacher les correspondances additionnelles",
+    "search-more-match-text": "correspondance de plus dans ce document",
+    "search-more-matches-text": "correspondances de plus dans ce document",
+    "search-clear-button-title": "Effacer",
     "search-text-placeholder": "",
-    "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit",
-    "search-label": "Search"
+    "search-detached-cancel-button-title": "Annuler",
+    "search-submit-button-title": "Envoyer",
+    "search-label": "Recherche"
   }
 }</script>
 
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="styles.css">
 </head>
 
 <body class="nav-fixed quarto-light">
@@ -89,8 +134,8 @@ ul.task-list li input[type="checkbox"] {
     <span class="navbar-title">Accueil</span>
     </a>
   </div>
-            <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+            <div id="quarto-search" class="" title="Recherche"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Basculer la navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
@@ -119,6 +164,10 @@ ul.task-list li input[type="checkbox"] {
     <a class="nav-link" href="../contact.html"> 
 <span class="menu-text">Contact</span></a>
   </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../apropos.html"> 
+<span class="menu-text">À propos</span></a>
+  </li>  
 </ul>
           </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
@@ -132,10 +181,40 @@ ul.task-list li input[type="checkbox"] {
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
+    <h2 id="toc-title">Sur cette page</h2>
    
   <ul>
-  <li><a href="#document" id="toc-document" class="nav-link active" data-scroll-target="#document">Document</a></li>
+  <li><a href="#intégration-sur-un-segment" id="toc-intégration-sur-un-segment" class="nav-link active" data-scroll-target="#intégration-sur-un-segment">Intégration sur un segment</a></li>
+  <li><a href="#continuité-uniforme" id="toc-continuité-uniforme" class="nav-link" data-scroll-target="#continuité-uniforme"><span class="header-section-number">1</span> Continuité uniforme</a></li>
+  <li><a href="#fonctions-en-escalier-fonctions-continues-par-morceaux" id="toc-fonctions-en-escalier-fonctions-continues-par-morceaux" class="nav-link" data-scroll-target="#fonctions-en-escalier-fonctions-continues-par-morceaux"><span class="header-section-number">2</span> Fonctions en escalier, fonctions continues par morceaux</a>
+  <ul class="collapse">
+  <li><a href="#fonctions-en-escalier" id="toc-fonctions-en-escalier" class="nav-link" data-scroll-target="#fonctions-en-escalier"><span class="header-section-number">2.1</span> Fonctions en escalier</a></li>
+  <li><a href="#fonctions-continues-par-morceaux" id="toc-fonctions-continues-par-morceaux" class="nav-link" data-scroll-target="#fonctions-continues-par-morceaux"><span class="header-section-number">2.2</span> Fonctions continues par morceaux</a></li>
+  <li><a href="#approximation-uniforme-par-des-fonctions-en-escalier" id="toc-approximation-uniforme-par-des-fonctions-en-escalier" class="nav-link" data-scroll-target="#approximation-uniforme-par-des-fonctions-en-escalier"><span class="header-section-number">2.3</span> Approximation uniforme par des fonctions en escalier</a></li>
+  </ul></li>
+  <li><a href="#construction-de-lintégrale" id="toc-construction-de-lintégrale" class="nav-link" data-scroll-target="#construction-de-lintégrale"><span class="header-section-number">3</span> Construction de l’intégrale</a>
+  <ul class="collapse">
+  <li><a href="#intégrale-dune-fonction-en-escalier" id="toc-intégrale-dune-fonction-en-escalier" class="nav-link" data-scroll-target="#intégrale-dune-fonction-en-escalier"><span class="header-section-number">3.1</span> Intégrale d’une fonction en escalier</a></li>
+  <li><a href="#intégrale-dune-fonction-continue-par-morceaux" id="toc-intégrale-dune-fonction-continue-par-morceaux" class="nav-link" data-scroll-target="#intégrale-dune-fonction-continue-par-morceaux"><span class="header-section-number">3.2</span> Intégrale d’une fonction continue par morceaux</a></li>
+  <li><a href="#propriétés-de-lintégrale" id="toc-propriétés-de-lintégrale" class="nav-link" data-scroll-target="#propriétés-de-lintégrale"><span class="header-section-number">3.3</span> Propriétés de l’intégrale</a></li>
+  </ul></li>
+  <li><a href="#intégration-et-dérivation" id="toc-intégration-et-dérivation" class="nav-link" data-scroll-target="#intégration-et-dérivation"><span class="header-section-number">4</span> Intégration et dérivation</a>
+  <ul class="collapse">
+  <li><a href="#rappels-sur-les-primitives" id="toc-rappels-sur-les-primitives" class="nav-link" data-scroll-target="#rappels-sur-les-primitives"><span class="header-section-number">4.1</span> Rappels sur les primitives</a></li>
+  <li><a href="#le-théorème-fondamental-du-calcul-intégral" id="toc-le-théorème-fondamental-du-calcul-intégral" class="nav-link" data-scroll-target="#le-théorème-fondamental-du-calcul-intégral"><span class="header-section-number">4.2</span> Le théorème fondamental du calcul intégral</a></li>
+  <li><a href="#intégration-par-parties-et-changement-de-variable" id="toc-intégration-par-parties-et-changement-de-variable" class="nav-link" data-scroll-target="#intégration-par-parties-et-changement-de-variable"><span class="header-section-number">4.3</span> Intégration par parties et changement de variable</a></li>
+  <li><a href="#limites-dintégrales" id="toc-limites-dintégrales" class="nav-link" data-scroll-target="#limites-dintégrales"><span class="header-section-number">4.4</span> Limites d’intégrales</a></li>
+  </ul></li>
+  <li><a href="#formules-de-taylor-lagrange" id="toc-formules-de-taylor-lagrange" class="nav-link" data-scroll-target="#formules-de-taylor-lagrange"><span class="header-section-number">5</span> Formules de Taylor-Lagrange</a></li>
+  <li><a href="#approximations-dintégrales" id="toc-approximations-dintégrales" class="nav-link" data-scroll-target="#approximations-dintégrales"><span class="header-section-number">6</span> Approximations d’intégrales</a>
+  <ul class="collapse">
+  <li><a href="#sommes-de-riemann-ou-méthode-des-rectangles" id="toc-sommes-de-riemann-ou-méthode-des-rectangles" class="nav-link" data-scroll-target="#sommes-de-riemann-ou-méthode-des-rectangles"><span class="header-section-number">6.1</span> Sommes de Riemann ou méthode des rectangles</a></li>
+  <li><a href="#méthode-des-trapèzes" id="toc-méthode-des-trapèzes" class="nav-link" data-scroll-target="#méthode-des-trapèzes"><span class="header-section-number">6.2</span> Méthode des trapèzes</a></li>
+  </ul></li>
+  <li><a href="#document-en-pdf" id="toc-document-en-pdf" class="nav-link" data-scroll-target="#document-en-pdf">Document en PDF</a>
+  <ul class="collapse">
+  <li><a href="#navigation" id="toc-navigation" class="nav-link" data-scroll-target="#navigation">Navigation</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -144,14 +223,27 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Chapitre 21 : Intégration sur un segment</h1>
+<h1 class="title">Intégration sur un segment</h1>
+<p class="subtitle lead">Chapitre 21</p>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Auteur·rice</div>
+    <div class="quarto-title-meta-contents">
+             <p>Said MAHARI </p>
+          </div>
+  </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">Date de publication</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">19 août 2026</p>
+    </div>
+  </div>
   
     
   </div>
@@ -161,12 +253,491 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p><strong>MPSI (1re année) — Chapitre 21.</strong> Sommes de Riemann, primitives, IPP, changement de variable.</p>
-<section id="document" class="level2">
-<h2 class="anchored" data-anchor-id="document">Document</h2>
-<p><em>PDF à venir : déposez le fichier <code>files/mpsi/chap21.pdf</code> puis régénérez la page.</em></p>
+<p><strong>MPSI (1re année) — Chapitre 21.</strong> Continuité uniforme (Heine), fonctions en escalier, fonctions continues par morceaux, construction de l’intégrale sur un segment, théorème fondamental du calcul intégral, primitives, intégration par parties, changement de variable, formules de Taylor-Lagrange, sommes de Riemann, méthode des trapèzes.</p>
+<p>Ce chapitre a été réalisé conformément au programme marocain de mathématiques de la filière MPSI.</p>
+<section id="intégration-sur-un-segment" class="level1 unnumbered">
+<h1 class="unnumbered">Intégration sur un segment</h1>
+<p>Pour commencer, refaites donc un tour du côté du chapitre « Techniques élémentaires de calcul intégral ». Dans tout ce chapitre, <span class="math inline">a</span> et <span class="math inline">b</span> sont deux réels, <span class="math inline">\mathbb{K}</span> est l’un des corps <span class="math inline">\mathbb{R}</span> ou <span class="math inline">\mathbb{C}</span>, et <span class="math inline">I,J,\ldots</span> sont des intervalles. Quand on notera <span class="math inline">[a,b]</span>, il sera sous-entendu que <span class="math inline">a\leq b</span>.</p>
+</section>
+<section id="continuité-uniforme" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Continuité uniforme</h1>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 2.1 — (Continuité uniforme)</strong></p>
+<p>Soit <span class="math inline">f : I \longrightarrow \mathbb{C}</span> une fonction. On dit que <span class="math inline">f</span> est <strong>uniformément continue</strong> sur <span class="math inline">I</span> si : <span class="math display">\forall \varepsilon&gt;0,\ \exists \alpha&gt;0,\ \forall x,y\in I,\ |x-y|&lt;\alpha \Longrightarrow |f(x)-f(y)|&lt;\varepsilon.</span></p>
+</div>
+<p>Dire que <span class="math inline">f</span> est continue sur <span class="math inline">I</span>, c’est dire que <span class="math inline">f</span> est continue en tout point <span class="math inline">y</span> de <span class="math inline">I</span>, c’est-à-dire : <span class="math inline">\forall y\in I,\ \forall\varepsilon&gt;0,\ \exists\alpha_{y,\varepsilon}&gt;0,\ \forall x\in I,\ |x-y|&lt;\alpha_{y,\varepsilon}\Rightarrow|f(x)-f(y)|&lt;\varepsilon</span>. Avec la continuité, on se fixe donc un point <span class="math inline">y</span> et un niveau <span class="math inline">\varepsilon</span>, et on récupère un <span class="math inline">\alpha_{y,\varepsilon}</span> qui dépend a priori de <span class="math inline">y</span> et de <span class="math inline">\varepsilon</span>. Avec la continuité <strong>uniforme</strong>, on obtient un <span class="math inline">\alpha_\varepsilon</span> en ayant seulement fixé <span class="math inline">\varepsilon</span> : cet <span class="math inline">\alpha_\varepsilon</span> est donc <strong>valable pour tout point</strong> <span class="math inline">y\in I</span>. L’adjectif « uniforme » est précisément là pour signifier cette indépendance de <span class="math inline">\alpha_\varepsilon</span> par rapport à <span class="math inline">y</span>.</p>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 2.1 — (Lien entre continuité, continuité uniforme et lipschitzianité)</strong></p>
+<ol type="1">
+<li>Toute fonction uniformément continue sur un intervalle y est continue.</li>
+<li>Toute fonction lipschitzienne sur un intervalle y est uniformément continue.</li>
+</ol>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Preuve</em>. </span></p>
+<ol type="i">
+<li><p>Évident ! S’il existe un <span class="math inline">\alpha</span> uniforme valable pour tout point, alors bien sûr il en existe un pour chacun.</p></li>
+<li><p>Soit <span class="math inline">f : I\to\mathbb{C}</span> une fonction <span class="math inline">K</span>-lipschitzienne sur <span class="math inline">I</span> pour un certain <span class="math inline">K&gt;0</span>. Soit <span class="math inline">\varepsilon&gt;0</span>. Posons <span class="math inline">\alpha=\frac{\varepsilon}{K}</span>. Alors pour tous <span class="math inline">x,y\in I</span> pour lesquels <span class="math inline">|x-y|&lt;\alpha</span> : <span class="math inline">|f(x)-f(y)|\leq K|x-y|&lt;K\alpha=\varepsilon</span>.</p></li>
+</ol>
+</div>
+<p>Le théorème précédent n’a pas de réciproque en général, sauf l’assertion (i) dans le cas d’un <strong>segment</strong>.</p>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 2.2 — (Théorème de Heine)</strong></p>
+<p>Toute fonction continue sur un <strong>segment</strong> y est uniformément continue.</p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Preuve</em>. </span>Soit <span class="math inline">f\in\mathcal{C}([a,b],\mathbb{C})</span>. Supposons par l’absurde que <span class="math inline">f</span> n’est pas uniformément continue sur <span class="math inline">[a,b]</span>. Ainsi, pour un certain <span class="math inline">\varepsilon&gt;0</span> : <span class="math inline">\forall\alpha&gt;0,\ \exists x,y\in[a,b],\ |x-y|&lt;\alpha</span> et <span class="math inline">|f(x)-f(y)|\geq\varepsilon</span>.</p>
+<p>Pour tout <span class="math inline">n\in\mathbb{N}^*</span>, pour <span class="math inline">\alpha=2^{-n}</span>, il existe donc deux réels <span class="math inline">x_n,y_n\in[a,b]</span> pour lesquels <span class="math inline">|x_n-y_n|&lt;2^{-n}</span> et <span class="math inline">|f(x_n)-f(y_n)|\geq\varepsilon</span>. Bornée entre <span class="math inline">a</span> et <span class="math inline">b</span>, la suite <span class="math inline">(x_n)_{n\in\mathbb{N}}</span> possède une suite extraite convergente <span class="math inline">\left(x_{\varphi(n)}\right)_{n\in\mathbb{N}}</span> d’après le théorème de Bolzano-Weierstrass, disons de limite <span class="math inline">\ell\in[a,b]</span>. Or <span class="math inline">|x_{\varphi(n)}-y_{\varphi(n)}|&lt;2^{-\varphi(n)}</span> avec <span class="math inline">\lim_{n\to+\infty}\varphi(n)=+\infty</span>, donc <span class="math inline">\lim_{n\to+\infty}y_{\varphi(n)}=\ell</span> par encadrement. Pour conclure, passons à la limite dans l’inégalité <span class="math inline">|f(x_{\varphi(n)})-f(y_{\varphi(n)})|\geq\varepsilon</span> en utilisant la continuité de <span class="math inline">f</span> en <span class="math inline">\ell</span> : <span class="math inline">0=|f(\ell)-f(\ell)|\geq\varepsilon&gt;0</span> — contradiction.</p>
+</div>
+</section>
+<section id="fonctions-en-escalier-fonctions-continues-par-morceaux" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> Fonctions en escalier, fonctions continues par morceaux</h1>
+<section id="fonctions-en-escalier" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="fonctions-en-escalier"><span class="header-section-number">2.1</span> Fonctions en escalier</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 3.1 — (Subdivision d'un segment)</strong></p>
+<p>On appelle <strong>subdivision</strong> de <span class="math inline">[a,b]</span> toute famille <span class="math inline">\sigma=(x_0,\ldots,x_n)</span> de <span class="math inline">[a,b]</span> pour laquelle <span class="math inline">a=x_0&lt;\cdots&lt;x_n=b</span>. Le réel strictement positif <span class="math inline">\min_{0\leq i\leq n-1}(x_{i+1}-x_i)</span> est appelé le <strong>pas</strong> de <span class="math inline">\sigma</span>.</p>
+</div>
+<p>Une subdivision de <span class="math inline">[a,b]</span> est une famille, mais en présence de deux subdivisions de <span class="math inline">[a,b]</span>, nous nous autoriserons par abus de langage à parler de leur réunion ou de l’inclusion de l’une dans l’autre. Par exemple, la subdivision <span class="math inline">(0,1,3,5)</span> de <span class="math inline">[0,5]</span> est incluse dans la subdivision <span class="math inline">(0,1,2,3,4,5)</span> et la réunion des subdivisions <span class="math inline">(0,1,3,5)</span> et <span class="math inline">(0,1,2,5)</span> vaut <span class="math inline">(0,1,2,3,5)</span>.</p>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 3.2 — (Fonction en escalier, subdivision adaptée)</strong></p>
+<p>On dit qu’une fonction <span class="math inline">f : [a,b]\longrightarrow\mathbb{C}</span> est <strong>en escalier</strong> si pour une certaine subdivision <span class="math inline">(x_0,\ldots,x_n)</span> de <span class="math inline">[a,b]</span>, dite <strong>adaptée</strong> à <span class="math inline">f</span> : <span class="math display">f \text{ est constante sur } ]x_i,x_{i+1}[ \text{ pour tout } i\in\llbracket 0,n-1\rrbracket.</span> Cette définition ne garantit nullement l’unicité de la subdivision adaptée <span class="math inline">(x_0,\ldots,x_n)</span> et elle n’impose aucune valeur à <span class="math inline">f</span> en <span class="math inline">x_0,\ldots,x_n</span>.</p>
+</div>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 3.1 — (Propriétés élémentaires des fonctions en escalier)</strong></p>
+<p>Soient <span class="math inline">f : [a,b]\to\mathbb{C}</span> et <span class="math inline">g : [a,b]\to\mathbb{C}</span> deux fonctions en escalier et <span class="math inline">\lambda,\mu\in\mathbb{C}</span>.</p>
+<ul>
+<li><strong>Ajout de points à une subdivision adaptée :</strong> lorsqu’on ajoute un nombre fini de points à une subdivision de <span class="math inline">[a,b]</span> adaptée à <span class="math inline">f</span>, le résultat est encore une subdivision de <span class="math inline">[a,b]</span> adaptée à <span class="math inline">f</span>.</li>
+<li><strong>Opérations sur les fonctions en escalier :</strong> la réunion d’une subdivision de <span class="math inline">[a,b]</span> adaptée à <span class="math inline">f</span> et d’une subdivision de <span class="math inline">[a,b]</span> adaptée à <span class="math inline">g</span> est une subdivision de <span class="math inline">[a,b]</span> adaptée à <span class="math inline">f</span> <strong>et</strong> à <span class="math inline">g</span>. Les fonctions <span class="math inline">|f|</span>, <span class="math inline">\operatorname{Re}(f)</span>, <span class="math inline">\operatorname{Im}(f)</span>, <span class="math inline">\lambda f+\mu g</span> et <span class="math inline">fg</span> sont elles aussi en escalier sur <span class="math inline">[a,b]</span>.</li>
+</ul>
+</div>
+</section>
+<section id="fonctions-continues-par-morceaux" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="fonctions-continues-par-morceaux"><span class="header-section-number">2.2</span> Fonctions continues par morceaux</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 3.3 — (Fonction continue par morceaux, subdivision adaptée)</strong></p>
+<p>On dit qu’une fonction <span class="math inline">f : [a,b]\longrightarrow\mathbb{C}</span> est <strong>continue par morceaux</strong> si pour une certaine subdivision <span class="math inline">(x_0,\ldots,x_n)</span> de <span class="math inline">[a,b]</span>, dite <strong>adaptée</strong> à <span class="math inline">f</span> : <span class="math inline">f_{|]x_i,x_{i+1}[}</span> est continue sur <span class="math inline">]x_i,x_{i+1}[</span> et <strong>prolongeable par continuité en <span class="math inline">x_i</span> et <span class="math inline">x_{i+1}</span></strong> pour tout <span class="math inline">i\in\llbracket 0,n-1\rrbracket</span>.</p>
+<p>L’ensemble des fonctions continues par morceaux sur <span class="math inline">[a,b]</span> à valeurs dans <span class="math inline">\mathbb{K}</span> est noté <span class="math inline">\mathcal{CM}([a,b],\mathbb{K})</span>.</p>
+</div>
+<p>Toute fonction en escalier et toute fonction continue sont continues par morceaux. Le théorème « Propriétés élémentaires des fonctions en escalier » reste valable pour les fonctions continues par morceaux. En particulier, <span class="math inline">\mathcal{CM}([a,b],\mathbb{K})</span> est à la fois un sous-espace vectoriel et un sous-anneau de <span class="math inline">\mathbb{K}^{[a,b]}</span>.</p>
+<div class="proof remark">
+<p><span class="proof-title"><em>Remarque</em>. </span>Attention ! Des fonctions aussi simples que la fonction inverse et la fonction logarithme ne sont pas continues par morceaux sur <span class="math inline">[0,1]</span> quand bien même on les prolonge artificiellement en <span class="math inline">0</span>, car le prolongement ne pourra jamais se faire par continuité. L’exigence de prolongement par continuité de la définition n’est pas anodine.</p>
+</div>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 3.2 — (Caractère borné d'une fonction continue par morceaux)</strong></p>
+<p>Toute fonction continue par morceaux sur <span class="math inline">[a,b]</span> est bornée et possède donc une norme infinie <span class="math inline">\|f\|_\infty</span>.</p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Preuve</em>. </span>Soit <span class="math inline">f\in\mathcal{CM}([a,b],\mathbb{C})</span>. Notons <span class="math inline">(x_0,\ldots,x_n)</span> une subdivision de <span class="math inline">[a,b]</span> adaptée à <span class="math inline">f</span>. Pour tout <span class="math inline">i\in\llbracket 0,n-1\rrbracket</span>, le prolongement par continuité de la fonction réelle <span class="math inline">|f|_{|]x_i,x_{i+1}[}</span> à <span class="math inline">[x_i,x_{i+1}]</span> est borné d’après le théorème des bornes atteintes, disons par un certain <span class="math inline">M_i</span> en valeur absolue. Le maximum des réels positifs <span class="math inline">M_1,\ldots,M_n</span> et <span class="math inline">|f(x_0)|,\ldots,|f(x_n)|</span> majore dès lors <span class="math inline">|f|</span> sur <span class="math inline">[a,b]</span> tout entier.</p>
+</div>
+<p>Attention ! Bornée oui… mais elle n’atteint pas forcément ses bornes ! Faites un dessin.</p>
+</section>
+<section id="approximation-uniforme-par-des-fonctions-en-escalier" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="approximation-uniforme-par-des-fonctions-en-escalier"><span class="header-section-number">2.3</span> Approximation uniforme par des fonctions en escalier</h2>
+<p>On rappelle que pour toutes fonctions <span class="math inline">f,g\in\mathcal{CM}([a,b],\mathbb{C})</span> : <span class="math display">\|f\|_\infty=0 \iff f=0 \quad \text{et} \quad \|f+g\|_\infty\leq\|f\|_\infty+\|g\|_\infty \ \ (\text{inégalité triangulaire}).</span></p>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 3.4 — (Distance uniforme et convergence uniforme)</strong></p>
+<ul>
+<li><strong>Distance uniforme :</strong> pour toutes fonctions <span class="math inline">f,g\in\mathcal{CM}([a,b],\mathbb{C})</span>, le réel <span class="math inline">\|f-g\|_\infty</span> est appelé la <strong>distance uniforme</strong> entre <span class="math inline">f</span> et <span class="math inline">g</span>.</li>
+<li><strong>Convergence uniforme :</strong> soient <span class="math inline">(f_p)_{p\in\mathbb{N}}\in\mathcal{CM}([a,b],\mathbb{C})^{\mathbb{N}}</span> une suite de fonctions et <span class="math inline">f\in\mathcal{CM}([a,b],\mathbb{C})</span>. On dit que la suite <span class="math inline">(f_p)_{p\in\mathbb{N}}</span> <strong>converge uniformément</strong> vers <span class="math inline">f</span> sur <span class="math inline">[a,b]</span> si <span class="math inline">\lim_{p\to+\infty}\|f_p-f\|_\infty=0</span>.</li>
+</ul>
+</div>
+<p>Il existe tout plein de distances en mathématiques, pas seulement celle à laquelle on est habitué dans le plan ou l’espace. Nous venons de définir une notion de distance sur l’ensemble <span class="math inline">\mathcal{CM}([a,b],\mathbb{C})</span> des fonctions continues par morceaux.</p>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 3.3 — (Approximation uniforme d'une fonction continue par morceaux par des fonctions en escalier)</strong></p>
+<p>Toute fonction continue par morceaux sur <span class="math inline">[a,b]</span> à valeurs dans <span class="math inline">\mathbb{K}</span> est la limite uniforme d’une suite de fonctions en escalier sur <span class="math inline">[a,b]</span> à valeurs dans <span class="math inline">\mathbb{K}</span>.</p>
+</div>
+<p>En d’autres termes, par analogie avec la définition de la densité d’une partie de <span class="math inline">\mathbb{R}</span>, l’ensemble des fonctions en escalier sur <span class="math inline">[a,b]</span> à valeurs dans <span class="math inline">\mathbb{K}</span> est dense dans <span class="math inline">\mathcal{CM}([a,b],\mathbb{K})</span> au sens de la convergence uniforme.</p>
+<div class="proof">
+<p><span class="proof-title"><em>Preuve</em>. </span>Soit <span class="math inline">f\in\mathcal{CM}([a,b],\mathbb{K})</span>. Il nous suffit de montrer que pour tout <span class="math inline">\varepsilon&gt;0</span>, il existe une fonction <span class="math inline">\varphi : [a,b]\to\mathbb{K}</span> en escalier pour laquelle <span class="math inline">\|f-\varphi\|_\infty\leq\varepsilon</span>. (Si on veut ensuite une suite <span class="math inline">(\varphi_p)_{p\in\mathbb{N}}</span>, on peut par exemple choisir <span class="math inline">\varepsilon=2^{-p}</span> pour tout <span class="math inline">p\in\mathbb{N}</span>.) Fixons donc <span class="math inline">\varepsilon&gt;0</span>.</p>
+<ul>
+<li><strong>Cas où <span class="math inline">f</span> est continue sur <span class="math inline">[a,b]</span> :</strong> d’après le théorème de Heine, <span class="math inline">f</span> est uniformément continue sur <span class="math inline">[a,b]</span>, donc il existe un réel <span class="math inline">\alpha&gt;0</span> pour lequel pour tous <span class="math inline">x,y\in[a,b]</span> : <span class="math inline">|x-y|&lt;\alpha\Rightarrow|f(x)-f(y)|&lt;\varepsilon</span>. Fixons un entier <span class="math inline">n\in\mathbb{N}^*</span> pour lequel <span class="math inline">\frac{b-a}{n}&lt;\alpha</span> et posons <span class="math inline">x_k=a+k\frac{b-a}{n}</span> pour tout <span class="math inline">k\in\llbracket 0,n\rrbracket</span>. Notons enfin <span class="math inline">\varphi</span> la fonction définie sur <span class="math inline">[a,b]</span> par : <span class="math inline">\forall i\in\llbracket 0,n-1\rrbracket,\ \forall x\in[x_i,x_{i+1}[,\ \varphi(x)=f(x_i)</span> et <span class="math inline">\varphi(b)=f(b)</span>. Par construction, <span class="math inline">\varphi</span> est en escalier sur <span class="math inline">[a,b]</span>.</li>
+</ul>
+<p>Il reste à vérifier que <span class="math inline">\|f-\varphi\|_\infty\leq\varepsilon</span>. Or pour tout <span class="math inline">x\in[a,b[</span>, <span class="math inline">x</span> appartient à <span class="math inline">[x_i,x_{i+1}[</span> pour un certain <span class="math inline">i\in\llbracket 0,n-1\rrbracket</span>, donc <span class="math inline">|x-x_i|&lt;x_{i+1}-x_i&lt;\alpha</span>, donc <span class="math inline">|f(x)-\varphi(x)|=|f(x)-f(x_i)|&lt;\varepsilon</span> par continuité uniforme, et comme c’est vrai pour tout <span class="math inline">x</span> : <span class="math inline">\|f-\varphi\|_\infty\leq\varepsilon</span>.</p>
+<ul>
+<li><strong>Cas général :</strong> soit <span class="math inline">(x_0,\ldots,x_n)</span> une subdivision de <span class="math inline">[a,b]</span> adaptée à <span class="math inline">f</span>. Grâce au point précédent, <span class="math inline">f</span> étant continue sur <span class="math inline">]x_i,x_{i+1}[</span> et prolongeable par continuité en <span class="math inline">x_i</span> et <span class="math inline">x_{i+1}</span>, il existe pour tout <span class="math inline">i\in\llbracket 0,n-1\rrbracket</span> une fonction en escalier <span class="math inline">\varphi_i : [x_i,x_{i+1}]\to\mathbb{K}</span> pour laquelle <span class="math inline">|f(x)-\varphi_i(x)|\leq\varepsilon</span> pour tout <span class="math inline">x\in]x_i,x_{i+1}[</span>. On en tire une fonction en escalier <span class="math inline">\varphi</span> sur <span class="math inline">[a,b]</span> en « accolant » <span class="math inline">\varphi_1,\ldots,\varphi_n</span> les unes à la suite des autres, sauf aux points de subdivision où l’on pose <span class="math inline">\varphi(x_i)=f(x_i)</span> pour tout <span class="math inline">i\in\llbracket 0,n\rrbracket</span>. Ainsi <span class="math inline">\|f-\varphi\|_\infty\leq\varepsilon</span>.</li>
+</ul>
+</div>
+<p>En vue d’une utilisation ultérieure, remarquez bien que dans cette preuve, si <span class="math inline">f</span> est réelle positive, <span class="math inline">\varphi</span> l’est aussi car les valeurs de <span class="math inline">\varphi</span> ont été choisies comme des valeurs de <span class="math inline">f</span>. A fortiori, dans ce cas, <span class="math inline">f</span> est la limite uniforme d’une suite de fonctions en escalier réelles positives.</p>
+</section>
+</section>
+<section id="construction-de-lintégrale" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Construction de l’intégrale</h1>
+<p>Le principe « base × hauteur » va nous permettre de définir l’intégrale d’une fonction en escalier assez facilement, mais c’est l’intégrale d’une fonction continue que nous visons. Comment définir « l’aire sous la courbe » pour une fonction continue quelconque ? Réponse : par approximation de celle-ci par des fonctions en escalier grâce au résultat de densité précédent.</p>
+<p>Soyons plus précis. Pour construire l’intégrale d’une fonction continue, on a commencé par augmenter le stock des fonctions étudiées en introduisant le concept de fonction continue par morceaux. L’espace vectoriel <span class="math inline">\mathcal{CM}([a,b],\mathbb{C})</span> contient ainsi à la fois celui des fonctions en escalier sur <span class="math inline">[a,b]</span> (qui nous intéresse peu mais sur lequel nous savons définir facilement l’intégrale), et <span class="math inline">\mathcal{C}([a,b],\mathbb{C})</span> (qui nous intéresse mais sur lequel nous ne savons pas définir l’intégrale). Par densité, la notion d’intégrale d’une fonction en escalier va être étendue aux fonctions continues par morceaux. En particulier, les fonctions continues auront ainsi chacune une intégrale. Ce qui est assez cocasse dans cette affaire de densité, c’est que l’intersection de <span class="math inline">\mathcal{C}([a,b],\mathbb{C})</span> et de l’ensemble des fonctions en escalier sur <span class="math inline">[a,b]</span> est toute petite : c’est juste l’ensemble des fonctions constantes. La construction de l’intégrale consiste donc à transporter un concept d’un premier endroit vers un deuxième qui n’a presque rien à voir avec le premier. Vive la densité !</p>
+<section id="intégrale-dune-fonction-en-escalier" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="intégrale-dune-fonction-en-escalier"><span class="header-section-number">3.1</span> Intégrale d’une fonction en escalier</h2>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 4.1 — (Intégrale d'une fonction en escalier)</strong></p>
+<p>Soient <span class="math inline">f : [a,b]\to\mathbb{C}</span> en escalier et <span class="math inline">(x_0,\ldots,x_n)</span> une subdivision de <span class="math inline">[a,b]</span> adaptée à <span class="math inline">f</span>. Si <span class="math inline">y_i</span> désigne pour tout <span class="math inline">i\in\llbracket 0,n-1\rrbracket</span> la valeur de <span class="math inline">f</span> sur <span class="math inline">]x_i,x_{i+1}[</span>, le nombre complexe <span class="math inline">\sum_{i=0}^{n-1}y_i(x_{i+1}-x_i)</span> ne dépend pas de la subdivision <span class="math inline">(x_0,\ldots,x_n)</span> choisie.</p>
+<p>On l’appelle l’<strong>intégrale de <span class="math inline">f</span> sur <span class="math inline">[a,b]</span></strong>, notée <span class="math inline">\int_{[a,b]}f</span> ou <span class="math inline">\int_{[a,b]}f(t)\,dt</span>.</p>
+</div>
+<p>On définit ici directement l’intégrale d’une fonction en escalier <strong>complexe</strong>. Une telle intégrale ne peut bien sûr pas être interprétée en termes d’« aire sous la courbe », fût-elle algébrique.</p>
+<div class="proof">
+<p><span class="proof-title"><em>Preuve</em>. </span>Pour toute subdivision <span class="math inline">\sigma=(x_0,\ldots,x_n)</span> de <span class="math inline">[a,b]</span> adaptée à <span class="math inline">f</span>, posons <span class="math inline">I_\sigma=\sum_{i=0}^{n-1}y_i(x_{i+1}-x_i)</span>.</p>
+<ul>
+<li>Soient <span class="math inline">\sigma=(x_0,\ldots,x_n)</span> et <span class="math inline">\sigma'</span> deux subdivisions de <span class="math inline">[a,b]</span> adaptées à <span class="math inline">f</span>. On suppose <span class="math inline">\sigma'</span> incluse dans <span class="math inline">\sigma</span>, ce qui permet d’écrire <span class="math inline">\sigma'=\left(x_{\varphi(0)},\ldots,x_{\varphi(n')}\right)</span> pour un certain <span class="math inline">n'\in\mathbb{N}</span> et une certaine fonction <span class="math inline">\varphi : \llbracket 0,n'\rrbracket\to\llbracket 0,n\rrbracket</span> strictement croissante pour laquelle <span class="math inline">\varphi(0)=0</span> et <span class="math inline">\varphi(n')=n</span> — c’est le principe des suites extraites. Pour tout <span class="math inline">i\in\llbracket 0,n-1\rrbracket</span>, notons <span class="math inline">y_i</span> la valeur de <span class="math inline">f</span> sur <span class="math inline">]x_i,x_{i+1}[</span>, et pour tout <span class="math inline">j\in\llbracket 0,n'-1\rrbracket</span>, <span class="math inline">y'_j</span> sa valeur sur <span class="math inline">]x_{\varphi(j)},x_{\varphi(j+1)}[</span> (on a <span class="math inline">y'_j=y_k</span> pour <span class="math inline">k</span> entre <span class="math inline">\varphi(j)</span> et <span class="math inline">\varphi(j+1)-1</span>). Alors : <span class="math display">I_{\sigma'}=\sum_{j=0}^{n'-1}y'_j\left(x_{\varphi(j+1)}-x_{\varphi(j)}\right)=\sum_{j=0}^{n'-1}\sum_{k=\varphi(j)}^{\varphi(j+1)-1}y_k(x_{k+1}-x_k)=\sum_{i=0}^{n-1}y_i(x_{i+1}-x_i)=I_\sigma.</span></li>
+<li>Montrons enfin que <span class="math inline">I_\sigma</span> ne dépend pas du choix de <span class="math inline">\sigma</span>. Soient <span class="math inline">\sigma,\sigma'</span> deux subdivisions de <span class="math inline">[a,b]</span> adaptées à <span class="math inline">f</span>. La réunion de <span class="math inline">\sigma</span> et <span class="math inline">\sigma'</span> est encore une subdivision de <span class="math inline">[a,b]</span> adaptée à <span class="math inline">f</span> et contient à la fois <span class="math inline">\sigma</span> et <span class="math inline">\sigma'</span>, donc d’après le point précédent : <span class="math inline">I_\sigma=I_{\sigma\cup\sigma'}=I_{\sigma'}</span>.</li>
+</ul>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 4.1</strong></p>
+<p>Pour tout <span class="math inline">n\in\mathbb{N}</span> : <span class="math display">\int_{[0,n+1]}\frac{\lfloor t\rfloor}{2}\,dt=\sum_{k=0}^{n}\frac{k}{2}\big((k+1)-k\big)=\sum_{k=0}^{n}\frac{k}{2}=\frac{n(n+1)(2n+1)}{6}.</span></p>
+</div>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 4.2 — (Deux propriétés de l'intégrale d'une fonction en escalier)</strong></p>
+<p>Soient <span class="math inline">f : [a,b]\to\mathbb{C}</span> et <span class="math inline">g : [a,b]\to\mathbb{C}</span> en escalier et <span class="math inline">\lambda,\mu\in\mathbb{C}</span>.</p>
+<ol type="1">
+<li><strong>Linéarité :</strong> <span class="math inline">\int_{[a,b]}(\lambda f+\mu g)=\lambda\int_{[a,b]}f+\mu\int_{[a,b]}g</span>.</li>
+<li><strong>Inégalité triangulaire et même mieux :</strong> <span class="math inline">\left|\int_{[a,b]}f\right|\leq\int_{[a,b]}\|f\|\leq(b-a)\|f\|_\infty</span>.</li>
+</ol>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Preuve</em>. </span>Donnons-nous une subdivision <span class="math inline">(x_0,\ldots,x_n)</span> de <span class="math inline">[a,b]</span> adaptée à <span class="math inline">f</span> et à <span class="math inline">g</span>, donc à <span class="math inline">\lambda f+\mu g</span> et <span class="math inline">\|f\|</span>.</p>
+<ol type="i">
+<li><p><span class="math inline">\int_{[a,b]}(\lambda f+\mu g)=\sum_{i=0}^{n-1}(\lambda f+\mu g)\left(\frac{x_i+x_{i+1}}{2}\right)(x_{i+1}-x_i)=\lambda\sum_{i=0}^{n-1}f\left(\frac{x_i+x_{i+1}}{2}\right)(x_{i+1}-x_i)+\mu\sum_{i=0}^{n-1}g\left(\frac{x_i+x_{i+1}}{2}\right)(x_{i+1}-x_i)=\lambda\int_{[a,b]}f+\mu\int_{[a,b]}g</span>.</p></li>
+<li><p><span class="math inline">\left|\int_{[a,b]}f\right|=\left|\sum_{i=0}^{n-1}f\left(\frac{x_i+x_{i+1}}{2}\right)(x_{i+1}-x_i)\right|\leq\sum_{i=0}^{n-1}\left|f\left(\frac{x_i+x_{i+1}}{2}\right)\right|(x_{i+1}-x_i)=\int_{[a,b]}\|f\|\leq\sum_{k=0}^{n-1}\|f\|_\infty(x_{i+1}-x_i)=(b-a)\|f\|_\infty</span>.</p></li>
+</ol>
+</div>
+</section>
+<section id="intégrale-dune-fonction-continue-par-morceaux" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="intégrale-dune-fonction-continue-par-morceaux"><span class="header-section-number">3.2</span> Intégrale d’une fonction continue par morceaux</h2>
+<p>Nous avons vu qu’il existe toujours une suite <span class="math inline">(\varphi_p)_{p\in\mathbb{N}}</span> de fonctions en escalier sur <span class="math inline">[a,b]</span> dont <span class="math inline">f</span> est la limite uniforme. On aurait bien envie du coup de définir l’intégrale <span class="math inline">\int_{[a,b]}f</span> comme la limite <span class="math inline">\lim_{p\to+\infty}\int_{[a,b]}\varphi_p</span>, dans l’idée que l’aire algébrique sous <span class="math inline">\varphi_p</span> tend vers l’aire algébrique sous <span class="math inline">f</span> lorsque <span class="math inline">p</span> tend vers <span class="math inline">+\infty</span>. Cette « définition » pose hélas trois problèmes : la limite existe-t-elle ? Ne dépend-elle pas du choix de la suite <span class="math inline">(\varphi_p)</span> ? Pour les fonctions en escalier, la limite obtenue coïncide-t-elle bien avec l’intégrale du paragraphe précédent ?</p>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 4.3 — (Intégrale d'une fonction continue par morceaux)</strong></p>
+<p>Soit <span class="math inline">f\in\mathcal{CM}([a,b],\mathbb{C})</span>. Pour toute suite de fonctions en escalier <span class="math inline">(\varphi_p)_{p\in\mathbb{N}}</span> sur <span class="math inline">[a,b]</span> qui converge uniformément vers <span class="math inline">f</span>, la suite <span class="math inline">\left(\int_{[a,b]}\varphi_p\right)_{p\in\mathbb{N}}</span> converge et sa limite ne dépend pas du choix de <span class="math inline">(\varphi_p)_{p\in\mathbb{N}}</span>.</p>
+<p>Cette limite unique est appelée l’<strong>intégrale de <span class="math inline">f</span> sur <span class="math inline">[a,b]</span></strong> et notée <span class="math inline">\int_{[a,b]}f</span> ou <span class="math inline">\int_{[a,b]}f(t)\,dt</span>. En outre, si <span class="math inline">f</span> est en escalier sur <span class="math inline">[a,b]</span>, cette définition coïncide avec la précédente.</p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Preuve</em>. </span></p>
+<ul>
+<li><p>Soient <span class="math inline">(\varphi_p)_{p\in\mathbb{N}}</span> et <span class="math inline">(\psi_p)_{p\in\mathbb{N}}</span> deux suites de fonctions en escalier sur <span class="math inline">[a,b]</span> dont <span class="math inline">f</span> est la limite uniforme. Pour tout <span class="math inline">p\in\mathbb{N}</span>, d’après les deux propriétés de l’intégrale d’une fonction en escalier déjà démontrées : <span class="math display">\left|\int_{[a,b]}\varphi_p-\int_{[a,b]}\psi_p\right|=\left|\int_{[a,b]}(\varphi_p-\psi_p)\right|\leq(b-a)\|\varphi_p-\psi_p\|_\infty\leq(b-a)\left(\|f-\varphi_p\|_\infty+\|f-\psi_p\|_\infty\right).</span> Il en découle par encadrement que si jamais les suites <span class="math inline">\left(\int_{[a,b]}\varphi_p\right)</span> et <span class="math inline">\left(\int_{[a,b]}\psi_p\right)</span> convergent, elles ont la même limite, indépendante de <span class="math inline">(\varphi_p)</span> et <span class="math inline">(\psi_p)</span>.</p></li>
+<li><p>Il reste à montrer que la suite <span class="math inline">\left(\int_{[a,b]}\varphi_p\right)_{p\in\mathbb{N}}</span> converge. Or <span class="math inline">\lim_{p\to+\infty}\|f-\varphi_p\|_\infty=0</span>, donc <span class="math inline">\|f-\varphi_p\|_\infty\leq 1</span> à partir d’un certain rang, et ainsi <span class="math inline">\|\varphi_p\|_\infty=\|\varphi_p-f+f\|_\infty\leq\|f\|_\infty+\|f-\varphi_p\|_\infty\leq\|f\|_\infty+1</span>, donc <span class="math inline">\left|\int_{[a,b]}\varphi_p\right|\leq\int_{[a,b]}\|\varphi_p\|\leq(b-a)(\|f\|_\infty+1)</span>. Bornée, la suite <span class="math inline">\left(\int_{[a,b]}\varphi_p\right)_{p\in\mathbb{N}}</span> possède alors une suite extraite convergente de limite <span class="math inline">\ell</span> d’après le théorème de Bolzano-Weierstrass. Ainsi, d’après l’inégalité appliquée à <span class="math inline">\varphi_p</span> et <span class="math inline">\varphi_{\theta(p)}</span> : <span class="math inline">\left|\int_{[a,b]}\varphi_p-\int_{[a,b]}\varphi_{\theta(p)}\right|\leq(b-a)\left(\|f-\varphi_p\|_\infty+\|f-\varphi_{\theta(p)}\|_\infty\right)</span>, donc <span class="math inline">\lim_{p\to+\infty}\int_{[a,b]}\varphi_p=\ell</span> par encadrement.</p></li>
+<li><p>Que dire enfin si <span class="math inline">f</span> est en escalier sur <span class="math inline">[a,b]</span> ? Nous pouvons dans ce cas poser <span class="math inline">\varphi_p=f</span> pour tout <span class="math inline">p\in\mathbb{N}</span> et aussitôt <span class="math inline">\lim_{p\to+\infty}\|f-\varphi_p\|_\infty=0</span>. La limite <span class="math inline">\lim_{p\to+\infty}\int_{[a,b]}\varphi_p</span> se trouve ainsi égale à l’intégrale <span class="math inline">\int_{[a,b]}f</span> de <span class="math inline">f</span> au sens des fonctions en escalier. Nos deux définitions de l’intégrale d’une fonction en escalier coïncident.</p></li>
+</ul>
+</div>
+<p>On vous demandera souvent de « justifier la bonne définition » de telle ou telle intégrale. Il s’agit simplement de montrer que la fonction intégrée est continue — éventuellement par morceaux — sur le segment concerné.</p>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 4.2</strong></p>
+<ul>
+<li>L’intégrale <span class="math inline">\int_{[0,1]}\frac{\ln(1+t)}{t}\,dt</span> est bien définie car la fonction <span class="math inline">t\mapsto\frac{\ln(1+t)}{t}</span> est continue sur <span class="math inline">]0,1]</span> et prolongeable par continuité en <span class="math inline">0</span> par la valeur <span class="math inline">1</span>.</li>
+<li>L’intégrale <span class="math inline">\int_{[0,\pi]}\frac{\operatorname{sh}^2 t}{1-\cos t}\,dt</span> est bien définie car la fonction <span class="math inline">t\mapsto\frac{\operatorname{sh}^2 t}{1-\cos t}</span> est continue sur <span class="math inline">]0,\pi]</span> et prolongeable par continuité en <span class="math inline">0</span> par la valeur <span class="math inline">2</span> : <span class="math inline">\frac{\operatorname{sh}^2 t}{1-\cos t}\underset{t\to 0}{\sim}\frac{t^2}{\frac{t^2}{2}}\underset{t\to 0}{\sim}2</span>.</li>
+</ul>
+</div>
+</section>
+<section id="propriétés-de-lintégrale" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="propriétés-de-lintégrale"><span class="header-section-number">3.3</span> Propriétés de l’intégrale</h2>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 4.4 — (Propriétés de l'intégrale d'une fonction continue par morceaux)</strong></p>
+<p>Soient <span class="math inline">f,g\in\mathcal{CM}([a,b],\mathbb{C})</span>.</p>
+<ol type="1">
+<li><strong>Linéarité :</strong> pour tous <span class="math inline">\lambda,\mu\in\mathbb{C}</span> : <span class="math inline">\int_{[a,b]}(\lambda f+\mu g)=\lambda\int_{[a,b]}f+\mu\int_{[a,b]}g</span>.</li>
+<li><strong>Inégalité triangulaire :</strong> <span class="math inline">\left|\int_{[a,b]}f\right|\leq\int_{[a,b]}\|f\|</span>.</li>
+<li><strong>Relation de Chasles :</strong> pour tout <span class="math inline">c\in[a,b]</span> : <span class="math inline">\int_{[a,b]}f=\int_{[a,c]}f+\int_{[c,b]}f</span>.</li>
+<li><strong>Lien avec les parties réelle et imaginaire :</strong> <span class="math inline">\int_{[a,b]}f=\int_{[a,b]}\operatorname{Re}(f)+i\int_{[a,b]}\operatorname{Im}(f)</span>. En particulier, si <span class="math inline">f</span> est réelle, son intégrale sur <span class="math inline">[a,b]</span> est un réel.</li>
+<li><strong>Modification d’un nombre fini de valeurs :</strong> si <span class="math inline">f</span> et <span class="math inline">g</span> sont égales sur <span class="math inline">[a,b]</span> sauf en un nombre fini de points : <span class="math inline">\int_{[a,b]}f=\int_{[a,b]}g</span>.</li>
+</ol>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Preuve</em>. </span>Les propriétés se démontrent toutes de la même façon. On la prouve d’abord pour les fonctions en escalier, puis dans le cas général par passage à la limite. Donnons-nous une fois pour toutes une suite de fonctions en escalier <span class="math inline">(\varphi_p)_{p\in\mathbb{N}}</span> sur <span class="math inline">[a,b]</span> dont <span class="math inline">f</span> est la limite uniforme et une suite <span class="math inline">(\psi_p)_{p\in\mathbb{N}}</span> dont <span class="math inline">g</span> est la limite uniforme.</p>
+<ol type="i">
+<li><p>Pour tout <span class="math inline">p\in\mathbb{N}</span> : <span class="math inline">\|(\lambda f+\mu g)-(\lambda\varphi_p+\mu\psi_p)\|_\infty\leq|\lambda|\,\|f-\varphi_p\|_\infty+|\mu|\,\|g-\psi_p\|_\infty</span>, donc par encadrement <span class="math inline">\lim_{p\to+\infty}\|(\lambda f+\mu g)-(\lambda\varphi_p+\mu\psi_p)\|_\infty=0</span>. Enfin, par linéarité de l’intégrale d’une fonction en escalier : <span class="math inline">\int_{[a,b]}(\lambda f+\mu g)=\lim_{p\to+\infty}\int_{[a,b]}(\lambda\varphi_p+\mu\psi_p)=\lambda\int_{[a,b]}f+\mu\int_{[a,b]}g</span>.</p></li>
+<li><p>Pour tout <span class="math inline">p\in\mathbb{N}</span> : <span class="math inline">\big||f|-|\varphi_p|\big|\leq|f-\varphi_p|</span>, donc <span class="math inline">\big|\|f\|-|\varphi_p|\big|_\infty\leq\|f-\varphi_p\|_\infty</span>, donc par encadrement <span class="math inline">\lim_{p\to+\infty}\big|\|f\|-|\varphi_p|\big|_\infty=0</span>. En retour, d’après l’inégalité triangulaire pour les fonctions en escalier : <span class="math inline">\left|\int_{[a,b]}f\right|=\lim_{p\to+\infty}\left|\int_{[a,b]}\varphi_p\right|\leq\lim_{p\to+\infty}\int_{[a,b]}\|\varphi_p\|=\int_{[a,b]}\|f\|</span>.</p></li>
+<li><p><strong>Cas où <span class="math inline">f</span> est en escalier :</strong> quitte à ajouter le point <span class="math inline">c</span> à la subdivision <span class="math inline">(x_0,\ldots,x_n)</span>, on peut supposer que <span class="math inline">x_k=c</span> pour un certain <span class="math inline">k\in\llbracket 0,n\rrbracket</span>. La fonction <span class="math inline">f_{|[a,c]}</span> est alors en escalier sur <span class="math inline">[a,c]</span> de subdivision adaptée <span class="math inline">(x_0,\ldots,x_k)</span> et <span class="math inline">f_{|[c,b]}</span> l’est sur <span class="math inline">[c,b]</span> de subdivision adaptée <span class="math inline">(x_k,\ldots,x_n)</span>. Enfin : <span class="math inline">\int_{[a,b]}f=\sum_{i=0}^{k-1}f\left(\frac{x_i+x_{i+1}}{2}\right)(x_{i+1}-x_i)+\sum_{i=k}^{n-1}f\left(\frac{x_i+x_{i+1}}{2}\right)(x_{i+1}-x_i)=\int_{[a,c]}f+\int_{[c,b]}f</span>.</p></li>
+</ol>
+<p><strong>Cas général :</strong> pour tout <span class="math inline">p\in\mathbb{N}</span>, <span class="math inline">\varphi_{p\,[a,c]}</span> et <span class="math inline">\varphi_{p\,[c,b]}</span> sont en escalier et <span class="math inline">\|f_{|[a,c]}-\varphi_{p\,[a,c]}\|_\infty\leq\|f-\varphi_p\|_\infty</span>, donc <span class="math inline">\lim_{p\to+\infty}\|f_{|[a,c]}-\varphi_{p\,[a,c]}\|_\infty=0</span> par encadrement, et de même <span class="math inline">\lim_{p\to+\infty}\|f_{|[c,b]}-\varphi_{p\,[c,b]}\|_\infty=0</span>. Ainsi, <span class="math inline">f_{|[a,c]}</span> est la limite uniforme de <span class="math inline">\left(\varphi_{p\,[a,c]}\right)_{p\in\mathbb{N}}</span> et <span class="math inline">f_{|[c,b]}</span> de <span class="math inline">\left(\varphi_{p\,[c,b]}\right)_{p\in\mathbb{N}}</span>. Finalement : <span class="math inline">\int_{[a,b]}f=\lim_{p\to+\infty}\int_{[a,b]}\varphi_p=\lim_{p\to+\infty}\left(\int_{[a,c]}\varphi_{p\,[a,c]}+\int_{[c,b]}\varphi_{p\,[c,b]}\right)=\int_{[a,c]}f+\int_{[c,b]}f</span>.</p>
+<ol start="4" type="i">
+<li><p><strong>Cas où <span class="math inline">f</span> est en escalier :</strong> <span class="math inline">\int_{[a,b]}f=\sum_{i=0}^{n-1}f\left(\frac{x_i+x_{i+1}}{2}\right)(x_{i+1}-x_i)=\sum_{i=0}^{n-1}\operatorname{Re}(f)\left(\frac{x_i+x_{i+1}}{2}\right)(x_{i+1}-x_i)+i\sum_{i=0}^{n-1}\operatorname{Im}(f)\left(\frac{x_i+x_{i+1}}{2}\right)(x_{i+1}-x_i)=\int_{[a,b]}\operatorname{Re}(f)+i\int_{[a,b]}\operatorname{Im}(f)</span>. Le cas général se traite par passage à la limite comme ci-dessus.</p></li>
+<li><p>Si <span class="math inline">f</span> et <span class="math inline">g</span> sont égales sauf en un nombre fini de points, <span class="math inline">g-f</span> est nulle partout sauf en ces points, donc est en escalier sur <span class="math inline">[a,b]</span> et son intégrale vaut <span class="math inline">\int_{[a,b]}(g-f)=0</span>. Par linéarité enfin : <span class="math inline">\int_{[a,b]}f=\int_{[a,b]}g</span>.</p></li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 4.5 — (Propriétés de l'intégrale d'une fonction continue par morceaux réelle)</strong></p>
+<p>Soient <span class="math inline">f,g\in\mathcal{CM}([a,b],\mathbb{R})</span>.</p>
+<ol type="1">
+<li><strong>Positivité :</strong> si <span class="math inline">f\geq 0</span>, alors <span class="math inline">\int_{[a,b]}f\geq 0</span>.</li>
+<li><strong>Croissance :</strong> si <span class="math inline">f\leq g</span>, alors <span class="math inline">\int_{[a,b]}f\leq\int_{[a,b]}g</span>.</li>
+<li><strong>Positivité stricte :</strong> si <span class="math inline">f</span> est positive sur <span class="math inline">[a,b]</span>, strictement en au moins un point de continuité, et si <span class="math inline">a&lt;b</span>, alors <span class="math inline">\int_{[a,b]}f&gt;0</span>.</li>
+<li><strong>Nullité avec signe constant :</strong> si <span class="math inline">f</span> est <strong>continue</strong> et de signe constant et si <span class="math inline">\int_{[a,b]}f=0</span> avec <span class="math inline">a&lt;b</span>, alors <span class="math inline">f</span> est identiquement nulle sur <span class="math inline">[a,b]</span>.</li>
+</ol>
+</div>
+<p>Attention ! Continuité et signe constant sont essentiels dans l’assertion (iv) !</p>
+<div class="proof">
+<p><span class="proof-title"><em>Preuve</em>. </span>Donnons-nous une fois pour toutes une suite de fonctions en escalier <span class="math inline">(\varphi_p)_{p\in\mathbb{N}}</span> sur <span class="math inline">[a,b]</span> dont <span class="math inline">f</span> est la limite uniforme et une suite <span class="math inline">(\psi_p)_{p\in\mathbb{N}}</span> dont <span class="math inline">g</span> est la limite uniforme.</p>
+<ol type="i">
+<li><p>Comme <span class="math inline">f\geq 0</span>, on peut choisir la fonction <span class="math inline">\varphi_p</span> positive pour tout <span class="math inline">p\in\mathbb{N}</span>, et ainsi : <span class="math inline">\int_{[a,b]}f=\lim_{p\to+\infty}\int_{[a,b]}\varphi_p=\lim_{p\to+\infty}\sum_{i=1}^{n-1}\varphi_p\left(\frac{x_i+x_{i+1}}{2}\right)(x_{i+1}-x_i)\geq 0</span>.</p></li>
+<li><p>Comme <span class="math inline">f\leq g</span> : <span class="math inline">\int_{[a,b]}(g-f)\geq 0</span> par positivité, puis <span class="math inline">\int_{[a,b]}f\leq\int_{[a,b]}g</span> par linéarité.</p></li>
+<li><p>Par hypothèse, <span class="math inline">f</span> est continue en un certain <span class="math inline">x_0\in[a,b]</span> pour lequel <span class="math inline">f(x_0)&gt;0</span>, donc elle est minorée par <span class="math inline">\frac{f(x_0)}{2}</span> sur un certain voisinage <span class="math inline">[x_0^-,x_0^+]</span> contenant <span class="math inline">x_0</span> avec <span class="math inline">a\leq x_0^-&lt;x_0^+\leq b</span>. La fonction <span class="math inline">\varphi=\frac{f(x_0)}{2}\mathds{1}_{[x_0^-,x_0^+]}</span> définie sur <span class="math inline">[a,b]</span> est alors en escalier et <span class="math inline">\varphi\leq f</span> par construction — notamment parce que <span class="math inline">f</span> est positive — donc par croissance de l’intégrale : <span class="math inline">\int_{[a,b]}f\geq\int_{[a,b]}\varphi=\frac{f(x_0)}{2}(x_0^+-x_0^-)&gt;0</span>.</p></li>
+<li><p>On peut supposer <span class="math inline">f</span> positive quitte à la remplacer par <span class="math inline">-f</span>. Il s’agit de montrer par contraposition que si <span class="math inline">f</span> n’est pas identiquement nulle sur <span class="math inline">[a,b]</span>, alors <span class="math inline">\int_{[a,b]}f&gt;0</span>, mais c’est une simple conséquence de (iii).</p></li>
+</ol>
+</div>
+<p>La notation <span class="math inline">\int_{[a,b]}f</span> nous a imposé l’inégalité <span class="math inline">a\leq b</span> jusqu’ici car nous sommions dans le sens croissant avec nos <span class="math inline">x_{i+1}-x_i\geq 0</span>. Pour tout intervalle <span class="math inline">I</span> et pour tous <span class="math inline">f\in\mathcal{CM}(I,\mathbb{C})</span> et <span class="math inline">a,b\in I</span>, on pose à présent : <span class="math display">\int_a^b f=\int_a^b f(t)\,dt=\int_{[a,b]}f \ \ \text{si } a\leq b \quad \text{et} \quad \int_a^b f=\int_a^b f(t)\,dt=-\int_{[b,a]}f \ \ \text{si } b&lt;a.</span> Cette nouvelle notation s’utilise comme la précédente, mais attention, avec un petit changement quand même en cas d’inégalités : si <span class="math inline">b&lt;a</span>, alors <span class="math inline">\int_a^b f\leq\int_b^a\|f\|</span>, et si de plus <span class="math inline">f\geq 0</span>, alors <span class="math inline">\int_a^b f\leq 0</span>.</p>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 4.3</strong></p>
+<p>On pose pour tout <span class="math inline">x\geq 0</span> : <span class="math inline">A(x)=\int_0^1\frac{e^t\,dt}{1+xt}</span>. La fonction <span class="math inline">A</span> ainsi définie est décroissante sur <span class="math inline">\mathbb{R}^+</span>.</p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Preuve</em>. </span>Soient <span class="math inline">x,y\geq 0</span> pour lesquels <span class="math inline">x&lt;y</span>. Pour tout <span class="math inline">t\in[0,1]</span> : <span class="math inline">\frac{e^t}{1+yt}\leq\frac{e^t}{1+xt}</span>, donc par croissance de l’intégrale : <span class="math inline">A(y)=\int_0^1\frac{e^t\,dt}{1+yt}\leq\int_0^1\frac{e^t\,dt}{1+xt}=A(x)</span>.</p>
+</div>
+<p>Attention ! Impossible ici de dériver <span class="math inline">A</span> pour prouver sa monotonie car rien ne nous dit que <span class="math inline">A</span> est dérivable. Si <span class="math inline">A</span> avait été de la forme <span class="math inline">x\mapsto\int_0^x f(t)\,dt</span> pour une certaine fonction continue <span class="math inline">f</span>, nous aurions pu la dériver grâce au théorème fondamental du calcul intégral — démontré plus loin — mais la variable <span class="math inline">x</span> n’est pas ici au bon endroit.</p>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 4.6 — (Intégrales d'une fonction paire/impaire/périodique)</strong></p>
+<ol type="1">
+<li><strong>Fonctions paires/impaires :</strong> soit <span class="math inline">f\in\mathcal{CM}([-a,a],\mathbb{C})</span>. Si <span class="math inline">f</span> est paire : <span class="math inline">\int_{-a}^{a}f(x)\,dx=2\int_0^a f(x)\,dx</span>, et si <span class="math inline">f</span> est impaire : <span class="math inline">\int_{-a}^{a}f(x)\,dx=0</span>.</li>
+<li><strong>Fonctions périodiques :</strong> pour toute fonction <span class="math inline">f\in\mathcal{CM}(\mathbb{R},\mathbb{C})</span> <span class="math inline">T</span>-périodique : <span class="math inline">\int_a^{a+T}f(x)\,dx=\int_0^T f(x)\,dx</span>.</li>
+</ol>
+</div>
+</section>
+</section>
+<section id="intégration-et-dérivation" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> Intégration et dérivation</h1>
+<section id="rappels-sur-les-primitives" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="rappels-sur-les-primitives"><span class="header-section-number">4.1</span> Rappels sur les primitives</h2>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 5.1 — (Primitives, « unicité » à constante additive près)</strong></p>
+<p>Soit <span class="math inline">f : I\longrightarrow\mathbb{C}</span> une fonction. On dit qu’une fonction <span class="math inline">F : I\to\mathbb{C}</span> est <strong>une</strong> primitive de <span class="math inline">f</span> sur <span class="math inline">I</span> si <span class="math inline">F</span> est dérivable sur <span class="math inline">I</span> de dérivée <span class="math inline">f</span>.</p>
+<p>« Unicité » à constante additive près : si <span class="math inline">f</span> possède une primitive <span class="math inline">F</span> sur <span class="math inline">I</span>, ses primitives en général sont toutes les fonctions <span class="math inline">F+\lambda</span>, <span class="math inline">\lambda</span> décrivant <span class="math inline">\mathbb{C}</span>.</p>
+</div>
+<p>Attention ! Quand il en existe, il n’existe jamais qu’une seule primitive, ne dites donc pas « la » primitive !</p>
+<p>Rappelons au cas où que nous savons primitiver aisément un certain nombre de fonctions classiques : les fonctions de la forme <span class="math inline">x\mapsto e^{ax}\cos(bx)</span> ou <span class="math inline">x\mapsto e^{ax}\sin(bx)</span> avec <span class="math inline">a,b\in\mathbb{R}^*</span> grâce à l’exponentielle complexe ; les fonctions de la forme <span class="math inline">x\mapsto\sin^m x\cos^n x</span> avec <span class="math inline">m,n\in\mathbb{N}</span> par linéarisation ; les fonctions rationnelles par décomposition en éléments simples. Les tableaux ci-dessous donnent enfin la liste des quelques primitives qu’il faut connaître à tout prix.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Fonction</th>
+<th>Primitive</th>
+<th></th>
+<th>Fonction</th>
+<th>Primitive</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">e^x</span></td>
+<td><span class="math inline">e^x</span></td>
+<td></td>
+<td><span class="math inline">\operatorname{sh}x</span></td>
+<td><span class="math inline">\operatorname{ch}x</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\ln x</span></td>
+<td><span class="math inline">x\ln x-x</span></td>
+<td></td>
+<td><span class="math inline">\operatorname{ch}x</span></td>
+<td><span class="math inline">\operatorname{sh}x</span></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\frac{1}{x}</span></td>
+<td><span class="math inline">\ln\|x\|</span></td>
+<td></td>
+<td><span class="math inline">\operatorname{th}x</span></td>
+<td><span class="math inline">\ln\operatorname{ch}x</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">x^\alpha\ (\alpha\neq-1)</span></td>
+<td><span class="math inline">\frac{x^{\alpha+1}}{\alpha+1}</span></td>
+<td></td>
+<td><span class="math inline">\frac{1}{1+x^2}</span></td>
+<td><span class="math inline">\operatorname{Arctan}x</span></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\sin x</span></td>
+<td><span class="math inline">-\cos x</span></td>
+<td></td>
+<td><span class="math inline">\frac{1}{\sqrt{1-x^2}}</span></td>
+<td><span class="math inline">\operatorname{Arcsin}x</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\cos x</span></td>
+<td><span class="math inline">\sin x</span></td>
+<td></td>
+<td><span class="math inline">\tan x</span></td>
+<td><span class="math inline">-\ln\|\cos x\|</span></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="le-théorème-fondamental-du-calcul-intégral" class="level2" data-number="4.2">
+<h2 data-number="4.2" class="anchored" data-anchor-id="le-théorème-fondamental-du-calcul-intégral"><span class="header-section-number">4.2</span> Le théorème fondamental du calcul intégral</h2>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 5.1</strong></p>
+<p>Il est facile de construire une fonction continue <strong>par morceaux</strong> n’admettant pas de primitive. C’est ce qui arrive à la fonction indicatrice <span class="math inline">\mathds{1}_{\{1\}}</span> sur <span class="math inline">[0,2]</span>. Raisonnons par l’absurde en supposant que <span class="math inline">\mathds{1}_{\{1\}}</span> possède une primitive <span class="math inline">F</span> sur <span class="math inline">[0,2]</span>. La fonction <span class="math inline">F'</span> est alors identiquement nulle sur l’intervalle <span class="math inline">[0,1[</span>, donc <span class="math inline">F</span> y est constante, disons de valeur <span class="math inline">\lambda</span>. De même, <span class="math inline">F'</span> est nulle sur <span class="math inline">]1,2]</span>, donc <span class="math inline">F</span> y est constante, disons de valeur <span class="math inline">\mu</span>. Cependant, <span class="math inline">F</span> est continue sur <span class="math inline">[0,2]</span>, donc <span class="math inline">F(1)=\lambda=\mu</span>, donc <span class="math inline">F</span> est constante sur <span class="math inline">[0,2]</span> tout entier. Finalement <span class="math inline">1=\mathds{1}_{\{1\}}(1)=F'(1)=0</span> — contradiction.</p>
+</div>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 5.2 — (Théorème fondamental du calcul intégral)</strong></p>
+<p>Soient <span class="math inline">f\in\mathcal{C}(I,\mathbb{C})</span> et <span class="math inline">a,b\in I</span>.</p>
+<ol type="1">
+<li><strong>Primitivation :</strong> la fonction <span class="math inline">x\mapsto\int_a^x f(t)\,dt</span> est une primitive de <span class="math inline">f</span> sur <span class="math inline">I</span>. Ainsi, toute fonction continue possède une primitive. Pour tout <span class="math inline">A\in\mathbb{C}</span>, la fonction <span class="math inline">x\mapsto A+\int_a^x f(t)\,dt</span> est l’unique primitive de <span class="math inline">f</span> sur <span class="math inline">I</span> de valeur <span class="math inline">A</span> en <span class="math inline">a</span>.</li>
+<li><strong>Calcul intégral :</strong> pour toute primitive <span class="math inline">F</span> de <span class="math inline">f</span> : <span class="math inline">\int_a^b f(x)\,dx=F(b)-F(a)</span>.</li>
+</ol>
+</div>
+<p>On note généralement <span class="math inline">[F]_a^b</span> ou <span class="math inline">F(x)\Big|_{x=a}^{x=b}</span> la quantité <span class="math inline">F(b)-F(a)</span>. L’assertion (i) est un théorème d’<strong>existence</strong> de primitives pour les fonctions <strong>continues</strong>. En outre, la fonction <span class="math inline">f</span> étant continue, sa primitive <span class="math inline">x\mapsto\int_a^x f</span> est mieux que dérivable : c’est une fonction <strong>de classe <span class="math inline">\mathcal{C}^1</span></strong>.</p>
+<div class="proof">
+<p><span class="proof-title"><em>Preuve</em>. </span></p>
+<ol type="i">
+<li><p>Montrons que la fonction <span class="math inline">F : x\mapsto\int_a^x f</span> est une primitive de <span class="math inline">f</span> sur <span class="math inline">I</span>. Fixons pour cela <span class="math inline">x\in I</span> et montrons que <span class="math inline">F</span> est dérivable en <span class="math inline">x</span> avec <span class="math inline">F'(x)=f(x)</span>. Soit <span class="math inline">\varepsilon&gt;0</span>. Par continuité en <span class="math inline">x</span>, il existe un réel <span class="math inline">\alpha&gt;0</span> pour lequel pour tout <span class="math inline">s\in I</span> : <span class="math inline">|s-x|&lt;\alpha\Rightarrow|f(s)-f(x)|&lt;\varepsilon</span>. Pour tout <span class="math inline">t\in I\smallsetminus\{x\}</span> pour lequel <span class="math inline">|t-x|&lt;\alpha</span> : <span class="math inline">\int_x^t f(s)\,ds=F(t)-F(x)</span> et <span class="math inline">\int_x^t f(x)\,ds=f(x)(t-x)</span>, donc : <span class="math display">\left|\frac{F(t)-F(x)}{t-x}-f(x)\right|=\frac{1}{|t-x|}\left|\int_x^t(f(s)-f(x))\,ds\right|\leq\begin{cases}\frac{1}{t-x}\int_x^t\varepsilon\,ds=\varepsilon &amp; \text{si } t&gt;x\\ \frac{1}{x-t}\int_t^x\varepsilon\,ds=\varepsilon &amp; \text{si } x&gt;t.\end{cases}</span> Conclusion : <span class="math inline">\lim_{t\to x}\frac{F(t)-F(x)}{t-x}=f(x)</span>, donc <span class="math inline">F</span> est dérivable en <span class="math inline">x</span> et <span class="math inline">F'(x)=f(x)</span>.</p></li>
+<li><p>La fonction <span class="math inline">F</span> est une primitive de <span class="math inline">f</span> qui vaut <span class="math inline">F(a)</span> en <span class="math inline">a</span> et c’est la seule, donc <span class="math inline">F(x)=F(a)+\int_a^x f</span> pour tout <span class="math inline">x\in I</span> d’après (i). Il reste à évaluer en <span class="math inline">b</span>.</p></li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 5.2</strong></p>
+<p>Pour tout <span class="math inline">\alpha&gt;-1</span> : <span class="math inline">\int_0^1 x^\alpha\,dx=\left[\frac{x^{\alpha+1}}{\alpha+1}\right]_{x=0}^{x=1}=\frac{1}{\alpha+1}</span>. Intégrale très courante, à connaître <strong>par cœur</strong> !</p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 5.3</strong></p>
+<p><span class="math inline">\int_0^1 e^{e^t+t}\,dt=\left[e^{e^t}\right]_{t=0}^{t=1}=e^e-e</span>. Et sans bornes : <span class="math inline">\int e^{e^x+x}\,dx=e^{e^x}</span>.</p>
+</div>
+<p>Attention ! Le théorème fondamental du calcul intégral montre que certaines fonctions définies par des intégrales sont dérivables — et même de classe <span class="math inline">\mathcal{C}^1</span> — mais pas n’importe lesquelles ! Uniquement des fonctions de la forme <span class="math inline">x\mapsto\int_a^x f(t)\,dt</span> (le même <span class="math inline">x</span> aux deux endroits !). Face à un problème d’un autre type, soit on parvient à se ramener à la forme ci-dessus, soit on trouve une autre idée.</p>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 5.4</strong></p>
+<p>La fonction <span class="math inline">\varphi : x\mapsto\int_0^1 e^{xt^2}\,dt</span> est définie et dérivable sur <span class="math inline">\mathbb{R}^*_+</span> de dérivée <span class="math inline">x\mapsto\frac{e^x}{2x}-\frac{1}{2x}\int_0^1 e^{xt^2}\,dt</span>.</p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Preuve</em>. </span>Pour tout <span class="math inline">x&gt;0</span> : <span class="math inline">\varphi(x)\underset{u=t\sqrt{x}}{=}\sqrt{x}\int_0^{\sqrt{x}}e^{u^2}\,du=F(\sqrt{x})\sqrt{x}</span> où <span class="math inline">F</span> est la fonction <span class="math inline">x\mapsto\int_0^x e^{u^2}\,du</span>. D’après le théorème fondamental du calcul intégral, <span class="math inline">F</span> est une primitive sur <span class="math inline">\mathbb{R}</span> de la fonction continue <span class="math inline">u\mapsto e^{u^2}</span>. Ainsi, <span class="math inline">\varphi</span> est dérivable sur <span class="math inline">\mathbb{R}^*_+</span> et pour tout <span class="math inline">x&gt;0</span> : <span class="math inline">\varphi'(x)=F'(\sqrt{x})\frac{1}{2\sqrt{x}}\cdot\sqrt{x}+F(\sqrt{x})\cdot\frac{1}{2\sqrt{x}}</span>… en développant correctement : <span class="math inline">\varphi'(x)=\frac{e^x}{2x}-\frac{\varphi(x)}{2x}</span>.</p>
+</div>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 5.3 — (Un petit résultat utile)</strong></p>
+<p>Pour toute fonction <span class="math inline">f\in\mathcal{C}([a,b],\mathbb{R})</span> : <span class="math inline">\int_a^b f=\lim_{x\to b^-}\int_a^x f=\lim_{x\to a^+}\int_x^b f</span>.</p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Preuve</em>. </span>Pour la première égalité, notons <span class="math inline">F</span> la fonction <span class="math inline">x\mapsto\int_a^x f</span> sur <span class="math inline">[a,b]</span>. Comme <span class="math inline">f</span> est continue sur <span class="math inline">[a,b]</span>, <span class="math inline">F</span> est une primitive de <span class="math inline">f</span> d’après le théorème fondamental du calcul intégral, donc <span class="math inline">F</span> <strong>est continue en <span class="math inline">b</span></strong> et c’est fini : <span class="math inline">\int_a^b f=F(b)=\lim_{x\to b^-}F(x)=\lim_{x\to b^-}\int_a^x f</span>.</p>
+</div>
+</section>
+<section id="intégration-par-parties-et-changement-de-variable" class="level2" data-number="4.3">
+<h2 data-number="4.3" class="anchored" data-anchor-id="intégration-par-parties-et-changement-de-variable"><span class="header-section-number">4.3</span> Intégration par parties et changement de variable</h2>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 5.4 — (Intégration par parties ou IPP)</strong></p>
+<p>Soient <span class="math inline">u,v\in\mathcal{C}^1(I,\mathbb{C})</span> et <span class="math inline">a,b\in I</span>. <span class="math display">\int_a^b u'v=[uv]_a^b-\int_a^b uv'.</span></p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Preuve</em>. </span>Comme <span class="math inline">u</span> et <span class="math inline">v</span> sont de classe <span class="math inline">\mathcal{C}^1</span>, les fonctions <span class="math inline">(uv)'</span>, <span class="math inline">u'v</span> et <span class="math inline">uv'</span> sont continues, donc d’après le théorème fondamental du calcul intégral et par linéarité de l’intégrale : <span class="math display">[uv]_a^b=\int_a^b(uv)'=\int_a^b(u'v+uv')=\int_a^b u'v+\int_a^b uv'.</span></p>
+</div>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 5.5 — (Changement de variable)</strong></p>
+<p>Soient <span class="math inline">\varphi\in\mathcal{C}^1(I,\mathbb{R})</span> à valeurs dans <span class="math inline">J</span>, <span class="math inline">f\in\mathcal{C}(J,\mathbb{C})</span> et <span class="math inline">a,b\in I</span>. <span class="math display">\int_a^b f(\varphi(t))\varphi'(t)\,dt=\int_{\varphi(a)}^{\varphi(b)}f(x)\,dx.</span></p>
+</div>
+<p>Pour retrouver vite la formule, on dérive la relation « <span class="math inline">x=\varphi(t)</span> » : <span class="math inline">\frac{dx}{dt}=\varphi'(t)</span>, donc <span class="math inline">dx=\varphi'(t)\,dt</span>, puis <span class="math inline">f(x)\,dx=f(\varphi(t))\varphi'(t)\,dt</span>. Enfin, on intègre — pendant que <span class="math inline">t</span> varie de <span class="math inline">a</span> à <span class="math inline">b</span>, <span class="math inline">x=\varphi(t)</span> varie de <span class="math inline">\varphi(a)</span> à <span class="math inline">\varphi(b)</span>.</p>
+<div class="proof">
+<p><span class="proof-title"><em>Preuve</em>. </span>Continue, <span class="math inline">f</span> possède une primitive <span class="math inline">F</span> de classe <span class="math inline">\mathcal{C}^1</span>, et comme <span class="math inline">\varphi</span> est de classe <span class="math inline">\mathcal{C}^1</span>, la fonction <span class="math inline">(F\circ\varphi)'=f\circ\varphi\times\varphi'</span> est continue. Du coup, d’après le théorème fondamental du calcul intégral : <span class="math display">\int_a^b f(\varphi(t))\varphi'(t)\,dt=[F\circ\varphi]_a^b=F(\varphi(b))-F(\varphi(a))=[F]_{\varphi(a)}^{\varphi(b)}=\int_{\varphi(a)}^{\varphi(b)}f(x)\,dx.</span></p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 5.5</strong></p>
+<p><span class="math inline">\int_0^{2\pi}\frac{1-\cos x}{x^2}\,dx=\int_0^{2\pi}\frac{\sin x}{x}\,dx</span>.</p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Preuve</em>. </span>Les fonctions <span class="math inline">x\mapsto\frac{1-\cos x}{x^2}</span> et <span class="math inline">x\mapsto\frac{\sin x}{x}</span> sont continues sur <span class="math inline">]0,2\pi]</span> et prolongeables par continuité en <span class="math inline">0</span> par les valeurs <span class="math inline">\frac12</span> et <span class="math inline">1</span> respectivement, donc les intégrales <span class="math inline">\int_0^{2\pi}\frac{1-\cos x}{x^2}\,dx</span> et <span class="math inline">\int_0^{2\pi}\frac{\sin x}{x}\,dx</span> sont bien définies. Ensuite, formellement : <span class="math display">\int\frac{(1-\cos x)}{x^2}\,dx\underset{\text{IPP}}{=}(1-\cos u)\times\left(-\frac{1}{u}\right)-\int\sin x\times\left(-\frac{1}{x}\right)dx=\cos u-\frac{1}{u}+\int\frac{\sin x}{x}\,dx.</span> Hélas, la fonction <span class="math inline">x\mapsto\frac{1-\cos x}{x^2}</span> a beau être de classe <span class="math inline">\mathcal{C}^1</span> sur <span class="math inline">[0,2\pi]</span>, la fonction <span class="math inline">x\mapsto-\frac{1}{x}</span> ne l’est pas : elle est de classe <span class="math inline">\mathcal{C}^1</span> seulement sur <span class="math inline">]0,2\pi]</span>. Comment procéder dès lors à une intégration par parties sur <span class="math inline">[0,2\pi]</span> ? Réponse : par un passage à la limite grâce au théorème fondamental du calcul intégral. En l’occurrence, pour tout <span class="math inline">\varepsilon\in]0,2\pi]</span> : <span class="math display">\int_\varepsilon^{2\pi}\frac{1-\cos x}{x^2}\,dx\underset{\text{IPP}}{=}\left[\cos x-\frac{1}{x}\right]_{x=\varepsilon}^{x=2\pi}+\int_\varepsilon^{2\pi}\frac{\sin x}{x}\,dx=\frac{1-\cos\varepsilon}{\varepsilon}+\int_\varepsilon^{2\pi}\frac{\sin x}{x}\,dx.</span> On conclut en faisant simplement tendre <span class="math inline">\varepsilon</span> vers <span class="math inline">0^+</span> et en observant que : <span class="math inline">\int_0^{2\pi}\frac{1-\cos x}{x^2}\,dx=\lim_{\varepsilon\to 0^+}\int_\varepsilon^{2\pi}\frac{1-\cos x}{x^2}\,dx</span> et <span class="math inline">\int_0^{2\pi}\frac{\sin x}{x}\,dx=\lim_{\varepsilon\to 0^+}\int_\varepsilon^{2\pi}\frac{\sin x}{x}\,dx</span>.</p>
+</div>
+</section>
+<section id="limites-dintégrales" class="level2" data-number="4.4">
+<h2 data-number="4.4" class="anchored" data-anchor-id="limites-dintégrales"><span class="header-section-number">4.4</span> Limites d’intégrales</h2>
+<p>Attention ! Nous aurons souvent à calculer des limites du genre <span class="math inline">\lim_{n\to+\infty}\int_a^b f_n(t)\,dt</span> ou <span class="math inline">\lim_{x\to x_0}\int_a^b f(x,t)\,dt</span>. En MPSI, nous nous en sortirons toujours en utilisant le théorème d’encadrement, mais en général : <span class="math display">\lim_{n\to+\infty}\int_a^b f_n(t)\,dt\neq\int_a^b\lim_{n\to+\infty}f_n(t)\,dt \quad \text{et} \quad \lim_{x\to x_0}\int_a^b f(x,t)\,dt\neq\int_a^b\lim_{x\to x_0}f(x,t)\,dt.</span></p>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 5.6</strong></p>
+<p>Pour tout <span class="math inline">n\in\mathbb{N}^*</span>, notons <span class="math inline">f_n</span> la fonction <span class="math inline">t\mapsto nt^{n-1}</span> sur <span class="math inline">[0,1[</span> prolongée en <span class="math inline">1</span> par la valeur <span class="math inline">f_n(1)=0</span>. Cette fonction est continue par morceaux. Pour tout <span class="math inline">t\in[0,1]</span> : <span class="math inline">\lim_{n\to+\infty}f_n(t)=0</span>, donc <span class="math inline">\int_0^1\lim_{n\to+\infty}f_n(t)\,dt=\int_0^1 0\,dt=0</span>, mais au contraire : <span class="math inline">\int_0^1 f_n(t)\,dt=[t^n]_{t=0}^{t=1}=1\xrightarrow[n\to+\infty]{}1\neq 0</span>. Aïe !</p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 5.7</strong></p>
+<p>Pour toute fonction <span class="math inline">f\in\mathcal{CM}([0,1],\mathbb{R})</span> : <span class="math inline">\lim_{n\to+\infty}\int_0^1 t^n f(t)\,dt=0</span>.</p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Preuve</em>. </span>Continue par morceaux, <span class="math inline">f</span> est bornée sur le segment <span class="math inline">[0,1]</span>. Dès lors, pour tout <span class="math inline">n\in\mathbb{N}</span> : <span class="math display">\left|\int_0^1 t^n f(t)\,dt\right|\leq\int_0^1 t^n|f(t)|\,dt\leq\|f\|_\infty\int_0^1 t^n\,dt=\frac{\|f\|_\infty}{n+1}</span> — d’où le résultat par encadrement.</p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 5.8</strong></p>
+<p><span class="math inline">\lim_{x\to 0^+}\int_x^{2x}\frac{e^t}{t}\,dt=\ln 2</span>.</p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Preuve</em>. </span>Pour tous <span class="math inline">x&gt;0</span> et <span class="math inline">t\in[x,2x]</span> : <span class="math inline">\frac{1}{t}\leq\frac{e^t}{t}\leq\frac{e^{2x}}{t}</span>, donc <span class="math inline">\int_x^{2x}\frac{dt}{t}\leq\int_x^{2x}\frac{e^t}{t}\,dt\leq e^{2x}\int_x^{2x}\frac{dt}{t}</span> par croissance de l’intégrale, donc après calcul : <span class="math inline">\ln 2\leq\int_x^{2x}\frac{e^t}{t}\,dt\leq e^{2x}\ln 2</span> et on conclut par encadrement.</p>
+</div>
+</section>
+</section>
+<section id="formules-de-taylor-lagrange" class="level1" data-number="5">
+<h1 data-number="5"><span class="header-section-number">5</span> Formules de Taylor-Lagrange</h1>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 6.1 — (Formule de Taylor-Lagrange avec reste intégral)</strong></p>
+<p>Soient <span class="math inline">f\in\mathcal{C}^{n+1}(I,\mathbb{C})</span> et <span class="math inline">a,b\in I</span>. <span class="math display">f(b)=\sum_{k=0}^{n}\frac{f^{(k)}(a)}{k!}(b-a)^k+\int_a^b\frac{f^{(n+1)}(t)}{n!}(b-t)^n\,dt.</span> Pour <span class="math inline">n=0</span>, cette formule n’est jamais que le théorème fondamental du calcul intégral.</p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Preuve</em>. </span>Fixons <span class="math inline">I</span>, <span class="math inline">a</span> et <span class="math inline">b</span> et montrons par récurrence sur <span class="math inline">n</span> que le résultat est vrai de toute fonction de classe <span class="math inline">\mathcal{C}^{n+1}</span> sur <span class="math inline">I</span>.</p>
+<p><strong>Initialisation :</strong> pour tout <span class="math inline">f\in\mathcal{C}^1(I,\mathbb{C})</span> : <span class="math inline">f(b)=f(a)+\int_a^b f'(t)\,dt</span>.</p>
+<p><strong>Hérédité :</strong> soit <span class="math inline">n\in\mathbb{N}</span>. On suppose le résultat vrai de toute fonction de classe <span class="math inline">\mathcal{C}^{n+1}</span> sur <span class="math inline">I</span>. Soit <span class="math inline">f\in\mathcal{C}^{n+2}(I,\mathbb{C})</span>. Alors <span class="math inline">f</span> est de classe <span class="math inline">\mathcal{C}^{n+1}</span> sur <span class="math inline">I</span>, donc par hypothèse de récurrence : <span class="math display">f(b)=\sum_{k=0}^{n}\frac{f^{(k)}(a)}{k!}(b-a)^k+\int_a^b\frac{f^{(n+1)}(t)}{n!}(b-t)^n\,dt\underset{\text{IPP}}{=}\sum_{k=0}^{n}\frac{f^{(k)}(a)}{k!}(b-a)^k+\left[\frac{f^{(n+1)}(t)}{n!}\times\left(-\frac{(b-t)^{n+1}}{n+1}\right)\right]_{t=a}^{t=b}-\int_a^b\frac{f^{(n+2)}(t)}{n!}\times\left(-\frac{(b-t)^{n+1}}{n+1}\right)dt</span> <span class="math display">=\sum_{k=0}^{n+1}\frac{f^{(k)}(a)}{k!}(b-a)^k+\int_a^b\frac{f^{(n+2)}(t)}{(n+1)!}(b-t)^{n+1}\,dt.</span></p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 6.1</strong></p>
+<p>Pour tout <span class="math inline">x\geq 0</span> : <span class="math inline">x-\frac{x^2}{2}\leq\ln(1+x)\leq x-\frac{x^2}{2}+\frac{x^3}{3}</span>.</p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Preuve</em>. </span>On pourrait effectuer deux études de fonctions, mais il y a mieux. Fixons <span class="math inline">x\geq 0</span> et appliquons la formule de Taylor-Lagrange avec reste intégral à la fonction <span class="math inline">t\mapsto\ln(1+t)</span> de classe <span class="math inline">\mathcal{C}^4</span> entre <span class="math inline">0</span> et <span class="math inline">x</span> :</p>
+<ul>
+<li>à l’ordre 2 : <span class="math inline">\ln(1+x)=x-\frac{x^2}{2}+\int_0^x\frac{(x-t)^2}{(1+t)^3}\,dt</span>, or <span class="math inline">x\geq 0</span>, donc <span class="math inline">\int_0^x\frac{(x-t)^2}{(1+t)^3}\,dt\geq 0</span>.</li>
+<li>à l’ordre 3 : <span class="math inline">\ln(1+x)=x-\frac{x^2}{2}+\frac{x^3}{3}-\int_0^x\frac{(x-t)^3}{(1+t)^4}\,dt</span>, or <span class="math inline">x\geq 0</span>, donc <span class="math inline">\int_0^x\frac{(x-t)^3}{(1+t)^4}\,dt\geq 0</span>.</li>
+</ul>
+</div>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 6.2 — (Inégalité de Taylor-Lagrange)</strong></p>
+<p>Soient <span class="math inline">f\in\mathcal{C}^{n+1}(I,\mathbb{C})</span> et <span class="math inline">a,b\in I</span>. <span class="math display">\left|f(b)-\sum_{k=0}^{n}\frac{f^{(k)}(a)}{k!}(b-a)^k\right|\leq\frac{|b-a|^{n+1}}{(n+1)!}\left\|f^{(n+1)}\right\|_\infty,</span> où la norme infinie est calculée sur le segment d’extrémités <span class="math inline">a</span> et <span class="math inline">b</span>.</p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Preuve</em>. </span>Le réel <span class="math inline">\|f^{(n+1)}\|_\infty</span> est bien défini d’après le théorème des bornes atteintes. Si <span class="math inline">a\leq b</span> : <span class="math display">f(b)-\sum_{k=0}^{n}\frac{f^{(k)}(a)}{k!}(b-a)^k=\int_a^b\frac{f^{(n+1)}(t)}{n!}(b-t)^n\,dt\leq\int_a^b\frac{|f^{(n+1)}(t)|}{n!}|b-t|^n\,dt\leq\|f^{(n+1)}\|_\infty\int_a^b\frac{(b-t)^n}{n!}\,dt=\|f^{(n+1)}\|_\infty\left[-\frac{(b-t)^{n+1}}{(n+1)!}\right]_{t=a}^{t=b}=\frac{|b-a|^{n+1}}{(n+1)!}\|f^{(n+1)}\|_\infty.</span> Si <span class="math inline">b&lt;a</span>, on fait pareil en inversant l’ordre des bornes dans les majorations post-inégalité triangulaire.</p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 6.2</strong></p>
+<p>Pour tout <span class="math inline">z\in\mathbb{C}</span> : <span class="math inline">e^z=\sum_{k=0}^{+\infty}\frac{z^k}{k!}</span>.</p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Preuve</em>. </span>Soit <span class="math inline">z\in\mathbb{C}</span> fixé. La fonction <span class="math inline">t\mapsto f(t)=e^{tz}</span> est de classe <span class="math inline">\mathcal{C}^\infty</span> sur <span class="math inline">[0,1]</span> et pour tous <span class="math inline">n\in\mathbb{N}</span> et <span class="math inline">t\in[0,1]</span> : <span class="math inline">|f^{(n+1)}(t)|=|z^{n+1}e^{tz}|=\|z\|^{n+1}e^{t\operatorname{Re}(z)}\leq\|z\|^{n+1}e^{|\operatorname{Re}(z)|}</span>, donc d’après l’inégalité de Taylor-Lagrange : <span class="math display">\left|e^z-\sum_{k=0}^{n}\frac{z^k}{k!}\right|=\left|f(1)-\sum_{k=0}^{n}\frac{f^{(k)}(0)}{k!}\right|\leq\frac{\|z\|^{n+1}}{(n+1)!}e^{|\operatorname{Re}(z)|}.</span> On conclut par encadrement.</p>
+</div>
+</section>
+<section id="approximations-dintégrales" class="level1" data-number="6">
+<h1 data-number="6"><span class="header-section-number">6</span> Approximations d’intégrales</h1>
+<section id="sommes-de-riemann-ou-méthode-des-rectangles" class="level2" data-number="6.1">
+<h2 data-number="6.1" class="anchored" data-anchor-id="sommes-de-riemann-ou-méthode-des-rectangles"><span class="header-section-number">6.1</span> Sommes de Riemann ou méthode des rectangles</h2>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 7.1 — (Sommes de Riemann ou méthode des rectangles)</strong></p>
+<p>Pour toute fonction <span class="math inline">f\in\mathcal{CM}([a,b],\mathbb{C})</span> : <span class="math display">\int_a^b f(x)\,dx=\lim_{n\to+\infty}\frac{b-a}{n}\sum_{k=0}^{n-1}f\left(a+k\frac{b-a}{n}\right)=\lim_{n\to+\infty}\frac{b-a}{n}\sum_{k=1}^{n}f\left(a+k\frac{b-a}{n}\right).</span> Si de plus <span class="math inline">f</span> est de classe <span class="math inline">\mathcal{C}^1</span> : <span class="math inline">\int_a^b f(x)\,dx=\frac{b-a}{n}\sum_{k=0}^{n-1}f\left(a+k\frac{b-a}{n}\right)+O\left(\frac{1}{n}\right)</span>.</p>
+</div>
+<p>Ce théorème affirme en particulier l’existence des deux limites. On ne comprend les sommes de Riemann qu’en les dessinant : l’aire du domaine coloré vaut <span class="math inline">\frac{b-a}{n}\sum_{k=0}^{n-1}f\left(a+k\frac{b-a}{n}\right)</span> (méthode des rectangles à gauche), ou <span class="math inline">\frac{b-a}{n}\sum_{k=1}^{n}f\left(a+k\frac{b-a}{n}\right)</span> (rectangles à droite).</p>
+<div class="proof">
+<p><span class="proof-title"><em>Preuve</em>. </span>Nous prouverons le résultat dans le seul cas où <span class="math inline">f</span> est <span class="math inline">K</span>-lipschitzienne pour un certain <span class="math inline">K&gt;0</span> — c’est vrai en particulier si <span class="math inline">f</span> est de classe <span class="math inline">\mathcal{C}^1</span> sur le <strong>segment</strong> <span class="math inline">[a,b]</span> d’après le théorème des bornes atteintes et l’inégalité des accroissements finis. Pour tout <span class="math inline">n\in\mathbb{N}^*</span>, si on pose <span class="math inline">x_k=a+k\frac{b-a}{n}</span> pour tout <span class="math inline">k\in\llbracket 0,n\rrbracket</span> : <span class="math display">\left|\int_a^b f(x)\,dx-\frac{b-a}{n}\sum_{k=0}^{n-1}f(x_k)\right|=\left|\sum_{k=0}^{n-1}\int_{x_k}^{x_{k+1}}(f(x)-f(x_k))\,dx\right|\leq\sum_{k=0}^{n-1}\int_{x_k}^{x_{k+1}}|f(x)-f(x_k)|\,dx\leq\sum_{k=0}^{n-1}\int_{x_k}^{x_{k+1}}K(x-x_k)\,dx=\sum_{k=0}^{n-1}K\left[\frac{(x-x_k)^2}{2}\right]_{x=x_k}^{x=x_{k+1}}=\sum_{k=0}^{n-1}\frac{K(b-a)^2}{2n^2}=\frac{K(b-a)^2}{2n}.</span> Le théorème d’encadrement montre finalement à la fois la convergence des sommes de Riemann et la majoration de l’écart en <span class="math inline">O\left(\frac{1}{n}\right)</span>.</p>
+</div>
+<p>Quand on veut reconnaître quelque part une somme de Riemann, on se ramène généralement au cas particulier suivant, sur lequel la forme de la fonction <span class="math inline">f</span> est facile à lire. Pour toute fonction <span class="math inline">f\in\mathcal{CM}([0,1],\mathbb{C})</span> : <span class="math display">\lim_{n\to+\infty}\frac{1}{n}\sum_{k=0}^{n-1}f\left(\frac{k}{n}\right)=\lim_{n\to+\infty}\frac{1}{n}\sum_{k=1}^{n}f\left(\frac{k}{n}\right)=\int_0^1 f(t)\,dt.</span></p>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 7.1</strong></p>
+<p><span class="math inline">\lim_{n\to+\infty}\sum_{k=1}^{n}\frac{1}{n+k}=\ln 2</span>.</p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Preuve</em>. </span>Par continuité de <span class="math inline">x\mapsto\frac{1}{1+x}</span> sur <span class="math inline">[0,1]</span> : <span class="math display">\sum_{k=1}^{n}\frac{1}{n+k}=\frac{1}{n}\sum_{k=1}^{n}\frac{1}{1+\frac{k}{n}}\xrightarrow[n\to+\infty]{}\int_0^1\frac{dt}{1+t}=\ln 2.</span></p>
+</div>
+</section>
+<section id="méthode-des-trapèzes" class="level2" data-number="6.2">
+<h2 data-number="6.2" class="anchored" data-anchor-id="méthode-des-trapèzes"><span class="header-section-number">6.2</span> Méthode des trapèzes</h2>
+<p>L’erreur commise dans le cas <span class="math inline">\mathcal{C}^1</span> de la méthode des rectangles est un <span class="math inline">O\left(\frac{1}{n}\right)</span> si <span class="math inline">n</span> désigne le nombre de termes sommés. Cette majoration de l’erreur n’est pas très bonne car <span class="math inline">\frac{1}{n}</span> ne tend pas vers <span class="math inline">0</span> rapidement lorsque <span class="math inline">n</span> tend vers <span class="math inline">+\infty</span>. La méthode des trapèzes présentée ci-dessous — hors programme — est proche de la précédente mais converge un peu plus vite.</p>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 7.2 — (Méthode des trapèzes)</strong></p>
+<p>Pour toute fonction <span class="math inline">f\in\mathcal{CM}([a,b],\mathbb{C})</span> : <span class="math display">\int_a^b f(x)\,dx=\lim_{n\to+\infty}\frac{b-a}{n}\left(\frac{f(a)+f(b)}{2}+\sum_{k=1}^{n-1}f\left(a+k\frac{b-a}{n}\right)\right).</span> Si de plus <span class="math inline">f</span> est de classe <span class="math inline">\mathcal{C}^2</span> : <span class="math inline">\int_a^b f(x)\,dx=\frac{b-a}{n}\left(\frac{f(a)+f(b)}{2}+\sum_{k=1}^{n-1}f\left(a+k\frac{b-a}{n}\right)\right)+O\left(\frac{1}{n^2}\right)</span>.</p>
+</div>
+<p>Étrangement, le terme <span class="math inline">\frac{b-a}{n}\sum_{k=1}^{n-1}f\left(a+k\frac{b-a}{n}\right)</span> est presque le terme que nous donnait la méthode des rectangles, aux bornes près. L’idée, c’est qu’au lieu d’approximer <span class="math inline">f</span> par un plateau sur <span class="math inline">[x_k,x_{k+1}]</span> pour tout <span class="math inline">k</span>, on l’approxime maintenant par une fonction affine et les rectangles sont remplacés par des trapèzes (dont l’aire est <span class="math inline">A=\frac{(B+b)\times h}{2}</span>). Un petit calcul redonne la formule : <span class="math display">\frac{b-a}{n}\sum_{k=0}^{n-1}\frac{f(x_k)+f(x_{k+1})}{2}=\frac{b-a}{n}\left(\frac{f(x_0)+f(x_n)}{2}+\sum_{k=1}^{n-1}f(x_k)\right)=\frac{b-a}{n}\left(\frac{f(a)+f(b)}{2}+\sum_{k=1}^{n-1}f\left(a+k\frac{b-a}{n}\right)\right).</span></p>
+</section>
+</section>
+<section id="document-en-pdf" class="level1 unnumbered">
+<h1 class="unnumbered">Document en PDF</h1>
+<p><a href="PDF/mpsi-chap21.pdf">Chapitre 21 : Intégration sur un segment</a></p>
+<section id="navigation" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="navigation">Navigation</h2>
+<div class="chap-nav">
+<p><a href="../cours/mpsi-chap20.html" class="prev">Chapitre 20 : Développements limités</a></p>
+<p><a href="../cours/mpsi.html" class="home">Menu MPSI</a></p>
+<p><a href="../cours/mpsi-chap22.html" class="next">Chapitre 22 : Intégration sur un intervalle quelconque</a></p>
+</div>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -214,12 +785,12 @@ ul.task-list li input[type="checkbox"] {
       // flash "checked"
       button.classList.add('code-copy-button-checked');
       var currentTitle = button.getAttribute("title");
-      button.setAttribute("title", "Copied!");
+      button.setAttribute("title", "Copié");
       let tooltip;
       if (window.bootstrap) {
         button.setAttribute("data-bs-toggle", "tooltip");
         button.setAttribute("data-bs-placement", "left");
-        button.setAttribute("data-bs-title", "Copied!");
+        button.setAttribute("data-bs-title", "Copié");
         tooltip = new bootstrap.Tooltip(button, 
           { trigger: "manual", 
             customClass: "code-copy-button-tooltip",

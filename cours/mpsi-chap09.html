@@ -1,13 +1,14 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr"><head>
 
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.10.18">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Said MAHARI">
 
-<title>Arithmétique dans ℤ - Mathématiques en CPGE – Mathématiques en CPGE</title>
+<title>Arithmétique dans ℤ – Mathématiques en CPGE</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -45,7 +46,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-7a8c080b55ea27eb37b467515007f9ee.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-e0d9a45d84245cc5e3b300860d8fa645.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -60,22 +61,66 @@ ul.task-list li input[type="checkbox"] {
   ],
   "show-item-context": false,
   "language": {
-    "search-no-results-text": "No results",
-    "search-matching-documents-text": "matching documents",
-    "search-copy-link-title": "Copy link to search",
-    "search-hide-matches-text": "Hide additional matches",
-    "search-more-match-text": "more match in this document",
-    "search-more-matches-text": "more matches in this document",
-    "search-clear-button-title": "Clear",
+    "search-no-results-text": "Pas de résultats",
+    "search-matching-documents-text": "documents trouvés",
+    "search-copy-link-title": "Copier le lien vers la recherche",
+    "search-hide-matches-text": "Cacher les correspondances additionnelles",
+    "search-more-match-text": "correspondance de plus dans ce document",
+    "search-more-matches-text": "correspondances de plus dans ce document",
+    "search-clear-button-title": "Effacer",
     "search-text-placeholder": "",
-    "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit",
-    "search-label": "Search"
+    "search-detached-cancel-button-title": "Annuler",
+    "search-submit-button-title": "Envoyer",
+    "search-label": "Recherche"
   }
 }</script>
 
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="styles.css">
 </head>
 
 <body class="nav-fixed quarto-light">
@@ -89,8 +134,8 @@ ul.task-list li input[type="checkbox"] {
     <span class="navbar-title">Accueil</span>
     </a>
   </div>
-            <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+            <div id="quarto-search" class="" title="Recherche"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Basculer la navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
@@ -119,6 +164,10 @@ ul.task-list li input[type="checkbox"] {
     <a class="nav-link" href="../contact.html"> 
 <span class="menu-text">Contact</span></a>
   </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../apropos.html"> 
+<span class="menu-text">À propos</span></a>
+  </li>  
 </ul>
           </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
@@ -132,10 +181,18 @@ ul.task-list li input[type="checkbox"] {
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
+    <h2 id="toc-title">Sur cette page</h2>
    
   <ul>
-  <li><a href="#document" id="toc-document" class="nav-link active" data-scroll-target="#document">Document</a></li>
+  <li><a href="#arithmétique-dans-ℤ" id="toc-arithmétique-dans-ℤ" class="nav-link active" data-scroll-target="#arithmétique-dans-ℤ">Arithmétique dans ℤ</a></li>
+  <li><a href="#notion-de-divisibilité-dans-mathbbz" id="toc-notion-de-divisibilité-dans-mathbbz" class="nav-link" data-scroll-target="#notion-de-divisibilité-dans-mathbbz"><span class="header-section-number">1</span> Notion de divisibilité dans <span class="math inline">\mathbb{Z}</span></a></li>
+  <li><a href="#théorème-de-la-division-euclidienne" id="toc-théorème-de-la-division-euclidienne" class="nav-link" data-scroll-target="#théorème-de-la-division-euclidienne"><span class="header-section-number">2</span> Théorème de la division euclidienne</a></li>
+  <li><a href="#notion-de-plus-grand-commun-diviseur" id="toc-notion-de-plus-grand-commun-diviseur" class="nav-link" data-scroll-target="#notion-de-plus-grand-commun-diviseur"><span class="header-section-number">3</span> Notion de plus grand commun diviseur</a></li>
+  <li><a href="#notion-de-plus-petit-commun-multiple" id="toc-notion-de-plus-petit-commun-multiple" class="nav-link" data-scroll-target="#notion-de-plus-petit-commun-multiple"><span class="header-section-number">4</span> Notion de plus petit commun multiple</a></li>
+  <li><a href="#quelques-résultats-fondamentaux" id="toc-quelques-résultats-fondamentaux" class="nav-link" data-scroll-target="#quelques-résultats-fondamentaux"><span class="header-section-number">5</span> Quelques résultats fondamentaux</a></li>
+  <li><a href="#relation-de-congruence" id="toc-relation-de-congruence" class="nav-link" data-scroll-target="#relation-de-congruence"><span class="header-section-number">6</span> Relation de congruence</a></li>
+  <li><a href="#document-en-pdf" id="toc-document-en-pdf" class="nav-link" data-scroll-target="#document-en-pdf">Document en PDF</a></li>
+  <li><a href="#navigation" id="toc-navigation" class="nav-link" data-scroll-target="#navigation">Navigation</a></li>
   </ul>
 </nav>
     </div>
@@ -144,14 +201,27 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Chapitre 09 : Arithmétique dans ℤ</h1>
+<h1 class="title">Arithmétique dans ℤ</h1>
+<p class="subtitle lead">Chapitre 09</p>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Auteur·rice</div>
+    <div class="quarto-title-meta-contents">
+             <p>Said MAHARI </p>
+          </div>
+  </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">Date de publication</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">17 août 2026</p>
+    </div>
+  </div>
   
     
   </div>
@@ -161,10 +231,448 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p><strong>MPSI (1re année) — Chapitre 09.</strong> Division euclidienne, PGCD, PPCM, Bézout, Gauss, nombres premiers.</p>
-<section id="document" class="level2">
-<h2 class="anchored" data-anchor-id="document">Document</h2>
-<p><em>PDF à venir : déposez le fichier <code>files/mpsi/chap09.pdf</code> puis régénérez la page.</em></p>
+<p><strong>MPSI (1re année) — Chapitre 09.</strong> Divisibilité, division euclidienne, PGCD, PPCM, théorèmes de Bézout et de Gauss, nombres premiers, valuation <span class="math inline">p</span>-adique, congruences.</p>
+<p>Ce chapitre a été réalisé conformément au programme marocain de mathématiques de la filière MPSI.</p>
+<section id="arithmétique-dans-ℤ" class="level1 unnumbered">
+<h1 class="unnumbered">Arithmétique dans ℤ</h1>
+<p>Ce petit résumé est réalisé suivant le programme marocain de la filière MPSI et présente quelques résultats fondamentaux d’arithmétique, agrémentés de petits exercices d’application. Les détails seront donnés en classe suite à la demande des élèves.</p>
+</section>
+<section id="notion-de-divisibilité-dans-mathbbz" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Notion de divisibilité dans <span class="math inline">\mathbb{Z}</span></h1>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 2.1</strong></p>
+<p>Si <span class="math inline">a</span> et <span class="math inline">b</span> sont deux entiers tel que <span class="math inline">a</span> est non nul, on dit que <span class="math inline">a</span> <strong>divise</strong> <span class="math inline">b</span>, ou que <span class="math inline">b</span> est <strong>divisible</strong> par <span class="math inline">a</span>, s’il existe un entier <span class="math inline">q</span> tel que <span class="math inline">b=aq</span>. On dit encore que <span class="math inline">a</span> est un <strong>diviseur</strong> de <span class="math inline">b</span>, ou que <span class="math inline">b</span> est un <strong>multiple</strong> de <span class="math inline">a</span>. On note, dans ce cas, <span class="math inline">a\mid b</span>, et on note <span class="math inline">\mathcal{D}(b)</span> l’ensemble des diviseurs positifs de <span class="math inline">b</span> et <span class="math inline">\mathcal{M}(a)</span> l’ensemble des multiples positifs de <span class="math inline">a</span>.</p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 2.1</strong></p>
+<p>Voici quelques propriétés :</p>
+<ul>
+<li>Tout entier <span class="math inline">a\in\mathbb{Z}^*</span> divise <span class="math inline">0</span> et est divisible par <span class="math inline">1</span> et <span class="math inline">a</span> ;</li>
+<li>Si <span class="math inline">a\mid b</span> et <span class="math inline">b\mid c</span> alors <span class="math inline">a\mid c</span> ;</li>
+<li>Soit <span class="math inline">m</span> un entier non nul, <span class="math inline">a\mid b</span> est équivalent à <span class="math inline">ma\mid mb</span> ;</li>
+<li>Si <span class="math inline">a\mid b</span> et <span class="math inline">a\mid c</span>, alors <span class="math inline">a\mid bx+cy</span> pour tous entiers <span class="math inline">x,y</span>. En particulier, <span class="math inline">a\mid b-c</span> et <span class="math inline">a\mid b+c</span>.</li>
+</ul>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 2.1</strong></p>
+<p>Soient <span class="math inline">x, y</span> des entiers. Montrer que <span class="math inline">3x+2y</span> est divisible par <span class="math inline">7</span> si et seulement si <span class="math inline">4x+5y</span> l’est aussi.</p>
+</div>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 2.2 — (Relation d'association)</strong></p>
+<p>On dit que deux entiers <span class="math inline">a</span> et <span class="math inline">b</span> sont <strong>associés</strong> si <span class="math inline">b=\pm a</span>, ou encore si <span class="math inline">a\mid b</span> et <span class="math inline">b\mid a</span>.</p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 2.2</strong></p>
+<ol type="1">
+<li>Montrer que la relation d’association des entiers est une relation d’équivalence et donner la classe d’un entier <span class="math inline">n</span>.</li>
+<li>Soit <span class="math inline">(k,k')\in\mathbb{Z}^2</span>. Montrer que : <span class="math display">kk'=1 \iff k=k'=1 \text{ ou } k=k'=-1</span></li>
+</ol>
+</div>
+</section>
+<section id="théorème-de-la-division-euclidienne" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> Théorème de la division euclidienne</h1>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 3.1 — (Division euclidienne)</strong></p>
+<p>Soit <span class="math inline">b</span> un entier strictement positif. Tout entier <span class="math inline">a</span> s’écrit, de manière unique, sous la forme <span class="math inline">a=bq+r</span>, où <span class="math inline">q</span> et <span class="math inline">r</span> sont des entiers, avec <span class="math inline">0\leq r&lt;b</span>. On appelle <span class="math inline">q</span> le <strong>quotient</strong> et <span class="math inline">r</span> le <strong>reste</strong> de la division euclidienne de <span class="math inline">a</span> par <span class="math inline">b</span>.</p>
+</div>
+<div class="proof remark">
+<p><span class="proof-title"><em>Remarque</em>. </span></p>
+<ul>
+<li><span class="math inline">\operatorname{sgn}(q)=\operatorname{sgn}(a)</span> ;</li>
+<li>Si <span class="math inline">b&lt;0</span>, pour effectuer la division euclidienne de <span class="math inline">a</span> par <span class="math inline">b</span>, on effectue la division euclidienne de <span class="math inline">a</span> par <span class="math inline">|b|</span> : <span class="math display">\exists! (q',r')\in \mathbb{Z}\times \llbracket 0,|b|-1\rrbracket \ / \ a=q'|b|+r'</span> puis on prend <span class="math inline">(q,r)=(\operatorname{sgn}(b)q',r')</span>.</li>
+</ul>
+</div>
+<div class="proof remark">
+<p><span class="proof-title"><em>Remarque</em>. </span>Le théorème précédent est très important puisqu’il permet de procéder par un raisonnement par disjonction des cas (où le nombre des cas est fini) en considérant le reste <span class="math inline">r</span> de la division euclidienne de <span class="math inline">a</span> par un certain <span class="math inline">n\in\mathbb{N}^*</span>.</p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 3.1</strong></p>
+<p>Soit <span class="math inline">a</span> un entier quelconque. Déterminer le reste de la division euclidienne de <span class="math inline">a^2</span> par 4.</p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 3.2</strong></p>
+<p>Montrer que <span class="math inline">n^3-n</span> est divisible à la fois par 2 et 3.</p>
+</div>
+</section>
+<section id="notion-de-plus-grand-commun-diviseur" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Notion de plus grand commun diviseur</h1>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 4.1 — (Plus grand commun diviseur)</strong></p>
+<p>Un entier divisant à la fois l’entier <span class="math inline">a</span> et l’entier <span class="math inline">b</span> (non tous les deux nuls) est appelé <strong>diviseur commun</strong> de <span class="math inline">a</span> et <span class="math inline">b</span>. Le plus grand nombre strictement positif parmi ces diviseurs communs est appelé le <strong>plus grand commun diviseur</strong> de <span class="math inline">a</span> et <span class="math inline">b</span>, on le note <span class="math inline">\operatorname{pgcd}(a,b)</span> ou <span class="math inline">a\wedge b</span>.</p>
+<p>On dit que <span class="math inline">a</span> et <span class="math inline">b</span> sont <strong>premiers entre eux</strong> si <span class="math inline">\operatorname{pgcd}(a,b)=1</span>.</p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 4.1</strong></p>
+<p>On a : <span class="math display">\mathcal{D}(42)=\{1,2,3,6,7,14,21,42\} \quad ; \quad \mathcal{D}(15)=\{1,3,5,15\}</span> donc <span class="math inline">\operatorname{pgcd}(42,15)=3</span>.</p>
+</div>
+<div class="proof remark">
+<p><span class="proof-title"><em>Remarque</em>. </span></p>
+<ul>
+<li>Attention le pgcd est défini pour <span class="math inline">(a,b)\in\mathbb{Z}^2\smallsetminus\{(0,0)\}</span>, et on a : <span class="math inline">\operatorname{pgcd}(a,b)&gt;0</span>.</li>
+<li><span class="math inline">\operatorname{pgcd}(a,b)=|a| \iff a\mid b</span>.</li>
+</ul>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 4.1</strong></p>
+<p>On a les propriétés suivantes :</p>
+<ul>
+<li>Pour tout entier <span class="math inline">c</span>, <span class="math inline">\operatorname{pgcd}(a,b)=\operatorname{pgcd}(a,b+ac)=\operatorname{pgcd}(a+bc,b)</span> ;</li>
+<li>Si <span class="math inline">r</span> est le reste de la division euclidienne de <span class="math inline">a</span> par <span class="math inline">b</span> alors <span class="math inline">\operatorname{pgcd}(a,b)=\operatorname{pgcd}(b,r)</span>.</li>
+</ul>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 4.1</strong></p>
+<p>Montrer que pour tout entier naturel <span class="math inline">n</span>, la fraction <span class="math inline">\frac{21n+4}{14n+3}</span> est irréductible.</p>
+</div>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 4.1 — (Algorithme d'Euclide)</strong></p>
+<p>La proposition précédente fournit un algorithme pour calculer le PGCD de deux entiers <span class="math inline">a</span> et <span class="math inline">b</span>.</p>
+<p>Supposons <span class="math inline">a&gt;b&gt;0</span>. Soit <span class="math inline">r_1</span> le reste dans la division euclidienne de <span class="math inline">a</span> par <span class="math inline">b</span>. Si <span class="math inline">r_1=0</span>, alors <span class="math inline">\operatorname{pgcd}(a,b)=b</span> ; sinon, soit <span class="math inline">r_2</span> le reste dans la division euclidienne de <span class="math inline">b</span> par <span class="math inline">r_1</span>. Si <span class="math inline">r_2=0</span>, alors <span class="math inline">\operatorname{pgcd}(a,b)=\operatorname{pgcd}(b,r_1)=r_1</span> ; sinon, soit <span class="math inline">r_3</span> le reste dans la division euclidienne de <span class="math inline">r_1</span> par <span class="math inline">r_2</span>, etc.</p>
+<p>Le processus s’arrête nécessairement car les restes forment une suite d’entiers décroissante et minorée. Le dernier reste non nul <span class="math inline">r_n</span> est égal au PGCD de <span class="math inline">a</span> et <span class="math inline">b</span>. En effet, la proposition précédente montre que <span class="math inline">\operatorname{pgcd}(a,b)=\operatorname{pgcd}(b,r_1)=\operatorname{pgcd}(r_1,r_2)=\cdots=\operatorname{pgcd}(r_{n-1},r_n)=r_n</span>.</p>
+</div>
+<p>L’algorithme d’Euclide est un résultat très important puisqu’il a deux conséquences particulièrement importantes :</p>
+<div class="custom-numbered-block custom-corollary">
+<p><strong>Corollaire 4.1</strong></p>
+<p>Si <span class="math inline">d=\operatorname{pgcd}(a,b)</span> alors il existe deux entiers <span class="math inline">u</span> et <span class="math inline">v</span> tels que : <span class="math display">au+bv=d.</span></p>
+</div>
+<div class="proof remark">
+<p><span class="proof-title"><em>Remarque</em>. </span></p>
+<ul>
+<li>La réciproque est fausse (il suffit de prendre <span class="math inline">a=b=2</span> et <span class="math inline">u=v=1</span>).</li>
+<li>Les entiers <span class="math inline">u</span> et <span class="math inline">v</span> s’appellent les coefficients de Bézout. Le couple <span class="math inline">(u,v)</span> des coefficients de Bézout n’est pas unique. Par exemple : <span class="math display">1=3\times 1+2\times (-1)=3\times (-1)+2\times 2=3\times 3+2\times (-4)</span></li>
+<li>Si <span class="math inline">a</span> et <span class="math inline">b</span> sont de signe quelconque, on applique l’algorithme d’Euclide à <span class="math inline">|a|</span> et <span class="math inline">|b|</span> et on aura : <span class="math display">\exists (u',v')\in\mathbb{Z}^2 \ / \ d=|a|u'+|b|v'</span> puis on prend <span class="math inline">u=\operatorname{sgn}(a)u'</span> et <span class="math inline">v=\operatorname{sgn}(b)v'</span>.</li>
+</ul>
+</div>
+<div class="custom-numbered-block custom-corollary">
+<p><strong>Corollaire 4.2 — (Théorème de Bézout)</strong></p>
+<p><span class="math inline">a</span> et <span class="math inline">b</span> sont premiers entre eux si et seulement si il existe deux entiers <span class="math inline">u</span> et <span class="math inline">v</span> tels que : <span class="math display">au+bv=1</span></p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 4.2</strong></p>
+<ul>
+<li>Déterminons le PGCD de 75 et 55 en utilisant l’algorithme d’Euclide : <span class="math display">\begin{aligned} 75 &amp;= 55\times 1 +20 \\ 55 &amp;= 20\times 2 +15 \\ 20 &amp;= 15\times 1 + 5 \\ 15 &amp;= 5\times 3 +0 \end{aligned}</span> donc <span class="math inline">\operatorname{pgcd}(75,55)=5</span>.</li>
+<li>Déterminons, maintenant, des coefficients de Bézout : <span class="math display">5=20-15\times 1=20-(55-20\times 2)\times 1=75-55-(55-(75-55)\times 2)\times 1=75\times 3+55\times (-4)</span> donc <span class="math inline">u=3</span> et <span class="math inline">v=-4</span>.</li>
+</ul>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 4.3</strong></p>
+<p>Déterminons le PGCD de 156 et 39 en utilisant l’algorithme d’Euclide : <span class="math display">156=39\times 4+0</span> donc <span class="math inline">\operatorname{pgcd}(156,39)=39</span> et des coefficients de Bézout sont : <span class="math inline">u=1</span> et <span class="math inline">v=-3</span>.</p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 4.4</strong></p>
+<ul>
+<li>Déterminons le PGCD de 169 et 38 en utilisant l’algorithme d’Euclide : <span class="math display">\begin{aligned} 169 &amp;= 38\times 4 +17 \\ 38 &amp;= 17\times 2 +4 \\ 17 &amp;= 4\times 4 + 1 \\ 4 &amp;= 1\times 4 +0 \end{aligned}</span> donc <span class="math inline">\operatorname{pgcd}(169,38)=1</span>.</li>
+<li>Déterminons, maintenant, des coefficients de Bézout : <span class="math display">1=17-4\times 4=17-(38-17\times 2)\times 4=169-38\times 4-(38-(169-38\times 4)\times 2)\times 4=169\times 9+38\times (-40)</span> donc <span class="math inline">u=9</span> et <span class="math inline">v=-40</span>.</li>
+</ul>
+</div>
+<div class="custom-numbered-block custom-corollary">
+<p><strong>Corollaire 4.3</strong></p>
+<ul>
+<li><span class="math inline">\mathcal{D}(a)\cap \mathcal{D}(b)=\mathcal{D}(a\wedge b)</span> ;</li>
+<li>Si <span class="math inline">d\mid a</span> et <span class="math inline">d\mid b</span> alors <span class="math inline">\operatorname{pgcd}(a,b)=|d|\operatorname{pgcd}(a/d,b/d)</span>.</li>
+</ul>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 4.2</strong></p>
+<p>Soient <span class="math inline">a</span> et <span class="math inline">b</span> deux entiers non nuls. Montrer que : <span class="math display">\exists !(a',b')\in \left(\mathbb{Z}^*\right)^2 \ / \ \begin{cases} a=da' \\ b=db' \\ a'\wedge b'=1 \\ d=a\wedge b \end{cases}</span></p>
+</div>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 4.2 — (PGCD de plusieurs entiers)</strong></p>
+<p>Soit <span class="math inline">(a_k)_{1\leq k\leq n}</span> une famille d’entiers non tous nuls.</p>
+<ul>
+<li>On définit le <strong>PGCD</strong> des <span class="math inline">a_k</span> comme étant le plus grand entier strictement positif parmi leurs diviseurs communs. On le note <span class="math inline">\operatorname{pgcd}(a_1,\cdots,a_n)</span> ou <span class="math inline">a_1\wedge \cdots \wedge a_n</span>.</li>
+<li>On dit que les <span class="math inline">a_k</span> sont <strong>premiers entre eux</strong> si : <span class="math inline">\operatorname{pgcd}(a_1,\cdots,a_n)=1</span>.</li>
+</ul>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 4.5</strong></p>
+<p>On a :</p>
+<ul>
+<li><span class="math inline">\operatorname{pgcd}(64,32,8,36,48,128)=4</span> ;</li>
+<li><span class="math inline">\operatorname{pgcd}(8,24,6,15)=1</span>.</li>
+</ul>
+</div>
+<div class="proof remark" title="(Attention !)">
+<p><span class="proof-title"><em>Remarque</em>. </span>Il y a une différence entre « premiers entre eux » (ou « premiers entre eux dans leur ensemble ») et « premiers entre eux deux à deux ». Par exemple, <span class="math inline">2,6,9</span> sont premiers entre eux mais ils ne sont pas premiers entre eux deux à deux.</p>
+</div>
+<p>Les propriétés du PGCD de deux entiers se généralisent comme suit :</p>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 4.2</strong></p>
+<ul>
+<li><span class="math inline">\bigcap_{k=1}^n\mathcal{D}(a_k)=\mathcal{D}\left(\operatorname{pgcd}(a_1,\cdots,a_n)\right)</span> ;</li>
+<li>Si au moins deux entiers parmi les <span class="math inline">a_k</span> sont premiers entre eux alors : <span class="math inline">\operatorname{pgcd}(a_1,\cdots,a_n)=1</span>.</li>
+</ul>
+</div>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 4.2 — (Théorème de Bézout)</strong></p>
+<ul>
+<li>Si <span class="math inline">d=\operatorname{pgcd}(a_1,\cdots,a_n)</span> alors il existe des entiers <span class="math inline">u_1,\cdots, u_n</span> tels que : <span class="math display">u_1a_1+\cdots +u_na_n=d</span></li>
+<li>Les <span class="math inline">a_k</span> sont premiers entre eux si et seulement si il existe des entiers <span class="math inline">u_1,\cdots, u_n</span> tels que : <span class="math display">u_1a_1+\cdots +u_na_n=1</span></li>
+</ul>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 4.3</strong></p>
+<p>Soit <span class="math inline">n\in\mathbb{N}^*</span>.</p>
+<ol type="1">
+<li>Soient <span class="math inline">a,b_1,\cdots, b_n</span> des entiers non nuls. Montrer que : <span class="math display">a\wedge b_1=\cdots = a\wedge b_n=1 \iff a\wedge \prod_{k=1}^n b_k =1</span></li>
+<li>Soit <span class="math inline">(a,b)\in (\mathbb{Z}^*)^2</span>. Montrer que : <span class="math display">a\wedge b=1 \iff a^n \wedge b^n=1</span></li>
+<li>Soient <span class="math inline">a_1,\cdots, a_n</span> des entiers premiers entre eux deux à deux. Pour <span class="math inline">k\in \llbracket 1,n\rrbracket</span>, on pose : <span class="math inline">b_k=\prod_{i=1,i\neq k}^n a_i</span>. Montrer que les <span class="math inline">b_k</span> sont premiers entre eux.</li>
+</ol>
+</div>
+</section>
+<section id="notion-de-plus-petit-commun-multiple" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> Notion de plus petit commun multiple</h1>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 5.1 — (Plus petit commun multiple)</strong></p>
+<p>Un entier à la fois divisible par <span class="math inline">a</span> et par <span class="math inline">b</span> (<span class="math inline">a,b\neq 0</span>) est appelé un <strong>multiple commun</strong> de <span class="math inline">a</span> et <span class="math inline">b</span>. Le plus petit nombre strictement positif parmi ces multiples communs est appelé le <strong>plus petit commun multiple</strong> de <span class="math inline">a</span> et <span class="math inline">b</span> et noté <span class="math inline">\operatorname{ppcm}(a,b)</span> ou <span class="math inline">a\vee b</span>.</p>
+</div>
+<div class="proof remark">
+<p><span class="proof-title"><em>Remarque</em>. </span>Si <span class="math inline">b=0</span>, on note <span class="math inline">\operatorname{ppcm}(a,0)=0</span>.</p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 5.1</strong></p>
+<p>On a : <span class="math display">\mathcal{M}(18)=\{0,18,36,54,72,90,\cdots\} \quad ; \quad \mathcal{M}(15)=\{0,15,30,45,60,75,90,\cdots\}</span> donc <span class="math inline">\operatorname{ppcm}(18,15)=90</span>.</p>
+</div>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 5.2 — (PPCM de plusieurs entiers)</strong></p>
+<p>On définit le <strong>PPCM</strong> de plusieurs entiers <span class="math inline">a_1,\cdots,a_n</span> (<span class="math inline">\neq 0</span>) comme étant l’entier <span class="math inline">m</span> vérifiant : <span class="math display">m=\min \bigcap_{k=1}^n \mathcal{M}(a_k)\smallsetminus\{0\}</span> On le note <span class="math inline">\operatorname{ppcm}(a_1,\cdots,a_n)</span> ou <span class="math inline">a_1\vee \cdots \vee a_n</span>.</p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 5.2</strong></p>
+<p>On a :</p>
+<ul>
+<li><span class="math inline">\operatorname{ppcm}(64,32,8,36,48,128)=384</span> ;</li>
+<li><span class="math inline">\operatorname{ppcm}(8,24,6,15)=120</span>.</li>
+</ul>
+</div>
+</section>
+<section id="quelques-résultats-fondamentaux" class="level1" data-number="5">
+<h1 data-number="5"><span class="header-section-number">5</span> Quelques résultats fondamentaux</h1>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 6.1 — (Lemme d'Euclide)</strong></p>
+<p>Soient <span class="math inline">a,b</span> et <span class="math inline">c</span> trois entiers tels que <span class="math inline">\operatorname{pgcd}(a,b)=1</span>. Alors on a : <span class="math display">a\mid c \text{ et } b\mid c \Longrightarrow ab\mid c.</span></p>
+</div>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 6.2 — (Lemme de Gauss)</strong></p>
+<p>Soient <span class="math inline">a,b</span> et <span class="math inline">c</span> trois entiers tels que <span class="math inline">\operatorname{pgcd}(a,b)=1</span>. Alors on a : <span class="math display">a\mid bc \Longrightarrow a\mid c.</span></p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 6.1</strong></p>
+<p>Soient <span class="math inline">a</span> et <span class="math inline">b</span> deux entiers. Alors on a :</p>
+<ul>
+<li><span class="math inline">\mathcal{M}(a)\cap \mathcal{M}(b)=\mathcal{M}(\operatorname{ppcm}(a,b))</span> ;</li>
+<li><span class="math inline">|ab|=\operatorname{pgcd}(a,b)\times \operatorname{ppcm}(a,b)</span> ;</li>
+<li><span class="math inline">\operatorname{pgcd}(a,b)=1 \iff \operatorname{ppcm}(a,b)=|ab|</span>.</li>
+</ul>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 6.1 — (Équation diophantienne)</strong></p>
+<p>Soit <span class="math inline">(a,b,c)\in\mathbb{Z}^3</span> tel que <span class="math inline">(a,b)\neq (0,0)</span>. Considérons l’équation d’inconnue <span class="math inline">(x,y)</span> : <span class="math display">ax+by=c \qquad (1)</span> Posons <span class="math inline">d=\operatorname{pgcd}(a,b)</span>.</p>
+<ol type="a">
+<li><p>Que dire si <span class="math inline">d</span> ne divise pas <span class="math inline">c</span> ? Dans le cas contraire, montrer que l’équation <span class="math inline">(1)</span> est équivalente à une équation du type : <span class="math display">a'x+b'y=c' \qquad (2)</span> avec <span class="math inline">\operatorname{pgcd}(a',b')=1</span>.</p></li>
+<li><p>Étant donné une solution particulière <span class="math inline">(x_0,y_0)</span> de l’équation <span class="math inline">(2)</span>, résoudre l’équation <span class="math inline">(1)</span>.</p></li>
+<li><p>Appliquer lorsque <span class="math inline">a=189,\ b=255</span> et <span class="math inline">c=27</span>.</p></li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 6.2</strong></p>
+<p>Soit <span class="math inline">(a,b)\in\mathbb{N}^2</span>. Étant donné un couple de coefficients de Bézout <span class="math inline">(u_0,v_0)</span>, trouver tous les couples de coefficients de Bézout <span class="math inline">(u,v)</span>, c’est-à-dire les couples vérifiant : <span class="math inline">au+bv=d</span>.</p>
+</div>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 6.1 — (Nombres premiers)</strong></p>
+<p>Un entier naturel <span class="math inline">p&gt;1</span> est dit <strong>premier</strong> s’il possède exactement deux diviseurs naturels, à savoir <span class="math inline">1</span> et <span class="math inline">p</span>.</p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 6.1</strong></p>
+<p><span class="math inline">2,3,5,7,11,13,17,\ldots</span> sont des nombres premiers.</p>
+</div>
+<div class="proof remark" title="(Règle importante)">
+<p><span class="proof-title"><em>Remarque</em>. </span>Soit <span class="math inline">n\in\mathbb{N}</span> tel que <span class="math inline">n\geq 2</span>. Si <span class="math inline">n</span> n’est pas premier alors le plus petit nombre premier <span class="math inline">p</span> qui le divise vérifie : <span class="math inline">p\leq \sqrt{n}</span>.</p>
+<p>Par contraposée, si tous les nombres premiers <span class="math inline">p</span> tels que <span class="math inline">p\leq \sqrt{n}</span> ne divisent pas <span class="math inline">n</span>, alors <span class="math inline">n</span> est premier.</p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 6.3</strong></p>
+<p>Parmi les nombres suivants : <span class="math inline">67, 77, 87, 97</span>, lesquels sont-ils premiers ?</p>
+</div>
+<div class="proof remark">
+<p><span class="proof-title"><em>Remarque</em>. </span>Une méthode pour obtenir les nombres premiers est le crible d’Ératosthène. Pour une description détaillée du crible suivre le <a href="https://bit.ly/Crible_Era">lien</a>.</p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 6.2</strong></p>
+<p>Soient <span class="math inline">a,b\in\mathbb{Z}</span> et <span class="math inline">p</span> un nombre premier. Alors on a : <span class="math display">p\mid ab \iff p\mid a \text{ ou } p\mid b</span></p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 6.4 — (Caractérisation d'un nombre premier)</strong></p>
+<p>Soit <span class="math inline">p\in\mathbb{N}</span> tel que <span class="math inline">p&gt;1</span>. Montrer que : <span class="math display">\left( p \text{ est premier} \right) \iff \left( \forall (a,b)\in\mathbb{Z}^2,\ p\mid ab \iff p\mid a \text{ ou } p\mid b \right)</span></p>
+</div>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 6.3 — (Théorème d'Euclide)</strong></p>
+<p>L’ensemble des nombres premiers est infini.</p>
+</div>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 6.4 — (Théorème fondamental de l'arithmétique)</strong></p>
+<p>Tout entier naturel non nul <span class="math inline">n</span> se décompose de façon unique en produit de nombres premiers. Autrement dit, <span class="math inline">n</span> s’écrit : <span class="math display">n=\prod_{p\in \mathcal{P}}p^{v_p(n)}</span> avec <span class="math inline">\mathcal{P}</span> l’ensemble des nombres premiers et <span class="math inline">v_p(n)</span> le plus grand entier naturel <span class="math inline">m</span> tel que <span class="math inline">p^m</span> (<span class="math inline">p</span> premier) divise <span class="math inline">n</span>. <span class="math inline">v_p(n)</span> s’appelle la valuation <span class="math inline">p</span>-adique de <span class="math inline">n</span>.</p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 6.5</strong></p>
+<p>Calculer <span class="math inline">v_2(54),\ v_3(54),\ v_5(54),\ v_7(54)</span> et <span class="math inline">v_p(54)</span> avec <span class="math inline">p\in\mathcal{P}</span> et <span class="math inline">p\leq 11</span>. Décomposer 54 en produit de nombres premiers.</p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 6.6</strong></p>
+<p>Soient <span class="math inline">p,q \in \mathcal{P}</span> et <span class="math inline">k\in\mathbb{N}</span>. Calculer <span class="math inline">v_p(q^k)</span>.</p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 6.3 — (Propriétés de la valuation)</strong></p>
+<p>Soit <span class="math inline">(a,b)\in (\mathbb{N}^*)^2</span>. Alors on a :</p>
+<ul>
+<li><span class="math inline">\forall p\in\mathcal{P},\ v_p(ab)=v_p(a)+v_p(b)</span> ;</li>
+<li><span class="math inline">a\mid b \iff \left(\forall p\in\mathcal{P}\right)\ v_p(a)\leq v_p(b)</span>.</li>
+</ul>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 6.7</strong></p>
+<p>Soit <span class="math inline">n=\prod_{p\in\mathcal{P}}p^{v_p(n)}</span>. Donner la décomposition en produit de nombres premiers de tous les diviseurs de <span class="math inline">n</span>, et déduire le nombre de ses diviseurs.</p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 6.4 — (PGCD et PPCM)</strong></p>
+<p>Soit <span class="math inline">(a,b)\in (\mathbb{N}^*)^2</span>. Alors on a : <span class="math display">\operatorname{pgcd}(a,b)=\prod_{p\in\mathcal{P}}p^{\min(v_p(a),v_p(b))} \quad ; \quad \operatorname{ppcm}(a,b)=\prod_{p\in\mathcal{P}}p^{\max(v_p(a),v_p(b))}</span></p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 6.8</strong></p>
+<p>Déterminer <span class="math inline">\operatorname{pgcd}(255,354)</span> et <span class="math inline">\operatorname{ppcm}(255,354)</span>.</p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 6.9</strong></p>
+<p>Soit <span class="math inline">a,b\in\mathbb{N}^*</span>. Montrer que : <span class="math inline">a\mid b \iff a^2\mid b^2</span>.</p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 6.10</strong></p>
+<p>Soit <span class="math inline">n\in\mathbb{N}^*</span>. Montrer que si <span class="math inline">n</span> est à la fois un carré parfait et un cube parfait, alors il est la puissance sixième d’un entier.</p>
+</div>
+</section>
+<section id="relation-de-congruence" class="level1" data-number="6">
+<h1 data-number="6"><span class="header-section-number">6</span> Relation de congruence</h1>
+<p>Soit <span class="math inline">n\in\mathbb{N}^*</span>.</p>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 7.1</strong></p>
+<p>Soit <span class="math inline">(a,b)\in\mathbb{Z}^2</span>.</p>
+<p>On dit que <span class="math inline">b</span> est <strong>congru modulo <span class="math inline">n</span></strong> à <span class="math inline">a</span> et on écrit : <span class="math inline">b\equiv a \ [n]</span> ou <span class="math inline">b\equiv_n a</span>, si <span class="math inline">n\mid b-a</span>.</p>
+<p>On note <span class="math inline">\overline{a}</span> la classe d’équivalence d’un entier <span class="math inline">a</span> et <span class="math inline">\mathbb{Z}/n\mathbb{Z}</span> l’ensemble des classes d’équivalence.</p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 7.1</strong></p>
+<p>On a :</p>
+<ul>
+<li><span class="math inline">a\equiv_2 0</span> si <span class="math inline">a</span> est pair et <span class="math inline">a\equiv_2 1</span> sinon ;</li>
+<li><span class="math inline">169 \equiv_3 1</span> ;</li>
+<li><span class="math inline">\forall a\in\mathbb{Z},\ a\equiv_1 0</span> ;</li>
+<li><span class="math inline">a\mid b \iff b\equiv_a 0</span> ;</li>
+<li><span class="math inline">a\wedge b=1 \iff \exists u\in\mathbb{Z},\ ua\equiv_b 1 \iff \exists v\in\mathbb{Z},\ vb\equiv_a 1</span>.</li>
+</ul>
+</div>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 7.1</strong></p>
+<p>La relation de congruence modulo <span class="math inline">n</span> est une relation d’équivalence et la classe d’un entier <span class="math inline">a</span> s’écrit : <span class="math display">\overline{a}=\{a+kn \ / \ k\in\mathbb{Z}\}</span> De plus, on a : <span class="math inline">\mathbb{Z}=\bigcup_{a\in \llbracket 0,n-1\rrbracket}\overline{a}</span>.</p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 7.1</strong></p>
+<ol type="1">
+<li>La relation de congruence modulo <span class="math inline">n</span> est compatible avec la somme et la multiplication dans <span class="math inline">\mathbb{Z}</span>. Autrement dit, elle vérifie la propriété suivante : <span class="math display">\left(a\equiv_n b \text{ et } c\equiv_n d\right) \Longrightarrow \left(a+c\equiv_n b+d \text{ et } ac\equiv_n bd\right)</span></li>
+<li>Si <span class="math inline">a\equiv_n b</span> alors <span class="math inline">\forall m\in\mathbb{N}^*,\ a^m\equiv_n b^m</span> ;</li>
+<li>Associativité : <span class="math inline">a+(b+c)\equiv_n (a+b)+c</span> ;</li>
+<li>Commutativité : <span class="math inline">a+b\equiv_n b+a</span> et <span class="math inline">ab\equiv_n ba</span> ;</li>
+<li>Éléments neutres : <span class="math inline">a+0\equiv_n a</span> et <span class="math inline">a\times 1\equiv_n a</span> ;</li>
+<li>Symétrie : <span class="math inline">a+(-a)\equiv_n 0</span> ;</li>
+<li>Distributivité : <span class="math inline">a(b+c)\equiv_n ab+ac</span>.</li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-corollary">
+<p><strong>Corollaire 7.1</strong></p>
+<p>Pour <span class="math inline">a,b\in\mathbb{Z}</span>, on note <span class="math inline">\overline{a}+\overline{b}=\{x+y \ / \ x\in \overline{a} \text{ et } y\in \overline{b}\}</span> et <span class="math inline">\overline{a}\,\overline{b}=\{xy \ / \ x\in \overline{a} \text{ et } y\in \overline{b}\}</span>. Alors les propriétés précédentes s’énoncent encore :</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\overline{a}+\overline{b}=\overline{a+b}</span></td>
+<td><span class="math inline">\overline{a}\,\overline{b}=\overline{ab}</span></td>
+<td><span class="math inline">\forall m\in\mathbb{N}^*,\ \overline{a}^m=\overline{a^m}</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\overline{a}+(\overline{b}+\overline{c})=(\overline{a}+\overline{b})+\overline{c}</span></td>
+<td><span class="math inline">\overline{a}+\overline{b}=\overline{b}+\overline{a}</span></td>
+<td><span class="math inline">\overline{a}\,\overline{b}=\overline{b}\,\overline{a}</span></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\overline{a}+\overline{0}=\overline{a}</span></td>
+<td><span class="math inline">\overline{a}\,\overline{1}=\overline{a}</span></td>
+<td><span class="math inline">\overline{a}+\overline{-a}=\overline{0}</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\overline{a}(\overline{b}+\overline{c})=\overline{a}\,\overline{b}+\overline{a}\,\overline{c}</span></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 7.1</strong></p>
+<p>Déterminer le dernier chiffre dans l’écriture décimale de <span class="math inline">7^{7^7}</span>.</p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 7.2</strong></p>
+<p>Soit <span class="math inline">n\in\mathbb{N}</span>. Montrer que <span class="math inline">5\mid(3^{n+1}+2^{3n+5})</span>.</p>
+</div>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 7.2 — (Petit théorème de Fermat)</strong></p>
+<p><span class="math display">\forall a\in\mathbb{Z},\ a^n\equiv_n a</span> avec <span class="math inline">n\in\mathcal{P}</span>.</p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 7.2</strong></p>
+<p>Pour <span class="math inline">n\in\mathbb{N}</span> tel que <span class="math inline">n\geq 2</span>, on a : <span class="math display">n \text{ premier} \iff \forall a\in\mathbb{Z},\ \left(n\nmid a \Longrightarrow a^{n-1}\equiv_n 1\right)</span></p>
+</div>
+<div class="proof remark">
+<p><span class="proof-title"><em>Remarque</em>. </span>Les deux résultats précédents s’énoncent encore :</p>
+<ul>
+<li><span class="math inline">\forall x\in\mathbb{Z}/n\mathbb{Z},\ x^n=x</span> ;</li>
+<li><span class="math inline">n \text{ premier} \iff \forall x\in\mathbb{Z}/n\mathbb{Z},\ \left(x\neq \overline{0}\Longrightarrow x^{n-1}=\overline{1}\right)</span>.</li>
+</ul>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 7.3 — (Théorème de Wilson)</strong></p>
+<p>Soit <span class="math inline">n\geq 2</span>. Montrer que : <span class="math display">n \text{ premier} \iff (n-1)!\equiv_n -1</span></p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 7.4</strong></p>
+<ol type="1">
+<li>Soient <span class="math inline">a_1,\cdots,a_n</span> des entiers et <span class="math inline">m_1,\cdots, m_n</span> des entiers naturels non nuls premiers entre eux deux à deux. Résoudre le système d’inconnue <span class="math inline">x\in\mathbb{Z}</span> suivant : <span class="math display">\begin{cases} x\equiv a_1 \ [m_1] \\ \vdots \\ x\equiv a_n \ [m_n] \end{cases}</span></li>
+<li>En déduire les solutions du système suivant : <span class="math display">\begin{cases} x\equiv_3 1 \\ x\equiv_5 2 \\ x\equiv_7 3 \end{cases}</span></li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 7.5</strong></p>
+<p>Déterminer les triplets <span class="math inline">(a,b,c)\in (\mathbb{N}^*)^3</span> tels que : <span class="math display">\operatorname{ppcm}(a,b)=42;\quad \operatorname{pgcd}(a,c)=3;\quad a+b+c=29</span></p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 7.6 — (Formule de Legendre)</strong></p>
+<p>Soient <span class="math inline">n\in\mathbb{N}^*</span> et <span class="math inline">p\in\mathcal{P}</span>. Montrer que : <span class="math display">v_p(n!)=\sum_{k=1}^{+\infty}E\left( \frac{n}{p^k}\right)</span></p>
+</div>
+</section>
+<section id="document-en-pdf" class="level1 unnumbered">
+<h1 class="unnumbered">Document en PDF</h1>
+<p><a href="PDF/mpsi-chap09.pdf">Chapitre 09 : Arithmétique dans ℤ</a></p>
+</section>
+<section id="navigation" class="level1 unnumbered">
+<h1 class="unnumbered">Navigation</h1>
+<div class="chap-nav">
+<p><a href="../cours/mpsi-chap08.html" class="prev">Chapitre 08 : Structures algébriques</a></p>
+<p><a href="../cours/mpsi.html" class="home">Menu MPSI</a></p>
+<p><a href="../cours/mpsi-chap10.html" class="next">Chapitre 10 : Polynômes</a></p>
+</div>
 
 
 </section>
@@ -214,12 +722,12 @@ ul.task-list li input[type="checkbox"] {
       // flash "checked"
       button.classList.add('code-copy-button-checked');
       var currentTitle = button.getAttribute("title");
-      button.setAttribute("title", "Copied!");
+      button.setAttribute("title", "Copié");
       let tooltip;
       if (window.bootstrap) {
         button.setAttribute("data-bs-toggle", "tooltip");
         button.setAttribute("data-bs-placement", "left");
-        button.setAttribute("data-bs-title", "Copied!");
+        button.setAttribute("data-bs-title", "Copié");
         tooltip = new bootstrap.Tooltip(button, 
           { trigger: "manual", 
             customClass: "code-copy-button-tooltip",

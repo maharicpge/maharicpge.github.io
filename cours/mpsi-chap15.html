@@ -1,13 +1,14 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr"><head>
 
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.10.18">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Said MAHARI">
 
-<title>Groupe symétrique et déterminant - Mathématiques en CPGE – Mathématiques en CPGE</title>
+<title>Groupe symétrique et déterminant – Mathématiques en CPGE</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -45,7 +46,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-7a8c080b55ea27eb37b467515007f9ee.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-e0d9a45d84245cc5e3b300860d8fa645.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -60,22 +61,66 @@ ul.task-list li input[type="checkbox"] {
   ],
   "show-item-context": false,
   "language": {
-    "search-no-results-text": "No results",
-    "search-matching-documents-text": "matching documents",
-    "search-copy-link-title": "Copy link to search",
-    "search-hide-matches-text": "Hide additional matches",
-    "search-more-match-text": "more match in this document",
-    "search-more-matches-text": "more matches in this document",
-    "search-clear-button-title": "Clear",
+    "search-no-results-text": "Pas de résultats",
+    "search-matching-documents-text": "documents trouvés",
+    "search-copy-link-title": "Copier le lien vers la recherche",
+    "search-hide-matches-text": "Cacher les correspondances additionnelles",
+    "search-more-match-text": "correspondance de plus dans ce document",
+    "search-more-matches-text": "correspondances de plus dans ce document",
+    "search-clear-button-title": "Effacer",
     "search-text-placeholder": "",
-    "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit",
-    "search-label": "Search"
+    "search-detached-cancel-button-title": "Annuler",
+    "search-submit-button-title": "Envoyer",
+    "search-label": "Recherche"
   }
 }</script>
 
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="styles.css">
 </head>
 
 <body class="nav-fixed quarto-light">
@@ -89,8 +134,8 @@ ul.task-list li input[type="checkbox"] {
     <span class="navbar-title">Accueil</span>
     </a>
   </div>
-            <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+            <div id="quarto-search" class="" title="Recherche"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Basculer la navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
@@ -119,6 +164,10 @@ ul.task-list li input[type="checkbox"] {
     <a class="nav-link" href="../contact.html"> 
 <span class="menu-text">Contact</span></a>
   </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../apropos.html"> 
+<span class="menu-text">À propos</span></a>
+  </li>  
 </ul>
           </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
@@ -132,10 +181,32 @@ ul.task-list li input[type="checkbox"] {
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
+    <h2 id="toc-title">Sur cette page</h2>
    
   <ul>
-  <li><a href="#document" id="toc-document" class="nav-link active" data-scroll-target="#document">Document</a></li>
+  <li><a href="#groupe-symétrique-et-déterminant" id="toc-groupe-symétrique-et-déterminant" class="nav-link active" data-scroll-target="#groupe-symétrique-et-déterminant">Groupe symétrique et déterminant</a></li>
+  <li><a href="#le-groupe-symétrique" id="toc-le-groupe-symétrique" class="nav-link" data-scroll-target="#le-groupe-symétrique"><span class="header-section-number">1</span> Le groupe symétrique</a>
+  <ul class="collapse">
+  <li><a href="#définitions-et-premiers-exemples" id="toc-définitions-et-premiers-exemples" class="nav-link" data-scroll-target="#définitions-et-premiers-exemples"><span class="header-section-number">1.1</span> Définitions et premiers exemples</a></li>
+  <li><a href="#décomposition-en-cycles" id="toc-décomposition-en-cycles" class="nav-link" data-scroll-target="#décomposition-en-cycles"><span class="header-section-number">1.2</span> Décomposition en cycles</a></li>
+  <li><a href="#signature-dune-permutation" id="toc-signature-dune-permutation" class="nav-link" data-scroll-target="#signature-dune-permutation"><span class="header-section-number">1.3</span> Signature d’une permutation</a></li>
+  </ul></li>
+  <li><a href="#déterminants-en-dimensions-2-et-3" id="toc-déterminants-en-dimensions-2-et-3" class="nav-link" data-scroll-target="#déterminants-en-dimensions-2-et-3"><span class="header-section-number">2</span> Déterminants en dimensions 2 et 3</a>
+  <ul class="collapse">
+  <li><a href="#dimension-2" id="toc-dimension-2" class="nav-link" data-scroll-target="#dimension-2"><span class="header-section-number">2.1</span> Dimension 2</a></li>
+  <li><a href="#dimension-3-et-règle-de-sarrus" id="toc-dimension-3-et-règle-de-sarrus" class="nav-link" data-scroll-target="#dimension-3-et-règle-de-sarrus"><span class="header-section-number">2.2</span> Dimension 3 et règle de Sarrus</a></li>
+  <li><a href="#interprétation-géométrique" id="toc-interprétation-géométrique" class="nav-link" data-scroll-target="#interprétation-géométrique"><span class="header-section-number">2.3</span> Interprétation géométrique</a></li>
+  </ul></li>
+  <li><a href="#définition-générale-du-déterminant" id="toc-définition-générale-du-déterminant" class="nav-link" data-scroll-target="#définition-générale-du-déterminant"><span class="header-section-number">3</span> Définition générale du déterminant</a>
+  <ul class="collapse">
+  <li><a href="#déterminant-dune-famille-de-vecteurs" id="toc-déterminant-dune-famille-de-vecteurs" class="nav-link" data-scroll-target="#déterminant-dune-famille-de-vecteurs"><span class="header-section-number">3.1</span> Déterminant d’une famille de vecteurs</a></li>
+  </ul></li>
+  <li><a href="#déterminant-dun-endomorphisme" id="toc-déterminant-dun-endomorphisme" class="nav-link" data-scroll-target="#déterminant-dun-endomorphisme"><span class="header-section-number">4</span> Déterminant d’un endomorphisme</a></li>
+  <li><a href="#déterminant-dune-matrice" id="toc-déterminant-dune-matrice" class="nav-link" data-scroll-target="#déterminant-dune-matrice"><span class="header-section-number">5</span> Déterminant d’une matrice</a></li>
+  <li><a href="#cofacteurs-comatrice-formules-de-cramer" id="toc-cofacteurs-comatrice-formules-de-cramer" class="nav-link" data-scroll-target="#cofacteurs-comatrice-formules-de-cramer"><span class="header-section-number">6</span> Cofacteurs, comatrice, formules de Cramer</a></li>
+  <li><a href="#rang-et-déterminants-remarquables" id="toc-rang-et-déterminants-remarquables" class="nav-link" data-scroll-target="#rang-et-déterminants-remarquables"><span class="header-section-number">7</span> Rang et déterminants remarquables</a></li>
+  <li><a href="#document-en-pdf" id="toc-document-en-pdf" class="nav-link" data-scroll-target="#document-en-pdf">Document en PDF</a></li>
+  <li><a href="#navigation" id="toc-navigation" class="nav-link" data-scroll-target="#navigation">Navigation</a></li>
   </ul>
 </nav>
     </div>
@@ -144,14 +215,27 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Chapitre 15 : Groupe symétrique et déterminant</h1>
+<h1 class="title">Groupe symétrique et déterminant</h1>
+<p class="subtitle lead">Chapitre 15</p>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Auteur·rice</div>
+    <div class="quarto-title-meta-contents">
+             <p>Said MAHARI </p>
+          </div>
+  </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">Date de publication</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">18 août 2026</p>
+    </div>
+  </div>
   
     
   </div>
@@ -161,10 +245,266 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p><strong>MPSI (1re année) — Chapitre 15.</strong> Permutations, signatures, déterminants d’une famille, d’un endomorphisme, d’une matrice.</p>
-<section id="document" class="level2">
-<h2 class="anchored" data-anchor-id="document">Document</h2>
-<p><em>PDF à venir : déposez le fichier <code>files/mpsi/chap15.pdf</code> puis régénérez la page.</em></p>
+<p><strong>MPSI (1re année) — Chapitre 15.</strong> Permutations, décomposition en cycles, signature, déterminants en dimensions 2 et 3, déterminant d’une famille de vecteurs, d’un endomorphisme, d’une matrice, comatrice et formules de Cramer, déterminant de Vandermonde.</p>
+<p>Ce chapitre a été réalisé conformément au programme marocain de mathématiques de la filière MPSI.</p>
+<section id="groupe-symétrique-et-déterminant" class="level1 unnumbered">
+<h1 class="unnumbered">Groupe symétrique et déterminant</h1>
+<p>Dans ce chapitre, <span class="math inline">\mathbb{K}</span> désigne un corps (on peut penser à <span class="math inline">\mathbb{Q}</span>, <span class="math inline">\mathbb{R}</span> ou <span class="math inline">\mathbb{C}</span>). Le déterminant est l’outil central de l’algèbre linéaire en dimension finie : il caractérise les bases, l’inversibilité des matrices et des endomorphismes, et permet de résoudre explicitement les systèmes linéaires (formules de Cramer). Sa construction repose sur le groupe symétrique et la signature des permutations.</p>
+</section>
+<section id="le-groupe-symétrique" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Le groupe symétrique</h1>
+<section id="définitions-et-premiers-exemples" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="définitions-et-premiers-exemples"><span class="header-section-number">1.1</span> Définitions et premiers exemples</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 2.1</strong></p>
+<p>Une <strong>permutation</strong> de <span class="math inline">\{1,2,\ldots,n\}</span> est une bijection de <span class="math inline">\{1,2,\ldots,n\}</span> dans lui-même. L’ensemble des permutations, muni de la composition des applications, est un groupe noté <span class="math inline">(\mathcal{S}_n,\circ)</span>, appelé <strong>groupe symétrique</strong>. On décrit une permutation par le tableau de ses images : <span class="math display">\sigma=\begin{pmatrix}1&amp;2&amp;\cdots&amp;n\\ \sigma(1)&amp;\sigma(2)&amp;\cdots&amp;\sigma(n)\end{pmatrix}</span></p>
+</div>
+<div class="custom-numbered-block custom-lemma">
+<p><strong>Lemme 2.1</strong></p>
+<p>Le cardinal de <span class="math inline">\mathcal{S}_n</span> est <span class="math inline">n!</span>.</p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Preuve</em>. </span>L’image de <span class="math inline">1</span> admet <span class="math inline">n</span> choix, l’image de <span class="math inline">2</span> admet <span class="math inline">n-1</span> choix (elle doit différer de l’image de <span class="math inline">1</span>), etc. ; l’image de <span class="math inline">n</span> n’admet qu’une seule possibilité. Au total : <span class="math inline">n\times(n-1)\times\cdots\times 2\times 1=n!</span> bijections.</p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 2.1</strong></p>
+<p>La permutation <span class="math inline">f=\begin{pmatrix}1&amp;2&amp;3&amp;4&amp;5&amp;6&amp;7\\3&amp;7&amp;5&amp;4&amp;6&amp;1&amp;2\end{pmatrix}</span> est la bijection définie par <span class="math inline">f(1)=3</span>, <span class="math inline">f(2)=7</span>, <span class="math inline">f(3)=5</span>, <span class="math inline">f(4)=4</span>, <span class="math inline">f(5)=6</span>, <span class="math inline">f(6)=1</span>, <span class="math inline">f(7)=2</span>.</p>
+<ul>
+<li><strong>Composition :</strong> on superpose les tableaux ; par exemple, avec <span class="math inline">g=\begin{pmatrix}1&amp;2&amp;3&amp;4&amp;5&amp;6&amp;7\\4&amp;3&amp;2&amp;1&amp;7&amp;5&amp;6\end{pmatrix}</span>, on obtient <span class="math inline">g\circ f=\begin{pmatrix}1&amp;2&amp;3&amp;4&amp;5&amp;6&amp;7\\2&amp;6&amp;7&amp;1&amp;5&amp;4&amp;3\end{pmatrix}</span>.</li>
+<li><strong>Inverse :</strong> on échange les deux lignes puis on réordonne : <span class="math inline">f^{-1}=\begin{pmatrix}1&amp;2&amp;3&amp;4&amp;5&amp;6&amp;7\\6&amp;7&amp;1&amp;4&amp;3&amp;5&amp;2\end{pmatrix}</span>.</li>
+</ul>
+</div>
+<div class="custom-numbered-block custom-lemma">
+<p><strong>Lemme 2.2</strong></p>
+<p>Pour <span class="math inline">n\geq 3</span>, le groupe <span class="math inline">\mathcal{S}_n</span> n’est pas commutatif.</p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 2.2 — (Le groupe $\mathcal{S}_3$)</strong></p>
+<p><span class="math inline">\mathcal{S}_3=\{\operatorname{id},\ \tau_1=(1\ 2),\ \tau_2=(1\ 3),\ \tau_3=(2\ 3),\ \sigma=(1\ 2\ 3),\ \sigma^{-1}=(1\ 3\ 2)\}</span> a <span class="math inline">3!=6</span> éléments. On a par exemple <span class="math inline">\tau_1\circ\sigma=\tau_2</span> mais <span class="math inline">\sigma\circ\tau_1=\tau_3</span> : le groupe n’est pas commutatif.</p>
+</div>
+</section>
+<section id="décomposition-en-cycles" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="décomposition-en-cycles"><span class="header-section-number">1.2</span> Décomposition en cycles</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 2.2</strong></p>
+<p>Un <strong>cycle</strong> de longueur <span class="math inline">p</span> est une permutation <span class="math inline">\sigma</span> pour laquelle il existe <span class="math inline">k_1,\cdots,k_p</span> deux à deux distincts tels que <span class="math inline">\sigma(k_i)=k_{i+1}</span> pour <span class="math inline">1\leq i&lt;p</span>, <span class="math inline">\sigma(k_p)=k_1</span> et <span class="math inline">\sigma(k)=k</span> si <span class="math inline">k\notin\{k_1,\cdots,k_p\}</span> ; on le note <span class="math inline">(k_1\ k_2\ \cdots\ k_p)</span>. Un cycle de longueur <span class="math inline">2</span> s’appelle une <strong>transposition</strong>. Le <strong>support</strong> d’un cycle est l’ensemble des éléments non fixés.</p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 2.3</strong></p>
+<ul>
+<li><span class="math inline">\sigma=\begin{pmatrix}1&amp;2&amp;3&amp;4&amp;5&amp;6&amp;7&amp;8\\1&amp;8&amp;3&amp;5&amp;2&amp;6&amp;7&amp;4\end{pmatrix}</span> est le cycle <span class="math inline">(2\ 8\ 4\ 5)</span> (les éléments <span class="math inline">1,3,6,7</span> sont fixes) ; on a <span class="math inline">\sigma^{-1}=(5\ 4\ 8\ 2)</span>.</li>
+<li><span class="math inline">f=\begin{pmatrix}1&amp;2&amp;3&amp;4&amp;5&amp;6&amp;7\\7&amp;2&amp;5&amp;4&amp;6&amp;3&amp;1\end{pmatrix}</span> n’est pas un cycle ; il se décompose en cycles à supports disjoints : <span class="math inline">f=(1\ 7)\circ(3\ 5\ 6)</span>.</li>
+</ul>
+</div>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 2.1</strong></p>
+<p>Toute permutation de <span class="math inline">\mathcal{S}_n</span> se décompose en une composition de cycles à supports disjoints ; cette décomposition est unique (à l’ordre près des facteurs et à l’écriture de chaque cycle près).</p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 2.4</strong></p>
+<p>La décomposition de <span class="math inline">f=\begin{pmatrix}1&amp;2&amp;3&amp;4&amp;5&amp;6&amp;7&amp;8\\5&amp;2&amp;1&amp;8&amp;3&amp;7&amp;6&amp;4\end{pmatrix}</span> est <span class="math inline">(1\ 5\ 3)\circ(4\ 8)\circ(6\ 7)</span>.</p>
+</div>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 2.2</strong></p>
+<p>Toute permutation de <span class="math inline">\mathcal{S}_n</span> se décompose en un produit de transpositions.</p>
+</div>
+</section>
+<section id="signature-dune-permutation" class="level2" data-number="1.3">
+<h2 data-number="1.3" class="anchored" data-anchor-id="signature-dune-permutation"><span class="header-section-number">1.3</span> Signature d’une permutation</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 2.3</strong></p>
+<p>Soit <span class="math inline">\sigma\in\mathcal{S}_n</span>. On dit que <span class="math inline">\sigma</span> présente une <strong>inversion</strong> en <span class="math inline">(i,j)</span> (avec <span class="math inline">i&lt;j</span>) si <span class="math inline">\sigma(i)&gt;\sigma(j)</span>. On note <span class="math inline">N(\sigma)</span> le nombre d’inversions et on appelle <strong>signature</strong> de <span class="math inline">\sigma</span> le nombre : <span class="math display">\varepsilon(\sigma)=(-1)^{N(\sigma)}=\begin{cases}+1 &amp; \text{si } N(\sigma) \text{ est pair}\\ -1 &amp; \text{si } N(\sigma) \text{ est impair}\end{cases}</span></p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 2.5</strong></p>
+<p>Pour <span class="math inline">\sigma=\begin{pmatrix}1&amp;2&amp;3&amp;4&amp;5&amp;6&amp;7\\3&amp;4&amp;7&amp;1&amp;2&amp;6&amp;5\end{pmatrix}</span>, on compte <span class="math inline">N(\sigma)=9</span> inversions, donc <span class="math inline">\varepsilon(\sigma)=-1</span>. On a aussi la formule utile : <span class="math display">\varepsilon(\sigma)=\prod_{i&lt;j}\frac{\sigma(j)-\sigma(i)}{j-i}</span></p>
+</div>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 2.3</strong></p>
+<p>Pour <span class="math inline">\sigma,\sigma'\in\mathcal{S}_n</span>, on a <span class="math inline">\varepsilon(\sigma\circ\sigma')=\varepsilon(\sigma)\,\varepsilon(\sigma')</span> : la signature est un morphisme de groupes de <span class="math inline">(\mathcal{S}_n,\circ)</span> dans <span class="math inline">(\{+1,-1\},\times)</span>.</p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 2.1</strong></p>
+<ol type="1">
+<li>La signature d’une transposition vaut <span class="math inline">-1</span> ; celle d’un <span class="math inline">p</span>-cycle vaut <span class="math inline">(-1)^{p-1}</span>.</li>
+<li>Si <span class="math inline">\sigma</span> est produit de <span class="math inline">k</span> transpositions, alors <span class="math inline">\varepsilon(\sigma)=(-1)^k</span> : la parité de <span class="math inline">k</span> ne dépend pas de la décomposition. On dit que <span class="math inline">\sigma</span> est <strong>paire</strong> (resp. <strong>impaire</strong>) si <span class="math inline">\varepsilon(\sigma)=+1</span> (resp. <span class="math inline">-1</span>).</li>
+<li>L’ensemble <span class="math inline">A_n</span> des permutations paires est un sous-groupe de <span class="math inline">\mathcal{S}_n</span>, appelé <strong>groupe alterné</strong>, et <span class="math inline">\operatorname{Card}A_n=\frac{n!}{2}</span>.</li>
+</ol>
+</div>
+</section>
+</section>
+<section id="déterminants-en-dimensions-2-et-3" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> Déterminants en dimensions 2 et 3</h1>
+<section id="dimension-2" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="dimension-2"><span class="header-section-number">2.1</span> Dimension 2</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 3.1</strong></p>
+<p>Le déterminant d’une matrice <span class="math inline">2\times 2</span> est : <span class="math display">\det\begin{pmatrix}a&amp;b\\c&amp;d\end{pmatrix}=ad-bc</span></p>
+</div>
+<p>C’est le produit des éléments de la diagonale principale moins le produit des éléments de l’autre diagonale.</p>
+</section>
+<section id="dimension-3-et-règle-de-sarrus" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="dimension-3-et-règle-de-sarrus"><span class="header-section-number">2.2</span> Dimension 3 et règle de Sarrus</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 3.2</strong></p>
+<p>Pour <span class="math inline">A=(a_{ij})\in\mathcal{M}_3(\mathbb{K})</span> : <span class="math display">\det A=a_{11}a_{22}a_{33}+a_{12}a_{23}a_{31}+a_{13}a_{21}a_{32}-a_{31}a_{22}a_{13}-a_{32}a_{23}a_{11}-a_{33}a_{21}a_{12}</span> <strong>Règle de Sarrus :</strong> on recopie les deux premières colonnes à droite de la matrice, puis on additionne les produits de trois termes suivant les diagonales descendantes et on soustrait ceux suivant les diagonales montantes. <strong>Attention :</strong> cette méthode ne s’applique pas aux matrices de taille supérieure à <span class="math inline">3</span>.</p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 3.1</strong></p>
+<p><span class="math display">\det\begin{pmatrix}2&amp;1&amp;0\\1&amp;-1&amp;3\\3&amp;2&amp;1\end{pmatrix}=\underbrace{2\times(-1)\times1}_{-2}+\underbrace{1\times3\times3}_{9}+\underbrace{0\times1\times2}_{0}-\underbrace{3\times(-1)\times0}_{0}-\underbrace{2\times3\times2}_{12}-\underbrace{1\times1\times1}_{1}=-6</span></p>
+</div>
+</section>
+<section id="interprétation-géométrique" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="interprétation-géométrique"><span class="header-section-number">2.3</span> Interprétation géométrique</h2>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 3.1</strong></p>
+<ol type="1">
+<li>L’aire du parallélogramme défini par <span class="math inline">v_1=\begin{pmatrix}a\\c\end{pmatrix}</span> et <span class="math inline">v_2=\begin{pmatrix}b\\d\end{pmatrix}</span> est <span class="math inline">\mathcal{A}=\big|\det(v_1,v_2)\big|</span>.</li>
+<li>Le volume du parallélépipède défini par trois vecteurs de <span class="math inline">\mathbb{R}^3</span> est <span class="math inline">\mathcal{V}=\big|\det(v_1,v_2,v_3)\big|</span>.</li>
+</ol>
+</div>
+</section>
+</section>
+<section id="définition-générale-du-déterminant" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Définition générale du déterminant</h1>
+<section id="déterminant-dune-famille-de-vecteurs" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="déterminant-dune-famille-de-vecteurs"><span class="header-section-number">3.1</span> Déterminant d’une famille de vecteurs</h2>
+<p>Soit <span class="math inline">E</span> un <span class="math inline">\mathbb{K}</span>-espace vectoriel de dimension <span class="math inline">n</span> muni d’une base <span class="math inline">\mathcal{B}=(e_1,\cdots,e_n)</span>.</p>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 4.1 — (Existence et unicité)</strong></p>
+<p>Il existe une unique application <span class="math inline">\det_{\mathcal{B}}:E^n\longrightarrow\mathbb{K}</span>, appelée <strong>déterminant</strong> dans la base <span class="math inline">\mathcal{B}</span>, telle que :</p>
+<ol type="1">
+<li>elle est <strong><span class="math inline">n</span>-linéaire</strong> : linéaire par rapport à chaque vecteur, les autres étant fixés ;</li>
+<li>elle est <strong>alternée</strong> : nulle dès que deux vecteurs sont égaux ;</li>
+<li><span class="math inline">\det_{\mathcal{B}}(e_1,\cdots,e_n)=1</span>.</li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 4.2 — (Formule par les permutations)</strong></p>
+<p>Si <span class="math inline">x_j=\sum_{i=1}^n a_{ij}e_i</span> pour <span class="math inline">1\leq j\leq n</span>, alors : <span class="math display">\det_{\mathcal{B}}(x_1,\cdots,x_n)=\sum_{\sigma\in\mathcal{S}_n}\varepsilon(\sigma)\prod_{j=1}^n a_{\sigma(j),j}=\sum_{\sigma\in\mathcal{S}_n}\varepsilon(\sigma)\prod_{i=1}^n a_{i,\sigma(i)}</span></p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 4.1 — (Propriétés immédiates)</strong></p>
+<ol type="1">
+<li><span class="math inline">\det(x_{\sigma(1)},\cdots,x_{\sigma(n)})=\varepsilon(\sigma)\det(x_1,\cdots,x_n)</span> ; en particulier, échanger deux vecteurs change le signe du déterminant ;</li>
+<li>le déterminant est nul dès que la famille est liée (deux vecteurs égaux, un vecteur nul…) ;</li>
+<li>ajouter à un vecteur une combinaison linéaire des autres ne change pas le déterminant ;</li>
+<li>multiplier un vecteur par <span class="math inline">\lambda</span> multiplie le déterminant par <span class="math inline">\lambda</span>.</li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-corollary">
+<p><strong>Corollaire 4.1</strong></p>
+<p>Une famille de <span class="math inline">n</span> vecteurs d’un espace de dimension <span class="math inline">n</span> est une base (i.e.&nbsp;une famille libre) si et seulement si son déterminant est non nul.</p>
+</div>
+</section>
+</section>
+<section id="déterminant-dun-endomorphisme" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> Déterminant d’un endomorphisme</h1>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 5.1</strong></p>
+<p>Soit <span class="math inline">f\in\mathcal{L}(E)</span> avec <span class="math inline">\dim E=n</span> et <span class="math inline">\mathcal{B}</span> une base de <span class="math inline">E</span>. On appelle <strong>déterminant de <span class="math inline">f</span></strong> le scalaire : <span class="math display">\det f=\det_{\mathcal{B}}\big(f(e_1),\cdots,f(e_n)\big)</span> Cette valeur ne dépend pas du choix de la base <span class="math inline">\mathcal{B}</span>.</p>
+</div>
+<div class="proof" title="(Indépendance de la base)">
+<p><span class="proof-title"><em>Preuve</em>. </span>Si <span class="math inline">\mathcal{B}'</span> est une autre base et <span class="math inline">P</span> la matrice de passage de <span class="math inline">\mathcal{B}</span> à <span class="math inline">\mathcal{B}'</span>, alors <span class="math inline">\det_{\mathcal{B}'}f=\det P^{-1}\cdot\det_{\mathcal{B}}f\cdot\det P=\det_{\mathcal{B}}f</span>, puisque <span class="math inline">\det P^{-1}\det P=1</span>.</p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 5.1</strong></p>
+<p><span class="math inline">f</span> est un automorphisme de <span class="math inline">E</span> si et seulement si <span class="math inline">\det f\neq 0</span>.</p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 5.1</strong></p>
+<ul>
+<li><span class="math inline">\det(\operatorname{id}_E)=1</span> ; <span class="math inline">\det(h_\lambda)=\lambda^n</span> pour l’homothétie de rapport <span class="math inline">\lambda</span>.</li>
+<li>Soit <span class="math inline">f:\mathbb{R}_2[X]\to\mathbb{R}_2[X],\ P\mapsto P(0)X^2+P'(0)X+\frac12 P''(0)</span> ; sa matrice dans la base canonique est <span class="math inline">A=\begin{pmatrix}0&amp;0&amp;1\\0&amp;1&amp;0\\1&amp;0&amp;0\end{pmatrix}</span>, donc <span class="math inline">\det f=\det A=-1\neq 0</span> : <span class="math inline">f</span> est un automorphisme.</li>
+</ul>
+</div>
+</section>
+<section id="déterminant-dune-matrice" class="level1" data-number="5">
+<h1 data-number="5"><span class="header-section-number">5</span> Déterminant d’une matrice</h1>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 6.1</strong></p>
+<p>Le <strong>déterminant</strong> d’une matrice carrée <span class="math inline">A</span> est le déterminant de la famille de ses vecteurs colonnes dans la base canonique : <span class="math inline">\det A=\det(C_1,\cdots,C_n)</span>. On le note aussi <span class="math inline">|A|</span> ou <span class="math inline">\begin{vmatrix}a_{11}&amp;\cdots&amp;a_{1n}\\ \vdots&amp;&amp;\vdots\\ a_{n1}&amp;\cdots&amp;a_{nn}\end{vmatrix}</span>.</p>
+</div>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 6.1 — (Propriétés fondamentales)</strong></p>
+<ol type="1">
+<li><span class="math inline">\det(AB)=\det A\cdot\det B</span> ;</li>
+<li><span class="math inline">\det(A^T)=\det A</span> ;</li>
+<li><span class="math inline">A</span> est inversible si et seulement si <span class="math inline">\det A\neq 0</span>, et alors <span class="math inline">\det(A^{-1})=\frac{1}{\det A}</span> ;</li>
+<li>le déterminant d’une matrice triangulaire (supérieure ou inférieure) est le produit de ses termes diagonaux ;</li>
+<li>le déterminant est invariant par les opérations élémentaires <span class="math inline">L_i\leftarrow L_i+\lambda L_j</span> ; il est multiplié par <span class="math inline">\lambda</span> par <span class="math inline">L_i\leftarrow\lambda L_i</span> et changé de signe par <span class="math inline">L_i\leftrightarrow L_j</span>.</li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 6.1</strong></p>
+<p>Deux matrices semblables ont même déterminant : si <span class="math inline">B=P^{-1}AP</span> avec <span class="math inline">P\in\mathrm{GL}_n(\mathbb{K})</span>, alors <span class="math inline">\det B=\det P^{-1}\det A\det P=\det A</span>.</p>
+</div>
+<div class="proof remark">
+<p><span class="proof-title"><em>Remarque</em>. </span>Ces propriétés fournissent la méthode pratique de calcul : on échelonne la matrice par opérations élémentaires en suivant leurs effets sur le déterminant, jusqu’à une matrice triangulaire dont le déterminant est immédiat.</p>
+</div>
+</section>
+<section id="cofacteurs-comatrice-formules-de-cramer" class="level1" data-number="6">
+<h1 data-number="6"><span class="header-section-number">6</span> Cofacteurs, comatrice, formules de Cramer</h1>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 7.1</strong></p>
+<p>Soit <span class="math inline">A=(a_{ij})\in\mathcal{M}_n(\mathbb{K})</span>. On note <span class="math inline">A_{ij}</span> la matrice extraite obtenue en supprimant la ligne <span class="math inline">i</span> et la colonne <span class="math inline">j</span> ; le <strong>cofacteur</strong> de <span class="math inline">A</span> relatif à <span class="math inline">a_{ij}</span> est <span class="math inline">C_{ij}=(-1)^{i+j}\det A_{ij}</span> ; la <strong>comatrice</strong> est <span class="math inline">\operatorname{Com}(A)=(C_{ij})</span>. Les signes suivent le schéma d’un échiquier : <span class="math inline">+,-,+,\cdots</span></p>
+</div>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 7.1 — (Inverse par la comatrice)</strong></p>
+<p>Soit <span class="math inline">A</span> inversible, de comatrice <span class="math inline">C</span>. Alors : <span class="math display">A^{-1}=\frac{1}{\det A}\,C^T</span></p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 7.1</strong></p>
+<p>Pour <span class="math inline">A=\begin{pmatrix}1&amp;1&amp;0\\0&amp;1&amp;1\\1&amp;0&amp;1\end{pmatrix}</span> : <span class="math inline">\det A=2</span> et <span class="math inline">C=\begin{pmatrix}1&amp;1&amp;-1\\-1&amp;1&amp;1\\1&amp;-1&amp;1\end{pmatrix}</span>, d’où <span class="math inline">A^{-1}=\frac12\begin{pmatrix}1&amp;-1&amp;1\\1&amp;1&amp;-1\\-1&amp;1&amp;1\end{pmatrix}</span>.</p>
+</div>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 7.2 — (Règle de Cramer)</strong></p>
+<p>Soit <span class="math inline">AX=Y</span> un système de <span class="math inline">n</span> équations à <span class="math inline">n</span> inconnues avec <span class="math inline">\det A\neq 0</span>. Alors l’unique solution est donnée par : <span class="math display">x_i=\frac{\det A_i}{\det A}</span> où <span class="math inline">A_i</span> est la matrice <span class="math inline">A</span> dont la <span class="math inline">i</span>-ème colonne est remplacée par le second membre <span class="math inline">Y</span>.</p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 7.2</strong></p>
+<p>Pour le système <span class="math inline">\begin{cases}x_1+x_3=1\\x_2+2x_3=0\\x_1-x_2+x_3=3\end{cases}</span>, on a <span class="math inline">\det A=-2</span> et la méthode de Cramer (ou le pivot) donne la solution unique <span class="math inline">(-18,-6,1)</span>… par exemple, pour le système <span class="math inline">\begin{cases}x+2y=5\\3x-y=1\end{cases}</span> : <span class="math inline">x=\frac{\begin{vmatrix}5&amp;2\\1&amp;-1\end{vmatrix}}{\begin{vmatrix}1&amp;2\\3&amp;-1\end{vmatrix}}=\frac{-7}{-7}=1</span>, <span class="math inline">y=\frac{\begin{vmatrix}1&amp;5\\3&amp;1\end{vmatrix}}{-7}=\frac{-14}{-7}=2</span>.</p>
+</div>
+</section>
+<section id="rang-et-déterminants-remarquables" class="level1" data-number="7">
+<h1 data-number="7"><span class="header-section-number">7</span> Rang et déterminants remarquables</h1>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 8.1</strong></p>
+<p>Le rang d’une matrice <span class="math inline">A\in\mathcal{M}_{n,p}(\mathbb{K})</span> est le plus grand entier <span class="math inline">r</span> tel qu’il existe un mineur d’ordre <span class="math inline">r</span> extrait de <span class="math inline">A</span> non nul. Une matrice et sa transposée ont même rang.</p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 8.1 — (Déterminant de Vandermonde)</strong></p>
+<p><span class="math display">V_n(t_1,\cdots,t_n)=\begin{vmatrix}1&amp;t_1&amp;t_1^2&amp;\cdots&amp;t_1^{n-1}\\ 1&amp;t_2&amp;t_2^2&amp;\cdots&amp;t_2^{n-1}\\ \vdots&amp;\vdots&amp;\vdots&amp;&amp;\vdots\\ 1&amp;t_n&amp;t_n^2&amp;\cdots&amp;t_n^{n-1}\end{vmatrix}=\prod_{1\leq i&lt;j\leq n}(t_j-t_i)</span></p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 8.1</strong></p>
+<p><span class="math inline">\begin{vmatrix}1&amp;1&amp;1\\1&amp;2&amp;3\\1&amp;4&amp;9\end{vmatrix}=(2-1)(3-1)(3-2)=2\neq 0</span> : la famille <span class="math inline">(1+X+X^2,\ 1+2X+4X^2,\ 1+3X+9X^2)</span> est une base de <span class="math inline">\mathbb{R}_2[X]</span>.</p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 8.2 — (Déterminant de Cauchy)</strong></p>
+<p>Pour <span class="math inline">(\alpha_i),(\beta_j)</span> tels que <span class="math inline">\alpha_i+\beta_j\neq 0</span> : <span class="math display">\det\left(\frac{1}{\alpha_i+\beta_j}\right)_{1\leq i,j\leq n}=\frac{\prod_{1\leq i&lt;j\leq n}(\alpha_j-\alpha_i)(\beta_j-\beta_i)}{\prod_{1\leq i,j\leq n}(\alpha_i+\beta_j)}</span> En prenant <span class="math inline">\alpha_i=i</span> et <span class="math inline">\beta_j=j-1</span>, on obtient le déterminant de la matrice de Hilbert : <span class="math inline">\det H_n=\frac{\left(\prod_{k=1}^n k!\right)^3}{n!^3\prod_{k=n}^{2n-1}k!}</span>.</p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 8.1</strong></p>
+<ol type="1">
+<li>Calculer <span class="math inline">\det\begin{pmatrix}1&amp;2\\-1&amp;3\end{pmatrix}</span>, <span class="math inline">\det\begin{pmatrix}1&amp;2&amp;3\\1&amp;4&amp;6\\1&amp;4&amp;4\end{pmatrix}</span> et <span class="math inline">\det\begin{pmatrix}1&amp;0&amp;6\\3&amp;4&amp;15\\5&amp;6&amp;21\end{pmatrix}</span>.</li>
+<li>Montrer que si <span class="math inline">A\in\mathcal{M}_n(\mathbb{K})</span> est antisymétrique et inversible, alors <span class="math inline">n</span> est pair.</li>
+<li>Calculer le déterminant de la famille <span class="math inline">\big(1+X+X^2,\ 1+2X+4X^2,\ 1+3X+9X^2\big)</span> dans <span class="math inline">\mathbb{R}_2[X]</span> et en déduire que c’est une base.</li>
+<li>Décomposer en cycles à supports disjoints <span class="math inline">\sigma=\begin{pmatrix}1&amp;2&amp;3&amp;4&amp;5&amp;6&amp;7\\5&amp;7&amp;2&amp;6&amp;1&amp;4&amp;3\end{pmatrix}</span>, puis calculer <span class="math inline">\sigma^2</span>, <span class="math inline">\sigma^3</span> et sa signature.</li>
+</ol>
+</div>
+</section>
+<section id="document-en-pdf" class="level1 unnumbered">
+<h1 class="unnumbered">Document en PDF</h1>
+<p><a href="PDF/mpsi-chap15.pdf">Chapitre 15 : Groupe symétrique et déterminant</a></p>
+</section>
+<section id="navigation" class="level1 unnumbered">
+<h1 class="unnumbered">Navigation</h1>
+<div class="chap-nav">
+<p><a href="../cours/mpsi-chap14.html" class="prev">Chapitre 14 : Matrices</a></p>
+<p><a href="../cours/mpsi.html" class="home">Menu MPSI</a></p>
+<p><a href="../cours/mpsi-chap16.html" class="next">Chapitre 16 : Nombres réels</a></p>
+</div>
 
 
 </section>
@@ -214,12 +554,12 @@ ul.task-list li input[type="checkbox"] {
       // flash "checked"
       button.classList.add('code-copy-button-checked');
       var currentTitle = button.getAttribute("title");
-      button.setAttribute("title", "Copied!");
+      button.setAttribute("title", "Copié");
       let tooltip;
       if (window.bootstrap) {
         button.setAttribute("data-bs-toggle", "tooltip");
         button.setAttribute("data-bs-placement", "left");
-        button.setAttribute("data-bs-title", "Copied!");
+        button.setAttribute("data-bs-title", "Copié");
         tooltip = new bootstrap.Tooltip(button, 
           { trigger: "manual", 
             customClass: "code-copy-button-tooltip",

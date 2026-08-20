@@ -1,13 +1,14 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr"><head>
 
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.10.18">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Said MAHARI">
 
-<title>Dénombrement - Mathématiques en CPGE – Mathématiques en CPGE</title>
+<title>Séries numériques – Mathématiques en CPGE</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -45,7 +46,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-7a8c080b55ea27eb37b467515007f9ee.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-e0d9a45d84245cc5e3b300860d8fa645.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -60,22 +61,66 @@ ul.task-list li input[type="checkbox"] {
   ],
   "show-item-context": false,
   "language": {
-    "search-no-results-text": "No results",
-    "search-matching-documents-text": "matching documents",
-    "search-copy-link-title": "Copy link to search",
-    "search-hide-matches-text": "Hide additional matches",
-    "search-more-match-text": "more match in this document",
-    "search-more-matches-text": "more matches in this document",
-    "search-clear-button-title": "Clear",
+    "search-no-results-text": "Pas de résultats",
+    "search-matching-documents-text": "documents trouvés",
+    "search-copy-link-title": "Copier le lien vers la recherche",
+    "search-hide-matches-text": "Cacher les correspondances additionnelles",
+    "search-more-match-text": "correspondance de plus dans ce document",
+    "search-more-matches-text": "correspondances de plus dans ce document",
+    "search-clear-button-title": "Effacer",
     "search-text-placeholder": "",
-    "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit",
-    "search-label": "Search"
+    "search-detached-cancel-button-title": "Annuler",
+    "search-submit-button-title": "Envoyer",
+    "search-label": "Recherche"
   }
 }</script>
 
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="styles.css">
 </head>
 
 <body class="nav-fixed quarto-light">
@@ -89,8 +134,8 @@ ul.task-list li input[type="checkbox"] {
     <span class="navbar-title">Accueil</span>
     </a>
   </div>
-            <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+            <div id="quarto-search" class="" title="Recherche"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Basculer la navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
@@ -119,6 +164,10 @@ ul.task-list li input[type="checkbox"] {
     <a class="nav-link" href="../contact.html"> 
 <span class="menu-text">Contact</span></a>
   </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../apropos.html"> 
+<span class="menu-text">À propos</span></a>
+  </li>  
 </ul>
           </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
@@ -132,10 +181,27 @@ ul.task-list li input[type="checkbox"] {
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
+    <h2 id="toc-title">Sur cette page</h2>
    
   <ul>
-  <li><a href="#document" id="toc-document" class="nav-link active" data-scroll-target="#document">Document</a></li>
+  <li><a href="#séries-numériques" id="toc-séries-numériques" class="nav-link active" data-scroll-target="#séries-numériques">Séries numériques</a></li>
+  <li><a href="#généralités" id="toc-généralités" class="nav-link" data-scroll-target="#généralités"><span class="header-section-number">1</span> Généralités</a>
+  <ul class="collapse">
+  <li><a href="#définition" id="toc-définition" class="nav-link" data-scroll-target="#définition"><span class="header-section-number">1.1</span> Définition</a></li>
+  <li><a href="#premières-propriétés" id="toc-premières-propriétés" class="nav-link" data-scroll-target="#premières-propriétés"><span class="header-section-number">1.2</span> Premières propriétés</a></li>
+  </ul></li>
+  <li><a href="#séries-réelles-à-termes-positifs" id="toc-séries-réelles-à-termes-positifs" class="nav-link" data-scroll-target="#séries-réelles-à-termes-positifs"><span class="header-section-number">2</span> Séries réelles à termes positifs</a>
+  <ul class="collapse">
+  <li><a href="#théorème-de-comparaison" id="toc-théorème-de-comparaison" class="nav-link" data-scroll-target="#théorème-de-comparaison"><span class="header-section-number">2.1</span> Théorème de comparaison</a></li>
+  <li><a href="#séries-géométriques" id="toc-séries-géométriques" class="nav-link" data-scroll-target="#séries-géométriques"><span class="header-section-number">2.2</span> Séries géométriques</a></li>
+  <li><a href="#séries-de-riemann" id="toc-séries-de-riemann" class="nav-link" data-scroll-target="#séries-de-riemann"><span class="header-section-number">2.3</span> Séries de Riemann</a></li>
+  </ul></li>
+  <li><a href="#séries-absolument-convergentes" id="toc-séries-absolument-convergentes" class="nav-link" data-scroll-target="#séries-absolument-convergentes"><span class="header-section-number">3</span> Séries absolument convergentes</a></li>
+  <li><a href="#séries-complexes" id="toc-séries-complexes" class="nav-link" data-scroll-target="#séries-complexes"><span class="header-section-number">4</span> Séries complexes</a></li>
+  <li><a href="#document-en-pdf" id="toc-document-en-pdf" class="nav-link" data-scroll-target="#document-en-pdf">Document en PDF</a>
+  <ul class="collapse">
+  <li><a href="#navigation" id="toc-navigation" class="nav-link" data-scroll-target="#navigation">Navigation</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -144,14 +210,27 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Chapitre 23 : Dénombrement</h1>
+<h1 class="title">Séries numériques</h1>
+<p class="subtitle lead">Chapitre 23</p>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Auteur·rice</div>
+    <div class="quarto-title-meta-contents">
+             <p>Said MAHARI </p>
+          </div>
+  </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">Date de publication</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">19 août 2026</p>
+    </div>
+  </div>
   
     
   </div>
@@ -161,12 +240,156 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p><strong>MPSI (1re année) — Chapitre 23.</strong> Cardinal, listes, arrangements, combinaisons.</p>
-<section id="document" class="level2">
-<h2 class="anchored" data-anchor-id="document">Document</h2>
-<p><em>PDF à venir : déposez le fichier <code>files/mpsi/chap23.pdf</code> puis régénérez la page.</em></p>
+<p><strong>MPSI (1re année) — Chapitre 23.</strong> Séries numériques, convergence et divergence, séries à termes positifs, théorèmes de comparaison, séries géométriques et séries de Riemann, séries absolument convergentes.</p>
+<p>Ce chapitre a été réalisé conformément au programme marocain de mathématiques de la filière MPSI.</p>
+<section id="séries-numériques" class="level1 unnumbered">
+<h1 class="unnumbered">Séries numériques</h1>
+<p>Dans tout ce chapitre, <span class="math inline">\mathbb{K}</span> désigne <span class="math inline">\mathbb{R}</span> ou <span class="math inline">\mathbb{C}</span>. Les séries prolongent la notion de somme à un nombre infini de termes. Elles constituent un outil fondamental de l’analyse.</p>
+</section>
+<section id="généralités" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Généralités</h1>
+<section id="définition" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="définition"><span class="header-section-number">1.1</span> Définition</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 2.1 — (Série numérique)</strong></p>
+<p>Une <strong>série numérique</strong> (réelle ou complexe) est une famille <span class="math inline">(u_n)_{n\in\mathbb{N}}</span> d’éléments de <span class="math inline">\mathbb{K}</span> indexée par <span class="math inline">\mathbb{N}</span> (ou par <span class="math inline">\mathbb{N}^*</span>, ou par <span class="math inline">\mathbb{N}\smallsetminus\{0,\ldots,n_0-1\}</span>). On définit la suite des <strong>sommes partielles</strong> <span class="math inline">(S_n)_{n\in\mathbb{N}}</span> par : <span class="math display">\forall n\in\mathbb{N},\quad S_n=\sum_{k=0}^{n}u_k</span> On note <span class="math inline">\sum u_n</span> ou <span class="math inline">\sum_{n\geq 0}u_n</span> la série de terme général <span class="math inline">u_n</span>.</p>
+</div>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 2.2 — (Convergence et divergence)</strong></p>
+<p>On dit que la série <span class="math inline">\sum u_n</span> est <strong>convergente</strong> si la suite des sommes partielles <span class="math inline">(S_n)_{n\in\mathbb{N}}</span> converge vers une limite finie <span class="math inline">S\in\mathbb{K}</span>. Cette limite <span class="math inline">S</span> est appelée la <strong>somme</strong> de la série et on note : <span class="math display">S=\sum_{n=0}^{+\infty}u_n=\lim_{n\to+\infty}S_n</span> Si la suite <span class="math inline">(S_n)</span> ne converge pas, on dit que la série est <strong>divergente</strong>.</p>
+</div>
+<div class="proof remark">
+<p><span class="proof-title"><em>Remarque</em>. </span>La suite des sommes partielles est liée au terme général par : <span class="math display">u_n=S_n-S_{n-1}\quad(\text{pour }n\geq 1)</span> Ainsi, la suite <span class="math inline">(u_n)</span> converge si et seulement si la série <span class="math inline">\sum (S_n-S_{n-1})</span> converge.</p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 2.1</strong></p>
+<p>. La série <span class="math inline">\sum_{n\geq 0}\frac{1}{n!}</span> converge (vers <span class="math inline">e</span>). 2. La série <span class="math inline">\sum_{n\geq 1}\frac{1}{n}</span> (série harmonique) est divergente. 3. La série géométrique <span class="math inline">\sum_{n\geq 0}q^n</span> converge si et seulement si <span class="math inline">|q|&lt;1</span>, et sa somme vaut <span class="math inline">\frac{1}{1-q}</span>. 4. La série <span class="math inline">\sum_{n\geq 0}(-1)^n</span> est divergente.</p>
+</div>
+</section>
+<section id="premières-propriétés" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="premières-propriétés"><span class="header-section-number">1.2</span> Premières propriétés</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 2.3 — (Série bornée)</strong></p>
+<p>On dit que la série <span class="math inline">\sum u_n</span> est <strong>bornée</strong> si la suite des sommes partielles <span class="math inline">(S_n)</span> est bornée.</p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 2.1 — (Condition nécessaire de convergence)</strong></p>
+<p>Si la série <span class="math inline">\sum u_n</span> converge, alors son terme général tend vers <span class="math inline">0</span> : <span class="math display">\lim_{n\to+\infty}u_n=0</span></p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Preuve</em>. </span>On a <span class="math inline">u_n=S_n-S_{n-1}</span>. Comme <span class="math inline">(S_n)</span> converge vers une limite finie <span class="math inline">S</span>, alors <span class="math inline">(S_{n-1})</span> converge aussi vers <span class="math inline">S</span>, donc <span class="math inline">u_n=S_n-S_{n-1}\to S-S=0</span>.</p>
+</div>
+<div class="proof remark" title="(Attention !)">
+<p><span class="proof-title"><em>Remarque</em>. </span>La réciproque est fausse : la série harmonique <span class="math inline">\sum\frac{1}{n}</span> a un terme général qui tend vers <span class="math inline">0</span>, mais elle diverge. La condition <span class="math inline">\lim u_n=0</span> est nécessaire mais pas suffisante.</p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 2.2 — (Linéarité)</strong></p>
+<p>Soient <span class="math inline">\sum u_n</span> et <span class="math inline">\sum v_n</span> deux séries convergentes et <span class="math inline">\lambda,\mu\in\mathbb{K}</span>. Alors la série <span class="math inline">\sum(\lambda u_n+\mu v_n)</span> converge et : <span class="math display">\sum_{n=0}^{+\infty}(\lambda u_n+\mu v_n)=\lambda\sum_{n=0}^{+\infty}u_n+\mu\sum_{n=0}^{+\infty}v_n</span></p>
+</div>
+</section>
+</section>
+<section id="séries-réelles-à-termes-positifs" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> Séries réelles à termes positifs</h1>
+<p>Dans cette section, les termes <span class="math inline">u_n</span> sont supposés réels positifs.</p>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 3.1</strong></p>
+<p>Si <span class="math inline">\sum u_n</span> est une série à termes positifs, alors la suite des sommes partielles <span class="math inline">(S_n)</span> est croissante. Par conséquent : - Si <span class="math inline">(S_n)</span> est majorée, alors la série converge. - Si <span class="math inline">(S_n)</span> n’est pas majorée, alors la série diverge vers <span class="math inline">+\infty</span>.</p>
+</div>
+<section id="théorème-de-comparaison" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="théorème-de-comparaison"><span class="header-section-number">2.1</span> Théorème de comparaison</h2>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 3.1 — (Comparaison)</strong></p>
+<p>Soient <span class="math inline">\sum u_n</span> et <span class="math inline">\sum v_n</span> deux séries à termes positifs telles que <span class="math inline">0\leq u_n\leq v_n</span> pour tout <span class="math inline">n</span>. 1. Si <span class="math inline">\sum v_n</span> converge, alors <span class="math inline">\sum u_n</span> converge. 2. Si <span class="math inline">\sum u_n</span> diverge, alors <span class="math inline">\sum v_n</span> diverge.</p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Preuve</em>. </span>Comme <span class="math inline">(S_n)</span> et <span class="math inline">(T_n)</span> (sommes partielles de <span class="math inline">\sum u_n</span> et <span class="math inline">\sum v_n</span>) sont croissantes et <span class="math inline">S_n\leq T_n</span>. Si <span class="math inline">\sum v_n</span> converge, <span class="math inline">(T_n)</span> est majorée par <span class="math inline">T</span>, donc <span class="math inline">(S_n)</span> est majorée par <span class="math inline">T</span> et converge.</p>
+</div>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 3.2 — (Comparaison par équivalence)</strong></p>
+<p>Soient <span class="math inline">\sum u_n</span> et <span class="math inline">\sum v_n</span> deux séries à termes positifs telles que <span class="math inline">u_n\sim v_n</span> (c’est-à-dire <span class="math inline">\frac{u_n}{v_n}\to 1</span>). Alors les deux séries sont de même nature.</p>
+</div>
+</section>
+<section id="séries-géométriques" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="séries-géométriques"><span class="header-section-number">2.2</span> Séries géométriques</h2>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 3.2 — (Série géométrique)</strong></p>
+<p>Soit <span class="math inline">q\in\mathbb{K}</span>. La série géométrique <span class="math inline">\sum_{n\geq 0}q^n</span> : - converge si et seulement si <span class="math inline">|q|&lt;1</span>, et alors <span class="math inline">\displaystyle\sum_{n=0}^{+\infty}q^n=\frac{1}{1-q}</span> ; - diverge si <span class="math inline">|q|\geq 1</span>.</p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Preuve</em>. </span>La somme partielle vaut <span class="math inline">S_n=\sum_{k=0}^n q^n=\frac{1-q^{n+1}}{1-q}</span> si <span class="math inline">q\neq 1</span>. Si <span class="math inline">|q|&lt;1</span>, <span class="math inline">q^{n+1}\to 0</span> donc <span class="math inline">S_n\to\frac{1}{1-q}</span>. Si <span class="math inline">|q|\geq 1</span>, le terme général <span class="math inline">q^n</span> ne tend pas vers <span class="math inline">0</span>, donc la série diverge.</p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 3.1</strong></p>
+<p><span class="math inline">\sum_{n\geq 0}\left(\frac12\right)^n=\frac{1}{1-\frac12}=2</span>.</p>
+</div>
+</section>
+<section id="séries-de-riemann" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="séries-de-riemann"><span class="header-section-number">2.3</span> Séries de Riemann</h2>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 3.3 — (Séries de Riemann)</strong></p>
+<p>Soit <span class="math inline">\alpha\in\mathbb{R}</span>. La série de Riemann <span class="math inline">\sum_{n\geq 1}\frac{1}{n^\alpha}</span> : - converge si et seulement si <span class="math inline">\alpha&gt;1</span> ; - diverge si <span class="math inline">\alpha\leq 1</span>.</p>
+</div>
+<div class="proof" title="(Esquisse)">
+<p><span class="proof-title"><em>Preuve</em>. </span></p>
+<ul>
+<li>Pour <span class="math inline">\alpha&gt;1</span> : on regroupe les termes par paquets et on compare à une série géométrique convergente.</li>
+<li>Pour <span class="math inline">\alpha\leq 1</span> : comme <span class="math inline">\frac{1}{n^\alpha}\geq\frac{1}{n}</span> pour <span class="math inline">\alpha\leq 1</span> et <span class="math inline">\alpha\leq 1</span>, et <span class="math inline">\frac1n\geq\frac1n</span> avec la série harmonique divergente, on conclut par comparaison.</li>
+</ul>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 3.2</strong></p>
+<p>. <span class="math inline">\sum\frac{1}{n^2}</span> converge (car <span class="math inline">2&gt;1</span>). 2. <span class="math inline">\sum\frac{1}{n}</span> diverge (série harmonique, <span class="math inline">\alpha=1</span>). 3. <span class="math inline">\sum\frac{1}{\sqrt n}</span> diverge (car <span class="math inline">\frac12\leq 1</span>).</p>
+</div>
+</section>
+</section>
+<section id="séries-absolument-convergentes" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Séries absolument convergentes</h1>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 4.1 — (Convergence absolue)</strong></p>
+<p>On dit que la série <span class="math inline">\sum u_n</span> (à termes réels ou complexes) est <strong>absolument convergente</strong> si la série <span class="math inline">\sum|u_n|</span> converge.</p>
+</div>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 4.1</strong></p>
+<p>Toute série absolument convergente est convergente.</p>
+</div>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 4.2 — (Inégalité triangulaire)</strong></p>
+<p>Si <span class="math inline">\sum u_n</span> est absolument convergente, alors : <span class="math display">\left|\sum_{n=0}^{+\infty}u_n\right|\leq\sum_{n=0}^{+\infty}|u_n|</span></p>
+</div>
+<div class="proof remark" title="(Attention !)">
+<p><span class="proof-title"><em>Remarque</em>. </span>La réciproque est fausse : la série <span class="math inline">\sum\frac{(-1)^n}{n}</span> converge mais n’est pas absolument convergente (car <span class="math inline">\sum\frac1n</span> diverge).</p>
+</div>
+</section>
+<section id="séries-complexes" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> Séries complexes</h1>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 5.1 — (Caractérisation par les parties réelle et imaginaire)</strong></p>
+<p>Soit <span class="math inline">(u_n)</span> une série complexe. Alors <span class="math inline">\sum u_n</span> converge si et seulement si les séries <span class="math inline">\sum\operatorname{Re}(u_n)</span> et <span class="math inline">\sum\operatorname{Im}(u_n)</span> convergent, et alors : <span class="math display">\sum_{n=0}^{+\infty}u_n=\sum_{n=0}^{+\infty}\operatorname{Re}(u_n)+i\sum_{n=0}^{+\infty}\operatorname{Im}(u_n)</span></p>
+</div>
+<div class="proof remark">
+<p><span class="proof-title"><em>Remarque</em>. </span>Une série complexe est absolument convergente si et seulement si les séries <span class="math inline">\sum\operatorname{Re}(u_n)</span> et <span class="math inline">\sum\operatorname{Im}(u_n)</span> sont absolument convergentes.</p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 5.1</strong></p>
+<p>. Étudier la nature des séries suivantes : <span class="math inline">\sum\frac{1}{n^2+1}</span> ; <span class="math inline">\sum\frac{n}{n^2+1}</span> ; <span class="math inline">\sum\frac{1}{n^3+1}</span>. 2. Étudier la convergence de <span class="math inline">\sum\frac{\sin n}{n^2}</span>. 3. Étudier la nature de <span class="math inline">\sum\frac{(-1)^n}{n}</span>. Est-elle absolument convergente ? 4. Montrer que <span class="math inline">\sum\frac{1}{n(n+1)}=1</span>.</p>
+</div>
+<div class="proof solution">
+<p><span class="proof-title"><em>Solution</em>. </span>. <span class="math inline">\sum\frac{1}{n^2+1}</span> converge par comparaison avec <span class="math inline">\sum\frac{1}{n^2}</span> (car <span class="math inline">\frac{1}{n^2+1}\leq\frac{1}{n^2}</span>). <span class="math inline">\sum\frac{n}{n^2+1}</span> diverge car <span class="math inline">\frac{n}{n^2+1}\sim\frac1n</span>. <span class="math inline">\sum\frac{1}{n^3+1}</span> converge. 2. <span class="math inline">\left|\frac{\sin n}{n^2}\right|\leq\frac{1}{n^2}</span> et <span class="math inline">\sum\frac{1}{n^2}</span> converge, donc <span class="math inline">\sum\frac{\sin n}{n^2}</span> converge absolument. 3. <span class="math inline">\sum\frac{(-1)^n}{n}</span> converge (critère spécial des séries alternées) mais n’est pas absolument convergente. 4. <span class="math inline">\frac{1}{n(n+1)}=\frac1n-\frac{1}{n+1}</span>, donc la somme est télescopique : <span class="math inline">\sum_{n=1}^N\frac{1}{n(n+1)}=1-\frac{1}{N+1}\to 1</span>.</p>
+</div>
+</section>
+<section id="document-en-pdf" class="level1 unnumbered">
+<h1 class="unnumbered">Document en PDF</h1>
+<p><a href="PDF/mpsi-chap23.pdf">Chapitre 23 : Séries numériques</a></p>
+<section id="navigation" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="navigation">Navigation</h2>
+<div class="chap-nav">
+<p><a href="../cours/mpsi-chap22.html" class="prev">Chapitre 22 : …</a></p>
+<p><a href="../cours/mpsi.html" class="home">Menu MPSI</a></p>
+<p><a href="../cours/mpsi-chap24.html" class="next">Chapitre 24 : Dénombrement</a></p>
+</div>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -214,12 +437,12 @@ ul.task-list li input[type="checkbox"] {
       // flash "checked"
       button.classList.add('code-copy-button-checked');
       var currentTitle = button.getAttribute("title");
-      button.setAttribute("title", "Copied!");
+      button.setAttribute("title", "Copié");
       let tooltip;
       if (window.bootstrap) {
         button.setAttribute("data-bs-toggle", "tooltip");
         button.setAttribute("data-bs-placement", "left");
-        button.setAttribute("data-bs-title", "Copied!");
+        button.setAttribute("data-bs-title", "Copié");
         tooltip = new bootstrap.Tooltip(button, 
           { trigger: "manual", 
             customClass: "code-copy-button-tooltip",

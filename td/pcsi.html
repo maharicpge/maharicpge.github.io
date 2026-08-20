@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>PCSI (1re année) · TD - Mathématiques en CPGE – Mathématiques en CPGE</title>
+<title>pcsi – Mathématiques en CPGE</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -74,40 +74,11 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 <link rel="stylesheet" href="../styles.css">
 </head>
 
-<body class="nav-fixed fullcontent quarto-light">
+<body class="nav-fixed quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -148,6 +119,10 @@ window.Quarto = {
     <a class="nav-link" href="../contact.html"> 
 <span class="menu-text">Contact</span></a>
   </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../apropos.html"> 
+<span class="menu-text">À propos</span></a>
+  </li>  
 </ul>
           </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
@@ -159,46 +134,18 @@ window.Quarto = {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
+    </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">PCSI (1re année) — TD</h1>
-</div>
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
 
 
 
-<div class="quarto-title-meta">
 
-    
-  
-    
-  </div>
-  
+<p>title: “PCSI (1re année) — Cours” pagetitle: “PCSI (1re année) · Cours - Mathématiques en CPGE” toc: false ## Chapitres au programme <a href="../td/pcsi-chap01.html">Chapitre 01 — Outils de calcul fondamentaux. Logique, sommes et produits, binôme, trigonométrie, nombres complexes.</a> <a href="../td/pcsi-chap02.html">Chapitre 02 — Fonctions réelles d’une variable. Limites, continuité, dérivabilité, Rolle, accroissements finis, fonctions usuelles.</a> <a href="../td/pcsi-chap03.html">Chapitre 03 — Équations différentielles linéaires. Ordres 1 et 2, recherche de solutions particulières.</a> <a href="../td/pcsi-chap04.html">Chapitre 04 — Suites numériques. Convergence, suites récurrentes simples.</a> <a href="../td/pcsi-chap05.html">Chapitre 05 — Développements limités. Taylor-Young, applications aux limites et asymptotes.</a> <a href="../td/pcsi-chap06.html">Chapitre 06 — Intégration sur un segment. Primitives, IPP, changement de variable.</a> <a href="../td/pcsi-chap07.html">Chapitre 07 — Intégration sur un intervalle quelconque. IPP, changement de variable, fonctions intégrables.</a> <a href="../td/pcsi-chap08.html">Chapitre 08 — Algèbre linéaire et matrices. Espaces vectoriels, dimension finie, déterminants en dimension 2 et 3.</a> <a href="../td/pcsi-chap09.html">Chapitre 09 — Polynômes. Opérations, racines, factorisation élémentaire.</a> <a href="../td/pcsi-chap10.html">Chapitre 10 — Fractions rationnelles. Décomposition en éléments simples, pôles et parties polaires.</a> <a href="pcsi-chap11.qmd">Chapitre 11 — Séries numériques. Séries à termes positifs, séries géométriques et de Riemann.</a> <a href="pcsi-chap12.qmd">Chapitre 12 — Probabilités. Espaces finis, variables aléatoires finies, lois usuelles.</a></p>
 
 
-</header>
-
-
-<section id="chapitres-au-programme" class="level2">
-<h2 class="anchored" data-anchor-id="chapitres-au-programme">Chapitres au programme</h2>
-<ul>
-<li><p><strong><a href="../td/pcsi-chap01.html">Chapitre 01 — Outils de calcul fondamentaux. Logique, sommes et produits, binôme, trigonométrie, nombres complexes.</a></strong></p></li>
-<li><p><strong><a href="../td/pcsi-chap02.html">Chapitre 02 — Fonctions réelles d’une variable. Limites, continuité, dérivabilité, Rolle, accroissements finis, fonctions usuelles.</a></strong></p></li>
-<li><p><strong><a href="../td/pcsi-chap03.html">Chapitre 03 — Équations différentielles linéaires. Ordres 1 et 2, recherche de solutions particulières.</a></strong></p></li>
-<li><p><strong><a href="../td/pcsi-chap04.html">Chapitre 04 — Suites numériques. Convergence, suites récurrentes simples.</a></strong></p></li>
-<li><p><strong><a href="../td/pcsi-chap05.html">Chapitre 05 — Développements limités. Taylor-Young, applications aux limites et asymptotes.</a></strong></p></li>
-<li><p><strong><a href="../td/pcsi-chap06.html">Chapitre 06 — Intégration sur un segment. Primitives, IPP, changement de variable.</a></strong></p></li>
-<li><p><strong><a href="../td/pcsi-chap07.html">Chapitre 07 — Algèbre linéaire et matrices. Espaces vectoriels, dimension finie, déterminants en dimension 2 et 3.</a></strong></p></li>
-<li><p><strong><a href="../td/pcsi-chap08.html">Chapitre 08 — Polynômes. Opérations, racines, factorisation élémentaire.</a></strong></p></li>
-<li><p><strong><a href="../td/pcsi-chap09.html">Chapitre 09 — Probabilités. Espaces finis, variables aléatoires finies, lois usuelles.</a></strong></p></li>
-<li><p><strong><a href="../td/pcsi-chap10.html">Chapitre 10 — Géométrie euclidienne. Produit scalaire et vectoriel dans <span class="math inline">\(\mathbb{R}^2\)</span> et <span class="math inline">\(\mathbb{R}^3\)</span>, droites et plans.</a></strong></p></li>
-</ul>
-
-
-</section>
 
 </main> <!-- /main -->
 <!-- Compteur de visites GoatCounter -->

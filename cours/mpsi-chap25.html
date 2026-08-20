@@ -1,13 +1,14 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr"><head>
 
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.10.18">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Said MAHARI">
 
-<title>Variables aléatoires finies - Mathématiques en CPGE – Mathématiques en CPGE</title>
+<title>Espaces probabilisés finis – Mathématiques en CPGE</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -45,7 +46,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-7a8c080b55ea27eb37b467515007f9ee.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-e0d9a45d84245cc5e3b300860d8fa645.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -60,22 +61,66 @@ ul.task-list li input[type="checkbox"] {
   ],
   "show-item-context": false,
   "language": {
-    "search-no-results-text": "No results",
-    "search-matching-documents-text": "matching documents",
-    "search-copy-link-title": "Copy link to search",
-    "search-hide-matches-text": "Hide additional matches",
-    "search-more-match-text": "more match in this document",
-    "search-more-matches-text": "more matches in this document",
-    "search-clear-button-title": "Clear",
+    "search-no-results-text": "Pas de résultats",
+    "search-matching-documents-text": "documents trouvés",
+    "search-copy-link-title": "Copier le lien vers la recherche",
+    "search-hide-matches-text": "Cacher les correspondances additionnelles",
+    "search-more-match-text": "correspondance de plus dans ce document",
+    "search-more-matches-text": "correspondances de plus dans ce document",
+    "search-clear-button-title": "Effacer",
     "search-text-placeholder": "",
-    "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit",
-    "search-label": "Search"
+    "search-detached-cancel-button-title": "Annuler",
+    "search-submit-button-title": "Envoyer",
+    "search-label": "Recherche"
   }
 }</script>
 
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="styles.css">
 </head>
 
 <body class="nav-fixed quarto-light">
@@ -89,8 +134,8 @@ ul.task-list li input[type="checkbox"] {
     <span class="navbar-title">Accueil</span>
     </a>
   </div>
-            <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+            <div id="quarto-search" class="" title="Recherche"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Basculer la navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
@@ -119,6 +164,10 @@ ul.task-list li input[type="checkbox"] {
     <a class="nav-link" href="../contact.html"> 
 <span class="menu-text">Contact</span></a>
   </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../apropos.html"> 
+<span class="menu-text">À propos</span></a>
+  </li>  
 </ul>
           </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
@@ -132,10 +181,33 @@ ul.task-list li input[type="checkbox"] {
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
+    <h2 id="toc-title">Sur cette page</h2>
    
   <ul>
-  <li><a href="#document" id="toc-document" class="nav-link active" data-scroll-target="#document">Document</a></li>
+  <li><a href="#espaces-probabilisés-finis" id="toc-espaces-probabilisés-finis" class="nav-link active" data-scroll-target="#espaces-probabilisés-finis">Espaces probabilisés finis</a></li>
+  <li><a href="#probabilités-sur-un-ensemble-fini" id="toc-probabilités-sur-un-ensemble-fini" class="nav-link" data-scroll-target="#probabilités-sur-un-ensemble-fini"><span class="header-section-number">1</span> Probabilités sur un ensemble fini</a>
+  <ul class="collapse">
+  <li><a href="#définition" id="toc-définition" class="nav-link" data-scroll-target="#définition"><span class="header-section-number">1.1</span> Définition</a></li>
+  <li><a href="#probabilité-uniforme" id="toc-probabilité-uniforme" class="nav-link" data-scroll-target="#probabilité-uniforme"><span class="header-section-number">1.2</span> Probabilité uniforme</a></li>
+  <li><a href="#probabilité-dun-événement" id="toc-probabilité-dun-événement" class="nav-link" data-scroll-target="#probabilité-dun-événement"><span class="header-section-number">1.3</span> Probabilité d’un événement</a></li>
+  <li><a href="#probabilité-de-la-réunion-de-deux-événements" id="toc-probabilité-de-la-réunion-de-deux-événements" class="nav-link" data-scroll-target="#probabilité-de-la-réunion-de-deux-événements"><span class="header-section-number">1.4</span> Probabilité de la réunion de deux événements</a></li>
+  </ul></li>
+  <li><a href="#probabilités-conditionnelles" id="toc-probabilités-conditionnelles" class="nav-link" data-scroll-target="#probabilités-conditionnelles"><span class="header-section-number">2</span> Probabilités conditionnelles</a>
+  <ul class="collapse">
+  <li><a href="#définition-1" id="toc-définition-1" class="nav-link" data-scroll-target="#définition-1"><span class="header-section-number">2.1</span> Définition</a></li>
+  <li><a href="#propriétés" id="toc-propriétés" class="nav-link" data-scroll-target="#propriétés"><span class="header-section-number">2.2</span> Propriétés</a></li>
+  <li><a href="#formule-des-probabilités-totales" id="toc-formule-des-probabilités-totales" class="nav-link" data-scroll-target="#formule-des-probabilités-totales"><span class="header-section-number">2.3</span> Formule des probabilités totales</a></li>
+  <li><a href="#formule-de-bayes" id="toc-formule-de-bayes" class="nav-link" data-scroll-target="#formule-de-bayes"><span class="header-section-number">2.4</span> Formule de Bayes</a></li>
+  </ul></li>
+  <li><a href="#indépendance" id="toc-indépendance" class="nav-link" data-scroll-target="#indépendance"><span class="header-section-number">3</span> Indépendance</a>
+  <ul class="collapse">
+  <li><a href="#définition-2" id="toc-définition-2" class="nav-link" data-scroll-target="#définition-2"><span class="header-section-number">3.1</span> Définition</a></li>
+  <li><a href="#indépendance-mutuelle" id="toc-indépendance-mutuelle" class="nav-link" data-scroll-target="#indépendance-mutuelle"><span class="header-section-number">3.2</span> Indépendance mutuelle</a></li>
+  </ul></li>
+  <li><a href="#document-en-pdf" id="toc-document-en-pdf" class="nav-link" data-scroll-target="#document-en-pdf">Document en PDF</a>
+  <ul class="collapse">
+  <li><a href="#navigation" id="toc-navigation" class="nav-link" data-scroll-target="#navigation">Navigation</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -144,14 +216,27 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Chapitre 25 : Variables aléatoires finies</h1>
+<h1 class="title">Espaces probabilisés finis</h1>
+<p class="subtitle lead">Chapitre 25</p>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Auteur·rice</div>
+    <div class="quarto-title-meta-contents">
+             <p>Said MAHARI </p>
+          </div>
+  </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">Date de publication</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">19 août 2026</p>
+    </div>
+  </div>
   
     
   </div>
@@ -161,12 +246,147 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p><strong>MPSI (1re année) — Chapitre 25.</strong> Loi, espérance, variance, lois uniforme, de Bernoulli, binomiale.</p>
-<section id="document" class="level2">
-<h2 class="anchored" data-anchor-id="document">Document</h2>
-<p><em>PDF à venir : déposez le fichier <code>files/mpsi/chap25.pdf</code> puis régénérez la page.</em></p>
+<p><strong>MPSI (1re année) — Chapitre 25.</strong> Espaces probabilisés finis, probabilité d’un événement, probabilité uniforme, probabilités conditionnelles, formule des probabilités totales, formule de Bayes, indépendance.</p>
+<p>Ce chapitre a été réalisé conformément au programme marocain de mathématiques de la filière MPSI.</p>
+<section id="espaces-probabilisés-finis" class="level1 unnumbered">
+<h1 class="unnumbered">Espaces probabilisés finis</h1>
+<p>Dans tout ce chapitre, <span class="math inline">\Omega</span> désigne un ensemble fini non vide appelé <strong>univers</strong>, dont les éléments sont appelés <strong>éventualités</strong> ou <strong>résultats</strong>.</p>
+</section>
+<section id="probabilités-sur-un-ensemble-fini" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Probabilités sur un ensemble fini</h1>
+<section id="définition" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="définition"><span class="header-section-number">1.1</span> Définition</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 2.1 — (Probabilité)</strong></p>
+<p>Une <strong>probabilité</strong> sur <span class="math inline">\Omega</span> est une application <span class="math inline">P:\mathcal{P}(\Omega)\longrightarrow\mathbb{R}^+</span> vérifiant : 1. <span class="math inline">P(\Omega)=1</span> ; 2. Pour toutes parties disjointes <span class="math inline">A,B\subset\Omega</span> : <span class="math inline">P(A\cup B)=P(A)+P(B)</span>.</p>
+<p>Le couple <span class="math inline">(\Omega,P)</span> est appelé <strong>espace probabilisé fini</strong>. Les parties de <span class="math inline">\Omega</span> sont appelées <strong>événements</strong>.</p>
+</div>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 2.2 — (Événement)</strong></p>
+<p>Un <strong>événement</strong> est une partie de <span class="math inline">\Omega</span>. Un événement <span class="math inline">A</span> est dit <strong>réalisé</strong> si l’éventualité obtenue appartient à <span class="math inline">A</span>. L’événement <span class="math inline">\Omega</span> est l’<strong>événement certain</strong>, et <span class="math inline">\varnothing</span> est l’<strong>événement impossible</strong>.</p>
+</div>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 2.3 — (Événement contraire)</strong></p>
+<p>L’<strong>événement contraire</strong> de <span class="math inline">A</span> est <span class="math inline">\bar A=\Omega\setminus A</span>.</p>
+</div>
+</section>
+<section id="probabilité-uniforme" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="probabilité-uniforme"><span class="header-section-number">1.2</span> Probabilité uniforme</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 2.4 — (Probabilité uniforme)</strong></p>
+<p>On dit que la probabilité <span class="math inline">P</span> sur <span class="math inline">\Omega</span> est <strong>uniforme</strong> si toutes les éventualités ont la même probabilité. Alors pour toute partie <span class="math inline">A\subset\Omega</span> : <span class="math display">P(A)=\frac{\operatorname{Card}(A)}{\operatorname{Card}(\Omega)}</span></p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 2.1</strong></p>
+<p>Lors du lancer d’un dé équilibré à 6 faces, la probabilité est uniforme sur <span class="math inline">\Omega=\{1,2,3,4,5,6\}</span>. La probabilité d’obtenir un nombre pair est <span class="math inline">P(\{2,4,6\})=\frac{3}{6}=\frac12</span>.</p>
+</div>
+</section>
+<section id="probabilité-dun-événement" class="level2" data-number="1.3">
+<h2 data-number="1.3" class="anchored" data-anchor-id="probabilité-dun-événement"><span class="header-section-number">1.3</span> Probabilité d’un événement</h2>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 2.1 — (Propriétés)</strong></p>
+<p>Soit <span class="math inline">P</span> une probabilité sur <span class="math inline">\Omega</span>. 1. <span class="math inline">P(\varnothing)=0</span>. 2. Pour toute partie <span class="math inline">A\subset\Omega</span> : <span class="math inline">P(\bar A)=1-P(A)</span>. 3. <span class="math inline">0\leq P(A)\leq 1</span> pour tout événement <span class="math inline">A</span>.</p>
+</div>
+</section>
+<section id="probabilité-de-la-réunion-de-deux-événements" class="level2" data-number="1.4">
+<h2 data-number="1.4" class="anchored" data-anchor-id="probabilité-de-la-réunion-de-deux-événements"><span class="header-section-number">1.4</span> Probabilité de la réunion de deux événements</h2>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 2.2</strong></p>
+<p>Pour toutes parties <span class="math inline">A,B\subset\Omega</span> : <span class="math display">P(A\cup B)=P(A)+P(B)-P(A\cap B)</span></p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 2.2</strong></p>
+<p>Lors du lancer d’un dé équilibré, soit <span class="math inline">A</span>=« obtenir un nombre pair » et <span class="math inline">B</span>=« obtenir un nombre <span class="math inline">\geq 4</span> ». Alors <span class="math inline">A\cap B=\{4,6\}</span>, donc <span class="math inline">P(A\cup B)=\frac36+\frac36-\frac26=\frac46=\frac23</span>.</p>
+</div>
+</section>
+</section>
+<section id="probabilités-conditionnelles" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> Probabilités conditionnelles</h1>
+<section id="définition-1" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="définition-1"><span class="header-section-number">2.1</span> Définition</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 3.1 — (Probabilité conditionnelle)</strong></p>
+<p>Soient <span class="math inline">A</span> et <span class="math inline">B</span> deux événements avec <span class="math inline">P(B)&gt;0</span>. La <strong>probabilité conditionnelle</strong> de <span class="math inline">A</span> sachant <span class="math inline">B</span> est : <span class="math display">P(A|B)=\frac{P(A\cap B)}{P(B)}</span></p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 3.1</strong></p>
+<p>On lance un dé équilibré. Soit <span class="math inline">A</span>=« obtenir un nombre pair » et <span class="math inline">B</span>=« obtenir un nombre <span class="math inline">\leq 3</span> ». Alors <span class="math inline">A\cap B=\{2\}</span>, donc <span class="math inline">P(A|B)=\frac{1/6}{3/6}=\frac13</span>.</p>
+</div>
+</section>
+<section id="propriétés" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="propriétés"><span class="header-section-number">2.2</span> Propriétés</h2>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 3.1</strong></p>
+<p>Soit <span class="math inline">B</span> un événement avec <span class="math inline">P(B)&gt;0</span>. L’application <span class="math inline">A\mapsto P(A|B)</span> est une probabilité sur <span class="math inline">\Omega</span>, appelée <strong>probabilité conditionnelle sachant <span class="math inline">B</span></strong>.</p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 3.2 — (Formule des probabilités composées)</strong></p>
+<p>Si <span class="math inline">P(A)&gt;0</span> et <span class="math inline">P(B)&gt;0</span>, alors : <span class="math display">P(A\cap B)=P(A)P(B|A)=P(B)P(A|B)</span></p>
+</div>
+</section>
+<section id="formule-des-probabilités-totales" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="formule-des-probabilités-totales"><span class="header-section-number">2.3</span> Formule des probabilités totales</h2>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 3.1 — (Formule des probabilités totales)</strong></p>
+<p>Soient <span class="math inline">A_1,\ldots,A_n</span> des événements formant un <strong>système complet d’événements</strong> (c’est-à-dire deux à deux incompatibles et dont la réunion est <span class="math inline">\Omega</span>), avec <span class="math inline">P(A_i)&gt;0</span> pour tout <span class="math inline">i</span>. Alors pour tout événement <span class="math inline">B</span> : <span class="math display">P(B)=\sum_{i=1}^{n}P(A_i)P(B|A_i)</span></p>
+</div>
+</section>
+<section id="formule-de-bayes" class="level2" data-number="2.4">
+<h2 data-number="2.4" class="anchored" data-anchor-id="formule-de-bayes"><span class="header-section-number">2.4</span> Formule de Bayes</h2>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 3.2 — (Formule de Bayes)</strong></p>
+<p>Soient <span class="math inline">A_1,\ldots,A_n</span> un système complet d’événements avec <span class="math inline">P(A_i)&gt;0</span> pour tout <span class="math inline">i</span>. Soit <span class="math inline">B</span> un événement avec <span class="math inline">P(B)&gt;0</span>. Alors pour tout <span class="math inline">i</span> : <span class="math display">P(A_i|B)=\frac{P(A_i)P(B|A_i)}{\sum_{j=1}^{n}P(A_j)P(B|A_j)}</span></p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 3.2 — (Problème des urnes)</strong></p>
+<p>Une urne <span class="math inline">U_1</span> contient 3 boules blanches et 2 boules noires. Une urne <span class="math inline">U_2</span> contient 1 boule blanche et 3 boules noires. On choisit une urne au hasard puis on tire une boule. Quelle est la probabilité que la boule tirée soit blanche ? Par la formule des probabilités totales : <span class="math inline">P(B)=\frac12\cdot\frac35+\frac12\cdot\frac14=\frac{3}{10}+\frac18=\frac{11}{40}</span>.</p>
+</div>
+</section>
+</section>
+<section id="indépendance" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Indépendance</h1>
+<section id="définition-2" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="définition-2"><span class="header-section-number">3.1</span> Définition</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 4.1 — (Indépendance de deux événements)</strong></p>
+<p>Deux événements <span class="math inline">A</span> et <span class="math inline">B</span> sont <strong>indépendants</strong> si : <span class="math display">P(A\cap B)=P(A)P(B)</span></p>
+</div>
+<div class="proof remark">
+<p><span class="proof-title"><em>Remarque</em>. </span>Si <span class="math inline">P(B)&gt;0</span>, l’indépendance de <span class="math inline">A</span> et <span class="math inline">B</span> équivaut à <span class="math inline">P(A|B)=P(A)</span>.</p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 4.1</strong></p>
+<p>Lors du lancer de deux dés équilibrés, l’événement « le premier dé donne 6 » et l’événement « le deuxième dé donne 6 » sont indépendants.</p>
+</div>
+</section>
+<section id="indépendance-mutuelle" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="indépendance-mutuelle"><span class="header-section-number">3.2</span> Indépendance mutuelle</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 4.2 — (Indépendance mutuelle)</strong></p>
+<p>Des événements <span class="math inline">A_1,\ldots,A_n</span> sont <strong>mutuellement indépendants</strong> si pour tout sous-ensemble <span class="math inline">\{i_1,\ldots,i_k\}\subset\{1,\ldots,n\}</span> : <span class="math display">P(A_{i_1}\cap\cdots\cap A_{i_k})=P(A_{i_1})\cdots P(A_{i_k})</span></p>
+</div>
+<div class="proof remark" title="(Attention !)">
+<p><span class="proof-title"><em>Remarque</em>. </span>L’indépendance deux à deux n’implique pas l’indépendance mutuelle. Il faut vérifier toutes les intersections.</p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 4.1</strong></p>
+<p>. On lance un dé équilibré. Soient <span class="math inline">A</span>=« obtenir un nombre pair », <span class="math inline">B</span>=« obtenir un nombre impair », <span class="math inline">C</span>=« obtenir 1 ou 2 ». Les événements <span class="math inline">A</span>, <span class="math inline">B</span>, <span class="math inline">C</span> sont-ils indépendants deux à deux ? Mutuellement indépendants ? 2. On tire deux cartes d’un jeu de 52 cartes. Soient <span class="math inline">A</span>=« la première carte est un as » et <span class="math inline">B</span>=« la deuxième carte est un as ». Les événements <span class="math inline">A</span> et <span class="math inline">B</span> sont-ils indépendants si le tirage est avec remise ? Sans remise ?</p>
+</div>
+</section>
+</section>
+<section id="document-en-pdf" class="level1 unnumbered">
+<h1 class="unnumbered">Document en PDF</h1>
+<p><a href="PDF/mpsi-chap25.pdf">Chapitre 25 : Espaces probabilisés finis</a></p>
+<section id="navigation" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="navigation">Navigation</h2>
+<div class="chap-nav">
+<p><a href="../cours/mpsi-chap24.html" class="prev">Chapitre 24 : Dénombrement</a></p>
+<p><a href="../cours/mpsi.html" class="home">Menu MPSI</a></p>
+<p><a href="../cours/mpsi-chap26.html" class="next">Chapitre 26 : Variables aléatoires finies</a></p>
+</div>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -214,12 +434,12 @@ ul.task-list li input[type="checkbox"] {
       // flash "checked"
       button.classList.add('code-copy-button-checked');
       var currentTitle = button.getAttribute("title");
-      button.setAttribute("title", "Copied!");
+      button.setAttribute("title", "Copié");
       let tooltip;
       if (window.bootstrap) {
         button.setAttribute("data-bs-toggle", "tooltip");
         button.setAttribute("data-bs-placement", "left");
-        button.setAttribute("data-bs-title", "Copied!");
+        button.setAttribute("data-bs-title", "Copié");
         tooltip = new bootstrap.Tooltip(button, 
           { trigger: "manual", 
             customClass: "code-copy-button-tooltip",
