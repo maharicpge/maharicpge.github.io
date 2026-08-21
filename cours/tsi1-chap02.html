@@ -1,13 +1,14 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr"><head>
 
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.10.18">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Saîd MAHARI">
 
-<title>Fonctions d’une variable réelle - Mathématiques en CPGE – Mathématiques en CPGE</title>
+<title>Nombres complexes : calculs algébriques et applications géométriques – Mathématiques en CPGE</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -45,7 +46,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-7a8c080b55ea27eb37b467515007f9ee.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-e0d9a45d84245cc5e3b300860d8fa645.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -60,22 +61,66 @@ ul.task-list li input[type="checkbox"] {
   ],
   "show-item-context": false,
   "language": {
-    "search-no-results-text": "No results",
-    "search-matching-documents-text": "matching documents",
-    "search-copy-link-title": "Copy link to search",
-    "search-hide-matches-text": "Hide additional matches",
-    "search-more-match-text": "more match in this document",
-    "search-more-matches-text": "more matches in this document",
-    "search-clear-button-title": "Clear",
+    "search-no-results-text": "Pas de résultats",
+    "search-matching-documents-text": "documents trouvés",
+    "search-copy-link-title": "Copier le lien vers la recherche",
+    "search-hide-matches-text": "Cacher les correspondances additionnelles",
+    "search-more-match-text": "correspondance de plus dans ce document",
+    "search-more-matches-text": "correspondances de plus dans ce document",
+    "search-clear-button-title": "Effacer",
     "search-text-placeholder": "",
-    "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit",
-    "search-label": "Search"
+    "search-detached-cancel-button-title": "Annuler",
+    "search-submit-button-title": "Envoyer",
+    "search-label": "Recherche"
   }
 }</script>
 
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="styles.css">
 </head>
 
 <body class="nav-fixed quarto-light">
@@ -89,8 +134,8 @@ ul.task-list li input[type="checkbox"] {
     <span class="navbar-title">Accueil</span>
     </a>
   </div>
-            <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+            <div id="quarto-search" class="" title="Recherche"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Basculer la navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
@@ -125,7 +170,7 @@ ul.task-list li input[type="checkbox"] {
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="../apropos.html"> 
-<span class="menu-text">À propos</span></a>
+<span class="menu-text">À propos de l’auteur</span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
@@ -140,10 +185,38 @@ ul.task-list li input[type="checkbox"] {
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
+    <h2 id="toc-title">Sur cette page</h2>
    
   <ul>
-  <li><a href="#document" id="toc-document" class="nav-link active" data-scroll-target="#document">Document</a></li>
+  <li><a href="#nombres-complexes-ensemble-mathbbc-conjugué-module-et-argument-dun-nombre-complexe" id="toc-nombres-complexes-ensemble-mathbbc-conjugué-module-et-argument-dun-nombre-complexe" class="nav-link active" data-scroll-target="#nombres-complexes-ensemble-mathbbc-conjugué-module-et-argument-dun-nombre-complexe"><span class="header-section-number">1</span> Nombres complexes : ensemble <span class="math inline">\mathbb{C}</span> — Conjugué, module et argument d’un nombre complexe</a>
+  <ul class="collapse">
+  <li><a href="#ensemble-des-nombres-complexes-mathbbc" id="toc-ensemble-des-nombres-complexes-mathbbc" class="nav-link" data-scroll-target="#ensemble-des-nombres-complexes-mathbbc"><span class="header-section-number">1.1</span> Ensemble des nombres complexes <span class="math inline">\mathbb{C}</span></a></li>
+  <li><a href="#conjugué-dun-nombre-complexe" id="toc-conjugué-dun-nombre-complexe" class="nav-link" data-scroll-target="#conjugué-dun-nombre-complexe"><span class="header-section-number">1.2</span> Conjugué d’un nombre complexe</a></li>
+  <li><a href="#module-dun-nombre-complexe" id="toc-module-dun-nombre-complexe" class="nav-link" data-scroll-target="#module-dun-nombre-complexe"><span class="header-section-number">1.3</span> Module d’un nombre complexe</a></li>
+  <li><a href="#interprétation-géométrique" id="toc-interprétation-géométrique" class="nav-link" data-scroll-target="#interprétation-géométrique"><span class="header-section-number">1.4</span> Interprétation géométrique</a></li>
+  <li><a href="#argument-dun-nombre-complexe-non-nul" id="toc-argument-dun-nombre-complexe-non-nul" class="nav-link" data-scroll-target="#argument-dun-nombre-complexe-non-nul"><span class="header-section-number">1.5</span> Argument d’un nombre complexe non nul</a></li>
+  </ul></li>
+  <li><a href="#forme-polaire-racines-n-ièmes-équation-du-second-degré-réduction-de-acos-xbsin-x" id="toc-forme-polaire-racines-n-ièmes-équation-du-second-degré-réduction-de-acos-xbsin-x" class="nav-link" data-scroll-target="#forme-polaire-racines-n-ièmes-équation-du-second-degré-réduction-de-acos-xbsin-x"><span class="header-section-number">2</span> Forme polaire — Racines n-ièmes — Équation du second degré — Réduction de <span class="math inline">a\cos x+b\sin x</span></a>
+  <ul class="collapse">
+  <li><a href="#nombres-complexes-de-module-1" id="toc-nombres-complexes-de-module-1" class="nav-link" data-scroll-target="#nombres-complexes-de-module-1"><span class="header-section-number">2.1</span> Nombres complexes de module 1</a></li>
+  <li><a href="#forme-polaire-dun-nombre-complexe-non-nul" id="toc-forme-polaire-dun-nombre-complexe-non-nul" class="nav-link" data-scroll-target="#forme-polaire-dun-nombre-complexe-non-nul"><span class="header-section-number">2.2</span> Forme polaire d’un nombre complexe non nul</a></li>
+  <li><a href="#racines-n-ièmes-de-lunité" id="toc-racines-n-ièmes-de-lunité" class="nav-link" data-scroll-target="#racines-n-ièmes-de-lunité"><span class="header-section-number">2.3</span> Racines n-ièmes de l’unité</a></li>
+  <li><a href="#racines-n-ièmes-dun-nombre-complexe" id="toc-racines-n-ièmes-dun-nombre-complexe" class="nav-link" data-scroll-target="#racines-n-ièmes-dun-nombre-complexe"><span class="header-section-number">2.4</span> Racines n-ièmes d’un nombre complexe</a></li>
+  <li><a href="#équation-du-second-degré" id="toc-équation-du-second-degré" class="nav-link" data-scroll-target="#équation-du-second-degré"><span class="header-section-number">2.5</span> Équation du second degré</a></li>
+  <li><a href="#réduction-de-acos-xbsin-x" id="toc-réduction-de-acos-xbsin-x" class="nav-link" data-scroll-target="#réduction-de-acos-xbsin-x"><span class="header-section-number">2.6</span> Réduction de <span class="math inline">a\cos x+b\sin x</span></a></li>
+  <li><a href="#calcul-des-sommes-sum_k0ncosakb-et-sum_k0nsinakb" id="toc-calcul-des-sommes-sum_k0ncosakb-et-sum_k0nsinakb" class="nav-link" data-scroll-target="#calcul-des-sommes-sum_k0ncosakb-et-sum_k0nsinakb"><span class="header-section-number">2.7</span> Calcul des sommes <span class="math inline">\sum_{k=0}^n\cos(ak+b)</span> et <span class="math inline">\sum_{k=0}^n\sin(ak+b)</span></a></li>
+  <li><a href="#exponentielle-complexe" id="toc-exponentielle-complexe" class="nav-link" data-scroll-target="#exponentielle-complexe"><span class="header-section-number">2.8</span> Exponentielle complexe</a></li>
+  </ul></li>
+  <li><a href="#géométrie" id="toc-géométrie" class="nav-link" data-scroll-target="#géométrie"><span class="header-section-number">3</span> Géométrie</a>
+  <ul class="collapse">
+  <li><a href="#caractérisation-de-lalignement-lorthogonalité-et-la-cocyclicité" id="toc-caractérisation-de-lalignement-lorthogonalité-et-la-cocyclicité" class="nav-link" data-scroll-target="#caractérisation-de-lalignement-lorthogonalité-et-la-cocyclicité"><span class="header-section-number">3.1</span> Caractérisation de l’alignement, l’orthogonalité et la cocyclicité</a></li>
+  <li><a href="#transformations-géométriques-usuelles" id="toc-transformations-géométriques-usuelles" class="nav-link" data-scroll-target="#transformations-géométriques-usuelles"><span class="header-section-number">3.2</span> Transformations géométriques usuelles</a></li>
+  <li><a href="#classification-des-transformations-f-zlongmapsto-azb" id="toc-classification-des-transformations-f-zlongmapsto-azb" class="nav-link" data-scroll-target="#classification-des-transformations-f-zlongmapsto-azb"><span class="header-section-number">3.3</span> Classification des transformations <span class="math inline">f: z\longmapsto az+b</span></a></li>
+  </ul></li>
+  <li><a href="#document-en-pdf" id="toc-document-en-pdf" class="nav-link" data-scroll-target="#document-en-pdf">Document en PDF</a>
+  <ul class="collapse">
+  <li><a href="#navigation" id="toc-navigation" class="nav-link" data-scroll-target="#navigation">Navigation</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -152,14 +225,27 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Chapitre 02 : Fonctions d’une variable réelle</h1>
+<h1 class="title">Nombres complexes : calculs algébriques et applications géométriques</h1>
+<p class="subtitle lead">Chapitre 02</p>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Auteur·rice</div>
+    <div class="quarto-title-meta-contents">
+             <p>Saîd MAHARI </p>
+          </div>
+  </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">Date de publication</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">21 août 2026</p>
+    </div>
+  </div>
   
     
   </div>
@@ -169,12 +255,548 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p><strong>TSI 1re année — Chapitre 02.</strong> Limites, continuité, dérivation, étude de fonctions.</p>
-<section id="document" class="level2">
-<h2 class="anchored" data-anchor-id="document">Document</h2>
-<p><em>PDF à venir : déposez le fichier <code>files/tsi1/chap02.pdf</code> puis régénérez la page.</em></p>
+<p><strong>TSI (1re année) — Chapitre 02.</strong> Forme algébrique, conjugaison, module, arguments, forme trigonométrique, exponentielle complexe, trigonométrie, équations du second degré, racines n-ièmes, interprétation géométrique.</p>
+<p>Ce chapitre a été réalisé conformément au programme marocain de mathématiques de la filière TSI1.</p>
+<section id="nombres-complexes-ensemble-mathbbc-conjugué-module-et-argument-dun-nombre-complexe" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Nombres complexes : ensemble <span class="math inline">\mathbb{C}</span> — Conjugué, module et argument d’un nombre complexe</h1>
+<section id="ensemble-des-nombres-complexes-mathbbc" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="ensemble-des-nombres-complexes-mathbbc"><span class="header-section-number">1.1</span> Ensemble des nombres complexes <span class="math inline">\mathbb{C}</span></h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 1.1</strong></p>
+<p>L’ensemble des <strong>nombres complexes</strong> noté <span class="math inline">\mathbb{C}</span> est l’ensemble des nombres <span class="math inline">z</span> de la forme : <span class="math display">z=x+iy</span> avec <span class="math inline">(x,y)\in \mathbb{R}^2</span> et <span class="math inline">i^2=-1</span>.</p>
+<ol type="1">
+<li>L’écriture <span class="math inline">z=x+iy</span> s’appelle <strong>écriture algébrique</strong> (ou <strong>cartésienne</strong>) du nombre complexe <span class="math inline">z</span>.</li>
+<li>Le réel <span class="math inline">x</span> s’appelle <strong>partie réelle</strong> du nombre complexe <span class="math inline">z</span> et elle sera notée <span class="math inline">\mathcal{R}e(z)</span>.</li>
+<li>Le réel <span class="math inline">y</span> s’appelle <strong>partie imaginaire</strong> du nombre complexe <span class="math inline">z</span> et elle sera notée <span class="math inline">\mathcal{I}m(z)</span>.</li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 1.2</strong></p>
+<p>On munit l’ensemble des nombres complexes <span class="math inline">\mathbb{C}</span> des deux opérations suivantes :</p>
+<p><span class="math display">\begin{cases} \forall (z,z')\in \mathbb{C}^2,\ z+z'=\left(\mathcal{R}e(z)+\mathcal{R}e(z')\right)+i\left(\mathcal{I}m(z)+\mathcal{I}m(z')\right)\\ \forall (z,z')\in \mathbb{C}^2,\ z\times z'=\left(\mathcal{R}e(z)\cdot\mathcal{R}e(z')-\mathcal{I}m(z)\cdot\mathcal{I}m(z')\right)+i\left(\mathcal{R}e(z)\cdot\mathcal{I}m(z')+\mathcal{R}e(z')\cdot\mathcal{I}m(z)\right)\end{cases}</span></p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 1.1</strong></p>
+<p>Soient <span class="math inline">(z,z')\in \mathbb{C}^2</span> et <span class="math inline">\lambda \in \mathbb{R}</span>. Alors on a :</p>
+<ol type="1">
+<li><span class="math inline">z=0 \Longleftrightarrow \mathcal{R}e(z)=0 \text{ et } \mathcal{I}m(z)=0</span></li>
+<li><span class="math inline">z=z' \Longleftrightarrow \mathcal{R}e(z)=\mathcal{R}e(z') \text{ et } \mathcal{I}m(z)=\mathcal{I}m(z')</span></li>
+<li><span class="math inline">\mathcal{R}e(\lambda z)=\lambda \mathcal{R}e(z)\text{ et } \mathcal{R}e(z+z')=\mathcal{R}e(z)+\mathcal{R}e(z')</span></li>
+<li><span class="math inline">\mathcal{I}m(\lambda z)=\lambda \mathcal{I}m(z)\text{ et } \mathcal{I}m(z+z')=\mathcal{I}m(z)+\mathcal{I}m(z')</span></li>
+</ol>
+</div>
+<div class="proof remark">
+<p><span class="proof-title"><em>Remarque</em>. </span>Ce qui justifie l’unicité de l’écriture algébrique d’un nombre complexe et donne sens à la définition précédente.</p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 1.1</strong></p>
+<p>Cherchons les nombres complexes <span class="math inline">z</span> tels que : <span class="math display">z^2=1+i\sqrt{3}\ \ (\ast)</span></p>
+<p>Posons <span class="math inline">z=x+iy</span> avec <span class="math inline">(x,y)\in \mathbb{R}^2</span>. Alors :</p>
+<p><span class="math display">\begin{aligned}
+(\ast) &amp;\Longleftrightarrow (x^2-y^2)+i(2xy)=1+i\sqrt{3}\\
+&amp;\Longleftrightarrow x^2-y^2=1 \text{ et } 2xy=\sqrt{3}\\
+&amp;\Longleftrightarrow x^2-y^2=1 \text{ et } y=\frac{\sqrt{3}}{2x}\\
+&amp;\Longrightarrow 4x^4-4x^2-3=0
+\end{aligned}</span></p>
+<p>Résolvons cette équation du second degré d’inconnue <span class="math inline">x^2</span> en utilisant le discriminant :</p>
+<p><span class="math display">x^2=\frac{3}{2} \Longleftrightarrow x=\pm \sqrt{\frac{3}{2}}</span></p>
+<p>puisque <span class="math inline">\Delta =64</span> et l’autre solution est <span class="math inline">-\frac{1}{2}&lt;0</span>. Donc :</p>
+<p><span class="math display">(x,y)\in\left\{\left(\frac{\sqrt{6}}{2},\frac{\sqrt{2}}{2}\right),\left(-\frac{\sqrt{6}}{2},-\frac{\sqrt{2}}{2}\right)\right\}</span></p>
+<p>Inversement, ces valeurs de <span class="math inline">z</span> vérifient l’équation <span class="math inline">(\ast)</span> donc l’ensemble des solutions est :</p>
+<p><span class="math display">S=\left\{\frac{\sqrt{6}}{2}+i\frac{\sqrt{2}}{2},-\frac{\sqrt{6}}{2}-i\frac{\sqrt{2}}{2}\right\}</span></p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 1.2</strong></p>
+<p>L’addition <span class="math inline">+</span> et la multiplication <span class="math inline">\times</span> vérifient les propriétés suivantes :</p>
+<ol type="1">
+<li><p><strong>Associativité :</strong> <span class="math display">\forall (z,z',z'')\in \mathbb{C}^3,\ \begin{cases}z+(z'+z'')=(z+z')+z''\\z\times (z'\times z'')=(z\times z')\times z''\end{cases}</span></p></li>
+<li><p><strong>Commutativité :</strong> <span class="math display">\forall (z,z')\in \mathbb{C}^2,\ \begin{cases}z+z'=z'+z\\z\times z'=z'\times z\end{cases}</span></p></li>
+<li><p><strong>Élément neutre :</strong> <span class="math display">\forall z\in \mathbb{C},\ \begin{cases}z+0=z\ \ (0\text{ est l'élément neutre pour l'addition})\\z\times 1=z\ \ (1\text{ est l'élément neutre pour la multiplication})\end{cases}</span></p></li>
+<li><p>Chaque élément <span class="math inline">z</span> de <span class="math inline">\mathbb{C}</span> possède un <strong>opposé</strong> (unique) noté <span class="math inline">(-z)</span> c’est-à-dire un élément <span class="math inline">z'</span> vérifiant <span class="math inline">z+z'=0</span> et défini par : <span class="math display">(-z)=(-\mathcal{R}e(z))+i(-\mathcal{I}m(z))</span></p></li>
+<li><p>Chaque élément <span class="math inline">z</span> de <span class="math inline">\mathbb{C}^*(=\mathbb{C}\setminus\{0\})</span> possède un <strong>inverse</strong> (unique) noté <span class="math inline">z^{-1}</span> (ou <span class="math inline">1/z</span>) c’est-à-dire un élément <span class="math inline">z'</span> vérifiant <span class="math inline">z\times z'=1</span> et défini par : <span class="math display">\frac{1}{z}=\frac{x}{x^2+y^2}-i\frac{y}{x^2+y^2}</span> avec <span class="math inline">z=x+iy</span>.</p></li>
+<li><p><strong>Distributivité</strong> de la multiplication par rapport à l’addition : <span class="math display">\forall (z,z',z'')\in \mathbb{C}^3,\ z\times (z'+z'')=z\times z'+ z\times z''</span></p></li>
+</ol>
+<p>Dans ce cas, on dit que <span class="math inline">(\mathbb{C},+,\times)</span> est un <strong>corps</strong>.</p>
+</div>
+</section>
+<section id="conjugué-dun-nombre-complexe" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="conjugué-dun-nombre-complexe"><span class="header-section-number">1.2</span> Conjugué d’un nombre complexe</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 1.3</strong></p>
+<p>Soit <span class="math inline">z=x+iy\in \mathbb{C}</span>. On appelle <strong>conjugué</strong> de <span class="math inline">z</span> l’élément noté <span class="math inline">\overline{z}</span> et défini par : <span class="math display">\overline{z}=x-iy</span></p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 1.3</strong></p>
+<p>Soit <span class="math inline">z\in \mathbb{C}</span>. Alors on a :</p>
+<ol type="1">
+<li><span class="math inline">z+\overline{z}=2\mathcal{R}e(z)</span></li>
+<li><span class="math inline">z-\overline{z}=2i\mathcal{I}m(z)</span></li>
+<li><span class="math inline">z=\overline{z}\Longleftrightarrow z\in \mathbb{R}</span></li>
+<li><span class="math inline">z=-\overline{z} \Longleftrightarrow z\in i\mathbb{R}</span></li>
+<li><span class="math inline">\overline{\overline{z}}=z</span></li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 1.4</strong></p>
+<p>Soit <span class="math inline">(z,z')\in \mathbb{C}^2</span>. Alors on a :</p>
+<ol type="1">
+<li><span class="math inline">\overline{z+z'}=\overline{z}+\overline{z'}</span></li>
+<li><span class="math inline">\overline{z\times z'}=\overline{z}\times\overline{z'}</span></li>
+<li><span class="math inline">\overline{z-z'}=\overline{z}-\overline{z'}</span></li>
+<li><span class="math inline">\overline{\left(\frac{1}{z}\right)}=\frac{1}{\overline{z}}</span> (avec <span class="math inline">z\neq 0</span>)</li>
+<li><span class="math inline">\forall n\in\mathbb{Z},\ \overline{z^n}=\overline{z}^n</span> (avec <span class="math inline">z^0=1</span> et <span class="math inline">z\neq 0</span> si <span class="math inline">n\leq 0</span>)</li>
+</ol>
+</div>
+<div class="proof remark">
+<p><span class="proof-title"><em>Remarque</em>. </span>Soit <span class="math inline">z=x+iy\in \mathbb{C}^*</span>. L’écriture algébrique de l’inverse de <span class="math inline">z</span> s’obtient en multipliant par le conjugué <span class="math inline">\overline{z}=x-iy</span> de <span class="math inline">z</span> comme suit : <span class="math display">\frac{1}{z}=\frac{x-iy}{(x+iy)(x-iy)}=\frac{x}{x^2+y^2}-i\frac{y}{x^2+y^2}</span></p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 1.2</strong></p>
+<p>Soit <span class="math inline">z=\left(\frac{1+i}{2-i}\right)^2+\frac{1-7i}{4+3i}</span>. Écrivons <span class="math inline">z</span> sous forme algébrique :</p>
+<p><span class="math display">z=\frac{2i}{3-4i}+\frac{1-7i}{4+3i}=\frac{-2}{4+3i}+\frac{1-7i}{4+3i}=\frac{-1-7i}{4+3i}=-\frac{(1+7i)(4-3i)}{(4+3i)(4-3i)}=-\frac{25+25i}{25}=-1-i</span></p>
+</div>
+</section>
+<section id="module-dun-nombre-complexe" class="level2" data-number="1.3">
+<h2 data-number="1.3" class="anchored" data-anchor-id="module-dun-nombre-complexe"><span class="header-section-number">1.3</span> Module d’un nombre complexe</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 1.4</strong></p>
+<p>Soit <span class="math inline">z=x+iy\in \mathbb{C}</span>. On appelle <strong>module</strong> de <span class="math inline">z</span> le réel positif noté <span class="math inline">|z|</span> et défini par : <span class="math display">|z|=\sqrt{z\cdot\overline{z}}=\sqrt{x^2+y^2}</span></p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 1.5</strong></p>
+<p>Soit <span class="math inline">(z,z')\in \mathbb{C}^2</span>. Alors on a :</p>
+<ol type="1">
+<li><span class="math inline">|z|^2=z\cdot\overline{z}</span></li>
+<li><span class="math inline">|z\times z'|=|z|\times|z'|</span></li>
+<li><span class="math inline">|z|=|\overline{z}|=|-z|</span></li>
+<li><span class="math inline">\left|\frac{1}{z}\right|=\frac{1}{|z|}</span> (avec <span class="math inline">z\neq 0</span>)</li>
+<li><span class="math inline">\left|\frac{z}{z'}\right|=\frac{|z|}{|z'|}</span> (avec <span class="math inline">z'\neq 0</span>)</li>
+<li><span class="math inline">\forall n\in\mathbb{Z},\ |z^n|=|z|^n</span> (avec <span class="math inline">z\neq 0</span> si <span class="math inline">n\leq 0</span>)</li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 1.3</strong></p>
+<p>Soit <span class="math inline">z</span> un nombre complexe de module 1 et différent de 1. Montrons que <span class="math inline">Z=\frac{z+1}{z-1}\in i\mathbb{R}</span> :</p>
+<p><span class="math display">Z=\frac{z+1}{z-1}=\frac{(z+1)\overline{(z-1)}}{(z-1)\overline{(z-1)}}=\frac{(z+1)(\overline{z}-1)}{|z-1|^2}=\frac{|z|^2+\overline{z}-z-1}{|z-1|^2}</span></p>
+<p>Or <span class="math inline">|z|=1</span> et <span class="math inline">\overline{z}-z=-2i\mathcal{I}m(z)</span> donc :</p>
+<p><span class="math display">Z=\frac{-2i\mathcal{I}m(z)}{|z-1|^2}\in i\mathbb{R}</span></p>
+</div>
+</section>
+<section id="interprétation-géométrique" class="level2" data-number="1.4">
+<h2 data-number="1.4" class="anchored" data-anchor-id="interprétation-géométrique"><span class="header-section-number">1.4</span> Interprétation géométrique</h2>
+<p>On appelle <strong>plan complexe</strong> le plan rapporté à un repère orthonormé direct <span class="math inline">(O,\vec{u},\vec{v})</span> où chaque nombre complexe <span class="math inline">z=x+iy</span> est représenté par un point <span class="math inline">M</span> de coordonnées <span class="math inline">(x,y)</span>.</p>
+<ol type="1">
+<li>Le point <span class="math inline">M</span> est appelé <strong>image</strong> du nombre complexe <span class="math inline">z</span></li>
+<li>Le nombre complexe <span class="math inline">z</span> est dit <strong>affixe</strong> du point <span class="math inline">M</span></li>
+<li>On dit aussi que le vecteur <span class="math inline">\overrightarrow{OM}</span> est d’affixe <span class="math inline">z</span> et <span class="math inline">\overrightarrow{OM}</span> est l’image de <span class="math inline">z</span></li>
+<li>Le vecteur <span class="math inline">\overrightarrow{MN}</span> est d’affixe <span class="math inline">(z'-z)</span></li>
+<li>Le module <span class="math inline">|z'-z|</span> représente la <strong>distance</strong> <span class="math inline">MN</span></li>
+<li>Le point <span class="math inline">M'</span> d’affixe <span class="math inline">\overline{z}</span> est le symétrique du point <span class="math inline">M</span> par la symétrie d’axe <span class="math inline">(O,\vec{u})</span>, donc la transformation <span class="math inline">z\longmapsto \overline{z}</span> dans le plan complexe est la symétrie axiale d’axe <span class="math inline">(O,\vec{u})</span>.</li>
+</ol>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 1.6</strong></p>
+<p>Soit <span class="math inline">A</span> un point du plan complexe d’affixe <span class="math inline">a</span> et <span class="math inline">r</span> un réel strictement positif.</p>
+<ol type="1">
+<li><p>L’ensemble des points <span class="math inline">M(z)</span> vérifiant <span class="math inline">|z-a|=r</span> est le <strong>cercle</strong> de centre <span class="math inline">A(a)</span> et de rayon <span class="math inline">r</span> : <span class="math display">\mathscr{C}(A,r)=\left\{M(z)\ /\ |z-a|=r\right\}</span></p></li>
+<li><p>L’ensemble des points <span class="math inline">M(z)</span> vérifiant <span class="math inline">|z-a|&lt;r</span> est le <strong>disque ouvert</strong> de centre <span class="math inline">A</span> et de rayon <span class="math inline">r</span> : <span class="math display">D(A,r)=\left\{M(z)\ /\ |z-a|&lt;r\right\}</span></p></li>
+<li><p>L’ensemble des points <span class="math inline">M(z)</span> vérifiant <span class="math inline">|z-a|\leq r</span> est le <strong>disque fermé</strong> de centre <span class="math inline">A</span> et de rayon <span class="math inline">r</span> : <span class="math display">\overline{D}(A,r)=\left\{M(z)\ /\ |z-a|\leq r\right\}</span></p></li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 1.1</strong></p>
+<p>Soit <span class="math inline">(z,z')\in \mathbb{C}^2</span>. Alors on a :</p>
+<ol type="1">
+<li><span class="math inline">\left|\mathcal{R}e(z)\right|\leq |z|\ \ \ ;\ \ \ \left|\mathcal{I}m(z)\right|\leq |z|</span></li>
+<li><strong>Inégalité triangulaire :</strong> <span class="math display">|z+z'|\leq |z|+|z'|</span> avec égalité si et seulement si <span class="math inline">z=0</span> ou <span class="math inline">z'=\lambda z</span> où <span class="math inline">\lambda \in \mathbb{R}^+</span>.</li>
+</ol>
+</div>
+<div class="proof remark">
+<p><span class="proof-title"><em>Remarque</em>. </span>Ce théorème peut être généralisé à <span class="math inline">n</span> nombres complexes <span class="math inline">z_1,\cdots,z_n</span> comme suit : <span class="math display">\left|z_1+\cdots +z_n\right|\leq |z_1|+\cdots +|z_n|</span></p>
+</div>
+<div class="custom-numbered-block custom-corollary">
+<p><strong>Corollaire 1.1</strong></p>
+<p><span class="math display">\forall (z,z')\in \mathbb{C}^2,\ \left||z|-|z'|\right|\leq |z-z'|\leq |z|+|z'|</span></p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 1.1</strong></p>
+<p>Soient <span class="math inline">z_1,\cdots,z_n</span> des nombres complexes de modules 1. On pose <span class="math inline">Z=\left(\sum_{k=1}^nz_k\right)\left(\sum_{k=1}^n\frac{1}{z_k}\right)</span>.</p>
+<p>Montrer que <span class="math inline">Z</span> est un réel tel que <span class="math inline">|Z|\leq n^2</span>.</p>
+</div>
+<div class="proof solution">
+<p><span class="proof-title"><em>Solution</em>. </span>Les <span class="math inline">z_k</span> sont de modules 1, donc <span class="math inline">\overline{z_k}=\frac{1}{z_k}</span>. Donc :</p>
+<p><span class="math display">\overline{Z}=\overline{\left(\sum_{k=1}^nz_k\right)}\overline{\left(\sum_{k=1}^n\frac{1}{z_k}\right)}=\left(\sum_{k=1}^n\overline{z_k}\right)\left(\sum_{k=1}^n\overline{\frac{1}{z_k}}\right)=\left(\sum_{k=1}^n\frac{1}{z_k}\right)\left(\sum_{k=1}^nz_k\right)=Z</span></p>
+<p>Donc <span class="math inline">Z\in \mathbb{R}</span>.</p>
+<p>D’autre part, si on utilise l’inégalité triangulaire alors :</p>
+<p><span class="math display">|Z|=\left|\left(\sum_{k=1}^nz_k\right)\left(\sum_{k=1}^n\frac{1}{z_k}\right)\right|=\left|\sum_{k=1}^nz_k\right|\left|\sum_{k=1}^n\frac{1}{z_k}\right| \leq \left(\sum_{k=1}^n|z_k|\right)\left(\sum_{k=1}^n\frac{1}{|z_k|}\right) = \left(\sum_{k=1}^n1\right)\left(\sum_{k=1}^n1\right)=n^2</span></p>
+<p>D’où le résultat.</p>
+</div>
+</section>
+<section id="argument-dun-nombre-complexe-non-nul" class="level2" data-number="1.5">
+<h2 data-number="1.5" class="anchored" data-anchor-id="argument-dun-nombre-complexe-non-nul"><span class="header-section-number">1.5</span> Argument d’un nombre complexe non nul</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 1.5</strong></p>
+<p>Soit <span class="math inline">z=x+iy\in \mathbb{C}^*</span>. On appelle <strong>argument</strong> de <span class="math inline">z</span> toute mesure de l’angle orienté <span class="math inline">(\vec{u},\overrightarrow{OM})</span> et on le note <span class="math inline">\operatorname{Arg}(z)</span>.</p>
+<p>Si <span class="math inline">\theta</span> est une mesure de l’angle <span class="math inline">(\vec{u},\overrightarrow{OM})</span> alors : <span class="math display">\operatorname{Arg}(z)=\theta \ [2\pi]</span></p>
+<p>L’ensemble des arguments de <span class="math inline">z</span> est <span class="math inline">\left\{\theta+2k\pi\ /\ k\in \mathbb{Z}\right\}</span>.</p>
+</div>
+<div class="proof remark">
+<p><span class="proof-title"><em>Remarque</em>. </span></p>
+<ol type="1">
+<li>Le nombre complexe nul ne possède pas d’argument.</li>
+<li>On remarque aussi que : <span class="math display">x=|z|\cos\theta \ \ ;\ \ y=|z|\sin\theta</span></li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 1.7</strong></p>
+<p>Soit <span class="math inline">z</span> et <span class="math inline">z'</span> deux nombres complexes non nuls. Alors on a :</p>
+<ol type="1">
+<li><span class="math inline">\operatorname{Arg}(\overline{z})=-\operatorname{Arg}(z)\ [2\pi]</span></li>
+<li><span class="math inline">\operatorname{Arg}(-z)=\operatorname{Arg}(z)+\pi\ [2\pi]</span></li>
+<li><span class="math inline">\operatorname{Arg}(z\times z')=\operatorname{Arg}(z)+\operatorname{Arg}(z')\ [2\pi]</span></li>
+<li><span class="math inline">\operatorname{Arg}\left(\frac{1}{z}\right)=-\operatorname{Arg}(z)\ [2\pi]</span></li>
+<li><span class="math inline">\operatorname{Arg}\left(\frac{z}{z'}\right)=\operatorname{Arg}(z)-\operatorname{Arg}(z')\ [2\pi]</span></li>
+<li><span class="math inline">\forall n\in\mathbb{Z},\ \operatorname{Arg}(z^n)=n\operatorname{Arg}(z)\ [2\pi]</span></li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 1.4</strong></p>
+<p>Déterminons le module et l’argument du nombre complexe <span class="math inline">z=\sqrt{2+\sqrt{2}}+i\sqrt{2-\sqrt{2}}</span> :</p>
+<p><span class="math display">|z|=\sqrt{\left(\sqrt{2+\sqrt{2}}\right)^2+\left(\sqrt{2-\sqrt{2}}\right)^2}=2</span></p>
+<p><span class="math display">2\operatorname{Arg}(z)=\operatorname{Arg}(z^2)\ [2\pi]=\operatorname{Arg}\left(2\sqrt{2}(1+i)\right)\ [2\pi]=\operatorname{Arg}\left(4\left(\frac{\sqrt{2}}{2}+i\frac{\sqrt{2}}{2}\right)\right)\ [2\pi]=\frac{\pi}{4}\ [2\pi]</span></p>
+<p>Donc <span class="math inline">\operatorname{Arg}(z)=\frac{\pi}{8}\ [\pi]</span>.</p>
+<p>Or <span class="math inline">\mathcal{R}e(z),\ \mathcal{I}m(z)&gt;0</span>, donc <span class="math inline">\operatorname{Arg}(z)=\frac{\pi}{8}\ [2\pi]</span>.</p>
+</div>
+</section>
+</section>
+<section id="forme-polaire-racines-n-ièmes-équation-du-second-degré-réduction-de-acos-xbsin-x" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> Forme polaire — Racines n-ièmes — Équation du second degré — Réduction de <span class="math inline">a\cos x+b\sin x</span></h1>
+<section id="nombres-complexes-de-module-1" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="nombres-complexes-de-module-1"><span class="header-section-number">2.1</span> Nombres complexes de module 1</h2>
+<p>On introduit les deux symboles <span class="math inline">\sum</span> et <span class="math inline">\prod</span> de somme et de produit comme suit :</p>
+<p><span class="math display">\sum_{k=1}^nz_k=z_1+z_2+\cdots +z_n \ \ \ \text{(somme)}</span> <span class="math display">\prod_{k=1}^nz_k=z_1\times z_2\times \cdots \times z_n \ \ \ \text{(produit)}</span></p>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 2.1</strong></p>
+<p>Les nombres complexes de module 1 sont les affixes des points du cercle unité <span class="math inline">\mathscr{C}(O,1)</span>. Ils sont les nombres complexes <span class="math inline">z</span> de la forme : <span class="math display">z=\cos\theta+i\sin\theta</span> avec <span class="math inline">\theta \in \mathbb{R}</span>.</p>
+<p>Si on note <span class="math inline">\mathbb{U}</span> l’ensemble des nombres complexes de module 1 et on pose <span class="math inline">e^{i\theta}=\cos\theta+i\sin\theta</span> alors :</p>
+<p><span class="math display">\mathbb{U}=\left\{e^{i\theta}\ /\ \theta \in \mathbb{R}\right\}=\left\{e^{i\theta}\ /\ \theta \in [-\pi,\pi[\right\}</span></p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 2.1</strong></p>
+<p>Soit <span class="math inline">(\theta,\theta')\in \mathbb{R}^2</span>. Alors on a :</p>
+<ol type="1">
+<li><span class="math inline">e^{i(\theta+\theta')}=e^{i\theta}\times e^{i\theta'}</span></li>
+<li><span class="math inline">e^{i(\theta-\theta')}=\frac{e^{i\theta}}{e^{i\theta'}}</span></li>
+<li><span class="math inline">\overline{e^{i\theta}}=e^{-i\theta}=\frac{1}{e^{i\theta}}</span></li>
+<li><span class="math inline">|e^{i\theta}|=1</span></li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 2.2</strong></p>
+<p>Soit <span class="math inline">(\theta,\theta')\in \mathbb{R}^2</span>. Alors on a :</p>
+<ol type="1">
+<li><p><strong>Formule de Moivre :</strong> <span class="math display">\forall n\in \mathbb{Z},\ \left(e^{i\theta}\right)^n=e^{in\theta} \Longleftrightarrow \forall n\in \mathbb{Z},\ \left(\cos\theta+i\sin\theta\right)^n=\cos n\theta+i\sin n\theta</span></p></li>
+<li><p><strong>Formules d’Euler :</strong> <span class="math display">\cos\theta = \frac{1}{2}\left(e^{i\theta}+e^{-i\theta}\right) \ \ ;\ \ \sin\theta = \frac{1}{2i}\left(e^{i\theta}-e^{-i\theta}\right)</span></p></li>
+<li><p><strong>Formules de l’arc moitié :</strong> <span class="math display">e^{i\theta}+e^{i\theta'}=2\cos\left(\frac{\theta-\theta'}{2}\right)e^{i\frac{\theta+\theta'}{2}}</span> <span class="math display">e^{i\theta}-e^{i\theta'}=2i\sin\left(\frac{\theta-\theta'}{2}\right)e^{i\frac{\theta+\theta'}{2}}</span></p></li>
+</ol>
+<p>En particulier lorsque <span class="math inline">\theta'=0\ [2\pi]</span> : <span class="math display">e^{i\theta}+1=2\cos\left(\frac{\theta}{2}\right)e^{i\frac{\theta}{2}} \ \ ;\ \ e^{i\theta}-1=2i\sin\left(\frac{\theta}{2}\right)e^{i\frac{\theta}{2}}</span></p>
+</div>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 2.2 — (Coefficients binomiaux)</strong></p>
+<p>Soit <span class="math inline">(n,p)\in \mathbb{N}^2</span> tel que <span class="math inline">0\leq p\leq n</span>. On définit <span class="math inline">n</span> factorielle <span class="math inline">n!</span> et le coefficient binomial <span class="math inline">C_n^p</span> par : <span class="math display">n!=1\times 2\times \cdots \times n =\prod_{k=1}^nk \ \ ;\ \ C_n^p=\frac{n!}{p!(n-p)!}</span></p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 2.3</strong></p>
+<p><span class="math display">C_n^{p}+C_n^{p+1}=C_{n+1}^{p+1}\ \ (p\leq n-1)\ \ ;\ \ C_n^p=\frac{p+1}{n+1}C_{n+1}^{p+1}</span></p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 2.4 — (Formule du binôme de Newton)</strong></p>
+<p>Soit <span class="math inline">(a,b)\in \mathbb{C}^2</span> et <span class="math inline">n\in \mathbb{N}</span>. Alors on a : <span class="math display">(a+b)^n=\sum_{p=0}^nC_n^pa^pb^{n-p}</span></p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 2.1</strong></p>
+<ol type="1">
+<li>Écrire <span class="math inline">\cos 4x</span> en fonction de <span class="math inline">\cos x</span></li>
+<li>Linéariser <span class="math inline">\cos x\sin^3 x</span> c’est-à-dire l’écrire en fonction des <span class="math inline">\cos ax</span> et <span class="math inline">\sin bx</span></li>
+</ol>
+</div>
+<div class="proof solution">
+<p><span class="proof-title"><em>Solution</em>. </span></p>
+<ol type="1">
+<li>Écrivons <span class="math inline">\cos 4x</span> en fonction de <span class="math inline">\cos x</span> :</li>
+</ol>
+<p><span class="math display">\begin{aligned}
+\cos 4x&amp;=\mathcal{R}e\left(\left(e^{ix}\right)^4\right)\\
+&amp;=\mathcal{R}e\left((\cos x+i\sin x)^4\right)\\
+&amp;=\mathcal{R}e\left(\cos^4 x+i4\cos^3 x\sin x-6\cos^2 x\sin^2 x-i4\cos x\sin^3 x+\sin^4 x\right)\\
+&amp;= \cos^4 x-6\cos^2 x\sin^2 x+\sin^4 x\\
+&amp;= \cos^4 x-6\cos^2 x(1-\cos^2 x)+(1-\cos^2 x)^2\\
+&amp;= 8\cos^4 x-8\cos^2 x+1
+\end{aligned}</span></p>
+<ol start="2" type="1">
+<li>Linéarisons <span class="math inline">\cos x\sin^3 x</span> :</li>
+</ol>
+<p><span class="math display">\begin{aligned}
+\cos x\sin^3 x&amp;=\frac{1}{2}\left(e^{ix}+e^{-ix}\right)\left(\frac{1}{2i}\left(e^{ix}-e^{-ix}\right)\right)^3\\
+&amp;= \frac{-1}{2^4i}\left(e^{i2x}-e^{-i2x}\right)\left(e^{ix}-e^{-ix}\right)^2\\
+&amp;= \frac{-1}{2^4i}\left(e^{i2x}-e^{-i2x}\right)\left(e^{i2x}-2+e^{-i2x}\right)\\
+&amp;= \frac{-1}{2^4i}\left(e^{i4x}-e^{-i4x}\right)+\frac{1}{2^3i}\left(e^{i2x}-e^{-i2x}\right)\\
+&amp;= \frac{-1}{8}\sin 4x +\frac{1}{4}\sin 2x
+\end{aligned}</span></p>
+</div>
+</section>
+<section id="forme-polaire-dun-nombre-complexe-non-nul" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="forme-polaire-dun-nombre-complexe-non-nul"><span class="header-section-number">2.2</span> Forme polaire d’un nombre complexe non nul</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 2.3</strong></p>
+<p>Soit <span class="math inline">z\in \mathbb{C}^*</span>. On appelle <strong>forme polaire</strong> (ou <strong>exponentielle</strong>) de <span class="math inline">z</span> une écriture de la forme : <span class="math display">z=\rho e^{i\theta}</span> avec <span class="math inline">(\rho,\theta)\in \mathbb{R}^+_*\times [-\pi,\pi[</span>.</p>
+</div>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 2.1</strong></p>
+<p><span class="math display">\forall z\in \mathbb{C}^*,\ \exists !(\rho,\theta)\in \mathbb{R}^+_*\times [-\pi,\pi[,\ z=\rho e^{i\theta}</span></p>
+</div>
+<div class="proof remark">
+<p><span class="proof-title"><em>Remarque</em>. </span>Le théorème précédent est encore vrai si on remplace l’intervalle <span class="math inline">[-\pi,\pi[</span> par n’importe quel intervalle semi-ouvert d’amplitude <span class="math inline">2\pi</span>, par exemple l’un des intervalles suivants : <span class="math display">[0,2\pi[,\ [\pi,3\pi[,\ ]-2\pi,0],\ [-3\pi,-\pi[, \cdots \ \text{etc.}</span></p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 2.5</strong></p>
+<p>Soit <span class="math inline">(z,z')\in (\mathbb{C}^*)^2</span>. Alors on a :</p>
+<ol type="1">
+<li><span class="math inline">z=z' \Longleftrightarrow |z|=|z'| \text{ et } \operatorname{Arg}(z)=\operatorname{Arg}(z')\ [2\pi]</span></li>
+<li><span class="math inline">\overline{z}=|z|e^{-i\operatorname{Arg}(z)}</span></li>
+<li><span class="math inline">-z=|z|e^{i(-\operatorname{Arg}(z)+\pi)}</span></li>
+<li><span class="math inline">z\times z'=|z||z'|e^{i(\operatorname{Arg}(z)+\operatorname{Arg}(z'))}</span></li>
+<li><span class="math inline">\frac{z}{z'}=\frac{|z|}{|z'|}e^{i(\operatorname{Arg}(z)-\operatorname{Arg}(z'))}</span></li>
+<li><span class="math inline">\forall n\in \mathbb{Z},\ z^n=|z|^ne^{in\operatorname{Arg}(z)}</span></li>
+</ol>
+</div>
+</section>
+<section id="racines-n-ièmes-de-lunité" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="racines-n-ièmes-de-lunité"><span class="header-section-number">2.3</span> Racines n-ièmes de l’unité</h2>
+<p>Dans ce paragraphe <span class="math inline">n</span> désigne un entier naturel non nul et <span class="math inline">k</span> un entier. Il s’agit de résoudre l’équation d’inconnue <span class="math inline">z\in \mathbb{C}</span> suivante : <span class="math display">z^n=1</span></p>
+<p>On note <span class="math inline">\mathbb{U}_n</span> l’ensemble des solutions de cette équation. Les éléments de <span class="math inline">\mathbb{U}_n</span> s’appellent aussi <strong>racines n-ièmes de l’unité</strong>.</p>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 2.2</strong></p>
+<p><span class="math display">\mathbb{U}_n=\left\{e^{i\frac{2k\pi}{n}}\ /\ 0\leq k\leq n-1\right\}</span></p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 2.1</strong></p>
+<p>L’ensemble des solutions de l’équation <span class="math inline">z^3=1</span> est : <span class="math display">\mathbb{U}_3=\left\{1,\ j=e^{i\frac{2\pi}{3}}=-\frac{1}{2}+i\frac{\sqrt{3}}{2},\ \overline{j}=j^2=e^{i\frac{4\pi}{3}}=-\frac{1}{2}-i\frac{\sqrt{3}}{2}\right\}</span></p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 2.2</strong></p>
+<p>L’ensemble des solutions de l’équation <span class="math inline">z^4=1</span> est : <span class="math display">\mathbb{U}_4=\left\{1,\ i,\ -i,\ -1\right\}</span></p>
+</div>
+<div class="proof remark">
+<p><span class="proof-title"><em>Remarque</em>. </span></p>
+<ol type="1">
+<li>La somme des racines n-ièmes de l’unité vaut 0.</li>
+<li>Les racines n-ièmes de l’unité forment un polygone régulier à <span class="math inline">n</span> côtés.</li>
+</ol>
+</div>
+</section>
+<section id="racines-n-ièmes-dun-nombre-complexe" class="level2" data-number="2.4">
+<h2 data-number="2.4" class="anchored" data-anchor-id="racines-n-ièmes-dun-nombre-complexe"><span class="header-section-number">2.4</span> Racines n-ièmes d’un nombre complexe</h2>
+<p>Dans ce paragraphe <span class="math inline">n</span> désigne un entier naturel non nul, <span class="math inline">k</span> un entier et <span class="math inline">a\in \mathbb{C}</span>. Il s’agit de résoudre l’équation d’inconnue <span class="math inline">z\in \mathbb{C}</span> suivante : <span class="math display">z^n=a</span></p>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 2.3</strong></p>
+<p><span class="math display">S=\begin{cases}\{0\}, \text{ si } a=0\\ \left\{\sqrt[n]{|a|}e^{i\frac{2k\pi+\operatorname{Arg}(a)}{n}}\ /\ 0\leq k\leq n-1\right\}, \text{ sinon}\end{cases}</span></p>
+</div>
+</section>
+<section id="équation-du-second-degré" class="level2" data-number="2.5">
+<h2 data-number="2.5" class="anchored" data-anchor-id="équation-du-second-degré"><span class="header-section-number">2.5</span> Équation du second degré</h2>
+<p>Dans ce paragraphe <span class="math inline">a</span>, <span class="math inline">b</span> et <span class="math inline">c</span> désignent des nombres complexes avec <span class="math inline">a\neq 0</span>. Il s’agit de résoudre l’équation d’inconnue <span class="math inline">z\in \mathbb{C}</span> suivante : <span class="math display">az^2+bz+c=0</span></p>
+<p>On note <span class="math inline">\Delta =b^2-4ac</span> et <span class="math inline">\delta</span> une racine carrée de <span class="math inline">\Delta</span> (c’est-à-dire <span class="math inline">\delta^2=\Delta</span>).</p>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 2.4</strong></p>
+<p><span class="math display">S=\left\{\frac{-b+\delta}{2a},\ \frac{-b-\delta}{2a}\right\}</span></p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 2.3</strong></p>
+<p>Soit l’équation d’inconnue <span class="math inline">z\in \mathbb{C}</span> suivante : <span class="math display">z^2-(5-14i)z-2(5i+12)=0</span></p>
+<p>On a <span class="math inline">\Delta =(5-14i)^2+4\times 2(5i+12)=-25(3+4i)=\left(5i(2+i)\right)^2</span>, donc l’ensemble des solutions est : <span class="math display">S=\left\{\frac{5-14i-5+10i}{2}=-2i,\ \frac{5-14i+5-10i}{2}=5-12i\right\}</span></p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 2.6</strong></p>
+<p>L’équation <span class="math inline">az^2+bz+c=0</span> d’inconnue <span class="math inline">z\in \mathbb{C}</span> est équivalente au système d’inconnues <span class="math inline">(z_1,z_2)\in \mathbb{C}^2</span> suivant : <span class="math display">\begin{cases}z_1+z_2=\frac{-b}{a}\\ z_1z_2=\frac{c}{a}\end{cases}</span></p>
+</div>
+</section>
+<section id="réduction-de-acos-xbsin-x" class="level2" data-number="2.6">
+<h2 data-number="2.6" class="anchored" data-anchor-id="réduction-de-acos-xbsin-x"><span class="header-section-number">2.6</span> Réduction de <span class="math inline">a\cos x+b\sin x</span></h2>
+<p>Dans ce paragraphe, <span class="math inline">a</span>, <span class="math inline">b</span> et <span class="math inline">x</span> désignent des réels tels que <span class="math inline">(a,b)\neq (0,0)</span>.</p>
+<div class="proof remark" title="(Méthode de réduction)">
+<p><span class="proof-title"><em>Remarque</em>. </span>Le nombre complexe <span class="math inline">a+ib</span> est non nul, il existe alors <span class="math inline">(\rho,\theta)\in \mathbb{R}^+_*\times [0,2\pi[</span> tel que <span class="math inline">a+ib=\rho e^{i\theta}</span> avec <span class="math inline">\rho =\sqrt{a^2+b^2}</span>. On aura alors :</p>
+<p><span class="math display">(a\cos x+b\sin x)+i(-a\sin x+b\cos x)=\rho e^{i\theta}e^{-ix}=\rho e^{i(\theta -x)}</span></p>
+<p>Par suite : <span class="math display">a\cos x+b\sin x=\mathcal{R}e\left(\rho e^{i(\theta -x)}\right)=\rho\cos\left(\theta -x\right)</span></p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 2.4</strong></p>
+<p>Résolvons l’équation d’inconnue <span class="math inline">x</span> suivante : <span class="math display">(E) \ \ \ \cos x +\sin x =1</span></p>
+<p>On a <span class="math inline">\cos x +\sin x =\sqrt{2}\cos\left(\frac{\pi}{4}-x\right)</span>. Donc :</p>
+<p><span class="math display">(E) \Longleftrightarrow \sqrt{2}\cos\left(\frac{\pi}{4}-x\right) = 1 \Longleftrightarrow \cos\left(\frac{\pi}{4}-x\right) =\frac{\sqrt{2}}{2}=\cos\left(\frac{\pi}{4}\right)</span></p>
+<p><span class="math display">\Longleftrightarrow \frac{\pi}{4}-x =\frac{\pi}{4}\ [2\pi] \text{ ou } \frac{\pi}{4}-x=-\frac{\pi}{4}\ [2\pi]</span></p>
+<p><span class="math display">\Longleftrightarrow x =0\ [2\pi] \text{ ou } x=\frac{\pi}{2}\ [2\pi]</span></p>
+<p>D’où l’ensemble des solutions est : <span class="math display">S=\left\{2k\pi,\ \frac{\pi}{2}+2k\pi\ /\ k\in \mathbb{Z} \right\}</span></p>
+</div>
+</section>
+<section id="calcul-des-sommes-sum_k0ncosakb-et-sum_k0nsinakb" class="level2" data-number="2.7">
+<h2 data-number="2.7" class="anchored" data-anchor-id="calcul-des-sommes-sum_k0ncosakb-et-sum_k0nsinakb"><span class="header-section-number">2.7</span> Calcul des sommes <span class="math inline">\sum_{k=0}^n\cos(ak+b)</span> et <span class="math inline">\sum_{k=0}^n\sin(ak+b)</span></h2>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 2.7</strong></p>
+<p>Soit <span class="math inline">z\in \mathbb{C}</span>. Alors on a : <span class="math display">\sum_{k=0}^nz^k=\begin{cases}n+1,\text{ si } z=1\\\frac{1-z^{n+1}}{1-z},\text{ sinon}\end{cases}</span></p>
+</div>
+<div class="proof remark" title="(Calcul des sommes trigonométriques)">
+<p><span class="proof-title"><em>Remarque</em>. </span>On remarque que : <span class="math display">\sum_{k=0}^n\cos(ak+b)=\mathcal{R}e\left(\sum_{k=0}^n e^{i(ak+b)}\right) \ \text{ et } \ \sum_{k=0}^n\sin(ak+b)=\mathcal{I}m\left(\sum_{k=0}^n e^{i(ak+b)}\right)</span></p>
+<p>Donc il suffit de calculer la somme <span class="math inline">\sum_{k=0}^n e^{i(ak+b)}</span>. On obtient :</p>
+<p><span class="math display">\sum_{k=0}^n\cos(ak+b)=\begin{cases}(n+1)\cos b,\text{ si } a=0\ [2\pi]\\\frac{\sin\left(\frac{a(n+1)}{2}\right)}{\sin\left(\frac{a}{2}\right)}\cos\left(\frac{an}{2}+b\right), \text{ sinon}\end{cases}</span></p>
+<p><span class="math display">\sum_{k=0}^n\sin(ak+b)=\begin{cases}(n+1)\sin b,\text{ si } a=0\ [2\pi]\\\frac{\sin\left(\frac{a(n+1)}{2}\right)}{\sin\left(\frac{a}{2}\right)}\sin\left(\frac{an}{2}+b\right), \text{ sinon}\end{cases}</span></p>
+</div>
+</section>
+<section id="exponentielle-complexe" class="level2" data-number="2.8">
+<h2 data-number="2.8" class="anchored" data-anchor-id="exponentielle-complexe"><span class="header-section-number">2.8</span> Exponentielle complexe</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 2.4</strong></p>
+<p>Soit <span class="math inline">z=x+iy\in \mathbb{C}</span>. On appelle <strong>exponentielle</strong> de <span class="math inline">z</span> le nombre complexe noté <span class="math inline">e^z</span> et défini par : <span class="math display">e^z=e^xe^{iy}</span></p>
+</div>
+<div class="proof remark">
+<p><span class="proof-title"><em>Remarque</em>. </span>L’exponentielle d’un nombre complexe n’est jamais nulle.</p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 2.8</strong></p>
+<ol type="1">
+<li><p>Si <span class="math inline">z_1,\cdots, z_n</span> sont des nombres complexes alors : <span class="math display">\prod_{k=1}^ne^{z_k}=e^{\sum_{k=1}^nz_k}</span></p></li>
+<li><p>Si <span class="math inline">(z,z')\in \mathbb{C}^2</span> alors : <span class="math display">e^{z}=e^{z'} \Longleftrightarrow \exists k\in \mathbb{Z},\ z'=z+i2k\pi</span></p></li>
+</ol>
+</div>
+<div class="proof remark" title="(Résolution de l'équation $e^z=a$)">
+<p><span class="proof-title"><em>Remarque</em>. </span>Soit <span class="math inline">a\in \mathbb{C}</span>. Il s’agit de résoudre l’équation d’inconnue <span class="math inline">z\in \mathbb{C}</span> suivante : <span class="math inline">e^z=a</span>.</p>
+<ol type="1">
+<li>Si <span class="math inline">a=0</span> alors l’équation n’admet pas de solutions : <span class="math inline">S=\emptyset</span>.</li>
+<li>Sinon, <span class="math inline">a</span> possède une écriture polaire : <span class="math inline">\exists ! (r,\alpha)\in \mathbb{R}^*_+\times [-\pi,\pi[,\ a=re^{i\alpha}</span> et l’ensemble des solutions est : <span class="math display">S=\left\{\ln r+i(\alpha +2k\pi)\ /\ k\in \mathbb{Z}\right\}</span></li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 2.5</strong></p>
+<p>L’ensemble des solutions de l’équation <span class="math inline">e^z=1+i=\sqrt{2}e^{i\frac{\pi}{4}}</span> est : <span class="math display">S=\left\{\frac{1}{2}\ln 2+i\left(\frac{\pi}{4}+2k\pi\right)\ /\ k\in \mathbb{Z}\right\}</span></p>
+</div>
+</section>
+</section>
+<section id="géométrie" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Géométrie</h1>
+<section id="caractérisation-de-lalignement-lorthogonalité-et-la-cocyclicité" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="caractérisation-de-lalignement-lorthogonalité-et-la-cocyclicité"><span class="header-section-number">3.1</span> Caractérisation de l’alignement, l’orthogonalité et la cocyclicité</h2>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 3.1</strong></p>
+<p>Soit <span class="math inline">A</span>, <span class="math inline">B</span> et <span class="math inline">M</span> trois points distincts du plan complexe d’affixes respectifs <span class="math inline">a</span>, <span class="math inline">b</span> et <span class="math inline">z</span>. Alors on a :</p>
+<p><span class="math display">(\overrightarrow{MA},\overrightarrow{MB})=\operatorname{Arg}\left(\frac{b-z}{a-z}\right)\ [2\pi] \ \ ;\ \ \frac{MB}{MA}=\left|\frac{b-z}{a-z}\right|</span></p>
+</div>
+<div class="custom-numbered-block custom-corollary">
+<p><strong>Corollaire 3.1</strong></p>
+<p>Soit <span class="math inline">A</span>, <span class="math inline">B</span>, <span class="math inline">C</span> et <span class="math inline">D</span> des points distincts deux à deux du plan complexe d’affixes respectifs <span class="math inline">a</span>, <span class="math inline">b</span>, <span class="math inline">c</span> et <span class="math inline">d</span>. Alors on a :</p>
+<ol type="1">
+<li><span class="math inline">A</span>, <span class="math inline">B</span> et <span class="math inline">C</span> sont alignés <span class="math inline">\Longleftrightarrow \frac{c-a}{b-a}\in \mathbb{R}</span></li>
+<li><span class="math inline">(AB)\perp (AC) \Longleftrightarrow \frac{c-a}{b-a}\in i\mathbb{R}</span></li>
+<li><span class="math inline">ABC</span> est un triangle isocèle droit en <span class="math inline">A</span> <span class="math inline">\Longleftrightarrow \frac{c-a}{b-a}=\pm i</span></li>
+<li><span class="math inline">ABC</span> est un triangle équilatéral <span class="math inline">\Longleftrightarrow \frac{c-a}{b-a}=e^{\pm i\frac{\pi}{3}}</span></li>
+<li><span class="math inline">A</span>, <span class="math inline">B</span>, <span class="math inline">C</span> et <span class="math inline">D</span> sont cocycliques ou alignés <span class="math inline">\Longleftrightarrow \frac{c-a}{d-a}\div \frac{c-b}{d-b}\in \mathbb{R}</span></li>
+</ol>
+</div>
+</section>
+<section id="transformations-géométriques-usuelles" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="transformations-géométriques-usuelles"><span class="header-section-number">3.2</span> Transformations géométriques usuelles</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 3.1 — (Translation)</strong></p>
+<p>Soit <span class="math inline">\vec{u}(u)</span> un vecteur du plan complexe. On appelle <strong>translation</strong>, de vecteur <span class="math inline">\vec{u}</span>, notée <span class="math inline">t_{\vec{u}}</span>, la transformation du plan qui transforme chaque point <span class="math inline">M(z)</span> du plan complexe au point <span class="math inline">M'(z')</span> tel que : <span class="math display">\overrightarrow{MM'}=\vec{u} \Longleftrightarrow z'-z=u</span></p>
+</div>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 3.2 — (Rotation)</strong></p>
+<p>On appelle <strong>rotation</strong> de centre <span class="math inline">\Omega(\omega)</span> et d’angle <span class="math inline">\theta</span>, notée <span class="math inline">r_{(\Omega,\theta)}</span>, la transformation du plan qui transforme chaque point <span class="math inline">M(z)</span> au point <span class="math inline">M'(z')</span> tel que : <span class="math display">\begin{cases}\Omega M'=\Omega M\\ \left(\overrightarrow{\Omega M},\overrightarrow{\Omega M'}\right)=\theta \ [2\pi]\end{cases} \Longleftrightarrow z'=e^{i\theta}(z-\omega)+\omega</span></p>
+<p><strong>Cas particulier :</strong> Si <span class="math inline">\theta =\pi \ [2\pi]</span> alors <span class="math inline">r_{(\Omega,\theta)}</span> est la symétrie centrale de centre <span class="math inline">\Omega</span>.</p>
+</div>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 3.3 — (Homothétie)</strong></p>
+<p>On appelle <strong>homothétie</strong> de centre <span class="math inline">\Omega(\omega)</span> et de rapport <span class="math inline">\lambda\in \mathbb{R}</span>, notée <span class="math inline">h_{(\Omega,\lambda)}</span>, la transformation du plan qui transforme chaque point <span class="math inline">M(z)</span> au point <span class="math inline">M'(z')</span> tel que : <span class="math display">\overrightarrow{\Omega M'}=\lambda \overrightarrow{\Omega M} \Longleftrightarrow z'=\lambda (z-\omega)+\omega</span></p>
+<p><strong>Cas particulier :</strong> Si <span class="math inline">\lambda =-1</span> alors <span class="math inline">h_{(\Omega,\lambda)}</span> est la symétrie centrale de centre <span class="math inline">\Omega</span>.</p>
+</div>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 3.4 — (Similitude directe)</strong></p>
+<p>On appelle <strong>similitude directe</strong> de centre <span class="math inline">\Omega</span>, d’angle <span class="math inline">\theta</span> et de rapport <span class="math inline">\rho&gt;0</span>, la composée <span class="math inline">s</span> de la rotation <span class="math inline">r</span> de centre <span class="math inline">\Omega</span> et d’angle <span class="math inline">\theta</span> et de l’homothétie <span class="math inline">h</span> de centre <span class="math inline">\Omega</span> et de rapport <span class="math inline">\rho</span>. De plus, <span class="math inline">r</span> et <span class="math inline">h</span> commutent : <span class="math display">s = h\circ r = r\circ h</span></p>
+<p>Si on pose <span class="math inline">a=\rho e^{i\theta}</span> et si <span class="math inline">M(z)</span> un point du plan complexe alors son image <span class="math inline">M'(z')</span> par <span class="math inline">s</span> est telle que : <span class="math display">\begin{cases}\Omega M'=\rho\Omega M\\ \left(\overrightarrow{\Omega M},\overrightarrow{\Omega M'}\right)=\theta \ [2\pi]\end{cases} \Longleftrightarrow z'=a(z-\omega)+\omega</span></p>
+<p><strong>Cas particuliers :</strong></p>
+<ol type="1">
+<li>Si <span class="math inline">\rho =1</span> alors <span class="math inline">s</span> est la rotation de centre <span class="math inline">\Omega(\omega)</span> et d’angle <span class="math inline">\theta</span>.</li>
+<li>Si <span class="math inline">\theta = 0\ [\pi]</span> alors <span class="math inline">s</span> est l’homothétie de centre <span class="math inline">\Omega(\omega)</span> et de rapport <span class="math inline">a</span>.</li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 3.1</strong></p>
+<p>Soit <span class="math inline">r_1</span> la rotation de centre <span class="math inline">A</span> d’affixe <span class="math inline">-1</span> et d’angle <span class="math inline">\frac{\pi}{3}</span> et <span class="math inline">r_2</span> la rotation de centre <span class="math inline">B</span> d’affixe <span class="math inline">j=e^{i\frac{2\pi}{3}}</span> et d’angle <span class="math inline">\frac{2\pi}{3}</span>. Déterminer la nature de <span class="math inline">r_2\circ r_1</span>.</p>
+</div>
+<div class="proof solution">
+<p><span class="proof-title"><em>Solution</em>. </span>Soit <span class="math inline">M</span> un point du plan complexe d’affixe <span class="math inline">z</span> et soit <span class="math inline">M'</span> d’affixe <span class="math inline">z'</span> l’image de <span class="math inline">M</span> par la transformation <span class="math inline">r_2\circ r_1</span>. <span class="math inline">z'</span> vérifie alors :</p>
+<p><span class="math display">\begin{aligned}
+z'=r_2\circ r_1(z)&amp;=r_2\left(e^{i\frac{\pi}{3}}(z+1)-1\right)=j\left(e^{i\frac{\pi}{3}}(z+1)-1-j\right)+j\\
+&amp;=-(z+1)-j-j^2+j=-z-\underbrace{(1+j+j^2)}_{=0}+j\\
+&amp;\Longleftrightarrow z'-\frac{j}{2}=-\left(z-\frac{j}{2}\right)
+\end{aligned}</span></p>
+<p>C’est-à-dire <span class="math inline">M'</span> est l’image de <span class="math inline">M</span> par la rotation de centre <span class="math inline">C</span> d’affixe <span class="math inline">\frac{j}{2}</span> et d’angle <span class="math inline">\pi</span>. D’où <span class="math inline">r_2\circ r_1</span> est la symétrie centrale de centre <span class="math inline">C</span> d’affixe <span class="math inline">\frac{j}{2}</span>.</p>
+</div>
+</section>
+<section id="classification-des-transformations-f-zlongmapsto-azb" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="classification-des-transformations-f-zlongmapsto-azb"><span class="header-section-number">3.3</span> Classification des transformations <span class="math inline">f: z\longmapsto az+b</span></h2>
+<p>Dans ce paragraphe, <span class="math inline">a</span> et <span class="math inline">b</span> désignent deux nombres complexes. Il s’agit de déterminer la nature de la transformation <span class="math inline">f: z\longmapsto az+b</span> dans le plan complexe.</p>
+<div class="proof remark" title="(Résumé)">
+<p><span class="proof-title"><em>Remarque</em>. </span></p>
+<ol type="1">
+<li>Si <span class="math inline">a=0</span> alors <span class="math inline">f</span> est la transformation fixe qui transforme chaque point du plan au point <span class="math inline">B(b)</span>.</li>
+<li>Si <span class="math inline">a\neq 0</span> alors on a deux cas à distinguer :
+<ul>
+<li>Si <span class="math inline">a=1</span> alors <span class="math inline">f</span> est la translation <span class="math inline">t_{\vec{u}}</span> de vecteur <span class="math inline">\vec{u}=\overrightarrow{OB}</span>.</li>
+<li>Si <span class="math inline">a\neq 1</span> alors <span class="math inline">f</span> est la similitude directe de centre <span class="math inline">\Omega(\omega)</span> avec <span class="math inline">\omega=\frac{b}{1-a}</span>, de rapport <span class="math inline">|a|</span> et d’angle <span class="math inline">\operatorname{Arg}(a)</span>. Si <span class="math inline">M(z)</span> un point du plan complexe et <span class="math inline">M'(z')</span> son image par <span class="math inline">f</span> alors : <span class="math display">\boxed{z'=a(z-\omega)+\omega}</span></li>
+</ul>
+Dans ce cas, on peut distinguer les cas particuliers suivants :
+<ul>
+<li>Si <span class="math inline">|a|=1</span> alors <span class="math inline">f</span> est la rotation de centre <span class="math inline">\Omega(\omega)</span> et d’angle <span class="math inline">\operatorname{Arg}(a)</span>.</li>
+<li>Si <span class="math inline">\operatorname{Arg}(a)=0\ [\pi]</span> alors <span class="math inline">f</span> est l’homothétie de centre <span class="math inline">\Omega(\omega)</span> et de rapport <span class="math inline">a</span>.</li>
+</ul></li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 3.1</strong></p>
+<p>La transformation <span class="math inline">z\longmapsto z+i</span> est la translation de vecteur d’affixe <span class="math inline">i</span> puisque <span class="math inline">z'=z+i \Longleftrightarrow z'-z=i</span>.</p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 3.2</strong></p>
+<p>La transformation <span class="math inline">z\longmapsto iz+2</span> est la rotation de centre <span class="math inline">\Omega</span> d’affixe <span class="math inline">1+i</span> et d’angle <span class="math inline">\frac{\pi}{2}</span> puisque <span class="math inline">z'=iz+2 \Longleftrightarrow z'=i\left(z-(1+i)\right)+(1+i)</span>.</p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 3.3</strong></p>
+<p>La transformation <span class="math inline">z\longmapsto 2z+2</span> est l’homothétie de centre <span class="math inline">\Omega</span> d’affixe <span class="math inline">-2</span> et de rapport <span class="math inline">2</span> puisque <span class="math inline">z'=2z+2 \Longleftrightarrow z'=2\left(z+2\right)-2</span>.</p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 3.4</strong></p>
+<p>La transformation <span class="math inline">z\longmapsto -z+2</span> est la symétrie centrale de centre <span class="math inline">\Omega</span> d’affixe <span class="math inline">1</span> puisque <span class="math inline">z'=-z+2 \Longleftrightarrow z'=-\left(z-1\right)+1</span>.</p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 3.2</strong></p>
+<p>Soit <span class="math inline">f</span> la transformation du plan complexe qui à chaque point <span class="math inline">M</span> d’affixe <span class="math inline">z</span> associe le point <span class="math inline">M'</span> d’affixe : <span class="math display">z'=(-1+i\sqrt{3})z-i\sqrt{3}</span></p>
+<ol type="1">
+<li>Montrer que <span class="math inline">f</span> est une similitude directe dont on déterminera le centre, l’angle et le rapport.</li>
+<li>Montrer que <span class="math inline">f</span> est la composée d’une homothétie de centre <span class="math inline">O</span> dont on déterminera le rapport et d’une rotation, dont on déterminera le centre et l’angle.</li>
+</ol>
+</div>
+</section>
+</section>
+<section id="document-en-pdf" class="level1 unnumbered">
+<h1 class="unnumbered">Document en PDF</h1>
+<p><a href="PDF/tsi1-chap02.pdf">Chapitre 02 : Nombres complexes</a></p>
+<section id="navigation" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="navigation">Navigation</h2>
+<div class="chap-nav">
+<p><a href="../cours/tsi1-chap01.html" class="prev">Chapitre 01 : Vocabulaire ensembliste et éléments de logique</a> <a href="../cours/tsi1.html" class="home">Menu TSI1</a> <a href="../cours/tsi1-chap03.html" class="next">Chapitre 03 : Compléments de calcul algébrique</a></p>
+</div>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -222,12 +844,12 @@ ul.task-list li input[type="checkbox"] {
       // flash "checked"
       button.classList.add('code-copy-button-checked');
       var currentTitle = button.getAttribute("title");
-      button.setAttribute("title", "Copied!");
+      button.setAttribute("title", "Copié");
       let tooltip;
       if (window.bootstrap) {
         button.setAttribute("data-bs-toggle", "tooltip");
         button.setAttribute("data-bs-placement", "left");
-        button.setAttribute("data-bs-title", "Copied!");
+        button.setAttribute("data-bs-title", "Copié");
         tooltip = new bootstrap.Tooltip(button, 
           { trigger: "manual", 
             customClass: "code-copy-button-tooltip",

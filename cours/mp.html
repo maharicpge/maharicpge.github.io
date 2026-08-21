@@ -74,6 +74,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../styles.css">
 </head>
@@ -125,7 +154,7 @@ ul.task-list li input[type="checkbox"] {
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="../apropos.html"> 
-<span class="menu-text">À propos</span></a>
+<span class="menu-text">À propos de l’auteur</span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
@@ -164,17 +193,19 @@ ul.task-list li input[type="checkbox"] {
 <section id="chapitres-au-programme" class="level2">
 <h2 class="anchored" data-anchor-id="chapitres-au-programme">Chapitres au programme</h2>
 <ul>
-<li><p><strong><a href="../cours/mp-chap01.html">Chapitre 01 — Topologie des EVN. Normes, distances, ouverts, fermés, compacité, connexité, continuité en dimension finie.</a></strong></p></li>
-<li><p><strong><a href="../cours/mp-chap02.html">Chapitre 02 — Algèbre linéaire (compléments). Sous-espaces stables, projecteurs, traces, dualité.</a></strong></p></li>
-<li><p><strong><a href="../cours/mp-chap03.html">Chapitre 03 — Réduction des endomorphismes. Valeurs propres, diagonalisation, trigonalisation, Cayley-Hamilton.</a></strong></p></li>
-<li><p><strong><a href="../cours/mp-chap04.html">Chapitre 04 — Espaces euclidiens (compléments). Adjoint, endomorphismes symétriques, théorème spectral.</a></strong></p></li>
-<li><p><strong><a href="../cours/mp-chap05.html">Chapitre 05 — Séries numériques. Convergence absolue, critères de comparaison, séries alternées.</a></strong></p></li>
-<li><p><strong><a href="../cours/mp-chap06.html">Chapitre 06 — Suites et séries de fonctions. Convergence simple et uniforme, théorèmes d’échange.</a></strong></p></li>
-<li><p><strong><a href="../cours/mp-chap07.html">Chapitre 07 — Séries entières. Rayon de convergence, développement en série entière.</a></strong></p></li>
-<li><p><strong><a href="../cours/mp-chap08.html">Chapitre 08 — Intégration sur un intervalle quelconque. Convergence dominée, intégrales dépendant d’un paramètre.</a></strong></p></li>
-<li><p><strong><a href="../cours/mp-chap09.html">Chapitre 09 — Calcul différentiel. Gradient, matrice jacobienne, extrema libres et liés.</a></strong></p></li>
-<li><p><strong><a href="../cours/mp-chap10.html">Chapitre 10 — Espaces probabilisés. Tribus, variables discrètes infinies, lois géométrique et de Poisson.</a></strong></p></li>
-<li><p><strong><a href="../cours/mp-chap11.html">Chapitre 11 — Convergences probabilistes. Markov, Tchebychev, loi faible des grands nombres.</a></strong></p></li>
+<li><p><strong><a href="../cours/mp-chap01.html">Chapitre 01 — Structures algébriques. Groupes, anneaux et corps, anneau <span class="math inline">\(\mathbb{K}[X]\)</span>, <span class="math inline">\(\mathbb{K}\)</span>-algèbres.</a></strong></p></li>
+<li><p><strong><a href="../cours/mp-chap02.html">Chapitre 02 — Espaces vectoriels normés. Normes et EVN, suites d’éléments d’un EVN, topologie d’un EVN, comparaison des normes, étude locale d’une application, parties compactes, parties connexes par arcs, EVN de dimension finie, suites de Cauchy.</a></strong></p></li>
+<li><p><strong><a href="../cours/mp-chap03.html">Chapitre 03 — Réduction des endomorphismes et des matrices carrées. Éléments propres, polynôme caractéristique, diagonalisation, trigonalisation, polynômes d’endomorphismes et de matrices carrées, application de la notion de polynôme annulateur à la réduction.</a></strong></p></li>
+<li><p><strong><a href="../cours/mp-chap04.html">Chapitre 04 — Séries dans un espace vectoriel normé et familles sommables. Convergence, convergence absolue, reste, séries d’éléments d’une <span class="math inline">\(\mathbb{K}\)</span>-algèbre normée, famille sommable de nombres complexes, critère de comparaison, théorème de sommation par paquets, critère de sommabilité, produit de Cauchy.</a></strong></p></li>
+<li><p><strong><a href="../cours/mp-chap05.html">Chapitre 05 — Fonctions vectorielles d’une variable réelle, arcs paramétrés. Dérivation, intégration sur un segment, arc paramétré de classe <span class="math inline">\(\mathcal{C}^k\)</span>.</a></strong></p></li>
+<li><p><strong><a href="../cours/mp-chap06.html">Chapitre 06 — Suites et séries de fonctions. Modes de convergence : simple, uniforme, normale ; stabilité des propriétés par passage à la limite ; approximation uniforme.</a></strong></p></li>
+<li><p><strong><a href="../cours/mp-chap07.html">Chapitre 07 — Séries entières. Lemme d’Abel, rayon de convergence, règle d’Alembert, somme et produit de Cauchy, propriétés de la somme, développement d’une fonction en série entière.</a></strong></p></li>
+<li><p><strong><a href="../cours/mp-chap08.html">Chapitre 08 — Calcul différentiel. Dérivée selon un vecteur, dérivées partielles, différentielle, opérations sur les applications différentiables, cas des fonctions numériques, vecteurs tangents à une partie d’un EVN de dimension finie, applications de classe <span class="math inline">\(\mathcal{C}^k\)</span>.</a></strong></p></li>
+<li><p><strong><a href="../cours/mp-chap09.html">Chapitre 09 — Espaces préhilbertiens réels et endomorphismes des espaces euclidiens. Projection orthogonale sur un sous-espace de dimension finie, suites orthonormales et suites totales, endomorphismes symétriques, endomorphismes orthogonaux, formes linéaires et adjoint d’un endomorphisme, application à l’étude des extrema.</a></strong></p></li>
+<li><p><strong><a href="../cours/mp-chap10.html">Chapitre 10 — Intégrales dépendant d’un paramètre. Passage à la limite sous l’intégrale, continuité et dérivation d’une intégrale dépendant d’un paramètre, exemples d’applications.</a></strong></p></li>
+<li><p><strong><a href="../cours/mp-chap11.html">Chapitre 11 — Probabilités. Rappels, variables aléatoires et lois de variables aléatoires, espérance et moments, fonctions génératrices, inégalités, notions de convergence et théorèmes limites.</a></strong></p></li>
+<li><p><strong><a href="mp-chap12.qmd">Chapitre 12 — Équations différentielles linéaires. Problème de Cauchy, structure de la solution, systèmes d’équations différentielles linéaires, méthode de la variation de la constante.</a></strong></p></li>
+<li><p><strong><a href="mp-chap13.qmd">Chapitre 13 — Fonctions holomorphes. Dérivation complexe, équations de Cauchy-Riemann, <span class="math inline">\(\mathbb{C}\)</span>-algèbre des fonctions holomorphes, fonctions analytiques, principe du prolongement analytique, principe des zéros isolés.</a></strong></p></li>
 </ul>
 
 

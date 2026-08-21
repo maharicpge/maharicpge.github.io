@@ -74,6 +74,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../styles.css">
 </head>
@@ -125,7 +154,7 @@ ul.task-list li input[type="checkbox"] {
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="../apropos.html"> 
-<span class="menu-text">À propos</span></a>
+<span class="menu-text">À propos de l’auteur</span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
@@ -164,16 +193,16 @@ ul.task-list li input[type="checkbox"] {
 <section id="chapitres-au-programme" class="level2">
 <h2 class="anchored" data-anchor-id="chapitres-au-programme">Chapitres au programme</h2>
 <ul>
-<li><p><strong><a href="../cours/ecs1-chap01.html">Chapitre 01 — Logique, ensembles et applications. Raisonnements classiques, injections, surjections, bijections.</a></strong></p></li>
-<li><p><strong><a href="../cours/ecs1-chap02.html">Chapitre 02 — Calcul algébrique. Sommes, produits, factorielles, coefficients binomiaux.</a></strong></p></li>
-<li><p><strong><a href="../cours/ecs1-chap03.html">Chapitre 03 — Polynômes. Divisibilité, racines, factorisation.</a></strong></p></li>
-<li><p><strong><a href="../cours/ecs1-chap04.html">Chapitre 04 — Suites réelles. Convergence, suites monotones, suites arithmético-géométriques.</a></strong></p></li>
-<li><p><strong><a href="../cours/ecs1-chap05.html">Chapitre 05 — Fonctions réelles d’une variable. TVI, Rolle, accroissements finis, convexité.</a></strong></p></li>
-<li><p><strong><a href="../cours/ecs1-chap06.html">Chapitre 06 — Intégration sur un segment. Primitives, IPP, changement de variable.</a></strong></p></li>
-<li><p><strong><a href="../cours/ecs1-chap07.html">Chapitre 07 — Algèbre linéaire et calcul matriciel. Familles libres et génératrices, applications linéaires, théorème du rang.</a></strong></p></li>
-<li><p><strong><a href="../cours/ecs1-chap08.html">Chapitre 08 — Dénombrement. Cardinaux, arrangements, combinaisons.</a></strong></p></li>
-<li><p><strong><a href="../cours/ecs1-chap09.html">Chapitre 09 — Espaces probabilisés finis. Probabilités totales, Bayes, indépendance.</a></strong></p></li>
-<li><p><strong><a href="../cours/ecs1-chap10.html">Chapitre 10 — Variables aléatoires finies. Lois uniforme, de Bernoulli, binomiale, hypergéométrique.</a></strong></p></li>
+<li><p><strong><a href="../cours/ecs1-chap01.html">Chapitre 01 — Logique, ensembles et applications. Connecteurs, quantificateurs, raisonnements, injections, surjections, bijections.</a></strong></p></li>
+<li><p><strong><a href="../cours/ecs1-chap02.html">Chapitre 02 — Calcul algébrique. Sommes, produits, factorielles, coefficients binomiaux, binôme de Newton.</a></strong></p></li>
+<li><p><strong><a href="../cours/ecs1-chap03.html">Chapitre 03 — Polynômes. Divisibilité dans <span class="math inline">\(\mathbb{K}[X]\)</span>, racines, multiplicité, factorisation.</a></strong></p></li>
+<li><p><strong><a href="../cours/ecs1-chap04.html">Chapitre 04 — Suites réelles. Convergence, suites monotones, suites arithmético-géométriques, suites récurrentes.</a></strong></p></li>
+<li><p><strong><a href="../cours/ecs1-chap05.html">Chapitre 05 — Fonctions réelles d’une variable. Limites, continuité, TVI, dérivabilité, Rolle, accroissements finis, convexité.</a></strong></p></li>
+<li><p><strong><a href="../cours/ecs1-chap06.html">Chapitre 06 — Intégration sur un segment. Primitives, IPP, changement de variable, sommes de Riemann.</a></strong></p></li>
+<li><p><strong><a href="../cours/ecs1-chap07.html">Chapitre 07 — Algèbre linéaire et calcul matriciel. Espaces vectoriels, applications linéaires, théorème du rang, matrices, systèmes linéaires.</a></strong></p></li>
+<li><p><strong><a href="../cours/ecs1-chap08.html">Chapitre 08 — Dénombrement. Cardinaux, arrangements, combinaisons, formules de Pascal et du binôme.</a></strong></p></li>
+<li><p><strong><a href="../cours/ecs1-chap09.html">Chapitre 09 — Espaces probabilisés finis. Probabilités conditionnelles, Bayes, indépendance, variables aléatoires finies.</a></strong></p></li>
+<li><p><strong><a href="../cours/ecs1-chap10.html">Chapitre 10 — Variables aléatoires finies. Lois uniforme, de Bernoulli, binomiale, hypergéométrique ; espérance et variance.</a></strong></p></li>
 </ul>
 
 

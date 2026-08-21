@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>pcsi – Mathématiques en CPGE</title>
+<title>PCSI (1re année) · TD - Mathématiques en CPGE – Mathématiques en CPGE</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -74,11 +74,40 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../styles.css">
 </head>
 
-<body class="nav-fixed quarto-light">
+<body class="nav-fixed fullcontent quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -125,7 +154,7 @@ ul.task-list li input[type="checkbox"] {
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="../apropos.html"> 
-<span class="menu-text">À propos</span></a>
+<span class="menu-text">À propos de l’auteur</span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
@@ -138,18 +167,56 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
-    </div>
+    
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">PCSI (1re année) — TD</h1>
+</div>
 
 
 
+<div class="quarto-title-meta">
 
-<p>title: “PCSI (1re année) — Cours” pagetitle: “PCSI (1re année) · Cours - Mathématiques en CPGE” toc: false ## Chapitres au programme <a href="../td/pcsi-chap01.html">Chapitre 01 — Outils de calcul fondamentaux. Logique, sommes et produits, binôme, trigonométrie, nombres complexes.</a> <a href="../td/pcsi-chap02.html">Chapitre 02 — Fonctions réelles d’une variable. Limites, continuité, dérivabilité, Rolle, accroissements finis, fonctions usuelles.</a> <a href="../td/pcsi-chap03.html">Chapitre 03 — Équations différentielles linéaires. Ordres 1 et 2, recherche de solutions particulières.</a> <a href="../td/pcsi-chap04.html">Chapitre 04 — Suites numériques. Convergence, suites récurrentes simples.</a> <a href="../td/pcsi-chap05.html">Chapitre 05 — Développements limités. Taylor-Young, applications aux limites et asymptotes.</a> <a href="../td/pcsi-chap06.html">Chapitre 06 — Intégration sur un segment. Primitives, IPP, changement de variable.</a> <a href="../td/pcsi-chap07.html">Chapitre 07 — Intégration sur un intervalle quelconque. IPP, changement de variable, fonctions intégrables.</a> <a href="../td/pcsi-chap08.html">Chapitre 08 — Algèbre linéaire et matrices. Espaces vectoriels, dimension finie, déterminants en dimension 2 et 3.</a> <a href="../td/pcsi-chap09.html">Chapitre 09 — Polynômes. Opérations, racines, factorisation élémentaire.</a> <a href="../td/pcsi-chap10.html">Chapitre 10 — Fractions rationnelles. Décomposition en éléments simples, pôles et parties polaires.</a> <a href="pcsi-chap11.qmd">Chapitre 11 — Séries numériques. Séries à termes positifs, séries géométriques et de Riemann.</a> <a href="pcsi-chap12.qmd">Chapitre 12 — Probabilités. Espaces finis, variables aléatoires finies, lois usuelles.</a></p>
+    
+  
+    
+  </div>
+  
 
 
+</header>
+
+
+<section id="chapitres-au-programme" class="level2">
+<h2 class="anchored" data-anchor-id="chapitres-au-programme">Chapitres au programme</h2>
+<ul>
+<li><p><strong><a href="../td/pcsi-chap01.html">Chapitre 01 — Vocabulaire ensembliste et éléments de logique. Connecteurs logiques, quantificateurs, raisonnements (récurrence, absurde, contraposition, analyse-synthèse), ensembles, applications, injections, surjections, bijections.</a></strong></p></li>
+<li><p><strong><a href="../td/pcsi-chap02.html">Chapitre 02 — Nombres complexes : calculs algébriques et applications géométriques. Forme algébrique, conjugaison, module, arguments, forme trigonométrique, exponentielle complexe, trigonométrie, équations du second degré, racines n-ièmes, interprétation géométrique.</a></strong></p></li>
+<li><p><strong><a href="../td/pcsi-chap03.html">Chapitre 03 — Compléments de calcul algébrique. Sommes et produits finis, factorielles, coefficients binomiaux, binôme de Newton, systèmes linéaires en petite dimension, pivot de Gauss.</a></strong></p></li>
+<li><p><strong><a href="../td/pcsi-chap04.html">Chapitre 04 — Nombres entiers, rationnels et réels. Divisibilité dans <span class="math inline">\(\mathbb{Z}\)</span>, division euclidienne, algorithme d’Euclide, nombres premiers, valuation p-adique, rationnels, réels, borne supérieure et inférieure, densité.</a></strong></p></li>
+<li><p><strong><a href="../td/pcsi-chap05.html">Chapitre 05 — Suites numériques. Modes de définition, limites, convergence, opérations sur les limites, théorèmes de convergence, suites adjacentes, suites extraites, suites arithmétiques, géométriques, arithmético-géométriques, suites récurrentes linéaires d’ordre 2.</a></strong></p></li>
+<li><p><strong><a href="../td/pcsi-chap06.html">Chapitre 06 — Fonctions de la variable réelle, limites et continuité. Limites, continuité, théorème des valeurs intermédiaires, théorème des bornes atteintes, continuité et monotonie stricte, fonctions réciproques.</a></strong></p></li>
+<li><p><strong><a href="../td/pcsi-chap07.html">Chapitre 07 — Fonctions de la variable réelle, dérivation. Dérivabilité, théorème de Rolle, accroissements finis, dérivées d’ordre supérieur, classes <span class="math inline">\(\mathcal{C}^k\)</span>, suites récurrentes.</a></strong></p></li>
+<li><p><strong><a href="../td/pcsi-chap08.html">Chapitre 08 — Fonctions usuelles, fonctions convexes. exp, ln, puissances, trigonométrie circulaire et hyperbolique, fonctions réciproques, convexité, inégalité de Jensen, applications.</a></strong></p></li>
+<li><p><strong><a href="../td/pcsi-chap09.html">Chapitre 09 — Primitives et équations différentielles linéaires. Primitives, IPP, changement de variable, équations différentielles linéaires d’ordre 1 et d’ordre 2 à coefficients constants, problème de Cauchy.</a></strong></p></li>
+<li><p><strong><a href="../td/pcsi-chap10.html">Chapitre 10 — Calcul matriciel et systèmes d’équations linéaires. Matrices, opérations, transposée, matrices inversibles, systèmes linéaires, pivot de Gauss.</a></strong></p></li>
+<li><p><strong><a href="pcsi-chap11.qmd">Chapitre 11 — Polynômes et fractions rationnelles. Anneau <span class="math inline">\(\mathbb{K}[X]\)</span>, division euclidienne, racines, multiplicité, dérivée formelle, d’Alembert-Gauss, factorisation, fractions rationnelles, décomposition en éléments simples.</a></strong></p></li>
+<li><p><strong><a href="pcsi-chap12.qmd">Chapitre 12 — Développements limités, calcul asymptotique. Relations de comparaison (<span class="math inline">\(O\)</span>, <span class="math inline">\(o\)</span>, équivalence), développements limités, Taylor-Young, opérations, applications à l’étude locale des fonctions et des courbes.</a></strong></p></li>
+<li><p><strong><a href="pcsi-chap13.qmd">Chapitre 13 — Espaces vectoriels et applications linéaires. EV, sous-espaces vectoriels, familles libres et génératrices, bases, dimension finie, applications linéaires, théorème du rang, formes linéaires, hyperplans.</a></strong></p></li>
+<li><p><strong><a href="pcsi-chap14.qmd">Chapitre 14 — Matrices et déterminants. Matrice d’une application linéaire, changements de bases, matrices semblables, déterminants (matrice, famille de vecteurs, endomorphisme), comatrice, formules de Cramer, déterminant de Vandermonde.</a></strong></p></li>
+<li><p><strong><a href="pcsi-chap15.qmd">Chapitre 15 — Espaces préhilbertiens réels. Produit scalaire, norme associée, Cauchy-Schwarz, orthogonalité, bases orthonormales, Gram-Schmidt, projection orthogonale, distance à un sous-espace, produit vectoriel en dimension 3.</a></strong></p></li>
+<li><p><strong><a href="pcsi-chap16.qmd">Chapitre 16 — Intégration des fonctions continues sur un segment. Fonctions en escalier, construction de l’intégrale, propriétés, sommes de Riemann, théorème fondamental, IPP, Taylor avec reste intégral, changement de variable, intégration numérique.</a></strong></p></li>
+<li><p><strong><a href="pcsi-chap17.qmd">Chapitre 17 — Séries numériques. Convergence, divergence grossière, séries géométriques, séries à termes positifs, comparaisons, d’Alembert, séries de Riemann, séries alternées (Leibniz), convergence absolue, suites sommables.</a></strong></p></li>
+<li><p><strong><a href="pcsi-chap18.qmd">Chapitre 18 — Fonctions de deux variables. Fonctions à valeurs dans <span class="math inline">\(\mathbb{R}^2\)</span>, arcs paramétrés plans, fonctions de deux variables, dérivées partielles, gradient, règle de la chaîne, extrema.</a></strong></p></li>
+<li><p><strong><a href="pcsi-chap19.qmd">Chapitre 19 — Dénombrement. Cardinaux, parties, p-listes, arrangements, permutations, combinaisons, formules de Pascal et du binôme.</a></strong></p></li>
+<li><p><strong><a href="pcsi-chap20.qmd">Chapitre 20 — Probabilités sur un univers fini. Espace probabilisable, probabilités, probabilités conditionnelles, Bayes, indépendance, variables aléatoires réelles finies, espérance, variance, lois usuelles (Bernoulli, binomiale, uniforme).</a></strong></p></li>
+</ul>
+
+
+</section>
 
 </main> <!-- /main -->
 <!-- Compteur de visites GoatCounter -->

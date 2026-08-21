@@ -74,6 +74,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../styles.css">
 </head>
@@ -125,7 +154,7 @@ ul.task-list li input[type="checkbox"] {
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="../apropos.html"> 
-<span class="menu-text">À propos</span></a>
+<span class="menu-text">À propos de l’auteur</span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
@@ -164,13 +193,17 @@ ul.task-list li input[type="checkbox"] {
 <section id="chapitres-au-programme" class="level2">
 <h2 class="anchored" data-anchor-id="chapitres-au-programme">Chapitres au programme</h2>
 <ul>
-<li><p><strong><a href="../td/ect1-chap01.html">Chapitre 01 — Révisions et outils de calcul. Fractions, puissances, identités remarquables, équations, inéquations.</a></strong></p></li>
-<li><p><strong><a href="../td/ect1-chap02.html">Chapitre 02 — Suites numériques. Suites arithmétiques et géométriques, comportement global et limites.</a></strong></p></li>
-<li><p><strong><a href="../td/ect1-chap03.html">Chapitre 03 — Fonctions d’une variable réelle. Continuité, dérivation, variations, extrema.</a></strong></p></li>
-<li><p><strong><a href="../td/ect1-chap04.html">Chapitre 04 — Fonctions usuelles. Polynômes, rationnelles, logarithme népérien, exponentielle.</a></strong></p></li>
-<li><p><strong><a href="../td/ect1-chap05.html">Chapitre 05 — Calcul matriciel. Opérations, inversibilité en ordre 2 ou 3, systèmes linéaires.</a></strong></p></li>
-<li><p><strong><a href="../td/ect1-chap06.html">Chapitre 06 — Dénombrement et probabilités finies. Permutations, combinaisons, probabilités conditionnelles, indépendance.</a></strong></p></li>
-<li><p><strong><a href="../td/ect1-chap07.html">Chapitre 07 — Variables aléatoires finies. Espérance, variance, lois uniforme, de Bernoulli, binomiale.</a></strong></p></li>
+<li><p><strong><a href="../td/ect1-chap01.html">Chapitre 01 — Raisonnements, notions d’ensemble et d’application. Connecteurs logiques, quantificateurs, raisonnements (récurrence, contraposée, absurde, disjonction des cas), ensembles, applications, injections, surjections, bijections.</a></strong></p></li>
+<li><p><strong><a href="../td/ect1-chap02.html">Chapitre 02 — Calculs algébriques dans <span class="math inline">\(\mathbb{R}\)</span>. Nombres réels, puissances, inégalités, valeur absolue, propriété d’Archimède, systèmes linéaires 2x2.</a></strong></p></li>
+<li><p><strong><a href="../td/ect1-chap03.html">Chapitre 03 — Exemples de suites réelles, polynômes. Sommes et produits finis, suites arithmétiques et géométriques, suites arithmético-géométriques, polynômes du premier et second degré.</a></strong></p></li>
+<li><p><strong><a href="../td/ect1-chap04.html">Chapitre 04 — Fonctions réelles d’une variable réelle : limites, continuité. Limites, continuité, opérations algébriques, composition.</a></strong></p></li>
+<li><p><strong><a href="../td/ect1-chap05.html">Chapitre 05 — Fonctions réelles d’une variable réelle : dérivabilité, convexité. Dérivabilité, monotonie, extremum local, dérivées successives, convexité, points d’inflexion.</a></strong></p></li>
+<li><p><strong><a href="../td/ect1-chap06.html">Chapitre 06 — Probabilité sur un univers fini. Espace probabilisable, probabilités, probabilités conditionnelles, indépendance, variables aléatoires réelles, espérance, variance.</a></strong></p></li>
+<li><p><strong><a href="../td/ect1-chap07.html">Chapitre 07 — Statistique descriptive univariée. Indicateurs de position (moyenne, médiane, mode), indicateurs de dispersion (variance, écart-type, quartiles, déciles).</a></strong></p></li>
+<li><p><strong><a href="ect1-chap08.qmd">Chapitre 08 — Systèmes d’équations linéaires et introduction au calcul matriciel. Systèmes linéaires, pivot de Gauss, matrices, opérations, inversibilité.</a></strong></p></li>
+<li><p><strong><a href="ect1-chap09.qmd">Chapitre 09 — Compléments d’analyse. Suites réelles (convergence, limite monotone), limites de fonctions, continuité sur un intervalle (TVI, bornes atteintes), fonctions logarithme et exponentielle.</a></strong></p></li>
+<li><p><strong><a href="ect1-chap10.qmd">Chapitre 10 — Compléments de probabilités sur un univers fini. Coefficients binomiaux, lois usuelles finies (uniforme, Bernoulli, binomiale), binôme de Newton.</a></strong></p></li>
+<li><p><strong><a href="ect1-chap11.qmd">Chapitre 11 — Fonctions de la variable réelle : primitives et intégration. Primitives, intégrales, intégration par parties, aire sous la courbe.</a></strong></p></li>
 </ul>
 
 

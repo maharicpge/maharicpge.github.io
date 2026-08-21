@@ -170,7 +170,7 @@ window.Quarto = {
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="../apropos.html"> 
-<span class="menu-text">À propos</span></a>
+<span class="menu-text">À propos de l’auteur</span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
@@ -299,7 +299,7 @@ window.Quarto = {
 <section id="fonctions-en-escalier" class="level2" data-number="2.1">
 <h2 data-number="2.1" class="anchored" data-anchor-id="fonctions-en-escalier"><span class="header-section-number">2.1</span> Fonctions en escalier</h2>
 <div class="custom-numbered-block custom-definition">
-<p><strong>Définition 3.1 — (Subdivision d'un segment)</strong></p>
+<p><strong>Définition 3.1 — (Subdivision d’un segment)</strong></p>
 <p>On appelle <strong>subdivision</strong> de <span class="math inline">[a,b]</span> toute famille <span class="math inline">\sigma=(x_0,\ldots,x_n)</span> de <span class="math inline">[a,b]</span> pour laquelle <span class="math inline">a=x_0&lt;\cdots&lt;x_n=b</span>. Le réel strictement positif <span class="math inline">\min_{0\leq i\leq n-1}(x_{i+1}-x_i)</span> est appelé le <strong>pas</strong> de <span class="math inline">\sigma</span>.</p>
 </div>
 <p>Une subdivision de <span class="math inline">[a,b]</span> est une famille, mais en présence de deux subdivisions de <span class="math inline">[a,b]</span>, nous nous autoriserons par abus de langage à parler de leur réunion ou de l’inclusion de l’une dans l’autre. Par exemple, la subdivision <span class="math inline">(0,1,3,5)</span> de <span class="math inline">[0,5]</span> est incluse dans la subdivision <span class="math inline">(0,1,2,3,4,5)</span> et la réunion des subdivisions <span class="math inline">(0,1,3,5)</span> et <span class="math inline">(0,1,2,5)</span> vaut <span class="math inline">(0,1,2,3,5)</span>.</p>
@@ -328,7 +328,7 @@ window.Quarto = {
 <p><span class="proof-title"><em>Remarque</em>. </span>Attention ! Des fonctions aussi simples que la fonction inverse et la fonction logarithme ne sont pas continues par morceaux sur <span class="math inline">[0,1]</span> quand bien même on les prolonge artificiellement en <span class="math inline">0</span>, car le prolongement ne pourra jamais se faire par continuité. L’exigence de prolongement par continuité de la définition n’est pas anodine.</p>
 </div>
 <div class="custom-numbered-block custom-theorem">
-<p><strong>Théorème 3.2 — (Caractère borné d'une fonction continue par morceaux)</strong></p>
+<p><strong>Théorème 3.2 — (Caractère borné d’une fonction continue par morceaux)</strong></p>
 <p>Toute fonction continue par morceaux sur <span class="math inline">[a,b]</span> est bornée et possède donc une norme infinie <span class="math inline">\|f\|_\infty</span>.</p>
 </div>
 <div class="proof">
@@ -348,7 +348,7 @@ window.Quarto = {
 </div>
 <p>Il existe tout plein de distances en mathématiques, pas seulement celle à laquelle on est habitué dans le plan ou l’espace. Nous venons de définir une notion de distance sur l’ensemble <span class="math inline">\mathcal{CM}([a,b],\mathbb{C})</span> des fonctions continues par morceaux.</p>
 <div class="custom-numbered-block custom-theorem">
-<p><strong>Théorème 3.3 — (Approximation uniforme d'une fonction continue par morceaux par des fonctions en escalier)</strong></p>
+<p><strong>Théorème 3.3 — (Approximation uniforme d’une fonction continue par morceaux par des fonctions en escalier)</strong></p>
 <p>Toute fonction continue par morceaux sur <span class="math inline">[a,b]</span> à valeurs dans <span class="math inline">\mathbb{K}</span> est la limite uniforme d’une suite de fonctions en escalier sur <span class="math inline">[a,b]</span> à valeurs dans <span class="math inline">\mathbb{K}</span>.</p>
 </div>
 <p>En d’autres termes, par analogie avec la définition de la densité d’une partie de <span class="math inline">\mathbb{R}</span>, l’ensemble des fonctions en escalier sur <span class="math inline">[a,b]</span> à valeurs dans <span class="math inline">\mathbb{K}</span> est dense dans <span class="math inline">\mathcal{CM}([a,b],\mathbb{K})</span> au sens de la convergence uniforme.</p>
@@ -372,7 +372,7 @@ window.Quarto = {
 <section id="intégrale-dune-fonction-en-escalier" class="level2" data-number="3.1">
 <h2 data-number="3.1" class="anchored" data-anchor-id="intégrale-dune-fonction-en-escalier"><span class="header-section-number">3.1</span> Intégrale d’une fonction en escalier</h2>
 <div class="custom-numbered-block custom-theorem">
-<p><strong>Théorème 4.1 — (Intégrale d'une fonction en escalier)</strong></p>
+<p><strong>Théorème 4.1 — (Intégrale d’une fonction en escalier)</strong></p>
 <p>Soient <span class="math inline">f : [a,b]\to\mathbb{C}</span> en escalier et <span class="math inline">(x_0,\ldots,x_n)</span> une subdivision de <span class="math inline">[a,b]</span> adaptée à <span class="math inline">f</span>. Si <span class="math inline">y_i</span> désigne pour tout <span class="math inline">i\in\llbracket 0,n-1\rrbracket</span> la valeur de <span class="math inline">f</span> sur <span class="math inline">]x_i,x_{i+1}[</span>, le nombre complexe <span class="math inline">\sum_{i=0}^{n-1}y_i(x_{i+1}-x_i)</span> ne dépend pas de la subdivision <span class="math inline">(x_0,\ldots,x_n)</span> choisie.</p>
 <p>On l’appelle l’<strong>intégrale de <span class="math inline">f</span> sur <span class="math inline">[a,b]</span></strong>, notée <span class="math inline">\int_{[a,b]}f</span> ou <span class="math inline">\int_{[a,b]}f(t)\,dt</span>.</p>
 </div>
@@ -389,7 +389,7 @@ window.Quarto = {
 <p>Pour tout <span class="math inline">n\in\mathbb{N}</span> : <span class="math display">\int_{[0,n+1]}\frac{\lfloor t\rfloor}{2}\,dt=\sum_{k=0}^{n}\frac{k}{2}\big((k+1)-k\big)=\sum_{k=0}^{n}\frac{k}{2}=\frac{n(n+1)(2n+1)}{6}.</span></p>
 </div>
 <div class="custom-numbered-block custom-theorem">
-<p><strong>Théorème 4.2 — (Deux propriétés de l'intégrale d'une fonction en escalier)</strong></p>
+<p><strong>Théorème 4.2 — (Deux propriétés de l’intégrale d’une fonction en escalier)</strong></p>
 <p>Soient <span class="math inline">f : [a,b]\to\mathbb{C}</span> et <span class="math inline">g : [a,b]\to\mathbb{C}</span> en escalier et <span class="math inline">\lambda,\mu\in\mathbb{C}</span>.</p>
 <ol type="1">
 <li><strong>Linéarité :</strong> <span class="math inline">\int_{[a,b]}(\lambda f+\mu g)=\lambda\int_{[a,b]}f+\mu\int_{[a,b]}g</span>.</li>
@@ -408,7 +408,7 @@ window.Quarto = {
 <h2 data-number="3.2" class="anchored" data-anchor-id="intégrale-dune-fonction-continue-par-morceaux"><span class="header-section-number">3.2</span> Intégrale d’une fonction continue par morceaux</h2>
 <p>Nous avons vu qu’il existe toujours une suite <span class="math inline">(\varphi_p)_{p\in\mathbb{N}}</span> de fonctions en escalier sur <span class="math inline">[a,b]</span> dont <span class="math inline">f</span> est la limite uniforme. On aurait bien envie du coup de définir l’intégrale <span class="math inline">\int_{[a,b]}f</span> comme la limite <span class="math inline">\lim_{p\to+\infty}\int_{[a,b]}\varphi_p</span>, dans l’idée que l’aire algébrique sous <span class="math inline">\varphi_p</span> tend vers l’aire algébrique sous <span class="math inline">f</span> lorsque <span class="math inline">p</span> tend vers <span class="math inline">+\infty</span>. Cette « définition » pose hélas trois problèmes : la limite existe-t-elle ? Ne dépend-elle pas du choix de la suite <span class="math inline">(\varphi_p)</span> ? Pour les fonctions en escalier, la limite obtenue coïncide-t-elle bien avec l’intégrale du paragraphe précédent ?</p>
 <div class="custom-numbered-block custom-theorem">
-<p><strong>Théorème 4.3 — (Intégrale d'une fonction continue par morceaux)</strong></p>
+<p><strong>Théorème 4.3 — (Intégrale d’une fonction continue par morceaux)</strong></p>
 <p>Soit <span class="math inline">f\in\mathcal{CM}([a,b],\mathbb{C})</span>. Pour toute suite de fonctions en escalier <span class="math inline">(\varphi_p)_{p\in\mathbb{N}}</span> sur <span class="math inline">[a,b]</span> qui converge uniformément vers <span class="math inline">f</span>, la suite <span class="math inline">\left(\int_{[a,b]}\varphi_p\right)_{p\in\mathbb{N}}</span> converge et sa limite ne dépend pas du choix de <span class="math inline">(\varphi_p)_{p\in\mathbb{N}}</span>.</p>
 <p>Cette limite unique est appelée l’<strong>intégrale de <span class="math inline">f</span> sur <span class="math inline">[a,b]</span></strong> et notée <span class="math inline">\int_{[a,b]}f</span> ou <span class="math inline">\int_{[a,b]}f(t)\,dt</span>. En outre, si <span class="math inline">f</span> est en escalier sur <span class="math inline">[a,b]</span>, cette définition coïncide avec la précédente.</p>
 </div>
@@ -432,7 +432,7 @@ window.Quarto = {
 <section id="propriétés-de-lintégrale" class="level2" data-number="3.3">
 <h2 data-number="3.3" class="anchored" data-anchor-id="propriétés-de-lintégrale"><span class="header-section-number">3.3</span> Propriétés de l’intégrale</h2>
 <div class="custom-numbered-block custom-theorem">
-<p><strong>Théorème 4.4 — (Propriétés de l'intégrale d'une fonction continue par morceaux)</strong></p>
+<p><strong>Théorème 4.4 — (Propriétés de l’intégrale d’une fonction continue par morceaux)</strong></p>
 <p>Soient <span class="math inline">f,g\in\mathcal{CM}([a,b],\mathbb{C})</span>.</p>
 <ol type="1">
 <li><strong>Linéarité :</strong> pour tous <span class="math inline">\lambda,\mu\in\mathbb{C}</span> : <span class="math inline">\int_{[a,b]}(\lambda f+\mu g)=\lambda\int_{[a,b]}f+\mu\int_{[a,b]}g</span>.</li>
@@ -456,7 +456,7 @@ window.Quarto = {
 </ol>
 </div>
 <div class="custom-numbered-block custom-theorem">
-<p><strong>Théorème 4.5 — (Propriétés de l'intégrale d'une fonction continue par morceaux réelle)</strong></p>
+<p><strong>Théorème 4.5 — (Propriétés de l’intégrale d’une fonction continue par morceaux réelle)</strong></p>
 <p>Soient <span class="math inline">f,g\in\mathcal{CM}([a,b],\mathbb{R})</span>.</p>
 <ol type="1">
 <li><strong>Positivité :</strong> si <span class="math inline">f\geq 0</span>, alors <span class="math inline">\int_{[a,b]}f\geq 0</span>.</li>
@@ -485,7 +485,7 @@ window.Quarto = {
 </div>
 <p>Attention ! Impossible ici de dériver <span class="math inline">A</span> pour prouver sa monotonie car rien ne nous dit que <span class="math inline">A</span> est dérivable. Si <span class="math inline">A</span> avait été de la forme <span class="math inline">x\mapsto\int_0^x f(t)\,dt</span> pour une certaine fonction continue <span class="math inline">f</span>, nous aurions pu la dériver grâce au théorème fondamental du calcul intégral — démontré plus loin — mais la variable <span class="math inline">x</span> n’est pas ici au bon endroit.</p>
 <div class="custom-numbered-block custom-theorem">
-<p><strong>Théorème 4.6 — (Intégrales d'une fonction paire/impaire/périodique)</strong></p>
+<p><strong>Théorème 4.6 — (Intégrales d’une fonction paire/impaire/périodique)</strong></p>
 <ol type="1">
 <li><strong>Fonctions paires/impaires :</strong> soit <span class="math inline">f\in\mathcal{CM}([-a,a],\mathbb{C})</span>. Si <span class="math inline">f</span> est paire : <span class="math inline">\int_{-a}^{a}f(x)\,dx=2\int_0^a f(x)\,dx</span>, et si <span class="math inline">f</span> est impaire : <span class="math inline">\int_{-a}^{a}f(x)\,dx=0</span>.</li>
 <li><strong>Fonctions périodiques :</strong> pour toute fonction <span class="math inline">f\in\mathcal{CM}(\mathbb{R},\mathbb{C})</span> <span class="math inline">T</span>-périodique : <span class="math inline">\int_a^{a+T}f(x)\,dx=\int_0^T f(x)\,dx</span>.</li>

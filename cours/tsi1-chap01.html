@@ -1,13 +1,14 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr"><head>
 
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.10.18">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Saîd MAHARI">
 
-<title>Calcul et algèbre élémentaire - Mathématiques en CPGE – Mathématiques en CPGE</title>
+<title>Vocabulaire ensembliste et éléments de logique – Mathématiques en CPGE</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -45,7 +46,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-7a8c080b55ea27eb37b467515007f9ee.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-e0d9a45d84245cc5e3b300860d8fa645.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -60,22 +61,66 @@ ul.task-list li input[type="checkbox"] {
   ],
   "show-item-context": false,
   "language": {
-    "search-no-results-text": "No results",
-    "search-matching-documents-text": "matching documents",
-    "search-copy-link-title": "Copy link to search",
-    "search-hide-matches-text": "Hide additional matches",
-    "search-more-match-text": "more match in this document",
-    "search-more-matches-text": "more matches in this document",
-    "search-clear-button-title": "Clear",
+    "search-no-results-text": "Pas de résultats",
+    "search-matching-documents-text": "documents trouvés",
+    "search-copy-link-title": "Copier le lien vers la recherche",
+    "search-hide-matches-text": "Cacher les correspondances additionnelles",
+    "search-more-match-text": "correspondance de plus dans ce document",
+    "search-more-matches-text": "correspondances de plus dans ce document",
+    "search-clear-button-title": "Effacer",
     "search-text-placeholder": "",
-    "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit",
-    "search-label": "Search"
+    "search-detached-cancel-button-title": "Annuler",
+    "search-submit-button-title": "Envoyer",
+    "search-label": "Recherche"
   }
 }</script>
 
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="styles.css">
 </head>
 
 <body class="nav-fixed quarto-light">
@@ -89,8 +134,8 @@ ul.task-list li input[type="checkbox"] {
     <span class="navbar-title">Accueil</span>
     </a>
   </div>
-            <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+            <div id="quarto-search" class="" title="Recherche"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Basculer la navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
@@ -125,7 +170,7 @@ ul.task-list li input[type="checkbox"] {
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="../apropos.html"> 
-<span class="menu-text">À propos</span></a>
+<span class="menu-text">À propos de l’auteur</span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
@@ -140,10 +185,41 @@ ul.task-list li input[type="checkbox"] {
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
+    <h2 id="toc-title">Sur cette page</h2>
    
   <ul>
-  <li><a href="#document" id="toc-document" class="nav-link active" data-scroll-target="#document">Document</a></li>
+  <li><a href="#opérations-logiques-élémentaires" id="toc-opérations-logiques-élémentaires" class="nav-link active" data-scroll-target="#opérations-logiques-élémentaires"><span class="header-section-number">1</span> Opérations logiques élémentaires</a>
+  <ul class="collapse">
+  <li><a href="#la-négation" id="toc-la-négation" class="nav-link" data-scroll-target="#la-négation"><span class="header-section-number">1.1</span> La négation</a></li>
+  <li><a href="#la-conjonction" id="toc-la-conjonction" class="nav-link" data-scroll-target="#la-conjonction"><span class="header-section-number">1.2</span> La conjonction</a></li>
+  <li><a href="#la-disjonction" id="toc-la-disjonction" class="nav-link" data-scroll-target="#la-disjonction"><span class="header-section-number">1.3</span> La disjonction</a></li>
+  <li><a href="#limplication" id="toc-limplication" class="nav-link" data-scroll-target="#limplication"><span class="header-section-number">1.4</span> L’implication</a></li>
+  <li><a href="#léquivalence" id="toc-léquivalence" class="nav-link" data-scroll-target="#léquivalence"><span class="header-section-number">1.5</span> L’équivalence</a></li>
+  <li><a href="#propriétés" id="toc-propriétés" class="nav-link" data-scroll-target="#propriétés"><span class="header-section-number">1.6</span> Propriétés</a></li>
+  </ul></li>
+  <li><a href="#quantificateurs" id="toc-quantificateurs" class="nav-link" data-scroll-target="#quantificateurs"><span class="header-section-number">2</span> Quantificateurs</a></li>
+  <li><a href="#types-de-raisonnement" id="toc-types-de-raisonnement" class="nav-link" data-scroll-target="#types-de-raisonnement"><span class="header-section-number">3</span> Types de raisonnement</a>
+  <ul class="collapse">
+  <li><a href="#raisonnement-par-les-équivalences-successives" id="toc-raisonnement-par-les-équivalences-successives" class="nav-link" data-scroll-target="#raisonnement-par-les-équivalences-successives"><span class="header-section-number">3.1</span> Raisonnement par les équivalences successives</a></li>
+  <li><a href="#raisonnement-par-disjonction-des-cas" id="toc-raisonnement-par-disjonction-des-cas" class="nav-link" data-scroll-target="#raisonnement-par-disjonction-des-cas"><span class="header-section-number">3.2</span> Raisonnement par disjonction des cas</a></li>
+  <li><a href="#raisonnement-par-contre-exemple" id="toc-raisonnement-par-contre-exemple" class="nav-link" data-scroll-target="#raisonnement-par-contre-exemple"><span class="header-section-number">3.3</span> Raisonnement par contre-exemple</a></li>
+  <li><a href="#raisonnement-par-labsurde" id="toc-raisonnement-par-labsurde" class="nav-link" data-scroll-target="#raisonnement-par-labsurde"><span class="header-section-number">3.4</span> Raisonnement par l’absurde</a></li>
+  <li><a href="#raisonnement-par-contraposée" id="toc-raisonnement-par-contraposée" class="nav-link" data-scroll-target="#raisonnement-par-contraposée"><span class="header-section-number">3.5</span> Raisonnement par contraposée</a></li>
+  <li><a href="#raisonnement-par-analyse-synthèse" id="toc-raisonnement-par-analyse-synthèse" class="nav-link" data-scroll-target="#raisonnement-par-analyse-synthèse"><span class="header-section-number">3.6</span> Raisonnement par analyse-synthèse</a></li>
+  <li><a href="#raisonnement-par-récurrence" id="toc-raisonnement-par-récurrence" class="nav-link" data-scroll-target="#raisonnement-par-récurrence"><span class="header-section-number">3.7</span> Raisonnement par récurrence</a>
+  <ul class="collapse">
+  <li><a href="#principe-de-récurrence" id="toc-principe-de-récurrence" class="nav-link" data-scroll-target="#principe-de-récurrence"><span class="header-section-number">3.7.1</span> Principe de récurrence</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#vocabulaire-de-la-théorie-des-ensembles" id="toc-vocabulaire-de-la-théorie-des-ensembles" class="nav-link" data-scroll-target="#vocabulaire-de-la-théorie-des-ensembles"><span class="header-section-number">4</span> Vocabulaire de la théorie des ensembles</a>
+  <ul class="collapse">
+  <li><a href="#ensembles" id="toc-ensembles" class="nav-link" data-scroll-target="#ensembles"><span class="header-section-number">4.1</span> Ensembles</a></li>
+  <li><a href="#applications" id="toc-applications" class="nav-link" data-scroll-target="#applications"><span class="header-section-number">4.2</span> Applications</a></li>
+  </ul></li>
+  <li><a href="#document-en-pdf" id="toc-document-en-pdf" class="nav-link" data-scroll-target="#document-en-pdf">Document en PDF</a>
+  <ul class="collapse">
+  <li><a href="#navigation" id="toc-navigation" class="nav-link" data-scroll-target="#navigation">Navigation</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -152,14 +228,27 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Chapitre 01 : Calcul et algèbre élémentaire</h1>
+<h1 class="title">Vocabulaire ensembliste et éléments de logique</h1>
+<p class="subtitle lead">Chapitre 01</p>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Auteur·rice</div>
+    <div class="quarto-title-meta-contents">
+             <p>Saîd MAHARI </p>
+          </div>
+  </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">Date de publication</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">21 août 2026</p>
+    </div>
+  </div>
   
     
   </div>
@@ -169,12 +258,1276 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p><strong>TSI 1re année — Chapitre 01.</strong> Logique, trigonométrie, nombres complexes, géométrie plane analytique.</p>
-<section id="document" class="level2">
-<h2 class="anchored" data-anchor-id="document">Document</h2>
-<p><em>PDF à venir : déposez le fichier <code>files/tsi1/chap01.pdf</code> puis régénérez la page.</em></p>
+<p><strong>TSI (1re année) — Chapitre 01.</strong> Connecteurs logiques, quantificateurs, raisonnements (récurrence, absurde, contraposition, analyse-synthèse), ensembles, applications, injections, surjections, bijections.</p>
+<p>Ce chapitre a été réalisé conformément au programme marocain de mathématiques de la filière TSI1.</p>
+<section id="opérations-logiques-élémentaires" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Opérations logiques élémentaires</h1>
+<section id="la-négation" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="la-négation"><span class="header-section-number">1.1</span> La négation</h2>
+<p>À chaque expression <span class="math inline">A</span> (affirmation – propriété – assertion) relative à un domaine donné, on associe la valeur « Vraie » ou « Fausse ». S’il s’agit de son <strong>contraire</strong> ou sa <strong>négation</strong>, on note <span class="math inline">\neg A</span>.</p>
+<p>Table de vérité de la négation :</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th><span class="math inline">A</span></th>
+<th><span class="math inline">\neg A</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>V</td>
+<td>F</td>
+</tr>
+<tr class="even">
+<td>F</td>
+<td>V</td>
+</tr>
+</tbody>
+</table>
+<p>ou</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th><span class="math inline">A</span></th>
+<th><span class="math inline">\neg A</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td>0</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 1.1</strong></p>
+<p>Soit <span class="math inline">(x,a)\in\mathbb{R}^2</span>.</p>
+<ol type="1">
+<li>La négation de <span class="math inline">(x=a)</span> est <span class="math inline">(x\neq a)</span>.</li>
+<li>La négation de <span class="math inline">(x&gt;a)</span> est <span class="math inline">(x\leq a)</span>.</li>
+<li>La négation de (Quelque soit <span class="math inline">x</span> de <span class="math inline">\mathbb{R}</span>, <span class="math inline">x</span> vérifie <span class="math inline">x^2\geq 0</span>) est (Il existe <span class="math inline">x</span> de <span class="math inline">\mathbb{R}</span> tel que <span class="math inline">x^2&lt; 0</span>).</li>
+</ol>
+</div>
+</section>
+<section id="la-conjonction" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="la-conjonction"><span class="header-section-number">1.2</span> La conjonction</h2>
+<p>À partir de deux affirmations <span class="math inline">A</span> et <span class="math inline">B</span>, on peut former l’affirmation « <span class="math inline">A</span> et <span class="math inline">B</span> » que l’on note <span class="math inline">A \wedge B</span>.</p>
+<p>Table de vérité de la conjonction :</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th><span class="math inline">A</span></th>
+<th><span class="math inline">B</span></th>
+<th><span class="math inline">A \wedge B</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>V</td>
+<td>V</td>
+<td>V</td>
+</tr>
+<tr class="even">
+<td>V</td>
+<td>F</td>
+<td>F</td>
+</tr>
+<tr class="odd">
+<td>F</td>
+<td>V</td>
+<td>F</td>
+</tr>
+<tr class="even">
+<td>F</td>
+<td>F</td>
+<td>F</td>
+</tr>
+</tbody>
+</table>
+<p>ou</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th><span class="math inline">A</span></th>
+<th><span class="math inline">B</span></th>
+<th><span class="math inline">A \wedge B</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td>1</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr class="odd">
+<td>0</td>
+<td>1</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 1.2</strong></p>
+<p>Soit <span class="math inline">x\in\mathbb{C}</span>.</p>
+<p><span class="math inline">(x^2+x+1=0)\wedge(\operatorname{arg}(x)=\frac{2\pi}{3})</span> donne <span class="math inline">x=j=e^{i\frac{2\pi}{3}}=-\frac{1}{2}+i\frac{\sqrt{3}}{2}</span>.</p>
+</div>
+</section>
+<section id="la-disjonction" class="level2" data-number="1.3">
+<h2 data-number="1.3" class="anchored" data-anchor-id="la-disjonction"><span class="header-section-number">1.3</span> La disjonction</h2>
+<p>À partir de deux affirmations <span class="math inline">A</span> et <span class="math inline">B</span>, on peut former l’affirmation « <span class="math inline">A</span> ou <span class="math inline">B</span> » que l’on note <span class="math inline">A \vee B</span>.</p>
+<p>Table de vérité de la disjonction :</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th><span class="math inline">A</span></th>
+<th><span class="math inline">B</span></th>
+<th><span class="math inline">A \vee B</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>V</td>
+<td>V</td>
+<td>V</td>
+</tr>
+<tr class="even">
+<td>V</td>
+<td>F</td>
+<td>V</td>
+</tr>
+<tr class="odd">
+<td>F</td>
+<td>V</td>
+<td>V</td>
+</tr>
+<tr class="even">
+<td>F</td>
+<td>F</td>
+<td>F</td>
+</tr>
+</tbody>
+</table>
+<p>ou</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th><span class="math inline">A</span></th>
+<th><span class="math inline">B</span></th>
+<th><span class="math inline">A \vee B</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td>1</td>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td>0</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 1.3</strong></p>
+<p>Soit <span class="math inline">x\in\mathbb{C}</span>.</p>
+<p><span class="math inline">(x^2-x=0)</span> donne <span class="math inline">(x=0)\vee(x=1)</span>.</p>
+</div>
+</section>
+<section id="limplication" class="level2" data-number="1.4">
+<h2 data-number="1.4" class="anchored" data-anchor-id="limplication"><span class="header-section-number">1.4</span> L’implication</h2>
+<p>À partir de deux affirmations <span class="math inline">A</span> et <span class="math inline">B</span>, on peut former l’affirmation « <span class="math inline">A</span> implique <span class="math inline">B</span> » que l’on note <span class="math inline">A \Longrightarrow B</span>.</p>
+<p>Table de vérité de l’implication :</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th><span class="math inline">A</span></th>
+<th><span class="math inline">B</span></th>
+<th><span class="math inline">A \Longrightarrow B</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>V</td>
+<td>V</td>
+<td>V</td>
+</tr>
+<tr class="even">
+<td>V</td>
+<td>F</td>
+<td>F</td>
+</tr>
+<tr class="odd">
+<td>F</td>
+<td>V</td>
+<td>V</td>
+</tr>
+<tr class="even">
+<td>F</td>
+<td>F</td>
+<td>V</td>
+</tr>
+</tbody>
+</table>
+<p>ou</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th><span class="math inline">A</span></th>
+<th><span class="math inline">B</span></th>
+<th><span class="math inline">A \Longrightarrow B</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td>1</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr class="odd">
+<td>0</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td>0</td>
+<td>0</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 1.4</strong></p>
+<p>Dans <span class="math inline">\mathbb{C}</span>, <span class="math inline">xy=0 \Longrightarrow (x=0)\vee(y=0)</span>.</p>
+</div>
+</section>
+<section id="léquivalence" class="level2" data-number="1.5">
+<h2 data-number="1.5" class="anchored" data-anchor-id="léquivalence"><span class="header-section-number">1.5</span> L’équivalence</h2>
+<p>À partir de deux affirmations <span class="math inline">A</span> et <span class="math inline">B</span>, on peut former l’affirmation « <span class="math inline">A</span> équivaut à <span class="math inline">B</span> » que l’on note <span class="math inline">A \Leftrightarrow B</span>.</p>
+<p>Table de vérité de l’équivalence :</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th><span class="math inline">A</span></th>
+<th><span class="math inline">B</span></th>
+<th><span class="math inline">A \Leftrightarrow B</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>V</td>
+<td>V</td>
+<td>V</td>
+</tr>
+<tr class="even">
+<td>V</td>
+<td>F</td>
+<td>F</td>
+</tr>
+<tr class="odd">
+<td>F</td>
+<td>V</td>
+<td>F</td>
+</tr>
+<tr class="even">
+<td>F</td>
+<td>F</td>
+<td>V</td>
+</tr>
+</tbody>
+</table>
+<p>ou</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th><span class="math inline">A</span></th>
+<th><span class="math inline">B</span></th>
+<th><span class="math inline">A \Leftrightarrow B</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td>1</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr class="odd">
+<td>0</td>
+<td>1</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td>0</td>
+<td>0</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 1.5</strong></p>
+<p><span class="math inline">\left.\begin{array}{l}\text{M est un point}\ \text{du cercle } \mathscr{C}(O,R)\end{array}\right\} \Leftrightarrow OM=R</span>.</p>
+</div>
+<div class="proof remark" title="(hors programme)">
+<p><span class="proof-title"><em>Remarque</em>. </span></p>
+<ol type="1">
+<li><span class="math inline">\vee</span>, <span class="math inline">\wedge</span>, <span class="math inline">\Longrightarrow</span>, <span class="math inline">\Leftrightarrow</span>, NAND, XOR et NOR sont appelés aussi des <strong>connecteurs logiques</strong>.</li>
+<li>À partir de ces opérations logiques élémentaires, on peut former d’autres à savoir <span class="math inline">NAND</span>, <span class="math inline">XOR</span>, et <span class="math inline">NOR</span>… etc.</li>
+<li>Ces opérations peuvent se traduire aussi par un calcul dans <span class="math inline">\mathbb{Z}/2\mathbb{Z}</span>. Par exemple le « et » se traduit par la multiplication dans <span class="math inline">\mathbb{Z}/2\mathbb{Z}</span> et XOR par la somme dans <span class="math inline">\mathbb{Z}/2\mathbb{Z}</span>. Voici les opérations de calcul dans <span class="math inline">\mathbb{Z}/2\mathbb{Z}</span> :</li>
+</ol>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th><span class="math inline">\overset{\curvearrowright}{+}</span></th>
+<th>0</th>
+<th>1</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>0</td>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td>1</td>
+<td>1</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th><span class="math inline">\overset{\curvearrowright}{\times}</span></th>
+<th>0</th>
+<th>1</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td>1</td>
+<td>0</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<p>Pour plus de détails, consultez les liens : <a href="http://yann.lelogeais.free.fr/science/digit/digit_3t.html">lien 1</a> et <a href="https://openclassrooms.com/courses/l-algebre-de-boole">lien 2</a>.</p>
+</div>
+</section>
+<section id="propriétés" class="level2" data-number="1.6">
+<h2 data-number="1.6" class="anchored" data-anchor-id="propriétés"><span class="header-section-number">1.6</span> Propriétés</h2>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 1.1</strong></p>
+<p>Soient <span class="math inline">A</span>, <span class="math inline">B</span> et <span class="math inline">C</span> trois affirmations. Alors on a :</p>
+<ol type="1">
+<li><span class="math inline">\neg(\neg A) \equiv A</span></li>
+<li><span class="math inline">A\wedge(B\wedge C) \equiv (A\wedge B)\wedge C</span> (associativité de <span class="math inline">\wedge</span>)</li>
+<li><span class="math inline">A\vee(B\vee C) \equiv (A\vee B)\vee C</span> (associativité de <span class="math inline">\vee</span>)</li>
+<li><span class="math inline">A\wedge B \equiv B \wedge A</span> (commutativité de <span class="math inline">\wedge</span>)</li>
+<li><span class="math inline">A\vee B \equiv B \vee A</span> (commutativité de <span class="math inline">\vee</span>)</li>
+<li><span class="math inline">A\wedge(B\vee C) \equiv (A\wedge B)\vee(A\wedge C)</span> (distributivité)</li>
+<li><span class="math inline">A\vee(B\wedge C) \equiv (A\vee B)\wedge(A\vee C)</span> (distributivité)</li>
+<li><span class="math inline">A\wedge A\equiv A</span></li>
+<li><span class="math inline">A\vee A\equiv A</span></li>
+<li><span class="math inline">\neg(A\vee B)\equiv(\neg A)\wedge(\neg B)</span> (loi de Morgan)</li>
+<li><span class="math inline">\neg(A\wedge B)\equiv(\neg A)\vee(\neg B)</span> (loi de Morgan)</li>
+<li><span class="math inline">A \Longrightarrow B \equiv (\neg A)\vee B</span></li>
+<li><span class="math inline">A \Longrightarrow B \equiv ((\neg B) \Longrightarrow (\neg A))</span> (principe de la contraposée)</li>
+<li><span class="math inline">A\Leftrightarrow B \equiv (A\Longrightarrow B)\wedge(B\Longrightarrow A)</span> (principe de la double implication)</li>
+<li><span class="math inline">(A \vee B)\Longrightarrow C\equiv (A \Longrightarrow C) \wedge (B\Longrightarrow C)</span></li>
+<li><span class="math inline">\neg(A\Longrightarrow B) \equiv A\wedge(\neg B)</span></li>
+<li><span class="math inline">\neg(A\Leftrightarrow B) \equiv (A\Leftrightarrow(\neg B)) \equiv ((\neg A) \Leftrightarrow B)</span></li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 1.1 — (Quelques tautologies)</strong></p>
+<p>Soient <span class="math inline">A</span>, <span class="math inline">B</span> et <span class="math inline">C</span> trois affirmations. Les formules suivantes sont des tautologies :</p>
+<ol type="1">
+<li><span class="math inline">A \vee (\neg A)</span> (principe du tiers exclus)</li>
+<li><span class="math inline">A \Longrightarrow A</span></li>
+<li><span class="math inline">A \equiv A</span></li>
+<li><span class="math inline">A \Longrightarrow (A\vee B)</span></li>
+<li><span class="math inline">(A\wedge B) \Longrightarrow A</span></li>
+<li><span class="math inline">(A\wedge (A\Longrightarrow B))\Longrightarrow B</span></li>
+<li><span class="math inline">(A\Longrightarrow B)\wedge(B\Longrightarrow C) \Longrightarrow (A\Longrightarrow C)</span> (transitivité de <span class="math inline">\Longrightarrow</span>)</li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 1.1</strong></p>
+<p>Nier les expressions suivantes :</p>
+<ol type="1">
+<li><span class="math inline">((A\Longrightarrow B)\wedge C)\vee(\neg B)</span></li>
+<li><span class="math inline">((A\Longrightarrow B)\wedge C)\Longrightarrow B</span></li>
+</ol>
+</div>
+<div class="proof solution">
+<p><span class="proof-title"><em>Solution</em>. </span>Niions les expressions proposées :</p>
+<ol type="1">
+<li>On a :</li>
+</ol>
+<p><span class="math display">
+\begin{aligned}
+\neg\left[((A\Longrightarrow B)\wedge C)\vee(\neg B)\right] &amp;\equiv \neg\left[\left((A\Longrightarrow B)\vee(\neg B)\right)\wedge\left(C\vee(\neg B)\right)\right]\\
+&amp;\equiv \neg\left[\left(((\neg A)\vee B)\vee(\neg B)\right)\wedge\left(C\vee(\neg B)\right)\right]\\
+&amp;\equiv \neg\left(C\vee(\neg B)\right)\\
+&amp;\equiv (\neg C)\wedge B
+\end{aligned}
+</span></p>
+<ol start="2" type="1">
+<li>On a :</li>
+</ol>
+<p><span class="math display">
+\begin{aligned}
+\neg(((A\Longrightarrow B)\wedge C)\Longrightarrow B) &amp;\equiv \neg(\neg((A\Longrightarrow B)\wedge C)\vee B)\\
+&amp;\equiv ((A\Longrightarrow B)\wedge C)\wedge(\neg B)\\
+&amp;\equiv (((\neg A)\vee B)\wedge C)\wedge(\neg B)\\
+&amp;\equiv (((\neg A)\wedge C)\vee(B\wedge C))\wedge(\neg B)\\
+&amp;\equiv \left[((\neg A)\wedge C)\wedge(\neg B)\right]\vee\left[(B\wedge C)\wedge(\neg B)\right]\\
+&amp;\equiv (\neg A)\wedge C \wedge(\neg B)
+\end{aligned}
+</span></p>
+</div>
+</section>
+</section>
+<section id="quantificateurs" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> Quantificateurs</h1>
+<p>Soit <span class="math inline">\mathcal{R}(x)</span> une assertion dépendant d’une variable <span class="math inline">x</span>. On écrit <span class="math inline">(\exists x\ /\ \mathcal{R}(x))</span> pour dire qu’il existe au moins un des objets <span class="math inline">x</span> pour lequel <span class="math inline">\mathcal{R}(x)</span> est vraie.</p>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 2.1</strong></p>
+<p>Soient <span class="math inline">f : \mathbb{R} \longrightarrow \mathbb{R}</span> une fonction et <span class="math inline">(u_n)_{n\in\mathbb{N}}</span> une suite à valeurs réelles.</p>
+<ol type="1">
+<li><span class="math inline">\forall \varepsilon &gt;0,\ \exists \alpha &gt;0,\ (\forall x\in\mathbb{R}),\ (|x-x_0|\leq \alpha \Longrightarrow |f(x)-f(x_0)|\leq \varepsilon)</span> exprime la <strong>continuité</strong> de <span class="math inline">f</span> en <span class="math inline">x_0</span>.</li>
+<li><span class="math inline">\exists \alpha &gt;0,\ \forall \varepsilon &gt;0,\ (\forall x\in\mathbb{R}),\ (|x-x_0|\leq \alpha \Longrightarrow |f(x)-f(x_0)|\leq \varepsilon)</span> exprime que <span class="math inline">f</span> est <strong>constante</strong> au voisinage de <span class="math inline">x_0</span>.</li>
+<li><span class="math inline">\forall \varepsilon &gt;0,\ \exists N\in\mathbb{N},\ (\forall n\in\mathbb{N}),\ (n\geq N \Longrightarrow |u_n-a|\leq \varepsilon)</span> exprime que la suite <span class="math inline">(u_n)_{n\in\mathbb{N}}</span> <strong>converge</strong> vers l’élément <span class="math inline">a</span>.</li>
+<li><span class="math inline">\forall M\in\mathbb{R},\ \exists n\in\mathbb{N},\ u_n&gt;M</span> exprime le fait que <span class="math inline">(u_n)_{n\in\mathbb{N}}</span> n’est pas majorée.</li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 2.1 — (Règles de distributivité)</strong></p>
+<p>Soient <span class="math inline">P(x)</span> et <span class="math inline">Q(x)</span> deux expressions dépendant d’une variable <span class="math inline">x</span>. On a :</p>
+<ol type="1">
+<li><span class="math inline">\forall x,\ (P(x)\wedge Q(x))\equiv (\forall x,\ P(x))\wedge(\forall x,\ Q(x))</span></li>
+<li><span class="math inline">\exists x,\ (P(x)\vee Q(x))\equiv (\exists x,\ P(x))\vee(\exists x,\ Q(x))</span></li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 2.1</strong></p>
+<p>A-t-on :</p>
+<ol type="1">
+<li><span class="math inline">\forall x,\ (P(x)\vee Q(x))\equiv (\forall x,\ P(x))\vee(\forall x,\ Q(x))</span> ?</li>
+<li><span class="math inline">\exists x,\ (P(x)\wedge Q(x))\equiv (\exists x,\ P(x))\wedge(\exists x,\ Q(x))</span> ?</li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 2.2</strong></p>
+<p>Soit <span class="math inline">P(x)</span> une expression dépendant d’une variable <span class="math inline">x</span> et <span class="math inline">Q</span> ne l’est pas. On a :</p>
+<ol type="1">
+<li><span class="math inline">\forall x,\ (P(x)\vee Q)\equiv (\forall x,\ P(x))\vee Q</span></li>
+<li><span class="math inline">\exists x,\ (P(x)\wedge Q)\equiv (\exists x,\ P(x))\wedge Q</span></li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 2.3 — (Quantification d’une implication)</strong></p>
+<ol type="1">
+<li><p>Si la propriété <span class="math inline">P</span> ne dépend pas de <span class="math inline">x</span> :</p>
+<ol type="a">
+<li><p><span class="math inline">\forall x,\ (P \Longrightarrow Q(x)) \equiv P \Longrightarrow (\forall x,\ Q(x))</span></p></li>
+<li><p><span class="math inline">\exists x,\ (P \Longrightarrow Q(x)) \equiv P \Longrightarrow (\exists x,\ Q(x))</span></p></li>
+</ol></li>
+<li><p>Si la propriété <span class="math inline">Q</span> ne dépend pas de <span class="math inline">x</span> :</p>
+<ol type="a">
+<li><p><span class="math inline">\forall x,\ (P(x) \Longrightarrow Q) \equiv (\forall x,\ P(x)) \Longrightarrow Q</span></p></li>
+<li><p><span class="math inline">\exists x,\ (P(x) \Longrightarrow Q) \equiv (\forall x,\ P(x)) \Longrightarrow Q</span></p></li>
+</ol></li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 2.4 — (Négation des quantificateurs)</strong></p>
+<p>Soit <span class="math inline">P(x)</span> une expression dépendant d’une variable <span class="math inline">x</span>. On a :</p>
+<ol type="1">
+<li><span class="math inline">\neg(\forall x,\ P(x)) \equiv (\exists x,\ \neg P(x))</span></li>
+<li><span class="math inline">\neg(\exists x,\ P(x)) \equiv (\forall x,\ \neg P(x))</span></li>
+</ol>
+</div>
+</section>
+<section id="types-de-raisonnement" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Types de raisonnement</h1>
+<section id="raisonnement-par-les-équivalences-successives" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="raisonnement-par-les-équivalences-successives"><span class="header-section-number">3.1</span> Raisonnement par les équivalences successives</h2>
+<p>Pour démontrer qu’une propriété <span class="math inline">P</span> est vraie, on démontre des fois qu’elle est équivalente à une propriété qu’on sait vraie à l’avance.</p>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 3.1</strong></p>
+<p>Soit <span class="math inline">(a,b)\in\mathbb{R}^2</span>. Montrons que <span class="math inline">ab\leq \frac{a^2+b^2}{2}</span> :</p>
+<p>Procédons par des équivalences successives. On a :</p>
+<p><span class="math display">
+\begin{aligned}
+ab\leq \frac{a^2+b^2}{2} &amp;\Longleftrightarrow 2ab \leq a^2+b^2\\
+&amp;\Longleftrightarrow a^2+b^2-2ab \geq 0\\
+&amp;\Longleftrightarrow (a-b)^2\geq 0
+\end{aligned}
+</span></p>
+<p>La dernière expression équivalente est vraie, on conclut alors que <span class="math inline">ab\leq \frac{a^2+b^2}{2}</span>.</p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 3.2</strong></p>
+<p>Soit <span class="math inline">a\in\mathbb{C}\smallsetminus\{1\}</span> et <span class="math inline">n\in\mathbb{N}</span>. Montrons que <span class="math inline">\sum_{k=0}^n a^k=\frac{1-a^{n+1}}{1-a}</span> :</p>
+<p>Procédons par des équivalences successives. On a :</p>
+<p><span class="math display">
+\begin{aligned}
+\sum_{k=0}^n a^k=\frac{1-a^{n+1}}{1-a} &amp;\Longleftrightarrow (1-a)\sum_{k=0}^n a^k=1-a^{n+1}\\
+&amp;\Longleftrightarrow \sum_{k=0}^n (1-a)a^k=1-a^{n+1}\\
+&amp;\Longleftrightarrow \sum_{k=0}^n (a^k-a^{k+1})=1-a^{n+1}\\
+&amp;\Longleftrightarrow a^0-a^{n+1}=1-a^{n+1}
+\end{aligned}
+</span></p>
+<p>D’où :</p>
+<p><span class="math display">\sum_{k=0}^n a^k=\frac{1-a^{n+1}}{1-a}.</span></p>
+</div>
+</section>
+<section id="raisonnement-par-disjonction-des-cas" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="raisonnement-par-disjonction-des-cas"><span class="header-section-number">3.2</span> Raisonnement par disjonction des cas</h2>
+<p>Pour démontrer qu’une propriété est vraie, on considère tous les cas possibles et on vérifie qu’elle est vraie dans chacun des cas possibles.</p>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 3.3</strong></p>
+<p>On montre que pour tout <span class="math inline">n\in\mathbb{N}</span>, <span class="math inline">n(n+1)</span> est pair : soit <span class="math inline">n</span> un entier naturel et considérons tous les cas possibles :</p>
+<p><strong>Cas 1 :</strong> si <span class="math inline">n</span> est pair alors il existe <span class="math inline">k\in\mathbb{N}</span> tel que <span class="math inline">n=2k</span>, donc <span class="math inline">n(n+1)=2k(2k+1)=2\times k(2k+1)</span>, et par suite, <span class="math inline">n(n+1)</span> est pair.</p>
+<p><strong>Cas 2 :</strong> si <span class="math inline">n</span> est impair alors il existe <span class="math inline">k\in\mathbb{N}</span> tel que <span class="math inline">n=2k+1</span>, donc <span class="math inline">n(n+1)=(2k+1)(2k+2)=2\times(2k+1)(k+1)</span>, et par suite, <span class="math inline">n(n+1)</span> est pair.</p>
+<p>D’où <span class="math inline">n(n+1)</span> est pair pour tout <span class="math inline">n</span> de <span class="math inline">\mathbb{N}</span>.</p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 3.4</strong></p>
+<p>Soit <span class="math inline">x\in\mathbb{R}</span>. Montrons que <span class="math inline">x^2+x+1\geq 0</span>.</p>
+<p><strong>Cas 1 :</strong> si <span class="math inline">x\leq -1</span> alors <span class="math inline">x\leq 0</span> et <span class="math inline">x+1\geq 0</span>, donc <span class="math inline">x(x+1)\leq 0</span> et par suite, <span class="math inline">x^2+x+1\geq 1&gt;0</span>.</p>
+<p><strong>Cas 2 :</strong> si <span class="math inline">x\geq -1</span> alors <span class="math inline">x+1\geq 0</span> et <span class="math inline">x^2\geq 0</span>, donc <span class="math inline">x^2+x+1\geq 0</span>.</p>
+<p>D’où :</p>
+<p><span class="math display">x^2+x+1\geq 0</span></p>
+</div>
+</section>
+<section id="raisonnement-par-contre-exemple" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="raisonnement-par-contre-exemple"><span class="header-section-number">3.3</span> Raisonnement par contre-exemple</h2>
+<p>Soit <span class="math inline">P(x)</span> une propriété dépendant d’un paramètre <span class="math inline">x</span>. Pour montrer que l’affirmation <span class="math inline">(\forall x,\ P(x))</span> est fausse, on démontre que sa négation <span class="math inline">(\exists x,\ \neg P(x))</span> est vraie.</p>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 3.5</strong></p>
+<p>La propriété suivante est-elle vraie : « deux rectangles de même aire ont même périmètre » ?</p>
+<p>Les rectangles de longueurs respectives <span class="math inline">4,m</span> et <span class="math inline">2,m</span> et de largeurs respectives <span class="math inline">0{,}5,m</span> et <span class="math inline">1,m</span> constituent un contre-exemple.</p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 3.6</strong></p>
+<p>L’affirmation <span class="math inline">(\forall x\in\mathbb{C},\ x^2\geq 0)</span> est fausse puisque les nombres complexes <span class="math inline">i</span> et <span class="math inline">j</span> constituent des contre-exemples.</p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 3.7</strong></p>
+<p>L’affirmation <span class="math inline">(\forall (a,b)\in (\mathbb{R}^+)^2,\ \sqrt{a+b}=\sqrt{a}+\sqrt{b})</span> est fausse puisque <span class="math inline">a=9</span> et <span class="math inline">b=16</span> constituent un contre-exemple.</p>
+</div>
+</section>
+<section id="raisonnement-par-labsurde" class="level2" data-number="3.4">
+<h2 data-number="3.4" class="anchored" data-anchor-id="raisonnement-par-labsurde"><span class="header-section-number">3.4</span> Raisonnement par l’absurde</h2>
+<div class="callout callout-style-default callout-note no-icon callout-titled" title="Première forme">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Première forme
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>L’implication <span class="math inline">A \Longrightarrow B</span> se traduit par <span class="math inline">(\neg A)\vee B</span>. En général, on prend <span class="math inline">A</span> comme hypothèse et on démontre <span class="math inline">B</span>. Mais dans le raisonnement par l’absurde, on prend comme hypothèse <span class="math inline">A \wedge (\neg B)</span> et on aboutit à une contradiction.</p>
+</div>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 3.8</strong></p>
+<p>Soit <span class="math inline">z\in\mathbb{C}</span>. Montrons que si <span class="math inline">z=0</span> alors <span class="math inline">\mathcal{R}e(z)=\mathcal{I}m(z)=0</span> :</p>
+<p>Raisonnons par absurde en supposant que <span class="math inline">z=0</span> et (<span class="math inline">\mathcal{R}e(z)\neq 0</span> ou <span class="math inline">\mathcal{I}m(z)\neq 0</span>).</p>
+<p><span class="math inline">z=0</span> donne <span class="math inline">\mathcal{R}e(z)=-i\mathcal{I}m(z)</span>, donc <span class="math inline">\left(\mathcal{R}e(z)\right)^2=-\left(\mathcal{I}m(z)\right)^2</span>, et par suite, <span class="math inline">\left(\mathcal{R}e(z)\right)^2+\left(\mathcal{I}m(z)\right)^2=0</span>. Or <span class="math inline">\mathcal{R}e(z)\neq 0</span> ou <span class="math inline">\mathcal{I}m(z)\neq 0</span> donc <span class="math inline">\left(\mathcal{R}e(z)\right)^2+\left(\mathcal{I}m(z)\right)^2&gt;0</span>. Contradiction.</p>
+<p>Conclusion : si <span class="math inline">z=0</span> alors <span class="math inline">\mathcal{R}e(z)=\mathcal{I}m(z)=0</span>.</p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 3.9</strong></p>
+<p>Soit <span class="math inline">n\in\mathbb{N}</span>. Montrer que si <span class="math inline">n^2</span> est pair alors <span class="math inline">n</span> l’est aussi :</p>
+<p>Raisonnons par absurde en supposant que <span class="math inline">n^2</span> est pair et <span class="math inline">n</span> ne l’est pas. Donc <span class="math inline">n</span> est impair, et par suite, il existe <span class="math inline">k\in\mathbb{N}</span> tel que <span class="math inline">n=2k+1</span>, donc <span class="math inline">n^2=4k^2+4k+1=2(2k^2+2k)+1</span>, donc <span class="math inline">n^2</span> est impair. Contradiction.</p>
+<p>Conclusion : si <span class="math inline">n^2</span> est pair alors <span class="math inline">n</span> est aussi pair.</p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 3.10</strong></p>
+<p>Soient <span class="math inline">a, b &gt; 0</span>. Montrons que si <span class="math inline">\frac{a}{1+a}=\frac{b}{1+b}</span> alors <span class="math inline">a = b</span> :</p>
+<p>Raisonnons par absurde en supposant que <span class="math inline">\frac{a}{1+a}=\frac{b}{1+b}</span> et <span class="math inline">a\neq b</span>. Comme <span class="math inline">\frac{a}{1+a}=\frac{b}{1+b}</span> alors <span class="math inline">a(1+b) = b(1+a)</span> donc <span class="math inline">a+ab=b+ab</span> d’où <span class="math inline">a=b</span>. Cela conduit une contradiction.</p>
+<p>Conclusion : si <span class="math inline">\frac{a}{1+a}=\frac{b}{1+b}</span> alors <span class="math inline">a = b</span>.</p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 3.11</strong></p>
+<p>Soit <span class="math inline">(k,k')\in\mathbb{N}^2</span>. Montrons par absurde que si <span class="math inline">kk'=1</span> alors <span class="math inline">k=k'=1</span> :</p>
+<p>Supposons alors que <span class="math inline">kk'=1</span> et (<span class="math inline">k\neq 1</span> ou <span class="math inline">k'\neq 1</span>).</p>
+<ol type="1">
+<li>Si <span class="math inline">k=0</span> ou <span class="math inline">k'=0</span> alors <span class="math inline">kk'=0\neq 1</span>. Contradiction.</li>
+<li>Sinon, comme (<span class="math inline">k\neq 1</span> ou <span class="math inline">k'\neq 1</span>) alors (<span class="math inline">k\geq 2</span> ou <span class="math inline">k'\geq 2</span>), donc <span class="math inline">kk'\geq 2</span>, donc <span class="math inline">kk'\neq 1</span>. Contradiction.</li>
+</ol>
+<p>Conclusion : si <span class="math inline">kk'=1</span> alors <span class="math inline">k=k'=1</span>.</p>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled" title="Deuxième forme">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Deuxième forme
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Soit <span class="math inline">\mathcal{P}(x)</span> une assertion dépendant d’un paramètre <span class="math inline">x</span>. Cette forme est utilisée lorsqu’il s’agit de démontrer qu’il n’existe aucun objet <span class="math inline">x</span> tel que <span class="math inline">\mathcal{P}(x)</span> soit vraie en supposant qu’il existe un tel <span class="math inline">x</span> et aboutir à une contradiction par la suite.</p>
+</div>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 3.12</strong></p>
+<p>Considérons l’assertion <span class="math inline">\mathcal{P}(x)</span> : « Il n’existe aucun <span class="math inline">x</span> de <span class="math inline">\mathbb{R}</span> tel que <span class="math inline">x^2\leq 4</span> et <span class="math inline">1{,}5\leq \sqrt{|x|}</span> ».</p>
+<p>Supposons qu’il existe un tel <span class="math inline">x</span> alors <span class="math inline">x^2\leq 4</span> et <span class="math inline">\underset{\simeq 5{,}06}{(1{,}5)^4}\leq |x|^2</span> : alors 4 est supérieur à 5, ce qui est impossible.</p>
+<p>D’où la propriété <span class="math inline">\mathcal{P}(x)</span> est vraie.</p>
+</div>
+</section>
+<section id="raisonnement-par-contraposée" class="level2" data-number="3.5">
+<h2 data-number="3.5" class="anchored" data-anchor-id="raisonnement-par-contraposée"><span class="header-section-number">3.5</span> Raisonnement par contraposée</h2>
+<p>Comme on a déjà mentionné, l’implication <span class="math inline">A \Longrightarrow B</span> se traduit par <span class="math inline">(\neg A)\vee B</span> qui est la même chose que <span class="math inline">(\neg(\neg B))\vee(\neg A)</span> et qui se traduit par <span class="math inline">(\neg B)\Longrightarrow(\neg A)</span>.</p>
+<p><span class="math display">A \Longrightarrow B \equiv (\neg B)\Longrightarrow(\neg A)</span></p>
+<p>Il s’agit alors dans le raisonnement par contraposée de démontrer l’implication équivalente.</p>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 3.13</strong></p>
+<p>Soit <span class="math inline">n\in\mathbb{N}</span>. Montrons que si <span class="math inline">n^2</span> est pair alors <span class="math inline">n</span> l’est aussi :</p>
+<p>Raisonnons par contraposée, supposons que <span class="math inline">n</span> est impair et montrons que <span class="math inline">n^2</span> l’est aussi. Donc il existe un entier <span class="math inline">k\in\mathbb{N}</span> tel que <span class="math inline">n=2k+1</span>, par suite <span class="math inline">n^2=4k^2+4k+1=2(2k^2+2k)+1</span>, d’où <span class="math inline">n^2</span> est impair.</p>
+<p>Ainsi, si <span class="math inline">n^2</span> est pair alors <span class="math inline">n</span> l’est aussi.</p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 3.14</strong></p>
+<p>Soit <span class="math inline">x\in\mathbb{R}</span>. Montrons que si pour tout <span class="math inline">\varepsilon &gt;0</span>, <span class="math inline">|x|\leq \varepsilon</span> alors <span class="math inline">x=0</span> :</p>
+<p>Raisonnons par contraposée, supposons que <span class="math inline">x\neq 0</span> et montrons qu’il existe <span class="math inline">\varepsilon &gt;0</span> tel que <span class="math inline">|x|&gt; \varepsilon</span>. Si on prend <span class="math inline">\varepsilon =\frac{|x|}{2}&gt;0</span> alors <span class="math inline">|x|&gt; \varepsilon</span>.</p>
+<p>D’où :</p>
+<p><span class="math display">\forall \varepsilon &gt;0,\ |x|\leq \varepsilon \Longrightarrow x=0</span></p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 3.15</strong></p>
+<p>Soit <span class="math inline">n\in\mathbb{N}</span>. Montrons que :</p>
+<p><span class="math display">\left(\forall m\in\mathbb{N},\ n^2-1\neq 8m\right)\Longrightarrow \left(\exists k\in\mathbb{N},\ n=2k\right)</span></p>
+<p>La contraposée s’écrit :</p>
+<p><span class="math display">\left(\forall k\in\mathbb{N},\ n\neq 2k\right)\Longrightarrow \left(\exists m\in\mathbb{N},\ n^2-1= 8m\right)</span></p>
+<p>Si on suppose <span class="math inline">\left(\forall k\in\mathbb{N},\ n\neq 2k\right)</span> alors <span class="math inline">n</span> est impair, donc il existe un entier <span class="math inline">k\in\mathbb{N}</span> tel que <span class="math inline">n=2k+1</span>, donc <span class="math inline">n^2=4k^2+4k+1=4k(k+1)+1</span>. Or, <span class="math inline">k(k+1)</span> est pair (d’après l’exemple précédent) donc il existe <span class="math inline">m\in\mathbb{N}</span> tel que <span class="math inline">k(k+1)=2m</span> et par suite <span class="math inline">n^2=8m+1</span> donc <span class="math inline">n^2-1= 8m</span>. D’où :</p>
+<p><span class="math display">\left(\forall m\in\mathbb{N},\ n^2-1\neq 8m\right)\Longrightarrow \left(\exists k\in\mathbb{N},\ n=2k\right)</span></p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 3.16</strong></p>
+<p>Soient <span class="math inline">x_1,\cdots,x_n</span> <span class="math inline">(n\geq 1)</span> et <span class="math inline">M</span> des réels. Montrons que :</p>
+<p><span class="math display">x_1+\cdots+x_n=M \Longrightarrow \exists i\in \llbracket 1,n \rrbracket,\ x_i\geq \frac{M}{n}</span></p>
+<p>La contraposée s’écrit :</p>
+<p><span class="math display">\forall i\in \llbracket 1,n \rrbracket,\ x_i&lt;\frac{M}{n} \Longrightarrow x_1+\cdots+x_n\neq M</span></p>
+<p>Donc <span class="math inline">\sum_{i=1}^n x_i&lt;\sum_{i=1}^n\frac{M}{n}=M</span>, par suite <span class="math inline">\sum_{i=1}^n x_i\neq M</span>. D’où :</p>
+<p><span class="math display">x_1+\cdots+x_n=M \Longrightarrow \exists i\in \llbracket 1,n \rrbracket,\ x_i\geq \frac{M}{n}</span></p>
+</div>
+</section>
+<section id="raisonnement-par-analyse-synthèse" class="level2" data-number="3.6">
+<h2 data-number="3.6" class="anchored" data-anchor-id="raisonnement-par-analyse-synthèse"><span class="header-section-number">3.6</span> Raisonnement par analyse-synthèse</h2>
+<p>Le raisonnement par analyse-synthèse est un type de raisonnement mathématique permettant de démontrer l’existence et l’unicité d’un objet vérifiant des propriétés données. Il se décompose en deux parties :</p>
+<ul>
+<li><strong>L’analyse</strong> : on suppose que l’objet existe et on essaie de trouver des conditions nécessaires que doit vérifier cet objet. Ce faisant, on prouve que si l’objet existe, alors il est nécessairement égal à un certain objet <span class="math inline">x_0</span> (ceci assure l’unicité).</li>
+<li><strong>La synthèse</strong> : on considère l’objet <span class="math inline">x_0</span> identifié dans la partie analyse, et on vérifie qu’il a bien les propriétés voulues (ceci assure l’existence).</li>
+</ul>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 3.17</strong></p>
+<p>Montrons que toute application <span class="math inline">f: \mathbb{R}\longrightarrow \mathbb{R}</span> s’écrit de façon unique comme somme d’une application paire et d’une autre impaire :</p>
+<p>Soit <span class="math inline">f: \mathbb{R}\longrightarrow \mathbb{R}</span> une application et procédons par analyse-synthèse :</p>
+<p><strong>Analyse</strong> : supposons qu’il existe deux applications <span class="math inline">g,h:\mathbb{R}\longrightarrow \mathbb{R}</span> telles que <span class="math inline">g</span> est paire, <span class="math inline">h</span> est impaire et <span class="math inline">f=g+h</span>. Donc pour <span class="math inline">x\in\mathbb{R}</span>, on a :</p>
+<p><span class="math display">\begin{cases} f(x)=g(x)+h(x)\\f(-x)=g(x)-h(x)\end{cases}</span></p>
+<p>Donc :</p>
+<p><span class="math display">\begin{cases} g(x)=\frac{1}{2}\left(f(x)+f(-x)\right)\\h(x)=\frac{1}{2}\left(f(x)-f(-x)\right)\end{cases}</span></p>
+<p>D’où l’unicité de l’écriture.</p>
+<p><strong>Synthèse</strong> : pour <span class="math inline">x\in\mathbb{R}</span>, posons :</p>
+<p><span class="math display">\begin{cases} g(x)=\frac{1}{2}\left(f(x)+f(-x)\right)\\h(x)=\frac{1}{2}\left(f(x)-f(-x)\right)\end{cases}</span></p>
+<p>Alors on a bien :</p>
+<ol type="1">
+<li><span class="math inline">f=g+h</span></li>
+<li><span class="math inline">g</span> est paire</li>
+<li><span class="math inline">h</span> est impaire</li>
+</ol>
+<p>D’où l’existence de l’écriture.</p>
+</div>
+</section>
+<section id="raisonnement-par-récurrence" class="level2" data-number="3.7">
+<h2 data-number="3.7" class="anchored" data-anchor-id="raisonnement-par-récurrence"><span class="header-section-number">3.7</span> Raisonnement par récurrence</h2>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 3.1 — (Propriétés de <span class="math inline">\boldsymbol{\mathbb{N}}</span>)</strong></p>
+<p>L’ensemble des entiers naturels possède les propriétés suivantes :</p>
+<p><strong>(N1)</strong> Toute partie non vide de <span class="math inline">\mathbb{N}</span> possède un plus petit élément.</p>
+<p><strong>(N2)</strong> Toute partie non vide de <span class="math inline">\mathbb{N}</span> et majorée possède un plus grand élément.</p>
+<p><strong>(N3)</strong> L’ensemble <span class="math inline">\mathbb{N}</span> lui-même n’est pas majoré, en particulier il ne possède pas de plus grand élément.</p>
+</div>
+<p><strong>Rappel :</strong> On dit qu’une partie <span class="math inline">D</span> de <span class="math inline">\mathbb{R}</span> est majorée s’il existe <span class="math inline">M\in\mathbb{R}</span> tel que <span class="math inline">\forall x\in D,\ x\leq M</span>.</p>
+<section id="principe-de-récurrence" class="level3" data-number="3.7.1">
+<h3 data-number="3.7.1" class="anchored" data-anchor-id="principe-de-récurrence"><span class="header-section-number">3.7.1</span> Principe de récurrence</h3>
+<p>Si on se donne une propriété <span class="math inline">\mathcal{P}(n)</span> dépendant d’un paramètre <span class="math inline">n\in\mathbb{N}</span>, et il se trouve qu’elle est vraie à chaque fois qu’on prend un entier <span class="math inline">n\in\mathbb{N}</span> au hasard, on se demande si elle est vraie pour tout <span class="math inline">n\in\mathbb{N}</span>.</p>
+<p><strong>Par exemple :</strong></p>
+<p><span class="math display">\mathcal{P}(n) : \quad 1+2+3+\cdots+(n-1)+n=\frac{n(n+1)}{2}</span></p>
+<ul>
+<li>Pour <span class="math inline">n=1</span> : <span class="math inline">1=\frac{1(1+1)}{2}</span> (<span class="math inline">\mathcal{P}(1)</span> est vraie)</li>
+<li>Pour <span class="math inline">n=2</span> : <span class="math inline">1+2=3=\frac{2(2+1)}{2}</span> (<span class="math inline">\mathcal{P}(2)</span> est vraie)</li>
+<li>Pour <span class="math inline">n=3</span> : <span class="math inline">1+2+3=6=\frac{3(3+1)}{2}</span> (<span class="math inline">\mathcal{P}(3)</span> est vraie)</li>
+<li>Pour <span class="math inline">n=4</span> : <span class="math inline">1+2+3+4=10=\frac{4(4+1)}{2}</span> (<span class="math inline">\mathcal{P}(4)</span> est vraie)</li>
+<li><span class="math inline">\vdots</span></li>
+</ul>
+<p>La question qui se pose : existe-il un moyen qui assure que cela va être vrai pour tout <span class="math inline">n\in\mathbb{N}</span> ? La réponse est positive : c’est le raisonnement par récurrence.</p>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 3.2 — (Récurrence faible)</strong></p>
+<p>Soit <span class="math inline">\mathcal{P}(n)</span> une propriété dépendant d’un paramètre <span class="math inline">n</span> avec <span class="math inline">n\in\mathbb{N}</span>. S’il existe <span class="math inline">n_0 \in\mathbb{N}</span> tel que :</p>
+<p><span class="math inline">(R1)</span> <span class="math inline">\mathcal{P}(n_0)</span> est vraie ;</p>
+<p><span class="math inline">(R2)</span> <span class="math inline">\forall n\geq n_0</span>, <span class="math inline">(\mathcal{P}(n) \Longrightarrow \mathcal{P}(n+1))</span>.</p>
+<p>Alors <span class="math inline">\mathcal{P}(n)</span> est vraie pour tout <span class="math inline">n\geq n_0</span>.</p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Preuve</em>. </span>Raisonnons par absurde : supposons qu’il existe au moins un entier <span class="math inline">m\geq n_0</span> tel que <span class="math inline">\mathcal{P}(m)</span> soit fausse.</p>
+<p>Considérons l’ensemble :</p>
+<p><span class="math display">A =\{k\in\mathbb{N}\ /\ (k\geq n_0)\wedge (\mathcal{P}(k) \text{ fausse})\}</span></p>
+<p><span class="math inline">A</span> est une partie de <span class="math inline">\mathbb{N}</span> non vide par hypothèse (car <span class="math inline">(m\geq n_0)\wedge(\mathcal{P}(m) \text{ fausse})</span>) donc elle possède un plus petit élément <span class="math inline">m_0</span>. On a <span class="math inline">\mathcal{P}(n_0)</span> est vraie (d’après l’hypothèse <span class="math inline">(R1)</span>) et <span class="math inline">\mathcal{P}(m_0)</span> est fausse, donc <span class="math inline">m_0&gt;n_0</span> par suite <span class="math inline">m_0&gt;m_0-1\geq n_0</span>. Or, <span class="math inline">m_0-1\notin A</span> (car <span class="math inline">m_0 =\min A</span>), donc <span class="math inline">\mathcal{P}(m_0-1)</span> est vraie. Il en résulte que, d’après <span class="math inline">(R2)</span>, <span class="math inline">\mathcal{P}(m_0)</span> est vraie puisque <span class="math inline">\mathcal{P}(m_0-1)</span> est vraie. Ce qui contredit la définition de <span class="math inline">m_0</span>. D’où le résultat, c’est-à-dire la propriété <span class="math inline">\mathcal{P}(n)</span> est vraie pour tout <span class="math inline">n\geq n_0</span>.</p>
+</div>
+<div class="proof remark">
+<p><span class="proof-title"><em>Remarque</em>. </span>La condition <span class="math inline">(R1)</span> s’appelle <strong>l’initialisation</strong> et la condition <span class="math inline">(R2)</span> s’appelle <strong>l’hérédité</strong>.</p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 3.18</strong></p>
+<p>Montrons par récurrence <span class="math inline">\forall n\geq 4,\ \left(\mathcal{P}(n) : n^2\leq 2^n\right)</span> :</p>
+<p><span class="math inline">(R1)</span> Pour <span class="math inline">n=n_0=4</span>, on a <span class="math inline">4^2=16 \leq 2^4=16</span>. Donc la propriété <span class="math inline">\mathcal{P}(n_0)</span> est vraie.</p>
+<p><span class="math inline">(R2)</span> Soit <span class="math inline">n\geq 4</span>. Supposons <span class="math inline">\left(\mathcal{P}(n) : n^2\leq 2^n\right)</span> et montrons :</p>
+<p><span class="math display">\mathcal{P}(n+1) : (n+1)^2\leq 2^{n+1}</span></p>
+<p>On a <span class="math inline">n^2\leq 2^n</span> donc <span class="math inline">2n^2\leq 2^{n+1}</span>.</p>
+<p><span class="math display">\text{Or, } (n+1)^2-2n^2=-n^2+2n+1 =-(n-1)^2+2\leq -7&lt;0</span></p>
+<p>puisque <span class="math inline">n\geq 4</span>. Donc <span class="math inline">(n+1)^2 \leq 2n^2 \leq 2^{n+1}</span> c’est-à-dire <span class="math inline">\mathcal{P}(n+1)</span> est vraie.</p>
+<p>Ainsi, d’après le théorème précédent, <span class="math inline">\forall n\geq 4</span>, <span class="math inline">\left(\mathcal{P}(n) : n^2\leq 2^n\right)</span> est vraie.</p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 3.19</strong></p>
+<p>Montrons par récurrence <span class="math inline">\forall n\geq 1,\ \left(\mathcal{P}(n) : \sum_{k=1}^n k=\frac{n(n+1)}{2}\right)</span> :</p>
+<p><span class="math inline">(R1)</span> Pour <span class="math inline">n=1</span>, on a <span class="math inline">\sum_{k=1}^1 k=1=\frac{1(1+1)}{2}</span>. Donc la propriété <span class="math inline">\mathcal{P}(1)</span> est vraie.</p>
+<p><span class="math inline">(R2)</span> Soit <span class="math inline">n\geq 1</span>. Supposons <span class="math inline">\left(\mathcal{P}(n) : \sum_{k=1}^n k=\frac{n(n+1)}{2}\right)</span> et montrons :</p>
+<p><span class="math display">\mathcal{P}(n+1) : \sum_{k=1}^{n+1} k=\frac{(n+1)(n+2)}{2}</span></p>
+<p>On a :</p>
+<p><span class="math display">\sum_{k=1}^{n+1} k=1+\cdots+n+(n+1)=\sum_{k=1}^n k+(n+1)</span></p>
+<p>Or d’après l’hypothèse de récurrence <span class="math inline">\sum_{k=1}^n k=\frac{n(n+1)}{2}</span>, donc :</p>
+<p><span class="math display">
+\begin{aligned}
+\sum_{k=1}^{n+1} k&amp;=\frac{n(n+1)}{2}+(n+1)\\
+&amp;=\frac{n(n+1)+2(n+1)}{2}\\
+&amp;=\frac{(n+1)(n+2)}{2}
+\end{aligned}
+</span></p>
+<p>Donc <span class="math inline">\mathcal{P}(n+1)</span> est vraie. D’où :</p>
+<p><span class="math display">\forall n\geq 1,\ \left(\mathcal{P}(n) : \sum_{k=1}^n k=\frac{n(n+1)}{2}\right)</span></p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 3.20</strong></p>
+<p>Montrons par récurrence que <span class="math inline">\forall n\geq 1,\ \left(\mathcal{P}(n) : \sum_{k=1}^n (-1)^k k^2=(-1)^n\sum_{k=1}^n k\right)</span> :</p>
+<p><span class="math inline">(R1)</span> Pour <span class="math inline">n=1</span>, on a <span class="math inline">\sum_{k=1}^1 (-1)^k k^2=-1=(-1)^1\sum_{k=1}^1 k</span>. Donc la propriété <span class="math inline">\mathcal{P}(1)</span> est vraie.</p>
+<p><span class="math inline">(R2)</span> Soit <span class="math inline">n\geq 1</span>. Supposons <span class="math inline">\mathcal{P}(n)</span> et montrons :</p>
+<p><span class="math display">\mathcal{P}(n+1) : \sum_{k=1}^{n+1} (-1)^k k^2=(-1)^{n+1}\sum_{k=1}^{n+1} k</span></p>
+<p>On a :</p>
+<p><span class="math display">\sum_{k=1}^{n+1} (-1)^k k^2=\sum_{k=1}^n (-1)^k k^2+(-1)^{n+1}(n+1)^2</span></p>
+<p>Or d’après l’hypothèse de récurrence : <span class="math inline">\sum_{k=1}^n (-1)^k k^2=(-1)^n\sum_{k=1}^n k=(-1)^n\frac{n(n+1)}{2}</span>, donc :</p>
+<p><span class="math display">
+\begin{aligned}
+\sum_{k=1}^{n+1} (-1)^k k^2&amp;=(-1)^n\frac{n(n+1)}{2}+(-1)^{n+1}(n+1)^2\\
+&amp;=(-1)^{n+1}\frac{n+1}{2}\left[-n+2(n+1)\right]\\
+&amp;=(-1)^{n+1}\frac{(n+1)(n+2)}{2}\\
+&amp;=(-1)^{n+1}\sum_{k=1}^{n+1} k
+\end{aligned}
+</span></p>
+<p>Donc <span class="math inline">\mathcal{P}(n+1)</span> est vraie. D’où :</p>
+<p><span class="math display">\forall n\geq 1,\ \left(\mathcal{P}(n) : \sum_{k=1}^n (-1)^k k^2=(-1)^n\sum_{k=1}^n k\right)</span></p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 3.21</strong></p>
+<p>Soit <span class="math inline">(u_n)_{n\in\mathbb{N}}</span> la suite numérique définie par :</p>
+<p><span class="math display">\begin{cases} u_0=1\\ \forall n\in\mathbb{N},\ u_{n+1}=\sum_{k=0}^n u_k\end{cases}</span></p>
+<p>Montrons par récurrence <span class="math inline">\forall n\in\mathbb{N}^*,\ \left(\mathcal{P}(n) : u_n=2^{n-1}\right)</span> :</p>
+<p><span class="math inline">(R1)</span> Pour <span class="math inline">n=1</span>, <span class="math inline">u_1=\sum_{k=0}^0 u_k=u_0=1=2^{1-1}</span>, donc <span class="math inline">\mathcal{P}(1)</span> est vraie.</p>
+<p><span class="math inline">(R2)</span> Soit <span class="math inline">n\in\mathbb{N}^*</span>. Supposons <span class="math inline">\mathcal{P}(n) : u_n=2^{n-1}</span> et montrons <span class="math inline">\mathcal{P}(n+1) : u_{n+1}=2^{n}</span>. On a :</p>
+<p><span class="math display">u_{n+1}=\sum_{k=0}^n u_k=\sum_{k=0}^{n-1} u_k+u_n=2u_n</span></p>
+<p>Or d’après l’hypothèse de récurrence, <span class="math inline">u_n=2^{n-1}</span> donc :</p>
+<p><span class="math display">u_{n+1}=2\times 2^{n-1}=2^n</span></p>
+<p>Donc <span class="math inline">\mathcal{P}(n+1)</span> est vraie. D’où :</p>
+<p><span class="math display">\forall n\in\mathbb{N}^*,\ \left(\mathcal{P}(n) : u_n=2^{n-1}\right)</span></p>
+</div>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 3.3 — (Récurrence forte)</strong></p>
+<p>Soit <span class="math inline">\mathcal{P}(n)</span> une propriété dépendant d’un paramètre <span class="math inline">n</span> avec <span class="math inline">n\in\mathbb{N}</span> et soit <span class="math inline">n_0\in\mathbb{N}</span> tel que :</p>
+<p><span class="math inline">(R1)</span> <span class="math inline">\mathcal{P}(n_0)</span> est vraie ;</p>
+<p><span class="math inline">(R3)</span> <span class="math inline">\forall n\geq n_0</span>, <span class="math inline">\left((\forall k\in \llbracket n_0,n\rrbracket,\ \mathcal{P}(k))\Longrightarrow \mathcal{P}(n+1)\right)</span>.</p>
+<p>Alors <span class="math inline">\mathcal{P}(n)</span> est vraie pour tout <span class="math inline">n\geq n_0</span>.</p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Preuve</em>. </span>Même démonstration que le théorème de la récurrence faible.</p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 3.22 — (Théorème d’Euclide)</strong></p>
+<p>Montrons par récurrence, pour <span class="math inline">n\geq 2</span>, la propriété <span class="math inline">\mathcal{P}(n) :</span> <span class="math inline">n</span> est produit de nombres premiers.</p>
+<p><span class="math inline">(R1)</span> <span class="math inline">2</span> est produit de lui-même et <span class="math inline">2</span> est premier, donc <span class="math inline">\mathcal{P}(2)</span> est vraie.</p>
+<p><span class="math inline">(R3)</span> Soit <span class="math inline">n\geq 2</span>. Supposons que <span class="math inline">\mathcal{P}(k)</span> est vraie pour <span class="math inline">2\leq k \leq n</span> et montrons que la propriété est vraie pour <span class="math inline">n+1</span> : si <span class="math inline">n+1</span> est déjà un nombre premier, il est alors produit de lui-même (rien à démontrer donc). Sinon, il existe deux entiers <span class="math inline">a</span> et <span class="math inline">b</span> vérifiant <span class="math inline">2\leq a,b \leq n</span> et <span class="math inline">n+1=a\times b</span>. D’après l’hypothèse <span class="math inline">(R3)</span>, <span class="math inline">a</span> et <span class="math inline">b</span> sont produits de nombres premiers, donc <span class="math inline">n+1</span> l’est aussi.</p>
+<p>D’où pour tout <span class="math inline">n</span> supérieur ou égal à 2, <span class="math inline">n</span> est produit de nombres premiers.</p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 3.23</strong></p>
+<p>Soit <span class="math inline">(u_n)_{n\in\mathbb{N}}</span> la suite numérique définie par :</p>
+<p><span class="math display">\begin{cases} u_0=1\\ \forall n\in\mathbb{N},\ u_{n+1}=\sum_{k=0}^n u_k\end{cases}</span></p>
+<p>Montrons par récurrence <span class="math inline">\forall n\in\mathbb{N}^*,\ \left(\mathcal{P}(n) : u_n=2^{n-1}\right)</span> :</p>
+<p><span class="math inline">(R1)</span> Pour <span class="math inline">n=1</span>, <span class="math inline">u_1=\sum_{k=0}^0 u_k=u_0=1=2^{1-1}</span>, donc <span class="math inline">\mathcal{P}(1)</span> est vraie.</p>
+<p><span class="math inline">(R3)</span> Soit <span class="math inline">n\in\mathbb{N}^*</span>. Supposons :</p>
+<p><span class="math display">\forall k\in \llbracket 1,n\rrbracket,\ \mathcal{P}(k) : u_k=2^{k-1}</span></p>
+<p>et montrons <span class="math inline">\mathcal{P}(n+1) : u_{n+1}=2^{n}</span>. On a :</p>
+<p><span class="math display">u_{n+1}=\sum_{k=0}^n u_k=1+\sum_{k=1}^n u_k</span></p>
+<p>Or d’après l’hypothèse de récurrence, <span class="math inline">\forall k\in \llbracket 1,n\rrbracket,\ u_k=2^{k-1}</span> donc :</p>
+<p><span class="math display">u_{n+1}=1+\sum_{k=1}^n 2^{k-1}=1+\sum_{k=0}^{n-1} 2^k=1+2^n-1=2^n</span></p>
+<p>Donc <span class="math inline">\mathcal{P}(n+1)</span> est vraie. D’où :</p>
+<p><span class="math display">\forall n\in\mathbb{N}^*,\ \left(\mathcal{P}(n) : u_n=2^{n-1}\right)</span></p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 3.24</strong></p>
+<p>Soit <span class="math inline">(u_n)_{n\in\mathbb{N}}</span> la suite numérique définie par :</p>
+<p><span class="math display">\begin{cases} u_0=1\\ \forall n\in\mathbb{N},\ u_{n+1}=\frac{1}{n+1}\sum_{k=0}^n u_k^2\end{cases}</span></p>
+<p>Montrons par récurrence que <span class="math inline">\forall n\in\mathbb{N},\ \left(\mathcal{P}(n) : u_n=1\right)</span> :</p>
+<p><span class="math inline">(R1)</span> Pour <span class="math inline">n=0</span>, <span class="math inline">u_0=1</span>, donc <span class="math inline">\mathcal{P}(0)</span> est vraie.</p>
+<p><span class="math inline">(R3)</span> Soit <span class="math inline">n\in\mathbb{N}</span>. Supposons :</p>
+<p><span class="math display">\forall k\in \llbracket 0,n\rrbracket,\ \mathcal{P}(k) : u_k=1</span></p>
+<p>et montrons que <span class="math inline">\mathcal{P}(n+1) : u_{n+1}=1</span>. On a :</p>
+<p><span class="math display">u_{n+1}=\frac{1}{n+1}\sum_{k=0}^n u_k^2</span></p>
+<p>Or d’après l’hypothèse de récurrence, <span class="math inline">\forall k\in \llbracket 0,n\rrbracket,\ u_k=1</span> donc :</p>
+<p><span class="math display">u_{n+1}=\frac{1}{n+1}\sum_{k=0}^n 1=\frac{n+1}{n+1}=1</span></p>
+<p>Donc <span class="math inline">\mathcal{P}(n+1)</span> est vraie. D’où :</p>
+<p><span class="math display">\forall n\in\mathbb{N},\ \left(\mathcal{P}(n) : u_n=1\right)</span></p>
+</div>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 3.4 — (Récurrence finie)</strong></p>
+<p>Soit <span class="math inline">\mathcal{P}(n)</span> une propriété dépendant d’un paramètre <span class="math inline">n</span> avec <span class="math inline">n\in\mathbb{N}</span>. S’il existe <span class="math inline">n_0,n_1 \in\mathbb{N}</span> tel que :</p>
+<p><span class="math inline">(R1)</span> <span class="math inline">\mathcal{P}(n_0)</span> est vraie ;</p>
+<p><span class="math inline">(R4)</span> pour un certain <span class="math inline">n</span> vérifiant <span class="math inline">n_0\leq n \leq n_1-1</span>, <span class="math inline">(\mathcal{P}(n) \Longrightarrow \mathcal{P}(n+1))</span>.</p>
+<p>Alors <span class="math inline">\mathcal{P}(n)</span> est vraie pour tout <span class="math inline">n</span> vérifiant <span class="math inline">n_0\leq n \leq n_1</span>.</p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Preuve</em>. </span>Même démonstration que le théorème de la récurrence faible.</p>
+</div>
+<div class="proof remark">
+<p><span class="proof-title"><em>Remarque</em>. </span>Dans l’exemple suivant nous allons utiliser les nombres premiers, c’est pourquoi on rappelle ici deux de leurs propriétés.</p>
+<p>Soit <span class="math inline">p\in\mathbb{N}</span> tel que <span class="math inline">p\geq 2</span>.</p>
+<ol type="1">
+<li><span class="math inline">p</span> est premier si et seulement si ses seuls diviseurs dans <span class="math inline">\mathbb{Z}</span> sont <span class="math inline">-p,-1,1,p</span>.</li>
+<li><span class="math inline">p</span> est premier si et seulement si :</li>
+</ol>
+<p><span class="math display">\forall (a,b)\in\mathbb{Z}^2,\ \left(p\mid ab \Longrightarrow (p\mid a)\vee(p\mid b)\right)</span></p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 3.25</strong></p>
+<p>Soit <span class="math inline">p</span> un nombre premier. Montrons par récurrence sur <span class="math inline">k</span> que :</p>
+<p><span class="math display">\forall k \in \{1,\cdots,p-1\},\ p\mid C_p^k \qquad \left(C_p^k=\frac{p!}{k!(p-k)!}\right)</span></p>
+<p><span class="math inline">(R1)</span> Pour <span class="math inline">k=1</span>, <span class="math inline">C_p^1=p</span> qui est divisible par <span class="math inline">p</span>.</p>
+<p><span class="math inline">(R4)</span> Soit <span class="math inline">k\in\{1,\cdots,p-2\}</span>, supposons que <span class="math inline">p\mid C_p^k</span>. Montrons que <span class="math inline">p\mid C_p^{k+1}</span>, on a :</p>
+<p><span class="math display">C_p^{k+1}=\frac{p!}{(k+1)!(p-(k+1))!}=\frac{p-k}{k+1}\frac{p!}{k!(p-k)!}=\frac{p-k}{k+1}C_p^k \Longleftrightarrow (k+1)C_p^{k+1}=(p-k)C_p^k</span></p>
+<p>Comme par hypothèse <span class="math inline">p\mid C_p^k</span> alors <span class="math inline">p\mid(k+1)C_p^{k+1}</span>. Or, <span class="math inline">p</span> ne divise pas <span class="math inline">k+1</span> et <span class="math inline">p</span> est premier donc <span class="math inline">p</span> divise <span class="math inline">C_p^{k+1}</span>. D’où, d’après le théorème de la récurrence finie, <span class="math inline">\forall k \in \{1,\cdots,p-1\},\ p\mid C_p^k</span>.</p>
+</div>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 3.5 — (Récurrence multiple)</strong></p>
+<p>Soient <span class="math inline">\mathcal{P}(n)</span> une propriété dépendant d’un paramètre <span class="math inline">n\in\mathbb{N}</span> et <span class="math inline">q\in\mathbb{N}</span>. S’il existe <span class="math inline">n_0 \in\mathbb{N}</span> tel que :</p>
+<p><span class="math inline">(R5)</span> <span class="math inline">\mathcal{P}(n_0), \mathcal{P}(n_0+1),\cdots,\mathcal{P}(n_0+q-1)</span> sont toutes vraies ;</p>
+<p><span class="math inline">(R6)</span> <span class="math inline">\forall n\geq n_0</span>, <span class="math inline">(\mathcal{P}(n), \mathcal{P}(n+1),\cdots,\mathcal{P}(n+q-1) \text{ vraies} \Longrightarrow \mathcal{P}(n+q) \text{ vraie})</span>.</p>
+<p>Alors <span class="math inline">\mathcal{P}(n)</span> est vraie pour tout <span class="math inline">n</span> vérifiant <span class="math inline">n\geq n_0</span>.</p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Preuve</em>. </span>Démonstration par l’absurde : supposons qu’il existe <span class="math inline">m\in\mathbb{N}</span> vérifiant <span class="math inline">m&gt;n_0</span> et <span class="math inline">\mathcal{P}(m)</span> est fausse. Considérons alors l’ensemble :</p>
+<p><span class="math display">A=\{ n\in\mathbb{N}\ /\ (n&gt;n_0)\wedge(\mathcal{P}(n) \text{ fausse}) \}</span></p>
+<p><span class="math inline">A</span> est une partie non vide (puisque <span class="math inline">m\in A</span>) de <span class="math inline">\mathbb{N}</span>, donc elle admet un plus petit élément <span class="math inline">m_0</span>. On a alors <span class="math inline">\mathcal{P}(m_0)</span> est fausse donc <span class="math inline">m_0\notin \{n_0,n_0+1,\cdots,n_0+q-1\}</span> (car d’après <span class="math inline">(R5)</span>, <span class="math inline">\mathcal{P}(n_0),\mathcal{P}(n_0+1),\cdots,\mathcal{P}(n_0+q-1)</span> sont toutes vraies) donc <span class="math inline">m_0&gt;n_0+q-1</span>. On a alors :</p>
+<p><span class="math display">m_0-q,m_0-q+1,\cdots,m_0-2,m_0-1 \notin A \quad \text{et} \quad \forall n\in\{m_0-q,\cdots,m_0-1\},\ n\geq n_0</span></p>
+<p>donc <span class="math inline">\mathcal{P}(m_0-q),\mathcal{P}(m_0-q+1),\cdots,\mathcal{P}(m_0-1)</span> sont toutes vraies. On applique alors <span class="math inline">(R6)</span> aux <span class="math inline">q</span> propriétés <span class="math inline">\mathcal{P}(m_0-q),\cdots,\mathcal{P}(m_0-1)</span> pour obtenir <span class="math inline">\mathcal{P}(m_0)</span> est vraie, ce qui contredit la définition de <span class="math inline">m_0</span>. D’où, l’hypothèse de départ est fausse. Par conséquent, <span class="math inline">\mathcal{P}(n)</span> est vraie pour tout <span class="math inline">n</span> vérifiant <span class="math inline">n\geq n_0</span>.</p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 3.26</strong></p>
+<p>Soit <span class="math inline">(u_n)_{n\in\mathbb{N}}</span> la suite définie par :</p>
+<p><span class="math display">\begin{cases} u_0=2,\ u_1=3\\ \forall n\in\mathbb{N},\ u_{n+2}=3u_{n+1}-2u_n\end{cases}</span></p>
+<p>Montrons par récurrence double que <span class="math inline">\forall n\in\mathbb{N},\ \mathcal{P}(n) : u_n=2^n+1</span>. On a :</p>
+<p><span class="math inline">(R5)</span> <span class="math inline">\mathcal{P}(0) : u_0=2=2^0+1</span> vraie et <span class="math inline">\mathcal{P}(1) : u_1=3=2^1+1</span> vraie.</p>
+<p><span class="math inline">(R6)</span> Soit <span class="math inline">n\in\mathbb{N}</span>. Supposons <span class="math inline">\left(\mathcal{P}(n) : u_n=2^n+1\right)</span> et <span class="math inline">\left(\mathcal{P}(n+1) : u_{n+1}=2^{n+1}+1\right)</span> vraies et montrons <span class="math inline">\left(\mathcal{P}(n+2) : u_{n+2}=2^{n+2}+1\right)</span> vraie. On a :</p>
+<p><span class="math display">
+\begin{aligned}
+u_{n+2}&amp;=3u_{n+1}-2u_n\\
+&amp;=3(2^{n+1}+1)-2(2^n+1)\\
+&amp;=3\cdot 2^{n+1}+3-2\cdot 2^{n}-2\\
+&amp;=3\cdot 2^{n+1}+1-2^{n+1}\\
+&amp;=2\cdot 2^{n+1}+1\\
+&amp;=2^{n+2}+1
+\end{aligned}
+</span></p>
+<p>D’où <span class="math inline">(\mathcal{P}(n+2) : u_{n+2}=2^{n+2}+1)</span>. Par conséquent, <span class="math inline">\forall n\in\mathbb{N},\ u_n=2^n+1</span>.</p>
+</div>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 3.6 — (Récurrence partielle)</strong></p>
+<p>Soit <span class="math inline">\mathcal{P}(n)</span> une propriété dépendant d’un paramètre <span class="math inline">n\in\mathbb{N}</span>. Si on a :</p>
+<p><span class="math inline">(R1)</span> <span class="math inline">\mathcal{P}(1)</span> est vraie ;</p>
+<p><span class="math inline">(R7)</span> <span class="math inline">\forall n\in\mathbb{N},\ n=2^k\ (k\in\mathbb{N}^*),\ (\mathcal{P}(n)\Longrightarrow \mathcal{P}(2n))</span>.</p>
+<p>Alors <span class="math inline">\mathcal{P}(n)</span> est vraie pour toute puissance entière de 2.</p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Preuve</em>. </span>Démonstration par l’absurde : supposons qu’il existe <span class="math inline">l\geq 1</span> tel que <span class="math inline">\mathcal{P}(2^l)</span> ne soit pas vraie. Considérons l’ensemble :</p>
+<p><span class="math display">A=\{k\in\mathbb{N}\ /\ k\geq 1 \text{ et } \mathcal{P}(2^k) \text{ fausse}\}</span></p>
+<p><span class="math inline">A</span> est une partie de <span class="math inline">\mathbb{N}</span> non vide (puisque <span class="math inline">l\in A</span>), donc <span class="math inline">A</span> admet un plus petit élément <span class="math inline">k_0</span>. On a alors <span class="math inline">\mathcal{P}(n)</span> vraie pour <span class="math inline">n=2^{k_0-1}</span>. D’autre part, d’après <span class="math inline">(R7)</span>, <span class="math inline">\mathcal{P}(2n)</span> est vraie c’est-à-dire que <span class="math inline">\mathcal{P}(2^{k_0})</span> est vraie. Or, <span class="math inline">k_0 \in A</span> donc <span class="math inline">\mathcal{P}(2^{k_0})</span> est fausse. Ce qui est absurde. D’où, l’hypothèse de départ est fausse et par suite <span class="math inline">\mathcal{P}(n)</span> est vraie pour toute puissance entière de 2.</p>
+</div>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 3.7 — (Récurrence descendante)</strong></p>
+<p>Soit <span class="math inline">\mathcal{P}(n)</span> une propriété dépendant d’un paramètre <span class="math inline">n\in\mathbb{N}</span>. Si on a :</p>
+<p><span class="math inline">(R8)</span> <span class="math inline">\mathcal{P}(n)</span> est vraie sur un sous-ensemble infini de <span class="math inline">\mathbb{N}</span> ;</p>
+<p><span class="math inline">(R9)</span> <span class="math inline">\forall n\in\mathbb{N}^*,\ (\mathcal{P}(n)\Longrightarrow \mathcal{P}(n-1))</span>.</p>
+<p>Alors <span class="math inline">\mathcal{P}(n)</span> est vraie pour tout <span class="math inline">n</span> de <span class="math inline">\mathbb{N}</span>.</p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Preuve</em>. </span>Remarquons que <span class="math inline">(R9)</span> peut être formulée autrement :</p>
+<p><span class="math display">(*)\qquad \forall n\in\mathbb{N},\ \left(\mathcal{P}(n)\Longrightarrow(\forall k\in \llbracket 0,n\rrbracket,\ \mathcal{P}(n-k))\right)</span></p>
+<p>Ceci est obtenu sans problème en faisant une récurrence finie sur <span class="math inline">k</span> : en effet, soit <span class="math inline">n\in\mathbb{N}</span> tel que <span class="math inline">\mathcal{P}(n)</span> soit vraie et considérons <span class="math inline">(R9)</span>, montrons que <span class="math inline">\forall k\in \llbracket 0,n\rrbracket,\ \mathcal{P}(n-k)</span> est vraie.</p>
+<p><span class="math inline">(R1)</span> Pour <span class="math inline">k=0</span>, <span class="math inline">\mathcal{P}(n)</span> est vraie ;</p>
+<p><span class="math inline">(R4)</span> Soit <span class="math inline">k\in \llbracket 0,n-1\rrbracket</span> tel que <span class="math inline">\mathcal{P}(n-k)</span> soit vraie et montrons que <span class="math inline">\mathcal{P}(n-(k+1))</span> est vraie. D’après <span class="math inline">(R9)</span>, <span class="math inline">\mathcal{P}(n-(k+1))</span> est vraie. D’où la formulation <span class="math inline">(*)</span> de <span class="math inline">(R9)</span>.</p>
+<p><strong>Démonstration par absurde du théorème :</strong> soit <span class="math inline">A</span> un sous-ensemble infini de <span class="math inline">\mathbb{N}</span> tel que <span class="math inline">\forall n\in A</span>, <span class="math inline">\mathcal{P}(n)</span> est vraie et supposons qu’il existe <span class="math inline">m</span> de <span class="math inline">\mathbb{N}</span> tel que <span class="math inline">\mathcal{P}(m)</span> soit fausse. Comme <span class="math inline">A</span> est infini alors il existe <span class="math inline">l</span> de <span class="math inline">A</span> tel que <span class="math inline">l\geq m</span>. Posons <span class="math inline">k=l-m</span> donc <span class="math inline">m=l-k</span>. Comme <span class="math inline">l\in A</span> donc <span class="math inline">\mathcal{P}(l)</span> est vraie et d’après <span class="math inline">(*)</span> on aura <span class="math inline">\mathcal{P}(l-k)</span> est vraie c’est-à-dire que <span class="math inline">\mathcal{P}(m)</span> est vraie. Ce qui contredit la définition de <span class="math inline">m</span>. D’où <span class="math inline">\mathcal{P}(n)</span> est vraie pour tout <span class="math inline">n</span> de <span class="math inline">\mathbb{N}</span>.</p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 3.27 — (Utilisation de la récurrence partielle et descendante)</strong></p>
+<p>Montrons par récurrence que :</p>
+<p><span class="math display">\forall n \in\mathbb{N}^*,\ \mathcal{P}(n) : \forall x_1,x_2,\cdots,x_n&gt;0,\quad \overset{\underbrace{\text{Moyenne géométrique}}}{(x_1\cdot x_2\cdots x_n)^{\frac{1}{n}}}\leq \overset{\underbrace{\text{Moyenne arithmétique}}}{\frac{x_1+x_2+\cdots+x_n}{n}}</span></p>
+<p><strong>Étape 1</strong> : montrons, en utilisant la récurrence partielle, que <span class="math inline">\mathcal{P}(n)</span> est vraie pour tout <span class="math inline">n</span> de la forme <span class="math inline">n=2^k</span> <span class="math inline">(k\in\mathbb{N})</span> :</p>
+<p><span class="math inline">(R1)</span> Pour <span class="math inline">n=2^0=1</span> : (<span class="math inline">x_1=x_1^{\frac{1}{1}}\leq \frac{x_1}{1}=x_1</span>) <span class="math inline">\mathcal{P}(1)</span> est vraie.</p>
+<p>Pour <span class="math inline">n=2^1=2</span> : soit <span class="math inline">x_1,x_2&gt;0</span>. On a :</p>
+<p><span class="math display">\frac{(x_1-x_2)^2}{4}\geq 0 \Longleftrightarrow \frac{x_1^2+x_2^2-2x_1x_2}{4}\geq 0 \Longleftrightarrow \frac{x_1^2+x_2^2+2x_1x_2}{4}\geq x_1x_2</span></p>
+<p>donc <span class="math inline">\frac{(x_1+x_2)^2}{4}\geq x_1x_2</span> donc <span class="math inline">(x_1\cdot x_2)^{\frac{1}{2}}\leq \frac{x_1+x_2}{2}</span>. D’où <span class="math inline">\mathcal{P}(2)</span> est vraie.</p>
+<p><span class="math inline">(R7)</span> Soit <span class="math inline">k\in\mathbb{N}</span> tel que <span class="math inline">\mathcal{P}(n)</span> soit vraie avec <span class="math inline">n=2^k</span>, montrons alors que <span class="math inline">\mathcal{P}(2n)</span> est vraie. Soient <span class="math inline">x_1,x_2,\cdots,x_{2n}</span> des réels positifs, on a :</p>
+<p><span class="math display">(x_1\cdots x_n\cdot x_{n+1}\cdots x_{2n})^{\frac{1}{2n}}=\left[(x_1\cdots x_n)^{\frac{1}{n}}(x_{n+1}\cdots x_{2n})^{\frac{1}{n}}\right]^{\frac{1}{2}}</span></p>
+<p>On applique <span class="math inline">\mathcal{P}(2)</span> pour <span class="math inline">y_1=(x_1\cdots x_n)^{\frac{1}{n}}</span> et <span class="math inline">y_2=(x_{n+1}\cdots x_{2n})^{\frac{1}{n}}</span>, donc :</p>
+<p><span class="math display">\left[(x_1\cdots x_n)^{\frac{1}{n}}(x_{n+1}\cdots x_{2n})^{\frac{1}{n}}\right]^{\frac{1}{2}}\leq \frac{(x_1\cdots x_n)^{\frac{1}{n}}+(x_{n+1}\cdots x_{2n})^{\frac{1}{n}}}{2}</span></p>
+<p>D’autre part, d’après <span class="math inline">\mathcal{P}(n)</span> appliquée à <span class="math inline">x_1,\cdots, x_n</span> et à <span class="math inline">x_{n+1},\cdots, x_{2n}</span>, on a :</p>
+<p><span class="math display">(x_1\cdots x_n)^{\frac{1}{n}}\leq \frac{x_1+\cdots+x_n}{n} \quad \text{et} \quad (x_{n+1}\cdots x_{2n})^{\frac{1}{n}}\leq \frac{x_{n+1}+\cdots+x_{2n}}{n}</span></p>
+<p>Donc :</p>
+<p><span class="math display">(x_1\cdots x_{2n})^{\frac{1}{2n}} \leq \frac{\frac{x_1+\cdots+x_n}{n}+\frac{x_{n+1}+\cdots+x_{2n}}{n}}{2}</span></p>
+<p>Donc :</p>
+<p><span class="math display">(x_1\cdots x_{2n})^{\frac{1}{2n}} \leq \frac{x_1+\cdots+x_n +x_{n+1}+\cdots+x_{2n}}{2n}</span></p>
+<p>D’où <span class="math inline">\mathcal{P}(2n)</span>. Par conséquent, <span class="math inline">\forall n=2^k\ (k\in\mathbb{N})</span>, <span class="math inline">\mathcal{P}(n)</span> est vraie.</p>
+<p><strong>Étape 2</strong> : montrons, en utilisant la récurrence descendante (puisque <span class="math inline">\mathcal{P}(n)</span> est vraie sur l’ensemble <span class="math inline">A=\{2^k\ /\ k\in\mathbb{N}\}</span> qui est infini), que <span class="math inline">\mathcal{P}(n)</span> est vraie pour tout <span class="math inline">n</span> de <span class="math inline">\mathbb{N}^*</span> :</p>
+<p><span class="math inline">(R8)</span> La propriété <span class="math inline">\mathcal{P}(n)</span> est vraie sur <span class="math inline">A</span> qui est une partie de <span class="math inline">\mathbb{N}</span> infinie.</p>
+<p><span class="math inline">(R9)</span> Supposons <span class="math inline">\mathcal{P}(n)</span> vraie pour <span class="math inline">n\geq 2</span> et montrons que <span class="math inline">\mathcal{P}(n-1)</span> est vraie :</p>
+<p>soient des réels <span class="math inline">x_1,\cdots,x_{n-1}&gt;0</span>. Posons <span class="math inline">z=\frac{x_1+\cdots+x_{n-1}}{n-1}</span>. <span class="math inline">(R9)</span> appliquée aux <span class="math inline">n</span> éléments <span class="math inline">x_1,\cdots,x_{n-1},z</span> donne :</p>
+<p><span class="math display">(x_1\cdots x_{n-1}\cdot z)^{\frac{1}{n}} \leq \frac{x_1+\cdots+x_{n-1}+z}{n}=\frac{(n-1)z+z}{n}=z</span></p>
+<p>Donc <span class="math inline">(x_1\cdots x_{n-1}\cdot z)\leq z^n</span>, donc <span class="math inline">(x_1\cdots x_{n-1})\leq z^{n-1}</span>. D’où :</p>
+<p><span class="math display">(x_1\cdots x_{n-1})^{\frac{1}{n-1}}\leq \frac{x_1+\cdots+x_{n-1}}{n-1}</span></p>
+<p>Ainsi, on a montré <span class="math inline">\mathcal{P}(n-1)</span>.</p>
+<p><strong>Conclusion :</strong></p>
+<p><span class="math display">\forall n\in\mathbb{N}^*,\ \forall x_1,x_2,\cdots,x_n&gt;0,\quad (x_1\cdot x_2\cdots x_n)^{\frac{1}{n}}\leq \frac{x_1+x_2+\cdots+x_n}{n}</span></p>
+</div>
+</section>
+</section>
+</section>
+<section id="vocabulaire-de-la-théorie-des-ensembles" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> Vocabulaire de la théorie des ensembles</h1>
+<section id="ensembles" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="ensembles"><span class="header-section-number">4.1</span> Ensembles</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 4.1</strong></p>
+<ol type="1">
+<li>Un <strong>ensemble</strong> est une collection d’objets.</li>
+<li>Un ensemble qui possède un unique élément <span class="math inline">x</span> s’appelle <strong>singleton</strong> et se note <span class="math inline">\{x\}</span>.</li>
+<li>Si « <span class="math inline">x</span> est un élément d’un ensemble <span class="math inline">E</span> » (ou « <span class="math inline">x</span> appartient à <span class="math inline">E</span> »), on note <span class="math inline">x \in E</span>.</li>
+<li>On dit qu’un ensemble <span class="math inline">F</span> est <strong>inclus</strong> dans un autre ensemble <span class="math inline">E</span> si tout élément de <span class="math inline">F</span> est un élément de <span class="math inline">E</span> et on écrit <span class="math inline">F \subset E</span>. On dit aussi que <span class="math inline">F</span> est un <strong>sous-ensemble</strong> (ou une <strong>partie</strong>) de <span class="math inline">E</span>.</li>
+<li>Deux ensembles <span class="math inline">F</span> et <span class="math inline">G</span> sont dits <strong>égaux</strong> si <span class="math inline">F \subset G</span> et <span class="math inline">G \subset F</span> et on écrit <span class="math inline">F=G</span>.</li>
+<li>Si <span class="math inline">F</span> est une partie d’un ensemble <span class="math inline">E</span>, l’ensemble <span class="math inline">\{ x\in E\ /\ x\notin F \}</span> est appelé <strong>complémentaire</strong> de <span class="math inline">F</span> dans <span class="math inline">E</span> et noté <span class="math inline">\mathsf{C}_E F</span> ou <span class="math inline">\overline{F}</span>.</li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 4.1</strong></p>
+<ol type="1">
+<li><span class="math inline">\mathbb{N}=\{0,1,2,3,\cdots\}</span> l’ensemble des nombres <strong>entiers naturels</strong> ;</li>
+<li><span class="math inline">\mathbb{Z}=\{\cdots,-3,-2,-1,0,1,2,3,\cdots\}</span> l’ensemble des nombres <strong>entiers relatifs</strong> ;</li>
+<li><span class="math inline">\mathbb{N}</span> est une partie de <span class="math inline">\mathbb{Z}</span> et <span class="math inline">\mathbb{N}^*=\{1,2,3,\cdots\}</span> est une partie de <span class="math inline">\mathbb{N}</span> et <span class="math inline">\mathbb{Z}</span> ;</li>
+<li><span class="math inline">\mathbb{Z}</span> est une partie de <span class="math inline">\mathbb{Q}=\left\{ \frac{p}{q}\ /\ (p\in\mathbb{Z})\wedge(q\in\mathbb{N}^*) \right\}</span> l’ensemble des nombres <strong>rationnels</strong> et <span class="math inline">\mathbb{Q}</span> est une partie de <span class="math inline">\mathbb{R}</span> l’ensemble des nombres <strong>réels</strong> ;</li>
+<li><span class="math inline">\mathbb{R}^+=\{x\in\mathbb{R}\ /\ x\geq 0\}</span>, <span class="math inline">\mathbb{R}^-=\{x\in\mathbb{R}\ /\ x\leq 0\}</span>, <span class="math inline">\mathbb{R}^*=\{x\in\mathbb{R}\ /\ x\neq 0\}</span> et l’ensemble des nombres irrationnels <span class="math inline">\mathbb{R}\smallsetminus\mathbb{Q}</span> sont des parties de <span class="math inline">\mathbb{R}</span>.</li>
+<li>Le complémentaire de <span class="math inline">\mathbb{R}</span> dans <span class="math inline">\mathbb{C}</span> est l’ensemble des nombres <strong>complexes imaginaires</strong> i.e.</li>
+</ol>
+<p><span class="math display">\mathsf{C}_{\mathbb{C}}\mathbb{R} = \{ a+ib\ /\ (a\in\mathbb{R})\wedge(b\in\mathbb{R}^*) \}</span></p>
+</div>
+<div class="proof remark" title="(Attention!)">
+<p><span class="proof-title"><em>Remarque</em>. </span>Il ne faut pas confondre l’ensemble <span class="math inline">\{x\}</span> et l’élément <span class="math inline">x</span>.</p>
+</div>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 4.2 — (Ensemble vide)</strong></p>
+<p>À tout ensemble <span class="math inline">E</span> on associe l’ensemble noté <span class="math inline">\varnothing_E</span> et donné par :</p>
+<p><span class="math display">\varnothing_E=\{ x\in E\ /\ x\neq x \}</span></p>
+<p>L’ensemble <span class="math inline">\varnothing_E</span> est indépendant de <span class="math inline">E</span> ; on l’appelle <strong>ensemble vide</strong> et on le note <span class="math inline">\varnothing</span>.</p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Preuve</em>. </span>Considérons deux ensembles <span class="math inline">E</span> et <span class="math inline">F</span> et associons leur <span class="math inline">\varnothing_E</span> et <span class="math inline">\varnothing_F</span>. L’implication <span class="math inline">P \Longrightarrow Q</span> est toujours vraie si <span class="math inline">\neg P</span> est vraie. On a <span class="math inline">\forall x,\ x=x</span>, donc <span class="math inline">\forall x,\ x\notin \varnothing_E</span>, par suite pour tout <span class="math inline">x</span> l’implication :</p>
+<p><span class="math display">x\in \varnothing_E \Longrightarrow x\in\varnothing_F</span></p>
+<p>est vraie, d’où <span class="math inline">\varnothing_E \subset \varnothing_F</span>. De même, <span class="math inline">\varnothing_F\subset \varnothing_E</span>. D’où <span class="math inline">\varnothing_E = \varnothing_F</span>.</p>
+</div>
+<div class="proof remark">
+<p><span class="proof-title"><em>Remarque</em>. </span><span class="math inline">\varnothing \subset E</span>.</p>
+</div>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 4.3 — (Ensemble des parties)</strong></p>
+<p>Soit <span class="math inline">E</span> un ensemble. L’ensemble <span class="math inline">\{ X\ /\ X\subset E \}</span> est appelé <strong>ensemble des parties</strong> de <span class="math inline">E</span> qu’on note <span class="math inline">\mathcal{P}(E)</span>.</p>
+</div>
+<div class="proof remark">
+<p><span class="proof-title"><em>Remarque</em>. </span>Soit un ensemble <span class="math inline">E</span>, on a toujours <span class="math inline">\varnothing, E \in \mathcal{P}(E)</span>.</p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 4.2</strong></p>
+<p><span class="math inline">E=\{a,b,c\}</span> donc :</p>
+<p><span class="math display">\mathcal{P}(E)=\{\varnothing,\{a\},\{b\},\{c\},\{a,b\},\{a,c\},\{b,c\},\{a,b,c\}\}</span></p>
+</div>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 4.4 — (Réunion et Intersection)</strong></p>
+<p>Soient <span class="math inline">E</span> et <span class="math inline">F</span> deux ensembles.</p>
+<ol type="1">
+<li>L’ensemble <span class="math inline">\{ x\ /\ (x\in E)\vee(x\in F) \}</span> s’appelle <strong>réunion</strong> (ou <strong>union</strong>) de <span class="math inline">E</span> et <span class="math inline">F</span> qu’on note <span class="math inline">E\cup F</span>.</li>
+<li>L’ensemble <span class="math inline">\{ x\ /\ (x\in E)\wedge(x\in F) \}</span> s’appelle <strong>intersection</strong> de <span class="math inline">E</span> et <span class="math inline">F</span> qu’on note <span class="math inline">E\cap F</span>.</li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 4.3</strong></p>
+<p>Soit <span class="math inline">E=[0,1[\cup \{\sqrt{2}\}\cup [2,4]</span>, et on se donne les parties de <span class="math inline">E</span> : <span class="math inline">A=\{1/2,3\}\cup [2,5/2]</span> et <span class="math inline">B=[1/2, 1[\cup \{\sqrt{2},3\}</span>. Alors on a :</p>
+<ol type="1">
+<li><span class="math inline">A\cup B=[1/2, 1[\cup \{\sqrt{2}\}\cup [2,5/2]\cup \{3\}</span></li>
+<li><span class="math inline">A\cap B= \{1/2,3\}</span></li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 4.1</strong></p>
+<p>Soit <span class="math inline">\Omega</span> un ensemble. Si <span class="math inline">E</span>, <span class="math inline">F</span> et <span class="math inline">G</span> sont des parties de <span class="math inline">\Omega</span> alors on a les propriétés suivantes :</p>
+<p><strong>1) Complémentaire</strong></p>
+<p><span class="math inline">\overline{\varnothing}=\Omega</span> ; <span class="math inline">\overline{\Omega}=\varnothing</span> ; <span class="math inline">\overline{\overline{E}}=E</span> ; si <span class="math inline">F\subset E</span> alors <span class="math inline">\overline{E}\subset \overline{F}</span>.</p>
+<p><strong>2) Lois de Morgan</strong></p>
+<p><span class="math display">\mathsf{C}_{\Omega}(E \cup F)=\mathsf{C}_{\Omega} E \cap \mathsf{C}_{\Omega} F</span> <span class="math display">\mathsf{C}_{\Omega}(E \cap F)=\mathsf{C}_{\Omega} E \cup \mathsf{C}_{\Omega} F</span></p>
+<p><strong>3) Réunion</strong></p>
+<p><span class="math display">E\cup F = F\cup E ; \quad E\cup (F\cup G)=(E\cup F)\cup G ;</span> <span class="math display">E\cup E = E ; \quad E\cup \varnothing =E ; \quad E\cup \Omega=\Omega.</span></p>
+<p><strong>4) Intersection</strong></p>
+<p><span class="math display">E\cap F = F\cap E ; \quad E\cap (F\cap G)=(E\cap F)\cap G ;</span> <span class="math display">E\cap E = E ; \quad E\cap \varnothing =\varnothing ; \quad E\cap \Omega=E.</span></p>
+<p><strong>5) Réunion et Intersection</strong></p>
+<p><span class="math display">E\cap (F\cup G) = (E\cap F)\cup (E\cap G)</span> <span class="math display">E\cup (F\cap G) = (E\cup F)\cap (E\cup G)</span></p>
+</div>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 4.5 — (Produit cartésien)</strong></p>
+<ol type="1">
+<li>Soient <span class="math inline">E</span> et <span class="math inline">F</span> deux ensembles, on appelle <strong>produit cartésien</strong> de <span class="math inline">E</span> et <span class="math inline">F</span> qu’on note <span class="math inline">E\times F</span>, l’ensemble :</li>
+</ol>
+<p><span class="math display">E\times F = \{ (x,y)\ /\ (x\in E)\wedge(y\in F) \}.</span></p>
+<ol start="2" type="1">
+<li>Si <span class="math inline">p</span> est un entier <span class="math inline">\geq 2</span> et <span class="math inline">E_1,E_2,\cdots, E_p</span> des ensembles, de la même façon on définit le produit cartésien des ensembles <span class="math inline">E_1,E_2,\cdots, E_p</span> :</li>
+</ol>
+<p><span class="math display">E_1\times \cdots \times E_p = \{ (x_1,x_2,\cdots,x_p)\ /\ (x_1\in E_1)\wedge(x_2\in E_2)\wedge \cdots \wedge (x_p\in E_p) \}.</span></p>
+<ol start="3" type="1">
+<li>Un élément <span class="math inline">(x_1,x_2,\cdots,x_p)</span> du produit cartésien <span class="math inline">E_1\times E_2 \times \cdots \times E_p</span> s’appelle <strong><span class="math inline">p</span>-uplet</strong>.</li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 4.6 — (Différence et différence symétrique)</strong></p>
+<ol type="1">
+<li>On appelle <strong>différence des ensembles</strong> <span class="math inline">E</span> et <span class="math inline">F</span> pris dans cet ordre l’ensemble noté <span class="math inline">E \smallsetminus F</span> et défini par :</li>
+</ol>
+<p><span class="math display">E \smallsetminus F=\{ x \in E\ /\ x\notin F \}.</span></p>
+<ol start="2" type="1">
+<li>On appelle <strong>différence symétrique</strong> des ensembles <span class="math inline">E</span> et <span class="math inline">F</span> l’ensemble noté <span class="math inline">E\Delta F</span> et défini par :</li>
+</ol>
+<p><span class="math display">E\Delta F= (E \smallsetminus F)\cup (F \smallsetminus E).</span></p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 4.4</strong></p>
+<ol type="1">
+<li><span class="math inline">\mathsf{C}_E F= E\smallsetminus F</span></li>
+<li><span class="math inline">E\Delta \varnothing = E</span></li>
+</ol>
+</div>
+</section>
+<section id="applications" class="level2" data-number="4.2">
+<h2 data-number="4.2" class="anchored" data-anchor-id="applications"><span class="header-section-number">4.2</span> Applications</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 4.7 — (Application)</strong></p>
+<p>Soient <span class="math inline">E</span> et <span class="math inline">F</span> deux ensembles. On appelle <strong>application</strong> de <span class="math inline">E</span> dans <span class="math inline">F</span>, une correspondance <span class="math inline">f</span> qui à chaque élément <span class="math inline">x</span> de <span class="math inline">E</span> associe un élément et un seul <span class="math inline">y</span> de <span class="math inline">F</span>.</p>
+<ol type="1">
+<li><span class="math inline">E</span> est appelé <strong>ensemble de départ</strong> de l’application ;</li>
+<li><span class="math inline">F</span> est appelé <strong>ensemble d’arrivée</strong> de l’application ;</li>
+<li><span class="math inline">y</span> est appelé <strong>image</strong> de <span class="math inline">x</span> par l’application. On écrit <span class="math inline">y=f(x)</span> ;</li>
+<li><span class="math inline">x</span> est appelé <strong>antécédent</strong> de <span class="math inline">y</span> par l’application ;</li>
+<li>L’ensemble <span class="math inline">\Gamma=\{(x,f(x))\ /\ x\in E\}</span> est appelé <strong>graphe</strong> de l’application <span class="math inline">f</span> et on le note <span class="math inline">\operatorname{gr}(f)</span>.</li>
+</ol>
+<p><span class="math display">f : E \longrightarrow F, \quad x \longmapsto f(x)</span></p>
+<ol start="6" type="1">
+<li>L’ensemble des applications de <span class="math inline">E</span> dans <span class="math inline">F</span> est noté <span class="math inline">F^E</span>.</li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 4.5</strong></p>
+<ol type="1">
+<li>L’application <span class="math inline">\operatorname{Id}_E : E \longrightarrow E,\ x \longmapsto x</span> s’appelle l’application <strong>identité</strong> dans <span class="math inline">E</span>.</li>
+<li><span class="math inline">E : \mathbb{R}\longrightarrow\mathbb{R},\ x\longmapsto E(x)</span> est une application, où <span class="math inline">E(x):=\max \{n\in\mathbb{Z}\ /\ n\leq x \}</span> qui s’appelle la <strong>partie entière</strong> de <span class="math inline">x</span>.</li>
+<li>Une application du type <span class="math inline">u : \mathbb{N} \longrightarrow \mathbb{R},\ n \longmapsto u_n</span> s’appelle <strong>suite à valeurs réelles</strong> qu’on note brièvement <span class="math inline">(u_n)_{n\in\mathbb{N}}</span>.</li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 4.8 — (Fonction)</strong></p>
+<p>Soient <span class="math inline">E</span> et <span class="math inline">F</span> deux ensembles. On appelle <strong>fonction</strong> de <span class="math inline">E</span> dans <span class="math inline">F</span>, une correspondance qui à chaque élément <span class="math inline">x</span> de <span class="math inline">E</span> associe au plus un élément <span class="math inline">y</span> de <span class="math inline">F</span>. Si on désigne par <span class="math inline">f</span> la fonction, il existe une partie <span class="math inline">D</span> de <span class="math inline">E</span>, appelée <strong>domaine de définition</strong> de <span class="math inline">f</span> donnée par :</p>
+<p><span class="math display">D=\{ x\in E\ /\ \exists y \in F,\ y=f(x) \}</span></p>
+<p>telle que <span class="math inline">f : D \longrightarrow F,\ x \longmapsto f(x)=y</span> soit une application. L’ensemble des fonctions de <span class="math inline">E</span> dans <span class="math inline">F</span> est noté <span class="math inline">\mathcal{F}(E,F)</span>.</p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 4.6</strong></p>
+<p>Voici quelques fonctions :</p>
+<ol type="1">
+<li>La fonction <span class="math inline">f_1 : \mathbb{R}\longrightarrow\mathbb{R},\ x\longmapsto\sqrt{x}</span> a pour domaine de définition <span class="math inline">D_{f_1}=\mathbb{R}^+</span></li>
+<li>La fonction <span class="math inline">f_2 : \mathbb{C}\longrightarrow\mathbb{C},\ z\longmapsto\frac{z^2}{1-z}</span> a pour domaine de définition <span class="math inline">D_{f_2}=\mathbb{C}\smallsetminus\{1\}</span></li>
+<li>La fonction <span class="math inline">f_3 : \mathbb{R}\longrightarrow\mathbb{C},\ x\longmapsto\frac{x}{\ln x}</span> a pour domaine de définition <span class="math inline">D_{f_3}=]0,1[\cup ]1,+\infty[</span></li>
+<li>La fonction <span class="math inline">f_4 : \mathbb{R}^2\longrightarrow\mathbb{R},\ (x,y)\longmapsto\frac{\ln x}{y}</span> a pour domaine de définition <span class="math inline">D_{f_4}=]0,+\infty[\times \mathbb{R}^*</span></li>
+<li>La fonction <span class="math inline">f_5 : \mathbb{R}^3\longrightarrow\mathbb{R}^2,\ (x,y,z)\longmapsto\left(\frac{1}{1-x},\frac{1}{y^2+z^2}\right)</span> a pour domaine de définition l’ensemble :</li>
+</ol>
+<p><span class="math display">D_{f_5}=\{(x,y,z)\in\mathbb{R}^3\ /\ (x\neq 1)\wedge((y,z)\neq (0,0))\}</span></p>
+</div>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 4.9 — (Image directe, image réciproque, restriction, prolongement, application induite, composée)</strong></p>
+<p>Soit <span class="math inline">f: E \longrightarrow F</span> une application.</p>
+<ol type="1">
+<li>Soit <span class="math inline">A</span> une partie de <span class="math inline">E</span>. L’ensemble <span class="math inline">\{ f(x)\in F\ /\ x \in A \}</span> se note <span class="math inline">f(A)</span> et s’appelle <strong>image directe</strong> de <span class="math inline">A</span>.</li>
+<li>Soit <span class="math inline">B</span> une partie de <span class="math inline">F</span>. L’ensemble <span class="math inline">\{ x\in E\ /\ f(x) \in B \}</span> se note <span class="math inline">f^{-1}(B)</span> et s’appelle <strong>image réciproque</strong> de <span class="math inline">B</span>.</li>
+<li>Si <span class="math inline">D</span> est une partie de <span class="math inline">E</span>, l’application <span class="math inline">f_{/D} : D \longrightarrow F,\ x \longmapsto f(x)</span> s’appelle <strong>restriction</strong> de <span class="math inline">f</span> à la partie <span class="math inline">D</span>.</li>
+<li>Inversement, si on note <span class="math inline">f_1 =f_{/D}</span>, <span class="math inline">f</span> s’appelle <strong>prolongement</strong> de <span class="math inline">f_1</span> sur <span class="math inline">E</span>.</li>
+<li>Soient <span class="math inline">D</span> une partie de <span class="math inline">E</span> et <span class="math inline">C</span> une partie de <span class="math inline">F</span> tels que <span class="math inline">\forall x\in D,\ f(x)\in C</span>. L’application <span class="math inline">D \longrightarrow C,\ x \longmapsto f(x)</span> s’appelle <strong>application induite</strong> de <span class="math inline">f</span>.</li>
+<li>Soit <span class="math inline">g : F \longrightarrow G</span> une application. L’application <span class="math inline">E \longrightarrow G,\ x \longmapsto g(f(x))</span> s’appelle <strong>application composée</strong> de <span class="math inline">f</span> et <span class="math inline">g</span> dans cet ordre et se note <span class="math inline">g\circ f</span>.</li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 4.7</strong></p>
+<p>Si on note <span class="math inline">f : \mathbb{R} \longrightarrow \mathbb{R},\ x \longmapsto E(x)</span> l’application partie entière, on a :</p>
+<ol type="1">
+<li><span class="math inline">\operatorname{gr}(f)=\{(x,E(x))\ /\ x\in \mathbb{R}\}</span>.</li>
+<li><span class="math inline">f(\mathbb{R}^+)=\mathbb{N}</span> (où <span class="math inline">\mathbb{R}^+ =\{ x\in \mathbb{R}\ /\ x \geq 0 \}</span>).</li>
+<li><span class="math inline">f^{-1}(\{ 0\})=[0,1[</span>.</li>
+<li><span class="math inline">f_{/\mathbb{R}^+}(\mathbb{R}^-)=\{0\}</span> (où <span class="math inline">\mathbb{R}^- =\{ x\in \mathbb{R}\ /\ x \leq 0 \}</span>).</li>
+<li><span class="math inline">f\left([\sqrt{2},2[\right)=\{1\}</span>.</li>
+<li><span class="math inline">f^{-1}\left([\sqrt{2},2[\right)=\varnothing</span>.</li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 4.8</strong></p>
+<p>Si on note <span class="math inline">g : \mathbb{R} \longrightarrow \mathbb{R},\ x \longmapsto e^x</span>, on a :</p>
+<ol type="1">
+<li><span class="math inline">\operatorname{gr}(g)=\{(x,e^x)\ /\ x\in \mathbb{R}\}</span>.</li>
+<li><span class="math inline">g(\mathbb{R})=\mathbb{R}^*_+</span>.</li>
+<li><span class="math inline">g^{-1}(\{ 0\})=\varnothing</span>.</li>
+<li><span class="math inline">g(\mathbb{R}^-)=]0,1]</span>.</li>
+<li><span class="math inline">g^{-1}(\mathbb{R}^-)=\varnothing</span>.</li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 4.10 — (Injection, surjection, bijection)</strong></p>
+<p>Soit <span class="math inline">f : E \longrightarrow F</span> une application.</p>
+<ol type="1">
+<li>On dit que <span class="math inline">f</span> est <strong>injective</strong> si tout élément de <span class="math inline">F</span> possède au plus un antécédent. Autrement dit :</li>
+</ol>
+<p><span class="math display">\forall (x,x') \in E^2,\ \left(f(x)=f(x') \Longrightarrow x=x'\right)</span></p>
+<p>Ou encore :</p>
+<p><span class="math display">\forall (x,x') \in E^2,\ \left(x\neq x' \Longrightarrow f(x)\neq f(x')\right)</span></p>
+<ol start="2" type="1">
+<li>On dit que <span class="math inline">f</span> est <strong>surjective</strong> si tout élément de <span class="math inline">F</span> possède au moins un antécédent. Autrement dit :</li>
+</ol>
+<p><span class="math display">\forall y\in F,\ \exists x\in E,\ y=f(x)</span></p>
+<ol start="3" type="1">
+<li>On dit que <span class="math inline">f</span> est <strong>bijective</strong> si tout élément de <span class="math inline">F</span> possède un antécédent et un seul. Autrement dit :</li>
+</ol>
+<p><span class="math display">\forall y\in F,\ \exists! x\in E,\ y=f(x)</span></p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 4.9</strong></p>
+<ol type="1">
+<li>L’application <span class="math inline">\mathbb{R} \longrightarrow \mathbb{Z},\ x \longmapsto E(x)</span> partie entière est surjective et non injective.</li>
+<li>L’application <span class="math inline">\mathbb{N} \longrightarrow \mathbb{N},\ n \longmapsto n^2</span> est injective et non surjective.</li>
+<li>L’application <span class="math inline">\mathbb{N}^2 \longrightarrow \mathbb{N}^*,\ (p,q) \longmapsto 2^p(2q+1)</span> est bijective.</li>
+<li>L’application <span class="math inline">\exp : \mathbb{R} \longrightarrow \mathbb{R}^*_+,\ x \longmapsto e^x</span> est bijective.</li>
+<li>L’application <span class="math inline">\mathbb{C}^* \longrightarrow \mathbb{C},\ z \longmapsto z+\frac{1}{z}</span> est non injective et surjective.</li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 4.1</strong></p>
+<ol type="1">
+<li>Une application est bijective si et seulement si elle est à la fois injective et surjective.</li>
+<li>Soit <span class="math inline">f</span> une application bijective de <span class="math inline">E</span> dans <span class="math inline">F</span>. L’application, notée <span class="math inline">f^{-1}</span>, de <span class="math inline">F</span> dans <span class="math inline">E</span> qui à tout élément <span class="math inline">y</span> de <span class="math inline">F</span> lui associe l’unique élément <span class="math inline">x</span> de <span class="math inline">E</span> tel que <span class="math inline">f(x)=y</span> est une bijection de <span class="math inline">F</span> dans <span class="math inline">E</span>, appelée <strong>bijection réciproque</strong> de <span class="math inline">f</span> :</li>
+</ol>
+<p><span class="math display">f^{-1} : F \longrightarrow F,\quad y \longmapsto f^{-1}(y)=x \text{ tel que } f(x)=y</span></p>
+<ol start="3" type="1">
+<li><span class="math inline">f^{-1}</span> est l’unique application vérifiant :</li>
+</ol>
+<p><span class="math display">f^{-1}\circ f=\operatorname{Id}_E \quad ; \quad f\circ f^{-1} =\operatorname{Id}_F</span></p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 4.2</strong></p>
+<p>Soient <span class="math inline">f: E\longrightarrow F</span> et <span class="math inline">g:F\longrightarrow G</span> deux applications. Alors :</p>
+<ol type="1">
+<li>Si les applications <span class="math inline">f</span> et <span class="math inline">g</span> sont injectives alors la composée <span class="math inline">g\circ f</span> l’est aussi.</li>
+<li>Si les applications <span class="math inline">f</span> et <span class="math inline">g</span> sont surjectives alors la composée <span class="math inline">g\circ f</span> l’est aussi.</li>
+<li>Si les applications <span class="math inline">f</span> et <span class="math inline">g</span> sont bijectives alors la composée <span class="math inline">g\circ f</span> l’est aussi et on a :</li>
+</ol>
+<p><span class="math display">\left(g\circ f\right)^{-1}=f^{-1}\circ g^{-1}</span></p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 4.10</strong></p>
+<p>On considère les applications suivantes :</p>
+<p><span class="math display">g_1 : [0,1[ \longrightarrow [0,1[,\ t\longmapsto\sqrt{t} \quad ; \quad g_2 : [0,1[ \longrightarrow [1,2[,\ t\longmapsto 1+t</span> <span class="math display">g_3 : [1,2[ \longrightarrow ]1,2],\ t\longmapsto 2/t \quad ; \quad g_4 : ]1,2] \longrightarrow ]0,1],\ t\longmapsto t-1</span> <span class="math display">g_5 : ]0,1] \longrightarrow \mathbb{R}^-,\ t\longmapsto \ln t \quad ; \quad g : [0,1[ \longrightarrow \mathbb{R}^-,\ t\longmapsto \ln \frac{1-\sqrt{t}}{1+\sqrt{t}}</span></p>
+<p>On a :</p>
+<p><span class="math display">g=g_5\circ g_4\circ g_3\circ g_2\circ g_1</span></p>
+<p>Toutes ces applications sont bijectives et on a :</p>
+<p><span class="math display">g^{-1}=g_1^{-1}\circ g_2^{-1}\circ g_3^{-1}\circ g_4^{-1}\circ g_5^{-1}</span></p>
+</div>
+</section>
+</section>
+<section id="document-en-pdf" class="level1 unnumbered">
+<h1 class="unnumbered">Document en PDF</h1>
+<p><a href="PDF/tsi1-chap01.pdf">Chapitre 01 : Vocabulaire ensembliste et éléments de logique</a></p>
+<section id="navigation" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="navigation">Navigation</h2>
+<div class="chap-nav">
+<p><a href="../index.html" class="prev">Accueil</a> <a href="../cours/tsi1.html" class="home">Menu TSI1</a> <a href="../cours/tsi1-chap02.html" class="next">Chapitre 02 : Nombres complexes</a></p>
+</div>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -222,12 +1575,12 @@ ul.task-list li input[type="checkbox"] {
       // flash "checked"
       button.classList.add('code-copy-button-checked');
       var currentTitle = button.getAttribute("title");
-      button.setAttribute("title", "Copied!");
+      button.setAttribute("title", "Copié");
       let tooltip;
       if (window.bootstrap) {
         button.setAttribute("data-bs-toggle", "tooltip");
         button.setAttribute("data-bs-placement", "left");
-        button.setAttribute("data-bs-title", "Copied!");
+        button.setAttribute("data-bs-title", "Copié");
         tooltip = new bootstrap.Tooltip(button, 
           { trigger: "manual", 
             customClass: "code-copy-button-tooltip",

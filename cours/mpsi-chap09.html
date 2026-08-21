@@ -170,7 +170,7 @@ window.Quarto = {
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="../apropos.html"> 
-<span class="menu-text">À propos</span></a>
+<span class="menu-text">À propos de l’auteur</span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
@@ -262,7 +262,7 @@ window.Quarto = {
 <p>Soient <span class="math inline">x, y</span> des entiers. Montrer que <span class="math inline">3x+2y</span> est divisible par <span class="math inline">7</span> si et seulement si <span class="math inline">4x+5y</span> l’est aussi.</p>
 </div>
 <div class="custom-numbered-block custom-definition">
-<p><strong>Définition 2.2 — (Relation d'association)</strong></p>
+<p><strong>Définition 2.2 — (Relation d’association)</strong></p>
 <p>On dit que deux entiers <span class="math inline">a</span> et <span class="math inline">b</span> sont <strong>associés</strong> si <span class="math inline">b=\pm a</span>, ou encore si <span class="math inline">a\mid b</span> et <span class="math inline">b\mid a</span>.</p>
 </div>
 <div class="custom-numbered-block custom-exercise">
@@ -329,7 +329,7 @@ window.Quarto = {
 <p>Montrer que pour tout entier naturel <span class="math inline">n</span>, la fraction <span class="math inline">\frac{21n+4}{14n+3}</span> est irréductible.</p>
 </div>
 <div class="custom-numbered-block custom-theorem">
-<p><strong>Théorème 4.1 — (Algorithme d'Euclide)</strong></p>
+<p><strong>Théorème 4.1 — (Algorithme d’Euclide)</strong></p>
 <p>La proposition précédente fournit un algorithme pour calculer le PGCD de deux entiers <span class="math inline">a</span> et <span class="math inline">b</span>.</p>
 <p>Supposons <span class="math inline">a&gt;b&gt;0</span>. Soit <span class="math inline">r_1</span> le reste dans la division euclidienne de <span class="math inline">a</span> par <span class="math inline">b</span>. Si <span class="math inline">r_1=0</span>, alors <span class="math inline">\operatorname{pgcd}(a,b)=b</span> ; sinon, soit <span class="math inline">r_2</span> le reste dans la division euclidienne de <span class="math inline">b</span> par <span class="math inline">r_1</span>. Si <span class="math inline">r_2=0</span>, alors <span class="math inline">\operatorname{pgcd}(a,b)=\operatorname{pgcd}(b,r_1)=r_1</span> ; sinon, soit <span class="math inline">r_3</span> le reste dans la division euclidienne de <span class="math inline">r_1</span> par <span class="math inline">r_2</span>, etc.</p>
 <p>Le processus s’arrête nécessairement car les restes forment une suite d’entiers décroissante et minorée. Le dernier reste non nul <span class="math inline">r_n</span> est égal au PGCD de <span class="math inline">a</span> et <span class="math inline">b</span>. En effet, la proposition précédente montre que <span class="math inline">\operatorname{pgcd}(a,b)=\operatorname{pgcd}(b,r_1)=\operatorname{pgcd}(r_1,r_2)=\cdots=\operatorname{pgcd}(r_{n-1},r_n)=r_n</span>.</p>
@@ -453,7 +453,7 @@ window.Quarto = {
 <section id="quelques-résultats-fondamentaux" class="level1" data-number="5">
 <h1 data-number="5"><span class="header-section-number">5</span> Quelques résultats fondamentaux</h1>
 <div class="custom-numbered-block custom-theorem">
-<p><strong>Théorème 6.1 — (Lemme d'Euclide)</strong></p>
+<p><strong>Théorème 6.1 — (Lemme d’Euclide)</strong></p>
 <p>Soient <span class="math inline">a,b</span> et <span class="math inline">c</span> trois entiers tels que <span class="math inline">\operatorname{pgcd}(a,b)=1</span>. Alors on a : <span class="math display">a\mid c \text{ et } b\mid c \Longrightarrow ab\mid c.</span></p>
 </div>
 <div class="custom-numbered-block custom-theorem">
@@ -506,15 +506,15 @@ window.Quarto = {
 <p>Soient <span class="math inline">a,b\in\mathbb{Z}</span> et <span class="math inline">p</span> un nombre premier. Alors on a : <span class="math display">p\mid ab \iff p\mid a \text{ ou } p\mid b</span></p>
 </div>
 <div class="custom-numbered-block custom-exercise">
-<p><strong>Exercice 6.4 — (Caractérisation d'un nombre premier)</strong></p>
+<p><strong>Exercice 6.4 — (Caractérisation d’un nombre premier)</strong></p>
 <p>Soit <span class="math inline">p\in\mathbb{N}</span> tel que <span class="math inline">p&gt;1</span>. Montrer que : <span class="math display">\left( p \text{ est premier} \right) \iff \left( \forall (a,b)\in\mathbb{Z}^2,\ p\mid ab \iff p\mid a \text{ ou } p\mid b \right)</span></p>
 </div>
 <div class="custom-numbered-block custom-theorem">
-<p><strong>Théorème 6.3 — (Théorème d'Euclide)</strong></p>
+<p><strong>Théorème 6.3 — (Théorème d’Euclide)</strong></p>
 <p>L’ensemble des nombres premiers est infini.</p>
 </div>
 <div class="custom-numbered-block custom-theorem">
-<p><strong>Théorème 6.4 — (Théorème fondamental de l'arithmétique)</strong></p>
+<p><strong>Théorème 6.4 — (Théorème fondamental de l’arithmétique)</strong></p>
 <p>Tout entier naturel non nul <span class="math inline">n</span> se décompose de façon unique en produit de nombres premiers. Autrement dit, <span class="math inline">n</span> s’écrit : <span class="math display">n=\prod_{p\in \mathcal{P}}p^{v_p(n)}</span> avec <span class="math inline">\mathcal{P}</span> l’ensemble des nombres premiers et <span class="math inline">v_p(n)</span> le plus grand entier naturel <span class="math inline">m</span> tel que <span class="math inline">p^m</span> (<span class="math inline">p</span> premier) divise <span class="math inline">n</span>. <span class="math inline">v_p(n)</span> s’appelle la valuation <span class="math inline">p</span>-adique de <span class="math inline">n</span>.</p>
 </div>
 <div class="custom-numbered-block custom-exercise">
