@@ -1,10 +1,1232 @@
 ---
-title: "Chapitre 01 : Calcul et algèbre élémentaire"
-pagetitle: "Calcul et algèbre élémentaire - Mathématiques en CPGE"
+title: "Vocabulaire ensembliste et éléments de logique"
+subtitle: "Chapitre 01"
+author: "Saîd MAHARI"
+date: last-modified
+date-format: "D MMMM YYYY"
+sidebar:
+  style: docked
+  contents:
+    - href: cours/index.qmd
+      text: "← Tous les cours"
+    - section: "TSI — 1re année"
+      contents:
+        - cours/tsi1-chap01.qmd
+        # - cours/tsi1-chap02.qmd
+lang: fr
+format:
+  html:
+    theme: cosmo
+    toc: true
+    number-sections: true
+    html-math-method: katex
+    css: styles.css
+filters:
+  - custom-numbered-blocks.lua
 ---
 
-**TSI 1re année — Chapitre 01.** Logique, trigonométrie, nombres complexes, géométrie plane analytique.
+**TSI (1re année) — Chapitre 01.** Connecteurs logiques, quantificateurs, raisonnements (récurrence, absurde, contraposition, analyse-synthèse), ensembles, applications, injections, surjections, bijections.
 
-## Document
+Ce chapitre a été réalisé conformément au programme marocain de mathématiques de la filière TSI1.
 
-*PDF à venir : déposez le fichier `files/tsi1/chap01.pdf` puis régénérez la page.*
+# Opérations logiques élémentaires
+
+## La négation
+
+À chaque expression $A$ (affirmation – propriété – assertion) relative à un domaine donné, on associe la valeur « Vraie » ou « Fausse ». S'il s'agit de son **contraire** ou sa **négation**, on note $\neg A$.
+
+Table de vérité de la négation :
+
+| $A$ | $\neg A$ |
+| --- | --- |
+| V   | F        |
+| F   | V        |
+
+ou
+
+| $A$ | $\neg A$ |
+| --- | --- |
+| 1   | 0        |
+| 0   | 1        |
+
+::: {.example}
+Soit $(x,a)\in\mathbb{R}^2$.
+
+1. La négation de $(x=a)$ est $(x\neq a)$.
+2. La négation de $(x>a)$ est $(x\leq a)$.
+3. La négation de (Quelque soit $x$ de $\mathbb{R}$, $x$ vérifie $x^2\geq 0$) est (Il existe $x$ de $\mathbb{R}$ tel que $x^2< 0$).
+:::
+
+## La conjonction
+
+À partir de deux affirmations $A$ et $B$, on peut former l'affirmation « $A$ et $B$ » que l'on note $A \wedge B$.
+
+Table de vérité de la conjonction :
+
+| $A$ | $B$ | $A \wedge B$ |
+| --- | --- | --- |
+| V   | V   | V            |
+| V   | F   | F            |
+| F   | V   | F            |
+| F   | F   | F            |
+
+ou
+
+| $A$ | $B$ | $A \wedge B$ |
+| --- | --- | --- |
+| 1   | 1   | 1            |
+| 1   | 0   | 0            |
+| 0   | 1   | 0            |
+| 0   | 0   | 0            |
+
+::: {.example}
+Soit $x\in\mathbb{C}$.
+
+$(x^2+x+1=0)\wedge(\operatorname{arg}(x)=\frac{2\pi}{3})$ donne $x=j=e^{i\frac{2\pi}{3}}=-\frac{1}{2}+i\frac{\sqrt{3}}{2}$.
+:::
+
+## La disjonction
+
+À partir de deux affirmations $A$ et $B$, on peut former l'affirmation « $A$ ou $B$ » que l'on note $A \vee B$.
+
+Table de vérité de la disjonction :
+
+| $A$ | $B$ | $A \vee B$ |
+| --- | --- | --- |
+| V   | V   | V          |
+| V   | F   | V          |
+| F   | V   | V          |
+| F   | F   | F          |
+
+ou
+
+| $A$ | $B$ | $A \vee B$ |
+| --- | --- | --- |
+| 1   | 1   | 1          |
+| 1   | 0   | 1          |
+| 0   | 1   | 1          |
+| 0   | 0   | 0          |
+
+::: {.example}
+Soit $x\in\mathbb{C}$.
+
+$(x^2-x=0)$ donne $(x=0)\vee(x=1)$.
+:::
+
+## L'implication
+
+À partir de deux affirmations $A$ et $B$, on peut former l'affirmation « $A$ implique $B$ » que l'on note $A \Longrightarrow B$.
+
+Table de vérité de l'implication :
+
+| $A$ | $B$ | $A \Longrightarrow B$ |
+| --- | --- | --- |
+| V   | V   | V                     |
+| V   | F   | F                     |
+| F   | V   | V                     |
+| F   | F   | V                     |
+
+ou
+
+| $A$ | $B$ | $A \Longrightarrow B$ |
+| --- | --- | --- |
+| 1   | 1   | 1                     |
+| 1   | 0   | 0                     |
+| 0   | 1   | 1                     |
+| 0   | 0   | 1                     |
+
+::: {.example}
+Dans $\mathbb{C}$, $xy=0 \Longrightarrow (x=0)\vee(y=0)$.
+:::
+
+## L'équivalence
+
+À partir de deux affirmations $A$ et $B$, on peut former l'affirmation « $A$ équivaut à $B$ » que l'on note $A \Leftrightarrow B$.
+
+Table de vérité de l'équivalence :
+
+| $A$ | $B$ | $A \Leftrightarrow B$ |
+| --- | --- | --- |
+| V   | V   | V                     |
+| V   | F   | F                     |
+| F   | V   | F                     |
+| F   | F   | V                     |
+
+ou
+
+| $A$ | $B$ | $A \Leftrightarrow B$ |
+| --- | --- | --- |
+| 1   | 1   | 1                     |
+| 1   | 0   | 0                     |
+| 0   | 1   | 0                     |
+| 0   | 0   | 1                     |
+
+::: {.example}
+$\left.\begin{array}{l}\text{M est un point}\ \text{du cercle } \mathscr{C}(O,R)\end{array}\right\} \Leftrightarrow OM=R$.
+:::
+
+::: {.remark title="(hors programme)"}
+1. $\vee$, $\wedge$, $\Longrightarrow$, $\Leftrightarrow$, NAND, XOR et NOR sont appelés aussi des **connecteurs logiques**.
+2. À partir de ces opérations logiques élémentaires, on peut former d'autres à savoir $NAND$, $XOR$, et $NOR$… etc.
+3. Ces opérations peuvent se traduire aussi par un calcul dans $\mathbb{Z}/2\mathbb{Z}$. Par exemple le « et » se traduit par la multiplication dans $\mathbb{Z}/2\mathbb{Z}$ et XOR par la somme dans $\mathbb{Z}/2\mathbb{Z}$. Voici les opérations de calcul dans $\mathbb{Z}/2\mathbb{Z}$ :
+
+| $\overset{\curvearrowright}{+}$ | 0 | 1 |
+| --- | --- | --- |
+| 0 | 0 | 1 |
+| 1 | 1 | 0 |
+
+| $\overset{\curvearrowright}{\times}$ | 0 | 1 |
+| --- | --- | --- |
+| 0 | 0 | 0 |
+| 1 | 0 | 1 |
+
+Pour plus de détails, consultez les liens : [lien 1](http://yann.lelogeais.free.fr/science/digit/digit_3t.html) et [lien 2](https://openclassrooms.com/courses/l-algebre-de-boole).
+:::
+
+## Propriétés
+
+::: {.theorem}
+Soient $A$, $B$ et $C$ trois affirmations. Alors on a :
+
+1. $\neg(\neg A) \equiv A$
+2. $A\wedge(B\wedge C) \equiv (A\wedge B)\wedge C$ (associativité de $\wedge$)
+3. $A\vee(B\vee C) \equiv (A\vee B)\vee C$ (associativité de $\vee$)
+4. $A\wedge B \equiv B \wedge A$ (commutativité de $\wedge$)
+5. $A\vee B \equiv B \vee A$ (commutativité de $\vee$)
+6. $A\wedge(B\vee C) \equiv (A\wedge B)\vee(A\wedge C)$ (distributivité)
+7. $A\vee(B\wedge C) \equiv (A\vee B)\wedge(A\vee C)$ (distributivité)
+8. $A\wedge A\equiv A$
+9. $A\vee A\equiv A$
+10. $\neg(A\vee B)\equiv(\neg A)\wedge(\neg B)$ (loi de Morgan)
+11. $\neg(A\wedge B)\equiv(\neg A)\vee(\neg B)$ (loi de Morgan)
+12. $A \Longrightarrow B \equiv (\neg A)\vee B$
+13. $A \Longrightarrow B \equiv ((\neg B) \Longrightarrow (\neg A))$ (principe de la contraposée)
+14. $A\Leftrightarrow B \equiv (A\Longrightarrow B)\wedge(B\Longrightarrow A)$ (principe de la double implication)
+15. $(A \vee B)\Longrightarrow C\equiv (A \Longrightarrow C) \wedge (B\Longrightarrow C)$
+16. $\neg(A\Longrightarrow B) \equiv A\wedge(\neg B)$
+17. $\neg(A\Leftrightarrow B) \equiv (A\Leftrightarrow(\neg B)) \equiv ((\neg A) \Leftrightarrow B)$
+:::
+
+::: {.proposition title="(Quelques tautologies)"}
+Soient $A$, $B$ et $C$ trois affirmations. Les formules suivantes sont des tautologies :
+
+1. $A \vee (\neg A)$ (principe du tiers exclus)
+2. $A \Longrightarrow A$
+3. $A \equiv A$
+4. $A \Longrightarrow (A\vee B)$
+5. $(A\wedge B) \Longrightarrow A$
+6. $(A\wedge (A\Longrightarrow B))\Longrightarrow B$
+7. $(A\Longrightarrow B)\wedge(B\Longrightarrow C) \Longrightarrow (A\Longrightarrow C)$ (transitivité de $\Longrightarrow$)
+:::
+
+::: {.exercise}
+Nier les expressions suivantes :
+
+1. $((A\Longrightarrow B)\wedge C)\vee(\neg B)$
+2. $((A\Longrightarrow B)\wedge C)\Longrightarrow B$
+:::
+
+::: {.solution}
+Niions les expressions proposées :
+
+1. On a :
+
+$$
+\begin{aligned}
+\neg\left[((A\Longrightarrow B)\wedge C)\vee(\neg B)\right] &\equiv \neg\left[\left((A\Longrightarrow B)\vee(\neg B)\right)\wedge\left(C\vee(\neg B)\right)\right]\\
+&\equiv \neg\left[\left(((\neg A)\vee B)\vee(\neg B)\right)\wedge\left(C\vee(\neg B)\right)\right]\\
+&\equiv \neg\left(C\vee(\neg B)\right)\\
+&\equiv (\neg C)\wedge B
+\end{aligned}
+$$
+
+2. On a :
+
+$$
+\begin{aligned}
+\neg(((A\Longrightarrow B)\wedge C)\Longrightarrow B) &\equiv \neg(\neg((A\Longrightarrow B)\wedge C)\vee B)\\
+&\equiv ((A\Longrightarrow B)\wedge C)\wedge(\neg B)\\
+&\equiv (((\neg A)\vee B)\wedge C)\wedge(\neg B)\\
+&\equiv (((\neg A)\wedge C)\vee(B\wedge C))\wedge(\neg B)\\
+&\equiv \left[((\neg A)\wedge C)\wedge(\neg B)\right]\vee\left[(B\wedge C)\wedge(\neg B)\right]\\
+&\equiv (\neg A)\wedge C \wedge(\neg B)
+\end{aligned}
+$$
+:::
+
+# Quantificateurs
+
+Soit $\mathcal{R}(x)$ une assertion dépendant d'une variable $x$. On écrit $(\exists x\ /\ \mathcal{R}(x))$ pour dire qu'il existe au moins un des objets $x$ pour lequel $\mathcal{R}(x)$ est vraie.
+
+::: {.example}
+Soient $f : \mathbb{R} \longrightarrow \mathbb{R}$ une fonction et $(u_n)_{n\in\mathbb{N}}$ une suite à valeurs réelles.
+
+1. $\forall \varepsilon >0,\ \exists \alpha >0,\ (\forall x\in\mathbb{R}),\ (|x-x_0|\leq \alpha \Longrightarrow |f(x)-f(x_0)|\leq \varepsilon)$ exprime la **continuité** de $f$ en $x_0$.
+2. $\exists \alpha >0,\ \forall \varepsilon >0,\ (\forall x\in\mathbb{R}),\ (|x-x_0|\leq \alpha \Longrightarrow |f(x)-f(x_0)|\leq \varepsilon)$ exprime que $f$ est **constante** au voisinage de $x_0$.
+3. $\forall \varepsilon >0,\ \exists N\in\mathbb{N},\ (\forall n\in\mathbb{N}),\ (n\geq N \Longrightarrow |u_n-a|\leq \varepsilon)$ exprime que la suite $(u_n)_{n\in\mathbb{N}}$ **converge** vers l'élément $a$.
+4. $\forall M\in\mathbb{R},\ \exists n\in\mathbb{N},\ u_n>M$ exprime le fait que $(u_n)_{n\in\mathbb{N}}$ n'est pas majorée.
+:::
+
+::: {.proposition title="(Règles de distributivité)"}
+Soient $P(x)$ et $Q(x)$ deux expressions dépendant d'une variable $x$. On a :
+
+1. $\forall x,\ (P(x)\wedge Q(x))\equiv (\forall x,\ P(x))\wedge(\forall x,\ Q(x))$
+2. $\exists x,\ (P(x)\vee Q(x))\equiv (\exists x,\ P(x))\vee(\exists x,\ Q(x))$
+:::
+
+::: {.exercise}
+A-t-on :
+
+1. $\forall x,\ (P(x)\vee Q(x))\equiv (\forall x,\ P(x))\vee(\forall x,\ Q(x))$ ?
+2. $\exists x,\ (P(x)\wedge Q(x))\equiv (\exists x,\ P(x))\wedge(\exists x,\ Q(x))$ ?
+:::
+
+::: {.proposition}
+Soit $P(x)$ une expression dépendant d'une variable $x$ et $Q$ ne l'est pas. On a :
+
+1. $\forall x,\ (P(x)\vee Q)\equiv (\forall x,\ P(x))\vee Q$
+2. $\exists x,\ (P(x)\wedge Q)\equiv (\exists x,\ P(x))\wedge Q$
+:::
+
+::: {.proposition title="(Quantification d'une implication)"}
+1. Si la propriété $P$ ne dépend pas de $x$ :
+
+   a. $\forall x,\ (P \Longrightarrow Q(x)) \equiv P \Longrightarrow (\forall x,\ Q(x))$
+
+   b. $\exists x,\ (P \Longrightarrow Q(x)) \equiv P \Longrightarrow (\exists x,\ Q(x))$
+
+2. Si la propriété $Q$ ne dépend pas de $x$ :
+
+   a. $\forall x,\ (P(x) \Longrightarrow Q) \equiv (\forall x,\ P(x)) \Longrightarrow Q$
+
+   b. $\exists x,\ (P(x) \Longrightarrow Q) \equiv (\forall x,\ P(x)) \Longrightarrow Q$
+:::
+
+::: {.proposition title="(Négation des quantificateurs)"}
+Soit $P(x)$ une expression dépendant d'une variable $x$. On a :
+
+1. $\neg(\forall x,\ P(x)) \equiv (\exists x,\ \neg P(x))$
+2. $\neg(\exists x,\ P(x)) \equiv (\forall x,\ \neg P(x))$
+:::
+
+# Types de raisonnement
+
+## Raisonnement par les équivalences successives
+
+Pour démontrer qu'une propriété $P$ est vraie, on démontre des fois qu'elle est équivalente à une propriété qu'on sait vraie à l'avance.
+
+::: {.example}
+Soit $(a,b)\in\mathbb{R}^2$. Montrons que $ab\leq \frac{a^2+b^2}{2}$ :
+
+Procédons par des équivalences successives. On a :
+
+$$
+\begin{aligned}
+ab\leq \frac{a^2+b^2}{2} &\Longleftrightarrow 2ab \leq a^2+b^2\\
+&\Longleftrightarrow a^2+b^2-2ab \geq 0\\
+&\Longleftrightarrow (a-b)^2\geq 0
+\end{aligned}
+$$
+
+La dernière expression équivalente est vraie, on conclut alors que $ab\leq \frac{a^2+b^2}{2}$.
+:::
+
+::: {.example}
+Soit $a\in\mathbb{C}\smallsetminus\{1\}$ et $n\in\mathbb{N}$. Montrons que $\sum_{k=0}^n a^k=\frac{1-a^{n+1}}{1-a}$ :
+
+Procédons par des équivalences successives. On a :
+
+$$
+\begin{aligned}
+\sum_{k=0}^n a^k=\frac{1-a^{n+1}}{1-a} &\Longleftrightarrow (1-a)\sum_{k=0}^n a^k=1-a^{n+1}\\
+&\Longleftrightarrow \sum_{k=0}^n (1-a)a^k=1-a^{n+1}\\
+&\Longleftrightarrow \sum_{k=0}^n (a^k-a^{k+1})=1-a^{n+1}\\
+&\Longleftrightarrow a^0-a^{n+1}=1-a^{n+1}
+\end{aligned}
+$$
+
+D'où :
+
+$$\sum_{k=0}^n a^k=\frac{1-a^{n+1}}{1-a}.$$
+:::
+
+## Raisonnement par disjonction des cas
+
+Pour démontrer qu'une propriété est vraie, on considère tous les cas possibles et on vérifie qu'elle est vraie dans chacun des cas possibles.
+
+::: {.example}
+On montre que pour tout $n\in\mathbb{N}$, $n(n+1)$ est pair : soit $n$ un entier naturel et considérons tous les cas possibles :
+
+**Cas 1 :** si $n$ est pair alors il existe $k\in\mathbb{N}$ tel que $n=2k$, donc $n(n+1)=2k(2k+1)=2\times k(2k+1)$, et par suite, $n(n+1)$ est pair.
+
+**Cas 2 :** si $n$ est impair alors il existe $k\in\mathbb{N}$ tel que $n=2k+1$, donc $n(n+1)=(2k+1)(2k+2)=2\times(2k+1)(k+1)$, et par suite, $n(n+1)$ est pair.
+
+D'où $n(n+1)$ est pair pour tout $n$ de $\mathbb{N}$.
+:::
+
+::: {.example}
+Soit $x\in\mathbb{R}$. Montrons que $x^2+x+1\geq 0$.
+
+**Cas 1 :** si $x\leq -1$ alors $x\leq 0$ et $x+1\geq 0$, donc $x(x+1)\leq 0$ et par suite, $x^2+x+1\geq 1>0$.
+
+**Cas 2 :** si $x\geq -1$ alors $x+1\geq 0$ et $x^2\geq 0$, donc $x^2+x+1\geq 0$.
+
+D'où :
+
+$$x^2+x+1\geq 0$$
+:::
+
+## Raisonnement par contre-exemple
+
+Soit $P(x)$ une propriété dépendant d'un paramètre $x$. Pour montrer que l'affirmation $(\forall x,\ P(x))$ est fausse, on démontre que sa négation $(\exists x,\ \neg P(x))$ est vraie.
+
+::: {.example}
+La propriété suivante est-elle vraie : « deux rectangles de même aire ont même périmètre » ?
+
+Les rectangles de longueurs respectives $4,m$ et $2,m$ et de largeurs respectives $0{,}5,m$ et $1,m$ constituent un contre-exemple.
+:::
+
+::: {.example}
+L'affirmation $(\forall x\in\mathbb{C},\ x^2\geq 0)$ est fausse puisque les nombres complexes $i$ et $j$ constituent des contre-exemples.
+:::
+
+::: {.example}
+L'affirmation $(\forall (a,b)\in (\mathbb{R}^+)^2,\ \sqrt{a+b}=\sqrt{a}+\sqrt{b})$ est fausse puisque $a=9$ et $b=16$ constituent un contre-exemple.
+:::
+
+## Raisonnement par l'absurde
+
+::: {.callout-note title="Première forme" icon="false"}
+L'implication $A \Longrightarrow B$ se traduit par $(\neg A)\vee B$. En général, on prend $A$ comme hypothèse et on démontre $B$. Mais dans le raisonnement par l'absurde, on prend comme hypothèse $A \wedge (\neg B)$ et on aboutit à une contradiction.
+:::
+
+::: {.example}
+Soit $z\in\mathbb{C}$. Montrons que si $z=0$ alors $\mathcal{R}e(z)=\mathcal{I}m(z)=0$ :
+
+Raisonnons par absurde en supposant que $z=0$ et ($\mathcal{R}e(z)\neq 0$ ou $\mathcal{I}m(z)\neq 0$).
+
+$z=0$ donne $\mathcal{R}e(z)=-i\mathcal{I}m(z)$, donc $\left(\mathcal{R}e(z)\right)^2=-\left(\mathcal{I}m(z)\right)^2$, et par suite, $\left(\mathcal{R}e(z)\right)^2+\left(\mathcal{I}m(z)\right)^2=0$. Or $\mathcal{R}e(z)\neq 0$ ou $\mathcal{I}m(z)\neq 0$ donc $\left(\mathcal{R}e(z)\right)^2+\left(\mathcal{I}m(z)\right)^2>0$. Contradiction.
+
+Conclusion : si $z=0$ alors $\mathcal{R}e(z)=\mathcal{I}m(z)=0$.
+:::
+
+::: {.example}
+Soit $n\in\mathbb{N}$. Montrer que si $n^2$ est pair alors $n$ l'est aussi :
+
+Raisonnons par absurde en supposant que $n^2$ est pair et $n$ ne l'est pas. Donc $n$ est impair, et par suite, il existe $k\in\mathbb{N}$ tel que $n=2k+1$, donc $n^2=4k^2+4k+1=2(2k^2+2k)+1$, donc $n^2$ est impair. Contradiction.
+
+Conclusion : si $n^2$ est pair alors $n$ est aussi pair.
+:::
+
+::: {.example}
+Soient $a, b > 0$. Montrons que si $\frac{a}{1+a}=\frac{b}{1+b}$ alors $a = b$ :
+
+Raisonnons par absurde en supposant que $\frac{a}{1+a}=\frac{b}{1+b}$ et $a\neq b$. Comme $\frac{a}{1+a}=\frac{b}{1+b}$ alors $a(1+b) = b(1+a)$ donc $a+ab=b+ab$ d'où $a=b$. Cela conduit une contradiction.
+
+Conclusion : si $\frac{a}{1+a}=\frac{b}{1+b}$ alors $a = b$.
+:::
+
+::: {.example}
+Soit $(k,k')\in\mathbb{N}^2$. Montrons par absurde que si $kk'=1$ alors $k=k'=1$ :
+
+Supposons alors que $kk'=1$ et ($k\neq 1$ ou $k'\neq 1$).
+
+1. Si $k=0$ ou $k'=0$ alors $kk'=0\neq 1$. Contradiction.
+2. Sinon, comme ($k\neq 1$ ou $k'\neq 1$) alors ($k\geq 2$ ou $k'\geq 2$), donc $kk'\geq 2$, donc $kk'\neq 1$. Contradiction.
+
+Conclusion : si $kk'=1$ alors $k=k'=1$.
+:::
+
+::: {.callout-note title="Deuxième forme" icon="false"}
+Soit $\mathcal{P}(x)$ une assertion dépendant d'un paramètre $x$. Cette forme est utilisée lorsqu'il s'agit de démontrer qu'il n'existe aucun objet $x$ tel que $\mathcal{P}(x)$ soit vraie en supposant qu'il existe un tel $x$ et aboutir à une contradiction par la suite.
+:::
+
+::: {.example}
+Considérons l'assertion $\mathcal{P}(x)$ : « Il n'existe aucun $x$ de $\mathbb{R}$ tel que $x^2\leq 4$ et $1{,}5\leq \sqrt{|x|}$ ».
+
+Supposons qu'il existe un tel $x$ alors $x^2\leq 4$ et $\underset{\simeq 5{,}06}{(1{,}5)^4}\leq |x|^2$ : alors 4 est supérieur à 5, ce qui est impossible.
+
+D'où la propriété $\mathcal{P}(x)$ est vraie.
+:::
+
+## Raisonnement par contraposée
+
+Comme on a déjà mentionné, l'implication $A \Longrightarrow B$ se traduit par $(\neg A)\vee B$ qui est la même chose que $(\neg(\neg B))\vee(\neg A)$ et qui se traduit par $(\neg B)\Longrightarrow(\neg A)$.
+
+$$A \Longrightarrow B \equiv (\neg B)\Longrightarrow(\neg A)$$
+
+Il s'agit alors dans le raisonnement par contraposée de démontrer l'implication équivalente.
+
+::: {.example}
+Soit $n\in\mathbb{N}$. Montrons que si $n^2$ est pair alors $n$ l'est aussi :
+
+Raisonnons par contraposée, supposons que $n$ est impair et montrons que $n^2$ l'est aussi. Donc il existe un entier $k\in\mathbb{N}$ tel que $n=2k+1$, par suite $n^2=4k^2+4k+1=2(2k^2+2k)+1$, d'où $n^2$ est impair.
+
+Ainsi, si $n^2$ est pair alors $n$ l'est aussi.
+:::
+
+::: {.example}
+Soit $x\in\mathbb{R}$. Montrons que si pour tout $\varepsilon >0$, $|x|\leq \varepsilon$ alors $x=0$ :
+
+Raisonnons par contraposée, supposons que $x\neq 0$ et montrons qu'il existe $\varepsilon >0$ tel que $|x|> \varepsilon$. Si on prend $\varepsilon =\frac{|x|}{2}>0$ alors $|x|> \varepsilon$.
+
+D'où :
+
+$$\forall \varepsilon >0,\ |x|\leq \varepsilon \Longrightarrow x=0$$
+:::
+
+::: {.example}
+Soit $n\in\mathbb{N}$. Montrons que :
+
+$$\left(\forall m\in\mathbb{N},\ n^2-1\neq 8m\right)\Longrightarrow \left(\exists k\in\mathbb{N},\ n=2k\right)$$
+
+La contraposée s'écrit :
+
+$$\left(\forall k\in\mathbb{N},\ n\neq 2k\right)\Longrightarrow \left(\exists m\in\mathbb{N},\ n^2-1= 8m\right)$$
+
+Si on suppose $\left(\forall k\in\mathbb{N},\ n\neq 2k\right)$ alors $n$ est impair, donc il existe un entier $k\in\mathbb{N}$ tel que $n=2k+1$, donc $n^2=4k^2+4k+1=4k(k+1)+1$. Or, $k(k+1)$ est pair (d'après l'exemple précédent) donc il existe $m\in\mathbb{N}$ tel que $k(k+1)=2m$ et par suite $n^2=8m+1$ donc $n^2-1= 8m$. D'où :
+
+$$\left(\forall m\in\mathbb{N},\ n^2-1\neq 8m\right)\Longrightarrow \left(\exists k\in\mathbb{N},\ n=2k\right)$$
+:::
+
+::: {.example}
+Soient $x_1,\cdots,x_n$ $(n\geq 1)$ et $M$ des réels. Montrons que :
+
+$$x_1+\cdots+x_n=M \Longrightarrow \exists i\in \llbracket 1,n \rrbracket,\ x_i\geq \frac{M}{n}$$
+
+La contraposée s'écrit :
+
+$$\forall i\in \llbracket 1,n \rrbracket,\ x_i<\frac{M}{n} \Longrightarrow x_1+\cdots+x_n\neq M$$
+
+Donc $\sum_{i=1}^n x_i<\sum_{i=1}^n\frac{M}{n}=M$, par suite $\sum_{i=1}^n x_i\neq M$. D'où :
+
+$$x_1+\cdots+x_n=M \Longrightarrow \exists i\in \llbracket 1,n \rrbracket,\ x_i\geq \frac{M}{n}$$
+:::
+
+## Raisonnement par analyse-synthèse
+
+Le raisonnement par analyse-synthèse est un type de raisonnement mathématique permettant de démontrer l'existence et l'unicité d'un objet vérifiant des propriétés données. Il se décompose en deux parties :
+
+- **L'analyse** : on suppose que l'objet existe et on essaie de trouver des conditions nécessaires que doit vérifier cet objet. Ce faisant, on prouve que si l'objet existe, alors il est nécessairement égal à un certain objet $x_0$ (ceci assure l'unicité).
+- **La synthèse** : on considère l'objet $x_0$ identifié dans la partie analyse, et on vérifie qu'il a bien les propriétés voulues (ceci assure l'existence).
+
+::: {.example}
+Montrons que toute application $f: \mathbb{R}\longrightarrow \mathbb{R}$ s'écrit de façon unique comme somme d'une application paire et d'une autre impaire :
+
+Soit $f: \mathbb{R}\longrightarrow \mathbb{R}$ une application et procédons par analyse-synthèse :
+
+**Analyse** : supposons qu'il existe deux applications $g,h:\mathbb{R}\longrightarrow \mathbb{R}$ telles que $g$ est paire, $h$ est impaire et $f=g+h$. Donc pour $x\in\mathbb{R}$, on a :
+
+$$\begin{cases} f(x)=g(x)+h(x)\\f(-x)=g(x)-h(x)\end{cases}$$
+
+Donc :
+
+$$\begin{cases} g(x)=\frac{1}{2}\left(f(x)+f(-x)\right)\\h(x)=\frac{1}{2}\left(f(x)-f(-x)\right)\end{cases}$$
+
+D'où l'unicité de l'écriture.
+
+**Synthèse** : pour $x\in\mathbb{R}$, posons :
+
+$$\begin{cases} g(x)=\frac{1}{2}\left(f(x)+f(-x)\right)\\h(x)=\frac{1}{2}\left(f(x)-f(-x)\right)\end{cases}$$
+
+Alors on a bien :
+
+1. $f=g+h$
+2. $g$ est paire
+3. $h$ est impaire
+
+D'où l'existence de l'écriture.
+:::
+
+## Raisonnement par récurrence
+
+::: {.theorem title="(Propriétés de $\mathbb{N}$)"}
+L'ensemble des entiers naturels possède les propriétés suivantes :
+
+**(N1)** Toute partie non vide de $\mathbb{N}$ possède un plus petit élément.
+
+**(N2)** Toute partie non vide de $\mathbb{N}$ et majorée possède un plus grand élément.
+
+**(N3)** L'ensemble $\mathbb{N}$ lui-même n'est pas majoré, en particulier il ne possède pas de plus grand élément.
+:::
+
+**Rappel :** On dit qu'une partie $D$ de $\mathbb{R}$ est majorée s'il existe $M\in\mathbb{R}$ tel que $\forall x\in D,\ x\leq M$.
+
+### Principe de récurrence
+
+Si on se donne une propriété $\mathcal{P}(n)$ dépendant d'un paramètre $n\in\mathbb{N}$, et il se trouve qu'elle est vraie à chaque fois qu'on prend un entier $n\in\mathbb{N}$ au hasard, on se demande si elle est vraie pour tout $n\in\mathbb{N}$.
+
+**Par exemple :**
+
+$$\mathcal{P}(n) : \quad 1+2+3+\cdots+(n-1)+n=\frac{n(n+1)}{2}$$
+
+- Pour $n=1$ : $1=\frac{1(1+1)}{2}$ ($\mathcal{P}(1)$ est vraie)
+- Pour $n=2$ : $1+2=3=\frac{2(2+1)}{2}$ ($\mathcal{P}(2)$ est vraie)
+- Pour $n=3$ : $1+2+3=6=\frac{3(3+1)}{2}$ ($\mathcal{P}(3)$ est vraie)
+- Pour $n=4$ : $1+2+3+4=10=\frac{4(4+1)}{2}$ ($\mathcal{P}(4)$ est vraie)
+- $\vdots$
+
+La question qui se pose : existe-il un moyen qui assure que cela va être vrai pour tout $n\in\mathbb{N}$ ? La réponse est positive : c'est le raisonnement par récurrence.
+
+::: {.theorem title="(Récurrence faible)"}
+Soit $\mathcal{P}(n)$ une propriété dépendant d'un paramètre $n$ avec $n\in\mathbb{N}$. S'il existe $n_0 \in\mathbb{N}$ tel que :
+
+$(R1)$ $\mathcal{P}(n_0)$ est vraie ;
+
+$(R2)$ $\forall n\geq n_0$, $(\mathcal{P}(n) \Longrightarrow \mathcal{P}(n+1))$.
+
+Alors $\mathcal{P}(n)$ est vraie pour tout $n\geq n_0$.
+:::
+
+::: {.proof}
+Raisonnons par absurde : supposons qu'il existe au moins un entier $m\geq n_0$ tel que $\mathcal{P}(m)$ soit fausse.
+
+Considérons l'ensemble :
+
+$$A =\{k\in\mathbb{N}\ /\ (k\geq n_0)\wedge (\mathcal{P}(k) \text{ fausse})\}$$
+
+$A$ est une partie de $\mathbb{N}$ non vide par hypothèse (car $(m\geq n_0)\wedge(\mathcal{P}(m) \text{ fausse})$) donc elle possède un plus petit élément $m_0$. On a $\mathcal{P}(n_0)$ est vraie (d'après l'hypothèse $(R1)$) et $\mathcal{P}(m_0)$ est fausse, donc $m_0>n_0$ par suite $m_0>m_0-1\geq n_0$. Or, $m_0-1\notin A$ (car $m_0 =\min A$), donc $\mathcal{P}(m_0-1)$ est vraie. Il en résulte que, d'après $(R2)$, $\mathcal{P}(m_0)$ est vraie puisque $\mathcal{P}(m_0-1)$ est vraie. Ce qui contredit la définition de $m_0$. D'où le résultat, c'est-à-dire la propriété $\mathcal{P}(n)$ est vraie pour tout $n\geq n_0$.
+:::
+
+::: {.remark}
+La condition $(R1)$ s'appelle **l'initialisation** et la condition $(R2)$ s'appelle **l'hérédité**.
+:::
+
+::: {.example}
+Montrons par récurrence $\forall n\geq 4,\ \left(\mathcal{P}(n) : n^2\leq 2^n\right)$ :
+
+$(R1)$ Pour $n=n_0=4$, on a $4^2=16 \leq 2^4=16$. Donc la propriété $\mathcal{P}(n_0)$ est vraie.
+
+$(R2)$ Soit $n\geq 4$. Supposons $\left(\mathcal{P}(n) : n^2\leq 2^n\right)$ et montrons :
+
+$$\mathcal{P}(n+1) : (n+1)^2\leq 2^{n+1}$$
+
+On a $n^2\leq 2^n$ donc $2n^2\leq 2^{n+1}$.
+
+$$\text{Or, } (n+1)^2-2n^2=-n^2+2n+1 =-(n-1)^2+2\leq -7<0$$
+
+puisque $n\geq 4$. Donc $(n+1)^2 \leq 2n^2 \leq 2^{n+1}$ c'est-à-dire $\mathcal{P}(n+1)$ est vraie.
+
+Ainsi, d'après le théorème précédent, $\forall n\geq 4$, $\left(\mathcal{P}(n) : n^2\leq 2^n\right)$ est vraie.
+:::
+
+::: {.example}
+Montrons par récurrence $\forall n\geq 1,\ \left(\mathcal{P}(n) : \sum_{k=1}^n k=\frac{n(n+1)}{2}\right)$ :
+
+$(R1)$ Pour $n=1$, on a $\sum_{k=1}^1 k=1=\frac{1(1+1)}{2}$. Donc la propriété $\mathcal{P}(1)$ est vraie.
+
+$(R2)$ Soit $n\geq 1$. Supposons $\left(\mathcal{P}(n) : \sum_{k=1}^n k=\frac{n(n+1)}{2}\right)$ et montrons :
+
+$$\mathcal{P}(n+1) : \sum_{k=1}^{n+1} k=\frac{(n+1)(n+2)}{2}$$
+
+On a :
+
+$$\sum_{k=1}^{n+1} k=1+\cdots+n+(n+1)=\sum_{k=1}^n k+(n+1)$$
+
+Or d'après l'hypothèse de récurrence $\sum_{k=1}^n k=\frac{n(n+1)}{2}$, donc :
+
+$$
+\begin{aligned}
+\sum_{k=1}^{n+1} k&=\frac{n(n+1)}{2}+(n+1)\\
+&=\frac{n(n+1)+2(n+1)}{2}\\
+&=\frac{(n+1)(n+2)}{2}
+\end{aligned}
+$$
+
+Donc $\mathcal{P}(n+1)$ est vraie. D'où :
+
+$$\forall n\geq 1,\ \left(\mathcal{P}(n) : \sum_{k=1}^n k=\frac{n(n+1)}{2}\right)$$
+:::
+
+::: {.example}
+Montrons par récurrence que $\forall n\geq 1,\ \left(\mathcal{P}(n) : \sum_{k=1}^n (-1)^k k^2=(-1)^n\sum_{k=1}^n k\right)$ :
+
+$(R1)$ Pour $n=1$, on a $\sum_{k=1}^1 (-1)^k k^2=-1=(-1)^1\sum_{k=1}^1 k$. Donc la propriété $\mathcal{P}(1)$ est vraie.
+
+$(R2)$ Soit $n\geq 1$. Supposons $\mathcal{P}(n)$ et montrons :
+
+$$\mathcal{P}(n+1) : \sum_{k=1}^{n+1} (-1)^k k^2=(-1)^{n+1}\sum_{k=1}^{n+1} k$$
+
+On a :
+
+$$\sum_{k=1}^{n+1} (-1)^k k^2=\sum_{k=1}^n (-1)^k k^2+(-1)^{n+1}(n+1)^2$$
+
+Or d'après l'hypothèse de récurrence : $\sum_{k=1}^n (-1)^k k^2=(-1)^n\sum_{k=1}^n k=(-1)^n\frac{n(n+1)}{2}$, donc :
+
+$$
+\begin{aligned}
+\sum_{k=1}^{n+1} (-1)^k k^2&=(-1)^n\frac{n(n+1)}{2}+(-1)^{n+1}(n+1)^2\\
+&=(-1)^{n+1}\frac{n+1}{2}\left[-n+2(n+1)\right]\\
+&=(-1)^{n+1}\frac{(n+1)(n+2)}{2}\\
+&=(-1)^{n+1}\sum_{k=1}^{n+1} k
+\end{aligned}
+$$
+
+Donc $\mathcal{P}(n+1)$ est vraie. D'où :
+
+$$\forall n\geq 1,\ \left(\mathcal{P}(n) : \sum_{k=1}^n (-1)^k k^2=(-1)^n\sum_{k=1}^n k\right)$$
+:::
+
+::: {.example}
+Soit $(u_n)_{n\in\mathbb{N}}$ la suite numérique définie par :
+
+$$\begin{cases} u_0=1\\ \forall n\in\mathbb{N},\ u_{n+1}=\sum_{k=0}^n u_k\end{cases}$$
+
+Montrons par récurrence $\forall n\in\mathbb{N}^*,\ \left(\mathcal{P}(n) : u_n=2^{n-1}\right)$ :
+
+$(R1)$ Pour $n=1$, $u_1=\sum_{k=0}^0 u_k=u_0=1=2^{1-1}$, donc $\mathcal{P}(1)$ est vraie.
+
+$(R2)$ Soit $n\in\mathbb{N}^*$. Supposons $\mathcal{P}(n) : u_n=2^{n-1}$ et montrons $\mathcal{P}(n+1) : u_{n+1}=2^{n}$. On a :
+
+$$u_{n+1}=\sum_{k=0}^n u_k=\sum_{k=0}^{n-1} u_k+u_n=2u_n$$
+
+Or d'après l'hypothèse de récurrence, $u_n=2^{n-1}$ donc :
+
+$$u_{n+1}=2\times 2^{n-1}=2^n$$
+
+Donc $\mathcal{P}(n+1)$ est vraie. D'où :
+
+$$\forall n\in\mathbb{N}^*,\ \left(\mathcal{P}(n) : u_n=2^{n-1}\right)$$
+:::
+
+::: {.theorem title="(Récurrence forte)"}
+Soit $\mathcal{P}(n)$ une propriété dépendant d'un paramètre $n$ avec $n\in\mathbb{N}$ et soit $n_0\in\mathbb{N}$ tel que :
+
+$(R1)$ $\mathcal{P}(n_0)$ est vraie ;
+
+$(R3)$ $\forall n\geq n_0$, $\left((\forall k\in \llbracket n_0,n\rrbracket,\ \mathcal{P}(k))\Longrightarrow \mathcal{P}(n+1)\right)$.
+
+Alors $\mathcal{P}(n)$ est vraie pour tout $n\geq n_0$.
+:::
+
+::: {.proof}
+Même démonstration que le théorème de la récurrence faible.
+:::
+
+::: {.example title="(Théorème d'Euclide)"}
+Montrons par récurrence, pour $n\geq 2$, la propriété $\mathcal{P}(n) :$ $n$ est produit de nombres premiers.
+
+$(R1)$ $2$ est produit de lui-même et $2$ est premier, donc $\mathcal{P}(2)$ est vraie.
+
+$(R3)$ Soit $n\geq 2$. Supposons que $\mathcal{P}(k)$ est vraie pour $2\leq k \leq n$ et montrons que la propriété est vraie pour $n+1$ : si $n+1$ est déjà un nombre premier, il est alors produit de lui-même (rien à démontrer donc). Sinon, il existe deux entiers $a$ et $b$ vérifiant $2\leq a,b \leq n$ et $n+1=a\times b$. D'après l'hypothèse $(R3)$, $a$ et $b$ sont produits de nombres premiers, donc $n+1$ l'est aussi.
+
+D'où pour tout $n$ supérieur ou égal à 2, $n$ est produit de nombres premiers.
+:::
+
+::: {.example}
+Soit $(u_n)_{n\in\mathbb{N}}$ la suite numérique définie par :
+
+$$\begin{cases} u_0=1\\ \forall n\in\mathbb{N},\ u_{n+1}=\sum_{k=0}^n u_k\end{cases}$$
+
+Montrons par récurrence $\forall n\in\mathbb{N}^*,\ \left(\mathcal{P}(n) : u_n=2^{n-1}\right)$ :
+
+$(R1)$ Pour $n=1$, $u_1=\sum_{k=0}^0 u_k=u_0=1=2^{1-1}$, donc $\mathcal{P}(1)$ est vraie.
+
+$(R3)$ Soit $n\in\mathbb{N}^*$. Supposons :
+
+$$\forall k\in \llbracket 1,n\rrbracket,\ \mathcal{P}(k) : u_k=2^{k-1}$$
+
+et montrons $\mathcal{P}(n+1) : u_{n+1}=2^{n}$. On a :
+
+$$u_{n+1}=\sum_{k=0}^n u_k=1+\sum_{k=1}^n u_k$$
+
+Or d'après l'hypothèse de récurrence, $\forall k\in \llbracket 1,n\rrbracket,\ u_k=2^{k-1}$ donc :
+
+$$u_{n+1}=1+\sum_{k=1}^n 2^{k-1}=1+\sum_{k=0}^{n-1} 2^k=1+2^n-1=2^n$$
+
+Donc $\mathcal{P}(n+1)$ est vraie. D'où :
+
+$$\forall n\in\mathbb{N}^*,\ \left(\mathcal{P}(n) : u_n=2^{n-1}\right)$$
+:::
+
+::: {.example}
+Soit $(u_n)_{n\in\mathbb{N}}$ la suite numérique définie par :
+
+$$\begin{cases} u_0=1\\ \forall n\in\mathbb{N},\ u_{n+1}=\frac{1}{n+1}\sum_{k=0}^n u_k^2\end{cases}$$
+
+Montrons par récurrence que $\forall n\in\mathbb{N},\ \left(\mathcal{P}(n) : u_n=1\right)$ :
+
+$(R1)$ Pour $n=0$, $u_0=1$, donc $\mathcal{P}(0)$ est vraie.
+
+$(R3)$ Soit $n\in\mathbb{N}$. Supposons :
+
+$$\forall k\in \llbracket 0,n\rrbracket,\ \mathcal{P}(k) : u_k=1$$
+
+et montrons que $\mathcal{P}(n+1) : u_{n+1}=1$. On a :
+
+$$u_{n+1}=\frac{1}{n+1}\sum_{k=0}^n u_k^2$$
+
+Or d'après l'hypothèse de récurrence, $\forall k\in \llbracket 0,n\rrbracket,\ u_k=1$ donc :
+
+$$u_{n+1}=\frac{1}{n+1}\sum_{k=0}^n 1=\frac{n+1}{n+1}=1$$
+
+Donc $\mathcal{P}(n+1)$ est vraie. D'où :
+
+$$\forall n\in\mathbb{N},\ \left(\mathcal{P}(n) : u_n=1\right)$$
+:::
+
+::: {.theorem title="(Récurrence finie)"}
+Soit $\mathcal{P}(n)$ une propriété dépendant d'un paramètre $n$ avec $n\in\mathbb{N}$. S'il existe $n_0,n_1 \in\mathbb{N}$ tel que :
+
+$(R1)$ $\mathcal{P}(n_0)$ est vraie ;
+
+$(R4)$ pour un certain $n$ vérifiant $n_0\leq n \leq n_1-1$, $(\mathcal{P}(n) \Longrightarrow \mathcal{P}(n+1))$.
+
+Alors $\mathcal{P}(n)$ est vraie pour tout $n$ vérifiant $n_0\leq n \leq n_1$.
+:::
+
+::: {.proof}
+Même démonstration que le théorème de la récurrence faible.
+:::
+
+::: {.remark}
+Dans l'exemple suivant nous allons utiliser les nombres premiers, c'est pourquoi on rappelle ici deux de leurs propriétés.
+
+Soit $p\in\mathbb{N}$ tel que $p\geq 2$.
+
+1. $p$ est premier si et seulement si ses seuls diviseurs dans $\mathbb{Z}$ sont $-p,-1,1,p$.
+2. $p$ est premier si et seulement si :
+
+$$\forall (a,b)\in\mathbb{Z}^2,\ \left(p\mid ab \Longrightarrow (p\mid a)\vee(p\mid b)\right)$$
+:::
+
+::: {.example}
+Soit $p$ un nombre premier. Montrons par récurrence sur $k$ que :
+
+$$\forall k \in \{1,\cdots,p-1\},\ p\mid C_p^k \qquad \left(C_p^k=\frac{p!}{k!(p-k)!}\right)$$
+
+$(R1)$ Pour $k=1$, $C_p^1=p$ qui est divisible par $p$.
+
+$(R4)$ Soit $k\in\{1,\cdots,p-2\}$, supposons que $p\mid C_p^k$. Montrons que $p\mid C_p^{k+1}$, on a :
+
+$$C_p^{k+1}=\frac{p!}{(k+1)!(p-(k+1))!}=\frac{p-k}{k+1}\frac{p!}{k!(p-k)!}=\frac{p-k}{k+1}C_p^k \Longleftrightarrow (k+1)C_p^{k+1}=(p-k)C_p^k$$
+
+Comme par hypothèse $p\mid C_p^k$ alors $p\mid(k+1)C_p^{k+1}$. Or, $p$ ne divise pas $k+1$ et $p$ est premier donc $p$ divise $C_p^{k+1}$. D'où, d'après le théorème de la récurrence finie, $\forall k \in \{1,\cdots,p-1\},\ p\mid C_p^k$.
+:::
+
+::: {.theorem title="(Récurrence multiple)"}
+Soient $\mathcal{P}(n)$ une propriété dépendant d'un paramètre $n\in\mathbb{N}$ et $q\in\mathbb{N}$. S'il existe $n_0 \in\mathbb{N}$ tel que :
+
+$(R5)$ $\mathcal{P}(n_0), \mathcal{P}(n_0+1),\cdots,\mathcal{P}(n_0+q-1)$ sont toutes vraies ;
+
+$(R6)$ $\forall n\geq n_0$, $(\mathcal{P}(n), \mathcal{P}(n+1),\cdots,\mathcal{P}(n+q-1) \text{ vraies} \Longrightarrow \mathcal{P}(n+q) \text{ vraie})$.
+
+Alors $\mathcal{P}(n)$ est vraie pour tout $n$ vérifiant $n\geq n_0$.
+:::
+
+::: {.proof}
+Démonstration par l'absurde : supposons qu'il existe $m\in\mathbb{N}$ vérifiant $m>n_0$ et $\mathcal{P}(m)$ est fausse. Considérons alors l'ensemble :
+
+$$A=\{ n\in\mathbb{N}\ /\ (n>n_0)\wedge(\mathcal{P}(n) \text{ fausse}) \}$$
+
+$A$ est une partie non vide (puisque $m\in A$) de $\mathbb{N}$, donc elle admet un plus petit élément $m_0$. On a alors $\mathcal{P}(m_0)$ est fausse donc $m_0\notin \{n_0,n_0+1,\cdots,n_0+q-1\}$ (car d'après $(R5)$, $\mathcal{P}(n_0),\mathcal{P}(n_0+1),\cdots,\mathcal{P}(n_0+q-1)$ sont toutes vraies) donc $m_0>n_0+q-1$. On a alors :
+
+$$m_0-q,m_0-q+1,\cdots,m_0-2,m_0-1 \notin A \quad \text{et} \quad \forall n\in\{m_0-q,\cdots,m_0-1\},\ n\geq n_0$$
+
+donc $\mathcal{P}(m_0-q),\mathcal{P}(m_0-q+1),\cdots,\mathcal{P}(m_0-1)$ sont toutes vraies. On applique alors $(R6)$ aux $q$ propriétés $\mathcal{P}(m_0-q),\cdots,\mathcal{P}(m_0-1)$ pour obtenir $\mathcal{P}(m_0)$ est vraie, ce qui contredit la définition de $m_0$. D'où, l'hypothèse de départ est fausse. Par conséquent, $\mathcal{P}(n)$ est vraie pour tout $n$ vérifiant $n\geq n_0$.
+:::
+
+::: {.example}
+Soit $(u_n)_{n\in\mathbb{N}}$ la suite définie par :
+
+$$\begin{cases} u_0=2,\ u_1=3\\ \forall n\in\mathbb{N},\ u_{n+2}=3u_{n+1}-2u_n\end{cases}$$
+
+Montrons par récurrence double que $\forall n\in\mathbb{N},\ \mathcal{P}(n) : u_n=2^n+1$. On a :
+
+$(R5)$ $\mathcal{P}(0) : u_0=2=2^0+1$ vraie et $\mathcal{P}(1) : u_1=3=2^1+1$ vraie.
+
+$(R6)$ Soit $n\in\mathbb{N}$. Supposons $\left(\mathcal{P}(n) : u_n=2^n+1\right)$ et $\left(\mathcal{P}(n+1) : u_{n+1}=2^{n+1}+1\right)$ vraies et montrons $\left(\mathcal{P}(n+2) : u_{n+2}=2^{n+2}+1\right)$ vraie. On a :
+
+$$
+\begin{aligned}
+u_{n+2}&=3u_{n+1}-2u_n\\
+&=3(2^{n+1}+1)-2(2^n+1)\\
+&=3\cdot 2^{n+1}+3-2\cdot 2^{n}-2\\
+&=3\cdot 2^{n+1}+1-2^{n+1}\\
+&=2\cdot 2^{n+1}+1\\
+&=2^{n+2}+1
+\end{aligned}
+$$
+
+D'où $(\mathcal{P}(n+2) : u_{n+2}=2^{n+2}+1)$. Par conséquent, $\forall n\in\mathbb{N},\ u_n=2^n+1$.
+:::
+
+::: {.theorem title="(Récurrence partielle)"}
+Soit $\mathcal{P}(n)$ une propriété dépendant d'un paramètre $n\in\mathbb{N}$. Si on a :
+
+$(R1)$ $\mathcal{P}(1)$ est vraie ;
+
+$(R7)$ $\forall n\in\mathbb{N},\ n=2^k\ (k\in\mathbb{N}^*),\ (\mathcal{P}(n)\Longrightarrow \mathcal{P}(2n))$.
+
+Alors $\mathcal{P}(n)$ est vraie pour toute puissance entière de 2.
+:::
+
+::: {.proof}
+Démonstration par l'absurde : supposons qu'il existe $l\geq 1$ tel que $\mathcal{P}(2^l)$ ne soit pas vraie. Considérons l'ensemble :
+
+$$A=\{k\in\mathbb{N}\ /\ k\geq 1 \text{ et } \mathcal{P}(2^k) \text{ fausse}\}$$
+
+$A$ est une partie de $\mathbb{N}$ non vide (puisque $l\in A$), donc $A$ admet un plus petit élément $k_0$. On a alors $\mathcal{P}(n)$ vraie pour $n=2^{k_0-1}$. D'autre part, d'après $(R7)$, $\mathcal{P}(2n)$ est vraie c'est-à-dire que $\mathcal{P}(2^{k_0})$ est vraie. Or, $k_0 \in A$ donc $\mathcal{P}(2^{k_0})$ est fausse. Ce qui est absurde. D'où, l'hypothèse de départ est fausse et par suite $\mathcal{P}(n)$ est vraie pour toute puissance entière de 2.
+:::
+
+::: {.theorem title="(Récurrence descendante)"}
+Soit $\mathcal{P}(n)$ une propriété dépendant d'un paramètre $n\in\mathbb{N}$. Si on a :
+
+$(R8)$ $\mathcal{P}(n)$ est vraie sur un sous-ensemble infini de $\mathbb{N}$ ;
+
+$(R9)$ $\forall n\in\mathbb{N}^*,\ (\mathcal{P}(n)\Longrightarrow \mathcal{P}(n-1))$.
+
+Alors $\mathcal{P}(n)$ est vraie pour tout $n$ de $\mathbb{N}$.
+:::
+
+::: {.proof}
+Remarquons que $(R9)$ peut être formulée autrement :
+
+$$(*)\qquad \forall n\in\mathbb{N},\ \left(\mathcal{P}(n)\Longrightarrow(\forall k\in \llbracket 0,n\rrbracket,\ \mathcal{P}(n-k))\right)$$
+
+Ceci est obtenu sans problème en faisant une récurrence finie sur $k$ : en effet, soit $n\in\mathbb{N}$ tel que $\mathcal{P}(n)$ soit vraie et considérons $(R9)$, montrons que $\forall k\in \llbracket 0,n\rrbracket,\ \mathcal{P}(n-k)$ est vraie.
+
+$(R1)$ Pour $k=0$, $\mathcal{P}(n)$ est vraie ;
+
+$(R4)$ Soit $k\in \llbracket 0,n-1\rrbracket$ tel que $\mathcal{P}(n-k)$ soit vraie et montrons que $\mathcal{P}(n-(k+1))$ est vraie. D'après $(R9)$, $\mathcal{P}(n-(k+1))$ est vraie. D'où la formulation $(*)$ de $(R9)$.
+
+**Démonstration par absurde du théorème :** soit $A$ un sous-ensemble infini de $\mathbb{N}$ tel que $\forall n\in A$, $\mathcal{P}(n)$ est vraie et supposons qu'il existe $m$ de $\mathbb{N}$ tel que $\mathcal{P}(m)$ soit fausse. Comme $A$ est infini alors il existe $l$ de $A$ tel que $l\geq m$. Posons $k=l-m$ donc $m=l-k$. Comme $l\in A$ donc $\mathcal{P}(l)$ est vraie et d'après $(*)$ on aura $\mathcal{P}(l-k)$ est vraie c'est-à-dire que $\mathcal{P}(m)$ est vraie. Ce qui contredit la définition de $m$. D'où $\mathcal{P}(n)$ est vraie pour tout $n$ de $\mathbb{N}$.
+:::
+
+::: {.example title="(Utilisation de la récurrence partielle et descendante)"}
+Montrons par récurrence que :
+
+$$\forall n \in\mathbb{N}^*,\ \mathcal{P}(n) : \forall x_1,x_2,\cdots,x_n>0,\quad \overset{\underbrace{\text{Moyenne géométrique}}}{(x_1\cdot x_2\cdots x_n)^{\frac{1}{n}}}\leq \overset{\underbrace{\text{Moyenne arithmétique}}}{\frac{x_1+x_2+\cdots+x_n}{n}}$$
+
+**Étape 1** : montrons, en utilisant la récurrence partielle, que $\mathcal{P}(n)$ est vraie pour tout $n$ de la forme $n=2^k$ $(k\in\mathbb{N})$ :
+
+$(R1)$ Pour $n=2^0=1$ : ($x_1=x_1^{\frac{1}{1}}\leq \frac{x_1}{1}=x_1$) $\mathcal{P}(1)$ est vraie.
+
+Pour $n=2^1=2$ : soit $x_1,x_2>0$. On a :
+
+$$\frac{(x_1-x_2)^2}{4}\geq 0 \Longleftrightarrow \frac{x_1^2+x_2^2-2x_1x_2}{4}\geq 0 \Longleftrightarrow \frac{x_1^2+x_2^2+2x_1x_2}{4}\geq x_1x_2$$
+
+donc $\frac{(x_1+x_2)^2}{4}\geq x_1x_2$ donc $(x_1\cdot x_2)^{\frac{1}{2}}\leq \frac{x_1+x_2}{2}$. D'où $\mathcal{P}(2)$ est vraie.
+
+$(R7)$ Soit $k\in\mathbb{N}$ tel que $\mathcal{P}(n)$ soit vraie avec $n=2^k$, montrons alors que $\mathcal{P}(2n)$ est vraie. Soient $x_1,x_2,\cdots,x_{2n}$ des réels positifs, on a :
+
+$$(x_1\cdots x_n\cdot x_{n+1}\cdots x_{2n})^{\frac{1}{2n}}=\left[(x_1\cdots x_n)^{\frac{1}{n}}(x_{n+1}\cdots x_{2n})^{\frac{1}{n}}\right]^{\frac{1}{2}}$$
+
+On applique $\mathcal{P}(2)$ pour $y_1=(x_1\cdots x_n)^{\frac{1}{n}}$ et $y_2=(x_{n+1}\cdots x_{2n})^{\frac{1}{n}}$, donc :
+
+$$\left[(x_1\cdots x_n)^{\frac{1}{n}}(x_{n+1}\cdots x_{2n})^{\frac{1}{n}}\right]^{\frac{1}{2}}\leq \frac{(x_1\cdots x_n)^{\frac{1}{n}}+(x_{n+1}\cdots x_{2n})^{\frac{1}{n}}}{2}$$
+
+D'autre part, d'après $\mathcal{P}(n)$ appliquée à $x_1,\cdots, x_n$ et à $x_{n+1},\cdots, x_{2n}$, on a :
+
+$$(x_1\cdots x_n)^{\frac{1}{n}}\leq \frac{x_1+\cdots+x_n}{n} \quad \text{et} \quad (x_{n+1}\cdots x_{2n})^{\frac{1}{n}}\leq \frac{x_{n+1}+\cdots+x_{2n}}{n}$$
+
+Donc :
+
+$$(x_1\cdots x_{2n})^{\frac{1}{2n}} \leq \frac{\frac{x_1+\cdots+x_n}{n}+\frac{x_{n+1}+\cdots+x_{2n}}{n}}{2}$$
+
+Donc :
+
+$$(x_1\cdots x_{2n})^{\frac{1}{2n}} \leq \frac{x_1+\cdots+x_n +x_{n+1}+\cdots+x_{2n}}{2n}$$
+
+D'où $\mathcal{P}(2n)$. Par conséquent, $\forall n=2^k\ (k\in\mathbb{N})$, $\mathcal{P}(n)$ est vraie.
+
+**Étape 2** : montrons, en utilisant la récurrence descendante (puisque $\mathcal{P}(n)$ est vraie sur l'ensemble $A=\{2^k\ /\ k\in\mathbb{N}\}$ qui est infini), que $\mathcal{P}(n)$ est vraie pour tout $n$ de $\mathbb{N}^*$ :
+
+$(R8)$ La propriété $\mathcal{P}(n)$ est vraie sur $A$ qui est une partie de $\mathbb{N}$ infinie.
+
+$(R9)$ Supposons $\mathcal{P}(n)$ vraie pour $n\geq 2$ et montrons que $\mathcal{P}(n-1)$ est vraie :
+
+soient des réels $x_1,\cdots,x_{n-1}>0$. Posons $z=\frac{x_1+\cdots+x_{n-1}}{n-1}$. $(R9)$ appliquée aux $n$ éléments $x_1,\cdots,x_{n-1},z$ donne :
+
+$$(x_1\cdots x_{n-1}\cdot z)^{\frac{1}{n}} \leq \frac{x_1+\cdots+x_{n-1}+z}{n}=\frac{(n-1)z+z}{n}=z$$
+
+Donc $(x_1\cdots x_{n-1}\cdot z)\leq z^n$, donc $(x_1\cdots x_{n-1})\leq z^{n-1}$. D'où :
+
+$$(x_1\cdots x_{n-1})^{\frac{1}{n-1}}\leq \frac{x_1+\cdots+x_{n-1}}{n-1}$$
+
+Ainsi, on a montré $\mathcal{P}(n-1)$.
+
+**Conclusion :**
+
+$$\forall n\in\mathbb{N}^*,\ \forall x_1,x_2,\cdots,x_n>0,\quad (x_1\cdot x_2\cdots x_n)^{\frac{1}{n}}\leq \frac{x_1+x_2+\cdots+x_n}{n}$$
+:::
+
+# Vocabulaire de la théorie des ensembles
+
+## Ensembles
+
+::: {.definition}
+1. Un **ensemble** est une collection d'objets.
+2. Un ensemble qui possède un unique élément $x$ s'appelle **singleton** et se note $\{x\}$.
+3. Si « $x$ est un élément d'un ensemble $E$ » (ou « $x$ appartient à $E$ »), on note $x \in E$.
+4. On dit qu'un ensemble $F$ est **inclus** dans un autre ensemble $E$ si tout élément de $F$ est un élément de $E$ et on écrit $F \subset E$. On dit aussi que $F$ est un **sous-ensemble** (ou une **partie**) de $E$.
+5. Deux ensembles $F$ et $G$ sont dits **égaux** si $F \subset G$ et $G \subset F$ et on écrit $F=G$.
+6. Si $F$ est une partie d'un ensemble $E$, l'ensemble $\{ x\in E\ /\ x\notin F \}$ est appelé **complémentaire** de $F$ dans $E$ et noté $\mathsf{C}_E F$ ou $\overline{F}$.
+:::
+
+::: {.example}
+1. $\mathbb{N}=\{0,1,2,3,\cdots\}$ l'ensemble des nombres **entiers naturels** ;
+2. $\mathbb{Z}=\{\cdots,-3,-2,-1,0,1,2,3,\cdots\}$ l'ensemble des nombres **entiers relatifs** ;
+3. $\mathbb{N}$ est une partie de $\mathbb{Z}$ et $\mathbb{N}^*=\{1,2,3,\cdots\}$ est une partie de $\mathbb{N}$ et $\mathbb{Z}$ ;
+4. $\mathbb{Z}$ est une partie de $\mathbb{Q}=\left\{ \frac{p}{q}\ /\ (p\in\mathbb{Z})\wedge(q\in\mathbb{N}^*) \right\}$ l'ensemble des nombres **rationnels** et $\mathbb{Q}$ est une partie de $\mathbb{R}$ l'ensemble des nombres **réels** ;
+5. $\mathbb{R}^+=\{x\in\mathbb{R}\ /\ x\geq 0\}$, $\mathbb{R}^-=\{x\in\mathbb{R}\ /\ x\leq 0\}$, $\mathbb{R}^*=\{x\in\mathbb{R}\ /\ x\neq 0\}$ et l'ensemble des nombres irrationnels $\mathbb{R}\smallsetminus\mathbb{Q}$ sont des parties de $\mathbb{R}$.
+6. Le complémentaire de $\mathbb{R}$ dans $\mathbb{C}$ est l'ensemble des nombres **complexes imaginaires** i.e.
+
+$$\mathsf{C}_{\mathbb{C}}\mathbb{R} = \{ a+ib\ /\ (a\in\mathbb{R})\wedge(b\in\mathbb{R}^*) \}$$
+:::
+
+::: {.remark title="(Attention!)"}
+Il ne faut pas confondre l'ensemble $\{x\}$ et l'élément $x$.
+:::
+
+::: {.definition title="(Ensemble vide)"}
+À tout ensemble $E$ on associe l'ensemble noté $\varnothing_E$ et donné par :
+
+$$\varnothing_E=\{ x\in E\ /\ x\neq x \}$$
+
+L'ensemble $\varnothing_E$ est indépendant de $E$ ; on l'appelle **ensemble vide** et on le note $\varnothing$.
+:::
+
+::: {.proof}
+Considérons deux ensembles $E$ et $F$ et associons leur $\varnothing_E$ et $\varnothing_F$. L'implication $P \Longrightarrow Q$ est toujours vraie si $\neg P$ est vraie. On a $\forall x,\ x=x$, donc $\forall x,\ x\notin \varnothing_E$, par suite pour tout $x$ l'implication :
+
+$$x\in \varnothing_E \Longrightarrow x\in\varnothing_F$$
+
+est vraie, d'où $\varnothing_E \subset \varnothing_F$. De même, $\varnothing_F\subset \varnothing_E$. D'où $\varnothing_E = \varnothing_F$.
+:::
+
+::: {.remark}
+$\varnothing \subset E$.
+:::
+
+::: {.definition title="(Ensemble des parties)"}
+Soit $E$ un ensemble. L'ensemble $\{ X\ /\ X\subset E \}$ est appelé **ensemble des parties** de $E$ qu'on note $\mathcal{P}(E)$.
+:::
+
+::: {.remark}
+Soit un ensemble $E$, on a toujours $\varnothing, E \in \mathcal{P}(E)$.
+:::
+
+::: {.example}
+$E=\{a,b,c\}$ donc :
+
+$$\mathcal{P}(E)=\{\varnothing,\{a\},\{b\},\{c\},\{a,b\},\{a,c\},\{b,c\},\{a,b,c\}\}$$
+:::
+
+::: {.definition title="(Réunion et Intersection)"}
+Soient $E$ et $F$ deux ensembles.
+
+1. L'ensemble $\{ x\ /\ (x\in E)\vee(x\in F) \}$ s'appelle **réunion** (ou **union**) de $E$ et $F$ qu'on note $E\cup F$.
+2. L'ensemble $\{ x\ /\ (x\in E)\wedge(x\in F) \}$ s'appelle **intersection** de $E$ et $F$ qu'on note $E\cap F$.
+:::
+
+::: {.example}
+Soit $E=[0,1[\cup \{\sqrt{2}\}\cup [2,4]$, et on se donne les parties de $E$ : $A=\{1/2,3\}\cup [2,5/2]$ et $B=[1/2, 1[\cup \{\sqrt{2},3\}$. Alors on a :
+
+1. $A\cup B=[1/2, 1[\cup \{\sqrt{2}\}\cup [2,5/2]\cup \{3\}$
+2. $A\cap B= \{1/2,3\}$
+:::
+
+::: {.theorem}
+Soit $\Omega$ un ensemble. Si $E$, $F$ et $G$ sont des parties de $\Omega$ alors on a les propriétés suivantes :
+
+**1) Complémentaire**
+
+$\overline{\varnothing}=\Omega$ ; $\overline{\Omega}=\varnothing$ ; $\overline{\overline{E}}=E$ ; si $F\subset E$ alors $\overline{E}\subset \overline{F}$.
+
+**2) Lois de Morgan**
+
+$$\mathsf{C}_{\Omega}(E \cup F)=\mathsf{C}_{\Omega} E \cap \mathsf{C}_{\Omega} F$$
+$$\mathsf{C}_{\Omega}(E \cap F)=\mathsf{C}_{\Omega} E \cup \mathsf{C}_{\Omega} F$$
+
+**3) Réunion**
+
+$$E\cup F = F\cup E ; \quad E\cup (F\cup G)=(E\cup F)\cup G ;$$
+$$E\cup E = E ; \quad E\cup \varnothing =E ; \quad E\cup \Omega=\Omega.$$
+
+**4) Intersection**
+
+$$E\cap F = F\cap E ; \quad E\cap (F\cap G)=(E\cap F)\cap G ;$$
+$$E\cap E = E ; \quad E\cap \varnothing =\varnothing ; \quad E\cap \Omega=E.$$
+
+**5) Réunion et Intersection**
+
+$$E\cap (F\cup G) = (E\cap F)\cup (E\cap G)$$
+$$E\cup (F\cap G) = (E\cup F)\cap (E\cup G)$$
+:::
+
+::: {.definition title="(Produit cartésien)"}
+1. Soient $E$ et $F$ deux ensembles, on appelle **produit cartésien** de $E$ et $F$ qu'on note $E\times F$, l'ensemble :
+
+$$E\times F = \{ (x,y)\ /\ (x\in E)\wedge(y\in F) \}.$$
+
+2. Si $p$ est un entier $\geq 2$ et $E_1,E_2,\cdots, E_p$ des ensembles, de la même façon on définit le produit cartésien des ensembles $E_1,E_2,\cdots, E_p$ :
+
+$$E_1\times \cdots \times E_p = \{ (x_1,x_2,\cdots,x_p)\ /\ (x_1\in E_1)\wedge(x_2\in E_2)\wedge \cdots \wedge (x_p\in E_p) \}.$$
+
+3. Un élément $(x_1,x_2,\cdots,x_p)$ du produit cartésien $E_1\times E_2 \times \cdots \times E_p$ s'appelle **$p$-uplet**.
+:::
+
+::: {.definition title="(Différence et différence symétrique)"}
+1. On appelle **différence des ensembles** $E$ et $F$ pris dans cet ordre l'ensemble noté $E \smallsetminus F$ et défini par :
+
+$$E \smallsetminus F=\{ x \in E\ /\ x\notin F \}.$$
+
+2. On appelle **différence symétrique** des ensembles $E$ et $F$ l'ensemble noté $E\Delta F$ et défini par :
+
+$$E\Delta F= (E \smallsetminus F)\cup (F \smallsetminus E).$$
+:::
+
+::: {.example}
+1. $\mathsf{C}_E F= E\smallsetminus F$
+2. $E\Delta \varnothing = E$
+:::
+
+## Applications
+
+::: {.definition title="(Application)"}
+Soient $E$ et $F$ deux ensembles. On appelle **application** de $E$ dans $F$, une correspondance $f$ qui à chaque élément $x$ de $E$ associe un élément et un seul $y$ de $F$.
+
+1. $E$ est appelé **ensemble de départ** de l'application ;
+2. $F$ est appelé **ensemble d'arrivée** de l'application ;
+3. $y$ est appelé **image** de $x$ par l'application. On écrit $y=f(x)$ ;
+4. $x$ est appelé **antécédent** de $y$ par l'application ;
+5. L'ensemble $\Gamma=\{(x,f(x))\ /\ x\in E\}$ est appelé **graphe** de l'application $f$ et on le note $\operatorname{gr}(f)$.
+
+$$f : E \longrightarrow F, \quad x \longmapsto f(x)$$
+
+6. L'ensemble des applications de $E$ dans $F$ est noté $F^E$.
+:::
+
+::: {.example}
+1. L'application $\operatorname{Id}_E : E \longrightarrow E,\ x \longmapsto x$ s'appelle l'application **identité** dans $E$.
+2. $E : \mathbb{R}\longrightarrow\mathbb{R},\ x\longmapsto E(x)$ est une application, où $E(x):=\max \{n\in\mathbb{Z}\ /\ n\leq x \}$ qui s'appelle la **partie entière** de $x$.
+3. Une application du type $u : \mathbb{N} \longrightarrow \mathbb{R},\ n \longmapsto u_n$ s'appelle **suite à valeurs réelles** qu'on note brièvement $(u_n)_{n\in\mathbb{N}}$.
+:::
+
+::: {.definition title="(Fonction)"}
+Soient $E$ et $F$ deux ensembles. On appelle **fonction** de $E$ dans $F$, une correspondance qui à chaque élément $x$ de $E$ associe au plus un élément $y$ de $F$. Si on désigne par $f$ la fonction, il existe une partie $D$ de $E$, appelée **domaine de définition** de $f$ donnée par :
+
+$$D=\{ x\in E\ /\ \exists y \in F,\ y=f(x) \}$$
+
+telle que $f : D \longrightarrow F,\ x \longmapsto f(x)=y$ soit une application. L'ensemble des fonctions de $E$ dans $F$ est noté $\mathcal{F}(E,F)$.
+:::
+
+::: {.example}
+Voici quelques fonctions :
+
+1. La fonction $f_1 : \mathbb{R}\longrightarrow\mathbb{R},\ x\longmapsto\sqrt{x}$ a pour domaine de définition $D_{f_1}=\mathbb{R}^+$
+2. La fonction $f_2 : \mathbb{C}\longrightarrow\mathbb{C},\ z\longmapsto\frac{z^2}{1-z}$ a pour domaine de définition $D_{f_2}=\mathbb{C}\smallsetminus\{1\}$
+3. La fonction $f_3 : \mathbb{R}\longrightarrow\mathbb{C},\ x\longmapsto\frac{x}{\ln x}$ a pour domaine de définition $D_{f_3}=]0,1[\cup ]1,+\infty[$
+4. La fonction $f_4 : \mathbb{R}^2\longrightarrow\mathbb{R},\ (x,y)\longmapsto\frac{\ln x}{y}$ a pour domaine de définition $D_{f_4}=]0,+\infty[\times \mathbb{R}^*$
+5. La fonction $f_5 : \mathbb{R}^3\longrightarrow\mathbb{R}^2,\ (x,y,z)\longmapsto\left(\frac{1}{1-x},\frac{1}{y^2+z^2}\right)$ a pour domaine de définition l'ensemble :
+
+$$D_{f_5}=\{(x,y,z)\in\mathbb{R}^3\ /\ (x\neq 1)\wedge((y,z)\neq (0,0))\}$$
+:::
+
+::: {.definition title="(Image directe, image réciproque, restriction, prolongement, application induite, composée)"}
+Soit $f: E \longrightarrow F$ une application.
+
+1. Soit $A$ une partie de $E$. L'ensemble $\{ f(x)\in F\ /\ x \in A \}$ se note $f(A)$ et s'appelle **image directe** de $A$.
+2. Soit $B$ une partie de $F$. L'ensemble $\{ x\in E\ /\ f(x) \in B \}$ se note $f^{-1}(B)$ et s'appelle **image réciproque** de $B$.
+3. Si $D$ est une partie de $E$, l'application $f_{/D} : D \longrightarrow F,\ x \longmapsto f(x)$ s'appelle **restriction** de $f$ à la partie $D$.
+4. Inversement, si on note $f_1 =f_{/D}$, $f$ s'appelle **prolongement** de $f_1$ sur $E$.
+5. Soient $D$ une partie de $E$ et $C$ une partie de $F$ tels que $\forall x\in D,\ f(x)\in C$. L'application $D \longrightarrow C,\ x \longmapsto f(x)$ s'appelle **application induite** de $f$.
+6. Soit $g : F \longrightarrow G$ une application. L'application $E \longrightarrow G,\ x \longmapsto g(f(x))$ s'appelle **application composée** de $f$ et $g$ dans cet ordre et se note $g\circ f$.
+:::
+
+::: {.example}
+Si on note $f : \mathbb{R} \longrightarrow \mathbb{R},\ x \longmapsto E(x)$ l'application partie entière, on a :
+
+1. $\operatorname{gr}(f)=\{(x,E(x))\ /\ x\in \mathbb{R}\}$.
+2. $f(\mathbb{R}^+)=\mathbb{N}$ (où $\mathbb{R}^+ =\{ x\in \mathbb{R}\ /\ x \geq 0 \}$).
+3. $f^{-1}(\{ 0\})=[0,1[$.
+4. $f_{/\mathbb{R}^+}(\mathbb{R}^-)=\{0\}$ (où $\mathbb{R}^- =\{ x\in \mathbb{R}\ /\ x \leq 0 \}$).
+5. $f\left([\sqrt{2},2[\right)=\{1\}$.
+6. $f^{-1}\left([\sqrt{2},2[\right)=\varnothing$.
+:::
+
+::: {.example}
+Si on note $g : \mathbb{R} \longrightarrow \mathbb{R},\ x \longmapsto e^x$, on a :
+
+1. $\operatorname{gr}(g)=\{(x,e^x)\ /\ x\in \mathbb{R}\}$.
+2. $g(\mathbb{R})=\mathbb{R}^*_+$.
+3. $g^{-1}(\{ 0\})=\varnothing$.
+4. $g(\mathbb{R}^-)=]0,1]$.
+5. $g^{-1}(\mathbb{R}^-)=\varnothing$.
+:::
+
+::: {.definition title="(Injection, surjection, bijection)"}
+Soit $f : E \longrightarrow F$ une application.
+
+1. On dit que $f$ est **injective** si tout élément de $F$ possède au plus un antécédent. Autrement dit :
+
+$$\forall (x,x') \in E^2,\ \left(f(x)=f(x') \Longrightarrow x=x'\right)$$
+
+Ou encore :
+
+$$\forall (x,x') \in E^2,\ \left(x\neq x' \Longrightarrow f(x)\neq f(x')\right)$$
+
+2. On dit que $f$ est **surjective** si tout élément de $F$ possède au moins un antécédent. Autrement dit :
+
+$$\forall y\in F,\ \exists x\in E,\ y=f(x)$$
+
+3. On dit que $f$ est **bijective** si tout élément de $F$ possède un antécédent et un seul. Autrement dit :
+
+$$\forall y\in F,\ \exists! x\in E,\ y=f(x)$$
+:::
+
+::: {.example}
+1. L'application $\mathbb{R} \longrightarrow \mathbb{Z},\ x \longmapsto E(x)$ partie entière est surjective et non injective.
+2. L'application $\mathbb{N} \longrightarrow \mathbb{N},\ n \longmapsto n^2$ est injective et non surjective.
+3. L'application $\mathbb{N}^2 \longrightarrow \mathbb{N}^*,\ (p,q) \longmapsto 2^p(2q+1)$ est bijective.
+4. L'application $\exp : \mathbb{R} \longrightarrow \mathbb{R}^*_+,\ x \longmapsto e^x$ est bijective.
+5. L'application $\mathbb{C}^* \longrightarrow \mathbb{C},\ z \longmapsto z+\frac{1}{z}$ est non injective et surjective.
+:::
+
+::: {.proposition}
+1. Une application est bijective si et seulement si elle est à la fois injective et surjective.
+2. Soit $f$ une application bijective de $E$ dans $F$. L'application, notée $f^{-1}$, de $F$ dans $E$ qui à tout élément $y$ de $F$ lui associe l'unique élément $x$ de $E$ tel que $f(x)=y$ est une bijection de $F$ dans $E$, appelée **bijection réciproque** de $f$ :
+
+$$f^{-1} : F \longrightarrow F,\quad y \longmapsto f^{-1}(y)=x \text{ tel que } f(x)=y$$
+
+3. $f^{-1}$ est l'unique application vérifiant :
+
+$$f^{-1}\circ f=\operatorname{Id}_E \quad ; \quad f\circ f^{-1} =\operatorname{Id}_F$$
+:::
+
+::: {.proposition}
+Soient $f: E\longrightarrow F$ et $g:F\longrightarrow G$ deux applications. Alors :
+
+1. Si les applications $f$ et $g$ sont injectives alors la composée $g\circ f$ l'est aussi.
+2. Si les applications $f$ et $g$ sont surjectives alors la composée $g\circ f$ l'est aussi.
+3. Si les applications $f$ et $g$ sont bijectives alors la composée $g\circ f$ l'est aussi et on a :
+
+$$\left(g\circ f\right)^{-1}=f^{-1}\circ g^{-1}$$
+:::
+
+::: {.example}
+On considère les applications suivantes :
+
+$$g_1 : [0,1[ \longrightarrow [0,1[,\ t\longmapsto\sqrt{t} \quad ; \quad g_2 : [0,1[ \longrightarrow [1,2[,\ t\longmapsto 1+t$$
+$$g_3 : [1,2[ \longrightarrow ]1,2],\ t\longmapsto 2/t \quad ; \quad g_4 : ]1,2] \longrightarrow ]0,1],\ t\longmapsto t-1$$
+$$g_5 : ]0,1] \longrightarrow \mathbb{R}^-,\ t\longmapsto \ln t \quad ; \quad g : [0,1[ \longrightarrow \mathbb{R}^-,\ t\longmapsto \ln \frac{1-\sqrt{t}}{1+\sqrt{t}}$$
+
+On a :
+
+$$g=g_5\circ g_4\circ g_3\circ g_2\circ g_1$$
+
+Toutes ces applications sont bijectives et on a :
+
+$$g^{-1}=g_1^{-1}\circ g_2^{-1}\circ g_3^{-1}\circ g_4^{-1}\circ g_5^{-1}$$
+:::
+
+# Document en PDF {-}
+[Chapitre 01 : Vocabulaire ensembliste et éléments de logique](PDF/tsi1-chap01.pdf)
+
+## Navigation {-}
+::: {.chap-nav}
+[Accueil](../index.qmd){.prev}
+[Menu TSI1](tsi1.qmd){.home}
+[Chapitre 02 : Nombres complexes](tsi1-chap02.qmd){.next}
+:::

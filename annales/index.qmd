@@ -2,6 +2,9 @@
 title: "Annales"
 pagetitle: "Annales - Mathématiques en CPGE"
 toc: false
+format:
+  html:
+    css: styles.css
 ---
 
 Choisissez votre filière :
@@ -9,37 +12,52 @@ Choisissez votre filière :
 ::: {.grid}
 
 ::: {.g-col-6 .g-col-md-4}
-::: {.card-home}
-### MP
+::: {.card-home .card-mp}
+<span class="card-icon">∫</span>
+
+### MP 
+
 [Accéder →](mp.qmd)
 :::
 :::
 
 ::: {.g-col-6 .g-col-md-4}
-::: {.card-home}
-### PSI
+::: {.card-home .card-psi}
+<span class="card-icon">⚙️</span>
+
+### PSI 
+
 [Accéder →](psi.qmd)
 :::
 :::
 
 ::: {.g-col-6 .g-col-md-4}
-::: {.card-home}
-### TSI
-[Accéder →](tsi.qmd)
+::: {.card-home .card-tsi}
+<span class="card-icon">🛠️</span>
+
+### TSI 
+
+[Accéder →](tsi2.qmd)
 :::
 :::
 
 ::: {.g-col-6 .g-col-md-4}
-::: {.card-home}
-### ECT
-[Accéder →](ect.qmd)
+::: {.card-home .card-ect}
+<span class="card-icon">📈</span>
+
+### ECT 
+
+[Accéder →](ect2.qmd)
 :::
 :::
 
 ::: {.g-col-6 .g-col-md-4}
-::: {.card-home}
-### ECS (ECG)
-[Accéder →](ecs.qmd)
+::: {.card-home .card-ecs}
+<span class="card-icon">🏦</span>
+
+### ECS 
+
+[Accéder →](ecs2.qmd)
 :::
 :::
 

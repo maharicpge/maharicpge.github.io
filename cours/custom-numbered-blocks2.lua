@@ -73,32 +73,9 @@ local function make_block(kind, el)
   end
 
   -- Création du titre
-  -- 1. On parse la chaîne en Markdown (retourne un objet Document complet)
-  local doc = pandoc.read(displayed_title, "markdown")
-  
-  -- 2. On récupère la liste des blocs du document
-  local blocks = doc.blocks
-  
-  -- 3. On extrait proprement les Inlines du premier bloc (qui est un Para)
-  local title_inlines = {}
-  if blocks and blocks[1] and blocks[1].content then
-    title_inlines = blocks[1].content
-    
-    -- BOUCLE : On parcourt les éléments pour mettre les maths en gras
-    for i, el in ipairs(title_inlines) do
-      if el.t == "Math" then
-        -- \boldsymbol permet de mettre en gras les symboles comme \alpha, \sum ou les chiffres
-        el.text = "\\boldsymbol{" .. el.text .. "}"
-      end
-    end
-  else
-    title_inlines = { pandoc.Str(displayed_title) }
-  end
-  
-  -- 4. On enveloppe le tout en gras pour le texte normal
-  local title_para = pandoc.Para({
-    pandoc.Strong(title_inlines)
-  })
+ local title_para = pandoc.Para({
+   pandoc.Strong({ pandoc.Str(displayed_title) })
+})
 
 
 
