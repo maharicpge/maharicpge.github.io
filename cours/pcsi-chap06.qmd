@@ -1,10 +1,267 @@
 ---
-title: "Chapitre 06 : Intégration sur un segment"
-pagetitle: "Intégration sur un segment - Mathématiques en CPGE"
+title: "Fonctions de la variable réelle, limites et continuité"
+subtitle: "Chapitre 06"
+author: "Saîd MAHARI"
+date: last-modified
+date-format: "D MMMM YYYY"
+sidebar:
+  style: docked
+  contents:
+    - href: cours/index.qmd
+      text: "← Tous les cours"
+    - section: "PCSI — 1re année"
+      contents:
+        - cours/pcsi-chap05.qmd
+        - cours/pcsi-chap06.qmd
+        # - cours/pcsi-chap07.qmd
+lang: fr
+format:
+  html:
+    theme: cosmo
+    toc: true
+    number-sections: true
+    html-math-method: katex
+    css: styles.css
+filters:
+  - custom-numbered-blocks.lua
 ---
 
-**PCSI (1re année) — Chapitre 06.** Primitives, IPP, changement de variable.
+**PCSI (1re année) — Chapitre 06.** Limites, continuité, théorème des valeurs intermédiaires, théorème des bornes atteintes, continuité et monotonie stricte, fonctions réciproques.
 
-## Document
+Ce chapitre a été réalisé conformément au programme marocain de mathématiques de la filière PCSI.
 
-*PDF à venir : déposez le fichier `files/pcsi/chap06.pdf` puis régénérez la page.*
+Dans tout ce chapitre, $I$ désigne un intervalle de $\mathbb{R}$ non vide et non réduit à un point. Les fonctions considérées sont à valeurs dans $\mathbb{K}$ ($\mathbb{R}$ ou $\mathbb{C}$), sauf mention explicite du contraire. Le point $a$ considéré est toujours élément de $I$ ou extrémité de $I$.
+
+# Généralités sur les fonctions
+
+## Ensemble de définition et représentation graphique
+
+L'**ensemble de définition** d'une fonction $f$, noté $D_f$, est l'ensemble des réels $x$ pour lesquels $f(x)$ existe.
+
+La **représentation graphique** (ou courbe représentative) d'une fonction $f : D_f \to \mathbb{R}$ dans un repère orthonormé $(O, \vec{i}, \vec{j})$ est l'ensemble des points $M(x, f(x))$ pour $x \in D_f$.
+
+::: {.remark}
+On peut étudier les transformations suivantes du graphe :
+- $x \mapsto f(x) + a$ : translation verticale de vecteur $a\vec{j}$.
+- $x \mapsto f(x+a)$ : translation horizontale de vecteur $-a\vec{i}$.
+- $x \mapsto f(-x)$ : symétrie par rapport à l'axe des ordonnées.
+- $x \mapsto -f(x)$ : symétrie par rapport à l'axe des abscisses.
+- $x \mapsto |f(x)|$ : on conserve la partie positive et on réfléchit la partie négative par rapport à l'axe des abscisses.
+:::
+
+## Parité, périodicité et réduction du domaine d'étude
+
+::: {.definition}
+Soit $D$ une partie de $\mathbb{R}$ symétrique par rapport à $0$ et $f : D \to \mathbb{R}$.
+- $f$ est **paire** si $\forall x \in D, f(-x) = f(x)$. Le graphe est symétrique par rapport à l'axe des ordonnées.
+- $f$ est **impaire** si $\forall x \in D, f(-x) = -f(x)$. Le graphe est symétrique par rapport à l'origine.
+:::
+
+::: {.definition}
+$f : \mathbb{R} \to \mathbb{R}$ est **périodique** de période $T > 0$ si $\forall x \in \mathbb{R}, f(x+T) = f(x)$. On peut alors restreindre l'étude à un intervalle de longueur $T$.
+:::
+
+## Opérations sur les fonctions
+
+Soient $f, g : I \to \mathbb{K}$ et $\lambda \in \mathbb{K}$. On définit :
+- La combinaison linéaire : $(\lambda f + g)(x) = \lambda f(x) + g(x)$.
+- Le produit : $(fg)(x) = f(x)g(x)$.
+- Le quotient : $\left(\frac{f}{g}\right)(x) = \frac{f(x)}{g(x)}$ si $g(x) \neq 0$.
+- La composée : $(g \circ f)(x) = g(f(x))$ si $f(I) \subset D_g$.
+- $\max(f,g)$ et $\min(f,g)$ si $\mathbb{K}=\mathbb{R}$.
+
+## Monotonie
+
+::: {.definition}
+$f : I \to \mathbb{R}$ est :
+- **croissante** si $\forall (x,y) \in I^2, x \leq y \Rightarrow f(x) \leq f(y)$.
+- **strictement croissante** si $\forall (x,y) \in I^2, x < y \Rightarrow f(x) < f(y)$.
+- **monotone** si elle est croissante ou décroissante.
+:::
+
+## Fonctions majorées, minorées, bornées
+
+::: {.definition}
+$f : I \to \mathbb{R}$ est :
+- **majorée** s'il existe $M \in \mathbb{R}$ tel que $\forall x \in I, f(x) \leq M$.
+- **minorée** s'il existe $m \in \mathbb{R}$ tel que $\forall x \in I, f(x) \geq m$.
+- **bornée** si elle est à la fois majorée et minorée, c'est-à-dire $\exists K \geq 0, \forall x \in I, |f(x)| \leq K$.
+:::
+
+# Limites
+
+## Limite finie ou infinie en un point
+
+::: {.definition title="(Limite finie)"}
+Soit $f : I \to \mathbb{K}$ et $a \in \overline{I}$. On dit que $f$ admet pour limite $\ell \in \mathbb{K}$ en $a$ si :
+$$ \forall \varepsilon > 0, \exists \eta > 0, \forall x \in I, (|x-a| < \eta \Rightarrow |f(x)-\ell| < \varepsilon) $$
+On note $\lim_{x \to a} f(x) = \ell$.
+:::
+
+::: {.definition title="(Limite infinie)"}
+$f$ tend vers $+\infty$ en $a$ si :
+$$ \forall A > 0, \exists \eta > 0, \forall x \in I, (|x-a| < \eta \Rightarrow f(x) > A) $$
+:::
+
+::: {.theorem title="(Unicité de la limite)"}
+Si une fonction admet une limite (finie ou infinie) en un point $a$, cette limite est unique.
+:::
+
+## Limites à gauche et à droite
+
+::: {.definition}
+- **Limite à droite** en $a$ : limite de la restriction de $f$ à $I \cap ]a, +\infty[$. Notée $\lim_{x \to a^+} f(x)$.
+- **Limite à gauche** en $a$ : limite de la restriction de $f$ à $I \cap ]-\infty, a[$. Notée $\lim_{x \to a^-} f(x)$.
+:::
+
+::: {.proposition}
+$f$ admet une limite $\ell$ en $a$ si et seulement si $f$ admet $\ell$ comme limite à droite et à gauche en $a$.
+:::
+
+## Caractérisation séquentielle de la limite
+
+::: {.theorem}
+$\lim_{x \to a} f(x) = \ell$ si et seulement si pour toute suite $(u_n)$ d'éléments de $I \setminus \{a\}$ convergeant vers $a$, la suite $(f(u_n))$ converge vers $\ell$.
+:::
+
+::: {.remark}
+Ce théorème est très utile pour montrer qu'une fonction n'a pas de limite en un point (en exhibant deux suites donnant des limites différentes).
+:::
+
+## Opérations algébriques sur les limites
+
+::: {.theorem}
+Si $\lim_{x \to a} f(x) = \ell$ et $\lim_{x \to a} g(x) = \ell'$ (avec $\ell, \ell' \in \overline{\mathbb{K}}$ sous réserve de formes indéterminées) :
+- $\lim (\lambda f + g) = \lambda \ell + \ell'$
+- $\lim (fg) = \ell \ell'$
+- Si $\ell \neq 0$, $\lim (1/f) = 1/\ell$
+:::
+
+## Composition de limites
+
+::: {.theorem}
+Si $\lim_{x \to a} f(x) = b$ et $\lim_{y \to b} g(y) = \ell$, alors $\lim_{x \to a} (g \circ f)(x) = \ell$.
+:::
+
+## Conservation des inégalités et théorèmes d'encadrement
+
+::: {.theorem title="(Conservation des inégalités larges)"}
+Si $f(x) \leq g(x)$ au voisinage de $a$ et si les deux limites existent, alors $\lim_{x \to a} f(x) \leq \lim_{x \to a} g(x)$.
+:::
+
+::: {.theorem title="(Théorème des gendarmes)"}
+Si $f(x) \leq h(x) \leq g(x)$ au voisinage de $a$ et si $\lim_{x \to a} f(x) = \lim_{x \to a} g(x) = \ell$, alors $\lim_{x \to a} h(x) = \ell$.
+:::
+
+::: {.theorem title="(Théorèmes de comparaison pour limites infinies)"}
+- Si $f(x) \geq g(x)$ au voisinage de $a$ et $\lim_{x \to a} g(x) = +\infty$, alors $\lim_{x \to a} f(x) = +\infty$.
+- Si $f(x) \leq g(x)$ au voisinage de $a$ et $\lim_{x \to a} g(x) = -\infty$, alors $\lim_{x \to a} f(x) = -\infty$.
+:::
+
+# Continuité
+
+## Continuité en un point
+
+::: {.definition}
+$f : I \to \mathbb{K}$ est **continue en** $a \in I$ si $\lim_{x \to a} f(x) = f(a)$.
+:::
+
+::: {.proposition}
+$f$ est continue en $a$ si et seulement si $f$ est continue à droite et à gauche en $a$.
+:::
+
+::: {.theorem title="(Caractérisation séquentielle de la continuité)"}
+$f$ est continue en $a$ si et seulement si pour toute suite $(u_n)$ de $I$ convergeant vers $a$, $(f(u_n))$ converge vers $f(a)$.
+:::
+
+## Opérations sur les fonctions continues
+
+::: {.theorem}
+Si $f$ et $g$ sont continues en $a \in I$ :
+- $\lambda f + g$, $fg$ sont continues en $a$.
+- Si $g(a) \neq 0$, $f/g$ est continue en $a$.
+- Si $f$ est continue en $a$ et $g$ est continue en $f(a)$, alors $g \circ f$ est continue en $a$.
+:::
+
+## Continuité sur un intervalle
+
+::: {.definition}
+$f$ est **continue sur** $I$ si elle est continue en tout point de $I$.
+:::
+
+# Théorèmes fondamentaux sur les fonctions continues
+
+## Théorème des valeurs intermédiaires (TVI)
+
+::: {.theorem title="(Théorème des valeurs intermédiaires)"}
+Soit $f : [a,b] \to \mathbb{R}$ une fonction continue. Pour tout réel $\gamma$ compris entre $f(a)$ et $f(b)$, il existe au moins un réel $c \in [a,b]$ tel que $f(c) = \gamma$.
+:::
+
+::: {.corollary}
+L'image d'un intervalle par une fonction continue est un intervalle.
+:::
+
+::: {.remark}
+Le TVI permet de prouver l'existence de solutions d'équations $f(x)=0$ mais pas leur unicité.
+:::
+
+## Principe de dichotomie
+
+Le TVI justifie l'algorithme de dichotomie pour approcher une solution de $f(x)=0$ lorsque $f(a)f(b) < 0$. On divise l'intervalle en deux à chaque étape, garantissant une précision de $(b-a)/2^n$ après $n$ itérations.
+
+## Théorème des bornes atteintes
+
+::: {.theorem}
+Soit $f : [a,b] \to \mathbb{R}$ une fonction continue sur un segment. Alors $f$ est bornée et atteint ses bornes : il existe $c, d \in [a,b]$ tels que :
+$$ f(c) = \min_{x \in [a,b]} f(x) \quad \text{et} \quad f(d) = \max_{x \in [a,b]} f(x) $$
+:::
+
+::: {.remark}
+L'image d'un segment par une fonction continue est un segment. Ce théorème est faux sur un intervalle ouvert.
+:::
+
+# Continuité et monotonie stricte. Fonctions réciproques
+
+## Bijection continue strictement monotone
+
+::: {.theorem}
+Soit $f : I \to \mathbb{R}$ une fonction continue et strictement monotone sur un intervalle $I$. Alors :
+1. $f$ réalise une bijection de $I$ sur l'intervalle $J = f(I)$.
+2. La bijection réciproque $f^{-1} : J \to I$ est continue et strictement monotone, de même sens de variation que $f$.
+3. Les graphes de $f$ et $f^{-1}$ sont symétriques par rapport à la première bissectrice $y=x$.
+:::
+
+::: {.remark}
+Une fonction continue injective sur un intervalle est nécessairement strictement monotone.
+:::
+
+## Exemples classiques de fonctions réciproques
+
+Les fonctions usuelles suivantes sont des bijections continues strictement monotones dont les réciproques sont fondamentales :
+
+| Fonction $f$ | Intervalle $I$ | Image $J$ | Réciproque $f^{-1}$ |
+|---|---|---|---|
+| $x \mapsto x^n$ ($n \in \mathbb{N}^*$) | $[0, +\infty[$ | $[0, +\infty[$ | $x \mapsto \sqrt[n]{x}$ |
+| $x \mapsto e^x$ | $\mathbb{R}$ | $]0, +\infty[$ | $x \mapsto \ln x$ |
+| $x \mapsto \sin x$ | $[-\pi/2, \pi/2]$ | $[-1, 1]$ | $x \mapsto \arcsin x$ |
+| $x \mapsto \cos x$ | $[0, \pi]$ | $[-1, 1]$ | $x \mapsto \arccos x$ |
+| $x \mapsto \tan x$ | $]-\pi/2, \pi/2[$ | $\mathbb{R}$ | $x \mapsto \arctan x$ |
+| $x \mapsto \sinh x$ | $\mathbb{R}$ | $\mathbb{R}$ | $x \mapsto \operatorname{arsinh} x$ |
+| $x \mapsto \cosh x$ | $[0, +\infty[$ | $[1, +\infty[$ | $x \mapsto \operatorname{arcosh} x$ |
+| $x \mapsto \tanh x$ | $\mathbb{R}$ | $]-1, 1[$ | $x \mapsto \operatorname{artanh} x$ |
+
+::: {.example}
+Résoudre $\arcsin x + \arccos x = \frac{\pi}{2}$.
+
+On sait que pour tout $x \in [-1,1]$, $\arcsin x + \arccos x = \frac{\pi}{2}$. L'équation est donc vérifiée pour tout $x \in [-1,1]$.
+:::
+
+# Document en PDF {-}
+[Chapitre 06 : Fonctions de la variable réelle, limites et continuité](PDF/pcsi-chap06.pdf)
+
+## Navigation {-}
+::: {.chap-nav}
+[Chapitre 05 : Suites numériques](pcsi-chap05.qmd){.prev}
+[Menu PCSI](pcsi.qmd){.home}
+[Chapitre 07 : Fonctions de la variable réelle, dérivation](pcsi-chap07.qmd){.next}
+:::

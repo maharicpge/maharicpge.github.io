@@ -1,10 +1,971 @@
 ---
-title: "Chapitre 06 : Algèbre linéaire et calcul matriciel"
-pagetitle: "Algèbre linéaire et calcul matriciel - Mathématiques en CPGE"
+title: "Fonctions de la variable réelle, limites et continuité"
+subtitle: "Chapitre 06"
+author: "Saîd MAHARI"
+date: last-modified
+date-format: "D MMMM YYYY"
+sidebar:
+  style: docked
+  contents:
+    - href: cours/index.qmd
+      text: "← Tous les cours"
+    - section: "TSI — 1re année"
+      contents:
+        - cours/tsi1-chap05.qmd
+        - cours/tsi1-chap06.qmd
+        # - cours/tsi1-chap07.qmd
+lang: fr
+format:
+  html:
+    theme: cosmo
+    toc: true
+    number-sections: true
+    html-math-method: katex
+    css: styles.css
+filters:
+  - custom-numbered-blocks.lua
+
+
 ---
 
-**TSI 1re année — Chapitre 06.** Dimension finie, matrices, pivot de Gauss.
+**TSI 1re année — Chapitre 06.** Limites, continuité, théorème des valeurs intermédiaires, théorème des bornes atteintes, continuité et monotonie stricte, fonctions réciproques.
 
-## Document
+Ce chapitre a été réalisé conformément au programme marocain de mathématiques de la filière TSI1.
 
-*PDF à venir : déposez le fichier `files/tsi1/chap06.pdf` puis régénérez la page.*
+Dans ce chapitre, $\mathbb{K}$ désigne $\mathbb{R}$ ou $\mathbb{C}$.
+
+# Motivation
+
+Les équations en une variable $x$ qu'on sait résoudre explicitement, c'est-à-dire en donnant une formule pour la solution, sont très particulières : par exemple les équations du premier degré $ax+b=0$, celles du second degré $ax^2+bx+c=0$.
+
+Mais pour la plupart des équations, il n'est pas possible de donner une formule pour la ou les solutions. En fait il n'est même pas évident de déterminer seulement le nombre de solutions, ni même s'il en existe.
+
+Considérons par exemple l'équation extrêmement simple :
+
+$$x + \exp x = 0$$
+
+Il n'y a pas de formule explicite (utilisant des sommes, des produits, des fonctions usuelles) pour trouver la solution $x$.
+
+Dans ce chapitre nous allons voir que grâce à l'étude de la fonction $f(x)=x + \exp x$, il est possible d'obtenir beaucoup d'informations sur l'ensemble des solutions de l'équation $x+\exp x=0$, et même de l'équation plus générale $x+\exp x= y$ (où $y \in \mathbb{R}$ est fixé).
+
+Nous serons capables de prouver que pour chaque $y \in \mathbb{R}$ l'équation $x+\exp x = y$ admet une solution $x$, que cette solution est unique, et nous saurons dire comment varie $x$ en fonction de $y$.
+
+Le point clé de cette résolution est l'étude de la fonction $f$ et en particulier de sa continuité. Même s'il n'est pas possible de trouver l'expression exacte de la solution $x$ en fonction de $y$, nous allons mettre en place les outils théoriques qui permettent d'en trouver une solution approchée.
+
+# Notions de fonction
+
+## Définitions
+
+::: {.definition}
+Une **fonction** d'une variable réelle à valeurs réelles est une correspondance $f:D\to \mathbb{R}$ où chaque élément du domaine $D\subset \mathbb{R}$ est associé au plus à un élément de $\mathbb{R}$. Soit $U\subset \mathbb{R}$ un domaine tel que $f: U\to \mathbb{R}$ soit une application c'est-à-dire tel chaque élément de $U$ est associé à un unique élément de $\mathbb{R}$. En général, $U$ est un intervalle ou une réunion d'intervalles. On appelle $U$ le **domaine de définition** de la fonction $f$.
+
+De même, on définit une fonction $f: D\to \mathbb{C}$ d'une variable réelle à valeurs complexes.
+
+On désigne par $\mathcal{F}(D,\mathbb{K})$ l'ensemble des fonctions de $D$ à valeurs dans $\mathbb{K}$.
+:::
+
+::: {.example}
+La fonction inverse :
+
+$$f : \ ]-\infty,0[ \,\cup \, ]0,+\infty[ \ \longrightarrow \ \mathbb{R}, \qquad x \longmapsto \dfrac{1}{x}$$
+:::
+
+En général, le **graphe** d'une fonction $f:U\to \mathbb{K}$ est la partie $\Gamma_f$ de $\mathbb{R}\times \mathbb{K}$ définie par $\Gamma_f=\big\{(x,f(x)) \ \vert \ x\in U\big\}$.
+
+Lorsque $\mathbb{K}=\mathbb{R}$, on peut le représenter sur le plan.
+
+## Opérations sur les fonctions
+
+Soient $f:U\to \mathbb{K}$ et $g:U\to \mathbb{K}$ deux fonctions définies sur une même partie $U$ de $\mathbb{R}$. On peut alors définir les fonctions suivantes :
+
+- la **somme** de $f$ et $g$ est la fonction $f+g:U\to \mathbb{K}$ définie par $(f+g)(x) = f(x) + g(x)$ pour tout $x\in U$ ;
+- le **produit** de $f$ et $g$ est la fonction $f\times g:U\to \mathbb{K}$ définie par $(f\times g)(x) = f(x) \times g(x)$ pour tout $x\in U$ ;
+- la **multiplication par un scalaire** $\lambda\in\mathbb{K}$ de $f$ est la fonction $\lambda\cdot f:U\to \mathbb{K}$ définie par $(\lambda\cdot f)(x) =\lambda\cdot f(x)$ pour tout $x\in U$.
+- Si $\mathbb{K}=\mathbb{R}$, on définit les fonctions $\max(f,g)$ et $\min(f,g)$ par :
+
+$$\forall x\in U,\quad \max(f,g)(x)=\max(f(x),g(x)) \quad \text{et} \quad \min(f,g)(x)=\min(f(x),g(x))$$
+
+- Si $f(U)\subset V\subset \mathbb{R}$ alors on définit la **composée $h\circ f$**, avec $h:V\to \mathbb{K}$ est une fonction, par :
+
+$$\forall x\in U,\quad \left(h\circ f\right)(x)=h\left(f(x)\right)$$
+
+## Fonctions majorées, minorées, bornées
+
+::: {.definition}
+Soient $f:U\to \mathbb{R}$ et $g:U\to \mathbb{R}$ deux fonctions. Alors :
+
+- $f\geq g$ si $\forall x \in U,\ f(x)\geq g(x)$ ;
+- $f\geq 0$ si $\forall x \in U,\ f(x)\geq 0$ ;
+- $f> 0$ si $\forall x \in U,\ f(x)> 0$ ;
+- $f$ est dite **constante** sur $U$ si $\exists a\in\mathbb{R},\ \forall x\in U,\ f(x)=a$ ;
+- $f$ est dite **nulle** sur $U$ si $\forall x\in U,\ f(x)=0$.
+:::
+
+::: {.definition}
+Soit $f:U\to \mathbb{R}$ une fonction. On dit que :
+
+- $f$ est **majorée** sur $U$ si $\exists M\in\mathbb{R},\ \forall x\in U,\ f(x)\leq M$ ;
+- $f$ est **minorée** sur $U$ si $\exists m\in\mathbb{R},\ \forall x\in U,\ f(x)\geq m$ ;
+- $f$ est **bornée** sur $U$ si $f$ est à la fois majorée et minorée sur $U$, c'est-à-dire si $\exists M\in\mathbb{R},\ \forall x\in U,\ |f(x)|\leq M$.
+
+Cette dernière définition existe même pour une fonction $f:U\to \mathbb{C}$ à valeurs complexes.
+:::
+
+::: {.example}
+- Les fonctions $x\in \mathbb{R}\longmapsto e^{ix}$ et $x\in \mathbb{R}\longmapsto \frac{1}{1-ix}$ sont bornées. De même, pour les fonctions $x\in \mathbb{R}\longmapsto \cos x$, $x\in \mathbb{R}\longmapsto\sin x$ et $x\in \mathbb{R}^+\longmapsto \frac{1}{1+x}$ ;
+- La fonction $x \in ]0,+\infty[\longmapsto \frac{1}{x}$ est minorée et non majorée ;
+- La fonction $x \in ]0,+\infty[\longmapsto 1-\frac{1}{x}$ est non minorée et majorée.
+:::
+
+## Fonctions croissantes, décroissantes
+
+::: {.definition}
+Soit $f:U\to \mathbb{R}$ une fonction. On dit que :
+
+- $f$ est **croissante** sur $U$ si $\forall x,y\in U,\ x\leq y \Longrightarrow f(x)\leq f(y)$ ;
+- $f$ est **strictement croissante** sur $U$ si $\forall x,y\in U,\ x< y \Longrightarrow f(x)< f(y)$ ;
+- $f$ est **décroissante** sur $U$ si $\forall x,y\in U,\ x\leq y \Longrightarrow f(x)\geq f(y)$ ;
+- $f$ est **strictement décroissante** sur $U$ si $\forall x,y\in U,\ x< y \Longrightarrow f(x)> f(y)$ ;
+- $f$ est **monotone** (resp. **strictement monotone**) sur $U$ si $f$ est croissante ou décroissante (resp. strictement croissante ou strictement décroissante) sur $U$.
+:::
+
+::: {.example}
+- La fonction racine carrée $x\mapsto \sqrt x$ définie sur $[0,+\infty[$ est strictement croissante.
+- Les fonctions exponentielle $\exp: \mathbb{R}\to\mathbb{R}$ et logarithme $\ln :]0,+\infty[\to\mathbb{R}$ sont strictement croissantes.
+- La fonction valeur absolue $x\mapsto |x|$ n'est ni croissante, ni décroissante. Par contre, la fonction $x\mapsto |x|$ restreinte à $[0,+\infty[$ est strictement croissante.
+:::
+
+::: {.exercise}
+Étudier la monotonie de la composée $h=g\circ f$ selon la monotonie de $f$ et de $g$.
+:::
+
+::: {.exercise}
+Soit $f$ une application croissante de $[0, 1]$ dans lui même.
+
+1. On suppose qu'il existe $x\in [0,1]$ et $k\in \mathbb{N}^*$ tels que $f^k(x)=x$. Montrer que $x$ est un point fixe de $f$ (i.e. $f(x)=x$).
+2. Montrer que $f$ admet un point fixe.
+
+*Indication : on pourra construire deux suites $(a_n)_n$ et $(b_n)_n$ d'éléments de $[0,1]$ telles que :*
+
+$$(a_n)_n \text{ et } (b_n)_n \text{ adjacentes}, \qquad a_n\leq f(a_n)\leq f(b_n)\leq b_n$$
+
+*et montrer que leur limite commune est le point fixe de $f$.*
+:::
+
+## Parité et périodicité
+
+::: {.definition}
+Soit $I$ un intervalle de $\mathbb{R}$ symétrique par rapport à $0$ (c'est-à-dire de la forme $]-a,a[$ ou $[-a,a]$ ou $\mathbb{R}$). Soit $f:I\to \mathbb{R}$ une fonction définie sur cet intervalle. On dit que :
+
+- $f$ est **paire** si $\forall x\in I,\ f(-x)=f(x)$,
+- $f$ est **impaire** si $\forall x\in I,\ f(-x)=-f(x)$.
+:::
+
+**Interprétation graphique** :
+
+- $f$ est paire si et seulement si son graphe est symétrique par rapport à l'axe des ordonnées.
+- $f$ est impaire si et seulement si son graphe est symétrique par rapport à l'origine.
+
+::: {.example}
+- La fonction définie sur $\mathbb{R}$ par $x\mapsto x^{2n}$ ($n\in\mathbb{N}$) est paire.
+- La fonction définie sur $\mathbb{R}$ par $x\mapsto x^{2n+1}$ ($n\in\mathbb{N}$) est impaire.
+- La fonction $\cos :\mathbb{R}\to\mathbb{R}$ est paire. La fonction $\sin :\mathbb{R}\to\mathbb{R}$ est impaire.
+:::
+
+::: {.definition}
+Soit $f:\mathbb{R} \to \mathbb{R}$ une fonction et $T$ un nombre réel, $T>0$. La fonction $f$ est dite **périodique** de période $T$ si $\forall x\in\mathbb{R},\ f(x+T)=f(x)$.
+:::
+
+**Interprétation graphique** : $f$ est périodique de période $T$ si et seulement si son graphe est invariant par la translation de vecteur $T\vec{i}$, où $\vec{i}$ est le premier vecteur de coordonnées.
+
+::: {.example}
+Les fonctions sinus et cosinus sont $2\pi$-périodiques. La fonction tangente est $\pi$-périodique.
+:::
+
+::: {.exercise}
+1. Soit $U=]-\infty,0[$ et $f : U \to \mathbb{R}$ définie par $f(x)= 1/x$. $f$ est-elle monotone ? Et sur $U=]0,+\infty[$ ? Et sur $U = ]-\infty,0[\,\cup \, ]0,+\infty[$ ?
+2. Pour deux fonctions paires que peut-on dire sur la parité de la somme ? du produit ? et de la composée ? Et pour deux fonctions impaires ? Et si l'une est paire et l'autre impaire ?
+3. On note $\{x\}=x-E(x)$ la partie fractionnaire de $x$. Tracer le graphe de la fonction $x\mapsto\{x\}$ et montrer qu'elle est périodique.
+4. Soit $f:\mathbb{R}\to\mathbb{R}$ la fonction définie par $f(x)=\frac{x}{1+x^2}$. Montrer que $|f|$ est majorée par $\frac{1}{2}$, étudier les variations de $f$ (sans utiliser de dérivée) et tracer son graphe.
+5. On considère la fonction $g:\mathbb{R}\to\mathbb{R}$, $g(x)=\sin\big(\pi f(x)\big)$, où $f$ est définie à la question précédente. Déduire de l'étude de $f$ les variations, la parité, la périodicité de $g$ et tracer son graphe.
+:::
+
+## Fonction lipschitzienne
+
+Soit $f:U\to \mathbb{K}$ une fonction.
+
+::: {.definition}
+On dit que $f$ est **lipschitzienne** s'il existe $k\geq 0$ tel que :
+
+$$\forall x,y\in U,\ |f(y)-f(x)|\leq k|y-x|$$
+
+On dit aussi que $f$ est **$k$-lipschitzienne**.
+:::
+
+::: {.example}
+- La fonction $f_1: x\in \mathbb{R}\longmapsto x^2$ n'est pas lipschitzienne.
+- La fonction $f_2: x\in \mathbb{R}\longmapsto |x|$ est 1-lipschitzienne.
+- La fonction $f_3: x\in [-1,1]\longmapsto x^2$ est 2-lipschitzienne.
+- La fonction $f_4: x\in \mathbb{R}\longmapsto \sin x$ est 1-lipschitzienne.
+:::
+
+::: {.exercise}
+Soient $f:U\to \mathbb{R}$ et $g:V\to \mathbb{R}$ deux fonctions lipschitziennes et $\lambda \in \mathbb{R}$.
+
+1. Montrer que les fonctions $f+g$ et $\lambda f$ sont lipschitziennes avec $U=V$ ;
+2. Si on suppose que $f(U)\subset V$, montrer que $g\circ f$ est lipschitzienne.
+:::
+
+# Limites
+
+## Définitions
+
+### Notion de voisinage
+
+Soit $f:I\to\mathbb{K}$ une fonction définie sur un intervalle $I$ de $\mathbb{R}$. Soit $x_0\in\overline{\mathbb{R}}$ un point de $I$ ou une extrémité de $I$.
+
+::: {.definition}
+1. Si $x_0$ est fini (i.e. $x_0\in \mathbb{R}$), on appelle **voisinage** de $x_0$ tout intervalle $]x_0-\delta,x_0+\delta[$ avec $\delta>0$ ou $\delta =+\infty$ ;
+2. Si $x_0=+\infty$, on appelle **voisinage** de $x_0$ tout intervalle $]A,+\infty[$ avec $A\in \mathbb{R}\cup \{-\infty\}$ ;
+3. Si $x_0=-\infty$, on appelle **voisinage** de $x_0$ tout intervalle $]-\infty,A[$ avec $A\in \mathbb{R}\cup \{+\infty\}$.
+:::
+
+::: {.definition title="(Voisinage d'un élément de $\mathbb{C}$)"}
+Soit $\ell\in \mathbb{C}$. Un **voisinage** de $\ell$ est un disque ouvert $D(\ell,\varepsilon)$ de centre $\ell$ et de rayon $\varepsilon>0$ :
+
+$$D(\ell,\varepsilon)=\left\{z\in \mathbb{C}/\ |z-\ell|<\varepsilon \right\}$$
+:::
+
+On note $\mathcal{V}(a)$ l'ensemble des voisinages d'un élément $a$ de $\mathbb{C}$ ou de $\overline{\mathbb{R}}$.
+
+::: {.exercise}
+Soit $x_0\in \overline{\mathbb{R}}$. Montrer que la réunion et l'intersection (finie) de voisinages de $x_0$ est aussi un voisinage de $x_0$.
+:::
+
+::: {.exercise}
+Soit $x_0\in\mathbb{R}$.
+
+1. Montrer que si $x_0$ est un élément de $I$ qui n'est pas une extrémité de $I$ alors il existe $\delta>0$ tel que $]x_0-\delta,x_0+\delta[\subset I$ ;
+2. Montrer que si $x_0$ est la borne supérieure de $I$ alors il existe $\delta>0$ tel que $]x_0-\delta,x_0[\subset I$ ;
+3. Même question si $x_0$ est la borne inférieure de $I$.
+:::
+
+::: {.definition}
+On dit qu'une propriété portant sur $f$ est vraie au voisinage de $x_0$ si elle est vraie sur l'intersection de $I$ avec un voisinage de $x_0$.
+:::
+
+::: {.example}
+- La fonction $f_1 :x\in ]1,+\infty[\longmapsto \frac{1}{x-1}$ n'est pas bornée au voisinage de 1 et bornée au voisinage de $+\infty$ ;
+- La fonction $f_2 :x\in ]0,+\infty[\longmapsto \sin\left(\frac{1}{x}\right)$ n'est pas monotone au voisinage de 0 et décroissante au voisinage de $+\infty$ ;
+- La fonction $f_3 :x\in \mathbb{R}\longmapsto x^2$ est lipschitzienne au voisinage de 0 ;
+- La fonction $f_4 :x\in \mathbb{R}\longmapsto E(x)$ est constante au voisinage de tout point $a\in \mathbb{R}\smallsetminus\mathbb{Z}$.
+:::
+
+### Limite en un point
+
+Soit $f:I\to\mathbb{K}$ une fonction définie sur un intervalle $I$ de $\mathbb{R}$. Soit $x_0\in\mathbb{R}$ un point de $I$ ou une extrémité de $I$.
+
+::: {.definition}
+Soit $\ell\in\mathbb{K}$. On dit que **$f$ a pour limite $\ell$ en $x_0$** si
+
+$$\forall \epsilon>0 \quad \exists \delta>0 \quad \forall x\in I \quad \vert x-x_0\vert <\delta \Longrightarrow \vert f(x)-\ell\vert <\epsilon$$
+
+On dit aussi que **$f(x)$ tend vers $\ell$ lorsque $x$ tend vers $x_0$**. On note alors $\displaystyle\lim_{x\to x_0}f(x)=\ell$ ou bien $\displaystyle\lim_{x_0} f=\ell$.
+:::
+
+::: {.remark}
+- L'inégalité $\vert x-x_0\vert <\delta$ équivaut à $x \in ]x_0 - \delta, x_0+\delta[$. L'inégalité $\vert f(x)-\ell\vert <\epsilon$ équivaut à $f(x) \in ]\ell - \epsilon, \ell+\epsilon[$.
+- On peut remplacer certaines inégalités strictes par des inégalités larges dans la définition :
+
+$$\forall \epsilon>0 \quad \exists \delta>0 \quad \forall x\in I \quad \vert x-x_0\vert \leq \delta \Longrightarrow \vert f(x)-\ell\vert \leq \epsilon$$
+
+- Dans la définition de la limite, le quantificateur $\forall x\in I$ n'est là que pour être sûr que l'on puisse parler de $f(x)$. Il est souvent omis et l'existence de la limite s'écrit alors juste :
+
+$$\forall \epsilon>0 \quad \exists \delta>0 \quad \vert x-x_0\vert <\delta \Longrightarrow \vert f(x)-\ell\vert <\epsilon$$
+
+- N'oubliez pas que l'ordre des quantificateurs est important, on ne peut pas échanger le $\forall \epsilon$ avec le $\exists \delta$ : le $\delta$ dépend en général du $\epsilon$. Pour marquer cette dépendance on peut écrire : $\forall \epsilon>0 \quad \exists \delta(\epsilon) >0 \ldots$
+:::
+
+::: {.example}
+- $\displaystyle\lim_{x\to x_0} \sqrt{x} = \sqrt{x_0}$ pour tout $x_0\geq 0$,
+- la fonction partie entière $E$ n'a pas de limite aux points $x_0\in\mathbb{Z}$.
+:::
+
+Soit $f:U\to \mathbb{R}$ une fonction définie sur un ensemble de la forme $U=]a,x_0[\cup ]x_0,b[$.
+
+::: {.definition}
+- On dit que **$f$ a pour limite $+\infty$ en $x_0$** si
+
+$$\forall A>0 \quad \exists \delta>0 \quad \forall x\in I \quad \vert x-x_0\vert <\delta \Longrightarrow f(x)>A$$
+
+On note alors $\displaystyle\lim_{x\to x_0}f(x)=+\infty$.
+
+- On dit que **$f$ a pour limite $-\infty$ en $x_0$** si
+
+$$\forall A>0 \quad \exists \delta>0 \quad \forall x\in I \quad \vert x-x_0\vert <\delta \Longrightarrow f(x)<-A$$
+
+On note alors $\displaystyle\lim_{x\to x_0}f(x)=-\infty$.
+:::
+
+### Limite en l'infini
+
+Soit $f:I\to \mathbb{K}$ une fonction définie sur un intervalle de la forme $I=]a,+\infty[$.
+
+::: {.definition}
+- Soit $\ell\in\mathbb{K}$. On dit que **$f$ a pour limite $\ell$ en $+\infty$** si
+
+$$\forall \epsilon>0 \quad \exists B>0 \quad \forall x\in I \quad x>B \Longrightarrow \vert f(x)-\ell\vert <\epsilon$$
+
+On note alors $\displaystyle\lim_{x\to +\infty}f(x)=\ell$ ou $\displaystyle\lim_{+\infty} f=\ell$.
+
+- Lorsque $\mathbb{K}=\mathbb{R}$, on dit que **$f$ a pour limite $+\infty$ en $+\infty$** si
+
+$$\forall A>0 \quad \exists B>0 \quad \forall x\in I \quad x>B \Longrightarrow f(x)>A$$
+
+On note alors $\displaystyle\lim_{x\to +\infty}f(x)=+\infty$.
+:::
+
+On définirait de la même manière la limite en $-\infty$ pour des fonctions définies sur les intervalles du type $]-\infty,a[$.
+
+::: {.example}
+On a les limites classiques suivantes pour tout $n \geq 1$ :
+
+- $\displaystyle\lim_{x\to +\infty} x^n = +\infty$ et $\displaystyle\lim_{x\to -\infty} x^n = \begin{cases} +\infty & \text{ si } n \text{ est pair}\\ -\infty & \text{ si } n \text{ est impair} \end{cases}$
+- $\displaystyle\lim_{x\to +\infty} \left(\frac{1}{x^n}\right) = 0$ et $\displaystyle\lim_{x\to -\infty} \left(\frac{1}{x^n}\right) =0$.
+:::
+
+::: {.example}
+Soit $P(x)=a_nx^n+a_{n-1}x^{n-1}+\cdots+a_1x+a_0$ avec $a_n>0$ et $Q(x)=b_mx^m+b_{m-1}x^{m-1}+\cdots+b_1x+b_0$ avec $b_m>0$.
+
+$$\lim_{x\to+\infty} \frac{P(x)}{Q(x)} = \begin{cases} +\infty & \text{ si } n > m \\ \frac{a_n}{b_m} & \text{ si } n = m \\ 0 & \text{ si } n < m \end{cases}$$
+:::
+
+::: {.remark}
+On peut résumer tous les cas possibles de la définition de la limite $\lim_{x\to x_0}f(x)=\ell$ en écrivant :
+
+$$\left(\forall V_\ell\in \mathcal{V}(\ell)\right)\left(\exists V_{x_0}\in \mathcal{V}(x_0)\right) \left(\forall x\in I\right)\ x\in V_{x_0}\Longrightarrow f(x)\in V_\ell$$
+
+Ou encore :
+
+$$\left(\forall V_\ell\in \mathcal{V}(\ell)\right)\left(\exists V_{x_0}\in \mathcal{V}(x_0)\right)\ f\left(I\cap V_{x_0}\right)\subset V_\ell$$
+:::
+
+### Limite à gauche et à droite
+
+Soit $f$ une fonction définie sur un ensemble de la forme $]a,x_0[\cup ]x_0,b[$.
+
+::: {.definition}
+- On appelle **limite à droite** en $x_0$ de $f$ la limite de la fonction $f_{\big\vert ]x_0,b[}$ en $x_0$ et on la note $\displaystyle\lim_{x_0^+} f$.
+- On définit de même la **limite à gauche** en $x_0$ de $f$ : la limite de la fonction $f_{\big\vert ]a,x_0[}$ en $x_0$ et on la note $\displaystyle\lim_{x_0^-} f$.
+- On note aussi $\displaystyle\lim_{\substack{x\to x_0\\x>x_0}}f(x)$ pour la limite à droite et $\displaystyle\lim_{\substack{x\to x_0\\x<x_0}}f(x)$ pour la limite à gauche.
+:::
+
+::: {.remark}
+Dire que $f:I\to\mathbb{K}$ admet une limite $\ell\in\mathbb{K}$ à droite en $x_0$ signifie donc :
+
+$$\forall \epsilon>0 \quad \exists \delta>0 \quad x_0<x <x_0+\delta \Longrightarrow \vert f(x)-\ell\vert <\epsilon$$
+
+Si la fonction $f$ a une limite en $x_0$, alors ses limites à gauche et à droite en $x_0$ coïncident et valent $\displaystyle\lim_{x_0} f$.
+
+Réciproquement, si $f$ a une limite à gauche et une limite à droite en $x_0$ et si ces limites valent $f(x_0)$ (si $f$ est bien définie en $x_0$) alors $f$ admet une limite en $x_0$.
+
+En résumé, $f$ admet une limite en $x_0$ si et seulement si $f$ admet une limite en $x_0$ à gauche et à droite et $\displaystyle\lim_{x_0^-} f=\displaystyle\lim_{x_0^+} f$.
+:::
+
+::: {.example}
+Considérons la fonction partie entière au point $x=2$ :
+
+- comme pour tout $x\in]2,3[$ on a $E(x)=2$, on a $\displaystyle\lim_{2^+} E = 2$,
+- comme pour tout $x\in[1,2[$ on a $E(x)=1$, on a $\displaystyle\lim_{2^-} E = 1$.
+
+Ces deux limites étant différentes, on en déduit que $E$ n'a pas de limite en $2$.
+:::
+
+::: {.exercise}
+Donner une définition générale de la notion de limite sans distinguer les différents voisinages de $x_0$ et $\ell$.
+:::
+
+::: {.exercise}
+Montrer en utilisant la définition de la limite les limites suivantes :
+
+$$\lim_{x\rightarrow -1}x^2=1 \quad ; \quad \lim_{\substack{x\rightarrow 1\\x\neq 1}}\frac{1}{|1-x|}=+\infty \quad ; \quad \lim_{x\rightarrow +\infty}\frac{1}{x}=0 \quad ; \quad \lim_{x\rightarrow 0^+}\frac{1}{1-e^{x}}=-\infty$$
+:::
+
+## Propriétés
+
+::: {.proposition}
+**La limite d'une fonction, si elle existe, est unique.**
+:::
+
+::: {.proposition}
+Soit $f : I\longrightarrow \mathbb{K}$ une fonction et $x_0$ un point ou une extrémité (éventuellement infinie) de $I$. Si $f$ possède une limite finie en $x_0$, alors $f$ est bornée au voisinage de $x_0$.
+:::
+
+::: {.proposition title="(Stabilité des inégalités larges par passage à la limite)"}
+Soit $f : I\longrightarrow \mathbb{R}$ une fonction et $x_0$ un point ou une extrémité (éventuellement infinie) de $I$. Soit $\ell$ tel que $\underset{x\rightarrow x_0}{\lim}f(x)=\ell\in\overline{\mathbb{R}}$.
+
+S'il existe un voisinage $V_{x_0}$ de $x_0$ tel que :
+
+$$\forall x\in V_{x_0}\cap I,\ f(x)\leq k \quad (\text{respectivement } f(x)\geq k)$$
+
+alors $\ell\leq k$ (respectivement $\ell\geq k$).
+:::
+
+::: {.proposition title="(Réciproque)"}
+Si $\ell<k$ (respectivement $\ell>k$) alors il existe un voisinage $V_{x_0}$ de $x_0$ tel que :
+
+$$\forall x\in V_{x_0}\cap I,\ f(x)<k \quad (\text{respectivement } f(x)>k)$$
+:::
+
+::: {.exercise}
+Soit $f : I\longrightarrow \mathbb{K}$ une fonction telle que $\underset{x\rightarrow x_0}{\lim}f(x)=\ell$ avec $\ell\neq 0$. Montrer qu'il existe un voisinage $V_{x_0}$ de $x_0$ tel que :
+
+$$\forall x\in V_{x_0}\cap I,\ f(x)\neq 0$$
+:::
+
+::: {.theorem title="(Opérations sur les limites)"}
+Soient deux fonctions $f$ et $g$ à valeurs dans $\mathbb{K}$. On suppose que $x_0$ est un réel, ou que $x_0=\pm\infty$, et que $\underset{x\rightarrow x_0}{\lim}f(x)=\ell$ et $\underset{x\rightarrow x_0}{\lim}g(x)=\ell'$.
+
+1. Si $\ell$ et $\ell'$ sont deux éléments de $\mathbb{K}$ alors :
+   - Pour tous $\alpha, \beta\in \mathbb{K}$, la fonction $\alpha f+\beta g$ admet une limite en $x_0$ et on a : $\alpha f+\beta g \underset{x\to x_0}{\longrightarrow} \alpha \ell+\beta \ell'$
+   - La fonction $f\cdot g$ admet une limite quand $x$ tend vers $x_0$ et on a : $f\cdot g \underset{x\to x_0}{\longrightarrow} \ell\cdot\ell'$
+   - Si $\ell\neq 0$ alors la fonction $\frac{1}{f}$ est bien définie au voisinage de $x_0$, admet une limite quand $x$ tend vers $x_0$ et on a : $\frac{1}{f}\underset{x\to x_0}{\longrightarrow} \frac{1}{\ell}$
+
+2. Si $\mathbb{K}=\mathbb{R}$, on a de plus :
+   - Si $\ell=\pm\infty$ et $\ell'\in \overline{\mathbb{R}}\smallsetminus\{0\}$ alors : $f\cdot g \underset{x\to x_0}{\longrightarrow} \pm\infty$
+   - Si $\ell=\pm\infty$ alors la fonction $\frac{1}{f}$ est bien définie au voisinage de $x_0$ et admet une limite quand $x$ tend vers $x_0$ et on a : $\frac{1}{f}\underset{x\to x_0}{\longrightarrow} 0$
+:::
+
+::: {.proposition title="(Caractérisation séquentielle de la limite)"}
+Soit $f : I\longrightarrow \mathbb{K}$ une fonction et $x_0$ un point ou une extrémité de $I$. Soit $\ell$ tel que $\underset{x\rightarrow x_0}{\lim}f(x)=\ell$.
+
+$$\ell=\underset{x\rightarrow x_0}{\lim}f(x) \Longleftrightarrow \forall(u_n)_n\subset I,\ \left(\underset{n\rightarrow +\infty}{\lim}u_n=x_0\Longrightarrow \underset{n\rightarrow +\infty}{\lim}f(u_n)=\ell\right)$$
+:::
+
+::: {.example}
+Si on considère la fonction $f: x\in \mathbb{R}\longmapsto \sin\left(\frac{1}{x}\right)$, le point $x_0=0$ et la suite $u_n=\frac{1}{(2n+1)\frac{\pi}{2}}$ alors :
+
+$$\underset{n\rightarrow +\infty}{\lim}u_n=0 \quad \text{et} \quad \forall n\in \mathbb{N},\ f(u_n)=(-1)^n$$
+
+La suite $(-1)^n$ n'admet pas de limite, donc $f$ n'admet pas de limite en $0$.
+:::
+
+::: {.proposition title="(Composition de limites)"}
+Soient deux fonctions $f:I\to \mathbb{R}$ et $g:J\to \mathbb{K}$ telles que $f(I)\subset J$. On suppose que $x_0$ est un réel, ou que $x_0=\pm\infty$, et que $\underset{x\rightarrow x_0}{\lim}f(x)=\ell\in\overline{\mathbb{R}}$ et $\underset{y\rightarrow \ell}{\lim}g(y)=\ell'$.
+
+Si $\displaystyle\lim_{x_0} f=\ell$ et $\displaystyle\lim_\ell g=\ell'$, alors $\displaystyle\lim_{x_0} g\circ f=\ell'$.
+:::
+
+::: {.example}
+Soit $x \mapsto u(x)$ une fonction et $x_0 \in \mathbb{R}$ tel que $u(x) \to 2$ lorsque $x \to x_0$. Posons $f(x) = \sqrt{1+\frac{1}{u(x)^2}+\ln u(x)}$. Si elle existe, quelle est la limite de $f$ en $x_0$ ?
+
+- Tout d'abord comme $u(x) \to 2$ alors $u(x)^2 \to 4$ donc $\frac{1}{u(x)^2} \to \frac{1}{4}$ (lorsque $x\to x_0$).
+- De même comme $u(x) \to 2$ alors, dans un voisinage de $x_0$, $u(x)>0$ donc $\ln u(x)$ est bien définie dans ce voisinage et de plus $\ln u(x) \to \ln 2$ (lorsque $x \to x_0$).
+- Cela entraîne que $1+\frac{1}{u(x)^2}+\ln u(x) \to 1+\frac{1}{4} + \ln 2$ lorsque $x \to x_0$. En particulier $1+\frac{1}{u(x)^2}+\ln u(x)\geq 0$ dans un voisinage de $x_0$, donc $f(x)$ est bien définie dans un voisinage de $x_0$.
+- Et par composition avec la racine carrée alors $f(x)$ a bien une limite en $x_0$ et $\lim_{x\to x_0} f(x) = \sqrt{1+\frac{1}{4} + \ln 2}$.
+:::
+
+::: {.proposition title="(Théorème des gendarmes)"}
+Soient $f,g,h:I\to \mathbb{R}$ trois fonctions, $x_0$ un point ou une extrémité (éventuellement infinie) de $I$ et $\ell\in \mathbb{R}$.
+
+1. $f(x),h(x)\underset{x\rightarrow x_0}{\longrightarrow} \ell$
+2. $\exists V_{x_0}\in\mathcal{V}(x_0),\ \forall x\in V_{x_0}\cap I,\ f(x)\leq g(x)\leq h(x)$
+
+Alors la fonction $g$ admet $\ell$ comme limite quand $x$ tend vers $x_0$.
+:::
+
+::: {.proposition title="(Caractérisation de la limite d'une fonction complexe par les parties réelles et imaginaires)"}
+Soit $f : I\longrightarrow \mathbb{C}$ une fonction, $x_0$ un point ou une extrémité (éventuellement infinie) de $I$ et $\ell\in \mathbb{C}$.
+
+$$\underset{x_0}{\lim}f =\ell \Longleftrightarrow \begin{cases} \underset{x_0}{\lim}\mathcal{R}e(f)=\mathcal{R}e(\ell)\\ \underset{x_0}{\lim}\mathcal{I}m(f)=\mathcal{I}m(\ell) \end{cases}$$
+:::
+
+::: {.proposition title="(Détermination de la limite par majoration ou minoration)"}
+Soient $f,g:I\to \mathbb{R}$ deux fonctions et $x_0$ un point ou une extrémité (éventuellement infinie) de $I$.
+
+1. $g(x)\underset{x\rightarrow x_0}{\longrightarrow} +\infty$ (respectivement $-\infty$)
+2. $\exists V_{x_0}\in \mathcal{V}(x_0),\ \forall x\in V_{x_0}\cap I,\ g(x)\leq f(x)$ (respectivement $f(x)\leq g(x)$)
+
+Alors $f(x)\underset{x\rightarrow x_0}{\longrightarrow} +\infty$ (respectivement $-\infty$)
+:::
+
+::: {.exercise}
+Soit $\alpha>0$. Montrer les limites de référence suivantes :
+
+$$\lim_{x\rightarrow +\infty}x^{\alpha}e^{-x}=0 \quad ; \quad \lim_{x\rightarrow +\infty}\frac{\ln x}{x^{\alpha}}=0 \quad ; \quad \lim_{x\rightarrow 0^+}x^{\alpha}\ln x=0$$
+:::
+
+::: {.exercise}
+Montrer les limites suivantes :
+
+$$\lim_{x\rightarrow +\infty}(x-\ln x)=+\infty \quad ; \quad \lim_{x\rightarrow +\infty}\left(\sqrt{x^2+1}-\sqrt{x^2-1}\right)=0 \quad ;\\ \quad \lim_{x\rightarrow +\infty}\frac{\sqrt{x^2+x+1}}{x}=1 \quad ; \quad \lim_{x\rightarrow +\infty}xe^{-\sqrt{x}}=0 \quad ; \quad \lim_{x\rightarrow 0^+}\left(\frac{1}{\sqrt{x}}+\ln x\right)=0$$
+:::
+
+# Continuité
+
+## Définition
+
+Soit $I$ un intervalle de $\mathbb{R}$ et $f:I\to\mathbb{K}$ une fonction définie sur $I$.
+
+::: {.definition}
+- On dit que $f$ est **continue en un point $x_0\in I$** si et seulement si $f$ admet une limite en $x_0$ et $\lim_{x\to x_0}f(x)=f(x_0)$. Autrement dit, si et seulement si :
+
+$$\forall \epsilon>0 \quad \exists \delta>0 \quad \forall x\in I \quad \vert x-x_0\vert <\delta \Longrightarrow \vert f(x)-f(x_0)\vert <\epsilon$$
+
+- On dit que $f$ est **continue en $x_0$ à droite** (respectivement **à gauche**) si la limite $\underset{x\rightarrow x_0^+}{\lim}f(x)$ (respectivement $\underset{x\rightarrow x_0^-}{\lim}f(x)$) existe et $f(x_0)=\underset{x\rightarrow x_0^+}{\lim}f(x)$ (respectivement $f(x_0)=\underset{x\rightarrow x_0^-}{\lim}f(x)$).
+:::
+
+Intuitivement, une fonction est continue sur un intervalle, si on peut tracer son graphe « sans lever le crayon », c'est-à-dire si sa courbe représentative n'admet pas de saut.
+
+::: {.remark}
+$f$ est continue en $x_0$ si et seulement si elle est continue en $x_0$ à droite et à gauche.
+:::
+
+::: {.example}
+Les fonctions suivantes sont continues :
+
+- une fonction constante en tout point $x_0$ de $\mathbb{R}$,
+- la fonction racine carrée $x\mapsto\sqrt{x}$ en tout point $x_0$ de $[0,+\infty[$,
+- les fonctions $\sin$ et $\cos$ en tout point $x_0$ de $\mathbb{R}$,
+- la fonction valeur absolue $x\mapsto\vert x\vert$ en tout point $x_0$ de $\mathbb{R}$,
+- la fonction $\exp$ en tout point $x_0$ de $\mathbb{R}$,
+- la fonction $\ln$ en tout point $x_0$ de $]0,+\infty[$.
+
+Par contre, la fonction partie entière $E$ n'est pas continue aux points $x_0\in\mathbb{Z}$, puisqu'elle n'admet pas de limite en ces points. Mais $f$ est continue à droite en chaque point $x_0\in\mathbb{Z}$. Pour $x_0\in \mathbb{R} \setminus \mathbb{Z}$, elle est continue en $x_0$.
+:::
+
+::: {.exercise}
+Montrer, dans chaque cas, que la fonction $f$ est continue au point $x_0$ :
+
+1. $f: x\in \mathbb{R}\longmapsto \begin{cases} x\sin\left(\frac{1}{x}\right), & \text{si } x\neq 0\\ 0, & \text{sinon} \end{cases}$ ; $x_0=0$ ;
+2. $f: x\in \mathbb{R}\longmapsto \begin{cases} xE\left(\frac{1}{x}\right), & \text{si } x\neq 0\\ 1, & \text{sinon} \end{cases}$ ; $x_0=0$ ;
+3. $f: x\in \mathbb{R}\longmapsto \begin{cases} x^2, & \text{si } x\geq 0\\ -x^2, & \text{sinon} \end{cases}$ ; $x_0=0$ ;
+:::
+
+## Propriétés
+
+La continuité assure par exemple que si la fonction ne s'annule pas en un point (qui est une propriété ponctuelle) alors elle ne s'annule pas autour de ce point (propriété locale). Voici l'énoncé :
+
+::: {.lemma}
+Soit $f:I\to\mathbb{K}$ une fonction définie sur un intervalle $I$ et $x_0$ un point de $I$. Si $f$ est continue en $x_0$ et si $f(x_0)\neq 0$, alors il existe $\delta>0$ tel que :
+
+$$\forall x\in ]x_0-\delta,x_0+\delta [ \quad f(x)\neq 0$$
+:::
+
+La continuité se comporte bien avec les opérations élémentaires. Les propositions suivantes sont des conséquences immédiates des propositions analogues sur les limites.
+
+::: {.theorem title="(Opération sur les fonctions continues en un point)"}
+1. Soient $f,g:I\to \mathbb{K}$ deux fonctions définies sur $I$ et continues en $x_0$.
+   - Pour tout $\alpha, \beta \in \mathbb{K}$, la fonction $\alpha f+\beta g$ est continue en $x_0$ ;
+   - La fonction $f\cdot g$ est continue en $x_0$ ;
+   - Si $f(x_0)\neq 0$ alors la fonction $\frac{g}{f}$ est définie au voisinage de $x_0$ et continue en $x_0$.
+2. Si $f:I\to \mathbb{R}$ est une fonction définie sur $I$ et continue en $x_0$ et $g:J\to \mathbb{K}$ une fonction telle que $f(I)\subset J$ et $g$ continue en $y_0=f(x_0)$, alors la fonction composée $g\circ f$ est continue en $x_0$.
+:::
+
+## Continuité globale
+
+::: {.definition title="(Continuité globale)"}
+On dit que $f$ est **continue** sur $I$ si et seulement si elle est continue en tout point de $I$.
+:::
+
+::: {.example}
+- Les fonctions constantes sont continues sur $\mathbb{R}$ ;
+- Une fonction lipschitzienne est continue ;
+- Les fonctions $\exp,\ \ln,\ \sin,\ \cos,\ \tan,\ x\longmapsto \sqrt{x},\ x\longmapsto x,\ x\longmapsto |x|,\ x\longmapsto e^{ix}$ sont continues sur leur domaine de définition ;
+- La fonction $\mathbb{1}_{\mathbb{Q}}$ est discontinue en tout point de $\mathbb{R}$.
+- La fonction $x\longmapsto x\cdot\mathbb{1}_{\mathbb{Q}}(x)$ est discontinue en tout point de $\mathbb{R}$ sauf en $x_0=0$.
+:::
+
+::: {.theorem title="(Opération sur les fonctions continues sur un intervalle)"}
+1. Soient $f,g:I\to \mathbb{K}$ deux fonctions définies et continues sur $I$.
+   - Pour tout $\alpha, \beta \in \mathbb{K}$, la fonction $\alpha f+\beta g$ est continue sur $I$ ;
+   - La fonction $f\cdot g$ est continue sur $I$ ;
+   - Si $f$ ne s'annule pas sur $I$ alors la fonction $\frac{g}{f}$ est définie et continue sur $I$.
+2. Si $f:I\to \mathbb{R}$ est une fonction définie et continue sur $I$ et $g:J\to \mathbb{K}$ une fonction telle que $f(I)\subset J$ et $g$ continue sur $J$, alors la fonction composée $g\circ f$ est continue sur $I$.
+:::
+
+::: {.example}
+- les fonctions puissance $x\mapsto x^n$ sur $\mathbb{R}$ (comme produit $x \times x \times \cdots$),
+- les polynômes sur $\mathbb{R}$ (somme et produit de fonctions puissance et de fonctions constantes),
+- les fractions rationnelles $x\mapsto \frac{P(x)}{Q(x)}$ sur tout intervalle où le polynôme $Q(x)$ ne s'annule pas,
+- Plus généralement, les fonctions polynômiales, les fractions rationnelles, les fonctions obtenues par opérations sur les fonctions trigonométriques, les fonctions obtenues par opérations sur les fonctions hyperboliques etc... sont continues sur leur domaine de définition,
+- La fonction $x\in \mathbb{R}\longmapsto \frac{\sin\left(\frac{1}{x}\right)}{x-1}$ est continue sur $\mathbb{R}^*\smallsetminus\{1\}$ car elle est composée et fraction de fonctions continues.
+:::
+
+## Caractérisation séquentielle de la continuité
+
+::: {.proposition}
+Soit $f:I\to\mathbb{K}$ une fonction et $x_0$ un point de $I$. Alors :
+
+**$f$ est continue en $x_0$ si et seulement si pour toute suite $(u_n)$ qui converge vers $x_0$, la suite $(f(u_n))$ converge vers $f(x_0)$.**
+:::
+
+::: {.remark}
+On retiendra surtout l'implication : si $f$ est continue sur $I$ et si $(u_n)$ est une suite convergente de limite $\ell$, alors $(f(u_n))$ converge vers $f(\ell)$. On l'utilisera intensivement pour l'étude des suites récurrentes $u_{n+1}= f(u_n)$ : si $f$ est continue et $u_n\to \ell$, alors $f(\ell)=\ell$.
+:::
+
+::: {.exercise}
+Formuler des caractérisations séquentielles similaires pour la continuité à gauche et à droite au point $x_0$.
+:::
+
+::: {.exercise}
+Soit $f: \mathbb{R}\longrightarrow \mathbb{R}$ une fonction continue telle que $f(ax)=f(x)$ pour tout $x\in \mathbb{R}$, où $a$ est fixé différent de 1 et -1.
+
+1. On suppose, dans cette question, que $|a|<1$.
+   - Montrer que pour tout $n\in \mathbb{N}$, $f(a^nx)=f(x)$ ;
+   - En déduire que $f$ est constante.
+2. Faire de même lorsque $|a|>1$.
+:::
+
+::: {.exercise}
+Soient $f,g : I\longrightarrow \mathbb{R}$ deux fonctions continues. Montrer que les fonctions $|f|,\ \min(f,g)$ et $\max(f,g)$ sont continues sur $I$.
+:::
+
+## Prolongement par continuité
+
+::: {.definition}
+Soit $I$ un intervalle, $x_0$ un point de $I$ et $f:I\setminus\{x_0\}\to\mathbb{R}$ une application.
+
+- On dit que $f$ est **prolongeable par continuité** en $x_0$ si $f$ admet une limite finie en $x_0$. Notons alors $\ell=\displaystyle\lim_{x_0} f$.
+- On définit alors la fonction $\tilde f:I\to\mathbb{R}$ en posant pour tout $x\in I$ :
+
+$$\tilde f(x) = \begin{cases} f(x) &\text{ si } x\neq x_0\\ \ell &\text{ si } x=x_0. \end{cases}$$
+
+Alors $\tilde f$ est continue en $x_0$ et on l'appelle le **prolongement par continuité** de $f$ en $x_0$.
+:::
+
+Dans la pratique, on continuera souvent à noter $f$ à la place de $\tilde f$.
+
+::: {.example}
+Considérons la fonction $f$ définie sur $\mathbb{R}^*$ par $f(x)=x\sin\left(\frac{1}{x}\right)$. Voyons si $f$ admet un prolongement par continuité en $0$ ?
+
+Comme pour tout $x\in\mathbb{R}^*$ on a $\vert f(x)\vert\leq \vert x\vert$, on en déduit que $f$ tend vers $0$ en $0$. Elle est donc prolongeable par continuité en $0$ et son prolongement est la fonction $\tilde f$ définie sur $\mathbb{R}$ tout entier par :
+
+$$\tilde f(x) = \begin{cases} x\sin\left(\frac{1}{x}\right) &\text{ si } x\neq 0\\ 0 &\text{ si } x=0. \end{cases}$$
+:::
+
+::: {.exercise}
+Montrer, dans chaque cas, que $f$ est prolongeable par continuité au point $x_0=0$.
+
+1. $f : ]0,+\infty[\longmapsto x\ln x$ ;
+2. $f : \mathbb{R}^*\longmapsto \frac{\sin x}{x}$ ;
+3. Soit $y\in \mathbb{R}^+$. $f : ]0,\pi/2]\longmapsto \left(\sin x\right)^y$.
+:::
+
+::: {.exercise}
+1. Déterminer le domaine de définition et de continuité des fonctions suivantes : $f(x) = 1/\sin x$, $g(x) = 1/\sqrt{x+\frac{1}{2}}$, $h(x) = \ln(x^2+x-1)$.
+2. Trouver les couples $(a,b)\in\mathbb{R}^2$ tels que la fonction $f$ définie sur $\mathbb{R}$ par $f(x) = ax+b$ si $x< 0$ et $f(x) = \exp(x)$ si $x\geq 0$ soit continue sur $\mathbb{R}$. Et si on avait $f(x) = \frac{a}{x-1}+b$ pour $x<0$ ?
+3. Soit $f$ une fonction continue telle que $f(x_0)=1$. Montrer qu'il existe $\delta>0$ tel que : pour tout $x\in ]x_0 - \delta, x_0+\delta[ \quad f(x) > \frac{1}{2}$.
+4. Étudier la continuité de $f : \mathbb{R} \to \mathbb{R}$ définie par : $f(x) = \sin(x)\cos\left(\frac{1}{x}\right)$ si $x\neq 0$ et $f(0)=0$. Et pour $g(x)=xE(x)$ ?
+5. La fonction définie par $f(x)=\frac{x^3+8}{|x+2|}$ admet-elle un prolongement par continuité en $-2$ ?
+6. Soit la suite définie par $u_0>0$ et $u_{n+1}=\sqrt{u_n}$. Montrer que $(u_n)$ admet une limite $\ell \in \mathbb{R}$ lorsque $n\to+\infty$. À l'aide de la fonction $f(x)=\sqrt{x}$ calculer cette limite.
+:::
+
+# Continuité sur un intervalle
+
+## Le théorème des valeurs intermédiaires
+
+::: {.theorem title="(Théorème des valeurs intermédiaires)"}
+Soit $f:[a,b]\to\mathbb{R}$ une fonction continue sur un segment.
+
+**Pour tout réel $y$ compris entre $f(a)$ et $f(b)$, il existe $c\in[a,b]$ tel que $f(c)=y$.**
+:::
+
+::: {.proof}
+Montrons le théorème dans le cas où $f(a)<f(b)$. On considère alors un réel $y$ tel que $f(a)\leq y\leq f(b)$ et on veut montrer qu'il a un antécédent par $f$.
+
+On introduit l'ensemble suivant :
+
+$$A=\Big\{ x\in [a,b] \ \vert \ f(x)\leq y \Big\}$$
+
+Tout d'abord l'ensemble $A$ est non vide (car $a\in A$) et il est majoré (car il est contenu dans $[a,b]$) : il admet donc une borne supérieure, que l'on note $c=\sup A$. Montrons que $f(c)=y$.
+
+Montrons tout d'abord que $f(c)\leq y$. Comme $c=\sup A$, il existe une suite $(u_n)_{n\in\mathbb{N}}$ contenue dans $A$ telle que $(u_n)$ converge vers $c$. D'une part, pour tout $n\in\mathbb{N}$, comme $u_n\in A$, on a $f(u_n)\leq y$. D'autre part, comme $f$ est continue en $c$, la suite $\left(f(u_n)\right)$ converge vers $f(c)$. On en déduit donc, par passage à la limite, que $f(c)\leq y$.
+
+Montrons à présent que $f(c)\geq y$. Remarquons tout d'abord que si $c=b$, alors on a fini, puisque $f(b)\geq y$. Sinon, pour tout $x\in]c,b]$, comme $x\notin A$, on a $f(x)>y$. Or, étant donné que $f$ est continue en $c$, $f$ admet une limite à droite en $c$, qui vaut $f(c)$ et on obtient $f(c)\geq y$.
+:::
+
+## Applications du théorème des valeurs intermédiaires
+
+Voici la version la plus utilisée du théorème des valeurs intermédiaires.
+
+::: {.corollary}
+Soit $f:[a,b]\to\mathbb{R}$ une fonction continue sur un segment.
+
+**Si $f(a)\cdot f(b)\leq 0$, alors il existe $c\in [a,b]$ tel que $f(c)=0$.**
+:::
+
+::: {.proof}
+Il s'agit d'une application directe du théorème des valeurs intermédiaires avec $y=0$. L'hypothèse $f(a)\cdot f(b)\leq 0$ signifiant que $f(a)$ et $f(b)$ sont de signes contraires.
+:::
+
+::: {.remark}
+Le théorème des valeurs intermédiaires et le corollaire ci-dessus sont équivalents.
+:::
+
+::: {.remark title="(Méthode de dichotomie pour la recherche des zéros d'une fonction)"}
+Voir en annexe la méthode de dichotomie pour la recherche des zéros des fonctions.
+:::
+
+::: {.example}
+*Tout polynôme de degré impair possède au moins une racine réelle.*
+
+En effet, un tel polynôme s'écrit $P(x)=a_nx^n+\cdots+a_1x+a_0$ avec $n$ un entier impair. On peut supposer que le coefficient $a_n$ est strictement positif. Alors on a $\displaystyle\lim_{-\infty} P = -\infty$ et $\displaystyle\lim_{+\infty} P = +\infty$. En particulier, il existe deux réels $a$ et $b$ tels que $f(a)<0$ et $f(b)>0$ et on conclut grâce au corollaire précédent.
+:::
+
+::: {.exercise}
+Soient $f,g : [a,b]\longrightarrow \mathbb{R}$ deux fonctions continues. On suppose que $f(a)\leq g(a)$ et $f(b)\geq g(b)$. Montrer qu'il existe $x\in [a,b]$ tel que $f(x)=g(x)$.
+:::
+
+::: {.exercise}
+Soit $f$ une fonction continue sur $[0,1]$ dans lui même. Montrer que $f$ admet un point fixe.
+:::
+
+::: {.corollary}
+**Soit $f:I\to\mathbb{R}$ une fonction continue sur un intervalle $I$. Alors $f(I)$ est un intervalle.**
+:::
+
+::: {.proof}
+Soient $y_1,y_2\in f(I)$, $y_1\leq y_2$. Montrons que si $y\in[y_1,y_2]$, alors $y\in f(I)$. Par hypothèse, il existe $x_1,x_2\in I$ tels que $y_1 =f(x_1)$, $y_2 =f(x_2)$ et donc $y$ est compris entre $f(x_1)$ et $f(x_2)$. D'après le théorème des valeurs intermédiaires, comme $f$ est continue, il existe donc $x\in I$ tel que $y=f(x)$, et ainsi $y\in f(I)$.
+:::
+
+::: {.exercise}
+Soit $f:I\longrightarrow \mathbb{R}$ continue. On suppose que $f$ n'est ni majorée, ni minorée. Montrer que $f$ est surjective.
+:::
+
+## Fonctions continues sur un segment
+
+::: {.theorem title="(Théorème de Weierstrass)"}
+Soit $f:[a,b]\to\mathbb{R}$ une fonction continue sur un segment. Alors il existe deux réels $m$ et $M$ tels que $f([a,b])=[m,M]$. Autrement dit, l'image d'un segment par une fonction continue est un segment.
+:::
+
+Comme on sait déjà par le théorème des valeurs intermédiaires que $f([a,b])$ est un intervalle, le théorème précédent signifie exactement que :
+
+**Si $f$ est continue sur $[a,b]$ alors $f$ est bornée sur $[a,b]$, et elle atteint ses bornes.**
+
+Donc $m$ est le minimum de la fonction sur l'intervalle $[a,b]$ alors que $M$ est le maximum. Alors on peut formuler ce théorème de la façon suivante :
+
+**Si $f$ est continue sur $[a,b]$ alors il existe $c,d\in [a,b]$ tels que : $\forall x\in [a,b],\quad f(c)\leq f(x)\leq f(d)$**
+
+::: {.proof}
+Montrons d'abord que $f$ est bornée.
+
+- Pour $r \in \mathbb{R}$, on note $A_r = \{ x \in [a,b] \mid f(x) \geq r\}$. Fixons $r$ tel que $A_r \neq \varnothing$, comme $A_r \subset [a,b]$, le nombre $s = \sup A_r$ existe. Soit $x_n \to s$ avec $x_n \in A_r$. Par définition $f(x_n) \geq r$ donc, $f$ étant continue, à la limite $f(s) \geq r$ et ainsi $s \in A_r$.
+
+- Supposons par l'absurde que $f$ ne soit pas bornée. Alors pour tout $n \geq 0$, $A_n$ est non vide. Notons $s_n = \sup A_n$. Comme $f(x) \geq n+1$ implique $f(x) \geq n$ alors $A_{n+1} \subset A_n$, ce qui entraîne $s_{n+1} \leq s_n$. Bilan : $(s_n)$ est une suite décroissante, minorée par $a$ donc converge vers $\ell \in [a,b]$. Encore une fois $f$ est continue donc $s_n \to \ell$, implique $f(s_n) \to f(\ell)$. Mais $f(s_n) \geq n$ donc $\lim f(s_n) = +\infty$. Cela contredit $\lim f(s_n) = f(\ell) < +\infty$. Conclusion : $f$ est majorée.
+
+- Un raisonnement tout à fait similaire prouve que $f$ est aussi minorée, donc bornée. Par ailleurs on sait déjà que $f(I)$ est un intervalle (c'est le théorème des valeurs intermédiaires), donc maintenant $f(I)$ est un intervalle borné. Il reste à montrer qu'il est du type $[m,M]$ (et pas $]m,M[$ par exemple).
+
+Montrons maintenant que $f(I)$ est un intervalle fermé. Sachant déjà que $f(I)$ est un intervalle borné, notons $m$ et $M$ ses extrémités : $m = \inf f(I)$ et $M = \sup f(I)$. Supposons par l'absurde que $M \notin f(I)$. Alors pour $t \in [a,b]$, $M > f(t)$. La fonction $g$ : $t \mapsto \frac{1}{M-f(t)}$ est donc bien définie. La fonction $g$ est continue sur $I$ donc d'après le premier point de cette preuve (appliqué à $g$) elle est bornée, disons par un réel $K$. Mais il existe $y_n \to M$, $y_n \in f(I)$. Donc il existe $x_n \in [a,b]$ tel que $y_n = f(x_n) \to M$ et alors $g(x_n) = \frac{1}{M-f(x_n)} \to +\infty$. Cela contredit que $g$ soit une fonction bornée par $K$. Bilan : $M \in f(I)$. De même on a $m \in f(I)$. Conclusion finale : $f(I) = [m,M]$.
+:::
+
+::: {.exercise}
+1. Soient $P(x)=x^5-3x-2$ et $f(x)=x2^x-1$ deux fonctions définies sur $\mathbb{R}$. Montrer que l'équation $P(x)=0$ a au moins une racine dans $[1,2]$ ; l'équation $f(x)=0$ a au moins une racine dans $[0,1]$ ; l'équation $P(x)=f(x)$ a au moins une racine dans $]0,2[$.
+2. Montrer qu'il existe $x>0$ tel que $2^x+3^x=7^x$.
+3. Dessiner le graphe d'une fonction continue $f : \mathbb{R} \to \mathbb{R}$ tel que $f(\mathbb{R}) = [0,1]$. Puis $f(\mathbb{R})=]0,1[$ ; $f(\mathbb{R}) = [0,1[$ ; $f(\mathbb{R})= ]-\infty,1]$, $f(\mathbb{R})= ]-\infty,1[$.
+4. Soient $f,g : [0,1] \to \mathbb{R}$ deux fonctions continues. Quelles sont, parmi les fonctions suivantes, celles dont on peut affirmer qu'elles sont bornées : $f+g$, $f\times g$, $f/g$ ?
+5. Soient $f$ et $g$ deux fonctions continues sur $[0,1]$ telles que $\forall x\in [0,1],\ f(x)<g(x)$. Montrer qu'il existe $m>0$ tel que $\forall x\in [0,1],\ f(x)+m<g(x)$. Ce résultat est-il vrai si on remplace $[0,1]$ par $\mathbb{R}$ ?
+:::
+
+::: {.exercise}
+Soit $f : [a,b]\longrightarrow \mathbb{R}$ une fonction continue telle que :
+
+$$\forall x\in [a,b],\ f(x)<0$$
+
+Montrer que $\underset{x\in [a,b]}{\sup}f(x)<0$.
+:::
+
+::: {.exercise}
+Soit $f : \mathbb{R}^+\longrightarrow \mathbb{R}$ une fonction continue admettant une limite finie en $+\infty$. Montrer que $f$ est bornée.
+:::
+
+::: {.exercise}
+Montrer que si $f: [a,b]\longrightarrow \mathbb{C}$ est une fonction continue, alors $|f|$ est bornée et atteint ses bornes sur $[a,b]$.
+:::
+
+# Fonctions monotones et bijections
+
+## Rappels : injection, surjection, bijection
+
+Dans cette section nous rappelons le matériel nécessaire concernant les applications bijectives.
+
+::: {.definition}
+Soit $f:E\to F$ une application, où $E$ et $F$ sont des parties de $\mathbb{R}$.
+
+- $f$ est **injective** si et seulement si $\forall x,x'\in E,\ f(x)=f(x') \Longrightarrow x=x'$ ;
+- $f$ est **surjective** si et seulement si $\forall y\in F,\ \exists x\in E,\ y=f(x)$ ;
+- $f$ est **bijective** si et seulement si $f$ est à la fois injective et surjective, c'est-à-dire si $\forall y\in F,\ \exists! x\in E,\ y=f(x)$.
+:::
+
+::: {.proposition}
+Si $f : E \to F$ est une fonction bijective alors il existe une unique application $g : F \to E$ telle que $g\circ f = \mathrm{Id}_E$ et $f\circ g = \mathrm{Id}_F$. La fonction $g$ est la **bijection réciproque** de $f$ et se note $f^{-1}$.
+:::
+
+::: {.remark}
+- On rappelle que l'**identité**, $\mathrm{Id}_E : E \to E$ est simplement définie par $x \mapsto x$.
+- $g \circ f = \mathrm{Id}_E$ se reformule ainsi : $\forall x \in E,\ g\big(f(x)\big) = x$.
+- Alors que $f \circ g = \mathrm{Id}_F$ s'écrit : $\forall y \in F,\ f\big(g(y)\big) = y$.
+- Dans un repère orthonormé les graphes des fonctions $f$ et $f^{-1}$ sont symétriques par rapport à la première bissectrice.
+:::
+
+## Théorème de la limite monotone
+
+De façon analogue aux suites, on énonce le théorème très important suivant :
+
+::: {.theorem title="(Théorème de la limite monotone)"}
+Soient $f\in \mathcal{F}(\mathbb{R},\mathbb{R})$ et $(a,b)\in \mathbb{R}^2$ tel que $a<b$. On suppose que $f$ est croissante et définie sur $]a,b[$. Alors :
+
+1. - Si $f$ est majorée sur $]a,b[$ alors $f$ admet une limite en $b$ à gauche et on a :
+
+$$\underset{x\rightarrow b^-}{\lim}f(x)=\underset{x\in ]a,b[}{\sup} f(x)$$
+
+   - Si $f$ n'est pas majorée sur $]a,b[$ alors $f$ tend vers $+\infty$ quand $x$ tend vers $b$ à gauche i.e. :
+
+$$\underset{x\rightarrow b^-}{\lim}f(x)=+\infty$$
+
+2. - Si $f$ est minorée sur $]a,b[$ alors $f$ admet une limite en $a$ à droite et on a :
+
+$$\underset{x\rightarrow a^+}{\lim}f(x)=\underset{x\in ]a,b[}{\inf} f(x)$$
+
+   - Si $f$ n'est pas minorée sur $]a,b[$ alors $f$ tend vers $-\infty$ quand $x$ tend vers $a$ à droite i.e. :
+
+$$\underset{x\rightarrow a^+}{\lim}f(x)=-\infty$$
+:::
+
+::: {.remark}
+Ce résultat est encore valable si $a=-\infty$ et $b=+\infty$.
+:::
+
+::: {.proof}
+On donne ci-dessous la démonstration dans le cas où $f$ est majorée et pour la limite $\underset{x\rightarrow b^-}{\lim}f(x)$.
+
+Comme $f$ est majorée sur $]a,b[$ alors l'ensemble $\{f(x)/\ x\in ]a,b[\}$ admet une borne supérieure $\ell\in\mathbb{R}$. Montrons alors que $\underset{x\rightarrow b^-}{\lim}f(x)=\ell$ :
+
+Soit $\varepsilon >0$, d'après la caractérisation de la borne supérieure, il existe un $x_0\in ]a,b[$ tel que : $\ell -\varepsilon <f(x_0)$. Et puisque $f$ est croissante et $\ell$ est un majorant de $f$ sur $]a,b[$ alors :
+
+$$\forall x\in ]x_0,b[,\ \ell-\varepsilon <f(x_0)\leq f(x)\leq \ell <\ell +\varepsilon$$
+
+D'où :
+
+$$\forall x\in ]x_0,b[,\ |f(x)-\ell|<\varepsilon$$
+
+Ce qui prouve que $f$ admet une limite en $b$ à gauche et que $\underset{x\rightarrow b^-}{\lim}f(x)=\ell=\sup f$.
+:::
+
+::: {.exercise}
+Formuler un résultat similaire pour une fonction vérifiant les hypothèses du théorème précédent sauf qu'elle est décroissante.
+:::
+
+::: {.corollary}
+Soit $f:I\to\mathbb{R}$ une fonction définie sur $I$. Si $f$ est une fonction croissante alors les limites $\lim_{a^+}f$ et $\lim_{a^-}f$, en tout point $a\in I$ (qui n'est pas une extrémité), existent et finies et on a :
+
+$$\lim_{a^-}f\leq f(a)\leq \lim_{a^+}f$$
+:::
+
+::: {.exercise}
+Soit $f : \mathbb{R}\longrightarrow \mathbb{R}$ une application croissante. Montrer que la fonction $f^+: x\in \mathbb{R}\longmapsto \lim_{x^+}f$ est croissante.
+:::
+
+## Fonctions monotones et bijections
+
+Voici un théorème très utilisé dans la pratique pour montrer qu'une fonction est bijective.
+
+::: {.theorem title="(Théorème de la bijection monotone)"}
+Soit $f:I\to \mathbb{R}$ une fonction définie sur un intervalle $I$ de $\mathbb{R}$. Si $f$ est continue et strictement monotone sur $I$, alors
+
+1. $f$ établit une bijection de l'intervalle $I$ dans l'intervalle image $J=f(I)$,
+2. la fonction réciproque $f^{-1}:J\to I$ est continue et strictement monotone sur $J$ et elle a le même sens de variation que $f$.
+:::
+
+En pratique, si on veut appliquer ce théorème à une fonction continue $f:I\to \mathbb{R}$, on découpe l'intervalle $I$ en sous-intervalles sur lesquels la fonction $f$ est strictement monotone.
+
+::: {.example}
+Considérons la fonction carrée définie sur $\mathbb{R}$ par $f(x)=x^2$. La fonction $f$ n'est pas strictement monotone sur $\mathbb{R}$ : elle n'est pas même pas injective car un nombre et son opposé ont même carré. Cependant, en restreignant son ensemble de définition à $]-\infty,0]$ d'une part et à $[0,+\infty[$ d'autre part, on définit deux fonctions strictement monotones :
+
+$$f_1 : ]-\infty,0] \longrightarrow [0,+\infty[, \quad x \longmapsto x^2$$
+
+et
+
+$$f_2 : [0,+\infty[ \longrightarrow [0,+\infty[, \quad x \longmapsto x^2$$
+
+On remarque que $f(]-\infty,0]) = f([0,+\infty[) = [0,+\infty[$. D'après le théorème précédent, les fonctions $f_1$ et $f_2$ sont des bijections. Déterminons leurs fonctions réciproques $f_1^{-1} :[0,+\infty[ \to]-\infty,0]$ et $f_2^{-1} :[0,+\infty[ \to [0,+\infty[$.
+
+Soient deux réels $x$ et $y$ tels que $y\geq 0$. Alors
+
+$$y=f(x) \Longleftrightarrow y=x^2 \Longleftrightarrow x=\sqrt{y} \quad \text{ ou } \quad x=-\sqrt{y}$$
+
+c'est-à-dire $y$ admet (au plus) deux antécédents, l'un dans $[0,+\infty[$ et l'autre dans $]-\infty,0]$. Et donc $f_1^{-1}(y)=-\sqrt{y}$ et $f_2^{-1}(y)=\sqrt{y}$. On vérifie bien que chacune des deux fonctions $f_1$ et $f_2$ a le même sens de variation que sa réciproque.
+
+On remarque que la courbe totale en pointillé (à la fois la partie bleue et la verte), qui est l'image du graphe de $f$ par la symétrie par rapport à la première bissectrice, ne peut pas être le graphe d'une fonction : c'est une autre manière de voir que $f$ n'est pas bijective.
+:::
+
+Généralisons en partie l'exemple précédent.
+
+::: {.example}
+Soit $n\geq 1$. Soit $f : [0,+\infty[ \to [0,+\infty[$ définie par $f(x)=x^n$. Alors $f$ est continue et strictement croissante. Comme $\lim_{+\infty} f = +\infty$ alors $f$ est une bijection. Sa bijection réciproque $f^{-1}$ est notée : $x \mapsto x^{\frac{1}{n}}$ (ou aussi $x \mapsto \sqrt[n]{x}$) : c'est la fonction racine $n$-ième. Elle est continue et strictement croissante.
+:::
+
+## Démonstration
+
+On établit d'abord un lemme utile à la démonstration du théorème de la bijection monotone.
+
+::: {.lemma}
+Soit $f:I\to \mathbb{R}$ une fonction définie sur un intervalle $I$ de $\mathbb{R}$. Si $f$ est strictement monotone sur $I$, alors $f$ est injective sur $I$.
+:::
+
+::: {.proof}
+Soient $x,x' \in I$ tels que $f(x)=f(x')$. Montrons que $x=x'$. Si on avait $x<x'$, alors on aurait nécessairement $f(x)<f(x')$ ou $f(x)>f(x')$, suivant que $f$ est strictement croissante, ou strictement décroissante. Comme c'est impossible, on en déduit que $x\geq x'$. En échangeant les rôles de $x$ et de $x'$, on montre de même que $x\leq x'$. On en conclut que $x=x'$ et donc que $f$ est injective.
+:::
+
+::: {.proof title="(Démonstration du théorème de la bijection monotone)"}
+1. D'après le lemme précédent, $f$ est injective sur $I$. En restreignant son ensemble d'arrivée à son image $J=f(I)$, on obtient que $f$ établit une bijection de $I$ dans $J$. Comme $f$ est continue, par le théorème des valeurs intermédiaires, l'ensemble $J$ est un intervalle.
+
+2. Supposons pour fixer les idées que $f$ est strictement croissante.
+
+   - Montrons que $f^{-1}$ est strictement croissante sur $J$. Soient $y,y'\in J$ tels que $y<y'$. Notons $x=f^{-1}(y)\in I$ et $x'=f^{-1}(y')\in I$. Alors $y=f(x)$, $y'=f(x')$ et donc
+
+$$y<y'\Longrightarrow f(x)<f(x')\Longrightarrow x<x' \quad \text{ (car $f$ est strictement croissante)}\Longrightarrow f^{-1}(y)<f^{-1}(y')$$
+
+   c'est-à-dire $f^{-1}$ est strictement croissante sur $J$.
+
+   - Montrons que $f^{-1}$ est continue sur $J$. On se limite au cas où $I$ est de la forme $]a,b[$, les autres cas se montrent de la même manière. Soit $y_0\in J$. On note $x_0=f^{-1}(y_0)\in I$. Soit $\epsilon>0$. On peut toujours supposer que $[x_0-\epsilon,x_0+\epsilon]\subset I$. On cherche un réel $\delta>0$ tel que pour tout $y\in J$ on ait
+
+$$y_0-\delta<y<y_0+\delta \Longrightarrow f^{-1}(y_0)-\epsilon<f^{-1}(y)<f^{-1}(y_0)+\epsilon$$
+
+   c'est-à-dire tel que pour tout $x\in I$ on ait
+
+$$y_0-\delta<f(x)<y_0+\delta \Longrightarrow f^{-1}(y_0)-\epsilon<x<f^{-1}(y_0)+\epsilon$$
+
+   Or, comme $f$ est strictement croissante, on a pour tout $x\in I$
+
+$$f(x_0-\epsilon)<f(x)<f(x_0+\epsilon) \Longrightarrow x_0-\epsilon<x<x_0+\epsilon\Longrightarrow f^{-1}(y_0)-\epsilon<x<f^{-1}(y_0)+\epsilon$$
+
+   Comme $f(x_0-\epsilon)<y_0<f(x_0+\epsilon)$, on peut choisir le réel $\delta>0$ tel que
+
+$$f(x_0-\epsilon)<y_0-\delta \quad \text{ et } \quad f(x_0+\epsilon) > y_0+\delta$$
+
+   et on a bien alors pour tout $x\in I$
+
+$$y_0-\delta<f(x)<y_0+\delta \Longrightarrow f(x_0-\epsilon)<f(x)<f(x_0+\epsilon)\Longrightarrow f^{-1}(y_0)-\epsilon<x<f^{-1}(y_0)+\epsilon$$
+
+   La fonction $f^{-1}$ est donc continue sur $J$.
+:::
+
+::: {.exercise}
+1. Montrer que chacune des hypothèses « continue » et « strictement monotone » est nécessaire dans l'énoncé du théorème de la bijection.
+2. Soit $f : \mathbb{R} \to \mathbb{R}$ définie par $f(x)=x^3+x$. Montrer que $f$ est bijective, tracer le graphe de $f$ et de $f^{-1}$.
+3. Soit $n \geq 1$. Montrer que $f(x)=1+x+x^2+\cdots+x^n$ définit une bijection de l'intervalle $[0,1]$ vers un intervalle à préciser.
+4. Existe-t-il une fonction continue : $f: [0,1[ \to ]0,1[$ qui soit bijective ? $f: [0,1[ \to ]0,1[$ qui soit injective ? $f: ]0,1[ \to [0,1]$ qui soit surjective ?
+5. Montrer que l'application $f:x\in \mathbb{R}\longmapsto \frac{2x}{1+x^2}$ réalise une bijection d'un intervalle $I$ dans lui même.
+6. Pour $y \in \mathbb{R}$ on considère l'équation $x + \exp x =y$. Montrer qu'il existe une unique solution $x$. Comment varie $y$ en fonction de $x$ ? Comment varie $x$ en fonction de $y$ ?
+:::
+
+# Document en PDF {-}
+[Chapitre 06 : Fonctions de la variable réelle, limites et continuité](PDF/tsi1-chap06.pdf)
+
+## Navigation {-}
+::: {.chap-nav}
+[Chapitre 05 : Nombres réels et suites numériques](tsi1-chap05.qmd){.prev}
+[Menu TSI1](tsi1.qmd){.home}
+[Chapitre 07 : Fonctions de la variable réelle, dérivation](tsi1-chap07.qmd){.next}
+:::
