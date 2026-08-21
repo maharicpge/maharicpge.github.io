@@ -1,13 +1,14 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr"><head>
 
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.10.18">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Saîd MAHARI">
 
-<title>Développements limités - Mathématiques en CPGE – Mathématiques en CPGE</title>
+<title>Suites numériques – Mathématiques en CPGE</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -45,7 +46,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-7a8c080b55ea27eb37b467515007f9ee.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-e0d9a45d84245cc5e3b300860d8fa645.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -60,22 +61,66 @@ ul.task-list li input[type="checkbox"] {
   ],
   "show-item-context": false,
   "language": {
-    "search-no-results-text": "No results",
-    "search-matching-documents-text": "matching documents",
-    "search-copy-link-title": "Copy link to search",
-    "search-hide-matches-text": "Hide additional matches",
-    "search-more-match-text": "more match in this document",
-    "search-more-matches-text": "more matches in this document",
-    "search-clear-button-title": "Clear",
+    "search-no-results-text": "Pas de résultats",
+    "search-matching-documents-text": "documents trouvés",
+    "search-copy-link-title": "Copier le lien vers la recherche",
+    "search-hide-matches-text": "Cacher les correspondances additionnelles",
+    "search-more-match-text": "correspondance de plus dans ce document",
+    "search-more-matches-text": "correspondances de plus dans ce document",
+    "search-clear-button-title": "Effacer",
     "search-text-placeholder": "",
-    "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit",
-    "search-label": "Search"
+    "search-detached-cancel-button-title": "Annuler",
+    "search-submit-button-title": "Envoyer",
+    "search-label": "Recherche"
   }
 }</script>
 
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="styles.css">
 </head>
 
 <body class="nav-fixed quarto-light">
@@ -89,8 +134,8 @@ ul.task-list li input[type="checkbox"] {
     <span class="navbar-title">Accueil</span>
     </a>
   </div>
-            <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+            <div id="quarto-search" class="" title="Recherche"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Basculer la navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
@@ -140,10 +185,37 @@ ul.task-list li input[type="checkbox"] {
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
+    <h2 id="toc-title">Sur cette page</h2>
    
   <ul>
-  <li><a href="#document" id="toc-document" class="nav-link active" data-scroll-target="#document">Document</a></li>
+  <li><a href="#généralités" id="toc-généralités" class="nav-link active" data-scroll-target="#généralités"><span class="header-section-number">1</span> Généralités</a>
+  <ul class="collapse">
+  <li><a href="#définitions-et-modes-de-définition" id="toc-définitions-et-modes-de-définition" class="nav-link" data-scroll-target="#définitions-et-modes-de-définition"><span class="header-section-number">1.1</span> Définitions et modes de définition</a></li>
+  <li><a href="#suites-bornées-stationnaires" id="toc-suites-bornées-stationnaires" class="nav-link" data-scroll-target="#suites-bornées-stationnaires"><span class="header-section-number">1.2</span> Suites bornées, stationnaires</a></li>
+  </ul></li>
+  <li><a href="#convergence-et-divergence" id="toc-convergence-et-divergence" class="nav-link" data-scroll-target="#convergence-et-divergence"><span class="header-section-number">2</span> Convergence et divergence</a>
+  <ul class="collapse">
+  <li><a href="#limite-finie-et-infinie" id="toc-limite-finie-et-infinie" class="nav-link" data-scroll-target="#limite-finie-et-infinie"><span class="header-section-number">2.1</span> Limite finie et infinie</a></li>
+  <li><a href="#propriétés-fondamentales" id="toc-propriétés-fondamentales" class="nav-link" data-scroll-target="#propriétés-fondamentales"><span class="header-section-number">2.2</span> Propriétés fondamentales</a></li>
+  <li><a href="#suites-extraites" id="toc-suites-extraites" class="nav-link" data-scroll-target="#suites-extraites"><span class="header-section-number">2.3</span> Suites extraites</a></li>
+  </ul></li>
+  <li><a href="#suites-réelles" id="toc-suites-réelles" class="nav-link" data-scroll-target="#suites-réelles"><span class="header-section-number">3</span> Suites réelles</a>
+  <ul class="collapse">
+  <li><a href="#monotonie-et-limites" id="toc-monotonie-et-limites" class="nav-link" data-scroll-target="#monotonie-et-limites"><span class="header-section-number">3.1</span> Monotonie et limites</a></li>
+  <li><a href="#suites-adjacentes" id="toc-suites-adjacentes" class="nav-link" data-scroll-target="#suites-adjacentes"><span class="header-section-number">3.2</span> Suites adjacentes</a></li>
+  <li><a href="#théorème-de-bolzano-weierstrass" id="toc-théorème-de-bolzano-weierstrass" class="nav-link" data-scroll-target="#théorème-de-bolzano-weierstrass"><span class="header-section-number">3.3</span> Théorème de Bolzano-Weierstrass</a></li>
+  </ul></li>
+  <li><a href="#suites-usuelles-et-récurrentes" id="toc-suites-usuelles-et-récurrentes" class="nav-link" data-scroll-target="#suites-usuelles-et-récurrentes"><span class="header-section-number">4</span> Suites usuelles et récurrentes</a>
+  <ul class="collapse">
+  <li><a href="#suite-arithmétique" id="toc-suite-arithmétique" class="nav-link" data-scroll-target="#suite-arithmétique"><span class="header-section-number">4.1</span> Suite arithmétique</a></li>
+  <li><a href="#suite-géométrique" id="toc-suite-géométrique" class="nav-link" data-scroll-target="#suite-géométrique"><span class="header-section-number">4.2</span> Suite géométrique</a></li>
+  <li><a href="#suite-arithmético-géométrique" id="toc-suite-arithmético-géométrique" class="nav-link" data-scroll-target="#suite-arithmético-géométrique"><span class="header-section-number">4.3</span> Suite arithmético-géométrique</a></li>
+  <li><a href="#suite-récurrente-linéaire-dordre-2" id="toc-suite-récurrente-linéaire-dordre-2" class="nav-link" data-scroll-target="#suite-récurrente-linéaire-dordre-2"><span class="header-section-number">4.4</span> Suite récurrente linéaire d’ordre 2</a></li>
+  </ul></li>
+  <li><a href="#document-en-pdf" id="toc-document-en-pdf" class="nav-link" data-scroll-target="#document-en-pdf">Document en PDF</a>
+  <ul class="collapse">
+  <li><a href="#navigation" id="toc-navigation" class="nav-link" data-scroll-target="#navigation">Navigation</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -152,14 +224,27 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Chapitre 05 : Développements limités</h1>
+<h1 class="title">Suites numériques</h1>
+<p class="subtitle lead">Chapitre 05</p>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Auteur·rice</div>
+    <div class="quarto-title-meta-contents">
+             <p>Saîd MAHARI </p>
+          </div>
+  </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">Date de publication</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">21 août 2026</p>
+    </div>
+  </div>
   
     
   </div>
@@ -169,12 +254,283 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p><strong>PCSI (1re année) — Chapitre 05.</strong> Taylor-Young, applications aux limites et asymptotes.</p>
-<section id="document" class="level2">
-<h2 class="anchored" data-anchor-id="document">Document</h2>
-<p><em>PDF à venir : déposez le fichier <code>files/pcsi/chap05.pdf</code> puis régénérez la page.</em></p>
+<p><strong>PCSI (1re année) — Chapitre 05.</strong> Modes de définition, limites, convergence, opérations sur les limites, théorèmes de convergence, suites adjacentes, suites extraites, suites arithmétiques, géométriques, arithmético-géométriques, suites récurrentes linéaires d’ordre 2.</p>
+<p>Ce chapitre a été réalisé conformément au programme marocain de mathématiques de la filière PCSI.</p>
+<p>Dans tout ce chapitre, <span class="math inline">\mathbb{K}</span> désigne <span class="math inline">\mathbb{R}</span> ou <span class="math inline">\mathbb{C}</span>.</p>
+<section id="généralités" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Généralités</h1>
+<section id="définitions-et-modes-de-définition" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="définitions-et-modes-de-définition"><span class="header-section-number">1.1</span> Définitions et modes de définition</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 1.1</strong></p>
+<p>Une <strong>suite numérique</strong> (réelle ou complexe) est une famille <span class="math inline">(u_n)_{n\in \mathbb{N}}</span> d’éléments de <span class="math inline">\mathbb{K}</span> indexée par <span class="math inline">\mathbb{N}</span> (parfois par <span class="math inline">\mathbb{N}^*</span>, ou par <span class="math inline">\mathbb{N}\setminus\{0,\dots, n_0-1\}</span>). Il s’agit donc d’une fonction de <span class="math inline">\mathbb{N}</span> dans <span class="math inline">\mathbb{K}</span>.</p>
+<p><span class="math inline">u_n</span> s’appelle le <strong>terme général</strong> de la suite <span class="math inline">(u_n)_{n\in \mathbb{N}}</span>.</p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 1.1</strong></p>
+<p>Voici quelques exemples de suites :</p>
+<ol type="1">
+<li><span class="math inline">(2)_{n\in \mathbb{N}},\ \left(\frac{1}{n}\right)_{n\in \mathbb{N}^*},\ \left(\sin(n)\right)_{n\in \mathbb{N}},\ \left(e^{in\frac{\pi}{2}}\right)_{n\in \mathbb{N}},\ \left(\frac{1}{\sqrt{n^2-3n+2}}\right)_{n\geq 3},\ (i^n)_{n\in \mathbb{N}}</span></li>
+<li>La suite <span class="math inline">(u_n)_{n\in \mathbb{N}}</span> dont le terme général est défini par : <span class="math display">\begin{cases} u_0\in \mathbb{R}^+\\ \forall n\in \mathbb{N},\ u_{n+1}=\sqrt{u_n}\end{cases}</span></li>
+<li>La suite <span class="math inline">(u_n)_{n\in \mathbb{N}}</span> dont le terme général est défini par : <span class="math display">\begin{cases} u_0=1,\ u_1=2\\ \forall n\in \mathbb{N},\ u_{n+2}=2u_{n+1}-u_n\end{cases}</span></li>
+<li><span class="math inline">(F_n)_{n\geq 0}</span> définie par <span class="math inline">F_0=1</span>, <span class="math inline">F_1=1</span> et la relation <span class="math inline">F_{n+2}=F_{n+1}+F_n</span> pour <span class="math inline">n\in \mathbb{N}</span> (suite de Fibonacci). Les premiers termes sont <span class="math inline">1</span>, <span class="math inline">1</span>, <span class="math inline">2</span>, <span class="math inline">3</span>, <span class="math inline">5</span>, <span class="math inline">8</span>, <span class="math inline">13</span>, Chaque terme est la somme des deux précédents.</li>
+<li>La suite harmonique <span class="math inline">(h_n)_{n\in \mathbb{N}^*}</span> dont le terme général est défini par : <span class="math display">\forall n\in \mathbb{N}^*,\ h_n=\sum_{k=1}^n\frac{1}{k}</span></li>
+</ol>
+</div>
+</section>
+<section id="suites-bornées-stationnaires" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="suites-bornées-stationnaires"><span class="header-section-number">1.2</span> Suites bornées, stationnaires</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 1.2</strong></p>
+<p>Soit <span class="math inline">(u_n)_{n\in \mathbb{N}}\subset \mathbb{K}</span> une suite. On dit que la suite <span class="math inline">(u_n)_{n\in \mathbb{N}}</span> est <strong>bornée</strong> si : <span class="math display">\exists M &gt;0,\ \forall n\in \mathbb{N},\ |u_n|\leq M</span></p>
+</div>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 1.3</strong></p>
+<p>Soit <span class="math inline">(u_n)_{n\in \mathbb{N}}\subset \mathbb{K}</span> une suite. On dit que la suite <span class="math inline">(u_n)_{n\in \mathbb{N}}</span> est <strong>stationnaire</strong> si : <span class="math display">\exists N\in \mathbb{N}, \forall n\in \mathbb{N},\ (n\geq N\implies u_n=u_{n+1})</span></p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 1.1</strong></p>
+<p>Soit <span class="math inline">(u_n)_{n\in \mathbb{N}}</span> une suite réelle. Les assertions suivantes sont équivalentes :</p>
+<ol type="1">
+<li>La suite <span class="math inline">(u_n)_{n\in \mathbb{N}}</span> est stationnaire.</li>
+<li>Il existe un rang <span class="math inline">N\in \mathbb{N}</span> tel que la suite <span class="math inline">(u_n)_{n\geq N}</span> est constante.</li>
+</ol>
+</div>
+</section>
+</section>
+<section id="convergence-et-divergence" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> Convergence et divergence</h1>
+<section id="limite-finie-et-infinie" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="limite-finie-et-infinie"><span class="header-section-number">2.1</span> Limite finie et infinie</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 2.1</strong></p>
+<p>Soit <span class="math inline">(u_n)_{n\in \mathbb{N}}\subset \mathbb{K}</span> une suite. On dit que <span class="math inline">(u_n)_{n\in \mathbb{N}}</span> est <strong>convergente</strong> si et seulement si : <span class="math display">\exists l\in \mathbb{K}, \forall \varepsilon &gt;0, \exists N\in \mathbb{N},\forall n\in \mathbb{N}\ (n\geq N\implies |u_n-l| &lt;\varepsilon)</span> On dit, dans ce cas, que la suite <span class="math inline">(u_n)_{n\in \mathbb{N}}</span> converge vers <span class="math inline">l</span>, ou que <span class="math inline">l</span> est <strong>limite</strong> (finie) de la suite <span class="math inline">(u_n)_{n\in \mathbb{N}}</span> et on note <span class="math inline">\lim_{n\rightarrow +\infty}u_n=l</span> (ou <span class="math inline">u_n \underset{n\rightarrow +\infty}{\longrightarrow}l</span>).</p>
+<p>Sinon, on dit que la suite <span class="math inline">(u_n)_{n\in \mathbb{N}}</span> est <strong>divergente</strong>.</p>
+</div>
+<div class="proof remark">
+<p><span class="proof-title"><em>Remarque</em>. </span>La suite <span class="math inline">(u_n)_{n\in \mathbb{N}}</span> converge vers 0 si et seulement si la suite <span class="math inline">(|u_n|)_{n\in \mathbb{N}}</span> converge vers 0.</p>
+</div>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 2.2 — (Limite infinie)</strong></p>
+<p>Soit <span class="math inline">(u_n)_{n\in \mathbb{N}}</span> une suite réelle. On dit que <span class="math inline">(u_n)_{n\in \mathbb{N}}</span> <strong>diverge</strong> vers <span class="math inline">+\infty</span> (respectivement vers <span class="math inline">-\infty</span>) et on écrit <span class="math inline">\lim_{n\rightarrow +\infty}u_n=+\infty</span> (respectivement <span class="math inline">\lim_{n\rightarrow +\infty}u_n=-\infty</span>) si et seulement si : <span class="math display">\forall M\in \mathbb{R}, \exists N\in \mathbb{N}, \forall n\in \mathbb{N},\ (n\geq N \implies u_n\geq M)</span> (respectivement <span class="math inline">\forall M\in \mathbb{R}, \exists N\in \mathbb{N}, \forall n\in \mathbb{N},\ (n\geq N \implies u_n\leq M)</span>).</p>
+</div>
+</section>
+<section id="propriétés-fondamentales" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="propriétés-fondamentales"><span class="header-section-number">2.2</span> Propriétés fondamentales</h2>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 2.1 — (Unicité de la limite)</strong></p>
+<p>La limite (finie ou infinie) d’une suite réelle, si elle existe, est unique.</p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 2.1</strong></p>
+<p>Soient <span class="math inline">(u_n)_{n\in \mathbb{N}}\subset \mathbb{K}</span> une suite et <span class="math inline">l\in \mathbb{K}</span>. Si la suite <span class="math inline">(u_n)_{n\in \mathbb{N}}</span> converge vers <span class="math inline">l</span> alors la suite <span class="math inline">(|u_n|)_{n\in \mathbb{N}}</span> converge vers <span class="math inline">|l|</span>.</p>
+</div>
+<div class="proof remark">
+<p><span class="proof-title"><em>Remarque</em>. </span>La réciproque est fausse. Il suffit de considérer la suite <span class="math inline">(i^n)_{n\in \mathbb{N}}</span>.</p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 2.2</strong></p>
+<p>Toute suite convergente est bornée.</p>
+</div>
+<div class="proof remark">
+<p><span class="proof-title"><em>Remarque</em>. </span>La réciproque est fausse. Il suffit de considérer la suite de terme général <span class="math inline">u_n=(-1)^{n}</span>.</p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 2.3</strong></p>
+<p>Soient <span class="math inline">(u_n)_{n\in \mathbb{N}},(v_n)_{n\in \mathbb{N}}\subset \mathbb{K}</span> deux suites telles que :</p>
+<ol type="1">
+<li><span class="math inline">(u_n)_{n\in \mathbb{N}}</span> est bornée</li>
+<li><span class="math inline">(v_n)_{n\in \mathbb{N}}</span> converge vers 0</li>
+</ol>
+<p>Alors la suite <span class="math inline">(u_n v_n)_{n\in \mathbb{N}}</span> converge vers 0.</p>
+</div>
+</section>
+<section id="suites-extraites" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="suites-extraites"><span class="header-section-number">2.3</span> Suites extraites</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 2.3</strong></p>
+<p>Soit <span class="math inline">(u_n)_{n\in \mathbb{N}}\subset\mathbb{K}</span> une suite. On appelle <strong>suite extraite</strong> (ou <strong>sous-suite</strong>) de la suite <span class="math inline">(u_n)_{n\in \mathbb{N}}</span> toute suite <span class="math inline">(v_n)_{n\in \mathbb{N}}</span> définie par : <span class="math display">\forall n\in \mathbb{N},\ v_n=u_{\varphi(n)}</span> avec <span class="math inline">\varphi : \mathbb{N} \longrightarrow \mathbb{N}</span> une application strictement croissante.</p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 2.4</strong></p>
+<p><span class="math inline">(u_n)_{n\in \mathbb{N}}</span> converge vers une limite <span class="math inline">l\in \mathbb{K}</span> si et seulement si toutes ses suites extraites convergent vers <span class="math inline">l</span>.</p>
+</div>
+<div class="proof remark">
+<p><span class="proof-title"><em>Remarque</em>. </span></p>
+<ol type="1">
+<li>Une technique pour montrer qu’une suite est divergente est d’avoir une suite extraite divergente ou bien deux suites extraites convergentes qui ne convergent pas vers la même limite. Par exemple, la suite <span class="math inline">((-1)^n)_{n\in \mathbb{N}}</span> est divergente puisqu’elle admet deux suites extraites qui n’ont pas la même limite.</li>
+<li>Attention, plusieurs suites extraites d’une suite <span class="math inline">(u_n)_{n\in \mathbb{N}}</span>, qui convergent vers une même limite <span class="math inline">l\in \mathbb{K}</span>, <strong>n’impliquent pas</strong> que la suite <span class="math inline">(u_n)_{n\in \mathbb{N}}</span> converge.</li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 2.5</strong></p>
+<p>Si les deux suites extraites <span class="math inline">(u_{2n})_{n\in \mathbb{N}}</span> et <span class="math inline">(u_{2n+1})_{n\in \mathbb{N}}</span> convergent vers la même limite <span class="math inline">l\in \mathbb{K}</span> alors la suite <span class="math inline">(u_{n})_{n\in \mathbb{N}}</span> converge vers <span class="math inline">l</span>.</p>
+</div>
+</section>
+</section>
+<section id="suites-réelles" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Suites réelles</h1>
+<p>Dans tout ce paragraphe, <span class="math inline">\mathbb{K}=\mathbb{R}</span>.</p>
+<section id="monotonie-et-limites" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="monotonie-et-limites"><span class="header-section-number">3.1</span> Monotonie et limites</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 3.1</strong></p>
+<p>Soit <span class="math inline">(u_n)_{n\in \mathbb{N}}</span> une suite réelle.</p>
+<ol type="1">
+<li>On dit que la suite est <strong>croissante</strong> (resp. <strong>décroissante</strong>) si <span class="math inline">\forall n\in \mathbb{N},\ u_{n}\leq u_{n+1}</span> (resp. <span class="math inline">u_{n+1}\leq u_{n}</span>).</li>
+<li>On dit que la suite est <strong>monotone</strong> si elle est croissante ou décroissante.</li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 3.1 — (Opérations sur les limites)</strong></p>
+<p>Soient <span class="math inline">(u_n)_{n\in \mathbb{N}}</span> et <span class="math inline">(v_n)_{n\in \mathbb{N}}</span> deux suites réelles admettant deux limites respectives <span class="math inline">l</span> et <span class="math inline">l'</span> de <span class="math inline">\overline{\mathbb{R}}</span>.</p>
+<ol type="1">
+<li>Si <span class="math inline">l</span> et <span class="math inline">l'</span> sont finies, alors pour tous <span class="math inline">\alpha, \beta\in \mathbb{R}</span>, <span class="math inline">(\alpha u_n+\beta v_n ) \to \alpha l+\beta l'</span> et <span class="math inline">(u_n v_n) \to l l'</span>. Si <span class="math inline">l\neq 0</span>, <span class="math inline">(1/u_n) \to 1/l</span>.</li>
+<li>Si <span class="math inline">l=\pm\infty</span> et <span class="math inline">l'\in \overline{\mathbb{R}}\setminus\{0\}</span> alors <span class="math inline">u_n v_n \to \pm\infty</span> (règle des signes).</li>
+<li>Si <span class="math inline">l=\pm\infty</span> alors <span class="math inline">(1/u_n) \to 0</span>.</li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 3.2 — (Théorème des gendarmes)</strong></p>
+<p>Soient <span class="math inline">(u_n)_{n\in \mathbb{N}}</span>, <span class="math inline">(v_n)_{n\in \mathbb{N}}</span>, <span class="math inline">(w_n)_{n\in \mathbb{N}}</span> trois suites réelles et <span class="math inline">l\in \mathbb{R}</span> telles que :</p>
+<ol type="1">
+<li><span class="math inline">u_n,w_n\underset{n\rightarrow +\infty}{\longrightarrow} l</span></li>
+<li><span class="math inline">\exists N\in \mathbb{N}, \forall n\geq N,\ u_n\leq v_n\leq w_n</span></li>
+</ol>
+<p>Alors la suite <span class="math inline">(v_n)_{n\in \mathbb{N}}</span> converge vers <span class="math inline">l</span>.</p>
+</div>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 3.3 — (Théorème de divergence par majoration ou minoration)</strong></p>
+<p>Soient <span class="math inline">(u_n)_{n\in \mathbb{N}}</span> et <span class="math inline">(v_n)_{n\in \mathbb{N}}</span> deux suites réelles telles que :</p>
+<ol type="1">
+<li><span class="math inline">(v_n)_{n\in \mathbb{N}}</span> diverge vers <span class="math inline">+\infty</span> (resp. vers <span class="math inline">-\infty</span>)</li>
+<li><span class="math inline">\exists N\in \mathbb{N}, \forall n\geq N,\ v_n\leq u_n</span> (resp. <span class="math inline">u_n\leq v_n</span>)</li>
+</ol>
+<p>Alors la suite <span class="math inline">(u_n)_{n\in \mathbb{N}}</span> diverge vers <span class="math inline">+\infty</span> (resp. vers <span class="math inline">-\infty</span>).</p>
+</div>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 3.4 — (Théorème de la limite monotone)</strong></p>
+<p>Soit <span class="math inline">(u_n)_{n\in \mathbb{N}}</span> une suite réelle croissante (respectivement décroissante).</p>
+<ol type="1">
+<li>Si <span class="math inline">(u_n)_{n\in \mathbb{N}}</span> est majorée (respectivement minorée) alors elle est convergente et on a : <span class="math display">u_n \underset{n\rightarrow +\infty}{\longrightarrow } \sup\{u_n/\ n\in \mathbb{N}\} \quad (\text{resp. } \inf\{u_n/\ n\in \mathbb{N}\})</span></li>
+<li>Si <span class="math inline">(u_n)_{n\in \mathbb{N}}</span> est non majorée (respectivement non minorée) alors elle diverge vers <span class="math inline">+\infty</span> (respectivement vers <span class="math inline">-\infty</span>).</li>
+</ol>
+</div>
+</section>
+<section id="suites-adjacentes" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="suites-adjacentes"><span class="header-section-number">3.2</span> Suites adjacentes</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 3.2</strong></p>
+<p>Soit <span class="math inline">(u_n)_{n\in \mathbb{N}}</span> et <span class="math inline">(v_n)_{n\in \mathbb{N}}</span> deux suites réelles. On dit qu’elles sont <strong>adjacentes</strong> si et seulement si :</p>
+<ol type="1">
+<li>l’une est croissante et l’autre décroissante ;</li>
+<li><span class="math inline">v_n-u_n \underset{n\rightarrow +\infty}{\longrightarrow }0</span>.</li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 3.5</strong></p>
+<p>Si <span class="math inline">(u_n)_{n\in \mathbb{N}}</span> et <span class="math inline">(v_n)_{n\in \mathbb{N}}</span> sont deux suites réelles adjacentes (avec <span class="math inline">(u_n)_{n\in \mathbb{N}}</span> croissante et <span class="math inline">(v_n)_{n\in \mathbb{N}}</span> décroissante) alors :</p>
+<ol type="1">
+<li><span class="math inline">(u_n)_{n\in \mathbb{N}}</span> et <span class="math inline">(v_n)_{n\in \mathbb{N}}</span> convergent vers la même limite <span class="math inline">l\in \mathbb{R}</span>.</li>
+<li><span class="math inline">\forall n\in \mathbb{N},\ u_n\leq l\leq v_n</span>.</li>
+</ol>
+</div>
+<div class="proof remark">
+<p><span class="proof-title"><em>Remarque</em>. </span>Une technique pour montrer qu’une suite réelle <span class="math inline">(u_n)_{n\in \mathbb{N}}</span> est convergente est de montrer que ses suites extraites <span class="math inline">(u_{2n})_{n\in \mathbb{N}}</span> et <span class="math inline">(u_{2n+1})_{n\in \mathbb{N}}</span> sont adjacentes.</p>
+</div>
+</section>
+<section id="théorème-de-bolzano-weierstrass" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="théorème-de-bolzano-weierstrass"><span class="header-section-number">3.3</span> Théorème de Bolzano-Weierstrass</h2>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 3.6 — (de Bolzano-Weierstrass)</strong></p>
+<p>De toute suite réelle bornée, on peut extraire une suite convergente.</p>
+</div>
+</section>
+</section>
+<section id="suites-usuelles-et-récurrentes" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> Suites usuelles et récurrentes</h1>
+<section id="suite-arithmétique" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="suite-arithmétique"><span class="header-section-number">4.1</span> Suite arithmétique</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 4.1</strong></p>
+<p>On dit que la suite <span class="math inline">(u_n)_{n\in \mathbb{N}}</span> est une suite <strong>arithmétique</strong> de terme initial <span class="math inline">u_0\in \mathbb{K}</span> et de raison <span class="math inline">r\in \mathbb{K}</span> si elle vérifie la relation récurrente suivante : <span class="math display">\forall n\in \mathbb{N},\ u_{n+1}=u_n+r</span></p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 4.1</strong></p>
+<p>Si <span class="math inline">(u_n)_{n\in \mathbb{N}}</span> est une suite arithmétique de terme initial <span class="math inline">u_0\in \mathbb{K}</span> et de raison <span class="math inline">r\in \mathbb{K}</span> alors :</p>
+<ol type="1">
+<li><span class="math inline">\forall n\in \mathbb{N},\ u_n=u_0+nr</span></li>
+<li><span class="math inline">(u_n)_{n\in \mathbb{N}}</span> converge si et seulement si <span class="math inline">r=0</span></li>
+<li><span class="math inline">\forall m,n\in \mathbb{N}\ (m\leq n),\ \sum_{k=m}^nu_k=(n-m+1)u_0+\frac{r(n-m+1)(n+m)}{2}</span></li>
+<li>Si la suite est réelle, elle est croissante si <span class="math inline">r\geq 0</span> et décroissante sinon.</li>
+</ol>
+</div>
+</section>
+<section id="suite-géométrique" class="level2" data-number="4.2">
+<h2 data-number="4.2" class="anchored" data-anchor-id="suite-géométrique"><span class="header-section-number">4.2</span> Suite géométrique</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 4.2</strong></p>
+<p>On dit que la suite <span class="math inline">(u_n)_{n\in \mathbb{N}}</span> est une suite <strong>géométrique</strong> de terme initial <span class="math inline">u_0\in \mathbb{K}</span> et de raison <span class="math inline">q\in \mathbb{K}</span> si elle vérifie la relation récurrente suivante : <span class="math display">\forall n\in \mathbb{N},\ u_{n+1}=qu_n</span></p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 4.2</strong></p>
+<p>Si <span class="math inline">(u_n)_{n\in \mathbb{N}}</span> est une suite géométrique de terme initial <span class="math inline">u_0\in \mathbb{K}</span> et de raison <span class="math inline">q\in \mathbb{K}</span> alors :</p>
+<ol type="1">
+<li><span class="math inline">\forall n\in \mathbb{N},\ u_n=q^nu_0</span></li>
+<li><span class="math inline">\forall m,n\in \mathbb{N}\ (m\leq n),\ \sum_{k=m}^nu_k=\begin{cases}u_0\frac{q^m-q^{n+1}}{1-q}, &amp;\text{si } q\neq 1\\ u_0(n-m+1), &amp;\text{sinon} \end{cases}</span></li>
+<li>Si la suite est réelle positive, elle est croissante si <span class="math inline">q\geq 1</span> et décroissante si <span class="math inline">0\leq q\leq 1</span>.</li>
+</ol>
+</div>
+</section>
+<section id="suite-arithmético-géométrique" class="level2" data-number="4.3">
+<h2 data-number="4.3" class="anchored" data-anchor-id="suite-arithmético-géométrique"><span class="header-section-number">4.3</span> Suite arithmético-géométrique</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 4.3</strong></p>
+<p>Soit <span class="math inline">(a,b)\in \mathbb{C}^2</span>. On dit que <span class="math inline">(u_n)_{n\in \mathbb{N}}</span> est une suite <strong>arithmético-géométrique</strong> si elle est définie comme suit : <span class="math display">\begin{cases} u_0\in\mathbb{K}\\ \forall n\in \mathbb{N},\ u_{n+1}=au_n+b\end{cases}</span></p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 4.3</strong></p>
+<p><span class="math display">\forall n\in \mathbb{N},\ u_n=\begin{cases} u_0+nb, &amp;\text{si } a=1\\ a^n\left(u_0-\frac{b}{1-a}\right)+\frac{b}{1-a}, &amp; \text{sinon}\end{cases}</span></p>
+</div>
+</section>
+<section id="suite-récurrente-linéaire-dordre-2" class="level2" data-number="4.4">
+<h2 data-number="4.4" class="anchored" data-anchor-id="suite-récurrente-linéaire-dordre-2"><span class="header-section-number">4.4</span> Suite récurrente linéaire d’ordre 2</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 4.4</strong></p>
+<p>Soit <span class="math inline">(a,b)\in \mathbb{C}^2</span>. On dit que <span class="math inline">(u_n)_{n\in \mathbb{N}}</span> est une suite <strong>récurrente linéaire d’ordre 2</strong> si elle vérifie la relation récurrente suivante : <span class="math display">\forall n\in \mathbb{N},\ u_{n+2}=au_{n+1}+bu_n \quad (*)</span> On associe à la relation récurrente <span class="math inline">(*)</span> l’équation, dite <strong>équation caractéristique</strong>, suivante : <span class="math display">r^2-ar-b=0</span></p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 4.4</strong></p>
+<ol type="1">
+<li><p>Si <span class="math inline">\mathbb{K}=\mathbb{C}</span> alors :</p>
+<ul>
+<li>Si l’équation caractéristique admet deux solutions distinctes <span class="math inline">r_1</span> et <span class="math inline">r_2</span> alors : <span class="math inline">\forall n\in \mathbb{N},\ u_n=\alpha r_1^n+\beta r_2^n</span></li>
+<li>Si l’équation caractéristique admet une solution double <span class="math inline">r</span> alors : <span class="math inline">\forall n\in \mathbb{N},\ u_n=(\alpha n+\beta)r^n</span></li>
+</ul>
+<p>où <span class="math inline">(\alpha,\beta)\in \mathbb{C}^2</span>.</p></li>
+<li><p>Si <span class="math inline">\mathbb{K}=\mathbb{R}</span> alors :</p>
+<ul>
+<li>Si l’équation caractéristique admet deux solutions réelles distinctes <span class="math inline">r_1</span> et <span class="math inline">r_2</span> alors : <span class="math inline">\forall n\in \mathbb{N},\ u_n=\alpha r_1^n+\beta r_2^n</span></li>
+<li>Si l’équation caractéristique admet une solution réelle double <span class="math inline">r</span> alors : <span class="math inline">\forall n\in \mathbb{N},\ u_n=(\alpha n+\beta)r^n</span></li>
+<li>Si l’équation caractéristique admet deux solutions distinctes conjuguées <span class="math inline">r=\rho e^{i\theta}</span> et <span class="math inline">\overline{r}</span> alors : <span class="math inline">\forall n\in \mathbb{N},\ u_n=\alpha \rho^n\cos(n\theta)+\beta \rho^n\sin(n\theta)</span></li>
+</ul>
+<p>où <span class="math inline">(\alpha,\beta)\in \mathbb{R}^2</span>.</p></li>
+</ol>
+</div>
+</section>
+</section>
+<section id="document-en-pdf" class="level1 unnumbered">
+<h1 class="unnumbered">Document en PDF</h1>
+<p><a href="PDF/pcsi-chap05.pdf">Chapitre 05 : Suites numériques</a></p>
+<section id="navigation" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="navigation">Navigation</h2>
+<div class="chap-nav">
+<p><a href="../cours/pcsi-chap04.html" class="prev">Chapitre 04 : Fonctions réelles d’une variable, dérivation</a> <a href="../cours/pcsi.html" class="home">Menu PCSI</a> <a href="../cours/pcsi-chap06.html" class="next">Chapitre 06 : Fonctions usuelles, fonctions convexes</a></p>
+</div>
+<p>```</p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -222,12 +578,12 @@ ul.task-list li input[type="checkbox"] {
       // flash "checked"
       button.classList.add('code-copy-button-checked');
       var currentTitle = button.getAttribute("title");
-      button.setAttribute("title", "Copied!");
+      button.setAttribute("title", "Copié");
       let tooltip;
       if (window.bootstrap) {
         button.setAttribute("data-bs-toggle", "tooltip");
         button.setAttribute("data-bs-placement", "left");
-        button.setAttribute("data-bs-title", "Copied!");
+        button.setAttribute("data-bs-title", "Copié");
         tooltip = new bootstrap.Tooltip(button, 
           { trigger: "manual", 
             customClass: "code-copy-button-tooltip",

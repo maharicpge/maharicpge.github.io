@@ -1,13 +1,14 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr"><head>
 
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.10.18">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Saîd MAHARI">
 
-<title>Suites numériques - Mathématiques en CPGE – Mathématiques en CPGE</title>
+<title>Nombres entiers, rationnels et réels – Mathématiques en CPGE</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -45,7 +46,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-7a8c080b55ea27eb37b467515007f9ee.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-e0d9a45d84245cc5e3b300860d8fa645.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -60,22 +61,66 @@ ul.task-list li input[type="checkbox"] {
   ],
   "show-item-context": false,
   "language": {
-    "search-no-results-text": "No results",
-    "search-matching-documents-text": "matching documents",
-    "search-copy-link-title": "Copy link to search",
-    "search-hide-matches-text": "Hide additional matches",
-    "search-more-match-text": "more match in this document",
-    "search-more-matches-text": "more matches in this document",
-    "search-clear-button-title": "Clear",
+    "search-no-results-text": "Pas de résultats",
+    "search-matching-documents-text": "documents trouvés",
+    "search-copy-link-title": "Copier le lien vers la recherche",
+    "search-hide-matches-text": "Cacher les correspondances additionnelles",
+    "search-more-match-text": "correspondance de plus dans ce document",
+    "search-more-matches-text": "correspondances de plus dans ce document",
+    "search-clear-button-title": "Effacer",
     "search-text-placeholder": "",
-    "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit",
-    "search-label": "Search"
+    "search-detached-cancel-button-title": "Annuler",
+    "search-submit-button-title": "Envoyer",
+    "search-label": "Recherche"
   }
 }</script>
 
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="styles.css">
 </head>
 
 <body class="nav-fixed quarto-light">
@@ -89,8 +134,8 @@ ul.task-list li input[type="checkbox"] {
     <span class="navbar-title">Accueil</span>
     </a>
   </div>
-            <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+            <div id="quarto-search" class="" title="Recherche"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Basculer la navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
@@ -140,10 +185,32 @@ ul.task-list li input[type="checkbox"] {
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
+    <h2 id="toc-title">Sur cette page</h2>
    
   <ul>
-  <li><a href="#document" id="toc-document" class="nav-link active" data-scroll-target="#document">Document</a></li>
+  <li><a href="#nombres-entiers-et-divisibilité-dans-mathbbz" id="toc-nombres-entiers-et-divisibilité-dans-mathbbz" class="nav-link active" data-scroll-target="#nombres-entiers-et-divisibilité-dans-mathbbz"><span class="header-section-number">1</span> Nombres entiers et divisibilité dans <span class="math inline">\mathbb{Z}</span></a>
+  <ul class="collapse">
+  <li><a href="#divisibilité-dans-mathbbz" id="toc-divisibilité-dans-mathbbz" class="nav-link" data-scroll-target="#divisibilité-dans-mathbbz"><span class="header-section-number">1.1</span> Divisibilité dans <span class="math inline">\mathbb{Z}</span></a></li>
+  <li><a href="#division-euclidienne" id="toc-division-euclidienne" class="nav-link" data-scroll-target="#division-euclidienne"><span class="header-section-number">1.2</span> Division euclidienne</a></li>
+  <li><a href="#pgcd-et-algorithme-deuclide" id="toc-pgcd-et-algorithme-deuclide" class="nav-link" data-scroll-target="#pgcd-et-algorithme-deuclide"><span class="header-section-number">1.3</span> PGCD et Algorithme d’Euclide</a></li>
+  <li><a href="#identité-de-bézout-et-lemme-de-gauss" id="toc-identité-de-bézout-et-lemme-de-gauss" class="nav-link" data-scroll-target="#identité-de-bézout-et-lemme-de-gauss"><span class="header-section-number">1.4</span> Identité de Bézout et Lemme de Gauss</a></li>
+  <li><a href="#nombres-premiers-et-valuation-p-adique" id="toc-nombres-premiers-et-valuation-p-adique" class="nav-link" data-scroll-target="#nombres-premiers-et-valuation-p-adique"><span class="header-section-number">1.5</span> Nombres premiers et Valuation p-adique</a></li>
+  </ul></li>
+  <li><a href="#nombres-rationnels-et-réels" id="toc-nombres-rationnels-et-réels" class="nav-link" data-scroll-target="#nombres-rationnels-et-réels"><span class="header-section-number">2</span> Nombres rationnels et réels</a>
+  <ul class="collapse">
+  <li><a href="#ensemble-mathbbq-des-nombres-rationnels" id="toc-ensemble-mathbbq-des-nombres-rationnels" class="nav-link" data-scroll-target="#ensemble-mathbbq-des-nombres-rationnels"><span class="header-section-number">2.1</span> Ensemble <span class="math inline">\mathbb{Q}</span> des nombres rationnels</a></li>
+  <li><a href="#ensemble-mathbbr-des-nombres-réels" id="toc-ensemble-mathbbr-des-nombres-réels" class="nav-link" data-scroll-target="#ensemble-mathbbr-des-nombres-réels"><span class="header-section-number">2.2</span> Ensemble <span class="math inline">\mathbb{R}</span> des nombres réels</a></li>
+  </ul></li>
+  <li><a href="#bornes-supérieures-et-inférieures" id="toc-bornes-supérieures-et-inférieures" class="nav-link" data-scroll-target="#bornes-supérieures-et-inférieures"><span class="header-section-number">3</span> Bornes supérieures et inférieures</a>
+  <ul class="collapse">
+  <li><a href="#parties-majorées-minorées" id="toc-parties-majorées-minorées" class="nav-link" data-scroll-target="#parties-majorées-minorées"><span class="header-section-number">3.1</span> Parties majorées, minorées</a></li>
+  <li><a href="#borne-supérieure-et-borne-inférieure" id="toc-borne-supérieure-et-borne-inférieure" class="nav-link" data-scroll-target="#borne-supérieure-et-borne-inférieure"><span class="header-section-number">3.2</span> Borne supérieure et borne inférieure</a></li>
+  </ul></li>
+  <li><a href="#densité-dans-mathbbr" id="toc-densité-dans-mathbbr" class="nav-link" data-scroll-target="#densité-dans-mathbbr"><span class="header-section-number">4</span> Densité dans <span class="math inline">\mathbb{R}</span></a></li>
+  <li><a href="#document-en-pdf" id="toc-document-en-pdf" class="nav-link" data-scroll-target="#document-en-pdf">Document en PDF</a>
+  <ul class="collapse">
+  <li><a href="#navigation" id="toc-navigation" class="nav-link" data-scroll-target="#navigation">Navigation</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -152,14 +219,27 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Chapitre 04 : Suites numériques</h1>
+<h1 class="title">Nombres entiers, rationnels et réels</h1>
+<p class="subtitle lead">Chapitre 04</p>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Auteur·rice</div>
+    <div class="quarto-title-meta-contents">
+             <p>Saîd MAHARI </p>
+          </div>
+  </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">Date de publication</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">21 août 2026</p>
+    </div>
+  </div>
   
     
   </div>
@@ -169,12 +249,305 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p><strong>PCSI (1re année) — Chapitre 04.</strong> Convergence, suites récurrentes simples.</p>
-<section id="document" class="level2">
-<h2 class="anchored" data-anchor-id="document">Document</h2>
-<p><em>PDF à venir : déposez le fichier <code>files/pcsi/chap04.pdf</code> puis régénérez la page.</em></p>
+<p><strong>PCSI (1re année) — Chapitre 04.</strong> Divisibilité dans <span class="math inline">\mathbb{Z}</span>, division euclidienne, algorithme d’Euclide, nombres premiers, valuation p-adique, rationnels, réels, borne supérieure et inférieure, densité.</p>
+<p>Ce chapitre a été réalisé conformément au programme marocain de mathématiques de la filière PCSI.</p>
+<section id="nombres-entiers-et-divisibilité-dans-mathbbz" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Nombres entiers et divisibilité dans <span class="math inline">\mathbb{Z}</span></h1>
+<section id="divisibilité-dans-mathbbz" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="divisibilité-dans-mathbbz"><span class="header-section-number">1.1</span> Divisibilité dans <span class="math inline">\mathbb{Z}</span></h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 1.1</strong></p>
+<p>Soient <span class="math inline">a</span> et <span class="math inline">b</span> deux entiers relatifs avec <span class="math inline">a \neq 0</span>. On dit que <span class="math inline">a</span> <strong>divise</strong> <span class="math inline">b</span>, ou que <span class="math inline">b</span> est <strong>divisible</strong> par <span class="math inline">a</span>, s’il existe un entier relatif <span class="math inline">q</span> tel que <span class="math inline">b = aq</span>. On note alors <span class="math inline">a \mid b</span>.</p>
+<p>On note <span class="math inline">D(b)</span> l’ensemble des diviseurs positifs de <span class="math inline">b</span> et <span class="math inline">\mathcal{M}(a)</span> l’ensemble des multiples positifs de <span class="math inline">a</span>.</p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 1.1</strong></p>
+<p>Voici quelques propriétés élémentaires de la divisibilité :</p>
+<ol type="1">
+<li>Tout entier <span class="math inline">a \in \mathbb{Z}^*</span> divise <span class="math inline">0</span> et est divisible par <span class="math inline">1</span> et par lui-même.</li>
+<li>Si <span class="math inline">a \mid b</span> et <span class="math inline">b \mid c</span> alors <span class="math inline">a \mid c</span> (transitivité).</li>
+<li>Soit <span class="math inline">m</span> un entier non nul, <span class="math inline">a \mid b \iff ma \mid mb</span>.</li>
+<li>Si <span class="math inline">a \mid b</span> et <span class="math inline">a \mid c</span>, alors <span class="math inline">a \mid (bx + cy)</span> pour tous entiers <span class="math inline">x, y</span>. En particulier, <span class="math inline">a \mid (b-c)</span> et <span class="math inline">a \mid (b+c)</span>.</li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 1.2 — (Entiers associés)</strong></p>
+<p>Deux entiers <span class="math inline">a</span> et <span class="math inline">b</span> sont dits <strong>associés</strong> si <span class="math inline">b = \pm a</span>, c’est-à-dire si <span class="math inline">a \mid b</span> et <span class="math inline">b \mid a</span>.</p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 1.1</strong></p>
+<p>Soient <span class="math inline">x, y</span> des entiers. Montrer que <span class="math inline">3x+2y</span> est divisible par <span class="math inline">7</span> si et seulement si <span class="math inline">4x+5y</span> l’est aussi.</p>
+</div>
+</section>
+<section id="division-euclidienne" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="division-euclidienne"><span class="header-section-number">1.2</span> Division euclidienne</h2>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 1.1 — (Théorème de la division euclidienne)</strong></p>
+<p>Soit <span class="math inline">b</span> un entier strictement positif. Pour tout entier relatif <span class="math inline">a</span>, il existe un unique couple d’entiers <span class="math inline">(q, r)</span> tel que : <span class="math display">a = bq + r \quad \text{avec} \quad 0 \leq r &lt; b</span> L’entier <span class="math inline">q</span> est appelé le <strong>quotient</strong> et <span class="math inline">r</span> le <strong>reste</strong> de la division euclidienne de <span class="math inline">a</span> par <span class="math inline">b</span>.</p>
+</div>
+<div class="proof remark">
+<p><span class="proof-title"><em>Remarque</em>. </span>Le théorème de la division euclidienne est fondamental car il permet de raisonner par disjonction des cas sur le reste <span class="math inline">r</span> de la division par un entier <span class="math inline">n</span> fixé.</p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 1.2</strong></p>
+<ol type="1">
+<li>Soit <span class="math inline">a</span> un entier quelconque. Déterminer le reste de la division euclidienne de <span class="math inline">a^2</span> par <span class="math inline">4</span>.</li>
+<li>Montrer que <span class="math inline">n^3-n</span> est divisible à la fois par <span class="math inline">2</span> et par <span class="math inline">3</span> pour tout <span class="math inline">n \in \mathbb{N}</span>.</li>
+</ol>
+</div>
+</section>
+<section id="pgcd-et-algorithme-deuclide" class="level2" data-number="1.3">
+<h2 data-number="1.3" class="anchored" data-anchor-id="pgcd-et-algorithme-deuclide"><span class="header-section-number">1.3</span> PGCD et Algorithme d’Euclide</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 1.3</strong></p>
+<p>Un entier divisant à la fois les entiers <span class="math inline">a</span> et <span class="math inline">b</span> (non tous deux nuls) est appelé <strong>diviseur commun</strong> de <span class="math inline">a</span> et <span class="math inline">b</span>. Le plus grand entier strictement positif parmi ces diviseurs communs est appelé le <strong>plus grand commun diviseur</strong> de <span class="math inline">a</span> et <span class="math inline">b</span>, noté <span class="math inline">\operatorname{pgcd}(a,b)</span> ou <span class="math inline">a \wedge b</span>.</p>
+<p>On dit que <span class="math inline">a</span> et <span class="math inline">b</span> sont <strong>premiers entre eux</strong> si <span class="math inline">\operatorname{pgcd}(a,b)=1</span>.</p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 1.2</strong></p>
+<p>On a les propriétés suivantes :</p>
+<ol type="1">
+<li>Pour tout entier <span class="math inline">c</span>, <span class="math inline">\operatorname{pgcd}(a,b) = \operatorname{pgcd}(a, b+ac) = \operatorname{pgcd}(a+bc, b)</span>.</li>
+<li>Si <span class="math inline">r</span> est le reste de la division euclidienne de <span class="math inline">a</span> par <span class="math inline">b</span>, alors <span class="math inline">\operatorname{pgcd}(a,b) = \operatorname{pgcd}(b,r)</span>.</li>
+<li><span class="math inline">D(a) \cap D(b) = D(a \wedge b)</span>.</li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 1.2 — (Algorithme d’Euclide)</strong></p>
+<p>L’algorithme d’Euclide permet de calculer le PGCD de deux entiers <span class="math inline">a</span> et <span class="math inline">b</span> (<span class="math inline">a&gt;b&gt;0</span>) par divisions euclidiennes successives : <span class="math display">\begin{aligned}
+a &amp;= bq_1 + r_1 &amp; (0 \leq r_1 &lt; b) \\
+b &amp;= r_1 q_2 + r_2 &amp; (0 \leq r_2 &lt; r_1) \\
+r_1 &amp;= r_2 q_3 + r_3 &amp; (0 \leq r_3 &lt; r_2) \\
+&amp;\vdots &amp; \\
+r_{n-2} &amp;= r_{n-1} q_n + r_n &amp; (0 \leq r_n &lt; r_{n-1}) \\
+r_{n-1} &amp;= r_n q_{n+1} + 0
+\end{aligned}</span> Le dernier reste non nul <span class="math inline">r_n</span> est égal à <span class="math inline">\operatorname{pgcd}(a,b)</span>.</p>
+</div>
+</section>
+<section id="identité-de-bézout-et-lemme-de-gauss" class="level2" data-number="1.4">
+<h2 data-number="1.4" class="anchored" data-anchor-id="identité-de-bézout-et-lemme-de-gauss"><span class="header-section-number">1.4</span> Identité de Bézout et Lemme de Gauss</h2>
+<div class="custom-numbered-block custom-corollary">
+<p><strong>Corollaire 1.1 — (Identité de Bézout)</strong></p>
+<p>Si <span class="math inline">d = \operatorname{pgcd}(a,b)</span>, alors il existe deux entiers relatifs <span class="math inline">u</span> et <span class="math inline">v</span> tels que : <span class="math display">au + bv = d</span> En particulier, <span class="math inline">a</span> et <span class="math inline">b</span> sont premiers entre eux si et seulement s’il existe <span class="math inline">(u,v) \in \mathbb{Z}^2</span> tels que <span class="math inline">au+bv=1</span>.</p>
+</div>
+<div class="proof remark">
+<p><span class="proof-title"><em>Remarque</em>. </span>Les entiers <span class="math inline">u</span> et <span class="math inline">v</span> ne sont pas uniques. Ils peuvent être trouvés en « remontant » l’algorithme d’Euclide.</p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 1.1</strong></p>
+<p>Déterminons le PGCD de <span class="math inline">75</span> et <span class="math inline">55</span> et des coefficients de Bézout : <span class="math display">\begin{aligned}
+75 &amp;= 55 \times 1 + 20 \\
+55 &amp;= 20 \times 2 + 15 \\
+20 &amp;= 15 \times 1 + 5 \\
+15 &amp;= 5 \times 3 + 0
+\end{aligned}</span> Donc <span class="math inline">\operatorname{pgcd}(75,55)=5</span>. En remontant : <span class="math display">5 = 20 - 15 \times 1 = 20 - (55 - 20 \times 2) = 75 \times 3 + 55 \times (-4)</span> Donc <span class="math inline">u=3</span> et <span class="math inline">v=-4</span>.</p>
+</div>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 1.3 — (Lemme de Gauss)</strong></p>
+<p>Soient <span class="math inline">a, b, c</span> trois entiers tels que <span class="math inline">\operatorname{pgcd}(a,b)=1</span>. Alors : <span class="math display">a \mid bc \implies a \mid c</span></p>
+</div>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 1.4 — (Lemme d’Euclide)</strong></p>
+<p>Soient <span class="math inline">a, b, c</span> trois entiers tels que <span class="math inline">\operatorname{pgcd}(a,b)=1</span>. Alors : <span class="math display">a \mid c \text{ et } b \mid c \implies ab \mid c</span></p>
+</div>
+</section>
+<section id="nombres-premiers-et-valuation-p-adique" class="level2" data-number="1.5">
+<h2 data-number="1.5" class="anchored" data-anchor-id="nombres-premiers-et-valuation-p-adique"><span class="header-section-number">1.5</span> Nombres premiers et Valuation p-adique</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 1.4</strong></p>
+<p>Un entier naturel <span class="math inline">p &gt; 1</span> est dit <strong>premier</strong> s’il possède exactement deux diviseurs naturels : <span class="math inline">1</span> et <span class="math inline">p</span>.</p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 1.3</strong></p>
+<p>Soient <span class="math inline">a, b \in \mathbb{Z}</span> et <span class="math inline">p</span> un nombre premier. Alors : <span class="math display">p \mid ab \iff p \mid a \text{ ou } p \mid b</span></p>
+</div>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 1.5 — (Théorème fondamental de l’arithmétique)</strong></p>
+<p>Tout entier naturel non nul <span class="math inline">n</span> se décompose de façon unique en produit de nombres premiers : <span class="math display">n = \prod_{p \in \mathcal{P}} p^{v_p(n)}</span> où <span class="math inline">\mathcal{P}</span> est l’ensemble des nombres premiers et <span class="math inline">v_p(n)</span> est le plus grand entier naturel <span class="math inline">m</span> tel que <span class="math inline">p^m \mid n</span>. L’entier <span class="math inline">v_p(n)</span> est appelé la <strong>valuation p-adique</strong> de <span class="math inline">n</span>.</p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 1.4 — (Propriétés de la valuation)</strong></p>
+<p>Soit <span class="math inline">(a,b) \in (\mathbb{N}^*)^2</span>. Alors :</p>
+<ol type="1">
+<li><span class="math inline">\forall p \in \mathcal{P},\ v_p(ab) = v_p(a) + v_p(b)</span></li>
+<li><span class="math inline">a \mid b \iff \forall p \in \mathcal{P},\ v_p(a) \leq v_p(b)</span></li>
+<li><span class="math inline">\operatorname{pgcd}(a,b) = \prod_{p \in \mathcal{P}} p^{\min(v_p(a), v_p(b))}</span></li>
+<li><span class="math inline">\operatorname{ppcm}(a,b) = \prod_{p \in \mathcal{P}} p^{\max(v_p(a), v_p(b))}</span></li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 1.3</strong></p>
+<ol type="1">
+<li>Calculer <span class="math inline">v_2(54), v_3(54), v_5(54)</span>. Décomposer <span class="math inline">54</span> en produit de nombres premiers.</li>
+<li>Soient <span class="math inline">p,q \in \mathcal{P}</span> et <span class="math inline">k \in \mathbb{N}</span>. Calculer <span class="math inline">v_p(q^k)</span>.</li>
+</ol>
+</div>
+</section>
+</section>
+<section id="nombres-rationnels-et-réels" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> Nombres rationnels et réels</h1>
+<section id="ensemble-mathbbq-des-nombres-rationnels" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="ensemble-mathbbq-des-nombres-rationnels"><span class="header-section-number">2.1</span> Ensemble <span class="math inline">\mathbb{Q}</span> des nombres rationnels</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 2.1</strong></p>
+<p>Un nombre <strong>rationnel</strong> est un nombre qui peut s’écrire sous la forme <span class="math inline">\frac{p}{q}</span> où <span class="math inline">p \in \mathbb{Z}</span> et <span class="math inline">q \in \mathbb{N}^*</span>. L’ensemble des rationnels est noté <span class="math inline">\mathbb{Q}</span>.</p>
+<p>La <strong>forme irréductible</strong> d’un rationnel est son écriture <span class="math inline">\frac{p}{q}</span> avec <span class="math inline">\operatorname{pgcd}(p,q)=1</span> et <span class="math inline">q&gt;0</span>.</p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 2.1</strong></p>
+<p>Soit <span class="math inline">p</span> un nombre premier. Montrer que <span class="math inline">\sqrt{p} \notin \mathbb{Q}</span>.</p>
+</div>
+</section>
+<section id="ensemble-mathbbr-des-nombres-réels" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="ensemble-mathbbr-des-nombres-réels"><span class="header-section-number">2.2</span> Ensemble <span class="math inline">\mathbb{R}</span> des nombres réels</h2>
+<div class="proof remark">
+<p><span class="proof-title"><em>Remarque</em>. </span>La construction de <span class="math inline">\mathbb{R}</span> (par suites de Cauchy ou coupures de Dedekind) est hors programme. On admet que <span class="math inline">\mathbb{R}</span> est un corps commutatif totalement ordonné contenant <span class="math inline">\mathbb{Q}</span> et vérifiant l’axiome de la borne supérieure.</p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 2.1 — (Propriétés de l’ordre dans <span class="math inline">\boldsymbol{\mathbb{R}}</span>)</strong></p>
+<p>Pour tous <span class="math inline">x,y,z,t \in \mathbb{R}</span> :</p>
+<ol type="1">
+<li><span class="math inline">x \leq y \text{ et } z \leq t \implies x+z \leq y+t</span></li>
+<li><span class="math inline">x \leq y \text{ et } z &lt; t \implies x+z &lt; y+t</span></li>
+<li>Si <span class="math inline">z,t \geq 0</span> : <span class="math inline">x \leq y \text{ et } z \leq t \implies xz \leq yt</span></li>
+<li><span class="math inline">x \leq y \implies -y \leq -x</span></li>
+<li>Si <span class="math inline">x,y &gt; 0</span> : <span class="math inline">x \leq y \implies \frac{1}{y} \leq \frac{1}{x}</span></li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 2.2 — (Valeur absolue)</strong></p>
+<p>Soit <span class="math inline">x \in \mathbb{R}</span>. On définit la valeur absolue de <span class="math inline">x</span> par : <span class="math display">|x| = \max(-x, x) = \begin{cases} -x &amp; \text{si } x \leq 0 \\ x &amp; \text{sinon} \end{cases}</span></p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 2.2</strong></p>
+<p>Soient <span class="math inline">x,y \in \mathbb{R}</span>. Alors :</p>
+<ol type="1">
+<li><span class="math inline">\max(x,y) = \frac{|y-x|+(x+y)}{2}</span></li>
+<li><span class="math inline">\min(x,y) = \frac{(x+y)-|y-x|}{2}</span></li>
+<li><strong>Inégalité triangulaire :</strong> <span class="math inline">\big||x|-|y|\big| \leq |x \pm y| \leq |x|+|y|</span></li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 2.1 — (Propriété d’Archimède)</strong></p>
+<p><span class="math display">\forall y \in \mathbb{R},\ \forall x &gt; 0,\ \exists n \in \mathbb{N},\ nx &gt; y</span></p>
+</div>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 2.3 — (Partie entière)</strong></p>
+<p>Pour tout <span class="math inline">x \in \mathbb{R}</span>, il existe un unique entier <span class="math inline">p \in \mathbb{Z}</span> tel que <span class="math inline">p \leq x &lt; p+1</span>. Cet entier est appelé la <strong>partie entière</strong> de <span class="math inline">x</span> et est noté <span class="math inline">\lfloor x \rfloor</span> ou <span class="math inline">E(x)</span>.</p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 2.3 — (Propriétés de la partie entière)</strong></p>
+<ol type="1">
+<li><span class="math inline">\forall x \in \mathbb{R},\ \forall n \in \mathbb{Z},\ \lfloor x \rfloor = n \iff n \leq x &lt; n+1</span></li>
+<li><span class="math inline">\forall n \in \mathbb{Z},\ \lfloor n \rfloor = n</span></li>
+<li><span class="math inline">\forall x \in \mathbb{R},\ \forall n \in \mathbb{Z},\ \lfloor x+n \rfloor = \lfloor x \rfloor + n</span></li>
+<li><span class="math inline">\forall x,y \in \mathbb{R},\ \lfloor x \rfloor + \lfloor y \rfloor \leq \lfloor x+y \rfloor</span></li>
+</ol>
+</div>
+</section>
+</section>
+<section id="bornes-supérieures-et-inférieures" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Bornes supérieures et inférieures</h1>
+<section id="parties-majorées-minorées" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="parties-majorées-minorées"><span class="header-section-number">3.1</span> Parties majorées, minorées</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 3.1</strong></p>
+<p>Soit <span class="math inline">A</span> une partie non vide de <span class="math inline">\mathbb{R}</span>.</p>
+<ol type="1">
+<li><span class="math inline">A</span> est <strong>majorée</strong> s’il existe <span class="math inline">M \in \mathbb{R}</span> tel que <span class="math inline">\forall x \in A,\ x \leq M</span>. Un tel <span class="math inline">M</span> est un <strong>majorant</strong>.</li>
+<li><span class="math inline">A</span> est <strong>minorée</strong> s’il existe <span class="math inline">m \in \mathbb{R}</span> tel que <span class="math inline">\forall x \in A,\ m \leq x</span>. Un tel <span class="math inline">m</span> est un <strong>minorant</strong>.</li>
+<li>Le <strong>plus grand élément</strong> de <span class="math inline">A</span> (s’il existe) est noté <span class="math inline">\max A</span>.</li>
+<li>Le <strong>plus petit élément</strong> de <span class="math inline">A</span> (s’il existe) est noté <span class="math inline">\min A</span>.</li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 3.1</strong></p>
+<ol type="1">
+<li><span class="math inline">E = ]0,1]</span> : <span class="math inline">\max E = 1</span>, pas de minimum, <span class="math inline">\inf E = 0</span>.</li>
+<li><span class="math inline">F = \mathbb{Q} \cap [\sqrt{2}, +\infty[</span> : pas de minimum, pas de maximum, <span class="math inline">\inf F = \sqrt{2}</span>.</li>
+<li>Un segment <span class="math inline">[a,b]</span> admet <span class="math inline">\min = a</span> et <span class="math inline">\max = b</span>.</li>
+</ol>
+</div>
+</section>
+<section id="borne-supérieure-et-borne-inférieure" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="borne-supérieure-et-borne-inférieure"><span class="header-section-number">3.2</span> Borne supérieure et borne inférieure</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 3.2</strong></p>
+<p>Soit <span class="math inline">X</span> une partie non vide de <span class="math inline">\mathbb{R}</span>.</p>
+<ol type="1">
+<li>La <strong>borne supérieure</strong> de <span class="math inline">X</span>, notée <span class="math inline">\sup X</span>, est le plus petit des majorants de <span class="math inline">X</span> (si elle existe).</li>
+<li>La <strong>borne inférieure</strong> de <span class="math inline">X</span>, notée <span class="math inline">\inf X</span>, est le plus grand des minorants de <span class="math inline">X</span> (si elle existe).</li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 3.1 — (Axiome de la borne supérieure)</strong></p>
+<p>Toute partie non vide de <span class="math inline">\mathbb{R}</span> majorée admet une borne supérieure. Toute partie non vide minorée admet une borne inférieure.</p>
+</div>
+<div class="proof remark">
+<p><span class="proof-title"><em>Remarque</em>. </span></p>
+<ol type="1">
+<li>Un ensemble qui admet une borne supérieure n’admet pas forcément de plus grand élément.</li>
+<li>Si <span class="math inline">X</span> admet un plus grand élément, alors <span class="math inline">\max X = \sup X</span>.</li>
+<li>Dans la droite achevée <span class="math inline">\overline{\mathbb{R}} = \mathbb{R} \cup \{-\infty, +\infty\}</span>, toute partie non vide possède une borne supérieure et une borne inférieure.</li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 3.2 — (Caractérisation de la borne supérieure)</strong></p>
+<p>Soient <span class="math inline">X</span> une partie non vide de <span class="math inline">\mathbb{R}</span> et <span class="math inline">\alpha \in \mathbb{R}</span>. Alors : <span class="math display">\sup X = \alpha \iff \begin{cases} \forall x \in X,\ x \leq \alpha \\ \forall \varepsilon &gt; 0,\ \exists x_\varepsilon \in X,\ \alpha - \varepsilon &lt; x_\varepsilon \end{cases}</span></p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 3.2</strong></p>
+<p>Soit <span class="math inline">G = \left\{ \frac{1}{n} - \frac{1}{m} \mid (n,m) \in (\mathbb{N}^*)^2 \right\}</span>.</p>
+<ul>
+<li><strong>Borne inférieure :</strong> Pour tout <span class="math inline">(n,m)</span>, <span class="math inline">\frac{1}{n} - \frac{1}{m} \geq -1</span>. De plus, pour <span class="math inline">n=1</span> et <span class="math inline">m \to +\infty</span>, <span class="math inline">\frac{1}{1}-\frac{1}{m} \to 1</span>… Non, prenons <span class="math inline">n \to +\infty</span> et <span class="math inline">m=1</span> : <span class="math inline">\frac{1}{n}-1 \to -1</span>. Donc <span class="math inline">\inf G = -1</span>.</li>
+<li><strong>Borne supérieure :</strong> Pour tout <span class="math inline">(n,m)</span>, <span class="math inline">\frac{1}{n} - \frac{1}{m} \leq 1</span>. De plus, pour <span class="math inline">m \to +\infty</span> et <span class="math inline">n=1</span>, <span class="math inline">\frac{1}{1}-\frac{1}{m} \to 1</span>. Donc <span class="math inline">\sup G = 1</span>.</li>
+</ul>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 3.1</strong></p>
+<p>Déterminer, quand elles existent, les bornes supérieures et inférieures des ensembles suivants :</p>
+<ol type="1">
+<li><span class="math inline">A = \left\{ \frac{1}{n} + (-1)^n \mid n \in \mathbb{N}^* \right\}</span></li>
+<li><span class="math inline">B = \mathbb{Q} \cap [\sqrt{2}, 2]</span></li>
+<li><span class="math inline">C = \left\{ \frac{1}{m} + \frac{1}{n} \mid (m,n) \in (\mathbb{N}^*)^2 \right\}</span></li>
+</ol>
+</div>
+</section>
+</section>
+<section id="densité-dans-mathbbr" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> Densité dans <span class="math inline">\mathbb{R}</span></h1>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 4.1</strong></p>
+<p>Une partie <span class="math inline">X</span> de <span class="math inline">\mathbb{R}</span> est dite <strong>dense</strong> dans <span class="math inline">\mathbb{R}</span> si : <span class="math display">\forall y \in \mathbb{R},\ \forall \varepsilon &gt; 0,\ \exists x \in X,\ |y-x| &lt; \varepsilon</span></p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 4.1</strong></p>
+<p>Soit <span class="math inline">X</span> une partie de <span class="math inline">\mathbb{R}</span>. Les assertions suivantes sont équivalentes :</p>
+<ol type="1">
+<li><span class="math inline">X</span> est dense dans <span class="math inline">\mathbb{R}</span>.</li>
+<li><span class="math inline">\forall (y_1, y_2) \in \mathbb{R}^2,\ y_1 &lt; y_2 \implies \exists x \in X,\ y_1 &lt; x &lt; y_2</span>.</li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 4.1</strong></p>
+<p>Les ensembles <span class="math inline">\mathbb{Q}</span> et <span class="math inline">\mathbb{R} \setminus \mathbb{Q}</span> sont denses dans <span class="math inline">\mathbb{R}</span>.</p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 4.1 — (Densité des décimaux)</strong></p>
+<p>Montrer que l’ensemble <span class="math inline">\mathbb{D} = \{ q \cdot 10^{-p} \mid (p,q) \in \mathbb{N} \times \mathbb{Z} \}</span> est dense dans <span class="math inline">\mathbb{R}</span>.</p>
+</div>
+</section>
+<section id="document-en-pdf" class="level1 unnumbered">
+<h1 class="unnumbered">Document en PDF</h1>
+<p><a href="PDF/pcsi-chap04.pdf">Chapitre 04 : Nombres entiers, rationnels et réels</a></p>
+<section id="navigation" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="navigation">Navigation</h2>
+<div class="chap-nav">
+<p><a href="../cours/pcsi-chap03.html" class="prev">Chapitre 03 : Compléments de calcul algébrique</a> <a href="../cours/pcsi.html" class="home">Menu PCSI</a> <a href="../cours/pcsi-chap05.html" class="next">Chapitre 05 : Suites numériques</a></p>
+</div>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -222,12 +595,12 @@ ul.task-list li input[type="checkbox"] {
       // flash "checked"
       button.classList.add('code-copy-button-checked');
       var currentTitle = button.getAttribute("title");
-      button.setAttribute("title", "Copied!");
+      button.setAttribute("title", "Copié");
       let tooltip;
       if (window.bootstrap) {
         button.setAttribute("data-bs-toggle", "tooltip");
         button.setAttribute("data-bs-placement", "left");
-        button.setAttribute("data-bs-title", "Copied!");
+        button.setAttribute("data-bs-title", "Copié");
         tooltip = new bootstrap.Tooltip(button, 
           { trigger: "manual", 
             customClass: "code-copy-button-tooltip",

@@ -1,13 +1,14 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr"><head>
 
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.10.18">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Saîd MAHARI">
 
-<title>Équations différentielles - Mathématiques en CPGE – Mathématiques en CPGE</title>
+<title>Géométrie élémentaire du plan et de l’espace – Mathématiques en CPGE</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -45,7 +46,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-7a8c080b55ea27eb37b467515007f9ee.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-e0d9a45d84245cc5e3b300860d8fa645.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -60,22 +61,66 @@ ul.task-list li input[type="checkbox"] {
   ],
   "show-item-context": false,
   "language": {
-    "search-no-results-text": "No results",
-    "search-matching-documents-text": "matching documents",
-    "search-copy-link-title": "Copy link to search",
-    "search-hide-matches-text": "Hide additional matches",
-    "search-more-match-text": "more match in this document",
-    "search-more-matches-text": "more matches in this document",
-    "search-clear-button-title": "Clear",
+    "search-no-results-text": "Pas de résultats",
+    "search-matching-documents-text": "documents trouvés",
+    "search-copy-link-title": "Copier le lien vers la recherche",
+    "search-hide-matches-text": "Cacher les correspondances additionnelles",
+    "search-more-match-text": "correspondance de plus dans ce document",
+    "search-more-matches-text": "correspondances de plus dans ce document",
+    "search-clear-button-title": "Effacer",
     "search-text-placeholder": "",
-    "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit",
-    "search-label": "Search"
+    "search-detached-cancel-button-title": "Annuler",
+    "search-submit-button-title": "Envoyer",
+    "search-label": "Recherche"
   }
 }</script>
 
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="styles.css">
 </head>
 
 <body class="nav-fixed quarto-light">
@@ -89,8 +134,8 @@ ul.task-list li input[type="checkbox"] {
     <span class="navbar-title">Accueil</span>
     </a>
   </div>
-            <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+            <div id="quarto-search" class="" title="Recherche"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Basculer la navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
@@ -140,10 +185,32 @@ ul.task-list li input[type="checkbox"] {
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
+    <h2 id="toc-title">Sur cette page</h2>
    
   <ul>
-  <li><a href="#document" id="toc-document" class="nav-link active" data-scroll-target="#document">Document</a></li>
+  <li><a href="#cas-du-plan" id="toc-cas-du-plan" class="nav-link active" data-scroll-target="#cas-du-plan"><span class="header-section-number">1</span> Cas du plan</a>
+  <ul class="collapse">
+  <li><a href="#repères-et-coordonnées-dans-le-plan" id="toc-repères-et-coordonnées-dans-le-plan" class="nav-link" data-scroll-target="#repères-et-coordonnées-dans-le-plan"><span class="header-section-number">1.1</span> Repères et coordonnées dans le plan</a></li>
+  <li><a href="#coordonnées-polaires" id="toc-coordonnées-polaires" class="nav-link" data-scroll-target="#coordonnées-polaires"><span class="header-section-number">1.2</span> Coordonnées polaires</a></li>
+  <li><a href="#systèmes-de-points-pondérés-et-barycentres" id="toc-systèmes-de-points-pondérés-et-barycentres" class="nav-link" data-scroll-target="#systèmes-de-points-pondérés-et-barycentres"><span class="header-section-number">1.3</span> Systèmes de points pondérés et barycentres</a></li>
+  <li><a href="#produit-scalaire-dans-le-plan" id="toc-produit-scalaire-dans-le-plan" class="nav-link" data-scroll-target="#produit-scalaire-dans-le-plan"><span class="header-section-number">1.4</span> Produit scalaire dans le plan</a></li>
+  <li><a href="#déterminant-de-deux-vecteurs-dans-le-plan" id="toc-déterminant-de-deux-vecteurs-dans-le-plan" class="nav-link" data-scroll-target="#déterminant-de-deux-vecteurs-dans-le-plan"><span class="header-section-number">1.5</span> Déterminant de deux vecteurs dans le plan</a></li>
+  <li><a href="#droites-du-plan" id="toc-droites-du-plan" class="nav-link" data-scroll-target="#droites-du-plan"><span class="header-section-number">1.6</span> Droites du plan</a></li>
+  <li><a href="#cercles-du-plan" id="toc-cercles-du-plan" class="nav-link" data-scroll-target="#cercles-du-plan"><span class="header-section-number">1.7</span> Cercles du plan</a></li>
+  <li><a href="#transformations-affines-du-plan" id="toc-transformations-affines-du-plan" class="nav-link" data-scroll-target="#transformations-affines-du-plan"><span class="header-section-number">1.8</span> Transformations affines du plan</a></li>
+  </ul></li>
+  <li><a href="#cas-de-lespace" id="toc-cas-de-lespace" class="nav-link" data-scroll-target="#cas-de-lespace"><span class="header-section-number">2</span> Cas de l’espace</a>
+  <ul class="collapse">
+  <li><a href="#repères-et-coordonnées-dans-lespace" id="toc-repères-et-coordonnées-dans-lespace" class="nav-link" data-scroll-target="#repères-et-coordonnées-dans-lespace"><span class="header-section-number">2.1</span> Repères et coordonnées dans l’espace</a></li>
+  <li><a href="#produit-scalaire-dans-lespace" id="toc-produit-scalaire-dans-lespace" class="nav-link" data-scroll-target="#produit-scalaire-dans-lespace"><span class="header-section-number">2.2</span> Produit scalaire dans l’espace</a></li>
+  <li><a href="#produit-vectoriel-dans-lespace" id="toc-produit-vectoriel-dans-lespace" class="nav-link" data-scroll-target="#produit-vectoriel-dans-lespace"><span class="header-section-number">2.3</span> Produit vectoriel dans l’espace</a></li>
+  <li><a href="#produit-mixte-dans-lespace" id="toc-produit-mixte-dans-lespace" class="nav-link" data-scroll-target="#produit-mixte-dans-lespace"><span class="header-section-number">2.4</span> Produit mixte dans l’espace</a></li>
+  <li><a href="#plans-de-lespace" id="toc-plans-de-lespace" class="nav-link" data-scroll-target="#plans-de-lespace"><span class="header-section-number">2.5</span> Plans de l’espace</a></li>
+  <li><a href="#droites-de-lespace" id="toc-droites-de-lespace" class="nav-link" data-scroll-target="#droites-de-lespace"><span class="header-section-number">2.6</span> Droites de l’espace</a></li>
+  <li><a href="#sphères" id="toc-sphères" class="nav-link" data-scroll-target="#sphères"><span class="header-section-number">2.7</span> Sphères</a></li>
+  <li><a href="#document-en-pdf" id="toc-document-en-pdf" class="nav-link" data-scroll-target="#document-en-pdf">Document en PDF</a></li>
+  </ul></li>
+  <li><a href="#navigation" id="toc-navigation" class="nav-link" data-scroll-target="#navigation">Navigation</a></li>
   </ul>
 </nav>
     </div>
@@ -152,14 +219,27 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Chapitre 04 : Équations différentielles</h1>
+<h1 class="title">Géométrie élémentaire du plan et de l’espace</h1>
+<p class="subtitle lead">Chapitre 04</p>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Auteur·rice</div>
+    <div class="quarto-title-meta-contents">
+             <p>Saîd MAHARI </p>
+          </div>
+  </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">Date de publication</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">21 août 2026</p>
+    </div>
+  </div>
   
     
   </div>
@@ -169,10 +249,391 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p><strong>TSI 1re année — Chapitre 04.</strong> Linéaires d’ordres 1 et 2 à coefficients constants.</p>
-<section id="document" class="level2">
-<h2 class="anchored" data-anchor-id="document">Document</h2>
-<p><em>PDF à venir : déposez le fichier <code>files/tsi1/chap04.pdf</code> puis régénérez la page.</em></p>
+<p><strong>TSI 1re année — Chapitre 04.</strong> Repères, coordonnées cartésiennes et polaires, produit scalaire, produit vectoriel, produit mixte, droites, plans, cercles, sphères, transformations affines.</p>
+<p>Ce chapitre a été réalisé conformément au programme marocain de mathématiques de la filière TSI1.</p>
+<p>À l’issue de la classe terminale, les élèves connaissent le plan géométrique euclidien et l’espace géométrique euclidien (de dimension 3) en tant qu’ensembles de points. Ils connaissent en particulier la façon d’associer à deux points <span class="math inline">A</span> et <span class="math inline">B</span> le vecteur <span class="math inline">\overrightarrow{AB}</span> ainsi que les propriétés opératoires usuelles des vecteurs. Il s’agit ici de constater que l’ensemble des vecteurs du plan (resp. de l’espace) est muni d’une structure de plan vectoriel (resp. d’espace vectoriel de dimension 3) en l’identifiant à <span class="math inline">\mathbb{R}^2</span> (resp. à <span class="math inline">\mathbb{R}^3</span>) par la donnée d’une base orthonormale.</p>
+<p>Dans le plan et l’espace, les notions suivantes sont supposées connues : calcul vectoriel, distance euclidienne, orthogonalité, repère orthonormal, angles.</p>
+<p>La géométrie joue un rôle essentiel en mathématiques et dans les disciplines scientifiques et technologiques ; elle est au cœur des compétences de modélisation et de représentation. Cette section est traitée en liaison avec les autres disciplines.</p>
+<section id="cas-du-plan" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Cas du plan</h1>
+<p>Les notions d’orientation du plan et celle de base orthonormale directe sont admises.</p>
+<section id="repères-et-coordonnées-dans-le-plan" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="repères-et-coordonnées-dans-le-plan"><span class="header-section-number">1.1</span> Repères et coordonnées dans le plan</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 1.1</strong></p>
+<p>Soit <span class="math inline">O</span> un point du plan et <span class="math inline">(\vec{e}_1, \vec{e}_2)</span> une famille libre de vecteurs du plan. Le couple <span class="math inline">(O; \vec{e}_1, \vec{e}_2)</span> est appelé <strong>repère</strong> du plan. Tout point <span class="math inline">M</span> du plan s’écrit de manière unique : <span class="math display">\overrightarrow{OM} = x\vec{e}_1 + y\vec{e}_2</span> Le couple <span class="math inline">(x, y)</span> est appelé <strong>coordonnées cartésiennes</strong> de <span class="math inline">M</span> dans ce repère.</p>
+</div>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 1.2</strong></p>
+<p>Un repère <span class="math inline">(O; \vec{e}_1, \vec{e}_2)</span> est dit : - <strong>orthogonal</strong> si <span class="math inline">\vec{e}_1 \cdot \vec{e}_2 = 0</span> ; - <strong>orthonormé</strong> (ou orthonormal) si de plus <span class="math inline">\|\vec{e}_1\| = \|\vec{e}_2\| = 1</span> ; - <strong>orthonormé direct</strong> si de plus la base <span class="math inline">(\vec{e}_1, \vec{e}_2)</span> est directe (c’est-à-dire que <span class="math inline">\vec{e}_2</span> est obtenu en faisant tourner <span class="math inline">\vec{e}_1</span> d’un angle <span class="math inline">+\frac{\pi}{2}</span>).</p>
+</div>
+<div class="proof remark">
+<p><span class="proof-title"><em>Remarque</em>. </span>Le <strong>changement de repère</strong> est une technique fondamentale. Si <span class="math inline">(O; \vec{e}_1, \vec{e}_2)</span> et <span class="math inline">(O'; \vec{e}'_1, \vec{e}'_2)</span> sont deux repères du plan, alors les coordonnées d’un point <span class="math inline">M</span> dans les deux repères sont liées par une relation linéaire.</p>
+</div>
+</section>
+<section id="coordonnées-polaires" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="coordonnées-polaires"><span class="header-section-number">1.2</span> Coordonnées polaires</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 1.3</strong></p>
+<p>Soit <span class="math inline">(\vec{e}_1, \vec{e}_2)</span> la base canonique de <span class="math inline">\mathbb{R}^2</span> et <span class="math inline">\theta \in \mathbb{R}</span>. Le <strong>repère polaire</strong> <span class="math inline">(\vec{u}(\theta), \vec{v}(\theta))</span> du plan euclidien <span class="math inline">\mathbb{R}^2</span> est défini par : <span class="math display">\vec{u}(\theta) = (\cos\theta)\vec{e}_1 + (\sin\theta)\vec{e}_2 \quad ; \quad \vec{v}(\theta) = -(\sin\theta)\vec{e}_1 + (\cos\theta)\vec{e}_2</span></p>
+</div>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 1.4</strong></p>
+<p>Soit <span class="math inline">M</span> un point du plan muni d’un repère orthonormé direct <span class="math inline">(O; \vec{e}_1, \vec{e}_2)</span>. Les <strong>coordonnées polaires</strong> de <span class="math inline">M</span> sont le couple <span class="math inline">(\rho, \theta)</span> où : - <span class="math inline">\rho = OM = \|\overrightarrow{OM}\| \geq 0</span> est la <strong>distance</strong> de <span class="math inline">M</span> à <span class="math inline">O</span> ; - <span class="math inline">\theta</span> est une <strong>mesure de l’angle</strong> <span class="math inline">(\vec{e}_1, \overrightarrow{OM})</span>.</p>
+<p>Le passage des coordonnées polaires aux coordonnées cartésiennes est donné par : <span class="math display">\boxed{\begin{cases} x = \rho \cos\theta \\ y = \rho \sin\theta \end{cases}}</span></p>
+<p>Réciproquement, si <span class="math inline">(x, y) \neq (0, 0)</span> : <span class="math display">\rho = \sqrt{x^2 + y^2} \quad ; \quad \cos\theta = \frac{x}{\rho} \quad ; \quad \sin\theta = \frac{y}{\rho}</span></p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 1.1</strong></p>
+<p>Le point <span class="math inline">M</span> de coordonnées polaires <span class="math inline">\left(2, \frac{\pi}{3}\right)</span> a pour coordonnées cartésiennes : <span class="math display">x = 2\cos\frac{\pi}{3} = 2 \times \frac{1}{2} = 1 \quad ; \quad y = 2\sin\frac{\pi}{3} = 2 \times \frac{\sqrt{3}}{2} = \sqrt{3}</span> Donc <span class="math inline">M</span> a pour coordonnées cartésiennes <span class="math inline">(1, \sqrt{3})</span>.</p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 1.1</strong></p>
+<p>Déterminer les coordonnées polaires du point <span class="math inline">M(1, -\sqrt{3})</span>.</p>
+</div>
+<div class="proof solution">
+<p><span class="proof-title"><em>Solution</em>. </span>On a <span class="math inline">\rho = \sqrt{1^2 + (-\sqrt{3})^2} = \sqrt{1 + 3} = 2</span>. De plus, <span class="math inline">\cos\theta = \frac{1}{2}</span> et <span class="math inline">\sin\theta = -\frac{\sqrt{3}}{2}</span>, donc <span class="math inline">\theta = -\frac{\pi}{3}\ [2\pi]</span>. Les coordonnées polaires de <span class="math inline">M</span> sont <span class="math inline">\left(2, -\frac{\pi}{3}\right)</span>.</p>
+</div>
+</section>
+<section id="systèmes-de-points-pondérés-et-barycentres" class="level2" data-number="1.3">
+<h2 data-number="1.3" class="anchored" data-anchor-id="systèmes-de-points-pondérés-et-barycentres"><span class="header-section-number">1.3</span> Systèmes de points pondérés et barycentres</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 1.5</strong></p>
+<p>Soient <span class="math inline">A_1, A_2, \ldots, A_n</span> des points du plan et <span class="math inline">\alpha_1, \alpha_2, \ldots, \alpha_n</span> des réels tels que <span class="math inline">\sum_{i=1}^n \alpha_i \neq 0</span>. Le couple <span class="math inline">\{(A_i, \alpha_i)\}_{1 \leq i \leq n}</span> est appelé <strong>système de points pondérés</strong>. Le point <span class="math inline">G</span> défini par : <span class="math display">\overrightarrow{OG} = \frac{1}{\sum_{i=1}^n \alpha_i} \sum_{i=1}^n \alpha_i \overrightarrow{OA_i}</span> (où <span class="math inline">O</span> est un point quelconque du plan) est appelé <strong>barycentre</strong> du système. Ce point est indépendant du choix de <span class="math inline">O</span>.</p>
+</div>
+<div class="proof remark">
+<p><span class="proof-title"><em>Remarque</em>. </span></p>
+<ul>
+<li>Si tous les coefficients sont égaux (<span class="math inline">\alpha_1 = \alpha_2 = \cdots = \alpha_n</span>), le barycentre est appelé <strong>isobarycentre</strong>.</li>
+<li>L’isobarycentre de deux points est leur <strong>milieu</strong>.</li>
+<li>L’isobarycentre de trois points est le <strong>centre de gravité</strong> du triangle.</li>
+</ul>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 1.1</strong></p>
+<p>Les coordonnées du barycentre <span class="math inline">G</span> dans un repère du plan sont : <span class="math display">\boxed{x_G = \frac{\sum_{i=1}^n \alpha_i x_i}{\sum_{i=1}^n \alpha_i} \quad ; \quad y_G = \frac{\sum_{i=1}^n \alpha_i y_i}{\sum_{i=1}^n \alpha_i}}</span></p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 1.2</strong></p>
+<p>L’isobarycentre de deux points <span class="math inline">A(x_A, y_A)</span> et <span class="math inline">B(x_B, y_B)</span> est le milieu <span class="math inline">M</span> de <span class="math inline">[AB]</span> : <span class="math display">x_M = \frac{x_A + x_B}{2} \quad ; \quad y_M = \frac{y_A + y_B}{2}</span></p>
+</div>
+</section>
+<section id="produit-scalaire-dans-le-plan" class="level2" data-number="1.4">
+<h2 data-number="1.4" class="anchored" data-anchor-id="produit-scalaire-dans-le-plan"><span class="header-section-number">1.4</span> Produit scalaire dans le plan</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 1.6 — (Définition géométrique)</strong></p>
+<p>Soient <span class="math inline">\vec{u}</span> et <span class="math inline">\vec{v}</span> deux vecteurs du plan. Le <strong>produit scalaire</strong> de <span class="math inline">\vec{u}</span> et <span class="math inline">\vec{v}</span> est défini par : <span class="math display">\vec{u} \cdot \vec{v} = \begin{cases} \|\vec{u}\| \|\vec{v}\| \cos(\widehat{\vec{u}, \vec{v}}) &amp; \text{si } \vec{u} \neq \vec{0} \text{ et } \vec{v} \neq \vec{0} \\ 0 &amp; \text{sinon} \end{cases}</span></p>
+</div>
+<div class="proof remark">
+<p><span class="proof-title"><em>Remarque</em>. </span>Le produit scalaire peut être interprété en termes de <strong>projection orthogonale</strong> : si <span class="math inline">\vec{u} \neq \vec{0}</span>, alors <span class="math inline">\vec{u} \cdot \vec{v} = \|\vec{u}\| \times \overline{OH}</span> où <span class="math inline">H</span> est le projeté orthogonal de l’extrémité de <span class="math inline">\vec{v}</span> sur la droite dirigée par <span class="math inline">\vec{u}</span>.</p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 1.2 — (Propriétés du produit scalaire)</strong></p>
+<p>Le produit scalaire vérifie les propriétés suivantes : 1. <strong>Symétrie</strong> : <span class="math inline">\vec{u} \cdot \vec{v} = \vec{v} \cdot \vec{u}</span> 2. <strong>Bilinéarité</strong> : pour tous <span class="math inline">\vec{u}, \vec{v}, \vec{w}</span> et tout <span class="math inline">\lambda \in \mathbb{R}</span> : <span class="math display">(\vec{u} + \vec{v}) \cdot \vec{w} = \vec{u} \cdot \vec{w} + \vec{v} \cdot \vec{w} \quad ; \quad (\lambda \vec{u}) \cdot \vec{v} = \lambda (\vec{u} \cdot \vec{v})</span> 3. <strong>Positivité</strong> : <span class="math inline">\vec{u} \cdot \vec{u} = \|\vec{u}\|^2 \geq 0</span> avec égalité ssi <span class="math inline">\vec{u} = \vec{0}</span></p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 1.3 — (Expression dans une base orthonormée directe)</strong></p>
+<p>Dans une base orthonormée directe <span class="math inline">(\vec{e}_1, \vec{e}_2)</span>, si <span class="math inline">\vec{u} = x\vec{e}_1 + y\vec{e}_2</span> et <span class="math inline">\vec{v} = x'\vec{e}_1 + y'\vec{e}_2</span>, alors : <span class="math display">\boxed{\vec{u} \cdot \vec{v} = xx' + yy'}</span></p>
+</div>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 1.7</strong></p>
+<p>Deux vecteurs <span class="math inline">\vec{u}</span> et <span class="math inline">\vec{v}</span> sont dits <strong>orthogonaux</strong> si <span class="math inline">\vec{u} \cdot \vec{v} = 0</span>. On note <span class="math inline">\vec{u} \perp \vec{v}</span>.</p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 1.3</strong></p>
+<p>Les vecteurs <span class="math inline">\vec{u} = 3\vec{e}_1 + 2\vec{e}_2</span> et <span class="math inline">\vec{v} = -4\vec{e}_1 + 6\vec{e}_2</span> sont orthogonaux car : <span class="math display">\vec{u} \cdot \vec{v} = 3 \times (-4) + 2 \times 6 = -12 + 12 = 0</span></p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 1.2</strong></p>
+<p>Déterminer une mesure de l’angle non orienté entre les vecteurs <span class="math inline">\vec{u} = \vec{e}_1 + \vec{e}_2</span> et <span class="math inline">\vec{v} = \vec{e}_1 - \vec{e}_2</span>.</p>
+</div>
+<div class="proof solution">
+<p><span class="proof-title"><em>Solution</em>. </span>On a <span class="math inline">\vec{u} \cdot \vec{v} = 1 \times 1 + 1 \times (-1) = 0</span>. Donc les vecteurs sont orthogonaux et l’angle entre eux est <span class="math inline">\frac{\pi}{2}</span>.</p>
+</div>
+</section>
+<section id="déterminant-de-deux-vecteurs-dans-le-plan" class="level2" data-number="1.5">
+<h2 data-number="1.5" class="anchored" data-anchor-id="déterminant-de-deux-vecteurs-dans-le-plan"><span class="header-section-number">1.5</span> Déterminant de deux vecteurs dans le plan</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 1.8 — (Déterminant dans une b.o.n.d.)</strong></p>
+<p>Dans une base orthonormée directe <span class="math inline">(\vec{e}_1, \vec{e}_2)</span>, le <strong>déterminant</strong> de deux vecteurs <span class="math inline">\vec{u} = x\vec{e}_1 + y\vec{e}_2</span> et <span class="math inline">\vec{v} = x'\vec{e}_1 + y'\vec{e}_2</span> est défini par : <span class="math display">[\vec{u}, \vec{v}] = \det(\vec{u}, \vec{v}) = xy' - x'y</span></p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 1.4 — (Propriétés du déterminant)</strong></p>
+<p>Le déterminant vérifie les propriétés suivantes : 1. <strong>Bilinéarité</strong> : <span class="math inline">[\vec{u} + \vec{v}, \vec{w}] = [\vec{u}, \vec{w}] + [\vec{v}, \vec{w}]</span> et <span class="math inline">[\lambda \vec{u}, \vec{v}] = \lambda [\vec{u}, \vec{v}]</span> 2. <strong>Antisymétrie</strong> : <span class="math inline">[\vec{u}, \vec{v}] = -[\vec{v}, \vec{u}]</span> 3. <span class="math inline">[\vec{u}, \vec{v}] = \|\vec{u}\| \|\vec{v}\| \sin(\widehat{\vec{u}, \vec{v}})</span> si <span class="math inline">\vec{u}</span> et <span class="math inline">\vec{v}</span> sont non nuls ; sinon <span class="math inline">[\vec{u}, \vec{v}] = 0</span></p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 1.5 — (Caractérisation de la colinéarité)</strong></p>
+<p>Deux vecteurs <span class="math inline">\vec{u}</span> et <span class="math inline">\vec{v}</span> sont <strong>colinéaires</strong> si et seulement si : <span class="math display">[\vec{u}, \vec{v}] = 0</span></p>
+</div>
+<div class="proof remark" title="(Interprétation géométrique)">
+<p><span class="proof-title"><em>Remarque</em>. </span>La valeur absolue <span class="math inline">|[\vec{u}, \vec{v}]|</span> représente l’<strong>aire géométrique</strong> du parallélogramme construit sur <span class="math inline">\vec{u}</span> et <span class="math inline">\vec{v}</span>. Le déterminant <span class="math inline">[\vec{u}, \vec{v}]</span> lui-même est l’<strong>aire algébrique</strong> (orientée) de ce parallélogramme.</p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 1.4</strong></p>
+<p>Soient <span class="math inline">\vec{u} = 2\vec{e}_1 + 3\vec{e}_2</span> et <span class="math inline">\vec{v} = -1\vec{e}_1 + 4\vec{e}_2</span>. Alors : <span class="math display">[\vec{u}, \vec{v}] = 2 \times 4 - (-1) \times 3 = 8 + 3 = 11</span> L’aire du parallélogramme construit sur <span class="math inline">\vec{u}</span> et <span class="math inline">\vec{v}</span> est <span class="math inline">11</span>.</p>
+</div>
+</section>
+<section id="droites-du-plan" class="level2" data-number="1.6">
+<h2 data-number="1.6" class="anchored" data-anchor-id="droites-du-plan"><span class="header-section-number">1.6</span> Droites du plan</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 1.9</strong></p>
+<p>Une <strong>droite</strong> <span class="math inline">\mathcal{D}</span> du plan est définie par : - un point <span class="math inline">A</span> et un <strong>vecteur directeur</strong> <span class="math inline">\vec{u} \neq \vec{0}</span> : <span class="math inline">\mathcal{D} = \{M \mid \overrightarrow{AM} = t\vec{u},\ t \in \mathbb{R}\}</span> ; - ou par une <strong>équation cartésienne</strong> : <span class="math inline">ax + by + c = 0</span> avec <span class="math inline">(a, b) \neq (0, 0)</span>.</p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 1.6</strong></p>
+<p>Soit <span class="math inline">\mathcal{D}</span> la droite d’équation cartésienne <span class="math inline">ax + by + c = 0</span>. Alors : - un <strong>vecteur directeur</strong> de <span class="math inline">\mathcal{D}</span> est <span class="math inline">\vec{u} = -b\vec{e}_1 + a\vec{e}_2</span> ; - un <strong>vecteur normal</strong> à <span class="math inline">\mathcal{D}</span> est <span class="math inline">\vec{n} = a\vec{e}_1 + b\vec{e}_2</span>.</p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 1.7 — (Intersection de deux droites)</strong></p>
+<p>Soient <span class="math inline">\mathcal{D}_1 : a_1 x + b_1 y + c_1 = 0</span> et <span class="math inline">\mathcal{D}_2 : a_2 x + b_2 y + c_2 = 0</span> deux droites du plan. - Si <span class="math inline">a_1 b_2 - a_2 b_1 \neq 0</span>, les droites sont sécantes en un unique point. - Si <span class="math inline">a_1 b_2 - a_2 b_1 = 0</span> et les équations ne sont pas proportionnelles, les droites sont parallèles. - Si les équations sont proportionnelles, les droites sont confondues.</p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 1.5</strong></p>
+<p>Les droites <span class="math inline">\mathcal{D}_1 : 2x + y - 1 = 0</span> et <span class="math inline">\mathcal{D}_2 : x - 3y + 2 = 0</span> sont sécantes car <span class="math inline">2 \times (-3) - 1 \times 1 = -7 \neq 0</span>. Leur point d’intersection est la solution du système : <span class="math display">\begin{cases} 2x + y = 1 \\ x - 3y = -2 \end{cases}</span> On trouve <span class="math inline">x = \frac{1}{7}</span> et <span class="math inline">y = \frac{5}{7}</span>.</p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 1.8 — (Projeté orthogonal et distance)</strong></p>
+<p>Soit <span class="math inline">\mathcal{D} : ax + by + c = 0</span> une droite du plan et <span class="math inline">M(x_0, y_0)</span> un point. - Le <strong>projeté orthogonal</strong> de <span class="math inline">M</span> sur <span class="math inline">\mathcal{D}</span> est le point <span class="math inline">H</span> de <span class="math inline">\mathcal{D}</span> tel que <span class="math inline">\overrightarrow{MH} \perp \mathcal{D}</span>. - La <strong>distance</strong> de <span class="math inline">M</span> à <span class="math inline">\mathcal{D}</span> est : <span class="math display">\boxed{d(M, \mathcal{D}) = \frac{|ax_0 + by_0 + c|}{\sqrt{a^2 + b^2}}}</span></p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 1.6</strong></p>
+<p>La distance du point <span class="math inline">M(1, 2)</span> à la droite <span class="math inline">\mathcal{D} : 3x + 4y - 5 = 0</span> est : <span class="math display">d(M, \mathcal{D}) = \frac{|3 \times 1 + 4 \times 2 - 5|}{\sqrt{3^2 + 4^2}} = \frac{|3 + 8 - 5|}{5} = \frac{6}{5}</span></p>
+</div>
+</section>
+<section id="cercles-du-plan" class="level2" data-number="1.7">
+<h2 data-number="1.7" class="anchored" data-anchor-id="cercles-du-plan"><span class="header-section-number">1.7</span> Cercles du plan</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 1.10</strong></p>
+<p>Le <strong>cercle</strong> <span class="math inline">\mathscr{C}</span> de centre <span class="math inline">\Omega(a, b)</span> et de rayon <span class="math inline">r &gt; 0</span> est l’ensemble des points <span class="math inline">M(x, y)</span> tels que : <span class="math display">\boxed{(x - a)^2 + (y - b)^2 = r^2}</span></p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 1.9 — (Équation générale d’un cercle)</strong></p>
+<p>Une équation de la forme <span class="math inline">x^2 + y^2 + \alpha x + \beta y + \gamma = 0</span> représente un cercle si et seulement si <span class="math inline">\alpha^2 + \beta^2 - 4\gamma &gt; 0</span>. Dans ce cas, le centre est <span class="math inline">\Omega\left(-\frac{\alpha}{2}, -\frac{\beta}{2}\right)</span> et le rayon est <span class="math inline">r = \frac{1}{2}\sqrt{\alpha^2 + \beta^2 - 4\gamma}</span>.</p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 1.7</strong></p>
+<p>L’équation <span class="math inline">x^2 + y^2 - 4x + 6y - 12 = 0</span> représente un cercle. On a : <span class="math display">\alpha = -4,\ \beta = 6,\ \gamma = -12</span> Centre : <span class="math inline">\Omega\left(\frac{4}{2}, -\frac{6}{2}\right) = (2, -3)</span>. Rayon : <span class="math inline">r = \frac{1}{2}\sqrt{16 + 36 + 48} = \frac{1}{2}\sqrt{100} = 5</span>.</p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 1.10 — (Représentation paramétrique d’un cercle)</strong></p>
+<p>Le cercle de centre <span class="math inline">\Omega(a, b)</span> et de rayon <span class="math inline">r</span> admet pour représentation paramétrique : <span class="math display">\begin{cases} x = a + r\cos\theta \\ y = b + r\sin\theta \end{cases} \quad \theta \in [0, 2\pi[</span></p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 1.3</strong></p>
+<p>Donner l’équation du cercle de centre <span class="math inline">\Omega(1, -2)</span> passant par le point <span class="math inline">A(4, 2)</span>.</p>
+</div>
+<div class="proof solution">
+<p><span class="proof-title"><em>Solution</em>. </span>Le rayon est <span class="math inline">r = \Omega A = \sqrt{(4-1)^2 + (2-(-2))^2} = \sqrt{9 + 16} = 5</span>. L’équation du cercle est : <span class="math inline">(x-1)^2 + (y+2)^2 = 25</span>, soit <span class="math inline">x^2 + y^2 - 2x + 4y - 20 = 0</span>.</p>
+</div>
+</section>
+<section id="transformations-affines-du-plan" class="level2" data-number="1.8">
+<h2 data-number="1.8" class="anchored" data-anchor-id="transformations-affines-du-plan"><span class="header-section-number">1.8</span> Transformations affines du plan</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 1.11 — (Translation)</strong></p>
+<p>Soit <span class="math inline">\vec{u}</span> un vecteur du plan. La <strong>translation</strong> de vecteur <span class="math inline">\vec{u}</span> est la transformation qui à tout point <span class="math inline">M</span> associe le point <span class="math inline">M'</span> tel que <span class="math inline">\overrightarrow{MM'} = \vec{u}</span>. En coordonnées : si <span class="math inline">M(x, y)</span> alors <span class="math inline">M'(x + u_1, y + u_2)</span> où <span class="math inline">\vec{u} = u_1 \vec{e}_1 + u_2 \vec{e}_2</span>.</p>
+</div>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 1.12 — (Rotation)</strong></p>
+<p>Soit <span class="math inline">\Omega</span> un point du plan et <span class="math inline">\theta \in \mathbb{R}</span>. La <strong>rotation</strong> de centre <span class="math inline">\Omega</span> et d’angle <span class="math inline">\theta</span> est la transformation qui à tout point <span class="math inline">M</span> associe le point <span class="math inline">M'</span> tel que : <span class="math display">\Omega M' = \Omega M \quad \text{et} \quad (\widehat{\overrightarrow{\Omega M}, \overrightarrow{\Omega M'}}) = \theta</span></p>
+</div>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 1.13 — (Homothétie)</strong></p>
+<p>Soit <span class="math inline">\Omega</span> un point du plan et <span class="math inline">\lambda \in \mathbb{R}^*</span>. L’<strong>homothétie</strong> de centre <span class="math inline">\Omega</span> et de rapport <span class="math inline">\lambda</span> est la transformation qui à tout point <span class="math inline">M</span> associe le point <span class="math inline">M'</span> tel que : <span class="math display">\overrightarrow{\Omega M'} = \lambda \overrightarrow{\Omega M}</span></p>
+</div>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 1.14 — (Réflexion)</strong></p>
+<p>Soit <span class="math inline">\mathcal{D}</span> une droite du plan. La <strong>réflexion</strong> d’axe <span class="math inline">\mathcal{D}</span> est la transformation qui à tout point <span class="math inline">M</span> associe le point <span class="math inline">M'</span> tel que <span class="math inline">\mathcal{D}</span> soit la médiatrice de <span class="math inline">[MM']</span>.</p>
+</div>
+<div class="proof remark">
+<p><span class="proof-title"><em>Remarque</em>. </span>Les élèves doivent connaître divers modes de représentation de ces transformations : modes géométrique et analytique. Ces transformations sont des <strong>transformations affines</strong>, c’est-à-dire qu’elles conservent l’alignement et le barycentre.</p>
+</div>
+</section>
+</section>
+<section id="cas-de-lespace" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> Cas de l’espace</h1>
+<p>La notion d’orientation de l’espace et celle de base orthonormale directe sont admises.</p>
+<section id="repères-et-coordonnées-dans-lespace" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="repères-et-coordonnées-dans-lespace"><span class="header-section-number">2.1</span> Repères et coordonnées dans l’espace</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 2.1</strong></p>
+<p>Soit <span class="math inline">O</span> un point de l’espace et <span class="math inline">(\vec{e}_1, \vec{e}_2, \vec{e}_3)</span> une famille libre de vecteurs de l’espace. Le triplet <span class="math inline">(O; \vec{e}_1, \vec{e}_2, \vec{e}_3)</span> est appelé <strong>repère</strong> de l’espace. Tout point <span class="math inline">M</span> s’écrit de manière unique : <span class="math display">\overrightarrow{OM} = x\vec{e}_1 + y\vec{e}_2 + z\vec{e}_3</span> Le triplet <span class="math inline">(x, y, z)</span> est appelé <strong>coordonnées cartésiennes</strong> de <span class="math inline">M</span>.</p>
+</div>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 2.2</strong></p>
+<p>Un repère <span class="math inline">(O; \vec{e}_1, \vec{e}_2, \vec{e}_3)</span> est dit : - <strong>orthogonal</strong> si les vecteurs sont deux à deux orthogonaux ; - <strong>orthonormé</strong> si de plus <span class="math inline">\|\vec{e}_1\| = \|\vec{e}_2\| = \|\vec{e}_3\| = 1</span> ; - <strong>orthonormé direct</strong> si de plus la base est directe.</p>
+</div>
+<div class="proof remark">
+<p><span class="proof-title"><em>Remarque</em>. </span>On peut introduire le vocabulaire relatif à l’algèbre linéaire : famille libre, famille liée, vecteurs linéairement indépendants, vecteurs colinéaires, vecteurs coplanaires.</p>
+</div>
+</section>
+<section id="produit-scalaire-dans-lespace" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="produit-scalaire-dans-lespace"><span class="header-section-number">2.2</span> Produit scalaire dans l’espace</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 2.3 — (Définition géométrique)</strong></p>
+<p>Soient <span class="math inline">\vec{u}</span> et <span class="math inline">\vec{v}</span> deux vecteurs de l’espace. Le <strong>produit scalaire</strong> est défini par : <span class="math display">\vec{u} \cdot \vec{v} = \begin{cases} \|\vec{u}\| \|\vec{v}\| \cos(\widehat{\vec{u}, \vec{v}}) &amp; \text{si } \vec{u} \neq \vec{0} \text{ et } \vec{v} \neq \vec{0} \\ 0 &amp; \text{sinon} \end{cases}</span></p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 2.1 — (Propriétés)</strong></p>
+<p>Le produit scalaire dans l’espace vérifie les mêmes propriétés que dans le plan : symétrie, bilinéarité, positivité.</p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 2.2 — (Expression dans une base orthonormée)</strong></p>
+<p>Dans une base orthonormée <span class="math inline">(\vec{e}_1, \vec{e}_2, \vec{e}_3)</span>, si <span class="math inline">\vec{u} = x\vec{e}_1 + y\vec{e}_2 + z\vec{e}_3</span> et <span class="math inline">\vec{v} = x'\vec{e}_1 + y'\vec{e}_2 + z'\vec{e}_3</span>, alors : <span class="math display">\boxed{\vec{u} \cdot \vec{v} = xx' + yy' + zz'}</span></p>
+</div>
+</section>
+<section id="produit-vectoriel-dans-lespace" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="produit-vectoriel-dans-lespace"><span class="header-section-number">2.3</span> Produit vectoriel dans l’espace</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 2.4 — (Définition géométrique)</strong></p>
+<p>Soient <span class="math inline">\vec{u}</span> et <span class="math inline">\vec{v}</span> deux vecteurs de l’espace. Le <strong>produit vectoriel</strong> de <span class="math inline">\vec{u}</span> et <span class="math inline">\vec{v}</span>, noté <span class="math inline">\vec{u} \wedge \vec{v}</span> ou <span class="math inline">\vec{u} \times \vec{v}</span>, est défini par : - si <span class="math inline">\vec{u}</span> et <span class="math inline">\vec{v}</span> sont colinéaires : <span class="math inline">\vec{u} \wedge \vec{v} = \vec{0}</span> ; - sinon : <span class="math inline">\vec{u} \wedge \vec{v}</span> est le vecteur de norme <span class="math inline">\|\vec{u}\| \|\vec{v}\| |\sin(\widehat{\vec{u}, \vec{v}})|</span>, orthogonal à la fois à <span class="math inline">\vec{u}</span> et <span class="math inline">\vec{v}</span>, et tel que la base <span class="math inline">(\vec{u}, \vec{v}, \vec{u} \wedge \vec{v})</span> soit directe.</p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 2.3 — (Propriétés du produit vectoriel)</strong></p>
+<ol type="1">
+<li><strong>Bilinéarité</strong> : <span class="math inline">(\vec{u} + \vec{v}) \wedge \vec{w} = \vec{u} \wedge \vec{w} + \vec{v} \wedge \vec{w}</span> et <span class="math inline">(\lambda \vec{u}) \wedge \vec{v} = \lambda (\vec{u} \wedge \vec{v})</span></li>
+<li><strong>Antisymétrie</strong> : <span class="math inline">\vec{u} \wedge \vec{v} = -\vec{v} \wedge \vec{u}</span></li>
+<li><span class="math inline">\vec{u} \wedge \vec{v} = \vec{0}</span> si et seulement si <span class="math inline">\vec{u}</span> et <span class="math inline">\vec{v}</span> sont colinéaires</li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 2.4 — (Expression dans une b.o.n.d.)</strong></p>
+<p>Dans une base orthonormée directe <span class="math inline">(\vec{e}_1, \vec{e}_2, \vec{e}_3)</span>, si <span class="math inline">\vec{u} = x\vec{e}_1 + y\vec{e}_2 + z\vec{e}_3</span> et <span class="math inline">\vec{v} = x'\vec{e}_1 + y'\vec{e}_2 + z'\vec{e}_3</span>, alors : <span class="math display">\boxed{\vec{u} \wedge \vec{v} = (yz' - z'y)\vec{e}_1 + (zx' - xz')\vec{e}_2 + (xy' - yx')\vec{e}_3}</span></p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 2.1</strong></p>
+<p>Soient <span class="math inline">\vec{u} = \vec{e}_1 + 2\vec{e}_2 + 3\vec{e}_3</span> et <span class="math inline">\vec{v} = 4\vec{e}_1 + 5\vec{e}_2 + 6\vec{e}_3</span>. Alors : <span class="math display">\vec{u} \wedge \vec{v} = (2 \times 6 - 3 \times 5)\vec{e}_1 + (3 \times 4 - 1 \times 6)\vec{e}_2 + (1 \times 5 - 2 \times 4)\vec{e}_3 = -3\vec{e}_1 + 6\vec{e}_2 - 3\vec{e}_3</span></p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 2.1</strong></p>
+<p>Montrer que les vecteurs <span class="math inline">\vec{u} = 2\vec{e}_1 - \vec{e}_2 + \vec{e}_3</span> et <span class="math inline">\vec{v} = -4\vec{e}_1 + 2\vec{e}_2 - 2\vec{e}_3</span> sont colinéaires.</p>
+</div>
+<div class="proof solution">
+<p><span class="proof-title"><em>Solution</em>. </span>On constate que <span class="math inline">\vec{v} = -2\vec{u}</span>, donc <span class="math inline">\vec{u}</span> et <span class="math inline">\vec{v}</span> sont colinéaires. On peut aussi vérifier que <span class="math inline">\vec{u} \wedge \vec{v} = \vec{0}</span> : <span class="math display">\vec{u} \wedge \vec{v} = ((-1)(-2) - (1)(2))\vec{e}_1 + ((1)(-4) - (2)(-2))\vec{e}_2 + ((2)(2) - (-1)(-4))\vec{e}_3 = 0\vec{e}_1 + 0\vec{e}_2 + 0\vec{e}_3 = \vec{0}</span></p>
+</div>
+</section>
+<section id="produit-mixte-dans-lespace" class="level2" data-number="2.4">
+<h2 data-number="2.4" class="anchored" data-anchor-id="produit-mixte-dans-lespace"><span class="header-section-number">2.4</span> Produit mixte dans l’espace</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 2.5</strong></p>
+<p>Soient <span class="math inline">\vec{u}</span>, <span class="math inline">\vec{v}</span> et <span class="math inline">\vec{w}</span> trois vecteurs de l’espace. Le <strong>produit mixte</strong> de ces trois vecteurs est défini par : <span class="math display">[\vec{u}, \vec{v}, \vec{w}] = (\vec{u} \wedge \vec{v}) \cdot \vec{w}</span></p>
+</div>
+<div class="proof remark" title="(Interprétation géométrique)">
+<p><span class="proof-title"><em>Remarque</em>. </span>La valeur absolue <span class="math inline">|[\vec{u}, \vec{v}, \vec{w}]|</span> représente le <strong>volume du parallélépipède</strong> construit sur les vecteurs <span class="math inline">\vec{u}</span>, <span class="math inline">\vec{v}</span> et <span class="math inline">\vec{w}</span>.</p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 2.5 — (Propriétés du produit mixte)</strong></p>
+<ol type="1">
+<li><strong>Trilinéarité</strong> : le produit mixte est linéaire par rapport à chacune de ses trois variables.</li>
+<li><strong>Antisymétrie</strong> : <span class="math inline">[\vec{u}, \vec{v}, \vec{w}] = -[\vec{v}, \vec{u}, \vec{w}] = -[\vec{u}, \vec{w}, \vec{v}] = -[\vec{w}, \vec{v}, \vec{u}]</span></li>
+<li><span class="math inline">[\vec{u}, \vec{v}, \vec{w}] = 0</span> si et seulement si <span class="math inline">\vec{u}</span>, <span class="math inline">\vec{v}</span> et <span class="math inline">\vec{w}</span> sont <strong>coplanaires</strong>.</li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 2.6 — (Expression dans une b.o.n.d.)</strong></p>
+<p>Dans une base orthonormée directe <span class="math inline">(\vec{e}_1, \vec{e}_2, \vec{e}_3)</span>, si <span class="math inline">\vec{u} = x\vec{e}_1 + y\vec{e}_2 + z\vec{e}_3</span>, <span class="math inline">\vec{v} = x'\vec{e}_1 + y'\vec{e}_2 + z'\vec{e}_3</span> et <span class="math inline">\vec{w} = x''\vec{e}_1 + y''\vec{e}_2 + z''\vec{e}_3</span>, alors : <span class="math display">[\vec{u}, \vec{v}, \vec{w}] = \begin{vmatrix} x &amp; x' &amp; x'' \\ y &amp; y' &amp; y'' \\ z &amp; z' &amp; z'' \end{vmatrix}</span></p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 2.2</strong></p>
+<p>Les vecteurs <span class="math inline">\vec{u} = \vec{e}_1</span>, <span class="math inline">\vec{v} = \vec{e}_2</span> et <span class="math inline">\vec{w} = \vec{e}_3</span> sont coplanaires si et seulement si : <span class="math display">[\vec{e}_1, \vec{e}_2, \vec{e}_3] = 1 \neq 0</span> Donc ils ne sont pas coplanaires (ce qui est cohérent avec le fait qu’ils forment une base).</p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 2.2</strong></p>
+<p>Montrer que les vecteurs <span class="math inline">\vec{u} = \vec{e}_1 + \vec{e}_2</span>, <span class="math inline">\vec{v} = \vec{e}_2 + \vec{e}_3</span> et <span class="math inline">\vec{w} = \vec{e}_1 + \vec{e}_3</span> ne sont pas coplanaires.</p>
+</div>
+<div class="proof solution">
+<p><span class="proof-title"><em>Solution</em>. </span>On calcule le produit mixte : <span class="math display">[\vec{u}, \vec{v}, \vec{w}] = \begin{vmatrix} 1 &amp; 0 &amp; 1 \\ 1 &amp; 1 &amp; 0 \\ 0 &amp; 1 &amp; 1 \end{vmatrix} = 1(1 - 0) - 0 + 1(1 - 0) = 1 + 1 = 2 \neq 0</span> Donc les trois vecteurs ne sont pas coplanaires.</p>
+</div>
+</section>
+<section id="plans-de-lespace" class="level2" data-number="2.5">
+<h2 data-number="2.5" class="anchored" data-anchor-id="plans-de-lespace"><span class="header-section-number">2.5</span> Plans de l’espace</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 2.6</strong></p>
+<p>Un <strong>plan</strong> <span class="math inline">\mathcal{P}</span> de l’espace peut être défini par : - un point <span class="math inline">A</span> et deux vecteurs non colinéaires <span class="math inline">\vec{u}</span> et <span class="math inline">\vec{v}</span> : <span class="math inline">\mathcal{P} = \{M \mid \overrightarrow{AM} = t\vec{u} + s\vec{v},\ (t, s) \in \mathbb{R}^2\}</span> (représentation paramétrique) ; - un point <span class="math inline">A</span> et un <strong>vecteur normal</strong> <span class="math inline">\vec{n} \neq \vec{0}</span> : <span class="math inline">\mathcal{P} = \{M \mid \overrightarrow{AM} \cdot \vec{n} = 0\}</span> ; - trois points non alignés.</p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 2.7 — (Équation cartésienne d’un plan)</strong></p>
+<p>Un plan de vecteur normal <span class="math inline">\vec{n} = a\vec{e}_1 + b\vec{e}_2 + c\vec{e}_3</span> passant par <span class="math inline">A(x_A, y_A, z_A)</span> a pour équation cartésienne : <span class="math display">\boxed{a(x - x_A) + b(y - y_A) + c(z - z_A) = 0}</span> soit <span class="math inline">ax + by + cz + d = 0</span> avec <span class="math inline">d = -(ax_A + by_A + cz_A)</span>.</p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 2.3</strong></p>
+<p>Le plan passant par <span class="math inline">A(1, 2, 3)</span> et de vecteur normal <span class="math inline">\vec{n} = 2\vec{e}_1 - \vec{e}_2 + 3\vec{e}_3</span> a pour équation : <span class="math display">2(x - 1) - (y - 2) + 3(z - 3) = 0 \iff 2x - y + 3z - 9 = 0</span></p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 2.8 — (Projeté orthogonal et distance à un plan)</strong></p>
+<p>Soit <span class="math inline">\mathcal{P} : ax + by + cz + d = 0</span> un plan de l’espace et <span class="math inline">M(x_0, y_0, z_0)</span> un point. - Le <strong>projeté orthogonal</strong> de <span class="math inline">M</span> sur <span class="math inline">\mathcal{P}</span> est le point <span class="math inline">H</span> de <span class="math inline">\mathcal{P}</span> tel que <span class="math inline">\overrightarrow{MH} \perp \mathcal{P}</span>. - La <strong>distance</strong> de <span class="math inline">M</span> à <span class="math inline">\mathcal{P}</span> est : <span class="math display">\boxed{d(M, \mathcal{P}) = \frac{|ax_0 + by_0 + cz_0 + d|}{\sqrt{a^2 + b^2 + c^2}}}</span></p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 2.4</strong></p>
+<p>La distance du point <span class="math inline">M(1, 0, 2)</span> au plan <span class="math inline">\mathcal{P} : x + 2y - z + 3 = 0</span> est : <span class="math display">d(M, \mathcal{P}) = \frac{|1 + 0 - 2 + 3|}{\sqrt{1 + 4 + 1}} = \frac{2}{\sqrt{6}} = \frac{\sqrt{6}}{3}</span></p>
+</div>
+</section>
+<section id="droites-de-lespace" class="level2" data-number="2.6">
+<h2 data-number="2.6" class="anchored" data-anchor-id="droites-de-lespace"><span class="header-section-number">2.6</span> Droites de l’espace</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 2.7</strong></p>
+<p>Une <strong>droite</strong> <span class="math inline">\mathcal{D}</span> de l’espace peut être définie par : - un point <span class="math inline">A</span> et un <strong>vecteur directeur</strong> <span class="math inline">\vec{u} \neq \vec{0}</span> : <span class="math inline">\mathcal{D} = \{M \mid \overrightarrow{AM} = t\vec{u},\ t \in \mathbb{R}\}</span> ; - deux points distincts <span class="math inline">A</span> et <span class="math inline">B</span> ; - l’intersection de deux plans non parallèles.</p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 2.9 — (Représentation paramétrique d’une droite)</strong></p>
+<p>La droite passant par <span class="math inline">A(x_A, y_A, z_A)</span> et dirigée par <span class="math inline">\vec{u} = u_1 \vec{e}_1 + u_2 \vec{e}_2 + u_3 \vec{e}_3</span> a pour représentation paramétrique : <span class="math display">\begin{cases} x = x_A + t u_1 \\ y = y_A + t u_2 \\ z = z_A + t u_3 \end{cases} \quad t \in \mathbb{R}</span></p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 2.10 — (Intersection de deux plans)</strong></p>
+<p>Soient <span class="math inline">\mathcal{P}_1 : a_1 x + b_1 y + c_1 z + d_1 = 0</span> et <span class="math inline">\mathcal{P}_2 : a_2 x + b_2 y + c_2 z + d_2 = 0</span> deux plans non parallèles. Leur intersection est une droite <span class="math inline">\mathcal{D}</span>. Un <strong>vecteur directeur</strong> de <span class="math inline">\mathcal{D}</span> est <span class="math inline">\vec{u} = \vec{n}_1 \wedge \vec{n}_2</span> où <span class="math inline">\vec{n}_1</span> et <span class="math inline">\vec{n}_2</span> sont des vecteurs normaux respectifs à <span class="math inline">\mathcal{P}_1</span> et <span class="math inline">\mathcal{P}_2</span>.</p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 2.5</strong></p>
+<p>Soient <span class="math inline">\mathcal{P}_1 : x + y + z = 1</span> et <span class="math inline">\mathcal{P}_2 : x - y + z = 0</span>. Les vecteurs normaux sont <span class="math inline">\vec{n}_1 = (1, 1, 1)</span> et <span class="math inline">\vec{n}_2 = (1, -1, 1)</span>. Un vecteur directeur de la droite d’intersection est : <span class="math display">\vec{u} = \vec{n}_1 \wedge \vec{n}_2 = (1 \times 1 - 1 \times (-1), 1 \times 1 - 1 \times 1, 1 \times (-1) - 1 \times 1) = (2, 0, -2)</span></p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 2.11 — (Distance d’un point à une droite)</strong></p>
+<p>Soit <span class="math inline">\mathcal{D}</span> une droite de l’espace passant par <span class="math inline">A</span> et dirigée par <span class="math inline">\vec{u}</span>. La distance d’un point <span class="math inline">M</span> à <span class="math inline">\mathcal{D}</span> est : <span class="math display">\boxed{d(M, \mathcal{D}) = \frac{\|\overrightarrow{AM} \wedge \vec{u}\|}{\|\vec{u}\|}}</span></p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 2.6</strong></p>
+<p>La distance du point <span class="math inline">M(1, 2, 3)</span> à la droite <span class="math inline">\mathcal{D}</span> passant par <span class="math inline">A(0, 0, 0)</span> et dirigée par <span class="math inline">\vec{u} = \vec{e}_1 + \vec{e}_2 + \vec{e}_3</span> est : <span class="math display">\overrightarrow{AM} = \vec{e}_1 + 2\vec{e}_2 + 3\vec{e}_3</span> <span class="math display">\overrightarrow{AM} \wedge \vec{u} = (2 - 3)\vec{e}_1 + (3 - 1)\vec{e}_2 + (1 - 2)\vec{e}_3 = -\vec{e}_1 + 2\vec{e}_2 - \vec{e}_3</span> <span class="math display">d(M, \mathcal{D}) = \frac{\sqrt{1 + 4 + 1}}{\sqrt{3}} = \frac{\sqrt{6}}{\sqrt{3}} = \sqrt{2}</span></p>
+</div>
+</section>
+<section id="sphères" class="level2" data-number="2.7">
+<h2 data-number="2.7" class="anchored" data-anchor-id="sphères"><span class="header-section-number">2.7</span> Sphères</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 2.8</strong></p>
+<p>La <strong>sphère</strong> <span class="math inline">\mathscr{S}</span> de centre <span class="math inline">\Omega(a, b, c)</span> et de rayon <span class="math inline">r &gt; 0</span> est l’ensemble des points <span class="math inline">M(x, y, z)</span> tels que : <span class="math display">\boxed{(x - a)^2 + (y - b)^2 + (z - c)^2 = r^2}</span></p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 2.12 — (Équation générale d’une sphère)</strong></p>
+<p>Une équation de la forme <span class="math inline">x^2 + y^2 + z^2 + \alpha x + \beta y + \gamma z + \delta = 0</span> représente une sphère si et seulement si <span class="math inline">\alpha^2 + \beta^2 + \gamma^2 - 4\delta &gt; 0</span>. Dans ce cas, le centre est <span class="math inline">\Omega\left(-\frac{\alpha}{2}, -\frac{\beta}{2}, -\frac{\gamma}{2}\right)</span> et le rayon est <span class="math inline">r = \frac{1}{2}\sqrt{\alpha^2 + \beta^2 + \gamma^2 - 4\delta}</span>.</p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 2.7</strong></p>
+<p>L’équation <span class="math inline">x^2 + y^2 + z^2 - 2x + 4y - 6z + 5 = 0</span> représente une sphère. On a : <span class="math display">\alpha = -2,\ \beta = 4,\ \gamma = -6,\ \delta = 5</span> Centre : <span class="math inline">\Omega(1, -2, 3)</span>. Rayon : <span class="math inline">r = \frac{1}{2}\sqrt{4 + 16 + 36 - 20} = \frac{1}{2}\sqrt{34}</span>.</p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 2.13 — (Intersection d’une sphère et d’un plan)</strong></p>
+<p>L’intersection d’une sphère et d’un plan est : - <strong>vide</strong> si la distance du centre de la sphère au plan est strictement supérieure au rayon ; - un <strong>point</strong> (plan tangent) si cette distance est égale au rayon ; - un <strong>cercle</strong> si cette distance est strictement inférieure au rayon.</p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 2.8</strong></p>
+<p>La sphère <span class="math inline">\mathscr{S} : x^2 + y^2 + z^2 = 4</span> (centre <span class="math inline">O</span>, rayon <span class="math inline">2</span>) et le plan <span class="math inline">\mathcal{P} : z = 1</span> ont une intersection qui est un cercle. En effet, la distance de <span class="math inline">O</span> à <span class="math inline">\mathcal{P}</span> est <span class="math inline">1 &lt; 2</span>. L’intersection est le cercle de centre <span class="math inline">(0, 0, 1)</span> et de rayon <span class="math inline">\sqrt{4 - 1} = \sqrt{3}</span>.</p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 2.3</strong></p>
+<p>Donner l’équation de la sphère de centre <span class="math inline">\Omega(1, -1, 2)</span> passant par le point <span class="math inline">A(3, 0, 4)</span>.</p>
+</div>
+<div class="proof solution">
+<p><span class="proof-title"><em>Solution</em>. </span>Le rayon est <span class="math inline">r = \Omega A = \sqrt{(3-1)^2 + (0-(-1))^2 + (4-2)^2} = \sqrt{4 + 1 + 4} = 3</span>. L’équation de la sphère est : <span class="math inline">(x-1)^2 + (y+1)^2 + (z-2)^2 = 9</span>, soit <span class="math inline">x^2 + y^2 + z^2 - 2x + 2y - 4z - 3 = 0</span>.</p>
+</div>
+</section>
+<section id="document-en-pdf" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="document-en-pdf">Document en PDF</h2>
+<p><a href="PDF/tsi1-chap04.pdf">Chapitre 04 : Géométrie élémentaire du plan et de l’espace</a></p>
+</section>
+</section>
+<section id="navigation" class="level1 unnumbered">
+<h1 class="unnumbered">Navigation</h1>
+<div class="chap-nav">
+<p><a href="../cours/tsi1-chap03.html" class="prev">Chapitre 03 : Compléments de calcul algébrique</a> <a href="../cours/tsi1.html" class="home">Menu TSI1</a> <a href="../cours/tsi1-chap05.html" class="next">Chapitre 05 : Nombres réels et suites numériques</a></p>
+</div>
 
 
 </section>
@@ -222,12 +683,12 @@ ul.task-list li input[type="checkbox"] {
       // flash "checked"
       button.classList.add('code-copy-button-checked');
       var currentTitle = button.getAttribute("title");
-      button.setAttribute("title", "Copied!");
+      button.setAttribute("title", "Copié");
       let tooltip;
       if (window.bootstrap) {
         button.setAttribute("data-bs-toggle", "tooltip");
         button.setAttribute("data-bs-placement", "left");
-        button.setAttribute("data-bs-title", "Copied!");
+        button.setAttribute("data-bs-title", "Copié");
         tooltip = new bootstrap.Tooltip(button, 
           { trigger: "manual", 
             customClass: "code-copy-button-tooltip",

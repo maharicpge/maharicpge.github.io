@@ -1,13 +1,14 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr"><head>
 
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.10.18">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Saîd MAHARI">
 
-<title>Intégration sur un segment - Mathématiques en CPGE – Mathématiques en CPGE</title>
+<title>Fonctions de la variable réelle, limites et continuité – Mathématiques en CPGE</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -45,7 +46,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-7a8c080b55ea27eb37b467515007f9ee.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-e0d9a45d84245cc5e3b300860d8fa645.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -60,22 +61,66 @@ ul.task-list li input[type="checkbox"] {
   ],
   "show-item-context": false,
   "language": {
-    "search-no-results-text": "No results",
-    "search-matching-documents-text": "matching documents",
-    "search-copy-link-title": "Copy link to search",
-    "search-hide-matches-text": "Hide additional matches",
-    "search-more-match-text": "more match in this document",
-    "search-more-matches-text": "more matches in this document",
-    "search-clear-button-title": "Clear",
+    "search-no-results-text": "Pas de résultats",
+    "search-matching-documents-text": "documents trouvés",
+    "search-copy-link-title": "Copier le lien vers la recherche",
+    "search-hide-matches-text": "Cacher les correspondances additionnelles",
+    "search-more-match-text": "correspondance de plus dans ce document",
+    "search-more-matches-text": "correspondances de plus dans ce document",
+    "search-clear-button-title": "Effacer",
     "search-text-placeholder": "",
-    "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit",
-    "search-label": "Search"
+    "search-detached-cancel-button-title": "Annuler",
+    "search-submit-button-title": "Envoyer",
+    "search-label": "Recherche"
   }
 }</script>
 
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="styles.css">
 </head>
 
 <body class="nav-fixed quarto-light">
@@ -89,8 +134,8 @@ ul.task-list li input[type="checkbox"] {
     <span class="navbar-title">Accueil</span>
     </a>
   </div>
-            <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+            <div id="quarto-search" class="" title="Recherche"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Basculer la navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
@@ -140,10 +185,47 @@ ul.task-list li input[type="checkbox"] {
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
+    <h2 id="toc-title">Sur cette page</h2>
    
   <ul>
-  <li><a href="#document" id="toc-document" class="nav-link active" data-scroll-target="#document">Document</a></li>
+  <li><a href="#généralités-sur-les-fonctions" id="toc-généralités-sur-les-fonctions" class="nav-link active" data-scroll-target="#généralités-sur-les-fonctions"><span class="header-section-number">1</span> Généralités sur les fonctions</a>
+  <ul class="collapse">
+  <li><a href="#ensemble-de-définition-et-représentation-graphique" id="toc-ensemble-de-définition-et-représentation-graphique" class="nav-link" data-scroll-target="#ensemble-de-définition-et-représentation-graphique"><span class="header-section-number">1.1</span> Ensemble de définition et représentation graphique</a></li>
+  <li><a href="#parité-périodicité-et-réduction-du-domaine-détude" id="toc-parité-périodicité-et-réduction-du-domaine-détude" class="nav-link" data-scroll-target="#parité-périodicité-et-réduction-du-domaine-détude"><span class="header-section-number">1.2</span> Parité, périodicité et réduction du domaine d’étude</a></li>
+  <li><a href="#opérations-sur-les-fonctions" id="toc-opérations-sur-les-fonctions" class="nav-link" data-scroll-target="#opérations-sur-les-fonctions"><span class="header-section-number">1.3</span> Opérations sur les fonctions</a></li>
+  <li><a href="#monotonie" id="toc-monotonie" class="nav-link" data-scroll-target="#monotonie"><span class="header-section-number">1.4</span> Monotonie</a></li>
+  <li><a href="#fonctions-majorées-minorées-bornées" id="toc-fonctions-majorées-minorées-bornées" class="nav-link" data-scroll-target="#fonctions-majorées-minorées-bornées"><span class="header-section-number">1.5</span> Fonctions majorées, minorées, bornées</a></li>
+  </ul></li>
+  <li><a href="#limites" id="toc-limites" class="nav-link" data-scroll-target="#limites"><span class="header-section-number">2</span> Limites</a>
+  <ul class="collapse">
+  <li><a href="#limite-finie-ou-infinie-en-un-point" id="toc-limite-finie-ou-infinie-en-un-point" class="nav-link" data-scroll-target="#limite-finie-ou-infinie-en-un-point"><span class="header-section-number">2.1</span> Limite finie ou infinie en un point</a></li>
+  <li><a href="#limites-à-gauche-et-à-droite" id="toc-limites-à-gauche-et-à-droite" class="nav-link" data-scroll-target="#limites-à-gauche-et-à-droite"><span class="header-section-number">2.2</span> Limites à gauche et à droite</a></li>
+  <li><a href="#caractérisation-séquentielle-de-la-limite" id="toc-caractérisation-séquentielle-de-la-limite" class="nav-link" data-scroll-target="#caractérisation-séquentielle-de-la-limite"><span class="header-section-number">2.3</span> Caractérisation séquentielle de la limite</a></li>
+  <li><a href="#opérations-algébriques-sur-les-limites" id="toc-opérations-algébriques-sur-les-limites" class="nav-link" data-scroll-target="#opérations-algébriques-sur-les-limites"><span class="header-section-number">2.4</span> Opérations algébriques sur les limites</a></li>
+  <li><a href="#composition-de-limites" id="toc-composition-de-limites" class="nav-link" data-scroll-target="#composition-de-limites"><span class="header-section-number">2.5</span> Composition de limites</a></li>
+  <li><a href="#conservation-des-inégalités-et-théorèmes-dencadrement" id="toc-conservation-des-inégalités-et-théorèmes-dencadrement" class="nav-link" data-scroll-target="#conservation-des-inégalités-et-théorèmes-dencadrement"><span class="header-section-number">2.6</span> Conservation des inégalités et théorèmes d’encadrement</a></li>
+  </ul></li>
+  <li><a href="#continuité" id="toc-continuité" class="nav-link" data-scroll-target="#continuité"><span class="header-section-number">3</span> Continuité</a>
+  <ul class="collapse">
+  <li><a href="#continuité-en-un-point" id="toc-continuité-en-un-point" class="nav-link" data-scroll-target="#continuité-en-un-point"><span class="header-section-number">3.1</span> Continuité en un point</a></li>
+  <li><a href="#opérations-sur-les-fonctions-continues" id="toc-opérations-sur-les-fonctions-continues" class="nav-link" data-scroll-target="#opérations-sur-les-fonctions-continues"><span class="header-section-number">3.2</span> Opérations sur les fonctions continues</a></li>
+  <li><a href="#continuité-sur-un-intervalle" id="toc-continuité-sur-un-intervalle" class="nav-link" data-scroll-target="#continuité-sur-un-intervalle"><span class="header-section-number">3.3</span> Continuité sur un intervalle</a></li>
+  </ul></li>
+  <li><a href="#théorèmes-fondamentaux-sur-les-fonctions-continues" id="toc-théorèmes-fondamentaux-sur-les-fonctions-continues" class="nav-link" data-scroll-target="#théorèmes-fondamentaux-sur-les-fonctions-continues"><span class="header-section-number">4</span> Théorèmes fondamentaux sur les fonctions continues</a>
+  <ul class="collapse">
+  <li><a href="#théorème-des-valeurs-intermédiaires-tvi" id="toc-théorème-des-valeurs-intermédiaires-tvi" class="nav-link" data-scroll-target="#théorème-des-valeurs-intermédiaires-tvi"><span class="header-section-number">4.1</span> Théorème des valeurs intermédiaires (TVI)</a></li>
+  <li><a href="#principe-de-dichotomie" id="toc-principe-de-dichotomie" class="nav-link" data-scroll-target="#principe-de-dichotomie"><span class="header-section-number">4.2</span> Principe de dichotomie</a></li>
+  <li><a href="#théorème-des-bornes-atteintes" id="toc-théorème-des-bornes-atteintes" class="nav-link" data-scroll-target="#théorème-des-bornes-atteintes"><span class="header-section-number">4.3</span> Théorème des bornes atteintes</a></li>
+  </ul></li>
+  <li><a href="#continuité-et-monotonie-stricte.-fonctions-réciproques" id="toc-continuité-et-monotonie-stricte.-fonctions-réciproques" class="nav-link" data-scroll-target="#continuité-et-monotonie-stricte.-fonctions-réciproques"><span class="header-section-number">5</span> Continuité et monotonie stricte. Fonctions réciproques</a>
+  <ul class="collapse">
+  <li><a href="#bijection-continue-strictement-monotone" id="toc-bijection-continue-strictement-monotone" class="nav-link" data-scroll-target="#bijection-continue-strictement-monotone"><span class="header-section-number">5.1</span> Bijection continue strictement monotone</a></li>
+  <li><a href="#exemples-classiques-de-fonctions-réciproques" id="toc-exemples-classiques-de-fonctions-réciproques" class="nav-link" data-scroll-target="#exemples-classiques-de-fonctions-réciproques"><span class="header-section-number">5.2</span> Exemples classiques de fonctions réciproques</a></li>
+  </ul></li>
+  <li><a href="#document-en-pdf" id="toc-document-en-pdf" class="nav-link" data-scroll-target="#document-en-pdf">Document en PDF</a>
+  <ul class="collapse">
+  <li><a href="#navigation" id="toc-navigation" class="nav-link" data-scroll-target="#navigation">Navigation</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -152,14 +234,27 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Chapitre 06 : Intégration sur un segment</h1>
+<h1 class="title">Fonctions de la variable réelle, limites et continuité</h1>
+<p class="subtitle lead">Chapitre 06</p>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Auteur·rice</div>
+    <div class="quarto-title-meta-contents">
+             <p>Saîd MAHARI </p>
+          </div>
+  </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">Date de publication</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">21 août 2026</p>
+    </div>
+  </div>
   
     
   </div>
@@ -169,12 +264,285 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p><strong>PCSI (1re année) — Chapitre 06.</strong> Primitives, IPP, changement de variable.</p>
-<section id="document" class="level2">
-<h2 class="anchored" data-anchor-id="document">Document</h2>
-<p><em>PDF à venir : déposez le fichier <code>files/pcsi/chap06.pdf</code> puis régénérez la page.</em></p>
+<p><strong>PCSI (1re année) — Chapitre 06.</strong> Limites, continuité, théorème des valeurs intermédiaires, théorème des bornes atteintes, continuité et monotonie stricte, fonctions réciproques.</p>
+<p>Ce chapitre a été réalisé conformément au programme marocain de mathématiques de la filière PCSI.</p>
+<p>Dans tout ce chapitre, <span class="math inline">I</span> désigne un intervalle de <span class="math inline">\mathbb{R}</span> non vide et non réduit à un point. Les fonctions considérées sont à valeurs dans <span class="math inline">\mathbb{K}</span> (<span class="math inline">\mathbb{R}</span> ou <span class="math inline">\mathbb{C}</span>), sauf mention explicite du contraire. Le point <span class="math inline">a</span> considéré est toujours élément de <span class="math inline">I</span> ou extrémité de <span class="math inline">I</span>.</p>
+<section id="généralités-sur-les-fonctions" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Généralités sur les fonctions</h1>
+<section id="ensemble-de-définition-et-représentation-graphique" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="ensemble-de-définition-et-représentation-graphique"><span class="header-section-number">1.1</span> Ensemble de définition et représentation graphique</h2>
+<p>L’<strong>ensemble de définition</strong> d’une fonction <span class="math inline">f</span>, noté <span class="math inline">D_f</span>, est l’ensemble des réels <span class="math inline">x</span> pour lesquels <span class="math inline">f(x)</span> existe.</p>
+<p>La <strong>représentation graphique</strong> (ou courbe représentative) d’une fonction <span class="math inline">f : D_f \to \mathbb{R}</span> dans un repère orthonormé <span class="math inline">(O, \vec{i}, \vec{j})</span> est l’ensemble des points <span class="math inline">M(x, f(x))</span> pour <span class="math inline">x \in D_f</span>.</p>
+<div class="proof remark">
+<p><span class="proof-title"><em>Remarque</em>. </span>On peut étudier les transformations suivantes du graphe : - <span class="math inline">x \mapsto f(x) + a</span> : translation verticale de vecteur <span class="math inline">a\vec{j}</span>. - <span class="math inline">x \mapsto f(x+a)</span> : translation horizontale de vecteur <span class="math inline">-a\vec{i}</span>. - <span class="math inline">x \mapsto f(-x)</span> : symétrie par rapport à l’axe des ordonnées. - <span class="math inline">x \mapsto -f(x)</span> : symétrie par rapport à l’axe des abscisses. - <span class="math inline">x \mapsto |f(x)|</span> : on conserve la partie positive et on réfléchit la partie négative par rapport à l’axe des abscisses.</p>
+</div>
+</section>
+<section id="parité-périodicité-et-réduction-du-domaine-détude" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="parité-périodicité-et-réduction-du-domaine-détude"><span class="header-section-number">1.2</span> Parité, périodicité et réduction du domaine d’étude</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 1.1</strong></p>
+<p>Soit <span class="math inline">D</span> une partie de <span class="math inline">\mathbb{R}</span> symétrique par rapport à <span class="math inline">0</span> et <span class="math inline">f : D \to \mathbb{R}</span>. - <span class="math inline">f</span> est <strong>paire</strong> si <span class="math inline">\forall x \in D, f(-x) = f(x)</span>. Le graphe est symétrique par rapport à l’axe des ordonnées. - <span class="math inline">f</span> est <strong>impaire</strong> si <span class="math inline">\forall x \in D, f(-x) = -f(x)</span>. Le graphe est symétrique par rapport à l’origine.</p>
+</div>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 1.2</strong></p>
+<p><span class="math inline">f : \mathbb{R} \to \mathbb{R}</span> est <strong>périodique</strong> de période <span class="math inline">T &gt; 0</span> si <span class="math inline">\forall x \in \mathbb{R}, f(x+T) = f(x)</span>. On peut alors restreindre l’étude à un intervalle de longueur <span class="math inline">T</span>.</p>
+</div>
+</section>
+<section id="opérations-sur-les-fonctions" class="level2" data-number="1.3">
+<h2 data-number="1.3" class="anchored" data-anchor-id="opérations-sur-les-fonctions"><span class="header-section-number">1.3</span> Opérations sur les fonctions</h2>
+<p>Soient <span class="math inline">f, g : I \to \mathbb{K}</span> et <span class="math inline">\lambda \in \mathbb{K}</span>. On définit : - La combinaison linéaire : <span class="math inline">(\lambda f + g)(x) = \lambda f(x) + g(x)</span>. - Le produit : <span class="math inline">(fg)(x) = f(x)g(x)</span>. - Le quotient : <span class="math inline">\left(\frac{f}{g}\right)(x) = \frac{f(x)}{g(x)}</span> si <span class="math inline">g(x) \neq 0</span>. - La composée : <span class="math inline">(g \circ f)(x) = g(f(x))</span> si <span class="math inline">f(I) \subset D_g</span>. - <span class="math inline">\max(f,g)</span> et <span class="math inline">\min(f,g)</span> si <span class="math inline">\mathbb{K}=\mathbb{R}</span>.</p>
+</section>
+<section id="monotonie" class="level2" data-number="1.4">
+<h2 data-number="1.4" class="anchored" data-anchor-id="monotonie"><span class="header-section-number">1.4</span> Monotonie</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 1.3</strong></p>
+<p><span class="math inline">f : I \to \mathbb{R}</span> est : - <strong>croissante</strong> si <span class="math inline">\forall (x,y) \in I^2, x \leq y \Rightarrow f(x) \leq f(y)</span>. - <strong>strictement croissante</strong> si <span class="math inline">\forall (x,y) \in I^2, x &lt; y \Rightarrow f(x) &lt; f(y)</span>. - <strong>monotone</strong> si elle est croissante ou décroissante.</p>
+</div>
+</section>
+<section id="fonctions-majorées-minorées-bornées" class="level2" data-number="1.5">
+<h2 data-number="1.5" class="anchored" data-anchor-id="fonctions-majorées-minorées-bornées"><span class="header-section-number">1.5</span> Fonctions majorées, minorées, bornées</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 1.4</strong></p>
+<p><span class="math inline">f : I \to \mathbb{R}</span> est : - <strong>majorée</strong> s’il existe <span class="math inline">M \in \mathbb{R}</span> tel que <span class="math inline">\forall x \in I, f(x) \leq M</span>. - <strong>minorée</strong> s’il existe <span class="math inline">m \in \mathbb{R}</span> tel que <span class="math inline">\forall x \in I, f(x) \geq m</span>. - <strong>bornée</strong> si elle est à la fois majorée et minorée, c’est-à-dire <span class="math inline">\exists K \geq 0, \forall x \in I, |f(x)| \leq K</span>.</p>
+</div>
+</section>
+</section>
+<section id="limites" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> Limites</h1>
+<section id="limite-finie-ou-infinie-en-un-point" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="limite-finie-ou-infinie-en-un-point"><span class="header-section-number">2.1</span> Limite finie ou infinie en un point</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 2.1 — (Limite finie)</strong></p>
+<p>Soit <span class="math inline">f : I \to \mathbb{K}</span> et <span class="math inline">a \in \overline{I}</span>. On dit que <span class="math inline">f</span> admet pour limite <span class="math inline">\ell \in \mathbb{K}</span> en <span class="math inline">a</span> si : <span class="math display"> \forall \varepsilon &gt; 0, \exists \eta &gt; 0, \forall x \in I, (|x-a| &lt; \eta \Rightarrow |f(x)-\ell| &lt; \varepsilon) </span> On note <span class="math inline">\lim_{x \to a} f(x) = \ell</span>.</p>
+</div>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 2.2 — (Limite infinie)</strong></p>
+<p><span class="math inline">f</span> tend vers <span class="math inline">+\infty</span> en <span class="math inline">a</span> si : <span class="math display"> \forall A &gt; 0, \exists \eta &gt; 0, \forall x \in I, (|x-a| &lt; \eta \Rightarrow f(x) &gt; A) </span></p>
+</div>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 2.1 — (Unicité de la limite)</strong></p>
+<p>Si une fonction admet une limite (finie ou infinie) en un point <span class="math inline">a</span>, cette limite est unique.</p>
+</div>
+</section>
+<section id="limites-à-gauche-et-à-droite" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="limites-à-gauche-et-à-droite"><span class="header-section-number">2.2</span> Limites à gauche et à droite</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 2.3</strong></p>
+<ul>
+<li><strong>Limite à droite</strong> en <span class="math inline">a</span> : limite de la restriction de <span class="math inline">f</span> à <span class="math inline">I \cap ]a, +\infty[</span>. Notée <span class="math inline">\lim_{x \to a^+} f(x)</span>.</li>
+<li><strong>Limite à gauche</strong> en <span class="math inline">a</span> : limite de la restriction de <span class="math inline">f</span> à <span class="math inline">I \cap ]-\infty, a[</span>. Notée <span class="math inline">\lim_{x \to a^-} f(x)</span>.</li>
+</ul>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 2.1</strong></p>
+<p><span class="math inline">f</span> admet une limite <span class="math inline">\ell</span> en <span class="math inline">a</span> si et seulement si <span class="math inline">f</span> admet <span class="math inline">\ell</span> comme limite à droite et à gauche en <span class="math inline">a</span>.</p>
+</div>
+</section>
+<section id="caractérisation-séquentielle-de-la-limite" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="caractérisation-séquentielle-de-la-limite"><span class="header-section-number">2.3</span> Caractérisation séquentielle de la limite</h2>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 2.2</strong></p>
+<p><span class="math inline">\lim_{x \to a} f(x) = \ell</span> si et seulement si pour toute suite <span class="math inline">(u_n)</span> d’éléments de <span class="math inline">I \setminus \{a\}</span> convergeant vers <span class="math inline">a</span>, la suite <span class="math inline">(f(u_n))</span> converge vers <span class="math inline">\ell</span>.</p>
+</div>
+<div class="proof remark">
+<p><span class="proof-title"><em>Remarque</em>. </span>Ce théorème est très utile pour montrer qu’une fonction n’a pas de limite en un point (en exhibant deux suites donnant des limites différentes).</p>
+</div>
+</section>
+<section id="opérations-algébriques-sur-les-limites" class="level2" data-number="2.4">
+<h2 data-number="2.4" class="anchored" data-anchor-id="opérations-algébriques-sur-les-limites"><span class="header-section-number">2.4</span> Opérations algébriques sur les limites</h2>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 2.3</strong></p>
+<p>Si <span class="math inline">\lim_{x \to a} f(x) = \ell</span> et <span class="math inline">\lim_{x \to a} g(x) = \ell'</span> (avec <span class="math inline">\ell, \ell' \in \overline{\mathbb{K}}</span> sous réserve de formes indéterminées) : - <span class="math inline">\lim (\lambda f + g) = \lambda \ell + \ell'</span> - <span class="math inline">\lim (fg) = \ell \ell'</span> - Si <span class="math inline">\ell \neq 0</span>, <span class="math inline">\lim (1/f) = 1/\ell</span></p>
+</div>
+</section>
+<section id="composition-de-limites" class="level2" data-number="2.5">
+<h2 data-number="2.5" class="anchored" data-anchor-id="composition-de-limites"><span class="header-section-number">2.5</span> Composition de limites</h2>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 2.4</strong></p>
+<p>Si <span class="math inline">\lim_{x \to a} f(x) = b</span> et <span class="math inline">\lim_{y \to b} g(y) = \ell</span>, alors <span class="math inline">\lim_{x \to a} (g \circ f)(x) = \ell</span>.</p>
+</div>
+</section>
+<section id="conservation-des-inégalités-et-théorèmes-dencadrement" class="level2" data-number="2.6">
+<h2 data-number="2.6" class="anchored" data-anchor-id="conservation-des-inégalités-et-théorèmes-dencadrement"><span class="header-section-number">2.6</span> Conservation des inégalités et théorèmes d’encadrement</h2>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 2.5 — (Conservation des inégalités larges)</strong></p>
+<p>Si <span class="math inline">f(x) \leq g(x)</span> au voisinage de <span class="math inline">a</span> et si les deux limites existent, alors <span class="math inline">\lim_{x \to a} f(x) \leq \lim_{x \to a} g(x)</span>.</p>
+</div>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 2.6 — (Théorème des gendarmes)</strong></p>
+<p>Si <span class="math inline">f(x) \leq h(x) \leq g(x)</span> au voisinage de <span class="math inline">a</span> et si <span class="math inline">\lim_{x \to a} f(x) = \lim_{x \to a} g(x) = \ell</span>, alors <span class="math inline">\lim_{x \to a} h(x) = \ell</span>.</p>
+</div>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 2.7 — (Théorèmes de comparaison pour limites infinies)</strong></p>
+<ul>
+<li>Si <span class="math inline">f(x) \geq g(x)</span> au voisinage de <span class="math inline">a</span> et <span class="math inline">\lim_{x \to a} g(x) = +\infty</span>, alors <span class="math inline">\lim_{x \to a} f(x) = +\infty</span>.</li>
+<li>Si <span class="math inline">f(x) \leq g(x)</span> au voisinage de <span class="math inline">a</span> et <span class="math inline">\lim_{x \to a} g(x) = -\infty</span>, alors <span class="math inline">\lim_{x \to a} f(x) = -\infty</span>.</li>
+</ul>
+</div>
+</section>
+</section>
+<section id="continuité" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Continuité</h1>
+<section id="continuité-en-un-point" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="continuité-en-un-point"><span class="header-section-number">3.1</span> Continuité en un point</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 3.1</strong></p>
+<p><span class="math inline">f : I \to \mathbb{K}</span> est <strong>continue en</strong> <span class="math inline">a \in I</span> si <span class="math inline">\lim_{x \to a} f(x) = f(a)</span>.</p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 3.1</strong></p>
+<p><span class="math inline">f</span> est continue en <span class="math inline">a</span> si et seulement si <span class="math inline">f</span> est continue à droite et à gauche en <span class="math inline">a</span>.</p>
+</div>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 3.1 — (Caractérisation séquentielle de la continuité)</strong></p>
+<p><span class="math inline">f</span> est continue en <span class="math inline">a</span> si et seulement si pour toute suite <span class="math inline">(u_n)</span> de <span class="math inline">I</span> convergeant vers <span class="math inline">a</span>, <span class="math inline">(f(u_n))</span> converge vers <span class="math inline">f(a)</span>.</p>
+</div>
+</section>
+<section id="opérations-sur-les-fonctions-continues" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="opérations-sur-les-fonctions-continues"><span class="header-section-number">3.2</span> Opérations sur les fonctions continues</h2>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 3.2</strong></p>
+<p>Si <span class="math inline">f</span> et <span class="math inline">g</span> sont continues en <span class="math inline">a \in I</span> : - <span class="math inline">\lambda f + g</span>, <span class="math inline">fg</span> sont continues en <span class="math inline">a</span>. - Si <span class="math inline">g(a) \neq 0</span>, <span class="math inline">f/g</span> est continue en <span class="math inline">a</span>. - Si <span class="math inline">f</span> est continue en <span class="math inline">a</span> et <span class="math inline">g</span> est continue en <span class="math inline">f(a)</span>, alors <span class="math inline">g \circ f</span> est continue en <span class="math inline">a</span>.</p>
+</div>
+</section>
+<section id="continuité-sur-un-intervalle" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="continuité-sur-un-intervalle"><span class="header-section-number">3.3</span> Continuité sur un intervalle</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 3.2</strong></p>
+<p><span class="math inline">f</span> est <strong>continue sur</strong> <span class="math inline">I</span> si elle est continue en tout point de <span class="math inline">I</span>.</p>
+</div>
+</section>
+</section>
+<section id="théorèmes-fondamentaux-sur-les-fonctions-continues" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> Théorèmes fondamentaux sur les fonctions continues</h1>
+<section id="théorème-des-valeurs-intermédiaires-tvi" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="théorème-des-valeurs-intermédiaires-tvi"><span class="header-section-number">4.1</span> Théorème des valeurs intermédiaires (TVI)</h2>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 4.1 — (Théorème des valeurs intermédiaires)</strong></p>
+<p>Soit <span class="math inline">f : [a,b] \to \mathbb{R}</span> une fonction continue. Pour tout réel <span class="math inline">\gamma</span> compris entre <span class="math inline">f(a)</span> et <span class="math inline">f(b)</span>, il existe au moins un réel <span class="math inline">c \in [a,b]</span> tel que <span class="math inline">f(c) = \gamma</span>.</p>
+</div>
+<div class="custom-numbered-block custom-corollary">
+<p><strong>Corollaire 4.1</strong></p>
+<p>L’image d’un intervalle par une fonction continue est un intervalle.</p>
+</div>
+<div class="proof remark">
+<p><span class="proof-title"><em>Remarque</em>. </span>Le TVI permet de prouver l’existence de solutions d’équations <span class="math inline">f(x)=0</span> mais pas leur unicité.</p>
+</div>
+</section>
+<section id="principe-de-dichotomie" class="level2" data-number="4.2">
+<h2 data-number="4.2" class="anchored" data-anchor-id="principe-de-dichotomie"><span class="header-section-number">4.2</span> Principe de dichotomie</h2>
+<p>Le TVI justifie l’algorithme de dichotomie pour approcher une solution de <span class="math inline">f(x)=0</span> lorsque <span class="math inline">f(a)f(b) &lt; 0</span>. On divise l’intervalle en deux à chaque étape, garantissant une précision de <span class="math inline">(b-a)/2^n</span> après <span class="math inline">n</span> itérations.</p>
+</section>
+<section id="théorème-des-bornes-atteintes" class="level2" data-number="4.3">
+<h2 data-number="4.3" class="anchored" data-anchor-id="théorème-des-bornes-atteintes"><span class="header-section-number">4.3</span> Théorème des bornes atteintes</h2>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 4.2</strong></p>
+<p>Soit <span class="math inline">f : [a,b] \to \mathbb{R}</span> une fonction continue sur un segment. Alors <span class="math inline">f</span> est bornée et atteint ses bornes : il existe <span class="math inline">c, d \in [a,b]</span> tels que : <span class="math display"> f(c) = \min_{x \in [a,b]} f(x) \quad \text{et} \quad f(d) = \max_{x \in [a,b]} f(x) </span></p>
+</div>
+<div class="proof remark">
+<p><span class="proof-title"><em>Remarque</em>. </span>L’image d’un segment par une fonction continue est un segment. Ce théorème est faux sur un intervalle ouvert.</p>
+</div>
+</section>
+</section>
+<section id="continuité-et-monotonie-stricte.-fonctions-réciproques" class="level1" data-number="5">
+<h1 data-number="5"><span class="header-section-number">5</span> Continuité et monotonie stricte. Fonctions réciproques</h1>
+<section id="bijection-continue-strictement-monotone" class="level2" data-number="5.1">
+<h2 data-number="5.1" class="anchored" data-anchor-id="bijection-continue-strictement-monotone"><span class="header-section-number">5.1</span> Bijection continue strictement monotone</h2>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 5.1</strong></p>
+<p>Soit <span class="math inline">f : I \to \mathbb{R}</span> une fonction continue et strictement monotone sur un intervalle <span class="math inline">I</span>. Alors : 1. <span class="math inline">f</span> réalise une bijection de <span class="math inline">I</span> sur l’intervalle <span class="math inline">J = f(I)</span>. 2. La bijection réciproque <span class="math inline">f^{-1} : J \to I</span> est continue et strictement monotone, de même sens de variation que <span class="math inline">f</span>. 3. Les graphes de <span class="math inline">f</span> et <span class="math inline">f^{-1}</span> sont symétriques par rapport à la première bissectrice <span class="math inline">y=x</span>.</p>
+</div>
+<div class="proof remark">
+<p><span class="proof-title"><em>Remarque</em>. </span>Une fonction continue injective sur un intervalle est nécessairement strictement monotone.</p>
+</div>
+</section>
+<section id="exemples-classiques-de-fonctions-réciproques" class="level2" data-number="5.2">
+<h2 data-number="5.2" class="anchored" data-anchor-id="exemples-classiques-de-fonctions-réciproques"><span class="header-section-number">5.2</span> Exemples classiques de fonctions réciproques</h2>
+<p>Les fonctions usuelles suivantes sont des bijections continues strictement monotones dont les réciproques sont fondamentales :</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Fonction <span class="math inline">f</span></th>
+<th>Intervalle <span class="math inline">I</span></th>
+<th>Image <span class="math inline">J</span></th>
+<th>Réciproque <span class="math inline">f^{-1}</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">x \mapsto x^n</span> (<span class="math inline">n \in \mathbb{N}^*</span>)</td>
+<td><span class="math inline">[0, +\infty[</span></td>
+<td><span class="math inline">[0, +\infty[</span></td>
+<td><span class="math inline">x \mapsto \sqrt[n]{x}</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">x \mapsto e^x</span></td>
+<td><span class="math inline">\mathbb{R}</span></td>
+<td><span class="math inline">]0, +\infty[</span></td>
+<td><span class="math inline">x \mapsto \ln x</span></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">x \mapsto \sin x</span></td>
+<td><span class="math inline">[-\pi/2, \pi/2]</span></td>
+<td><span class="math inline">[-1, 1]</span></td>
+<td><span class="math inline">x \mapsto \arcsin x</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">x \mapsto \cos x</span></td>
+<td><span class="math inline">[0, \pi]</span></td>
+<td><span class="math inline">[-1, 1]</span></td>
+<td><span class="math inline">x \mapsto \arccos x</span></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">x \mapsto \tan x</span></td>
+<td><span class="math inline">]-\pi/2, \pi/2[</span></td>
+<td><span class="math inline">\mathbb{R}</span></td>
+<td><span class="math inline">x \mapsto \arctan x</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">x \mapsto \sinh x</span></td>
+<td><span class="math inline">\mathbb{R}</span></td>
+<td><span class="math inline">\mathbb{R}</span></td>
+<td><span class="math inline">x \mapsto \operatorname{arsinh} x</span></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">x \mapsto \cosh x</span></td>
+<td><span class="math inline">[0, +\infty[</span></td>
+<td><span class="math inline">[1, +\infty[</span></td>
+<td><span class="math inline">x \mapsto \operatorname{arcosh} x</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">x \mapsto \tanh x</span></td>
+<td><span class="math inline">\mathbb{R}</span></td>
+<td><span class="math inline">]-1, 1[</span></td>
+<td><span class="math inline">x \mapsto \operatorname{artanh} x</span></td>
+</tr>
+</tbody>
+</table>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 5.1</strong></p>
+<p>Résoudre <span class="math inline">\arcsin x + \arccos x = \frac{\pi}{2}</span>.</p>
+<p>On sait que pour tout <span class="math inline">x \in [-1,1]</span>, <span class="math inline">\arcsin x + \arccos x = \frac{\pi}{2}</span>. L’équation est donc vérifiée pour tout <span class="math inline">x \in [-1,1]</span>.</p>
+</div>
+</section>
+</section>
+<section id="document-en-pdf" class="level1 unnumbered">
+<h1 class="unnumbered">Document en PDF</h1>
+<p><a href="PDF/pcsi-chap06.pdf">Chapitre 06 : Fonctions de la variable réelle, limites et continuité</a></p>
+<section id="navigation" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="navigation">Navigation</h2>
+<div class="chap-nav">
+<p><a href="../cours/pcsi-chap05.html" class="prev">Chapitre 05 : Suites numériques</a> <a href="../cours/pcsi.html" class="home">Menu PCSI</a> <a href="../cours/pcsi-chap07.html" class="next">Chapitre 07 : Fonctions de la variable réelle, dérivation</a></p>
+</div>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -222,12 +590,12 @@ ul.task-list li input[type="checkbox"] {
       // flash "checked"
       button.classList.add('code-copy-button-checked');
       var currentTitle = button.getAttribute("title");
-      button.setAttribute("title", "Copied!");
+      button.setAttribute("title", "Copié");
       let tooltip;
       if (window.bootstrap) {
         button.setAttribute("data-bs-toggle", "tooltip");
         button.setAttribute("data-bs-placement", "left");
-        button.setAttribute("data-bs-title", "Copied!");
+        button.setAttribute("data-bs-title", "Copié");
         tooltip = new bootstrap.Tooltip(button, 
           { trigger: "manual", 
             customClass: "code-copy-button-tooltip",

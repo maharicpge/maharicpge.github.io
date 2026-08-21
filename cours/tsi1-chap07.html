@@ -1,13 +1,14 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr"><head>
 
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.10.18">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Saîd MAHARI">
 
-<title>Polynômes - Mathématiques en CPGE – Mathématiques en CPGE</title>
+<title>Fonctions de la variable réelle, dérivation – Mathématiques en CPGE</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -45,7 +46,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-7a8c080b55ea27eb37b467515007f9ee.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-e0d9a45d84245cc5e3b300860d8fa645.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -60,22 +61,66 @@ ul.task-list li input[type="checkbox"] {
   ],
   "show-item-context": false,
   "language": {
-    "search-no-results-text": "No results",
-    "search-matching-documents-text": "matching documents",
-    "search-copy-link-title": "Copy link to search",
-    "search-hide-matches-text": "Hide additional matches",
-    "search-more-match-text": "more match in this document",
-    "search-more-matches-text": "more matches in this document",
-    "search-clear-button-title": "Clear",
+    "search-no-results-text": "Pas de résultats",
+    "search-matching-documents-text": "documents trouvés",
+    "search-copy-link-title": "Copier le lien vers la recherche",
+    "search-hide-matches-text": "Cacher les correspondances additionnelles",
+    "search-more-match-text": "correspondance de plus dans ce document",
+    "search-more-matches-text": "correspondances de plus dans ce document",
+    "search-clear-button-title": "Effacer",
     "search-text-placeholder": "",
-    "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit",
-    "search-label": "Search"
+    "search-detached-cancel-button-title": "Annuler",
+    "search-submit-button-title": "Envoyer",
+    "search-label": "Recherche"
   }
 }</script>
 
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="styles.css">
 </head>
 
 <body class="nav-fixed quarto-light">
@@ -89,8 +134,8 @@ ul.task-list li input[type="checkbox"] {
     <span class="navbar-title">Accueil</span>
     </a>
   </div>
-            <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+            <div id="quarto-search" class="" title="Recherche"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Basculer la navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
@@ -140,10 +185,36 @@ ul.task-list li input[type="checkbox"] {
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
+    <h2 id="toc-title">Sur cette page</h2>
    
   <ul>
-  <li><a href="#document" id="toc-document" class="nav-link active" data-scroll-target="#document">Document</a></li>
+  <li><a href="#motivation" id="toc-motivation" class="nav-link active" data-scroll-target="#motivation"><span class="header-section-number">1</span> Motivation</a></li>
+  <li><a href="#dérivée" id="toc-dérivée" class="nav-link" data-scroll-target="#dérivée"><span class="header-section-number">2</span> Dérivée</a>
+  <ul class="collapse">
+  <li><a href="#dérivée-en-un-point" id="toc-dérivée-en-un-point" class="nav-link" data-scroll-target="#dérivée-en-un-point"><span class="header-section-number">2.1</span> Dérivée en un point</a></li>
+  <li><a href="#tangente" id="toc-tangente" class="nav-link" data-scroll-target="#tangente"><span class="header-section-number">2.2</span> Tangente</a></li>
+  <li><a href="#autres-écritures-de-la-dérivée" id="toc-autres-écritures-de-la-dérivée" class="nav-link" data-scroll-target="#autres-écritures-de-la-dérivée"><span class="header-section-number">2.3</span> Autres écritures de la dérivée</a></li>
+  <li><a href="#somme-produit-quotient" id="toc-somme-produit-quotient" class="nav-link" data-scroll-target="#somme-produit-quotient"><span class="header-section-number">2.4</span> Somme, produit, quotient</a></li>
+  <li><a href="#dérivée-de-fonctions-usuelles" id="toc-dérivée-de-fonctions-usuelles" class="nav-link" data-scroll-target="#dérivée-de-fonctions-usuelles"><span class="header-section-number">2.5</span> Dérivée de fonctions usuelles</a></li>
+  <li><a href="#composition" id="toc-composition" class="nav-link" data-scroll-target="#composition"><span class="header-section-number">2.6</span> Composition</a></li>
+  <li><a href="#dérivées-successives" id="toc-dérivées-successives" class="nav-link" data-scroll-target="#dérivées-successives"><span class="header-section-number">2.7</span> Dérivées successives</a></li>
+  </ul></li>
+  <li><a href="#extremum-local-théorème-de-rolle" id="toc-extremum-local-théorème-de-rolle" class="nav-link" data-scroll-target="#extremum-local-théorème-de-rolle"><span class="header-section-number">3</span> Extremum local, théorème de Rolle</a>
+  <ul class="collapse">
+  <li><a href="#extremum-local" id="toc-extremum-local" class="nav-link" data-scroll-target="#extremum-local"><span class="header-section-number">3.1</span> Extremum local</a></li>
+  <li><a href="#théorème-de-rolle" id="toc-théorème-de-rolle" class="nav-link" data-scroll-target="#théorème-de-rolle"><span class="header-section-number">3.2</span> Théorème de Rolle</a></li>
+  </ul></li>
+  <li><a href="#théorème-des-accroissements-finis" id="toc-théorème-des-accroissements-finis" class="nav-link" data-scroll-target="#théorème-des-accroissements-finis"><span class="header-section-number">4</span> Théorème des accroissements finis</a>
+  <ul class="collapse">
+  <li><a href="#fonction-croissante-et-dérivée" id="toc-fonction-croissante-et-dérivée" class="nav-link" data-scroll-target="#fonction-croissante-et-dérivée"><span class="header-section-number">4.1</span> Fonction croissante et dérivée</a></li>
+  <li><a href="#inégalité-des-accroissements-finis" id="toc-inégalité-des-accroissements-finis" class="nav-link" data-scroll-target="#inégalité-des-accroissements-finis"><span class="header-section-number">4.2</span> Inégalité des accroissements finis</a></li>
+  <li><a href="#règle-de-lhospital" id="toc-règle-de-lhospital" class="nav-link" data-scroll-target="#règle-de-lhospital"><span class="header-section-number">4.3</span> Règle de l’Hospital</a></li>
+  </ul></li>
+  <li><a href="#suites-récurrentes" id="toc-suites-récurrentes" class="nav-link" data-scroll-target="#suites-récurrentes"><span class="header-section-number">5</span> Suites récurrentes</a></li>
+  <li><a href="#document-en-pdf" id="toc-document-en-pdf" class="nav-link" data-scroll-target="#document-en-pdf">Document en PDF</a>
+  <ul class="collapse">
+  <li><a href="#navigation" id="toc-navigation" class="nav-link" data-scroll-target="#navigation">Navigation</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -152,14 +223,27 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Chapitre 07 : Polynômes</h1>
+<h1 class="title">Fonctions de la variable réelle, dérivation</h1>
+<p class="subtitle lead">Chapitre 07</p>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Auteur·rice</div>
+    <div class="quarto-title-meta-contents">
+             <p>Saîd MAHARI </p>
+          </div>
+  </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">Date de publication</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">21 août 2026</p>
+    </div>
+  </div>
   
     
   </div>
@@ -169,12 +253,418 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p><strong>TSI 1re année — Chapitre 07.</strong> Opérations de base, racines, factorisation.</p>
-<section id="document" class="level2">
-<h2 class="anchored" data-anchor-id="document">Document</h2>
-<p><em>PDF à venir : déposez le fichier <code>files/tsi1/chap07.pdf</code> puis régénérez la page.</em></p>
+<p><strong>TSI 1re année — Chapitre 07.</strong> Dérivabilité, théorème de Rolle, accroissements finis, dérivées d’ordre supérieur, classes <span class="math inline">\mathcal{C}^k</span>, suites récurrentes.</p>
+<p>Ce chapitre a été réalisé conformément au programme marocain de mathématiques de la filière TSI1.</p>
+<p>Dans ce chapitre, <span class="math inline">\mathbb{K}</span> désigne <span class="math inline">\mathbb{R}</span> ou <span class="math inline">\mathbb{C}</span>.</p>
+<section id="motivation" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Motivation</h1>
+<p>Nous souhaitons calculer <span class="math inline">\sqrt{1{,}01}</span> ou du moins en trouver une valeur approchée. Comme <span class="math inline">1{,}01</span> est proche de <span class="math inline">1</span> et que <span class="math inline">\sqrt{1}=1</span> on se doute bien que <span class="math inline">\sqrt{1{,}01}</span> sera proche de <span class="math inline">1</span>. Peut-on être plus précis ?</p>
+<p>Si l’on appelle <span class="math inline">f</span> la fonction définie par <span class="math inline">f(x)=\sqrt{x}</span>, alors la fonction <span class="math inline">f</span> est une fonction continue en <span class="math inline">x_0=1</span>. La continuité nous affirme que pour <span class="math inline">x</span> suffisamment proche de <span class="math inline">x_0</span>, <span class="math inline">f(x)</span> est proche de <span class="math inline">f(x_0)</span>. Cela revient à dire que pour <span class="math inline">x</span> au voisinage de <span class="math inline">x_0</span> on approche <span class="math inline">f(x)</span> par la constante <span class="math inline">f(x_0)</span>.</p>
+<p>Nous pouvons faire mieux qu’approcher notre fonction par une droite horizontale ! Essayons avec une droite quelconque. Quelle droite se rapproche le plus du graphe de <span class="math inline">f</span> autour de <span class="math inline">x_0</span> ? Elle doit passer par le point <span class="math inline">(x_0,f(x_0))</span> et doit « coller » le plus possible au graphe : c’est la tangente au graphe en <span class="math inline">x_0</span>.</p>
+<p>Une équation de la tangente est : <span class="math display">y = (x-x_0) f'(x_0) + f(x_0)</span> où <span class="math inline">f'(x_0)</span> désigne le nombre dérivé de <span class="math inline">f</span> en <span class="math inline">x_0</span>.</p>
+<p>On sait que pour <span class="math inline">f(x)=\sqrt x</span>, on a <span class="math inline">f'(x)=\frac{1}{2\sqrt x}</span>. Une équation de la tangente en <span class="math inline">x_0=1</span> est donc <span class="math inline">y=(x-1)\frac12+1</span>. Et donc pour <span class="math inline">x</span> proche de <span class="math inline">1</span> on a <span class="math inline">f(x) \approx (x-1)\frac12+1</span>.</p>
+<p>Qu’est-ce que cela donne pour notre calcul de <span class="math inline">\sqrt{1{,}01}</span> ? On pose <span class="math inline">x=1{,}01</span> donc <span class="math inline">f(x) \approx 1+\frac12(x-1) = 1 + \frac{0{,}01}{2}=1{,}005</span>. Et c’est effectivement une très bonne approximation de <span class="math inline">\sqrt{1{,}01}=1{,}00498\ldots</span></p>
+<p>En posant <span class="math inline">h=x-1</span> on peut reformuler notre approximation en : <span class="math inline">\sqrt{1+h} \approx 1+\frac12h</span> qui est valable pour <span class="math inline">h</span> proche de <span class="math inline">0</span>.</p>
+<p>Dans ce chapitre nous allons donc définir ce qu’est la dérivée d’une fonction et établir les formules des dérivées des fonctions usuelles. Enfin, pour connaître l’erreur des approximations, il nous faudra travailler beaucoup plus afin d’obtenir le théorème des accroissements finis.</p>
+</section>
+<section id="dérivée" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> Dérivée</h1>
+<section id="dérivée-en-un-point" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="dérivée-en-un-point"><span class="header-section-number">2.1</span> Dérivée en un point</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 2.1</strong></p>
+<p>Soit <span class="math inline">I</span> un intervalle ouvert de <span class="math inline">\mathbb{R}</span> et <span class="math inline">f : I \to \mathbb{K}</span> une fonction. Soit <span class="math inline">x_0 \in I</span>. On dit que <span class="math inline">f</span> est si le taux d’accroissement <span class="math inline">\frac{f(x)-f(x_0)}{x-x_0}</span> a une limite finie lorsque <span class="math inline">x</span> tend vers <span class="math inline">x_0</span>.</p>
+<p>La limite s’appelle alors le <strong>nombre dérivé</strong> de <span class="math inline">f</span> en <span class="math inline">x_0</span> et est noté <span class="math inline">f'(x_0)</span>. Ainsi : <span class="math display">f'(x_0)= \lim_{x\to x_0} \frac{f(x)-f(x_0)}{x-x_0}</span></p>
+</div>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 2.2</strong></p>
+<p><span class="math inline">f</span> est <strong>dérivable sur <span class="math inline">I</span></strong> si <span class="math inline">f</span> est dérivable en tout point <span class="math inline">x_0 \in I</span>. La fonction <span class="math inline">x \mapsto f'(x)</span> est la <strong>fonction dérivée</strong> de <span class="math inline">f</span>, elle se note <span class="math inline">f'</span> ou <span class="math inline">\frac{df}{dx}</span>.</p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 2.1</strong></p>
+<p>La fonction définie par <span class="math inline">f(x)=x^2</span> est dérivable en tout point <span class="math inline">x_0 \in \mathbb{R}</span>. En effet : <span class="math display">\frac{f(x)-f(x_0)}{x-x_0} = \frac{x^2-x_0^2}{x-x_0} = \frac{(x-x_0)(x+x_0)}{x-x_0}=x+x_0 \xrightarrow[x \to x_0]{} 2x_0.</span> On a même montré que le nombre dérivé de <span class="math inline">f</span> en <span class="math inline">x_0</span> est <span class="math inline">2x_0</span>, autrement dit : <span class="math inline">f'(x)=2x</span>.</p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 2.2</strong></p>
+<p>Montrons que la dérivée de <span class="math inline">f(x)=\sin x</span> est <span class="math inline">f'(x)=\cos x</span>.</p>
+<p>Nous allons utiliser les deux assertions suivantes : <span class="math display">\frac{\sin x}{x} \xrightarrow[x\to 0]{} 1 \qquad \text{et} \qquad \sin p-\sin q = 2\sin \frac{p-q}{2}\cdot\cos\frac{p+q}{2}.</span></p>
+<p>Remarquons déjà que la première assertion prouve <span class="math inline">\frac{f(x)-f(0)}{x-0} = \frac{\sin x}{x} \to 1</span> et donc <span class="math inline">f</span> est dérivable en <span class="math inline">x_0=0</span> et <span class="math inline">f'(0)=1</span>.</p>
+<p>Pour <span class="math inline">x_0</span> quelconque on écrit : <span class="math display">\frac{f(x)-f(x_0)}{x-x_0} = \frac{\sin x - \sin x_0}{x-x_0} = \frac{\sin \frac{x-x_0}{2}}{\frac{x-x_0}{2}} \cdot \cos \frac{x+x_0}{2}.</span></p>
+<p>Lorsque <span class="math inline">x\to x_0</span> alors d’une part <span class="math inline">\cos \frac{x+x_0}{2}\to \cos x_0</span> et d’autre part en posant <span class="math inline">u=\frac{x-x_0}{2}</span> alors <span class="math inline">u\to 0</span> et on a <span class="math inline">\frac {\sin u}u \to 1</span>. Ainsi <span class="math inline">\frac{f(x)-f(x_0)}{x-x_0} \to \cos x_0</span> et donc <span class="math inline">f'(x)=\cos x</span>.</p>
+</div>
+</section>
+<section id="tangente" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="tangente"><span class="header-section-number">2.2</span> Tangente</h2>
+<p>La droite qui passe par les points distincts <span class="math inline">(x_0,f(x_0))</span> et <span class="math inline">(x,f(x))</span> a pour coefficient directeur <span class="math inline">\frac{f(x)-f(x_0)}{x-x_0}</span>. À la limite on trouve que le coefficient directeur de la tangente est <span class="math inline">f'(x_0)</span>.</p>
+<p>Une équation de la <strong>tangente</strong> au point <span class="math inline">(x_0,f(x_0))</span> est donc :</p>
+<p><span class="math display">\boxed{y = (x-x_0) f'(x_0) + f(x_0)}</span></p>
+<p><strong>Interprétation cinématique :</strong> si <span class="math inline">f</span> représente la position d’un point mobile en fonction du temps, alors <span class="math inline">f'(x_0)</span> représente la <strong>vitesse instantanée</strong> à l’instant <span class="math inline">x_0</span>.</p>
+</section>
+<section id="autres-écritures-de-la-dérivée" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="autres-écritures-de-la-dérivée"><span class="header-section-number">2.3</span> Autres écritures de la dérivée</h2>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 2.1</strong></p>
+<p>Voici deux autres formulations de la dérivabilité de <span class="math inline">f</span> en <span class="math inline">x_0</span>.</p>
+<ol type="1">
+<li><p><span class="math inline">f</span> est dérivable en <span class="math inline">x_0</span> si et seulement si <span class="math inline">\displaystyle \lim_{h\to 0} \frac{f(x_0+h)-f(x_0)}{h}</span> existe et est finie.</p></li>
+<li><p><span class="math inline">f</span> est dérivable en <span class="math inline">x_0</span> si et seulement s’il existe <span class="math inline">\ell \in \mathbb{R}</span> (qui sera <span class="math inline">f'(x_0)</span>) et une fonction <span class="math inline">\epsilon : I \to \mathbb{R}</span> telle que <span class="math inline">\epsilon(x) \xrightarrow[x\to x_0]{} 0</span> avec : <span class="math display">f(x)=f(x_0)+(x-x_0) \ell + (x-x_0) \epsilon(x).</span></p></li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 2.2</strong></p>
+<p>Soit <span class="math inline">I</span> un intervalle ouvert, <span class="math inline">x_0 \in I</span> et soit <span class="math inline">f : I \to \mathbb{R}</span> une fonction.</p>
+<ul>
+<li>Si <span class="math inline">f</span> est dérivable en <span class="math inline">x_0</span> alors <span class="math inline">f</span> est continue en <span class="math inline">x_0</span>.</li>
+<li>Si <span class="math inline">f</span> est dérivable sur <span class="math inline">I</span> alors <span class="math inline">f</span> est continue sur <span class="math inline">I</span>.</li>
+</ul>
+</div>
+<div class="proof remark">
+<p><span class="proof-title"><em>Remarque</em>. </span>La réciproque est <strong>fausse</strong> : par exemple, la fonction valeur absolue est continue en <span class="math inline">0</span> mais n’est pas dérivable en <span class="math inline">0</span>. En effet, le taux d’accroissement de <span class="math inline">f(x)=|x|</span> en <span class="math inline">x_0=0</span> vérifie : <span class="math display">\frac{f(x)-f(0)}{x-0} = \frac{|x|}{x}=\begin{cases} +1 &amp; \text{ si } x&gt;0 \\ -1 &amp; \text{ si } x &lt; 0 \end{cases}</span> Il y a bien une limite à droite (qui vaut <span class="math inline">+1</span>), une limite à gauche (qui vaut <span class="math inline">-1</span>) mais elles ne sont pas égales : il n’y a pas de limite en <span class="math inline">0</span>. Ainsi <span class="math inline">f</span> n’est pas dérivable en <span class="math inline">x=0</span>.</p>
+</div>
+<div class="proof remark">
+<p><span class="proof-title"><em>Remarque</em>. </span><span class="math inline">f</span> est dérivable en <span class="math inline">x_0</span> si et seulement si elle est dérivable en <span class="math inline">x_0</span> à gauche et à droite et on a : <span class="math inline">f_g'(x_0)=f_d'(x_0)</span>.</p>
+</div>
+</section>
+<section id="somme-produit-quotient" class="level2" data-number="2.4">
+<h2 data-number="2.4" class="anchored" data-anchor-id="somme-produit-quotient"><span class="header-section-number">2.4</span> Somme, produit, quotient</h2>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 2.3</strong></p>
+<p>Soient <span class="math inline">f,g : I \to \mathbb{R}</span> deux fonctions dérivables sur <span class="math inline">I</span>. Alors pour tout <span class="math inline">x \in I</span> :</p>
+<ul>
+<li><span class="math inline">(f+g)'(x) = f'(x)+g'(x)</span></li>
+<li><span class="math inline">(\lambda f)'(x) = \lambda f'(x)</span> où <span class="math inline">\lambda</span> est un réel fixé</li>
+<li><span class="math inline">(f \times g)'(x) = f'(x)g(x)+f(x)g'(x)</span></li>
+<li><span class="math inline">\displaystyle\left(\frac{1}{f}\right)'(x)=-\frac{f'(x)}{f(x)^2}</span> (si <span class="math inline">f(x)\neq 0</span>)</li>
+<li><span class="math inline">\displaystyle\left(\frac{f}{g}\right)'(x)=\frac{f'(x)g(x)-f(x)g'(x)}{g(x)^2}</span> (si <span class="math inline">g(x)\neq 0</span>)</li>
+</ul>
+</div>
+</section>
+<section id="dérivée-de-fonctions-usuelles" class="level2" data-number="2.5">
+<h2 data-number="2.5" class="anchored" data-anchor-id="dérivée-de-fonctions-usuelles"><span class="header-section-number">2.5</span> Dérivée de fonctions usuelles</h2>
+<p>Le tableau de gauche est un résumé des principales formules à connaître. Le tableau de droite est celui des compositions, <span class="math inline">u</span> représente une fonction <span class="math inline">x\mapsto u(x)</span>.</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th><strong>Fonction</strong></th>
+<th><strong>Dérivée</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">x^n</span></td>
+<td><span class="math inline">nx^{n-1}</span> (<span class="math inline">n \in \mathbb{Z}</span>)</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\frac 1x</span></td>
+<td><span class="math inline">-\frac{1}{x^2}</span></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\sqrt{x}</span></td>
+<td><span class="math inline">\frac12 \frac1{\sqrt{x}}</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">x^\alpha</span></td>
+<td><span class="math inline">\alpha x^{\alpha-1}</span> (<span class="math inline">\alpha\in\mathbb{R}</span>)</td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">e^x</span></td>
+<td><span class="math inline">e^x</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\ln x</span></td>
+<td><span class="math inline">\frac 1x</span></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\cos x</span></td>
+<td><span class="math inline">-\sin x</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\sin x</span></td>
+<td><span class="math inline">\cos x</span></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\tan x</span></td>
+<td><span class="math inline">1+\tan^2 x = \frac{1}{\cos^2 x}</span></td>
+</tr>
+</tbody>
+</table>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th><strong>Fonction</strong></th>
+<th><strong>Dérivée</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">u^n</span></td>
+<td><span class="math inline">nu'u^{n-1}</span> (<span class="math inline">n \in \mathbb{Z}</span>)</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\frac 1u</span></td>
+<td><span class="math inline">-\frac{u'}{u^2}</span></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\sqrt{u}</span></td>
+<td><span class="math inline">\frac12 \frac{u'}{\sqrt{u}}</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">u^\alpha</span></td>
+<td><span class="math inline">\alpha u' u^{\alpha-1}</span> (<span class="math inline">\alpha\in\mathbb{R}</span>)</td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">e^u</span></td>
+<td><span class="math inline">u'e^u</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\ln u</span></td>
+<td><span class="math inline">\frac {u'}{u}</span></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\cos u</span></td>
+<td><span class="math inline">-u'\sin u</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\sin u</span></td>
+<td><span class="math inline">u'\cos u</span></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\tan u</span></td>
+<td><span class="math inline">u'(1+\tan^2 u) = \frac{u'}{\cos^2 u}</span></td>
+</tr>
+</tbody>
+</table>
+<div class="proof remark">
+<p><span class="proof-title"><em>Remarque</em>. </span>Si vous devez dériver une fonction avec un exposant dépendant de <span class="math inline">x</span> il faut absolument repasser à la forme exponentielle. Par exemple si <span class="math inline">f(x)= 2^x</span> alors on réécrit d’abord <span class="math inline">f(x)=e^{x\ln 2}</span> pour pouvoir calculer <span class="math inline">f'(x)=\ln 2 \cdot e^{x\ln 2} = \ln 2 \cdot 2^x</span>.</p>
+</div>
+</section>
+<section id="composition" class="level2" data-number="2.6">
+<h2 data-number="2.6" class="anchored" data-anchor-id="composition"><span class="header-section-number">2.6</span> Composition</h2>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 2.4</strong></p>
+<p>Si <span class="math inline">f</span> est dérivable en <span class="math inline">x</span> et <span class="math inline">g</span> est dérivable en <span class="math inline">f(x)</span> alors <span class="math inline">g\circ f</span> est dérivable en <span class="math inline">x</span> de dérivée :</p>
+<p><span class="math display">\boxed{\big( g \circ f \big)'(x) = g'\big( f(x) \big) \cdot f'(x)}</span></p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 2.3</strong></p>
+<p>Calculons la dérivée de <span class="math inline">\ln(1+x^2)</span>. Nous avons <span class="math inline">g(x)=\ln(x)</span> avec <span class="math inline">g'(x) = \frac 1x</span> ; et <span class="math inline">f(x)=1+x^2</span> avec <span class="math inline">f'(x) = 2x</span>. Alors la dérivée de <span class="math inline">\ln(1+x^2)=g\circ f(x)</span> est : <span class="math display">\big( g \circ f \big)'(x) = g'\big( f(x) \big) \cdot f'(x) = g'\big( 1+x^2 \big) \cdot 2x = \frac{2x}{1+x^2}.</span></p>
+</div>
+<div class="corollaire">
+<p>Soit <span class="math inline">I</span> un intervalle ouvert. Soit <span class="math inline">f : I \to J</span> dérivable et bijective dont on note <span class="math inline">f^{-1} : J \to I</span> la bijection réciproque. Si <span class="math inline">f'</span> ne s’annule pas sur <span class="math inline">I</span> alors <span class="math inline">f^{-1}</span> est dérivable et on a pour tout <span class="math inline">x \in J</span> :</p>
+<p><span class="math display">\boxed{\displaystyle \big(f^{-1}\big)'(x)= \frac{1}{f'\big( f^{-1}(x) \big)}}</span></p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 2.4</strong></p>
+<p>Soit <span class="math inline">f : \mathbb{R} \to \mathbb{R}</span> la fonction définie par <span class="math inline">f(x)=x+\exp(x)</span>. Étudions <span class="math inline">f</span> en détail.</p>
+<ol type="1">
+<li><span class="math inline">f</span> est dérivable car <span class="math inline">f</span> est la somme de deux fonctions dérivables. En particulier <span class="math inline">f</span> est continue.</li>
+<li><span class="math inline">f</span> est strictement croissante car <span class="math inline">f</span> est la somme de deux fonctions strictement croissantes.</li>
+<li><span class="math inline">f</span> est une bijection car <span class="math inline">\lim_{x\to-\infty} f(x)=-\infty</span> et <span class="math inline">\lim_{x\to+\infty} f(x)=+\infty</span>.</li>
+<li><span class="math inline">f'(x) = 1 + \exp(x)</span> ne s’annule jamais (pour tout <span class="math inline">x\in \mathbb{R}</span>).</li>
+</ol>
+<p>Notons <span class="math inline">g = f^{-1}</span> la bijection réciproque de <span class="math inline">f</span>. Même si on ne sait pas a priori exprimer <span class="math inline">g</span>, on peut malgré tout connaître des informations sur cette fonction : par le corollaire ci-dessus <span class="math inline">g</span> est dérivable et l’on calcule <span class="math inline">g'</span> en dérivant l’égalité <span class="math inline">f\big( g(x) \big) = x</span>. Ce qui donne <span class="math inline">f'\big(g(x)\big) \cdot g'(x) = 1</span> et donc ici : <span class="math display">g'(x) = \frac{1}{f'\big( g(x) \big)} = \frac{1}{1+\exp\big( g(x) \big)}.</span></p>
+<p>Pour cette fonction <span class="math inline">f</span> particulière on peut préciser davantage : comme <span class="math inline">f\big( g(x)\big) = x</span> alors <span class="math inline">g(x)+\exp\big( g(x) \big)=x</span> donc <span class="math inline">\exp\big( g(x) \big)=x-g(x)</span>. Cela conduit à : <span class="math display">g'(x) = \frac{1}{1+x -g(x)}.</span></p>
+</div>
+</section>
+<section id="dérivées-successives" class="level2" data-number="2.7">
+<h2 data-number="2.7" class="anchored" data-anchor-id="dérivées-successives"><span class="header-section-number">2.7</span> Dérivées successives</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 2.3</strong></p>
+<p>Soit <span class="math inline">f : I \to \mathbb{R}</span> une fonction dérivable et soit <span class="math inline">f'</span> sa dérivée. Si la fonction <span class="math inline">f' : I \to \mathbb{R}</span> est aussi dérivable on note <span class="math inline">f''=(f')'</span> la <strong>dérivée seconde</strong> de <span class="math inline">f</span>. Plus généralement on note : <span class="math display">f^{(0)} = f, \quad f^{(1)} = f', \quad f^{(2)} = f'' \quad \text{ et } \quad f^{(n+1)} = \big(f^{(n)}\big)'</span></p>
+<p>Si la dérivée <span class="math inline">n</span>-ième <span class="math inline">f^{(n)}</span> existe on dit que <span class="math inline">f</span> est <strong><span class="math inline">n</span> fois dérivable</strong>. Si, de plus, <span class="math inline">f^{(n)}</span> est continue sur <span class="math inline">I</span>, on dit que <span class="math inline">f</span> est de <strong>classe <span class="math inline">\mathcal{C}^n</span></strong> sur <span class="math inline">I</span>. On note <span class="math inline">\mathcal{C}^n(I,\mathbb{K})</span> l’ensemble des fonctions de classe <span class="math inline">\mathcal{C}^n</span> sur <span class="math inline">I</span> à valeurs dans <span class="math inline">\mathbb{K}</span>.</p>
+<p>Alors <span class="math inline">\mathcal{C}^0(I,\mathbb{K})</span> est l’ensemble des fonctions continues sur <span class="math inline">I</span>.</p>
+<p>Si <span class="math inline">f</span> est une fonction de classe <span class="math inline">\mathcal{C}^n</span> sur <span class="math inline">I</span> pour tout <span class="math inline">n\in \mathbb{N}</span>, on dit qu’elle est de <strong>classe <span class="math inline">\mathcal{C}^{\infty}</span></strong>.</p>
+</div>
+<div class="proof remark">
+<p><span class="proof-title"><em>Remarque</em>. </span>On remarque :</p>
+<ol type="1">
+<li><span class="math inline">\mathcal{C}^{n+1}(I,\mathbb{K})\subset \mathcal{C}^n(I,\mathbb{K})</span></li>
+<li><span class="math inline">\mathcal{C}^{\infty}(I,\mathbb{K})=\bigcap_{n\in \mathbb{N}}\mathcal{C}^n(I,\mathbb{K})</span></li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 2.1 — (Formule de Leibniz)</strong></p>
+<p>Soient <span class="math inline">f</span> et <span class="math inline">g</span> deux fonctions <span class="math inline">n</span> fois dérivables. Alors :</p>
+<p><span class="math display">\big( f \cdot g \big)^{(n)} = \sum_{k=0}^n \binom{n}{k} \ f^{(n-k)} \cdot g^{(k)}</span></p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 2.5</strong></p>
+<p>Calculons les dérivées <span class="math inline">n</span>-ème de <span class="math inline">\exp(x) \cdot (x^2+1)</span> pour tout <span class="math inline">n \ge 0</span>.</p>
+<p>Notons <span class="math inline">f(x)=\exp(x)</span> alors <span class="math inline">f'(x)=\exp(x)</span>, <span class="math inline">f''(x)=\exp(x)</span>,…, <span class="math inline">f^{(k)}(x)=\exp(x)</span>. Notons <span class="math inline">g(x)=x^2+1</span> alors <span class="math inline">g'(x)=2x</span>, <span class="math inline">g''(x)=2</span> et pour <span class="math inline">k\ge 3</span>, <span class="math inline">g^{(k)}(x)=0</span>.</p>
+<p>Appliquons la formule de Leibniz : <span class="math display">\big( f \cdot g \big)^{(n)}(x) = f^{(n)}(x) \cdot g(x) + \binom{n}{1}\ f^{(n-1)}(x)\cdot g^{(1)}(x) + \binom{n}{2}\ f^{(n-2)}(x)\cdot g^{(2)}(x)</span></p>
+<p>On remplace <span class="math inline">f^{(k)}(x)=\exp(x)</span> et on sait que <span class="math inline">g^{(3)}(x)=0</span>, <span class="math inline">g^{(4)}(x)=0</span>,… Donc cette somme ne contient que les trois premiers termes : <span class="math display">\big( f \cdot g \big)^{(n)}(x) = \exp(x) \cdot (x^2+1) + \binom{n}{1}\ \exp(x) \cdot 2x + \binom{n}{2}\ \exp(x) \cdot 2</span></p>
+<p>Que l’on peut aussi écrire : <span class="math display">\big( f \cdot g \big)^{(n)}(x) = \exp(x) \cdot \Big(x^2 + 2nx + n(n-1)+1 \Big).</span></p>
+</div>
+<div class="proof remark">
+<p><span class="proof-title"><em>Remarque</em>. </span>Les propositions sur les opérations sur les fonctions dérivables et la composition sont encore valables pour les fonctions de classe <span class="math inline">\mathcal{C}^n</span>.</p>
+</div>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 2.2 — (Théorème de prolongement par classe <span class="math inline">\boldsymbol{\mathcal{C}^n}</span>)</strong></p>
+<p>Soit <span class="math inline">n\in \mathbb{N}^*</span>, et soit <span class="math inline">f: I\longrightarrow \mathbb{K}</span> une fonction telle que :</p>
+<ol type="1">
+<li><span class="math inline">f</span> est de classe <span class="math inline">\mathcal{C}^n</span> sur <span class="math inline">I\smallsetminus\{x_0\}</span></li>
+<li>Pour tout <span class="math inline">k\in\llbracket 0,n\rrbracket</span>, <span class="math inline">f^{(k)}(x)</span> admet une limite finie en <span class="math inline">x_0</span></li>
+</ol>
+<p>Alors <span class="math inline">f</span> admet un prolongement de classe <span class="math inline">\mathcal{C}^n</span> sur <span class="math inline">I</span>. Autrement dit, <span class="math inline">f</span> est prolongeable par continuité et son prolongement est de classe <span class="math inline">\mathcal{C}^n</span> sur <span class="math inline">I</span>.</p>
+</div>
+</section>
+</section>
+<section id="extremum-local-théorème-de-rolle" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Extremum local, théorème de Rolle</h1>
+<section id="extremum-local" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="extremum-local"><span class="header-section-number">3.1</span> Extremum local</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 3.1</strong></p>
+<p>Soit <span class="math inline">f : I \to \mathbb{R}</span> une fonction définie sur un intervalle <span class="math inline">I</span>.</p>
+<ul>
+<li>On dit que <span class="math inline">x_0</span> est un <strong>point critique</strong> de <span class="math inline">f</span> si <span class="math inline">f'(x_0)=0</span>.</li>
+<li>On dit que <span class="math inline">f</span> admet un <strong>maximum local en <span class="math inline">x_0</span></strong> (resp. un <strong>minimum local en <span class="math inline">x_0</span></strong>) s’il existe un intervalle ouvert <span class="math inline">J</span> contenant <span class="math inline">x_0</span> tel que pour tout <span class="math inline">x\in I \cap J</span> : <span class="math inline">f(x) \le f(x_0)</span> (resp. <span class="math inline">f(x) \ge f(x_0)</span>).</li>
+<li>On dit que <span class="math inline">f</span> admet un <strong>extremum local en <span class="math inline">x_0</span></strong> si <span class="math inline">f</span> admet un maximum local ou un minimum local en ce point.</li>
+</ul>
+</div>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 3.1</strong></p>
+<p>Soit <span class="math inline">I</span> un intervalle ouvert et <span class="math inline">f : I \to \mathbb{R}</span> une fonction dérivable. Si <span class="math inline">f</span> admet un maximum local (ou un minimum local) en <span class="math inline">x_0</span> alors <span class="math inline">f'(x_0)=0</span>.</p>
+</div>
+<div class="proof remark">
+<p><span class="proof-title"><em>Remarque</em>. </span>La réciproque est <strong>fausse</strong>. Par exemple la fonction <span class="math inline">f : \mathbb{R} \to \mathbb{R}</span>, définie par <span class="math inline">f(x)= x^3</span> vérifie <span class="math inline">f'(0)=0</span> mais <span class="math inline">x_0=0</span> n’est ni maximum local ni un minimum local.</p>
+</div>
+</section>
+<section id="théorème-de-rolle" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="théorème-de-rolle"><span class="header-section-number">3.2</span> Théorème de Rolle</h2>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 3.2 — (Théorème de Rolle)</strong></p>
+<p>Soit <span class="math inline">f:[a,b] \to \mathbb{R}</span> telle que :</p>
+<ul>
+<li><span class="math inline">f</span> est continue sur <span class="math inline">[a,b]</span>,</li>
+<li><span class="math inline">f</span> est dérivable sur <span class="math inline">]a,b[</span>,</li>
+<li><span class="math inline">f(a)=f(b)</span>.</li>
+</ul>
+<p>Alors il existe <span class="math inline">c \in ]a,b[</span> tel que <span class="math inline">f'(c)=0</span>.</p>
+</div>
+<p><strong>Interprétation géométrique :</strong> il existe au moins un point du graphe de <span class="math inline">f</span> où la tangente est horizontale.</p>
+<div class="proof">
+<p><span class="proof-title"><em>Preuve</em>. </span>Tout d’abord, si <span class="math inline">f</span> est constante sur <span class="math inline">[a,b]</span> alors n’importe quel <span class="math inline">c\in]a,b[</span> convient.</p>
+<p>Sinon il existe <span class="math inline">x_0 \in [a,b]</span> tel que <span class="math inline">f(x_0) \neq f(a)</span>. Supposons par exemple <span class="math inline">f(x_0) &gt; f(a)</span>. Alors <span class="math inline">f</span> est continue sur l’intervalle fermé et borné <span class="math inline">[a,b]</span>, donc elle admet un maximum en un point <span class="math inline">c\in[a,b]</span>. Mais <span class="math inline">f(c) \ge f(x_0) &gt; f(a)</span> donc <span class="math inline">c \neq a</span>. De même comme <span class="math inline">f(a)=f(b)</span> alors <span class="math inline">c \neq b</span>. Ainsi <span class="math inline">c\in ]a,b[</span>.</p>
+<p>En <span class="math inline">c</span>, <span class="math inline">f</span> est donc dérivable et admet un maximum (local) donc <span class="math inline">f'(c)=0</span>.</p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 3.1</strong></p>
+<p>Soit <span class="math inline">P(X) = (X-\alpha_1)(X-\alpha_2)\cdots(X-\alpha_n)</span> un polynôme ayant <span class="math inline">n</span> racines réelles différentes : <span class="math inline">\alpha_1&lt; \alpha_2 &lt; \cdots &lt; \alpha_n</span>.</p>
+<p>Montrons que <span class="math inline">P'</span> a <span class="math inline">n-1</span> racines distinctes. On considère <span class="math inline">P</span> comme une fonction polynomiale <span class="math inline">x \mapsto P(x)</span>. <span class="math inline">P</span> est une fonction continue et dérivable sur <span class="math inline">\mathbb{R}</span>. Comme <span class="math inline">P(\alpha_1)=0=P(\alpha_2)</span> alors par le théorème de Rolle il existe <span class="math inline">c_1 \in ]\alpha_1,\alpha_2[</span> tel que <span class="math inline">P'(c_1)=0</span>. Plus généralement, pour <span class="math inline">1 \le k \le n-1</span>, comme <span class="math inline">P(\alpha_k)=0=P(\alpha_{k+1})</span> alors le théorème de Rolle implique l’existence de <span class="math inline">c_k \in ]\alpha_k,\alpha_{k+1}[</span> tel que <span class="math inline">P'(c_k)=0</span>. Nous avons bien trouvé <span class="math inline">n-1</span> racines de <span class="math inline">P'</span> : <span class="math inline">c_1&lt; c_2 &lt; \cdots &lt; c_{n-1}</span>.</p>
+</div>
+</section>
+</section>
+<section id="théorème-des-accroissements-finis" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> Théorème des accroissements finis</h1>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 4.1 — (Théorème des accroissements finis)</strong></p>
+<p>Soit <span class="math inline">f:[a,b] \to \mathbb{R}</span> une fonction continue sur <span class="math inline">[a,b]</span> et dérivable sur <span class="math inline">]a,b[</span>. Il existe <span class="math inline">c\in]a,b[</span> tel que :</p>
+<p><span class="math display">\boxed{f(b)-f(a)= f'(c) \; (b-a)}</span></p>
+</div>
+<p><strong>Interprétation géométrique :</strong> il existe au moins un point du graphe de <span class="math inline">f</span> où la tangente est parallèle à la droite <span class="math inline">(AB)</span> où <span class="math inline">A=(a,f(a))</span> et <span class="math inline">B=(b,f(b))</span>.</p>
+<div class="proof remark">
+<p><span class="proof-title"><em>Remarque</em>. </span>Le théorème de Rolle et le théorème des accroissements finis ne sont pas valables pour des fonctions à valeurs dans <span class="math inline">\mathbb{C}</span> comme le montre l’exemple de la fonction d’expression <span class="math inline">f(x)=e^{ix}</span> sur le segment <span class="math inline">[0,2\pi]</span>.</p>
+</div>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 4.2 — (de la limite de la dérivée)</strong></p>
+<p>Soit <span class="math inline">f: I\longrightarrow \mathbb{K}</span> une fonction continue, et dérivable sur <span class="math inline">I\smallsetminus\{x_0\}</span>, et soit <span class="math inline">l</span> un élément de <span class="math inline">\overline{\mathbb{R}}</span> si <span class="math inline">\mathbb{K}=\mathbb{R}</span> et sinon, <span class="math inline">l</span> est un élément de <span class="math inline">\mathbb{C}</span>. Alors : <span class="math display">f'(x)\underset{x\to x_0}{\longrightarrow} l\implies \frac{f(x)-f(x_0)}{x-x_0}\underset{x\to x_0}{\longrightarrow} l</span></p>
+</div>
+<div class="corollaire">
+<p>Si <span class="math inline">l\in \mathbb{K}</span>, alors, d’après le théorème de la limite de la dérivée, <span class="math inline">f</span> est dérivable en <span class="math inline">x_0</span> et <span class="math inline">f'</span> est continue en <span class="math inline">x_0</span>.</p>
+</div>
+<section id="fonction-croissante-et-dérivée" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="fonction-croissante-et-dérivée"><span class="header-section-number">4.1</span> Fonction croissante et dérivée</h2>
+<div class="corollaire">
+<p>Soit <span class="math inline">f:[a,b] \to \mathbb{R}</span> une fonction continue sur <span class="math inline">[a,b]</span> et dérivable sur <span class="math inline">]a,b[</span>.</p>
+<ol type="1">
+<li><span class="math inline">\forall x \in ]a,b[ \quad f'(x) \ge 0 \iff</span> <span class="math inline">f</span> est croissante ;</li>
+<li><span class="math inline">\forall x \in ]a,b[ \quad f'(x) \le 0 \iff</span> <span class="math inline">f</span> est décroissante ;</li>
+<li><span class="math inline">\forall x \in ]a,b[ \quad f'(x) = 0 \iff</span> <span class="math inline">f</span> est constante ;</li>
+<li><span class="math inline">\forall x \in ]a,b[ \quad f'(x) &gt; 0 \implies</span> <span class="math inline">f</span> est strictement croissante ;</li>
+<li><span class="math inline">\forall x \in ]a,b[ \quad f'(x) &lt; 0 \implies</span> <span class="math inline">f</span> est strictement décroissante.</li>
+</ol>
+</div>
+<div class="proof remark">
+<p><span class="proof-title"><em>Remarque</em>. </span>La réciproque au point (4) (et aussi au (5)) est fausse. Par exemple la fonction <span class="math inline">x \mapsto x^3</span> est strictement croissante et pourtant sa dérivée s’annule en <span class="math inline">0</span>.</p>
+</div>
+</section>
+<section id="inégalité-des-accroissements-finis" class="level2" data-number="4.2">
+<h2 data-number="4.2" class="anchored" data-anchor-id="inégalité-des-accroissements-finis"><span class="header-section-number">4.2</span> Inégalité des accroissements finis</h2>
+<div class="corollaire" title="(Inégalité des accroissements finis)">
+<p>Soit <span class="math inline">f : I \to \mathbb{R}</span> une fonction dérivable sur un intervalle <span class="math inline">I</span> ouvert. S’il existe une constante <span class="math inline">M</span> telle que pour tout <span class="math inline">x \in I</span>, <span class="math inline">\big|f'(x)\big| \le M</span> alors :</p>
+<p><span class="math display">\boxed{\forall x,y \in I \qquad \big| f(x)-f(y) \big| \le M |x-y|}</span></p>
+</div>
+<div class="proof remark">
+<p><span class="proof-title"><em>Remarque</em>. </span>L’inégalité des accroissements finis est encore valable pour les fonctions à valeurs dans <span class="math inline">\mathbb{C}</span> même si le théorème des accroissements ne peut pas leur être appliqué. Elle peut être établie en utilisant l’intégration.</p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 4.1</strong></p>
+<p>Soit <span class="math inline">f(x)=\sin(x)</span>. Comme <span class="math inline">f'(x)=\cos x</span> alors <span class="math inline">|f'(x)| \le 1</span> pour tout <span class="math inline">x\in \mathbb{R}</span>. L’inégalité des accroissements finis s’écrit alors : <span class="math display">\text{pour tout } x,y \in \mathbb{R} \qquad |\sin x - \sin y | \le |x-y|.</span></p>
+<p>En particulier si l’on fixe <span class="math inline">y=0</span> alors on obtient <span class="math inline">|\sin x| \le |x|</span> ce qui est particulièrement intéressant pour <span class="math inline">x</span> proche de <span class="math inline">0</span>.</p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 4.2</strong></p>
+<p>Soit <span class="math inline">f(x)=\sqrt{x}</span>. Appliquer le théorème des accroissements finis sur l’intervalle <span class="math inline">[100,101]</span>. En déduire l’encadrement <span class="math inline">10+\frac{1}{22} \le \sqrt{101} \le 10 + \frac{1}{20}</span>.</p>
+</div>
+</section>
+<section id="règle-de-lhospital" class="level2" data-number="4.3">
+<h2 data-number="4.3" class="anchored" data-anchor-id="règle-de-lhospital"><span class="header-section-number">4.3</span> Règle de l’Hospital</h2>
+<div class="corollaire" title="(Règle de l'Hospital)">
+<p>Soient <span class="math inline">f,g : I \to \mathbb{R}</span> deux fonctions dérivables et soit <span class="math inline">x_0\in I</span>. On suppose que :</p>
+<ul>
+<li><span class="math inline">f(x_0)=g(x_0)=0</span>,</li>
+<li><span class="math inline">\forall x \in I\setminus\{x_0\} \quad g'(x)\neq 0</span>.</li>
+</ul>
+<p>Si <span class="math inline">\displaystyle \lim_{x\to x_0} \frac{f'(x)}{g'(x)} = \ell \quad (\in \mathbb{R})</span> alors <span class="math inline">\displaystyle \lim_{x\to x_0} \frac{f(x)}{g(x)} = \ell.</span></p>
+</div>
+</section>
+</section>
+<section id="suites-récurrentes" class="level1" data-number="5">
+<h1 data-number="5"><span class="header-section-number">5</span> Suites récurrentes</h1>
+<p>L’étude des suites récurrentes est l’occasion d’introduire la notion de vitesse de convergence. Sur des exemples, on mettra en évidence divers comportements (convergence lente, géométrique, quadratique) en explicitant le nombre d’itérations nécessaires pour obtenir une précision donnée.</p>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 5.1</strong></p>
+<p>Un intervalle <span class="math inline">J</span> est <strong>stable</strong> par une fonction <span class="math inline">f</span> si <span class="math inline">f(J) \subset J</span>. Un réel <span class="math inline">\alpha</span> est un <strong>point fixe</strong> de <span class="math inline">f</span> si <span class="math inline">f(\alpha)=\alpha</span>.</p>
+</div>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 5.2 — (Suite définie par récurrence)</strong></p>
+<p>Une suite <span class="math inline">(u_n)_{n\in\mathbb{N}}</span> est définie par récurrence si elle est définie par : <span class="math display">\begin{cases} u_0 \in \mathbb{R} \\ \forall n \in \mathbb{N},\ u_{n+1} = f(u_n) \end{cases}</span> où <span class="math inline">f</span> est une fonction définie sur un intervalle <span class="math inline">I</span> stable.</p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 5.1</strong></p>
+<p>Si <span class="math inline">(u_n)_{n\in\mathbb{N}}</span> converge vers <span class="math inline">\alpha</span> et si <span class="math inline">f</span> est continue en <span class="math inline">\alpha</span> alors <span class="math inline">\alpha</span> est un point fixe de <span class="math inline">f</span>, c’est-à-dire <span class="math inline">f(\alpha)=\alpha</span>.</p>
+</div>
+<div class="proof remark">
+<p><span class="proof-title"><em>Remarque</em>. </span>Pour l’étude de la monotonie de <span class="math inline">(u_n)</span>, on soulignera l’intérêt, d’une part, de l’étude du signe de <span class="math inline">x \mapsto f(x)-x</span>, et, d’autre part, de l’utilisation de la croissance éventuelle de <span class="math inline">f</span>.</p>
+<p>Si <span class="math inline">f</span> est croissante sur <span class="math inline">I</span> stable, alors <span class="math inline">(u_n)</span> est monotone. Si <span class="math inline">f</span> est décroissante, <span class="math inline">(u_{2n})</span> et <span class="math inline">(u_{2n+1})</span> sont monotones de sens opposés.</p>
+</div>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 5.3 — (Fonction contractante)</strong></p>
+<p>Une fonction <span class="math inline">f : I \to I</span> est dite <strong>contractante</strong> s’il existe <span class="math inline">k \in [0,1[</span> tel que pour tout <span class="math inline">x,y \in I</span> : <span class="math display">|f(x)-f(y)| \le k|x-y|</span></p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 5.2 — (Algorithme de recherche du point fixe)</strong></p>
+<p>Si <span class="math inline">f : I \to I</span> est contractante de rapport <span class="math inline">k \in [0,1[</span>, alors <span class="math inline">f</span> admet un unique point fixe <span class="math inline">\alpha \in I</span> et la suite <span class="math inline">(u_n)</span> définie par <span class="math inline">u_0 \in I</span> et <span class="math inline">u_{n+1}=f(u_n)</span> converge vers <span class="math inline">\alpha</span>. De plus : <span class="math display">|u_n - \alpha| \le \frac{k^n}{1-k}|u_1-u_0|</span></p>
+<p>La convergence est <strong>géométrique</strong> de raison <span class="math inline">k</span>.</p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 5.3 — (Méthode de Newton)</strong></p>
+<p>Soit <span class="math inline">g</span> une fonction deux fois dérivable sur un intervalle <span class="math inline">I</span> et <span class="math inline">\alpha \in I</span> une racine simple de <span class="math inline">g</span> (c’est-à-dire <span class="math inline">g(\alpha)=0</span> et <span class="math inline">g'(\alpha)\neq 0</span>). On considère la fonction : <span class="math display">f(x) = x - \frac{g(x)}{g'(x)}</span></p>
+<p>Alors <span class="math inline">f(\alpha)=\alpha</span> et <span class="math inline">f'(\alpha)=0</span>. Si <span class="math inline">u_0</span> est suffisamment proche de <span class="math inline">\alpha</span>, la suite définie par <span class="math inline">u_{n+1}=f(u_n)</span> converge vers <span class="math inline">\alpha</span> avec une convergence <strong>quadratique</strong> : <span class="math display">|u_{n+1}-\alpha| \le C|u_n-\alpha|^2</span></p>
+</div>
+</section>
+<section id="document-en-pdf" class="level1 unnumbered">
+<h1 class="unnumbered">Document en PDF</h1>
+<p><a href="PDF/tsi1-chap07.pdf">Chapitre 07 : Fonctions de la variable réelle, dérivation</a></p>
+<section id="navigation" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="navigation">Navigation</h2>
+<div class="chap-nav">
+<p><a href="../cours/tsi1-chap06.html" class="prev">Chapitre 06 : Fonctions de la variable réelle, limites et continuité</a> <a href="../cours/tsi1.html" class="home">Menu TSI1</a> <a href="../cours/tsi1-chap08.html" class="next">Chapitre 08 : Fonctions usuelles, fonctions convexes</a></p>
+</div>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -222,12 +712,12 @@ ul.task-list li input[type="checkbox"] {
       // flash "checked"
       button.classList.add('code-copy-button-checked');
       var currentTitle = button.getAttribute("title");
-      button.setAttribute("title", "Copied!");
+      button.setAttribute("title", "Copié");
       let tooltip;
       if (window.bootstrap) {
         button.setAttribute("data-bs-toggle", "tooltip");
         button.setAttribute("data-bs-placement", "left");
-        button.setAttribute("data-bs-title", "Copied!");
+        button.setAttribute("data-bs-title", "Copié");
         tooltip = new bootstrap.Tooltip(button, 
           { trigger: "manual", 
             customClass: "code-copy-button-tooltip",

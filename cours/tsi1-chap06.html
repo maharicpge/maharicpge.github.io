@@ -1,13 +1,14 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr"><head>
 
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.10.18">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Saîd MAHARI">
 
-<title>Algèbre linéaire et calcul matriciel - Mathématiques en CPGE – Mathématiques en CPGE</title>
+<title>Fonctions de la variable réelle, limites et continuité – Mathématiques en CPGE</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -45,7 +46,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-7a8c080b55ea27eb37b467515007f9ee.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-e0d9a45d84245cc5e3b300860d8fa645.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -60,22 +61,66 @@ ul.task-list li input[type="checkbox"] {
   ],
   "show-item-context": false,
   "language": {
-    "search-no-results-text": "No results",
-    "search-matching-documents-text": "matching documents",
-    "search-copy-link-title": "Copy link to search",
-    "search-hide-matches-text": "Hide additional matches",
-    "search-more-match-text": "more match in this document",
-    "search-more-matches-text": "more matches in this document",
-    "search-clear-button-title": "Clear",
+    "search-no-results-text": "Pas de résultats",
+    "search-matching-documents-text": "documents trouvés",
+    "search-copy-link-title": "Copier le lien vers la recherche",
+    "search-hide-matches-text": "Cacher les correspondances additionnelles",
+    "search-more-match-text": "correspondance de plus dans ce document",
+    "search-more-matches-text": "correspondances de plus dans ce document",
+    "search-clear-button-title": "Effacer",
     "search-text-placeholder": "",
-    "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit",
-    "search-label": "Search"
+    "search-detached-cancel-button-title": "Annuler",
+    "search-submit-button-title": "Envoyer",
+    "search-label": "Recherche"
   }
 }</script>
 
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="styles.css">
 </head>
 
 <body class="nav-fixed quarto-light">
@@ -89,8 +134,8 @@ ul.task-list li input[type="checkbox"] {
     <span class="navbar-title">Accueil</span>
     </a>
   </div>
-            <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+            <div id="quarto-search" class="" title="Recherche"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Basculer la navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
@@ -140,10 +185,55 @@ ul.task-list li input[type="checkbox"] {
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
+    <h2 id="toc-title">Sur cette page</h2>
    
   <ul>
-  <li><a href="#document" id="toc-document" class="nav-link active" data-scroll-target="#document">Document</a></li>
+  <li><a href="#motivation" id="toc-motivation" class="nav-link active" data-scroll-target="#motivation"><span class="header-section-number">1</span> Motivation</a></li>
+  <li><a href="#notions-de-fonction" id="toc-notions-de-fonction" class="nav-link" data-scroll-target="#notions-de-fonction"><span class="header-section-number">2</span> Notions de fonction</a>
+  <ul class="collapse">
+  <li><a href="#définitions" id="toc-définitions" class="nav-link" data-scroll-target="#définitions"><span class="header-section-number">2.1</span> Définitions</a></li>
+  <li><a href="#opérations-sur-les-fonctions" id="toc-opérations-sur-les-fonctions" class="nav-link" data-scroll-target="#opérations-sur-les-fonctions"><span class="header-section-number">2.2</span> Opérations sur les fonctions</a></li>
+  <li><a href="#fonctions-majorées-minorées-bornées" id="toc-fonctions-majorées-minorées-bornées" class="nav-link" data-scroll-target="#fonctions-majorées-minorées-bornées"><span class="header-section-number">2.3</span> Fonctions majorées, minorées, bornées</a></li>
+  <li><a href="#fonctions-croissantes-décroissantes" id="toc-fonctions-croissantes-décroissantes" class="nav-link" data-scroll-target="#fonctions-croissantes-décroissantes"><span class="header-section-number">2.4</span> Fonctions croissantes, décroissantes</a></li>
+  <li><a href="#parité-et-périodicité" id="toc-parité-et-périodicité" class="nav-link" data-scroll-target="#parité-et-périodicité"><span class="header-section-number">2.5</span> Parité et périodicité</a></li>
+  <li><a href="#fonction-lipschitzienne" id="toc-fonction-lipschitzienne" class="nav-link" data-scroll-target="#fonction-lipschitzienne"><span class="header-section-number">2.6</span> Fonction lipschitzienne</a></li>
+  </ul></li>
+  <li><a href="#limites" id="toc-limites" class="nav-link" data-scroll-target="#limites"><span class="header-section-number">3</span> Limites</a>
+  <ul class="collapse">
+  <li><a href="#définitions-1" id="toc-définitions-1" class="nav-link" data-scroll-target="#définitions-1"><span class="header-section-number">3.1</span> Définitions</a>
+  <ul class="collapse">
+  <li><a href="#notion-de-voisinage" id="toc-notion-de-voisinage" class="nav-link" data-scroll-target="#notion-de-voisinage"><span class="header-section-number">3.1.1</span> Notion de voisinage</a></li>
+  <li><a href="#limite-en-un-point" id="toc-limite-en-un-point" class="nav-link" data-scroll-target="#limite-en-un-point"><span class="header-section-number">3.1.2</span> Limite en un point</a></li>
+  <li><a href="#limite-en-linfini" id="toc-limite-en-linfini" class="nav-link" data-scroll-target="#limite-en-linfini"><span class="header-section-number">3.1.3</span> Limite en l’infini</a></li>
+  <li><a href="#limite-à-gauche-et-à-droite" id="toc-limite-à-gauche-et-à-droite" class="nav-link" data-scroll-target="#limite-à-gauche-et-à-droite"><span class="header-section-number">3.1.4</span> Limite à gauche et à droite</a></li>
+  </ul></li>
+  <li><a href="#propriétés" id="toc-propriétés" class="nav-link" data-scroll-target="#propriétés"><span class="header-section-number">3.2</span> Propriétés</a></li>
+  </ul></li>
+  <li><a href="#continuité" id="toc-continuité" class="nav-link" data-scroll-target="#continuité"><span class="header-section-number">4</span> Continuité</a>
+  <ul class="collapse">
+  <li><a href="#définition" id="toc-définition" class="nav-link" data-scroll-target="#définition"><span class="header-section-number">4.1</span> Définition</a></li>
+  <li><a href="#propriétés-1" id="toc-propriétés-1" class="nav-link" data-scroll-target="#propriétés-1"><span class="header-section-number">4.2</span> Propriétés</a></li>
+  <li><a href="#continuité-globale" id="toc-continuité-globale" class="nav-link" data-scroll-target="#continuité-globale"><span class="header-section-number">4.3</span> Continuité globale</a></li>
+  <li><a href="#caractérisation-séquentielle-de-la-continuité" id="toc-caractérisation-séquentielle-de-la-continuité" class="nav-link" data-scroll-target="#caractérisation-séquentielle-de-la-continuité"><span class="header-section-number">4.4</span> Caractérisation séquentielle de la continuité</a></li>
+  <li><a href="#prolongement-par-continuité" id="toc-prolongement-par-continuité" class="nav-link" data-scroll-target="#prolongement-par-continuité"><span class="header-section-number">4.5</span> Prolongement par continuité</a></li>
+  </ul></li>
+  <li><a href="#continuité-sur-un-intervalle" id="toc-continuité-sur-un-intervalle" class="nav-link" data-scroll-target="#continuité-sur-un-intervalle"><span class="header-section-number">5</span> Continuité sur un intervalle</a>
+  <ul class="collapse">
+  <li><a href="#le-théorème-des-valeurs-intermédiaires" id="toc-le-théorème-des-valeurs-intermédiaires" class="nav-link" data-scroll-target="#le-théorème-des-valeurs-intermédiaires"><span class="header-section-number">5.1</span> Le théorème des valeurs intermédiaires</a></li>
+  <li><a href="#applications-du-théorème-des-valeurs-intermédiaires" id="toc-applications-du-théorème-des-valeurs-intermédiaires" class="nav-link" data-scroll-target="#applications-du-théorème-des-valeurs-intermédiaires"><span class="header-section-number">5.2</span> Applications du théorème des valeurs intermédiaires</a></li>
+  <li><a href="#fonctions-continues-sur-un-segment" id="toc-fonctions-continues-sur-un-segment" class="nav-link" data-scroll-target="#fonctions-continues-sur-un-segment"><span class="header-section-number">5.3</span> Fonctions continues sur un segment</a></li>
+  </ul></li>
+  <li><a href="#fonctions-monotones-et-bijections" id="toc-fonctions-monotones-et-bijections" class="nav-link" data-scroll-target="#fonctions-monotones-et-bijections"><span class="header-section-number">6</span> Fonctions monotones et bijections</a>
+  <ul class="collapse">
+  <li><a href="#rappels-injection-surjection-bijection" id="toc-rappels-injection-surjection-bijection" class="nav-link" data-scroll-target="#rappels-injection-surjection-bijection"><span class="header-section-number">6.1</span> Rappels : injection, surjection, bijection</a></li>
+  <li><a href="#théorème-de-la-limite-monotone" id="toc-théorème-de-la-limite-monotone" class="nav-link" data-scroll-target="#théorème-de-la-limite-monotone"><span class="header-section-number">6.2</span> Théorème de la limite monotone</a></li>
+  <li><a href="#fonctions-monotones-et-bijections-1" id="toc-fonctions-monotones-et-bijections-1" class="nav-link" data-scroll-target="#fonctions-monotones-et-bijections-1"><span class="header-section-number">6.3</span> Fonctions monotones et bijections</a></li>
+  <li><a href="#démonstration" id="toc-démonstration" class="nav-link" data-scroll-target="#démonstration"><span class="header-section-number">6.4</span> Démonstration</a></li>
+  </ul></li>
+  <li><a href="#document-en-pdf" id="toc-document-en-pdf" class="nav-link" data-scroll-target="#document-en-pdf">Document en PDF</a>
+  <ul class="collapse">
+  <li><a href="#navigation" id="toc-navigation" class="nav-link" data-scroll-target="#navigation">Navigation</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -152,14 +242,27 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Chapitre 06 : Algèbre linéaire et calcul matriciel</h1>
+<h1 class="title">Fonctions de la variable réelle, limites et continuité</h1>
+<p class="subtitle lead">Chapitre 06</p>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Auteur·rice</div>
+    <div class="quarto-title-meta-contents">
+             <p>Saîd MAHARI </p>
+          </div>
+  </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">Date de publication</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">21 août 2026</p>
+    </div>
+  </div>
   
     
   </div>
@@ -169,12 +272,917 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p><strong>TSI 1re année — Chapitre 06.</strong> Dimension finie, matrices, pivot de Gauss.</p>
-<section id="document" class="level2">
-<h2 class="anchored" data-anchor-id="document">Document</h2>
-<p><em>PDF à venir : déposez le fichier <code>files/tsi1/chap06.pdf</code> puis régénérez la page.</em></p>
+<p><strong>TSI 1re année — Chapitre 06.</strong> Limites, continuité, théorème des valeurs intermédiaires, théorème des bornes atteintes, continuité et monotonie stricte, fonctions réciproques.</p>
+<p>Ce chapitre a été réalisé conformément au programme marocain de mathématiques de la filière TSI1.</p>
+<p>Dans ce chapitre, <span class="math inline">\mathbb{K}</span> désigne <span class="math inline">\mathbb{R}</span> ou <span class="math inline">\mathbb{C}</span>.</p>
+<section id="motivation" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Motivation</h1>
+<p>Les équations en une variable <span class="math inline">x</span> qu’on sait résoudre explicitement, c’est-à-dire en donnant une formule pour la solution, sont très particulières : par exemple les équations du premier degré <span class="math inline">ax+b=0</span>, celles du second degré <span class="math inline">ax^2+bx+c=0</span>.</p>
+<p>Mais pour la plupart des équations, il n’est pas possible de donner une formule pour la ou les solutions. En fait il n’est même pas évident de déterminer seulement le nombre de solutions, ni même s’il en existe.</p>
+<p>Considérons par exemple l’équation extrêmement simple :</p>
+<p><span class="math display">x + \exp x = 0</span></p>
+<p>Il n’y a pas de formule explicite (utilisant des sommes, des produits, des fonctions usuelles) pour trouver la solution <span class="math inline">x</span>.</p>
+<p>Dans ce chapitre nous allons voir que grâce à l’étude de la fonction <span class="math inline">f(x)=x + \exp x</span>, il est possible d’obtenir beaucoup d’informations sur l’ensemble des solutions de l’équation <span class="math inline">x+\exp x=0</span>, et même de l’équation plus générale <span class="math inline">x+\exp x= y</span> (où <span class="math inline">y \in \mathbb{R}</span> est fixé).</p>
+<p>Nous serons capables de prouver que pour chaque <span class="math inline">y \in \mathbb{R}</span> l’équation <span class="math inline">x+\exp x = y</span> admet une solution <span class="math inline">x</span>, que cette solution est unique, et nous saurons dire comment varie <span class="math inline">x</span> en fonction de <span class="math inline">y</span>.</p>
+<p>Le point clé de cette résolution est l’étude de la fonction <span class="math inline">f</span> et en particulier de sa continuité. Même s’il n’est pas possible de trouver l’expression exacte de la solution <span class="math inline">x</span> en fonction de <span class="math inline">y</span>, nous allons mettre en place les outils théoriques qui permettent d’en trouver une solution approchée.</p>
+</section>
+<section id="notions-de-fonction" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> Notions de fonction</h1>
+<section id="définitions" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="définitions"><span class="header-section-number">2.1</span> Définitions</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 2.1</strong></p>
+<p>Une <strong>fonction</strong> d’une variable réelle à valeurs réelles est une correspondance <span class="math inline">f:D\to \mathbb{R}</span> où chaque élément du domaine <span class="math inline">D\subset \mathbb{R}</span> est associé au plus à un élément de <span class="math inline">\mathbb{R}</span>. Soit <span class="math inline">U\subset \mathbb{R}</span> un domaine tel que <span class="math inline">f: U\to \mathbb{R}</span> soit une application c’est-à-dire tel chaque élément de <span class="math inline">U</span> est associé à un unique élément de <span class="math inline">\mathbb{R}</span>. En général, <span class="math inline">U</span> est un intervalle ou une réunion d’intervalles. On appelle <span class="math inline">U</span> le <strong>domaine de définition</strong> de la fonction <span class="math inline">f</span>.</p>
+<p>De même, on définit une fonction <span class="math inline">f: D\to \mathbb{C}</span> d’une variable réelle à valeurs complexes.</p>
+<p>On désigne par <span class="math inline">\mathcal{F}(D,\mathbb{K})</span> l’ensemble des fonctions de <span class="math inline">D</span> à valeurs dans <span class="math inline">\mathbb{K}</span>.</p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 2.1</strong></p>
+<p>La fonction inverse :</p>
+<p><span class="math display">f : \ ]-\infty,0[ \,\cup \, ]0,+\infty[ \ \longrightarrow \ \mathbb{R}, \qquad x \longmapsto \dfrac{1}{x}</span></p>
+</div>
+<p>En général, le <strong>graphe</strong> d’une fonction <span class="math inline">f:U\to \mathbb{K}</span> est la partie <span class="math inline">\Gamma_f</span> de <span class="math inline">\mathbb{R}\times \mathbb{K}</span> définie par <span class="math inline">\Gamma_f=\big\{(x,f(x)) \ \vert \ x\in U\big\}</span>.</p>
+<p>Lorsque <span class="math inline">\mathbb{K}=\mathbb{R}</span>, on peut le représenter sur le plan.</p>
+</section>
+<section id="opérations-sur-les-fonctions" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="opérations-sur-les-fonctions"><span class="header-section-number">2.2</span> Opérations sur les fonctions</h2>
+<p>Soient <span class="math inline">f:U\to \mathbb{K}</span> et <span class="math inline">g:U\to \mathbb{K}</span> deux fonctions définies sur une même partie <span class="math inline">U</span> de <span class="math inline">\mathbb{R}</span>. On peut alors définir les fonctions suivantes :</p>
+<ul>
+<li>la <strong>somme</strong> de <span class="math inline">f</span> et <span class="math inline">g</span> est la fonction <span class="math inline">f+g:U\to \mathbb{K}</span> définie par <span class="math inline">(f+g)(x) = f(x) + g(x)</span> pour tout <span class="math inline">x\in U</span> ;</li>
+<li>le <strong>produit</strong> de <span class="math inline">f</span> et <span class="math inline">g</span> est la fonction <span class="math inline">f\times g:U\to \mathbb{K}</span> définie par <span class="math inline">(f\times g)(x) = f(x) \times g(x)</span> pour tout <span class="math inline">x\in U</span> ;</li>
+<li>la <strong>multiplication par un scalaire</strong> <span class="math inline">\lambda\in\mathbb{K}</span> de <span class="math inline">f</span> est la fonction <span class="math inline">\lambda\cdot f:U\to \mathbb{K}</span> définie par <span class="math inline">(\lambda\cdot f)(x) =\lambda\cdot f(x)</span> pour tout <span class="math inline">x\in U</span>.</li>
+<li>Si <span class="math inline">\mathbb{K}=\mathbb{R}</span>, on définit les fonctions <span class="math inline">\max(f,g)</span> et <span class="math inline">\min(f,g)</span> par :</li>
+</ul>
+<p><span class="math display">\forall x\in U,\quad \max(f,g)(x)=\max(f(x),g(x)) \quad \text{et} \quad \min(f,g)(x)=\min(f(x),g(x))</span></p>
+<ul>
+<li>Si <span class="math inline">f(U)\subset V\subset \mathbb{R}</span> alors on définit la <strong>composée <span class="math inline">h\circ f</span></strong>, avec <span class="math inline">h:V\to \mathbb{K}</span> est une fonction, par :</li>
+</ul>
+<p><span class="math display">\forall x\in U,\quad \left(h\circ f\right)(x)=h\left(f(x)\right)</span></p>
+</section>
+<section id="fonctions-majorées-minorées-bornées" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="fonctions-majorées-minorées-bornées"><span class="header-section-number">2.3</span> Fonctions majorées, minorées, bornées</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 2.2</strong></p>
+<p>Soient <span class="math inline">f:U\to \mathbb{R}</span> et <span class="math inline">g:U\to \mathbb{R}</span> deux fonctions. Alors :</p>
+<ul>
+<li><span class="math inline">f\geq g</span> si <span class="math inline">\forall x \in U,\ f(x)\geq g(x)</span> ;</li>
+<li><span class="math inline">f\geq 0</span> si <span class="math inline">\forall x \in U,\ f(x)\geq 0</span> ;</li>
+<li><span class="math inline">f&gt; 0</span> si <span class="math inline">\forall x \in U,\ f(x)&gt; 0</span> ;</li>
+<li><span class="math inline">f</span> est dite <strong>constante</strong> sur <span class="math inline">U</span> si <span class="math inline">\exists a\in\mathbb{R},\ \forall x\in U,\ f(x)=a</span> ;</li>
+<li><span class="math inline">f</span> est dite <strong>nulle</strong> sur <span class="math inline">U</span> si <span class="math inline">\forall x\in U,\ f(x)=0</span>.</li>
+</ul>
+</div>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 2.3</strong></p>
+<p>Soit <span class="math inline">f:U\to \mathbb{R}</span> une fonction. On dit que :</p>
+<ul>
+<li><span class="math inline">f</span> est <strong>majorée</strong> sur <span class="math inline">U</span> si <span class="math inline">\exists M\in\mathbb{R},\ \forall x\in U,\ f(x)\leq M</span> ;</li>
+<li><span class="math inline">f</span> est <strong>minorée</strong> sur <span class="math inline">U</span> si <span class="math inline">\exists m\in\mathbb{R},\ \forall x\in U,\ f(x)\geq m</span> ;</li>
+<li><span class="math inline">f</span> est <strong>bornée</strong> sur <span class="math inline">U</span> si <span class="math inline">f</span> est à la fois majorée et minorée sur <span class="math inline">U</span>, c’est-à-dire si <span class="math inline">\exists M\in\mathbb{R},\ \forall x\in U,\ |f(x)|\leq M</span>.</li>
+</ul>
+<p>Cette dernière définition existe même pour une fonction <span class="math inline">f:U\to \mathbb{C}</span> à valeurs complexes.</p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 2.2</strong></p>
+<ul>
+<li>Les fonctions <span class="math inline">x\in \mathbb{R}\longmapsto e^{ix}</span> et <span class="math inline">x\in \mathbb{R}\longmapsto \frac{1}{1-ix}</span> sont bornées. De même, pour les fonctions <span class="math inline">x\in \mathbb{R}\longmapsto \cos x</span>, <span class="math inline">x\in \mathbb{R}\longmapsto\sin x</span> et <span class="math inline">x\in \mathbb{R}^+\longmapsto \frac{1}{1+x}</span> ;</li>
+<li>La fonction <span class="math inline">x \in ]0,+\infty[\longmapsto \frac{1}{x}</span> est minorée et non majorée ;</li>
+<li>La fonction <span class="math inline">x \in ]0,+\infty[\longmapsto 1-\frac{1}{x}</span> est non minorée et majorée.</li>
+</ul>
+</div>
+</section>
+<section id="fonctions-croissantes-décroissantes" class="level2" data-number="2.4">
+<h2 data-number="2.4" class="anchored" data-anchor-id="fonctions-croissantes-décroissantes"><span class="header-section-number">2.4</span> Fonctions croissantes, décroissantes</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 2.4</strong></p>
+<p>Soit <span class="math inline">f:U\to \mathbb{R}</span> une fonction. On dit que :</p>
+<ul>
+<li><span class="math inline">f</span> est <strong>croissante</strong> sur <span class="math inline">U</span> si <span class="math inline">\forall x,y\in U,\ x\leq y \Longrightarrow f(x)\leq f(y)</span> ;</li>
+<li><span class="math inline">f</span> est <strong>strictement croissante</strong> sur <span class="math inline">U</span> si <span class="math inline">\forall x,y\in U,\ x&lt; y \Longrightarrow f(x)&lt; f(y)</span> ;</li>
+<li><span class="math inline">f</span> est <strong>décroissante</strong> sur <span class="math inline">U</span> si <span class="math inline">\forall x,y\in U,\ x\leq y \Longrightarrow f(x)\geq f(y)</span> ;</li>
+<li><span class="math inline">f</span> est <strong>strictement décroissante</strong> sur <span class="math inline">U</span> si <span class="math inline">\forall x,y\in U,\ x&lt; y \Longrightarrow f(x)&gt; f(y)</span> ;</li>
+<li><span class="math inline">f</span> est <strong>monotone</strong> (resp. <strong>strictement monotone</strong>) sur <span class="math inline">U</span> si <span class="math inline">f</span> est croissante ou décroissante (resp. strictement croissante ou strictement décroissante) sur <span class="math inline">U</span>.</li>
+</ul>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 2.3</strong></p>
+<ul>
+<li>La fonction racine carrée <span class="math inline">x\mapsto \sqrt x</span> définie sur <span class="math inline">[0,+\infty[</span> est strictement croissante.</li>
+<li>Les fonctions exponentielle <span class="math inline">\exp: \mathbb{R}\to\mathbb{R}</span> et logarithme <span class="math inline">\ln :]0,+\infty[\to\mathbb{R}</span> sont strictement croissantes.</li>
+<li>La fonction valeur absolue <span class="math inline">x\mapsto |x|</span> n’est ni croissante, ni décroissante. Par contre, la fonction <span class="math inline">x\mapsto |x|</span> restreinte à <span class="math inline">[0,+\infty[</span> est strictement croissante.</li>
+</ul>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 2.1</strong></p>
+<p>Étudier la monotonie de la composée <span class="math inline">h=g\circ f</span> selon la monotonie de <span class="math inline">f</span> et de <span class="math inline">g</span>.</p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 2.2</strong></p>
+<p>Soit <span class="math inline">f</span> une application croissante de <span class="math inline">[0, 1]</span> dans lui même.</p>
+<ol type="1">
+<li>On suppose qu’il existe <span class="math inline">x\in [0,1]</span> et <span class="math inline">k\in \mathbb{N}^*</span> tels que <span class="math inline">f^k(x)=x</span>. Montrer que <span class="math inline">x</span> est un point fixe de <span class="math inline">f</span> (i.e.&nbsp;<span class="math inline">f(x)=x</span>).</li>
+<li>Montrer que <span class="math inline">f</span> admet un point fixe.</li>
+</ol>
+<p><em>Indication : on pourra construire deux suites <span class="math inline">(a_n)_n</span> et <span class="math inline">(b_n)_n</span> d’éléments de <span class="math inline">[0,1]</span> telles que :</em></p>
+<p><span class="math display">(a_n)_n \text{ et } (b_n)_n \text{ adjacentes}, \qquad a_n\leq f(a_n)\leq f(b_n)\leq b_n</span></p>
+<p><em>et montrer que leur limite commune est le point fixe de <span class="math inline">f</span>.</em></p>
+</div>
+</section>
+<section id="parité-et-périodicité" class="level2" data-number="2.5">
+<h2 data-number="2.5" class="anchored" data-anchor-id="parité-et-périodicité"><span class="header-section-number">2.5</span> Parité et périodicité</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 2.5</strong></p>
+<p>Soit <span class="math inline">I</span> un intervalle de <span class="math inline">\mathbb{R}</span> symétrique par rapport à <span class="math inline">0</span> (c’est-à-dire de la forme <span class="math inline">]-a,a[</span> ou <span class="math inline">[-a,a]</span> ou <span class="math inline">\mathbb{R}</span>). Soit <span class="math inline">f:I\to \mathbb{R}</span> une fonction définie sur cet intervalle. On dit que :</p>
+<ul>
+<li><span class="math inline">f</span> est <strong>paire</strong> si <span class="math inline">\forall x\in I,\ f(-x)=f(x)</span>,</li>
+<li><span class="math inline">f</span> est <strong>impaire</strong> si <span class="math inline">\forall x\in I,\ f(-x)=-f(x)</span>.</li>
+</ul>
+</div>
+<p><strong>Interprétation graphique</strong> :</p>
+<ul>
+<li><span class="math inline">f</span> est paire si et seulement si son graphe est symétrique par rapport à l’axe des ordonnées.</li>
+<li><span class="math inline">f</span> est impaire si et seulement si son graphe est symétrique par rapport à l’origine.</li>
+</ul>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 2.4</strong></p>
+<ul>
+<li>La fonction définie sur <span class="math inline">\mathbb{R}</span> par <span class="math inline">x\mapsto x^{2n}</span> (<span class="math inline">n\in\mathbb{N}</span>) est paire.</li>
+<li>La fonction définie sur <span class="math inline">\mathbb{R}</span> par <span class="math inline">x\mapsto x^{2n+1}</span> (<span class="math inline">n\in\mathbb{N}</span>) est impaire.</li>
+<li>La fonction <span class="math inline">\cos :\mathbb{R}\to\mathbb{R}</span> est paire. La fonction <span class="math inline">\sin :\mathbb{R}\to\mathbb{R}</span> est impaire.</li>
+</ul>
+</div>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 2.6</strong></p>
+<p>Soit <span class="math inline">f:\mathbb{R} \to \mathbb{R}</span> une fonction et <span class="math inline">T</span> un nombre réel, <span class="math inline">T&gt;0</span>. La fonction <span class="math inline">f</span> est dite <strong>périodique</strong> de période <span class="math inline">T</span> si <span class="math inline">\forall x\in\mathbb{R},\ f(x+T)=f(x)</span>.</p>
+</div>
+<p><strong>Interprétation graphique</strong> : <span class="math inline">f</span> est périodique de période <span class="math inline">T</span> si et seulement si son graphe est invariant par la translation de vecteur <span class="math inline">T\vec{i}</span>, où <span class="math inline">\vec{i}</span> est le premier vecteur de coordonnées.</p>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 2.5</strong></p>
+<p>Les fonctions sinus et cosinus sont <span class="math inline">2\pi</span>-périodiques. La fonction tangente est <span class="math inline">\pi</span>-périodique.</p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 2.3</strong></p>
+<ol type="1">
+<li>Soit <span class="math inline">U=]-\infty,0[</span> et <span class="math inline">f : U \to \mathbb{R}</span> définie par <span class="math inline">f(x)= 1/x</span>. <span class="math inline">f</span> est-elle monotone ? Et sur <span class="math inline">U=]0,+\infty[</span> ? Et sur <span class="math inline">U = ]-\infty,0[\,\cup \, ]0,+\infty[</span> ?</li>
+<li>Pour deux fonctions paires que peut-on dire sur la parité de la somme ? du produit ? et de la composée ? Et pour deux fonctions impaires ? Et si l’une est paire et l’autre impaire ?</li>
+<li>On note <span class="math inline">\{x\}=x-E(x)</span> la partie fractionnaire de <span class="math inline">x</span>. Tracer le graphe de la fonction <span class="math inline">x\mapsto\{x\}</span> et montrer qu’elle est périodique.</li>
+<li>Soit <span class="math inline">f:\mathbb{R}\to\mathbb{R}</span> la fonction définie par <span class="math inline">f(x)=\frac{x}{1+x^2}</span>. Montrer que <span class="math inline">|f|</span> est majorée par <span class="math inline">\frac{1}{2}</span>, étudier les variations de <span class="math inline">f</span> (sans utiliser de dérivée) et tracer son graphe.</li>
+<li>On considère la fonction <span class="math inline">g:\mathbb{R}\to\mathbb{R}</span>, <span class="math inline">g(x)=\sin\big(\pi f(x)\big)</span>, où <span class="math inline">f</span> est définie à la question précédente. Déduire de l’étude de <span class="math inline">f</span> les variations, la parité, la périodicité de <span class="math inline">g</span> et tracer son graphe.</li>
+</ol>
+</div>
+</section>
+<section id="fonction-lipschitzienne" class="level2" data-number="2.6">
+<h2 data-number="2.6" class="anchored" data-anchor-id="fonction-lipschitzienne"><span class="header-section-number">2.6</span> Fonction lipschitzienne</h2>
+<p>Soit <span class="math inline">f:U\to \mathbb{K}</span> une fonction.</p>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 2.7</strong></p>
+<p>On dit que <span class="math inline">f</span> est <strong>lipschitzienne</strong> s’il existe <span class="math inline">k\geq 0</span> tel que :</p>
+<p><span class="math display">\forall x,y\in U,\ |f(y)-f(x)|\leq k|y-x|</span></p>
+<p>On dit aussi que <span class="math inline">f</span> est <strong><span class="math inline">k</span>-lipschitzienne</strong>.</p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 2.6</strong></p>
+<ul>
+<li>La fonction <span class="math inline">f_1: x\in \mathbb{R}\longmapsto x^2</span> n’est pas lipschitzienne.</li>
+<li>La fonction <span class="math inline">f_2: x\in \mathbb{R}\longmapsto |x|</span> est 1-lipschitzienne.</li>
+<li>La fonction <span class="math inline">f_3: x\in [-1,1]\longmapsto x^2</span> est 2-lipschitzienne.</li>
+<li>La fonction <span class="math inline">f_4: x\in \mathbb{R}\longmapsto \sin x</span> est 1-lipschitzienne.</li>
+</ul>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 2.4</strong></p>
+<p>Soient <span class="math inline">f:U\to \mathbb{R}</span> et <span class="math inline">g:V\to \mathbb{R}</span> deux fonctions lipschitziennes et <span class="math inline">\lambda \in \mathbb{R}</span>.</p>
+<ol type="1">
+<li>Montrer que les fonctions <span class="math inline">f+g</span> et <span class="math inline">\lambda f</span> sont lipschitziennes avec <span class="math inline">U=V</span> ;</li>
+<li>Si on suppose que <span class="math inline">f(U)\subset V</span>, montrer que <span class="math inline">g\circ f</span> est lipschitzienne.</li>
+</ol>
+</div>
+</section>
+</section>
+<section id="limites" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Limites</h1>
+<section id="définitions-1" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="définitions-1"><span class="header-section-number">3.1</span> Définitions</h2>
+<section id="notion-de-voisinage" class="level3" data-number="3.1.1">
+<h3 data-number="3.1.1" class="anchored" data-anchor-id="notion-de-voisinage"><span class="header-section-number">3.1.1</span> Notion de voisinage</h3>
+<p>Soit <span class="math inline">f:I\to\mathbb{K}</span> une fonction définie sur un intervalle <span class="math inline">I</span> de <span class="math inline">\mathbb{R}</span>. Soit <span class="math inline">x_0\in\overline{\mathbb{R}}</span> un point de <span class="math inline">I</span> ou une extrémité de <span class="math inline">I</span>.</p>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 3.1</strong></p>
+<ol type="1">
+<li>Si <span class="math inline">x_0</span> est fini (i.e.&nbsp;<span class="math inline">x_0\in \mathbb{R}</span>), on appelle <strong>voisinage</strong> de <span class="math inline">x_0</span> tout intervalle <span class="math inline">]x_0-\delta,x_0+\delta[</span> avec <span class="math inline">\delta&gt;0</span> ou <span class="math inline">\delta =+\infty</span> ;</li>
+<li>Si <span class="math inline">x_0=+\infty</span>, on appelle <strong>voisinage</strong> de <span class="math inline">x_0</span> tout intervalle <span class="math inline">]A,+\infty[</span> avec <span class="math inline">A\in \mathbb{R}\cup \{-\infty\}</span> ;</li>
+<li>Si <span class="math inline">x_0=-\infty</span>, on appelle <strong>voisinage</strong> de <span class="math inline">x_0</span> tout intervalle <span class="math inline">]-\infty,A[</span> avec <span class="math inline">A\in \mathbb{R}\cup \{+\infty\}</span>.</li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 3.2 — (Voisinage d’un élément de <span class="math inline">\boldsymbol{\mathbb{C}}</span>)</strong></p>
+<p>Soit <span class="math inline">\ell\in \mathbb{C}</span>. Un <strong>voisinage</strong> de <span class="math inline">\ell</span> est un disque ouvert <span class="math inline">D(\ell,\varepsilon)</span> de centre <span class="math inline">\ell</span> et de rayon <span class="math inline">\varepsilon&gt;0</span> :</p>
+<p><span class="math display">D(\ell,\varepsilon)=\left\{z\in \mathbb{C}/\ |z-\ell|&lt;\varepsilon \right\}</span></p>
+</div>
+<p>On note <span class="math inline">\mathcal{V}(a)</span> l’ensemble des voisinages d’un élément <span class="math inline">a</span> de <span class="math inline">\mathbb{C}</span> ou de <span class="math inline">\overline{\mathbb{R}}</span>.</p>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 3.1</strong></p>
+<p>Soit <span class="math inline">x_0\in \overline{\mathbb{R}}</span>. Montrer que la réunion et l’intersection (finie) de voisinages de <span class="math inline">x_0</span> est aussi un voisinage de <span class="math inline">x_0</span>.</p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 3.2</strong></p>
+<p>Soit <span class="math inline">x_0\in\mathbb{R}</span>.</p>
+<ol type="1">
+<li>Montrer que si <span class="math inline">x_0</span> est un élément de <span class="math inline">I</span> qui n’est pas une extrémité de <span class="math inline">I</span> alors il existe <span class="math inline">\delta&gt;0</span> tel que <span class="math inline">]x_0-\delta,x_0+\delta[\subset I</span> ;</li>
+<li>Montrer que si <span class="math inline">x_0</span> est la borne supérieure de <span class="math inline">I</span> alors il existe <span class="math inline">\delta&gt;0</span> tel que <span class="math inline">]x_0-\delta,x_0[\subset I</span> ;</li>
+<li>Même question si <span class="math inline">x_0</span> est la borne inférieure de <span class="math inline">I</span>.</li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 3.3</strong></p>
+<p>On dit qu’une propriété portant sur <span class="math inline">f</span> est vraie au voisinage de <span class="math inline">x_0</span> si elle est vraie sur l’intersection de <span class="math inline">I</span> avec un voisinage de <span class="math inline">x_0</span>.</p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 3.1</strong></p>
+<ul>
+<li>La fonction <span class="math inline">f_1 :x\in ]1,+\infty[\longmapsto \frac{1}{x-1}</span> n’est pas bornée au voisinage de 1 et bornée au voisinage de <span class="math inline">+\infty</span> ;</li>
+<li>La fonction <span class="math inline">f_2 :x\in ]0,+\infty[\longmapsto \sin\left(\frac{1}{x}\right)</span> n’est pas monotone au voisinage de 0 et décroissante au voisinage de <span class="math inline">+\infty</span> ;</li>
+<li>La fonction <span class="math inline">f_3 :x\in \mathbb{R}\longmapsto x^2</span> est lipschitzienne au voisinage de 0 ;</li>
+<li>La fonction <span class="math inline">f_4 :x\in \mathbb{R}\longmapsto E(x)</span> est constante au voisinage de tout point <span class="math inline">a\in \mathbb{R}\smallsetminus\mathbb{Z}</span>.</li>
+</ul>
+</div>
+</section>
+<section id="limite-en-un-point" class="level3" data-number="3.1.2">
+<h3 data-number="3.1.2" class="anchored" data-anchor-id="limite-en-un-point"><span class="header-section-number">3.1.2</span> Limite en un point</h3>
+<p>Soit <span class="math inline">f:I\to\mathbb{K}</span> une fonction définie sur un intervalle <span class="math inline">I</span> de <span class="math inline">\mathbb{R}</span>. Soit <span class="math inline">x_0\in\mathbb{R}</span> un point de <span class="math inline">I</span> ou une extrémité de <span class="math inline">I</span>.</p>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 3.4</strong></p>
+<p>Soit <span class="math inline">\ell\in\mathbb{K}</span>. On dit que <strong><span class="math inline">f</span> a pour limite <span class="math inline">\ell</span> en <span class="math inline">x_0</span></strong> si</p>
+<p><span class="math display">\forall \epsilon&gt;0 \quad \exists \delta&gt;0 \quad \forall x\in I \quad \vert x-x_0\vert &lt;\delta \Longrightarrow \vert f(x)-\ell\vert &lt;\epsilon</span></p>
+<p>On dit aussi que <strong><span class="math inline">f(x)</span> tend vers <span class="math inline">\ell</span> lorsque <span class="math inline">x</span> tend vers <span class="math inline">x_0</span></strong>. On note alors <span class="math inline">\displaystyle\lim_{x\to x_0}f(x)=\ell</span> ou bien <span class="math inline">\displaystyle\lim_{x_0} f=\ell</span>.</p>
+</div>
+<div class="proof remark">
+<p><span class="proof-title"><em>Remarque</em>. </span></p>
+<ul>
+<li>L’inégalité <span class="math inline">\vert x-x_0\vert &lt;\delta</span> équivaut à <span class="math inline">x \in ]x_0 - \delta, x_0+\delta[</span>. L’inégalité <span class="math inline">\vert f(x)-\ell\vert &lt;\epsilon</span> équivaut à <span class="math inline">f(x) \in ]\ell - \epsilon, \ell+\epsilon[</span>.</li>
+<li>On peut remplacer certaines inégalités strictes par des inégalités larges dans la définition :</li>
+</ul>
+<p><span class="math display">\forall \epsilon&gt;0 \quad \exists \delta&gt;0 \quad \forall x\in I \quad \vert x-x_0\vert \leq \delta \Longrightarrow \vert f(x)-\ell\vert \leq \epsilon</span></p>
+<ul>
+<li>Dans la définition de la limite, le quantificateur <span class="math inline">\forall x\in I</span> n’est là que pour être sûr que l’on puisse parler de <span class="math inline">f(x)</span>. Il est souvent omis et l’existence de la limite s’écrit alors juste :</li>
+</ul>
+<p><span class="math display">\forall \epsilon&gt;0 \quad \exists \delta&gt;0 \quad \vert x-x_0\vert &lt;\delta \Longrightarrow \vert f(x)-\ell\vert &lt;\epsilon</span></p>
+<ul>
+<li>N’oubliez pas que l’ordre des quantificateurs est important, on ne peut pas échanger le <span class="math inline">\forall \epsilon</span> avec le <span class="math inline">\exists \delta</span> : le <span class="math inline">\delta</span> dépend en général du <span class="math inline">\epsilon</span>. Pour marquer cette dépendance on peut écrire : <span class="math inline">\forall \epsilon&gt;0 \quad \exists \delta(\epsilon) &gt;0 \ldots</span></li>
+</ul>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 3.2</strong></p>
+<ul>
+<li><span class="math inline">\displaystyle\lim_{x\to x_0} \sqrt{x} = \sqrt{x_0}</span> pour tout <span class="math inline">x_0\geq 0</span>,</li>
+<li>la fonction partie entière <span class="math inline">E</span> n’a pas de limite aux points <span class="math inline">x_0\in\mathbb{Z}</span>.</li>
+</ul>
+</div>
+<p>Soit <span class="math inline">f:U\to \mathbb{R}</span> une fonction définie sur un ensemble de la forme <span class="math inline">U=]a,x_0[\cup ]x_0,b[</span>.</p>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 3.5</strong></p>
+<ul>
+<li>On dit que <strong><span class="math inline">f</span> a pour limite <span class="math inline">+\infty</span> en <span class="math inline">x_0</span></strong> si</li>
+</ul>
+<p><span class="math display">\forall A&gt;0 \quad \exists \delta&gt;0 \quad \forall x\in I \quad \vert x-x_0\vert &lt;\delta \Longrightarrow f(x)&gt;A</span></p>
+<p>On note alors <span class="math inline">\displaystyle\lim_{x\to x_0}f(x)=+\infty</span>.</p>
+<ul>
+<li>On dit que <strong><span class="math inline">f</span> a pour limite <span class="math inline">-\infty</span> en <span class="math inline">x_0</span></strong> si</li>
+</ul>
+<p><span class="math display">\forall A&gt;0 \quad \exists \delta&gt;0 \quad \forall x\in I \quad \vert x-x_0\vert &lt;\delta \Longrightarrow f(x)&lt;-A</span></p>
+<p>On note alors <span class="math inline">\displaystyle\lim_{x\to x_0}f(x)=-\infty</span>.</p>
+</div>
+</section>
+<section id="limite-en-linfini" class="level3" data-number="3.1.3">
+<h3 data-number="3.1.3" class="anchored" data-anchor-id="limite-en-linfini"><span class="header-section-number">3.1.3</span> Limite en l’infini</h3>
+<p>Soit <span class="math inline">f:I\to \mathbb{K}</span> une fonction définie sur un intervalle de la forme <span class="math inline">I=]a,+\infty[</span>.</p>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 3.6</strong></p>
+<ul>
+<li>Soit <span class="math inline">\ell\in\mathbb{K}</span>. On dit que <strong><span class="math inline">f</span> a pour limite <span class="math inline">\ell</span> en <span class="math inline">+\infty</span></strong> si</li>
+</ul>
+<p><span class="math display">\forall \epsilon&gt;0 \quad \exists B&gt;0 \quad \forall x\in I \quad x&gt;B \Longrightarrow \vert f(x)-\ell\vert &lt;\epsilon</span></p>
+<p>On note alors <span class="math inline">\displaystyle\lim_{x\to +\infty}f(x)=\ell</span> ou <span class="math inline">\displaystyle\lim_{+\infty} f=\ell</span>.</p>
+<ul>
+<li>Lorsque <span class="math inline">\mathbb{K}=\mathbb{R}</span>, on dit que <strong><span class="math inline">f</span> a pour limite <span class="math inline">+\infty</span> en <span class="math inline">+\infty</span></strong> si</li>
+</ul>
+<p><span class="math display">\forall A&gt;0 \quad \exists B&gt;0 \quad \forall x\in I \quad x&gt;B \Longrightarrow f(x)&gt;A</span></p>
+<p>On note alors <span class="math inline">\displaystyle\lim_{x\to +\infty}f(x)=+\infty</span>.</p>
+</div>
+<p>On définirait de la même manière la limite en <span class="math inline">-\infty</span> pour des fonctions définies sur les intervalles du type <span class="math inline">]-\infty,a[</span>.</p>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 3.3</strong></p>
+<p>On a les limites classiques suivantes pour tout <span class="math inline">n \geq 1</span> :</p>
+<ul>
+<li><span class="math inline">\displaystyle\lim_{x\to +\infty} x^n = +\infty</span> et <span class="math inline">\displaystyle\lim_{x\to -\infty} x^n = \begin{cases} +\infty &amp; \text{ si } n \text{ est pair}\\ -\infty &amp; \text{ si } n \text{ est impair} \end{cases}</span></li>
+<li><span class="math inline">\displaystyle\lim_{x\to +\infty} \left(\frac{1}{x^n}\right) = 0</span> et <span class="math inline">\displaystyle\lim_{x\to -\infty} \left(\frac{1}{x^n}\right) =0</span>.</li>
+</ul>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 3.4</strong></p>
+<p>Soit <span class="math inline">P(x)=a_nx^n+a_{n-1}x^{n-1}+\cdots+a_1x+a_0</span> avec <span class="math inline">a_n&gt;0</span> et <span class="math inline">Q(x)=b_mx^m+b_{m-1}x^{m-1}+\cdots+b_1x+b_0</span> avec <span class="math inline">b_m&gt;0</span>.</p>
+<p><span class="math display">\lim_{x\to+\infty} \frac{P(x)}{Q(x)} = \begin{cases} +\infty &amp; \text{ si } n &gt; m \\ \frac{a_n}{b_m} &amp; \text{ si } n = m \\ 0 &amp; \text{ si } n &lt; m \end{cases}</span></p>
+</div>
+<div class="proof remark">
+<p><span class="proof-title"><em>Remarque</em>. </span>On peut résumer tous les cas possibles de la définition de la limite <span class="math inline">\lim_{x\to x_0}f(x)=\ell</span> en écrivant :</p>
+<p><span class="math display">\left(\forall V_\ell\in \mathcal{V}(\ell)\right)\left(\exists V_{x_0}\in \mathcal{V}(x_0)\right) \left(\forall x\in I\right)\ x\in V_{x_0}\Longrightarrow f(x)\in V_\ell</span></p>
+<p>Ou encore :</p>
+<p><span class="math display">\left(\forall V_\ell\in \mathcal{V}(\ell)\right)\left(\exists V_{x_0}\in \mathcal{V}(x_0)\right)\ f\left(I\cap V_{x_0}\right)\subset V_\ell</span></p>
+</div>
+</section>
+<section id="limite-à-gauche-et-à-droite" class="level3" data-number="3.1.4">
+<h3 data-number="3.1.4" class="anchored" data-anchor-id="limite-à-gauche-et-à-droite"><span class="header-section-number">3.1.4</span> Limite à gauche et à droite</h3>
+<p>Soit <span class="math inline">f</span> une fonction définie sur un ensemble de la forme <span class="math inline">]a,x_0[\cup ]x_0,b[</span>.</p>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 3.7</strong></p>
+<ul>
+<li>On appelle <strong>limite à droite</strong> en <span class="math inline">x_0</span> de <span class="math inline">f</span> la limite de la fonction <span class="math inline">f_{\big\vert ]x_0,b[}</span> en <span class="math inline">x_0</span> et on la note <span class="math inline">\displaystyle\lim_{x_0^+} f</span>.</li>
+<li>On définit de même la <strong>limite à gauche</strong> en <span class="math inline">x_0</span> de <span class="math inline">f</span> : la limite de la fonction <span class="math inline">f_{\big\vert ]a,x_0[}</span> en <span class="math inline">x_0</span> et on la note <span class="math inline">\displaystyle\lim_{x_0^-} f</span>.</li>
+<li>On note aussi <span class="math inline">\displaystyle\lim_{\substack{x\to x_0\\x&gt;x_0}}f(x)</span> pour la limite à droite et <span class="math inline">\displaystyle\lim_{\substack{x\to x_0\\x&lt;x_0}}f(x)</span> pour la limite à gauche.</li>
+</ul>
+</div>
+<div class="proof remark">
+<p><span class="proof-title"><em>Remarque</em>. </span>Dire que <span class="math inline">f:I\to\mathbb{K}</span> admet une limite <span class="math inline">\ell\in\mathbb{K}</span> à droite en <span class="math inline">x_0</span> signifie donc :</p>
+<p><span class="math display">\forall \epsilon&gt;0 \quad \exists \delta&gt;0 \quad x_0&lt;x &lt;x_0+\delta \Longrightarrow \vert f(x)-\ell\vert &lt;\epsilon</span></p>
+<p>Si la fonction <span class="math inline">f</span> a une limite en <span class="math inline">x_0</span>, alors ses limites à gauche et à droite en <span class="math inline">x_0</span> coïncident et valent <span class="math inline">\displaystyle\lim_{x_0} f</span>.</p>
+<p>Réciproquement, si <span class="math inline">f</span> a une limite à gauche et une limite à droite en <span class="math inline">x_0</span> et si ces limites valent <span class="math inline">f(x_0)</span> (si <span class="math inline">f</span> est bien définie en <span class="math inline">x_0</span>) alors <span class="math inline">f</span> admet une limite en <span class="math inline">x_0</span>.</p>
+<p>En résumé, <span class="math inline">f</span> admet une limite en <span class="math inline">x_0</span> si et seulement si <span class="math inline">f</span> admet une limite en <span class="math inline">x_0</span> à gauche et à droite et <span class="math inline">\displaystyle\lim_{x_0^-} f=\displaystyle\lim_{x_0^+} f</span>.</p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 3.5</strong></p>
+<p>Considérons la fonction partie entière au point <span class="math inline">x=2</span> :</p>
+<ul>
+<li>comme pour tout <span class="math inline">x\in]2,3[</span> on a <span class="math inline">E(x)=2</span>, on a <span class="math inline">\displaystyle\lim_{2^+} E = 2</span>,</li>
+<li>comme pour tout <span class="math inline">x\in[1,2[</span> on a <span class="math inline">E(x)=1</span>, on a <span class="math inline">\displaystyle\lim_{2^-} E = 1</span>.</li>
+</ul>
+<p>Ces deux limites étant différentes, on en déduit que <span class="math inline">E</span> n’a pas de limite en <span class="math inline">2</span>.</p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 3.3</strong></p>
+<p>Donner une définition générale de la notion de limite sans distinguer les différents voisinages de <span class="math inline">x_0</span> et <span class="math inline">\ell</span>.</p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 3.4</strong></p>
+<p>Montrer en utilisant la définition de la limite les limites suivantes :</p>
+<p><span class="math display">\lim_{x\rightarrow -1}x^2=1 \quad ; \quad \lim_{\substack{x\rightarrow 1\\x\neq 1}}\frac{1}{|1-x|}=+\infty \quad ; \quad \lim_{x\rightarrow +\infty}\frac{1}{x}=0 \quad ; \quad \lim_{x\rightarrow 0^+}\frac{1}{1-e^{x}}=-\infty</span></p>
+</div>
+</section>
+</section>
+<section id="propriétés" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="propriétés"><span class="header-section-number">3.2</span> Propriétés</h2>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 3.1</strong></p>
+<p><strong>La limite d’une fonction, si elle existe, est unique.</strong></p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 3.2</strong></p>
+<p>Soit <span class="math inline">f : I\longrightarrow \mathbb{K}</span> une fonction et <span class="math inline">x_0</span> un point ou une extrémité (éventuellement infinie) de <span class="math inline">I</span>. Si <span class="math inline">f</span> possède une limite finie en <span class="math inline">x_0</span>, alors <span class="math inline">f</span> est bornée au voisinage de <span class="math inline">x_0</span>.</p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 3.3 — (Stabilité des inégalités larges par passage à la limite)</strong></p>
+<p>Soit <span class="math inline">f : I\longrightarrow \mathbb{R}</span> une fonction et <span class="math inline">x_0</span> un point ou une extrémité (éventuellement infinie) de <span class="math inline">I</span>. Soit <span class="math inline">\ell</span> tel que <span class="math inline">\underset{x\rightarrow x_0}{\lim}f(x)=\ell\in\overline{\mathbb{R}}</span>.</p>
+<p>S’il existe un voisinage <span class="math inline">V_{x_0}</span> de <span class="math inline">x_0</span> tel que :</p>
+<p><span class="math display">\forall x\in V_{x_0}\cap I,\ f(x)\leq k \quad (\text{respectivement } f(x)\geq k)</span></p>
+<p>alors <span class="math inline">\ell\leq k</span> (respectivement <span class="math inline">\ell\geq k</span>).</p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 3.4 — (Réciproque)</strong></p>
+<p>Si <span class="math inline">\ell&lt;k</span> (respectivement <span class="math inline">\ell&gt;k</span>) alors il existe un voisinage <span class="math inline">V_{x_0}</span> de <span class="math inline">x_0</span> tel que :</p>
+<p><span class="math display">\forall x\in V_{x_0}\cap I,\ f(x)&lt;k \quad (\text{respectivement } f(x)&gt;k)</span></p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 3.5</strong></p>
+<p>Soit <span class="math inline">f : I\longrightarrow \mathbb{K}</span> une fonction telle que <span class="math inline">\underset{x\rightarrow x_0}{\lim}f(x)=\ell</span> avec <span class="math inline">\ell\neq 0</span>. Montrer qu’il existe un voisinage <span class="math inline">V_{x_0}</span> de <span class="math inline">x_0</span> tel que :</p>
+<p><span class="math display">\forall x\in V_{x_0}\cap I,\ f(x)\neq 0</span></p>
+</div>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 3.1 — (Opérations sur les limites)</strong></p>
+<p>Soient deux fonctions <span class="math inline">f</span> et <span class="math inline">g</span> à valeurs dans <span class="math inline">\mathbb{K}</span>. On suppose que <span class="math inline">x_0</span> est un réel, ou que <span class="math inline">x_0=\pm\infty</span>, et que <span class="math inline">\underset{x\rightarrow x_0}{\lim}f(x)=\ell</span> et <span class="math inline">\underset{x\rightarrow x_0}{\lim}g(x)=\ell'</span>.</p>
+<ol type="1">
+<li>Si <span class="math inline">\ell</span> et <span class="math inline">\ell'</span> sont deux éléments de <span class="math inline">\mathbb{K}</span> alors :
+<ul>
+<li>Pour tous <span class="math inline">\alpha, \beta\in \mathbb{K}</span>, la fonction <span class="math inline">\alpha f+\beta g</span> admet une limite en <span class="math inline">x_0</span> et on a : <span class="math inline">\alpha f+\beta g \underset{x\to x_0}{\longrightarrow} \alpha \ell+\beta \ell'</span></li>
+<li>La fonction <span class="math inline">f\cdot g</span> admet une limite quand <span class="math inline">x</span> tend vers <span class="math inline">x_0</span> et on a : <span class="math inline">f\cdot g \underset{x\to x_0}{\longrightarrow} \ell\cdot\ell'</span></li>
+<li>Si <span class="math inline">\ell\neq 0</span> alors la fonction <span class="math inline">\frac{1}{f}</span> est bien définie au voisinage de <span class="math inline">x_0</span>, admet une limite quand <span class="math inline">x</span> tend vers <span class="math inline">x_0</span> et on a : <span class="math inline">\frac{1}{f}\underset{x\to x_0}{\longrightarrow} \frac{1}{\ell}</span></li>
+</ul></li>
+<li>Si <span class="math inline">\mathbb{K}=\mathbb{R}</span>, on a de plus :
+<ul>
+<li>Si <span class="math inline">\ell=\pm\infty</span> et <span class="math inline">\ell'\in \overline{\mathbb{R}}\smallsetminus\{0\}</span> alors : <span class="math inline">f\cdot g \underset{x\to x_0}{\longrightarrow} \pm\infty</span></li>
+<li>Si <span class="math inline">\ell=\pm\infty</span> alors la fonction <span class="math inline">\frac{1}{f}</span> est bien définie au voisinage de <span class="math inline">x_0</span> et admet une limite quand <span class="math inline">x</span> tend vers <span class="math inline">x_0</span> et on a : <span class="math inline">\frac{1}{f}\underset{x\to x_0}{\longrightarrow} 0</span></li>
+</ul></li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 3.5 — (Caractérisation séquentielle de la limite)</strong></p>
+<p>Soit <span class="math inline">f : I\longrightarrow \mathbb{K}</span> une fonction et <span class="math inline">x_0</span> un point ou une extrémité de <span class="math inline">I</span>. Soit <span class="math inline">\ell</span> tel que <span class="math inline">\underset{x\rightarrow x_0}{\lim}f(x)=\ell</span>.</p>
+<p><span class="math display">\ell=\underset{x\rightarrow x_0}{\lim}f(x) \Longleftrightarrow \forall(u_n)_n\subset I,\ \left(\underset{n\rightarrow +\infty}{\lim}u_n=x_0\Longrightarrow \underset{n\rightarrow +\infty}{\lim}f(u_n)=\ell\right)</span></p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 3.6</strong></p>
+<p>Si on considère la fonction <span class="math inline">f: x\in \mathbb{R}\longmapsto \sin\left(\frac{1}{x}\right)</span>, le point <span class="math inline">x_0=0</span> et la suite <span class="math inline">u_n=\frac{1}{(2n+1)\frac{\pi}{2}}</span> alors :</p>
+<p><span class="math display">\underset{n\rightarrow +\infty}{\lim}u_n=0 \quad \text{et} \quad \forall n\in \mathbb{N},\ f(u_n)=(-1)^n</span></p>
+<p>La suite <span class="math inline">(-1)^n</span> n’admet pas de limite, donc <span class="math inline">f</span> n’admet pas de limite en <span class="math inline">0</span>.</p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 3.6 — (Composition de limites)</strong></p>
+<p>Soient deux fonctions <span class="math inline">f:I\to \mathbb{R}</span> et <span class="math inline">g:J\to \mathbb{K}</span> telles que <span class="math inline">f(I)\subset J</span>. On suppose que <span class="math inline">x_0</span> est un réel, ou que <span class="math inline">x_0=\pm\infty</span>, et que <span class="math inline">\underset{x\rightarrow x_0}{\lim}f(x)=\ell\in\overline{\mathbb{R}}</span> et <span class="math inline">\underset{y\rightarrow \ell}{\lim}g(y)=\ell'</span>.</p>
+<p>Si <span class="math inline">\displaystyle\lim_{x_0} f=\ell</span> et <span class="math inline">\displaystyle\lim_\ell g=\ell'</span>, alors <span class="math inline">\displaystyle\lim_{x_0} g\circ f=\ell'</span>.</p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 3.7</strong></p>
+<p>Soit <span class="math inline">x \mapsto u(x)</span> une fonction et <span class="math inline">x_0 \in \mathbb{R}</span> tel que <span class="math inline">u(x) \to 2</span> lorsque <span class="math inline">x \to x_0</span>. Posons <span class="math inline">f(x) = \sqrt{1+\frac{1}{u(x)^2}+\ln u(x)}</span>. Si elle existe, quelle est la limite de <span class="math inline">f</span> en <span class="math inline">x_0</span> ?</p>
+<ul>
+<li>Tout d’abord comme <span class="math inline">u(x) \to 2</span> alors <span class="math inline">u(x)^2 \to 4</span> donc <span class="math inline">\frac{1}{u(x)^2} \to \frac{1}{4}</span> (lorsque <span class="math inline">x\to x_0</span>).</li>
+<li>De même comme <span class="math inline">u(x) \to 2</span> alors, dans un voisinage de <span class="math inline">x_0</span>, <span class="math inline">u(x)&gt;0</span> donc <span class="math inline">\ln u(x)</span> est bien définie dans ce voisinage et de plus <span class="math inline">\ln u(x) \to \ln 2</span> (lorsque <span class="math inline">x \to x_0</span>).</li>
+<li>Cela entraîne que <span class="math inline">1+\frac{1}{u(x)^2}+\ln u(x) \to 1+\frac{1}{4} + \ln 2</span> lorsque <span class="math inline">x \to x_0</span>. En particulier <span class="math inline">1+\frac{1}{u(x)^2}+\ln u(x)\geq 0</span> dans un voisinage de <span class="math inline">x_0</span>, donc <span class="math inline">f(x)</span> est bien définie dans un voisinage de <span class="math inline">x_0</span>.</li>
+<li>Et par composition avec la racine carrée alors <span class="math inline">f(x)</span> a bien une limite en <span class="math inline">x_0</span> et <span class="math inline">\lim_{x\to x_0} f(x) = \sqrt{1+\frac{1}{4} + \ln 2}</span>.</li>
+</ul>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 3.7 — (Théorème des gendarmes)</strong></p>
+<p>Soient <span class="math inline">f,g,h:I\to \mathbb{R}</span> trois fonctions, <span class="math inline">x_0</span> un point ou une extrémité (éventuellement infinie) de <span class="math inline">I</span> et <span class="math inline">\ell\in \mathbb{R}</span>.</p>
+<ol type="1">
+<li><span class="math inline">f(x),h(x)\underset{x\rightarrow x_0}{\longrightarrow} \ell</span></li>
+<li><span class="math inline">\exists V_{x_0}\in\mathcal{V}(x_0),\ \forall x\in V_{x_0}\cap I,\ f(x)\leq g(x)\leq h(x)</span></li>
+</ol>
+<p>Alors la fonction <span class="math inline">g</span> admet <span class="math inline">\ell</span> comme limite quand <span class="math inline">x</span> tend vers <span class="math inline">x_0</span>.</p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 3.8 — (Caractérisation de la limite d’une fonction complexe par les parties réelles et imaginaires)</strong></p>
+<p>Soit <span class="math inline">f : I\longrightarrow \mathbb{C}</span> une fonction, <span class="math inline">x_0</span> un point ou une extrémité (éventuellement infinie) de <span class="math inline">I</span> et <span class="math inline">\ell\in \mathbb{C}</span>.</p>
+<p><span class="math display">\underset{x_0}{\lim}f =\ell \Longleftrightarrow \begin{cases} \underset{x_0}{\lim}\mathcal{R}e(f)=\mathcal{R}e(\ell)\\ \underset{x_0}{\lim}\mathcal{I}m(f)=\mathcal{I}m(\ell) \end{cases}</span></p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 3.9 — (Détermination de la limite par majoration ou minoration)</strong></p>
+<p>Soient <span class="math inline">f,g:I\to \mathbb{R}</span> deux fonctions et <span class="math inline">x_0</span> un point ou une extrémité (éventuellement infinie) de <span class="math inline">I</span>.</p>
+<ol type="1">
+<li><span class="math inline">g(x)\underset{x\rightarrow x_0}{\longrightarrow} +\infty</span> (respectivement <span class="math inline">-\infty</span>)</li>
+<li><span class="math inline">\exists V_{x_0}\in \mathcal{V}(x_0),\ \forall x\in V_{x_0}\cap I,\ g(x)\leq f(x)</span> (respectivement <span class="math inline">f(x)\leq g(x)</span>)</li>
+</ol>
+<p>Alors <span class="math inline">f(x)\underset{x\rightarrow x_0}{\longrightarrow} +\infty</span> (respectivement <span class="math inline">-\infty</span>)</p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 3.6</strong></p>
+<p>Soit <span class="math inline">\alpha&gt;0</span>. Montrer les limites de référence suivantes :</p>
+<p><span class="math display">\lim_{x\rightarrow +\infty}x^{\alpha}e^{-x}=0 \quad ; \quad \lim_{x\rightarrow +\infty}\frac{\ln x}{x^{\alpha}}=0 \quad ; \quad \lim_{x\rightarrow 0^+}x^{\alpha}\ln x=0</span></p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 3.7</strong></p>
+<p>Montrer les limites suivantes :</p>
+<p><span class="math display">\lim_{x\rightarrow +\infty}(x-\ln x)=+\infty \quad ; \quad \lim_{x\rightarrow +\infty}\left(\sqrt{x^2+1}-\sqrt{x^2-1}\right)=0 \quad ;\\ \quad \lim_{x\rightarrow +\infty}\frac{\sqrt{x^2+x+1}}{x}=1 \quad ; \quad \lim_{x\rightarrow +\infty}xe^{-\sqrt{x}}=0 \quad ; \quad \lim_{x\rightarrow 0^+}\left(\frac{1}{\sqrt{x}}+\ln x\right)=0</span></p>
+</div>
+</section>
+</section>
+<section id="continuité" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> Continuité</h1>
+<section id="définition" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="définition"><span class="header-section-number">4.1</span> Définition</h2>
+<p>Soit <span class="math inline">I</span> un intervalle de <span class="math inline">\mathbb{R}</span> et <span class="math inline">f:I\to\mathbb{K}</span> une fonction définie sur <span class="math inline">I</span>.</p>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 4.1</strong></p>
+<ul>
+<li>On dit que <span class="math inline">f</span> est <strong>continue en un point <span class="math inline">x_0\in I</span></strong> si et seulement si <span class="math inline">f</span> admet une limite en <span class="math inline">x_0</span> et <span class="math inline">\lim_{x\to x_0}f(x)=f(x_0)</span>. Autrement dit, si et seulement si :</li>
+</ul>
+<p><span class="math display">\forall \epsilon&gt;0 \quad \exists \delta&gt;0 \quad \forall x\in I \quad \vert x-x_0\vert &lt;\delta \Longrightarrow \vert f(x)-f(x_0)\vert &lt;\epsilon</span></p>
+<ul>
+<li>On dit que <span class="math inline">f</span> est <strong>continue en <span class="math inline">x_0</span> à droite</strong> (respectivement <strong>à gauche</strong>) si la limite <span class="math inline">\underset{x\rightarrow x_0^+}{\lim}f(x)</span> (respectivement <span class="math inline">\underset{x\rightarrow x_0^-}{\lim}f(x)</span>) existe et <span class="math inline">f(x_0)=\underset{x\rightarrow x_0^+}{\lim}f(x)</span> (respectivement <span class="math inline">f(x_0)=\underset{x\rightarrow x_0^-}{\lim}f(x)</span>).</li>
+</ul>
+</div>
+<p>Intuitivement, une fonction est continue sur un intervalle, si on peut tracer son graphe « sans lever le crayon », c’est-à-dire si sa courbe représentative n’admet pas de saut.</p>
+<div class="proof remark">
+<p><span class="proof-title"><em>Remarque</em>. </span><span class="math inline">f</span> est continue en <span class="math inline">x_0</span> si et seulement si elle est continue en <span class="math inline">x_0</span> à droite et à gauche.</p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 4.1</strong></p>
+<p>Les fonctions suivantes sont continues :</p>
+<ul>
+<li>une fonction constante en tout point <span class="math inline">x_0</span> de <span class="math inline">\mathbb{R}</span>,</li>
+<li>la fonction racine carrée <span class="math inline">x\mapsto\sqrt{x}</span> en tout point <span class="math inline">x_0</span> de <span class="math inline">[0,+\infty[</span>,</li>
+<li>les fonctions <span class="math inline">\sin</span> et <span class="math inline">\cos</span> en tout point <span class="math inline">x_0</span> de <span class="math inline">\mathbb{R}</span>,</li>
+<li>la fonction valeur absolue <span class="math inline">x\mapsto\vert x\vert</span> en tout point <span class="math inline">x_0</span> de <span class="math inline">\mathbb{R}</span>,</li>
+<li>la fonction <span class="math inline">\exp</span> en tout point <span class="math inline">x_0</span> de <span class="math inline">\mathbb{R}</span>,</li>
+<li>la fonction <span class="math inline">\ln</span> en tout point <span class="math inline">x_0</span> de <span class="math inline">]0,+\infty[</span>.</li>
+</ul>
+<p>Par contre, la fonction partie entière <span class="math inline">E</span> n’est pas continue aux points <span class="math inline">x_0\in\mathbb{Z}</span>, puisqu’elle n’admet pas de limite en ces points. Mais <span class="math inline">f</span> est continue à droite en chaque point <span class="math inline">x_0\in\mathbb{Z}</span>. Pour <span class="math inline">x_0\in \mathbb{R} \setminus \mathbb{Z}</span>, elle est continue en <span class="math inline">x_0</span>.</p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 4.1</strong></p>
+<p>Montrer, dans chaque cas, que la fonction <span class="math inline">f</span> est continue au point <span class="math inline">x_0</span> :</p>
+<ol type="1">
+<li><span class="math inline">f: x\in \mathbb{R}\longmapsto \begin{cases} x\sin\left(\frac{1}{x}\right), &amp; \text{si } x\neq 0\\ 0, &amp; \text{sinon} \end{cases}</span> ; <span class="math inline">x_0=0</span> ;</li>
+<li><span class="math inline">f: x\in \mathbb{R}\longmapsto \begin{cases} xE\left(\frac{1}{x}\right), &amp; \text{si } x\neq 0\\ 1, &amp; \text{sinon} \end{cases}</span> ; <span class="math inline">x_0=0</span> ;</li>
+<li><span class="math inline">f: x\in \mathbb{R}\longmapsto \begin{cases} x^2, &amp; \text{si } x\geq 0\\ -x^2, &amp; \text{sinon} \end{cases}</span> ; <span class="math inline">x_0=0</span> ;</li>
+</ol>
+</div>
+</section>
+<section id="propriétés-1" class="level2" data-number="4.2">
+<h2 data-number="4.2" class="anchored" data-anchor-id="propriétés-1"><span class="header-section-number">4.2</span> Propriétés</h2>
+<p>La continuité assure par exemple que si la fonction ne s’annule pas en un point (qui est une propriété ponctuelle) alors elle ne s’annule pas autour de ce point (propriété locale). Voici l’énoncé :</p>
+<div class="custom-numbered-block custom-lemma">
+<p><strong>Lemme 4.1</strong></p>
+<p>Soit <span class="math inline">f:I\to\mathbb{K}</span> une fonction définie sur un intervalle <span class="math inline">I</span> et <span class="math inline">x_0</span> un point de <span class="math inline">I</span>. Si <span class="math inline">f</span> est continue en <span class="math inline">x_0</span> et si <span class="math inline">f(x_0)\neq 0</span>, alors il existe <span class="math inline">\delta&gt;0</span> tel que :</p>
+<p><span class="math display">\forall x\in ]x_0-\delta,x_0+\delta [ \quad f(x)\neq 0</span></p>
+</div>
+<p>La continuité se comporte bien avec les opérations élémentaires. Les propositions suivantes sont des conséquences immédiates des propositions analogues sur les limites.</p>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 4.1 — (Opération sur les fonctions continues en un point)</strong></p>
+<ol type="1">
+<li>Soient <span class="math inline">f,g:I\to \mathbb{K}</span> deux fonctions définies sur <span class="math inline">I</span> et continues en <span class="math inline">x_0</span>.
+<ul>
+<li>Pour tout <span class="math inline">\alpha, \beta \in \mathbb{K}</span>, la fonction <span class="math inline">\alpha f+\beta g</span> est continue en <span class="math inline">x_0</span> ;</li>
+<li>La fonction <span class="math inline">f\cdot g</span> est continue en <span class="math inline">x_0</span> ;</li>
+<li>Si <span class="math inline">f(x_0)\neq 0</span> alors la fonction <span class="math inline">\frac{g}{f}</span> est définie au voisinage de <span class="math inline">x_0</span> et continue en <span class="math inline">x_0</span>.</li>
+</ul></li>
+<li>Si <span class="math inline">f:I\to \mathbb{R}</span> est une fonction définie sur <span class="math inline">I</span> et continue en <span class="math inline">x_0</span> et <span class="math inline">g:J\to \mathbb{K}</span> une fonction telle que <span class="math inline">f(I)\subset J</span> et <span class="math inline">g</span> continue en <span class="math inline">y_0=f(x_0)</span>, alors la fonction composée <span class="math inline">g\circ f</span> est continue en <span class="math inline">x_0</span>.</li>
+</ol>
+</div>
+</section>
+<section id="continuité-globale" class="level2" data-number="4.3">
+<h2 data-number="4.3" class="anchored" data-anchor-id="continuité-globale"><span class="header-section-number">4.3</span> Continuité globale</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 4.2 — (Continuité globale)</strong></p>
+<p>On dit que <span class="math inline">f</span> est <strong>continue</strong> sur <span class="math inline">I</span> si et seulement si elle est continue en tout point de <span class="math inline">I</span>.</p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 4.2</strong></p>
+<ul>
+<li>Les fonctions constantes sont continues sur <span class="math inline">\mathbb{R}</span> ;</li>
+<li>Une fonction lipschitzienne est continue ;</li>
+<li>Les fonctions <span class="math inline">\exp,\ \ln,\ \sin,\ \cos,\ \tan,\ x\longmapsto \sqrt{x},\ x\longmapsto x,\ x\longmapsto |x|,\ x\longmapsto e^{ix}</span> sont continues sur leur domaine de définition ;</li>
+<li>La fonction <span class="math inline">\mathbb{1}_{\mathbb{Q}}</span> est discontinue en tout point de <span class="math inline">\mathbb{R}</span>.</li>
+<li>La fonction <span class="math inline">x\longmapsto x\cdot\mathbb{1}_{\mathbb{Q}}(x)</span> est discontinue en tout point de <span class="math inline">\mathbb{R}</span> sauf en <span class="math inline">x_0=0</span>.</li>
+</ul>
+</div>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 4.2 — (Opération sur les fonctions continues sur un intervalle)</strong></p>
+<ol type="1">
+<li>Soient <span class="math inline">f,g:I\to \mathbb{K}</span> deux fonctions définies et continues sur <span class="math inline">I</span>.
+<ul>
+<li>Pour tout <span class="math inline">\alpha, \beta \in \mathbb{K}</span>, la fonction <span class="math inline">\alpha f+\beta g</span> est continue sur <span class="math inline">I</span> ;</li>
+<li>La fonction <span class="math inline">f\cdot g</span> est continue sur <span class="math inline">I</span> ;</li>
+<li>Si <span class="math inline">f</span> ne s’annule pas sur <span class="math inline">I</span> alors la fonction <span class="math inline">\frac{g}{f}</span> est définie et continue sur <span class="math inline">I</span>.</li>
+</ul></li>
+<li>Si <span class="math inline">f:I\to \mathbb{R}</span> est une fonction définie et continue sur <span class="math inline">I</span> et <span class="math inline">g:J\to \mathbb{K}</span> une fonction telle que <span class="math inline">f(I)\subset J</span> et <span class="math inline">g</span> continue sur <span class="math inline">J</span>, alors la fonction composée <span class="math inline">g\circ f</span> est continue sur <span class="math inline">I</span>.</li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 4.3</strong></p>
+<ul>
+<li>les fonctions puissance <span class="math inline">x\mapsto x^n</span> sur <span class="math inline">\mathbb{R}</span> (comme produit <span class="math inline">x \times x \times \cdots</span>),</li>
+<li>les polynômes sur <span class="math inline">\mathbb{R}</span> (somme et produit de fonctions puissance et de fonctions constantes),</li>
+<li>les fractions rationnelles <span class="math inline">x\mapsto \frac{P(x)}{Q(x)}</span> sur tout intervalle où le polynôme <span class="math inline">Q(x)</span> ne s’annule pas,</li>
+<li>Plus généralement, les fonctions polynômiales, les fractions rationnelles, les fonctions obtenues par opérations sur les fonctions trigonométriques, les fonctions obtenues par opérations sur les fonctions hyperboliques etc… sont continues sur leur domaine de définition,</li>
+<li>La fonction <span class="math inline">x\in \mathbb{R}\longmapsto \frac{\sin\left(\frac{1}{x}\right)}{x-1}</span> est continue sur <span class="math inline">\mathbb{R}^*\smallsetminus\{1\}</span> car elle est composée et fraction de fonctions continues.</li>
+</ul>
+</div>
+</section>
+<section id="caractérisation-séquentielle-de-la-continuité" class="level2" data-number="4.4">
+<h2 data-number="4.4" class="anchored" data-anchor-id="caractérisation-séquentielle-de-la-continuité"><span class="header-section-number">4.4</span> Caractérisation séquentielle de la continuité</h2>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 4.1</strong></p>
+<p>Soit <span class="math inline">f:I\to\mathbb{K}</span> une fonction et <span class="math inline">x_0</span> un point de <span class="math inline">I</span>. Alors :</p>
+<p><strong><span class="math inline">f</span> est continue en <span class="math inline">x_0</span> si et seulement si pour toute suite <span class="math inline">(u_n)</span> qui converge vers <span class="math inline">x_0</span>, la suite <span class="math inline">(f(u_n))</span> converge vers <span class="math inline">f(x_0)</span>.</strong></p>
+</div>
+<div class="proof remark">
+<p><span class="proof-title"><em>Remarque</em>. </span>On retiendra surtout l’implication : si <span class="math inline">f</span> est continue sur <span class="math inline">I</span> et si <span class="math inline">(u_n)</span> est une suite convergente de limite <span class="math inline">\ell</span>, alors <span class="math inline">(f(u_n))</span> converge vers <span class="math inline">f(\ell)</span>. On l’utilisera intensivement pour l’étude des suites récurrentes <span class="math inline">u_{n+1}= f(u_n)</span> : si <span class="math inline">f</span> est continue et <span class="math inline">u_n\to \ell</span>, alors <span class="math inline">f(\ell)=\ell</span>.</p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 4.2</strong></p>
+<p>Formuler des caractérisations séquentielles similaires pour la continuité à gauche et à droite au point <span class="math inline">x_0</span>.</p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 4.3</strong></p>
+<p>Soit <span class="math inline">f: \mathbb{R}\longrightarrow \mathbb{R}</span> une fonction continue telle que <span class="math inline">f(ax)=f(x)</span> pour tout <span class="math inline">x\in \mathbb{R}</span>, où <span class="math inline">a</span> est fixé différent de 1 et -1.</p>
+<ol type="1">
+<li>On suppose, dans cette question, que <span class="math inline">|a|&lt;1</span>.
+<ul>
+<li>Montrer que pour tout <span class="math inline">n\in \mathbb{N}</span>, <span class="math inline">f(a^nx)=f(x)</span> ;</li>
+<li>En déduire que <span class="math inline">f</span> est constante.</li>
+</ul></li>
+<li>Faire de même lorsque <span class="math inline">|a|&gt;1</span>.</li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 4.4</strong></p>
+<p>Soient <span class="math inline">f,g : I\longrightarrow \mathbb{R}</span> deux fonctions continues. Montrer que les fonctions <span class="math inline">|f|,\ \min(f,g)</span> et <span class="math inline">\max(f,g)</span> sont continues sur <span class="math inline">I</span>.</p>
+</div>
+</section>
+<section id="prolongement-par-continuité" class="level2" data-number="4.5">
+<h2 data-number="4.5" class="anchored" data-anchor-id="prolongement-par-continuité"><span class="header-section-number">4.5</span> Prolongement par continuité</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 4.3</strong></p>
+<p>Soit <span class="math inline">I</span> un intervalle, <span class="math inline">x_0</span> un point de <span class="math inline">I</span> et <span class="math inline">f:I\setminus\{x_0\}\to\mathbb{R}</span> une application.</p>
+<ul>
+<li>On dit que <span class="math inline">f</span> est <strong>prolongeable par continuité</strong> en <span class="math inline">x_0</span> si <span class="math inline">f</span> admet une limite finie en <span class="math inline">x_0</span>. Notons alors <span class="math inline">\ell=\displaystyle\lim_{x_0} f</span>.</li>
+<li>On définit alors la fonction <span class="math inline">\tilde f:I\to\mathbb{R}</span> en posant pour tout <span class="math inline">x\in I</span> :</li>
+</ul>
+<p><span class="math display">\tilde f(x) = \begin{cases} f(x) &amp;\text{ si } x\neq x_0\\ \ell &amp;\text{ si } x=x_0. \end{cases}</span></p>
+<p>Alors <span class="math inline">\tilde f</span> est continue en <span class="math inline">x_0</span> et on l’appelle le <strong>prolongement par continuité</strong> de <span class="math inline">f</span> en <span class="math inline">x_0</span>.</p>
+</div>
+<p>Dans la pratique, on continuera souvent à noter <span class="math inline">f</span> à la place de <span class="math inline">\tilde f</span>.</p>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 4.4</strong></p>
+<p>Considérons la fonction <span class="math inline">f</span> définie sur <span class="math inline">\mathbb{R}^*</span> par <span class="math inline">f(x)=x\sin\left(\frac{1}{x}\right)</span>. Voyons si <span class="math inline">f</span> admet un prolongement par continuité en <span class="math inline">0</span> ?</p>
+<p>Comme pour tout <span class="math inline">x\in\mathbb{R}^*</span> on a <span class="math inline">\vert f(x)\vert\leq \vert x\vert</span>, on en déduit que <span class="math inline">f</span> tend vers <span class="math inline">0</span> en <span class="math inline">0</span>. Elle est donc prolongeable par continuité en <span class="math inline">0</span> et son prolongement est la fonction <span class="math inline">\tilde f</span> définie sur <span class="math inline">\mathbb{R}</span> tout entier par :</p>
+<p><span class="math display">\tilde f(x) = \begin{cases} x\sin\left(\frac{1}{x}\right) &amp;\text{ si } x\neq 0\\ 0 &amp;\text{ si } x=0. \end{cases}</span></p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 4.5</strong></p>
+<p>Montrer, dans chaque cas, que <span class="math inline">f</span> est prolongeable par continuité au point <span class="math inline">x_0=0</span>.</p>
+<ol type="1">
+<li><span class="math inline">f : ]0,+\infty[\longmapsto x\ln x</span> ;</li>
+<li><span class="math inline">f : \mathbb{R}^*\longmapsto \frac{\sin x}{x}</span> ;</li>
+<li>Soit <span class="math inline">y\in \mathbb{R}^+</span>. <span class="math inline">f : ]0,\pi/2]\longmapsto \left(\sin x\right)^y</span>.</li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 4.6</strong></p>
+<ol type="1">
+<li>Déterminer le domaine de définition et de continuité des fonctions suivantes : <span class="math inline">f(x) = 1/\sin x</span>, <span class="math inline">g(x) = 1/\sqrt{x+\frac{1}{2}}</span>, <span class="math inline">h(x) = \ln(x^2+x-1)</span>.</li>
+<li>Trouver les couples <span class="math inline">(a,b)\in\mathbb{R}^2</span> tels que la fonction <span class="math inline">f</span> définie sur <span class="math inline">\mathbb{R}</span> par <span class="math inline">f(x) = ax+b</span> si <span class="math inline">x&lt; 0</span> et <span class="math inline">f(x) = \exp(x)</span> si <span class="math inline">x\geq 0</span> soit continue sur <span class="math inline">\mathbb{R}</span>. Et si on avait <span class="math inline">f(x) = \frac{a}{x-1}+b</span> pour <span class="math inline">x&lt;0</span> ?</li>
+<li>Soit <span class="math inline">f</span> une fonction continue telle que <span class="math inline">f(x_0)=1</span>. Montrer qu’il existe <span class="math inline">\delta&gt;0</span> tel que : pour tout <span class="math inline">x\in ]x_0 - \delta, x_0+\delta[ \quad f(x) &gt; \frac{1}{2}</span>.</li>
+<li>Étudier la continuité de <span class="math inline">f : \mathbb{R} \to \mathbb{R}</span> définie par : <span class="math inline">f(x) = \sin(x)\cos\left(\frac{1}{x}\right)</span> si <span class="math inline">x\neq 0</span> et <span class="math inline">f(0)=0</span>. Et pour <span class="math inline">g(x)=xE(x)</span> ?</li>
+<li>La fonction définie par <span class="math inline">f(x)=\frac{x^3+8}{|x+2|}</span> admet-elle un prolongement par continuité en <span class="math inline">-2</span> ?</li>
+<li>Soit la suite définie par <span class="math inline">u_0&gt;0</span> et <span class="math inline">u_{n+1}=\sqrt{u_n}</span>. Montrer que <span class="math inline">(u_n)</span> admet une limite <span class="math inline">\ell \in \mathbb{R}</span> lorsque <span class="math inline">n\to+\infty</span>. À l’aide de la fonction <span class="math inline">f(x)=\sqrt{x}</span> calculer cette limite.</li>
+</ol>
+</div>
+</section>
+</section>
+<section id="continuité-sur-un-intervalle" class="level1" data-number="5">
+<h1 data-number="5"><span class="header-section-number">5</span> Continuité sur un intervalle</h1>
+<section id="le-théorème-des-valeurs-intermédiaires" class="level2" data-number="5.1">
+<h2 data-number="5.1" class="anchored" data-anchor-id="le-théorème-des-valeurs-intermédiaires"><span class="header-section-number">5.1</span> Le théorème des valeurs intermédiaires</h2>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 5.1 — (Théorème des valeurs intermédiaires)</strong></p>
+<p>Soit <span class="math inline">f:[a,b]\to\mathbb{R}</span> une fonction continue sur un segment.</p>
+<p><strong>Pour tout réel <span class="math inline">y</span> compris entre <span class="math inline">f(a)</span> et <span class="math inline">f(b)</span>, il existe <span class="math inline">c\in[a,b]</span> tel que <span class="math inline">f(c)=y</span>.</strong></p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Preuve</em>. </span>Montrons le théorème dans le cas où <span class="math inline">f(a)&lt;f(b)</span>. On considère alors un réel <span class="math inline">y</span> tel que <span class="math inline">f(a)\leq y\leq f(b)</span> et on veut montrer qu’il a un antécédent par <span class="math inline">f</span>.</p>
+<p>On introduit l’ensemble suivant :</p>
+<p><span class="math display">A=\Big\{ x\in [a,b] \ \vert \ f(x)\leq y \Big\}</span></p>
+<p>Tout d’abord l’ensemble <span class="math inline">A</span> est non vide (car <span class="math inline">a\in A</span>) et il est majoré (car il est contenu dans <span class="math inline">[a,b]</span>) : il admet donc une borne supérieure, que l’on note <span class="math inline">c=\sup A</span>. Montrons que <span class="math inline">f(c)=y</span>.</p>
+<p>Montrons tout d’abord que <span class="math inline">f(c)\leq y</span>. Comme <span class="math inline">c=\sup A</span>, il existe une suite <span class="math inline">(u_n)_{n\in\mathbb{N}}</span> contenue dans <span class="math inline">A</span> telle que <span class="math inline">(u_n)</span> converge vers <span class="math inline">c</span>. D’une part, pour tout <span class="math inline">n\in\mathbb{N}</span>, comme <span class="math inline">u_n\in A</span>, on a <span class="math inline">f(u_n)\leq y</span>. D’autre part, comme <span class="math inline">f</span> est continue en <span class="math inline">c</span>, la suite <span class="math inline">\left(f(u_n)\right)</span> converge vers <span class="math inline">f(c)</span>. On en déduit donc, par passage à la limite, que <span class="math inline">f(c)\leq y</span>.</p>
+<p>Montrons à présent que <span class="math inline">f(c)\geq y</span>. Remarquons tout d’abord que si <span class="math inline">c=b</span>, alors on a fini, puisque <span class="math inline">f(b)\geq y</span>. Sinon, pour tout <span class="math inline">x\in]c,b]</span>, comme <span class="math inline">x\notin A</span>, on a <span class="math inline">f(x)&gt;y</span>. Or, étant donné que <span class="math inline">f</span> est continue en <span class="math inline">c</span>, <span class="math inline">f</span> admet une limite à droite en <span class="math inline">c</span>, qui vaut <span class="math inline">f(c)</span> et on obtient <span class="math inline">f(c)\geq y</span>.</p>
+</div>
+</section>
+<section id="applications-du-théorème-des-valeurs-intermédiaires" class="level2" data-number="5.2">
+<h2 data-number="5.2" class="anchored" data-anchor-id="applications-du-théorème-des-valeurs-intermédiaires"><span class="header-section-number">5.2</span> Applications du théorème des valeurs intermédiaires</h2>
+<p>Voici la version la plus utilisée du théorème des valeurs intermédiaires.</p>
+<div class="custom-numbered-block custom-corollary">
+<p><strong>Corollaire 5.1</strong></p>
+<p>Soit <span class="math inline">f:[a,b]\to\mathbb{R}</span> une fonction continue sur un segment.</p>
+<p><strong>Si <span class="math inline">f(a)\cdot f(b)\leq 0</span>, alors il existe <span class="math inline">c\in [a,b]</span> tel que <span class="math inline">f(c)=0</span>.</strong></p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Preuve</em>. </span>Il s’agit d’une application directe du théorème des valeurs intermédiaires avec <span class="math inline">y=0</span>. L’hypothèse <span class="math inline">f(a)\cdot f(b)\leq 0</span> signifiant que <span class="math inline">f(a)</span> et <span class="math inline">f(b)</span> sont de signes contraires.</p>
+</div>
+<div class="proof remark">
+<p><span class="proof-title"><em>Remarque</em>. </span>Le théorème des valeurs intermédiaires et le corollaire ci-dessus sont équivalents.</p>
+</div>
+<div class="proof remark" title="(Méthode de dichotomie pour la recherche des zéros d'une fonction)">
+<p><span class="proof-title"><em>Remarque</em>. </span>Voir en annexe la méthode de dichotomie pour la recherche des zéros des fonctions.</p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 5.1</strong></p>
+<p><em>Tout polynôme de degré impair possède au moins une racine réelle.</em></p>
+<p>En effet, un tel polynôme s’écrit <span class="math inline">P(x)=a_nx^n+\cdots+a_1x+a_0</span> avec <span class="math inline">n</span> un entier impair. On peut supposer que le coefficient <span class="math inline">a_n</span> est strictement positif. Alors on a <span class="math inline">\displaystyle\lim_{-\infty} P = -\infty</span> et <span class="math inline">\displaystyle\lim_{+\infty} P = +\infty</span>. En particulier, il existe deux réels <span class="math inline">a</span> et <span class="math inline">b</span> tels que <span class="math inline">f(a)&lt;0</span> et <span class="math inline">f(b)&gt;0</span> et on conclut grâce au corollaire précédent.</p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 5.1</strong></p>
+<p>Soient <span class="math inline">f,g : [a,b]\longrightarrow \mathbb{R}</span> deux fonctions continues. On suppose que <span class="math inline">f(a)\leq g(a)</span> et <span class="math inline">f(b)\geq g(b)</span>. Montrer qu’il existe <span class="math inline">x\in [a,b]</span> tel que <span class="math inline">f(x)=g(x)</span>.</p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 5.2</strong></p>
+<p>Soit <span class="math inline">f</span> une fonction continue sur <span class="math inline">[0,1]</span> dans lui même. Montrer que <span class="math inline">f</span> admet un point fixe.</p>
+</div>
+<div class="custom-numbered-block custom-corollary">
+<p><strong>Corollaire 5.2</strong></p>
+<p><strong>Soit <span class="math inline">f:I\to\mathbb{R}</span> une fonction continue sur un intervalle <span class="math inline">I</span>. Alors <span class="math inline">f(I)</span> est un intervalle.</strong></p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Preuve</em>. </span>Soient <span class="math inline">y_1,y_2\in f(I)</span>, <span class="math inline">y_1\leq y_2</span>. Montrons que si <span class="math inline">y\in[y_1,y_2]</span>, alors <span class="math inline">y\in f(I)</span>. Par hypothèse, il existe <span class="math inline">x_1,x_2\in I</span> tels que <span class="math inline">y_1 =f(x_1)</span>, <span class="math inline">y_2 =f(x_2)</span> et donc <span class="math inline">y</span> est compris entre <span class="math inline">f(x_1)</span> et <span class="math inline">f(x_2)</span>. D’après le théorème des valeurs intermédiaires, comme <span class="math inline">f</span> est continue, il existe donc <span class="math inline">x\in I</span> tel que <span class="math inline">y=f(x)</span>, et ainsi <span class="math inline">y\in f(I)</span>.</p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 5.3</strong></p>
+<p>Soit <span class="math inline">f:I\longrightarrow \mathbb{R}</span> continue. On suppose que <span class="math inline">f</span> n’est ni majorée, ni minorée. Montrer que <span class="math inline">f</span> est surjective.</p>
+</div>
+</section>
+<section id="fonctions-continues-sur-un-segment" class="level2" data-number="5.3">
+<h2 data-number="5.3" class="anchored" data-anchor-id="fonctions-continues-sur-un-segment"><span class="header-section-number">5.3</span> Fonctions continues sur un segment</h2>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 5.2 — (Théorème de Weierstrass)</strong></p>
+<p>Soit <span class="math inline">f:[a,b]\to\mathbb{R}</span> une fonction continue sur un segment. Alors il existe deux réels <span class="math inline">m</span> et <span class="math inline">M</span> tels que <span class="math inline">f([a,b])=[m,M]</span>. Autrement dit, l’image d’un segment par une fonction continue est un segment.</p>
+</div>
+<p>Comme on sait déjà par le théorème des valeurs intermédiaires que <span class="math inline">f([a,b])</span> est un intervalle, le théorème précédent signifie exactement que :</p>
+<p><strong>Si <span class="math inline">f</span> est continue sur <span class="math inline">[a,b]</span> alors <span class="math inline">f</span> est bornée sur <span class="math inline">[a,b]</span>, et elle atteint ses bornes.</strong></p>
+<p>Donc <span class="math inline">m</span> est le minimum de la fonction sur l’intervalle <span class="math inline">[a,b]</span> alors que <span class="math inline">M</span> est le maximum. Alors on peut formuler ce théorème de la façon suivante :</p>
+<p><strong>Si <span class="math inline">f</span> est continue sur <span class="math inline">[a,b]</span> alors il existe <span class="math inline">c,d\in [a,b]</span> tels que : <span class="math inline">\forall x\in [a,b],\quad f(c)\leq f(x)\leq f(d)</span></strong></p>
+<div class="proof">
+<p><span class="proof-title"><em>Preuve</em>. </span>Montrons d’abord que <span class="math inline">f</span> est bornée.</p>
+<ul>
+<li><p>Pour <span class="math inline">r \in \mathbb{R}</span>, on note <span class="math inline">A_r = \{ x \in [a,b] \mid f(x) \geq r\}</span>. Fixons <span class="math inline">r</span> tel que <span class="math inline">A_r \neq \varnothing</span>, comme <span class="math inline">A_r \subset [a,b]</span>, le nombre <span class="math inline">s = \sup A_r</span> existe. Soit <span class="math inline">x_n \to s</span> avec <span class="math inline">x_n \in A_r</span>. Par définition <span class="math inline">f(x_n) \geq r</span> donc, <span class="math inline">f</span> étant continue, à la limite <span class="math inline">f(s) \geq r</span> et ainsi <span class="math inline">s \in A_r</span>.</p></li>
+<li><p>Supposons par l’absurde que <span class="math inline">f</span> ne soit pas bornée. Alors pour tout <span class="math inline">n \geq 0</span>, <span class="math inline">A_n</span> est non vide. Notons <span class="math inline">s_n = \sup A_n</span>. Comme <span class="math inline">f(x) \geq n+1</span> implique <span class="math inline">f(x) \geq n</span> alors <span class="math inline">A_{n+1} \subset A_n</span>, ce qui entraîne <span class="math inline">s_{n+1} \leq s_n</span>. Bilan : <span class="math inline">(s_n)</span> est une suite décroissante, minorée par <span class="math inline">a</span> donc converge vers <span class="math inline">\ell \in [a,b]</span>. Encore une fois <span class="math inline">f</span> est continue donc <span class="math inline">s_n \to \ell</span>, implique <span class="math inline">f(s_n) \to f(\ell)</span>. Mais <span class="math inline">f(s_n) \geq n</span> donc <span class="math inline">\lim f(s_n) = +\infty</span>. Cela contredit <span class="math inline">\lim f(s_n) = f(\ell) &lt; +\infty</span>. Conclusion : <span class="math inline">f</span> est majorée.</p></li>
+<li><p>Un raisonnement tout à fait similaire prouve que <span class="math inline">f</span> est aussi minorée, donc bornée. Par ailleurs on sait déjà que <span class="math inline">f(I)</span> est un intervalle (c’est le théorème des valeurs intermédiaires), donc maintenant <span class="math inline">f(I)</span> est un intervalle borné. Il reste à montrer qu’il est du type <span class="math inline">[m,M]</span> (et pas <span class="math inline">]m,M[</span> par exemple).</p></li>
+</ul>
+<p>Montrons maintenant que <span class="math inline">f(I)</span> est un intervalle fermé. Sachant déjà que <span class="math inline">f(I)</span> est un intervalle borné, notons <span class="math inline">m</span> et <span class="math inline">M</span> ses extrémités : <span class="math inline">m = \inf f(I)</span> et <span class="math inline">M = \sup f(I)</span>. Supposons par l’absurde que <span class="math inline">M \notin f(I)</span>. Alors pour <span class="math inline">t \in [a,b]</span>, <span class="math inline">M &gt; f(t)</span>. La fonction <span class="math inline">g</span> : <span class="math inline">t \mapsto \frac{1}{M-f(t)}</span> est donc bien définie. La fonction <span class="math inline">g</span> est continue sur <span class="math inline">I</span> donc d’après le premier point de cette preuve (appliqué à <span class="math inline">g</span>) elle est bornée, disons par un réel <span class="math inline">K</span>. Mais il existe <span class="math inline">y_n \to M</span>, <span class="math inline">y_n \in f(I)</span>. Donc il existe <span class="math inline">x_n \in [a,b]</span> tel que <span class="math inline">y_n = f(x_n) \to M</span> et alors <span class="math inline">g(x_n) = \frac{1}{M-f(x_n)} \to +\infty</span>. Cela contredit que <span class="math inline">g</span> soit une fonction bornée par <span class="math inline">K</span>. Bilan : <span class="math inline">M \in f(I)</span>. De même on a <span class="math inline">m \in f(I)</span>. Conclusion finale : <span class="math inline">f(I) = [m,M]</span>.</p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 5.4</strong></p>
+<ol type="1">
+<li>Soient <span class="math inline">P(x)=x^5-3x-2</span> et <span class="math inline">f(x)=x2^x-1</span> deux fonctions définies sur <span class="math inline">\mathbb{R}</span>. Montrer que l’équation <span class="math inline">P(x)=0</span> a au moins une racine dans <span class="math inline">[1,2]</span> ; l’équation <span class="math inline">f(x)=0</span> a au moins une racine dans <span class="math inline">[0,1]</span> ; l’équation <span class="math inline">P(x)=f(x)</span> a au moins une racine dans <span class="math inline">]0,2[</span>.</li>
+<li>Montrer qu’il existe <span class="math inline">x&gt;0</span> tel que <span class="math inline">2^x+3^x=7^x</span>.</li>
+<li>Dessiner le graphe d’une fonction continue <span class="math inline">f : \mathbb{R} \to \mathbb{R}</span> tel que <span class="math inline">f(\mathbb{R}) = [0,1]</span>. Puis <span class="math inline">f(\mathbb{R})=]0,1[</span> ; <span class="math inline">f(\mathbb{R}) = [0,1[</span> ; <span class="math inline">f(\mathbb{R})= ]-\infty,1]</span>, <span class="math inline">f(\mathbb{R})= ]-\infty,1[</span>.</li>
+<li>Soient <span class="math inline">f,g : [0,1] \to \mathbb{R}</span> deux fonctions continues. Quelles sont, parmi les fonctions suivantes, celles dont on peut affirmer qu’elles sont bornées : <span class="math inline">f+g</span>, <span class="math inline">f\times g</span>, <span class="math inline">f/g</span> ?</li>
+<li>Soient <span class="math inline">f</span> et <span class="math inline">g</span> deux fonctions continues sur <span class="math inline">[0,1]</span> telles que <span class="math inline">\forall x\in [0,1],\ f(x)&lt;g(x)</span>. Montrer qu’il existe <span class="math inline">m&gt;0</span> tel que <span class="math inline">\forall x\in [0,1],\ f(x)+m&lt;g(x)</span>. Ce résultat est-il vrai si on remplace <span class="math inline">[0,1]</span> par <span class="math inline">\mathbb{R}</span> ?</li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 5.5</strong></p>
+<p>Soit <span class="math inline">f : [a,b]\longrightarrow \mathbb{R}</span> une fonction continue telle que :</p>
+<p><span class="math display">\forall x\in [a,b],\ f(x)&lt;0</span></p>
+<p>Montrer que <span class="math inline">\underset{x\in [a,b]}{\sup}f(x)&lt;0</span>.</p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 5.6</strong></p>
+<p>Soit <span class="math inline">f : \mathbb{R}^+\longrightarrow \mathbb{R}</span> une fonction continue admettant une limite finie en <span class="math inline">+\infty</span>. Montrer que <span class="math inline">f</span> est bornée.</p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 5.7</strong></p>
+<p>Montrer que si <span class="math inline">f: [a,b]\longrightarrow \mathbb{C}</span> est une fonction continue, alors <span class="math inline">|f|</span> est bornée et atteint ses bornes sur <span class="math inline">[a,b]</span>.</p>
+</div>
+</section>
+</section>
+<section id="fonctions-monotones-et-bijections" class="level1" data-number="6">
+<h1 data-number="6"><span class="header-section-number">6</span> Fonctions monotones et bijections</h1>
+<section id="rappels-injection-surjection-bijection" class="level2" data-number="6.1">
+<h2 data-number="6.1" class="anchored" data-anchor-id="rappels-injection-surjection-bijection"><span class="header-section-number">6.1</span> Rappels : injection, surjection, bijection</h2>
+<p>Dans cette section nous rappelons le matériel nécessaire concernant les applications bijectives.</p>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 6.1</strong></p>
+<p>Soit <span class="math inline">f:E\to F</span> une application, où <span class="math inline">E</span> et <span class="math inline">F</span> sont des parties de <span class="math inline">\mathbb{R}</span>.</p>
+<ul>
+<li><span class="math inline">f</span> est <strong>injective</strong> si et seulement si <span class="math inline">\forall x,x'\in E,\ f(x)=f(x') \Longrightarrow x=x'</span> ;</li>
+<li><span class="math inline">f</span> est <strong>surjective</strong> si et seulement si <span class="math inline">\forall y\in F,\ \exists x\in E,\ y=f(x)</span> ;</li>
+<li><span class="math inline">f</span> est <strong>bijective</strong> si et seulement si <span class="math inline">f</span> est à la fois injective et surjective, c’est-à-dire si <span class="math inline">\forall y\in F,\ \exists! x\in E,\ y=f(x)</span>.</li>
+</ul>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 6.1</strong></p>
+<p>Si <span class="math inline">f : E \to F</span> est une fonction bijective alors il existe une unique application <span class="math inline">g : F \to E</span> telle que <span class="math inline">g\circ f = \mathrm{Id}_E</span> et <span class="math inline">f\circ g = \mathrm{Id}_F</span>. La fonction <span class="math inline">g</span> est la <strong>bijection réciproque</strong> de <span class="math inline">f</span> et se note <span class="math inline">f^{-1}</span>.</p>
+</div>
+<div class="proof remark">
+<p><span class="proof-title"><em>Remarque</em>. </span></p>
+<ul>
+<li>On rappelle que l’<strong>identité</strong>, <span class="math inline">\mathrm{Id}_E : E \to E</span> est simplement définie par <span class="math inline">x \mapsto x</span>.</li>
+<li><span class="math inline">g \circ f = \mathrm{Id}_E</span> se reformule ainsi : <span class="math inline">\forall x \in E,\ g\big(f(x)\big) = x</span>.</li>
+<li>Alors que <span class="math inline">f \circ g = \mathrm{Id}_F</span> s’écrit : <span class="math inline">\forall y \in F,\ f\big(g(y)\big) = y</span>.</li>
+<li>Dans un repère orthonormé les graphes des fonctions <span class="math inline">f</span> et <span class="math inline">f^{-1}</span> sont symétriques par rapport à la première bissectrice.</li>
+</ul>
+</div>
+</section>
+<section id="théorème-de-la-limite-monotone" class="level2" data-number="6.2">
+<h2 data-number="6.2" class="anchored" data-anchor-id="théorème-de-la-limite-monotone"><span class="header-section-number">6.2</span> Théorème de la limite monotone</h2>
+<p>De façon analogue aux suites, on énonce le théorème très important suivant :</p>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 6.1 — (Théorème de la limite monotone)</strong></p>
+<p>Soient <span class="math inline">f\in \mathcal{F}(\mathbb{R},\mathbb{R})</span> et <span class="math inline">(a,b)\in \mathbb{R}^2</span> tel que <span class="math inline">a&lt;b</span>. On suppose que <span class="math inline">f</span> est croissante et définie sur <span class="math inline">]a,b[</span>. Alors :</p>
+<ol type="1">
+<li><ul>
+<li>Si <span class="math inline">f</span> est majorée sur <span class="math inline">]a,b[</span> alors <span class="math inline">f</span> admet une limite en <span class="math inline">b</span> à gauche et on a :</li>
+</ul></li>
+</ol>
+<p><span class="math display">\underset{x\rightarrow b^-}{\lim}f(x)=\underset{x\in ]a,b[}{\sup} f(x)</span></p>
+<ul>
+<li>Si <span class="math inline">f</span> n’est pas majorée sur <span class="math inline">]a,b[</span> alors <span class="math inline">f</span> tend vers <span class="math inline">+\infty</span> quand <span class="math inline">x</span> tend vers <span class="math inline">b</span> à gauche i.e.&nbsp;:</li>
+</ul>
+<p><span class="math display">\underset{x\rightarrow b^-}{\lim}f(x)=+\infty</span></p>
+<ol start="2" type="1">
+<li><ul>
+<li>Si <span class="math inline">f</span> est minorée sur <span class="math inline">]a,b[</span> alors <span class="math inline">f</span> admet une limite en <span class="math inline">a</span> à droite et on a :</li>
+</ul></li>
+</ol>
+<p><span class="math display">\underset{x\rightarrow a^+}{\lim}f(x)=\underset{x\in ]a,b[}{\inf} f(x)</span></p>
+<ul>
+<li>Si <span class="math inline">f</span> n’est pas minorée sur <span class="math inline">]a,b[</span> alors <span class="math inline">f</span> tend vers <span class="math inline">-\infty</span> quand <span class="math inline">x</span> tend vers <span class="math inline">a</span> à droite i.e.&nbsp;:</li>
+</ul>
+<p><span class="math display">\underset{x\rightarrow a^+}{\lim}f(x)=-\infty</span></p>
+</div>
+<div class="proof remark">
+<p><span class="proof-title"><em>Remarque</em>. </span>Ce résultat est encore valable si <span class="math inline">a=-\infty</span> et <span class="math inline">b=+\infty</span>.</p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Preuve</em>. </span>On donne ci-dessous la démonstration dans le cas où <span class="math inline">f</span> est majorée et pour la limite <span class="math inline">\underset{x\rightarrow b^-}{\lim}f(x)</span>.</p>
+<p>Comme <span class="math inline">f</span> est majorée sur <span class="math inline">]a,b[</span> alors l’ensemble <span class="math inline">\{f(x)/\ x\in ]a,b[\}</span> admet une borne supérieure <span class="math inline">\ell\in\mathbb{R}</span>. Montrons alors que <span class="math inline">\underset{x\rightarrow b^-}{\lim}f(x)=\ell</span> :</p>
+<p>Soit <span class="math inline">\varepsilon &gt;0</span>, d’après la caractérisation de la borne supérieure, il existe un <span class="math inline">x_0\in ]a,b[</span> tel que : <span class="math inline">\ell -\varepsilon &lt;f(x_0)</span>. Et puisque <span class="math inline">f</span> est croissante et <span class="math inline">\ell</span> est un majorant de <span class="math inline">f</span> sur <span class="math inline">]a,b[</span> alors :</p>
+<p><span class="math display">\forall x\in ]x_0,b[,\ \ell-\varepsilon &lt;f(x_0)\leq f(x)\leq \ell &lt;\ell +\varepsilon</span></p>
+<p>D’où :</p>
+<p><span class="math display">\forall x\in ]x_0,b[,\ |f(x)-\ell|&lt;\varepsilon</span></p>
+<p>Ce qui prouve que <span class="math inline">f</span> admet une limite en <span class="math inline">b</span> à gauche et que <span class="math inline">\underset{x\rightarrow b^-}{\lim}f(x)=\ell=\sup f</span>.</p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 6.1</strong></p>
+<p>Formuler un résultat similaire pour une fonction vérifiant les hypothèses du théorème précédent sauf qu’elle est décroissante.</p>
+</div>
+<div class="custom-numbered-block custom-corollary">
+<p><strong>Corollaire 6.1</strong></p>
+<p>Soit <span class="math inline">f:I\to\mathbb{R}</span> une fonction définie sur <span class="math inline">I</span>. Si <span class="math inline">f</span> est une fonction croissante alors les limites <span class="math inline">\lim_{a^+}f</span> et <span class="math inline">\lim_{a^-}f</span>, en tout point <span class="math inline">a\in I</span> (qui n’est pas une extrémité), existent et finies et on a :</p>
+<p><span class="math display">\lim_{a^-}f\leq f(a)\leq \lim_{a^+}f</span></p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 6.2</strong></p>
+<p>Soit <span class="math inline">f : \mathbb{R}\longrightarrow \mathbb{R}</span> une application croissante. Montrer que la fonction <span class="math inline">f^+: x\in \mathbb{R}\longmapsto \lim_{x^+}f</span> est croissante.</p>
+</div>
+</section>
+<section id="fonctions-monotones-et-bijections-1" class="level2" data-number="6.3">
+<h2 data-number="6.3" class="anchored" data-anchor-id="fonctions-monotones-et-bijections-1"><span class="header-section-number">6.3</span> Fonctions monotones et bijections</h2>
+<p>Voici un théorème très utilisé dans la pratique pour montrer qu’une fonction est bijective.</p>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 6.2 — (Théorème de la bijection monotone)</strong></p>
+<p>Soit <span class="math inline">f:I\to \mathbb{R}</span> une fonction définie sur un intervalle <span class="math inline">I</span> de <span class="math inline">\mathbb{R}</span>. Si <span class="math inline">f</span> est continue et strictement monotone sur <span class="math inline">I</span>, alors</p>
+<ol type="1">
+<li><span class="math inline">f</span> établit une bijection de l’intervalle <span class="math inline">I</span> dans l’intervalle image <span class="math inline">J=f(I)</span>,</li>
+<li>la fonction réciproque <span class="math inline">f^{-1}:J\to I</span> est continue et strictement monotone sur <span class="math inline">J</span> et elle a le même sens de variation que <span class="math inline">f</span>.</li>
+</ol>
+</div>
+<p>En pratique, si on veut appliquer ce théorème à une fonction continue <span class="math inline">f:I\to \mathbb{R}</span>, on découpe l’intervalle <span class="math inline">I</span> en sous-intervalles sur lesquels la fonction <span class="math inline">f</span> est strictement monotone.</p>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 6.1</strong></p>
+<p>Considérons la fonction carrée définie sur <span class="math inline">\mathbb{R}</span> par <span class="math inline">f(x)=x^2</span>. La fonction <span class="math inline">f</span> n’est pas strictement monotone sur <span class="math inline">\mathbb{R}</span> : elle n’est pas même pas injective car un nombre et son opposé ont même carré. Cependant, en restreignant son ensemble de définition à <span class="math inline">]-\infty,0]</span> d’une part et à <span class="math inline">[0,+\infty[</span> d’autre part, on définit deux fonctions strictement monotones :</p>
+<p><span class="math display">f_1 : ]-\infty,0] \longrightarrow [0,+\infty[, \quad x \longmapsto x^2</span></p>
+<p>et</p>
+<p><span class="math display">f_2 : [0,+\infty[ \longrightarrow [0,+\infty[, \quad x \longmapsto x^2</span></p>
+<p>On remarque que <span class="math inline">f(]-\infty,0]) = f([0,+\infty[) = [0,+\infty[</span>. D’après le théorème précédent, les fonctions <span class="math inline">f_1</span> et <span class="math inline">f_2</span> sont des bijections. Déterminons leurs fonctions réciproques <span class="math inline">f_1^{-1} :[0,+\infty[ \to]-\infty,0]</span> et <span class="math inline">f_2^{-1} :[0,+\infty[ \to [0,+\infty[</span>.</p>
+<p>Soient deux réels <span class="math inline">x</span> et <span class="math inline">y</span> tels que <span class="math inline">y\geq 0</span>. Alors</p>
+<p><span class="math display">y=f(x) \Longleftrightarrow y=x^2 \Longleftrightarrow x=\sqrt{y} \quad \text{ ou } \quad x=-\sqrt{y}</span></p>
+<p>c’est-à-dire <span class="math inline">y</span> admet (au plus) deux antécédents, l’un dans <span class="math inline">[0,+\infty[</span> et l’autre dans <span class="math inline">]-\infty,0]</span>. Et donc <span class="math inline">f_1^{-1}(y)=-\sqrt{y}</span> et <span class="math inline">f_2^{-1}(y)=\sqrt{y}</span>. On vérifie bien que chacune des deux fonctions <span class="math inline">f_1</span> et <span class="math inline">f_2</span> a le même sens de variation que sa réciproque.</p>
+<p>On remarque que la courbe totale en pointillé (à la fois la partie bleue et la verte), qui est l’image du graphe de <span class="math inline">f</span> par la symétrie par rapport à la première bissectrice, ne peut pas être le graphe d’une fonction : c’est une autre manière de voir que <span class="math inline">f</span> n’est pas bijective.</p>
+</div>
+<p>Généralisons en partie l’exemple précédent.</p>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 6.2</strong></p>
+<p>Soit <span class="math inline">n\geq 1</span>. Soit <span class="math inline">f : [0,+\infty[ \to [0,+\infty[</span> définie par <span class="math inline">f(x)=x^n</span>. Alors <span class="math inline">f</span> est continue et strictement croissante. Comme <span class="math inline">\lim_{+\infty} f = +\infty</span> alors <span class="math inline">f</span> est une bijection. Sa bijection réciproque <span class="math inline">f^{-1}</span> est notée : <span class="math inline">x \mapsto x^{\frac{1}{n}}</span> (ou aussi <span class="math inline">x \mapsto \sqrt[n]{x}</span>) : c’est la fonction racine <span class="math inline">n</span>-ième. Elle est continue et strictement croissante.</p>
+</div>
+</section>
+<section id="démonstration" class="level2" data-number="6.4">
+<h2 data-number="6.4" class="anchored" data-anchor-id="démonstration"><span class="header-section-number">6.4</span> Démonstration</h2>
+<p>On établit d’abord un lemme utile à la démonstration du théorème de la bijection monotone.</p>
+<div class="custom-numbered-block custom-lemma">
+<p><strong>Lemme 6.1</strong></p>
+<p>Soit <span class="math inline">f:I\to \mathbb{R}</span> une fonction définie sur un intervalle <span class="math inline">I</span> de <span class="math inline">\mathbb{R}</span>. Si <span class="math inline">f</span> est strictement monotone sur <span class="math inline">I</span>, alors <span class="math inline">f</span> est injective sur <span class="math inline">I</span>.</p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Preuve</em>. </span>Soient <span class="math inline">x,x' \in I</span> tels que <span class="math inline">f(x)=f(x')</span>. Montrons que <span class="math inline">x=x'</span>. Si on avait <span class="math inline">x&lt;x'</span>, alors on aurait nécessairement <span class="math inline">f(x)&lt;f(x')</span> ou <span class="math inline">f(x)&gt;f(x')</span>, suivant que <span class="math inline">f</span> est strictement croissante, ou strictement décroissante. Comme c’est impossible, on en déduit que <span class="math inline">x\geq x'</span>. En échangeant les rôles de <span class="math inline">x</span> et de <span class="math inline">x'</span>, on montre de même que <span class="math inline">x\leq x'</span>. On en conclut que <span class="math inline">x=x'</span> et donc que <span class="math inline">f</span> est injective.</p>
+</div>
+<div class="proof" title="(Démonstration du théorème de la bijection monotone)">
+<p><span class="proof-title"><em>Preuve</em>. </span></p>
+<ol type="1">
+<li><p>D’après le lemme précédent, <span class="math inline">f</span> est injective sur <span class="math inline">I</span>. En restreignant son ensemble d’arrivée à son image <span class="math inline">J=f(I)</span>, on obtient que <span class="math inline">f</span> établit une bijection de <span class="math inline">I</span> dans <span class="math inline">J</span>. Comme <span class="math inline">f</span> est continue, par le théorème des valeurs intermédiaires, l’ensemble <span class="math inline">J</span> est un intervalle.</p></li>
+<li><p>Supposons pour fixer les idées que <span class="math inline">f</span> est strictement croissante.</p>
+<ul>
+<li>Montrons que <span class="math inline">f^{-1}</span> est strictement croissante sur <span class="math inline">J</span>. Soient <span class="math inline">y,y'\in J</span> tels que <span class="math inline">y&lt;y'</span>. Notons <span class="math inline">x=f^{-1}(y)\in I</span> et <span class="math inline">x'=f^{-1}(y')\in I</span>. Alors <span class="math inline">y=f(x)</span>, <span class="math inline">y'=f(x')</span> et donc</li>
+</ul></li>
+</ol>
+<p><span class="math display">y&lt;y'\Longrightarrow f(x)&lt;f(x')\Longrightarrow x&lt;x' \quad \text{ (car $f$ est strictement croissante)}\Longrightarrow f^{-1}(y)&lt;f^{-1}(y')</span></p>
+<p>c’est-à-dire <span class="math inline">f^{-1}</span> est strictement croissante sur <span class="math inline">J</span>.</p>
+<ul>
+<li>Montrons que <span class="math inline">f^{-1}</span> est continue sur <span class="math inline">J</span>. On se limite au cas où <span class="math inline">I</span> est de la forme <span class="math inline">]a,b[</span>, les autres cas se montrent de la même manière. Soit <span class="math inline">y_0\in J</span>. On note <span class="math inline">x_0=f^{-1}(y_0)\in I</span>. Soit <span class="math inline">\epsilon&gt;0</span>. On peut toujours supposer que <span class="math inline">[x_0-\epsilon,x_0+\epsilon]\subset I</span>. On cherche un réel <span class="math inline">\delta&gt;0</span> tel que pour tout <span class="math inline">y\in J</span> on ait</li>
+</ul>
+<p><span class="math display">y_0-\delta&lt;y&lt;y_0+\delta \Longrightarrow f^{-1}(y_0)-\epsilon&lt;f^{-1}(y)&lt;f^{-1}(y_0)+\epsilon</span></p>
+<p>c’est-à-dire tel que pour tout <span class="math inline">x\in I</span> on ait</p>
+<p><span class="math display">y_0-\delta&lt;f(x)&lt;y_0+\delta \Longrightarrow f^{-1}(y_0)-\epsilon&lt;x&lt;f^{-1}(y_0)+\epsilon</span></p>
+<p>Or, comme <span class="math inline">f</span> est strictement croissante, on a pour tout <span class="math inline">x\in I</span></p>
+<p><span class="math display">f(x_0-\epsilon)&lt;f(x)&lt;f(x_0+\epsilon) \Longrightarrow x_0-\epsilon&lt;x&lt;x_0+\epsilon\Longrightarrow f^{-1}(y_0)-\epsilon&lt;x&lt;f^{-1}(y_0)+\epsilon</span></p>
+<p>Comme <span class="math inline">f(x_0-\epsilon)&lt;y_0&lt;f(x_0+\epsilon)</span>, on peut choisir le réel <span class="math inline">\delta&gt;0</span> tel que</p>
+<p><span class="math display">f(x_0-\epsilon)&lt;y_0-\delta \quad \text{ et } \quad f(x_0+\epsilon) &gt; y_0+\delta</span></p>
+<p>et on a bien alors pour tout <span class="math inline">x\in I</span></p>
+<p><span class="math display">y_0-\delta&lt;f(x)&lt;y_0+\delta \Longrightarrow f(x_0-\epsilon)&lt;f(x)&lt;f(x_0+\epsilon)\Longrightarrow f^{-1}(y_0)-\epsilon&lt;x&lt;f^{-1}(y_0)+\epsilon</span></p>
+<p>La fonction <span class="math inline">f^{-1}</span> est donc continue sur <span class="math inline">J</span>.</p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 6.3</strong></p>
+<ol type="1">
+<li>Montrer que chacune des hypothèses « continue » et « strictement monotone » est nécessaire dans l’énoncé du théorème de la bijection.</li>
+<li>Soit <span class="math inline">f : \mathbb{R} \to \mathbb{R}</span> définie par <span class="math inline">f(x)=x^3+x</span>. Montrer que <span class="math inline">f</span> est bijective, tracer le graphe de <span class="math inline">f</span> et de <span class="math inline">f^{-1}</span>.</li>
+<li>Soit <span class="math inline">n \geq 1</span>. Montrer que <span class="math inline">f(x)=1+x+x^2+\cdots+x^n</span> définit une bijection de l’intervalle <span class="math inline">[0,1]</span> vers un intervalle à préciser.</li>
+<li>Existe-t-il une fonction continue : <span class="math inline">f: [0,1[ \to ]0,1[</span> qui soit bijective ? <span class="math inline">f: [0,1[ \to ]0,1[</span> qui soit injective ? <span class="math inline">f: ]0,1[ \to [0,1]</span> qui soit surjective ?</li>
+<li>Montrer que l’application <span class="math inline">f:x\in \mathbb{R}\longmapsto \frac{2x}{1+x^2}</span> réalise une bijection d’un intervalle <span class="math inline">I</span> dans lui même.</li>
+<li>Pour <span class="math inline">y \in \mathbb{R}</span> on considère l’équation <span class="math inline">x + \exp x =y</span>. Montrer qu’il existe une unique solution <span class="math inline">x</span>. Comment varie <span class="math inline">y</span> en fonction de <span class="math inline">x</span> ? Comment varie <span class="math inline">x</span> en fonction de <span class="math inline">y</span> ?</li>
+</ol>
+</div>
+</section>
+</section>
+<section id="document-en-pdf" class="level1 unnumbered">
+<h1 class="unnumbered">Document en PDF</h1>
+<p><a href="PDF/tsi1-chap06.pdf">Chapitre 06 : Fonctions de la variable réelle, limites et continuité</a></p>
+<section id="navigation" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="navigation">Navigation</h2>
+<div class="chap-nav">
+<p><a href="../cours/tsi1-chap05.html" class="prev">Chapitre 05 : Nombres réels et suites numériques</a> <a href="../cours/tsi1.html" class="home">Menu TSI1</a> <a href="../cours/tsi1-chap07.html" class="next">Chapitre 07 : Fonctions de la variable réelle, dérivation</a></p>
+</div>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -222,12 +1230,12 @@ ul.task-list li input[type="checkbox"] {
       // flash "checked"
       button.classList.add('code-copy-button-checked');
       var currentTitle = button.getAttribute("title");
-      button.setAttribute("title", "Copied!");
+      button.setAttribute("title", "Copié");
       let tooltip;
       if (window.bootstrap) {
         button.setAttribute("data-bs-toggle", "tooltip");
         button.setAttribute("data-bs-placement", "left");
-        button.setAttribute("data-bs-title", "Copied!");
+        button.setAttribute("data-bs-title", "Copié");
         tooltip = new bootstrap.Tooltip(button, 
           { trigger: "manual", 
             customClass: "code-copy-button-tooltip",
