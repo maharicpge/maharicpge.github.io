@@ -1,10 +1,378 @@
 ---
-title: "Chapitre 03 : Réduction des endomorphismes"
-pagetitle: "Réduction des endomorphismes - Mathématiques en CPGE"
+title: "Réduction des endomorphismes et des matrices carrées"
+subtitle: "Chapitre 03"
+author: "Saîd MAHARI"
+date: last-modified
+date-format: "D MMMM YYYY"
+sidebar:
+  style: docked
+  contents:
+    - href: cours/index.qmd
+      text: "← Tous les cours"
+    - section: "MP — 2e année"
+      contents:
+        - cours/mp-chap02.qmd
+        - cours/mp-chap03.qmd
+        # - cours/mp-chap04.qmd
+lang: fr
+format:
+  html:
+    theme: cosmo
+    toc: true
+    number-sections: true
+    html-math-method: katex
+    css: styles.css
+filters:
+  - custom-numbered-blocks.lua
 ---
 
-**MP (2e année) — Chapitre 03.** Valeurs propres, diagonalisation, trigonalisation, Cayley-Hamilton.
+**MP (2e année) — Chapitre 03.** Éléments propres, polynôme caractéristique, diagonalisation, trigonalisation, polynômes d'endomorphismes et de matrices carrées, application de la notion de polynôme annulateur à la réduction.
 
-## Document
+Ce chapitre a été réalisé conformément au programme marocain de mathématiques de la filière MP.
 
-*PDF à venir : déposez le fichier `files/mp/chap03.pdf` puis régénérez la page.*
+Dans tout ce chapitre, $\mathbb{K}$ désigne un sous-corps de $\mathbb{C}$ (souvent $\mathbb{R}$ ou $\mathbb{C}$), $E$ un $\mathbb{K}$-espace vectoriel de dimension finie $n$, $\mathscr{B} = (e_1, \ldots, e_n)$ une base de $E$, $\mathcal{M}_n(\mathbb{K})$ la $\mathbb{K}$-algèbre des matrices carrées de taille $n$, et $\mathcal{L}(E)$ la $\mathbb{K}$-algèbre des endomorphismes de $E$.
+
+# Éléments propres d'un endomorphisme, d'une matrice carrée
+
+## Définitions
+
+::: {.definition title="(Droite stable, valeur propre, vecteur propre, sous-espace propre)"}
+Soient $u \in \mathcal{L}(E)$ et $x_0 \in E \setminus \{0_E\}$. On suppose que la droite vectorielle $D = \mathbb{K} \cdot x_0$ est stable par $u$, c'est-à-dire $u(D) \subset D$. Alors il existe un scalaire $\lambda \in \mathbb{K}$ tel que :
+$$\forall x \in D, \quad u(x) = \lambda x$$
+
+1. Le scalaire $\lambda$ est appelé **valeur propre** de $u$.
+2. Tout vecteur non nul de $E$ vérifiant $u(x) = \lambda x$ est appelé **vecteur propre** associé à la valeur propre $\lambda$.
+3. L'ensemble $E_\lambda = \{x \in E \mid u(x) = \lambda x\} \cup \{0_E\} = \ker(u - \lambda \mathrm{Id}_E)$ est un sous-espace vectoriel de $E$ appelé **sous-espace propre** de $u$ associé à la valeur propre $\lambda$.
+:::
+
+::: {.definition title="(Spectre)"}
+Le **spectre** d'un endomorphisme $u$ d'un espace de dimension finie est l'ensemble de ses valeurs propres. On le note $\mathrm{Sp}(u)$.
+:::
+
+::: {.proposition}
+Soient $u \in \mathcal{L}(E)$ et $\lambda_1, \ldots, \lambda_r$ des valeurs propres de $u$ deux à deux distinctes. Alors :
+
+1. La somme $E_{\lambda_1} + \cdots + E_{\lambda_r}$ est directe.
+2. Toute famille formée en regroupant des familles libres de vecteurs propres associés à des valeurs propres distinctes deux à deux est libre.
+:::
+
+::: {.proposition}
+Le spectre d'un endomorphisme d'un espace de dimension finie $n$ est fini de cardinal au plus $n$.
+:::
+
+::: {.proposition}
+Si $P \in \mathbb{K}[X]$ est un polynôme annulateur de $u$ (c'est-à-dire $P(u) = 0$), alors toute valeur propre de $u$ est racine de $P$.
+
+Plus précisément, si $u(x) = \lambda x$, alors $P(u)(x) = P(\lambda) x$ pour tout $P \in \mathbb{K}[X]$.
+:::
+
+::: {.definition title="(Éléments propres d'une matrice carrée)"}
+Soit $M \in \mathcal{M}_n(\mathbb{K})$. On définit de même :
+
+1. Les **valeurs propres** de $M$ : $\lambda \in \mathbb{K}$ est valeur propre de $M$ s'il existe $X \in \mathbb{K}^n \setminus \{0\}$ tel que $MX = \lambda X$.
+2. Les **vecteurs propres** de $M$.
+3. Les **sous-espaces propres** de $M$ : $E_\lambda(M) = \ker(M - \lambda I_n)$.
+4. Le **spectre** de $M$ : $\mathrm{Sp}(M)$.
+
+L'équation aux éléments propres est :
+$$MX = \lambda X$$
+:::
+
+::: {.proposition title="(Lien entre endomorphisme et matrice)"}
+Si $M = \mathrm{Mat}_{\mathscr{B}}(u)$, alors les valeurs propres, vecteurs propres et sous-espaces propres de $M$ correspondent aux valeurs propres, vecteurs propres et sous-espaces propres de $u$.
+:::
+
+::: {.proposition}
+Deux matrices semblables ont même spectre.
+:::
+
+::: {.example}
+Cherchons les valeurs propres et les sous-espaces propres de la matrice :
+$$A = \begin{pmatrix} -1 & 3 & 3 \\ 3 & -1 & -3 \\ -3 & 3 & 5 \end{pmatrix}$$
+
+On résout le système $AX = \lambda X$ avec $X = \begin{pmatrix} x_1 \\ x_2 \\ x_3 \end{pmatrix} \neq 0$ :
+$$\begin{cases} -x_1 + 3x_2 + 3x_3 = \lambda x_1 \\ 3x_1 - x_2 - 3x_3 = \lambda x_2 \\ -3x_1 + 3x_2 + 5x_3 = \lambda x_3 \end{cases}$$
+
+Après résolution, on trouve : $\mathrm{Sp}(A) = \{-1, 2\}$ avec $E_{-1} = \mathrm{Vect}((1, -1, 0))$ et $E_2 = \mathrm{Vect}((1, 0, -1), (0, 1, -1))$.
+:::
+
+# Polynôme caractéristique
+
+## Définition
+
+::: {.definition title="(Polynôme caractéristique)"}
+Soit $A \in \mathcal{M}_n(\mathbb{K})$. Le **polynôme caractéristique** de $A$ est :
+$$\chi_A(X) = \det(X I_n - A)$$
+
+Soit $u \in \mathcal{L}(E)$. Le **polynôme caractéristique** de $u$, noté $\chi_u$, est le polynôme caractéristique de sa matrice $\mathrm{Mat}_{\mathscr{B}}(u)$ dans la base $\mathscr{B}$.
+:::
+
+::: {.proposition}
+
+1. Une matrice $A$ et sa transposée ${}^tA$ ont même polynôme caractéristique.
+2. Deux matrices semblables ont même polynôme caractéristique. Par conséquent, le polynôme caractéristique d'un endomorphisme ne dépend pas de la base choisie.
+3. Le polynôme caractéristique d'un endomorphisme ou d'une matrice carrée est un polynôme unitaire de degré $n$ :
+$$\chi_A(X) = X^n - \mathrm{tr}(A) X^{n-1} + \cdots + (-1)^n \det(A)$$
+:::
+
+## Multiplicité et lien avec trace/déterminant
+
+::: {.proposition}
+Soit $u \in \mathcal{L}(E)$ et $\lambda \in \mathbb{K}$ une racine de $\chi_u$ de multiplicité $\mu \in \mathbb{N}^*$. Alors :
+
+1. $\lambda$ est une valeur propre de $u$. $\mu$ est la **multiplicité** de la valeur propre $\lambda$.
+2. Le sous-espace propre $E_\lambda$ est de dimension au plus $\mu$ :
+$$\dim(E_\lambda) \leq \mu$$
+:::
+
+::: {.proposition title="(Matrice triangulaire)"}
+Soit $A = (a_{ij}) \in \mathcal{M}_n(\mathbb{K})$ une matrice triangulaire (supérieure ou inférieure). Alors :
+$$\chi_A(X) = \prod_{k=1}^n (X - a_{kk})$$
+:::
+
+::: {.corollary}
+Soit $u \in \mathcal{L}(E)$. Si $\chi_u = \prod_{k=1}^n (X - \lambda_k)$ est scindé, alors :
+$$\sum_{k=1}^n \lambda_k = \mathrm{tr}(u), \quad \prod_{k=1}^n \lambda_k = \det(u)$$
+:::
+
+# Endomorphismes et matrices carrées diagonalisables
+
+## Définition et caractérisation
+
+::: {.definition title="(Endomorphisme diagonalisable)"}
+Un endomorphisme $u \in \mathcal{L}(E)$ est dit **diagonalisable** s'il existe une base $\mathscr{B}'$ de $E$ dans laquelle la matrice de $u$ est diagonale :
+$$\mathrm{Mat}_{\mathscr{B}'}(u) = \mathrm{Diag}(\lambda_1, \ldots, \lambda_n)$$
+Une telle base est constituée de vecteurs propres de $u$.
+:::
+
+::: {.definition title="(Matrice diagonalisable)"}
+Une matrice $A \in \mathcal{M}_n(\mathbb{K})$ est dite **diagonalisable** si elle est semblable à une matrice diagonale, c'est-à-dire s'il existe $P \in \mathrm{GL}_n(\mathbb{K})$ et $D$ diagonale telles que :
+$$A = P D P^{-1}$$
+:::
+
+::: {.proposition}
+Pour qu'une matrice carrée soit diagonalisable, il faut et il suffit que l'endomorphisme canoniquement associé le soit.
+:::
+
+::: {.theorem title="(Caractérisation par les sous-espaces propres)"}
+Soit $u \in \mathcal{L}(E)$. Alors $u$ est diagonalisable si et seulement si :
+$$E = E_{\lambda_1} \oplus E_{\lambda_2} \oplus \cdots \oplus E_{\lambda_r}$$
+où $\lambda_1, \ldots, \lambda_r$ sont les valeurs propres distinctes de $u$.
+:::
+
+::: {.theorem title="(Caractérisation par le polynôme caractéristique)"}
+Un endomorphisme $u \in \mathcal{L}(E)$ est diagonalisable si et seulement si :
+
+1. $\chi_u$ est scindé sur $\mathbb{K}$ : $\chi_u = \prod_{k=1}^r (X - \lambda_k)^{\mu_k}$
+2. Pour toute valeur propre $\lambda_k$, on a $\dim(E_{\lambda_k}) = \mu_k$.
+
+**Traduction matricielle** : Une matrice $A \in \mathcal{M}_n(\mathbb{K})$ est diagonalisable si et seulement si $\chi_A$ est scindé sur $\mathbb{K}$ et pour toute valeur propre $\lambda_k$, on a $\dim(E_{\lambda_k}(A)) = \mu_k$.
+:::
+
+::: {.proposition title="(Cas des valeurs propres distinctes)"}
+Un endomorphisme $u \in \mathcal{L}(E)$ admettant $n$ valeurs propres distinctes deux à deux est diagonalisable.
+
+**Traduction matricielle** : Une matrice $A \in \mathcal{M}_n(\mathbb{K})$ admettant $n$ valeurs propres distinctes deux à deux est diagonalisable.
+:::
+
+::: {.example}
+
+1. **Projecteurs** : Si $p \in \mathcal{L}(E)$ vérifie $p^2 = p$, alors $p$ est diagonalisable. En effet, $\mathrm{Sp}(p) \subset \{0, 1\}$ et $E = \ker(p) \oplus \mathrm{Im}(p)$.
+
+2. **Symétries** : Si $s \in \mathcal{L}(E)$ vérifie $s^2 = \mathrm{Id}_E$, alors $s$ est diagonalisable. En effet, $\mathrm{Sp}(s) \subset \{-1, 1\}$ et $E = E_{-1} \oplus E_1$.
+:::
+
+::: {.example}
+La matrice $C = \begin{pmatrix} 0 & 1 & 0 \\ 0 & 0 & 1 \\ 0 & 0 & 0 \end{pmatrix}$ a pour polynôme caractéristique $\chi_C = X^3$. Donc la seule valeur propre est $0$. Si $C$ était diagonalisable, elle serait semblable à la matrice nulle, ce qui est impossible car $C \neq 0$. Donc $C$ n'est pas diagonalisable.
+:::
+
+# Endomorphismes et matrices carrées trigonalisables
+
+## Définition et caractérisation
+
+::: {.definition title="(Endomorphisme trigonalisable)"}
+Un endomorphisme $u \in \mathcal{L}(E)$ est dit **trigonalisable** s'il existe une base de $E$ dans laquelle sa matrice est triangulaire supérieure.
+:::
+
+::: {.definition title="(Matrice trigonalisable)"}
+Une matrice $A \in \mathcal{M}_n(\mathbb{K})$ est dite **trigonalisable** si elle est semblable à une matrice triangulaire supérieure.
+:::
+
+::: {.proposition}
+Pour qu'une matrice carrée soit trigonalisable, il faut et il suffit que l'endomorphisme canoniquement associé le soit.
+:::
+
+::: {.theorem title="(Caractérisation)"}
+Un endomorphisme est trigonalisable si et seulement si son polynôme caractéristique est scindé sur le corps de base $\mathbb{K}$.
+
+**Traduction matricielle** : Une matrice $A \in \mathcal{M}_n(\mathbb{K})$ est trigonalisable si et seulement si $\chi_A$ est scindé sur $\mathbb{K}$.
+:::
+
+::: {.corollary}
+En particulier, tout endomorphisme d'un $\mathbb{C}$-espace vectoriel et toute matrice de $\mathcal{M}_n(\mathbb{C})$ sont trigonalisables.
+:::
+
+::: {.corollary title="(Expression du déterminant et de la trace)"}
+Soit $A \in \mathcal{M}_n(\mathbb{K})$ trigonalisable. Alors $\chi_A = \prod_{k=1}^n (X - \lambda_k)$ et :
+$$\sum_{k=1}^n \lambda_k = \mathrm{tr}(A), \quad \prod_{k=1}^n \lambda_k = \det(A)$$
+:::
+
+::: {.example}
+La matrice $M = \begin{pmatrix} 1 & -1 \\ 1 & 3 \end{pmatrix}$ est trigonalisable car :
+$$M = P^{-1} \begin{pmatrix} 2 & -1 \\ 0 & 2 \end{pmatrix} P$$
+où $P = \begin{pmatrix} 1 & 1 \\ -1 & 0 \end{pmatrix}$.
+:::
+
+# Polynômes d'endomorphismes et de matrices carrées
+
+## Définition et propriétés
+
+::: {.proposition title="(Morphisme de $\mathbb{K}$-algèbres)"}
+Soit $u \in \mathcal{L}(E)$. L'application :
+$$\Phi : \mathbb{K}[X] \to \mathcal{L}(E), \quad P \mapsto P(u)$$
+est un morphisme de $\mathbb{K}$-algèbres et on a :
+$$\ker \Phi = \{P \in \mathbb{K}[X] \mid P(u) = 0\}, \quad \mathrm{Im}(\Phi) = \mathbb{K}[u] = \{P(u) \mid P \in \mathbb{K}[X]\}$$
+$\ker \Phi$ est l'**idéal annulateur** de $u$ et $\mathbb{K}[u]$ est une sous-algèbre de $\mathcal{L}(E)$ commutative.
+
+De même, pour $A \in \mathcal{M}_n(\mathbb{K})$, l'application $\Psi : P \mapsto P(A)$ est un morphisme de $\mathbb{K}$-algèbres.
+:::
+
+## Polynôme minimal
+
+::: {.theorem title="(Existence du polynôme minimal)"}
+Soit $u \in \mathcal{L}(E)$ un endomorphisme non nul. Alors l'idéal annulateur de $u$ est non réduit au polynôme nul.
+
+On appelle **polynôme minimal** de $u$, noté $P_u$, le polynôme non nul unitaire de plus petit degré annulant $u$. On a :
+$$\ker \Phi = P_u \cdot \mathbb{K}[X]$$
+
+De même pour une matrice $A \in \mathcal{M}_n(\mathbb{K})$ non nulle, on définit le polynôme minimal $P_A$.
+:::
+
+::: {.proposition}
+Soient $u \in \mathcal{L}(E)$ un endomorphisme non nul et $d = \deg(P_u)$. Alors :
+
+1. La famille $(u^k)_{0 \leq k \leq d-1}$ est une base de $\mathbb{K}[u]$.
+2. Si $\lambda \in \mathrm{Sp}(u)$ et $x$ un vecteur propre associé à $\lambda$, alors pour tout $P \in \mathbb{K}[X]$ :
+$$P(u)(x) = P(\lambda) \cdot x$$
+:::
+
+## Endomorphismes et matrices nilpotentes
+
+::: {.definition title="(Endomorphisme et matrice nilpotentes)"}
+
+1. Un endomorphisme $u \in \mathcal{L}(E)$ est dit **nilpotent** s'il existe un entier $p \in \mathbb{N}$ tel que $u^p = 0$.
+2. Une matrice $A \in \mathcal{M}_n(\mathbb{K})$ est dite **nilpotente** s'il existe un entier $p \in \mathbb{N}$ tel que $A^p = 0$.
+
+Le plus petit entier $p \in \mathbb{N}$ vérifiant $u^p = 0$ (resp. $A^p = 0$) est appelé **indice de nilpotence**.
+:::
+
+::: {.proposition}
+Soit $u \in \mathcal{L}(E)$ un endomorphisme nilpotent d'indice $p \in \mathbb{N}$. Alors :
+
+1. $\mathrm{Sp}(u) = \{0\}$
+2. $p \leq n$
+:::
+
+# Application de la notion de polynôme annulateur à la réduction
+
+## Projecteurs associés à une décomposition en somme directe
+
+::: {.proposition title="(Projecteurs associés à une décomposition)"}
+Soient $(F_k)_{1 \leq k \leq r}$ une famille de sous-espaces vectoriels de $E$ telle que $E = F_1 \oplus \cdots \oplus F_r$.
+
+On appelle **famille de projecteurs associée à cette décomposition** une famille de projecteurs $(p_k)_{1 \leq k \leq r}$ où $p_k$ est le projecteur sur $F_k$ parallèlement à $\bigoplus_{i \neq k} F_i$. On a :
+$$\forall i \neq j \in \{1, \ldots, r\}, \quad p_i \circ p_j = 0$$
+:::
+
+## Décomposition spectrale d'un endomorphisme diagonalisable
+
+::: {.theorem title="(Décomposition spectrale)"}
+Soit $u \in \mathcal{L}(E)$ diagonalisable. Soient $F_1, \ldots, F_r$ les sous-espaces propres de $u$ associés aux valeurs propres $\lambda_1, \ldots, \lambda_r$. Alors il existe une famille de projecteurs $(p_k)_{1 \leq k \leq r}$ associée à la décomposition $E = \bigoplus_{k=1}^r F_k$ vérifiant :
+
+1. $u = \sum_{k=1}^r \lambda_k p_k$
+2. Pour tout $P \in \mathbb{K}[X]$ : $P(u) = \sum_{k=1}^r P(\lambda_k) p_k$
+:::
+
+## Caractérisation de la diagonalisabilité par le polynôme minimal
+
+::: {.theorem title="(Caractérisation)"}
+Un endomorphisme $u \in \mathcal{L}(E)$ est diagonalisable si et seulement si son polynôme minimal $P_u$ est scindé à racines simples. Autrement dit, $P_u$ s'écrit :
+$$P_u = \prod_{k=1}^r (X - \lambda_k) \quad \text{où les } \lambda_k \text{ sont deux à deux distincts}$$
+
+**Traduction matricielle** : Une matrice $A \in \mathcal{M}_n(\mathbb{K})$ est diagonalisable si et seulement si son polynôme minimal $P_A$ est scindé à racines simples.
+:::
+
+::: {.theorem title="(Lemme de décomposition des noyaux)"}
+Soit $u \in \mathcal{L}(E)$ et on suppose que $P_u = \prod_{k=1}^r (X - \lambda_k)^{\mu_k}$ où les $\lambda_k$ sont distincts deux à deux. Alors :
+$$E = \ker\left((u - \lambda_1 \mathrm{Id}_E)^{\mu_1}\right) \oplus \cdots \oplus \ker\left((u - \lambda_r \mathrm{Id}_E)^{\mu_r}\right)$$
+:::
+
+## Décomposition de Dunford
+
+::: {.theorem title="(Décomposition de Dunford)"}
+Soit $u \in \mathcal{L}(E)$. Il existe deux endomorphismes $g, f \in \mathcal{L}(E)$ uniques tels que :
+$$u = g + f, \quad f \circ g = g \circ f$$
+avec $g$ diagonalisable et $f$ nilpotent.
+
+**Traduction matricielle** : Toute matrice $A \in \mathcal{M}_n(\mathbb{K})$ se décompose de manière unique en $A = D + N$ où $D$ est diagonalisable, $N$ est nilpotente et $DN = ND$.
+:::
+
+# Exercices
+
+::: {.exercise}
+Soit $A = \begin{pmatrix} 1 & 4 & -2 \\ 0 & 6 & -3 \\ -1 & 4 & 0 \end{pmatrix}$.
+
+1. Calculer le polynôme caractéristique $\chi_A$.
+2. $A$ est-elle diagonalisable ?
+3. Si oui, trouver une matrice $P$ inversible et une matrice diagonale $D$ telles que $A = P D P^{-1}$.
+:::
+
+::: {.exercise}
+Soit $B = \begin{pmatrix} 1 & 2 & -2 \\ 2 & 1 & 2 \\ -2 & 2 & 1 \end{pmatrix}$.
+
+1. Calculer le polynôme caractéristique $\chi_B$.
+2. Déterminer les valeurs propres et les sous-espaces propres.
+3. $B$ est-elle diagonalisable ? Si oui, diagonaliser $B$.
+:::
+
+::: {.exercise}
+Soit $C = \begin{pmatrix} 0 & 1 & 0 \\ 0 & 0 & 1 \\ 0 & 0 & 0 \end{pmatrix}$.
+
+1. Calculer $\chi_C$.
+2. $C$ est-elle diagonalisable ? Trigonalisable ?
+3. Déterminer le polynôme minimal de $C$.
+:::
+
+::: {.exercise}
+Soit $u \in \mathcal{L}(E)$ tel que $u^3 = u$. Montrer que $u$ est diagonalisable.
+:::
+
+::: {.exercise}
+Soit $A \in \mathcal{M}_n(\mathbb{K})$ inversible et diagonalisable. Montrer que $A^{-1}$ est diagonalisable et exprimer $A^{-1}$ en fonction de la diagonalisation de $A$.
+:::
+
+::: {.exercise}
+Soient $A, B \in \mathcal{M}_n(\mathbb{K})$ telles que $AB = BA$. Montrer que si $\lambda$ est valeur propre de $A$, alors le sous-espace propre $E_\lambda(A)$ est stable par $B$.
+:::
+
+::: {.exercise}
+Soit $A \in \mathcal{M}_2(\mathbb{K})$. Montrer que $A$ est diagonalisable si et seulement si l'une des conditions suivantes est vérifiée :
+
+1. $A$ est scalaire (c'est-à-dire $A = \lambda I_2$).
+2. $\chi_A$ est scindé à racines simples.
+3. $\chi_A$ est scindé et $A$ n'est pas scalaire mais $A$ est diagonalisable.
+:::
+
+::: {.exercise title="(Décomposition de Dunford)"}
+Soit $A = \begin{pmatrix} 1 & 1 \\ 0 & 1 \end{pmatrix}$. Déterminer la décomposition de Dunford de $A$.
+:::
+
+# Document en PDF {-}
+[Chapitre 03 : Réduction des endomorphismes et des matrices carrées](PDF/mp-chap03.pdf)
+
+## Navigation {-}
+::: {.chap-nav}
+[Chapitre 02 : Espaces vectoriels normés](mp-chap02.qmd){.prev}
+[Menu MP](mp.qmd){.home}
+[Chapitre 04 : Séries dans un espace vectoriel normé et familles sommables](mp-chap04.qmd){.next}
+:::

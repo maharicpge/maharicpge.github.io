@@ -1,10 +1,463 @@
 ---
-title: "Chapitre 01 : Topologie des EVN"
-pagetitle: "Topologie des EVN - Mathématiques en CPGE"
+subtitle: "Chapitre 01"
+author: "Saîd MAHARI"
+date: last-modified
+date-format: "D MMMM YYYY"
+sidebar:
+  style: docked
+  contents:
+    - href: cours/index.qmd
+      text: "← Tous les cours"
+    - section: "MP — 2e année"
+      contents:
+        - cours/mp-chap01.qmd
+        # - cours/mp-chap02.qmd
+lang: fr
+format:
+  html:
+    theme: cosmo
+    toc: true
+    number-sections: true
+    html-math-method: katex
+    css: styles.css
+filters:
+  - custom-numbered-blocks.lua
 ---
 
-**MP (2e année) — Chapitre 01.** Normes, distances, ouverts, fermés, compacité, connexité, continuité en dimension finie.
+**MP (2e année) — Chapitre 01.** Groupes, anneaux et corps, anneau $\mathbb{K}[X]$, $\mathbb{K}$-algèbres.
 
-## Document
+Ce chapitre a été réalisé conformément au programme marocain de mathématiques de la filière MP.
 
-*PDF à venir : déposez le fichier `files/mp/chap01.pdf` puis régénérez la page.*
+Dans tout ce chapitre, $\mathbb{K}$ désigne $\mathbb{R}$ ou $\mathbb{C}$ sauf mention explicite.
+
+# Groupes
+
+## Structure de groupe
+
+::: {.definition title="(Loi de composition interne)"}
+Soit $A$ un ensemble non vide. Une **loi de composition interne** sur $A$ est une application :
+$$\star : A \times A \to A$$
+On note $x \star y$ l'image de $(x, y)$ par $\star$.
+:::
+
+::: {.definition title="(Structure de groupe)"}
+Soit $A$ un ensemble non vide muni d'une loi de composition interne $\star$. On dit que $(A, \star)$ est un **groupe** si :
+
+1. La loi $\star$ est **associative** : $\forall x, y, z \in A, \quad (x \star y) \star z = x \star (y \star z)$
+2. Il existe un **élément neutre** $e \in A$ : $\forall x \in A, \quad x \star e = e \star x = x$
+3. Tout élément de $A$ est **symétrisable** : $\forall x \in A, \; \exists x' \in A, \quad x \star x' = x' \star x = e$
+
+Si, de plus, la loi $\star$ est **commutative**, on dit que $(A, \star)$ est un groupe **abélien** (ou **commutatif**).
+:::
+
+::: {.proposition}
+Dans un groupe $(A, \star)$ :
+
+1. L'élément neutre est unique.
+2. Le symétrique de chaque élément est unique.
+3. Pour tous $a, b \in A$, les équations $a \star x = b$ et $y \star a = b$ admettent chacune une unique solution.
+:::
+
+::: {.example}
+
+1. $(\mathbb{Z}, +)$, $(\mathbb{Q}, +)$, $(\mathbb{R}, +)$, $(\mathbb{C}, +)$ sont des groupes abéliens.
+2. $(\mathbb{Q}^*, \times)$, $(\mathbb{R}^*, \times)$, $(\mathbb{C}^*, \times)$ sont des groupes abéliens.
+3. $(\mathbb{N}, +)$ n'est pas un groupe (les éléments non nuls n'ont pas de symétrique).
+4. $(\mathcal{S}_n, \circ)$ est un groupe non abélien pour $n \geq 3$.
+5. $(\mathrm{GL}_n(\mathbb{K}), \times)$ est un groupe non abélien pour $n \geq 2$.
+:::
+
+## Sous-groupes
+
+::: {.definition title="(Sous-groupe)"}
+Soit $(A, \star)$ un groupe et $B$ une partie non vide de $A$. On dit que $(B, \star)$ est un **sous-groupe** de $(A, \star)$ si $(B, \star)$ est un groupe.
+:::
+
+::: {.proposition title="(Caractérisation d'un sous-groupe)"}
+Soient $(A, \star)$ un groupe et $B$ une partie non vide de $A$. Alors $(B, \star)$ est un sous-groupe de $(A, \star)$ si et seulement si :
+
+1. $e \in B$
+2. $\forall x, y \in B, \quad x \star y \in B$ (stabilité par la loi)
+3. $\forall x \in B, \quad x^{-1} \in B$ (stabilité par l'opération de passage à l'inverse)
+:::
+
+::: {.example}
+
+1. $(\mathbb{Z}, +)$ est un sous-groupe de $(\mathbb{R}, +)$.
+2. $(\mathbb{R}^*, \times)$ est un sous-groupe de $(\mathbb{C}^*, \times)$.
+3. $(\mathbb{Z}/n\mathbb{Z}, +)$ est un sous-groupe de $(\mathbb{Q}/\mathbb{Z}, +)$.
+4. L'ensemble $\mathbb{U}_n = \{z \in \mathbb{C} \mid z^n = 1\}$ est un sous-groupe de $(\mathbb{C}^*, \times)$.
+:::
+
+## Morphismes de groupes
+
+::: {.definition title="(Morphisme de groupes)"}
+Soient $(A, \star)$ et $(A', \star')$ deux groupes. Une application $f : A \to A'$ est un **morphisme de groupes** si :
+$$\forall x, y \in A, \quad f(x \star y) = f(x) \star' f(y)$$
+Un morphisme bijectif est appelé **isomorphisme de groupes**.
+:::
+
+::: {.proposition title="(Propriétés des morphismes)"}
+Soit $f : (A, \star) \to (A', \star')$ un morphisme de groupes. Alors :
+
+1. $f(e) = e'$
+2. $\forall x \in A, \quad f(x^{-1}) = (f(x))^{-1}$
+3. $\mathrm{Ker}(f) = \{x \in A \mid f(x) = e'\}$ est un sous-groupe de $A$.
+4. $\mathrm{Im}(f) = f(A)$ est un sous-groupe de $A'$.
+:::
+
+::: {.proposition title="(Théorème d'isomorphisme)"}
+Soit $f : (A, \star) \to (A', \star')$ un morphisme de groupes. Alors :
+$$(A / \mathrm{Ker}(f), \star) \cong (\mathrm{Im}(f), \star')$$
+:::
+
+## Groupes cycliques
+
+::: {.definition title="(Groupe monogène et cyclique)"}
+Soit $(A, \star)$ un groupe.
+
+- $A$ est **monogène** s'il existe $a \in A$ tel que $A = \{a^k \mid k \in \mathbb{Z}\}$.
+- $A$ est **cyclique** s'il est monogène et fini.
+:::
+
+::: {.example}
+
+1. $(\mathbb{Z}/n\mathbb{Z}, +)$ est un groupe fini abélien cyclique.
+2. $(\mathbb{Z}, +)$ est un groupe monogène.
+3. L'ensemble $\mathbb{U}_n = \{e^{i\frac{2k\pi}{n}} \mid 0 \leq k \leq n-1\}$ des racines $n$-ièmes de l'unité est un groupe cyclique.
+:::
+
+::: {.theorem title="(Sous-groupes de $\mathbb{Z}$)"}
+Les sous-groupes de $(\mathbb{Z}, +)$ sont exactement les $n\mathbb{Z}$ pour $n \in \mathbb{N}$.
+:::
+
+::: {.theorem title="(Ordre d'un élément)"}
+Soit $(A, \star)$ un groupe d'ordre fini $n \in \mathbb{N}^*$. Alors tout élément $x \in A$ est d'ordre fini et on a :
+$$o(x) \mid n$$
+:::
+
+::: {.example}
+
+1. $\overline{k}$ est un générateur de $\mathbb{Z}/n\mathbb{Z}$ si et seulement si $k \wedge n = 1$.
+2. $1$ et $-1$ sont les seuls générateurs de $(\mathbb{Z}, +)$.
+3. $\omega_k = e^{i\frac{2k\pi}{n}}$ est un générateur de $\mathbb{U}_n$ si et seulement si $k \wedge n = 1$.
+:::
+
+## Groupe symétrique
+
+::: {.definition title="(Permutation et groupe symétrique)"}
+Une **permutation** de $\{1, 2, \ldots, n\}$ est une bijection de $\{1, 2, \ldots, n\}$ dans lui-même. L'ensemble des permutations de $\{1, 2, \ldots, n\}$, muni de la composition, est un groupe noté $\mathcal{S}_n$ et appelé **groupe symétrique** d'ordre $n$.
+:::
+
+::: {.proposition}
+$\mathrm{Card}(\mathcal{S}_n) = n!$
+:::
+
+::: {.definition title="(Transposition)"}
+Une **transposition** est une permutation qui échange deux éléments et laisse les autres fixes.
+:::
+
+::: {.proposition}
+L'ensemble des transpositions est une partie génératrice de $\mathcal{S}_n$.
+:::
+
+::: {.definition title="(Signature d'une permutation)"}
+La **signature** d'une permutation $\sigma \in \mathcal{S}_n$ est le nombre :
+$$\varepsilon(\sigma) = (-1)^{N(\sigma)}$$
+où $N(\sigma)$ est le nombre d'inversions de $\sigma$ (couples $(i,j)$ tels que $i < j$ et $\sigma(i) > \sigma(j)$).
+:::
+
+::: {.proposition title="(Propriétés de la signature)"}
+
+1. $\varepsilon(\sigma \circ \tau) = \varepsilon(\sigma) \cdot \varepsilon(\tau)$
+2. Une permutation est paire (resp. impaire) si $\varepsilon(\sigma) = 1$ (resp. $\varepsilon(\sigma) = -1$).
+3. Toute transposition est impaire.
+:::
+
+::: {.definition title="(Groupe alterné)"}
+Le **groupe alterné** $\mathcal{A}_n$ est le sous-groupe de $\mathcal{S}_n$ formé des permutations paires :
+$$\mathcal{A}_n = \{\sigma \in \mathcal{S}_n \mid \varepsilon(\sigma) = 1\}$$
+:::
+
+::: {.proposition}
+$\mathrm{Card}(\mathcal{A}_n) = \frac{n!}{2}$
+:::
+
+# Anneaux et corps
+
+## Structure d'anneau
+
+::: {.definition title="(Structure d'anneau)"}
+Soit $A$ un ensemble non vide muni de deux lois de composition interne notées $+$ et $\cdot$. On dit que $(A, +, \cdot)$ est un **anneau** si :
+
+1. $(A, +)$ est un groupe abélien d'élément neutre noté $0_A$.
+2. La loi $\cdot$ est associative et possède un élément neutre noté $1_A$.
+3. La loi $\cdot$ est distributive par rapport à $+$ :
+$$\forall x, y, z \in A, \quad x \cdot (y + z) = x \cdot y + x \cdot z \quad \text{et} \quad (y + z) \cdot x = y \cdot x + z \cdot x$$
+
+Si la loi $\cdot$ est commutative, on parle d'**anneau commutatif**.
+:::
+
+::: {.example}
+
+1. $(\mathbb{Z}, +, \times)$ est un anneau commutatif.
+2. $(\mathbb{Q}, +, \times)$, $(\mathbb{R}, +, \times)$, $(\mathbb{C}, +, \times)$ sont des anneaux commutatifs.
+3. $(\mathcal{M}_n(\mathbb{K}), +, \times)$ est un anneau non commutatif pour $n \geq 2$.
+4. $(\mathbb{K}[X], +, \times)$ est un anneau commutatif.
+:::
+
+::: {.definition title="(Sous-anneau)"}
+Soit $(A, +, \cdot)$ un anneau et $B$ une partie non vide de $A$. On dit que $(B, +, \cdot)$ est un **sous-anneau** de $(A, +, \cdot)$ si :
+
+1. $1_A \in B$
+2. $\forall x, y \in B, \quad x - y \in B$ (sous-groupe additif)
+3. $\forall x, y \in B, \quad x \cdot y \in B$ (stabilité par la multiplication)
+:::
+
+::: {.example}
+$\mathbb{Z}$ est le seul sous-anneau de $\mathbb{Z}$.
+:::
+
+## Morphismes d'anneaux
+
+::: {.definition title="(Morphisme d'anneaux)"}
+Soient $(A, +, \cdot)$ et $(A', +, \cdot)$ deux anneaux. Une application $f : A \to A'$ est un **morphisme d'anneaux** si :
+
+1. $\forall x, y \in A, \quad f(x + y) = f(x) + f(y)$
+2. $\forall x, y \in A, \quad f(x \cdot y) = f(x) \cdot f(y)$
+3. $f(1_A) = 1_{A'}$
+
+Un morphisme bijectif est appelé **isomorphisme d'anneaux**.
+:::
+
+## Anneau intègre
+
+::: {.definition title="(Anneau intègre)"}
+On dit qu'un anneau commutatif $(A, +, \cdot)$ est **intègre** si :
+$$\forall x, y \in A, \quad x \cdot y = 0_A \implies x = 0_A \text{ ou } y = 0_A$$
+:::
+
+::: {.example}
+
+1. Les anneaux $(\mathbb{Z}, +, \times)$, $(\mathbb{Q}, +, \times)$, $(\mathbb{R}, +, \times)$, $(\mathbb{C}, +, \times)$ sont intègres.
+2. L'anneau $(\mathcal{M}_n(\mathbb{K}), +, \times)$ n'est pas intègre pour $n \geq 2 (il possède des diviseurs de zéro).
+:::
+
+## Corps
+
+::: {.definition title="(Corps)"}
+Un **corps** est un anneau commutatif $(A, +, \cdot)$ où tout élément non nul est inversible pour la multiplication.
+:::
+
+::: {.definition title="(Sous-corps)"}
+Soit $(A, +, \cdot)$ un corps et $B$ une partie non vide de $A$. On dit que $(B, +, \cdot)$ est un **sous-corps** de $(A, +, \cdot)$ si $(B, +, \cdot)$ est un corps.
+:::
+
+::: {.example}
+
+1. $(\mathbb{Q}, +, \times)$, $(\mathbb{R}, +, \times)$, $(\mathbb{C}, +, \times)$ sont des corps.
+2. $(\mathbb{Q}, +, \times)$ est un sous-corps de $(\mathbb{R}, +, \times)$ et de $(\mathbb{C}, +, \times)$.
+3. $\mathbb{Q}$ est le plus petit sous-corps de $\mathbb{C}$.
+4. L'ensemble $\mathbb{Q}[i] = \{a + ib \mid (a,b) \in \mathbb{Q}^2\}$ est un sous-corps de $\mathbb{C}$.
+:::
+
+::: {.proposition}
+Un corps est un anneau intègre.
+:::
+
+## Idéaux d'un anneau commutatif
+
+::: {.definition title="(Idéal d'un anneau commutatif)"}
+Soit $(A, +, \cdot)$ un anneau commutatif et $I$ une partie non vide de $A$. On dit que $I$ est un **idéal** de $A$ si :
+
+1. $I$ est un sous-groupe de $(A, +)$.
+2. $\forall a \in A, \; \forall x \in I, \quad a \cdot x \in I$.
+:::
+
+::: {.proposition}
+Soient $(A_1, +, \cdot)$ et $(A_2, +, \cdot)$ deux anneaux commutatifs et $f : A_1 \to A_2$ un morphisme d'anneaux. Alors $\mathrm{Ker}(f)$ est un idéal de $A_1$.
+:::
+
+::: {.definition title="(Divisibilité dans un anneau)"}
+Soit $(A, +, \cdot)$ un anneau commutatif intègre et $(a, b) \in A^2$ avec $a \neq 0_A$. On dit que $a$ **divise** $b$ dans $A$, noté $a \mid b$, s'il existe $k \in A$ tel que $b = a \cdot k$.
+:::
+
+::: {.proposition title="(Interprétation de la divisibilité)"}
+Soit $(A, +, \cdot)$ un anneau commutatif intègre et $(a, b) \in A^2$.
+
+1. Si $a \neq 0_A$, alors $a \mid b \iff b \cdot A \subset a \cdot A$.
+2. Si $A$ est de plus principal (anneau commutatif intègre dont tous les idéaux s'écrivent sous la forme $x \cdot A$), alors :
+$$d = a \wedge b \iff a \cdot A + b \cdot A = d \cdot A$$
+$$m = a \vee b \iff a \cdot A \cap b \cdot A = m \cdot A$$
+:::
+
+## L'anneau $\mathbb{Z}/n\mathbb{Z}$
+
+::: {.definition title="(Anneau quotient)"}
+Soit $n \in \mathbb{N}^*$. L'ensemble $\mathbb{Z}/n\mathbb{Z}$ des classes de congruence modulo $n$, muni de l'addition et de la multiplication définies par :
+$$\overline{x} + \overline{y} = \overline{x + y}, \quad \overline{x} \cdot \overline{y} = \overline{x \cdot y}$$
+est un anneau commutatif.
+:::
+
+::: {.proposition title="(Caractérisation des inversibles)"}
+$\overline{k}$ est inversible dans $\mathbb{Z}/n\mathbb{Z}$ si et seulement si $k \wedge n = 1$.
+:::
+
+::: {.corollary}
+$(\mathbb{Z}/n\mathbb{Z}, +, \cdot)$ est un corps si et seulement si $n$ est un nombre premier.
+:::
+
+::: {.theorem title="(Théorème de Bézout)"}
+Soient $a, b \in \mathbb{Z}$. Alors il existe $u, v \in \mathbb{Z}$ tels que :
+$$au + bv = a \wedge b$$
+:::
+
+::: {.theorem title="(Théorème d'Euler)"}
+Soit $n \in \mathbb{Z}^*$ et $k \in \{1, \ldots, n-1\}$ avec $k \wedge n = 1$. Alors :
+$$k^{\varphi(n)} \equiv 1 \pmod{n}$$
+où $\varphi(n)$ est l'indicatrice d'Euler (nombre d'entiers de $\{1, \ldots, n\}$ premiers avec $n$).
+:::
+
+::: {.corollary title="(Petit théorème de Fermat)"}
+Soit $p$ un nombre premier. Alors pour tout $k \in \{1, \ldots, p-1\}$ :
+$$k^{p-1} \equiv 1 \pmod{p}$$
+:::
+
+# L'anneau $\mathbb{K}[X]$
+
+## Structure de $\mathbb{K}$-algèbre
+
+::: {.definition title="($\mathbb{K}$-algèbre)"}
+On appelle **$\mathbb{K}$-algèbre** tout ensemble $A$ non vide muni de trois lois $+$, $\times$, $\cdot$ et vérifiant :
+
+1. $(A, +, \cdot)$ est un $\mathbb{K}$-espace vectoriel
+2. $(A, +, \times)$ est un anneau
+3. $\forall \lambda \in \mathbb{K}, \; \forall x, y \in A, \quad \lambda \cdot (x \times y) = (\lambda \cdot x) \times y = x \times (\lambda \cdot y)$
+
+On dit qu'une $\mathbb{K}$-algèbre $(A, +, \times, \cdot)$ est commutative si la loi $\times$ est commutative.
+:::
+
+::: {.example}
+
+1. $(\mathbb{K}[X], +, \times, \cdot)$ est une $\mathbb{K}$-algèbre commutative.
+2. Soit $E$ un $\mathbb{K}$-espace vectoriel. $(\mathcal{L}(E), +, \circ, \cdot)$ est une $\mathbb{K}$-algèbre.
+3. L'ensemble des matrices carrées $(\mathcal{M}_n(\mathbb{K}), +, \times, \cdot)$ est une $\mathbb{K}$-algèbre.
+:::
+
+::: {.definition title="(Sous-algèbre)"}
+Soit $(A, +, \times, \cdot)$ une $\mathbb{K}$-algèbre et $B$ une partie de $A$. On dit que $(B, +, \times, \cdot)$ est une **sous-algèbre** de $(A, +, \times, \cdot)$ si :
+
+1. $1_A \in B$
+2. $\forall \lambda, \mu \in \mathbb{K}, \; \forall x, y \in B, \quad \lambda x + \mu y \in B$
+3. $\forall x, y \in B, \quad x \times y \in B$
+:::
+
+::: {.definition title="(Morphisme d'algèbres)"}
+Soient $A$ et $A'$ deux $\mathbb{K}$-algèbres et $f : A \to A'$ une application. On dit que $f$ est un **morphisme de $\mathbb{K}$-algèbres** si :
+
+1. $\forall \lambda, \mu \in \mathbb{K}, \; \forall x, y \in A, \quad f(\lambda x + \mu y) = \lambda f(x) + \mu f(y)$
+2. $\forall x, y \in A, \quad f(x \times y) = f(x) \times f(y)$
+3. $f(1_A) = 1_{A'}$
+:::
+
+## Division euclidienne dans $\mathbb{K}[X]$
+
+::: {.theorem title="(Division euclidienne)"}
+Soient $A, B \in \mathbb{K}[X]$ avec $B \neq 0$. Il existe un unique couple $(Q, R) \in \mathbb{K}[X]^2$ tel que :
+$$A = BQ + R \quad \text{et} \quad \deg(R) < \deg(B)$$
+$Q$ est le **quotient** et $R$ le **reste** de la division euclidienne de $A$ par $B$.
+:::
+
+::: {.proposition}
+Soient $A, B \in \mathbb{K}[X]$ avec $B \neq 0$. Alors :
+$$B \mid A \iff \text{le reste de la division euclidienne de } A \text{ par } B \text{ est nul}$$
+:::
+
+## PGCD et PPCM
+
+::: {.definition title="(PGCD et PPCM)"}
+Soient $A, B \in \mathbb{K}[X]$ non tous deux nuls.
+
+- Le **PGCD** de $A$ et $B$, noté $A \wedge B$, est le polynôme unitaire de plus grand degré qui divise à la fois $A$ et $B$.
+- Le **PPCM** de $A$ et $B$, noté $A \vee B$, est le polynôme unitaire de plus petit degré qui est multiple à la fois de $A$ et $B$.
+:::
+
+::: {.theorem title="(Algorithme d'Euclide dans $\mathbb{K}[X]$)"}
+Soient $A, B \in \mathbb{K}[X]$ avec $B \neq 0$. On effectue des divisions euclidiennes successives :
+$$A = BQ_1 + R_1, \quad B = R_1 Q_2 + R_2, \quad R_1 = R_2 Q_3 + R_3, \quad \ldots$$
+jusqu'à obtenir $R_{n-1} = R_n Q_{n+1} + 0$. Alors :
+$$A \wedge B = \frac{R_n}{c(R_n)}$$
+où $c(R_n)$ est le coefficient dominant de $R_n$.
+:::
+
+::: {.theorem title="(Identité de Bézout)"}
+Soient $A, B \in \mathbb{K}[X]$. Alors il existe $U, V \in \mathbb{K}[X]$ tels que :
+$$AU + BV = A \wedge B$$
+:::
+
+::: {.theorem title="(Lemme de Gauss)"}
+Soient $A, B, C \in \mathbb{K}[X]$. Si $A \mid BC$ et $A \wedge B = 1$, alors $A \mid C$.
+:::
+
+## Idéaux de $\mathbb{K}[X]$
+
+::: {.proposition title="(Idéaux de $\mathbb{K}[X]$)"}
+Les idéaux de $\mathbb{K}[X]$ sont exactement les ensembles de la forme $P \cdot \mathbb{K}[X]$ pour $P \in \mathbb{K}[X]$.
+
+Autrement dit, $\mathbb{K}[X]$ est un anneau principal.
+:::
+
+::: {.proposition title="(Irréductibilité dans $\mathbb{K}[X]$)"}
+Un polynôme $P \in \mathbb{K}[X]$ non constant est **irréductible** sur $\mathbb{K}$ s'il ne peut pas s'écrire comme produit de deux polynômes non constants de $\mathbb{K}[X]$.
+:::
+
+::: {.theorem title="(Théorème de décomposition)"}
+Tout polynôme $P \in \mathbb{K}[X]$ non constant se décompose de façon unique (à l'ordre près et à une constante multiplicative près) comme produit de polynômes irréductibles.
+
+1. Dans $\mathbb{C}[X]$ : $P = \lambda \prod_{k=1}^r (X - a_k)^{\alpha_k}$
+2. Dans $\mathbb{R}[X]$ : $P = \lambda \prod_{k=1}^r (X - a_k)^{\alpha_k} \prod_{k=1}^s (X^2 + b_k X + c_k)^{\beta_k}$
+:::
+
+# Exercices
+
+::: {.exercise}
+Montrer que l'ensemble $\mathbb{U}_n = \{z \in \mathbb{C} \mid z^n = 1\}$ est un sous-groupe de $(\mathbb{C}^*, \times)$.
+:::
+
+::: {.exercise}
+Soit $(A, +, \cdot)$ un anneau commutatif. Montrer que l'ensemble des inversibles de $A$ forme un groupe pour la multiplication.
+:::
+
+::: {.exercise}
+Soit $n \in \mathbb{N}^*$. Montrer que $\mathbb{Z}/n\mathbb{Z}$ est un corps si et seulement si $n$ est premier.
+:::
+
+::: {.exercise}
+Soient $A = X^4 - 1$ et $B = X^3 + X^2 + X + 1$. Calculer $A \wedge B$ et $A \vee B$.
+:::
+
+::: {.exercise}
+Décomposer $P(X) = X^4 + 2X^3 - X^2 - 2X$ en produit de facteurs irréductibles dans $\mathbb{R}[X]$ et dans $\mathbb{C}[X]$.
+:::
+
+::: {.exercise}
+Soit $f : (\mathbb{Z}, +) \to (\mathbb{Z}/n\mathbb{Z}, +)$ définie par $f(k) = \overline{k}$. Montrer que $f$ est un morphisme de groupes et déterminer son noyau.
+:::
+
+::: {.exercise}
+Soit $\sigma \in \mathcal{S}_n$. Montrer que $\varepsilon(\sigma^{-1}) = \varepsilon(\sigma)$.
+:::
+
+::: {.exercise}
+Soient $A, B \in \mathbb{K}[X]$ avec $\deg(A) = 5$ et $\deg(B) = 3$. Quel est le nombre maximum de divisions euclidiennes nécessaires pour calculer $A \wedge B$ par l'algorithme d'Euclide ?
+:::
+
+# Document en PDF {-}
+[Chapitre 01 : Structures algébriques](PDF/mp-chap01.pdf)
+
+## Navigation {-}
+::: {.chap-nav}
+[Accueil](../index.qmd){.prev}
+[Menu MP](mp.qmd){.home}
+[Chapitre 02 : Espaces vectoriels normés](mp-chap02.qmd){.next}
+:::

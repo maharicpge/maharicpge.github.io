@@ -1,10 +1,390 @@
 ---
-title: "Chapitre 05 : Séries numériques"
-pagetitle: "Séries numériques - Mathématiques en CPGE"
+title: "Fonctions vectorielles d'une variable réelle, arcs paramétrés"
+subtitle: "Chapitre 05"
+author: "Saîd MAHARI"
+date: last-modified
+date-format: "D MMMM YYYY"
+sidebar:
+  style: docked
+  contents:
+    - href: cours/index.qmd
+      text: "← Tous les cours"
+    - section: "MP — 2e année"
+      contents:
+        - cours/mp-chap04.qmd
+        - cours/mp-chap05.qmd
+        # - cours/mp-chap06.qmd
+lang: fr
+format:
+  html:
+    theme: cosmo
+    toc: true
+    number-sections: true
+    html-math-method: katex
+    css: styles.css
+filters:
+  - custom-numbered-blocks.lua
 ---
 
-**MP (2e année) — Chapitre 05.** Convergence absolue, critères de comparaison, séries alternées.
+**MP (2e année) — Chapitre 05.** Dérivation, intégration sur un segment, arc paramétré de classe $\mathcal{C}^k$.
 
-## Document
+Ce chapitre a été réalisé conformément au programme marocain de mathématiques de la filière MP.
 
-*PDF à venir : déposez le fichier `files/mp/chap05.pdf` puis régénérez la page.*
+Dans tout ce chapitre, $I$ désigne un intervalle de $\mathbb{R}$ non vide et non réduit à un point, $n \geq 1$ un entier, $E$ un $\mathbb{K}$-espace vectoriel normé de dimension finie $n$ ($\mathbb{K} = \mathbb{R}$ ou $\mathbb{C}$), et $\mathcal{B} = (e_1, \ldots, e_n)$ une base de $E$.
+
+# Fonctions vectorielles d'une variable réelle
+
+## Définitions
+
+::: {.definition title="(Fonction vectorielle)"}
+On appelle **fonction vectorielle** sur $I$ toute application $f : I \to E$ où $E$ est un espace vectoriel normé de dimension finie.
+
+Si $\mathcal{B} = (e_1, \ldots, e_n)$ est une base de $E$, les **fonctions composantes** de $f$ dans $\mathcal{B}$ sont les applications $f_1, \ldots, f_n : I \to \mathbb{K}$ définies par :
+$$f(t) = f_1(t) e_1 + f_2(t) e_2 + \cdots + f_n(t) e_n$$
+
+En particulier, pour $E = \mathbb{R}^n$ muni de la base canonique, on identifie $f$ à un $n$-uplet de fonctions :
+$$f(t) = (f_1(t), f_2(t), \ldots, f_n(t))$$
+:::
+
+::: {.example}
+
+1. La fonction $f : \mathbb{R} \to \mathbb{R}^2$ définie par $f(t) = (\cos t, \sin t)$ est une fonction vectorielle à deux composantes.
+
+2. La fonction $g : \mathbb{R} \to \mathbb{R}^3$ définie par $g(t) = (t, t^2, t^3)$ est une fonction vectorielle à trois composantes.
+:::
+
+## Continuité
+
+::: {.definition title="(Continuité d'une fonction vectorielle)"}
+Une fonction vectorielle $f : I \to E$ est **continue en** $t_0 \in I$ si :
+$$\lim_{t \to t_0} \|f(t) - f(t_0)\| = 0$$
+
+$f$ est **continue sur $I$** si elle est continue en tout point de $I$.
+:::
+
+::: {.proposition title="(Caractérisation de la continuité par les composantes)"}
+$f : I \to E$ est continue en $t_0$ si et seulement si toutes ses fonctions composantes $f_1, \ldots, f_n$ sont continues en $t_0$.
+:::
+
+::: {.example}
+La fonction $f(t) = (\cos t, \sin t)$ est continue sur $\mathbb{R}$ car $\cos$ et $\sin$ sont continues sur $\mathbb{R}$.
+:::
+
+## Dérivabilité et dérivée
+
+::: {.definition title="(Dérivabilité et dérivée)"}
+Soit $f : I \to E$ une fonction vectorielle et $t_0 \in I$ (qui n'est pas une extrémité de $I$). On dit que $f$ est **dérivable en** $t_0$ si la limite suivante existe :
+$$f'(t_0) = \lim_{t \to t_0} \frac{f(t) - f(t_0)}{t - t_0} = \lim_{h \to 0} \frac{f(t_0 + h) - f(t_0)}{h}$$
+
+La fonction $f'$ ainsi définie (lorsqu'elle existe partout sur $I$) est appelée la **dérivée** de $f$.
+:::
+
+::: {.proposition title="(Caractérisation de la dérivabilité par les composantes)"}
+$f : I \to E$ est dérivable en $t_0$ si et seulement si toutes ses fonctions composantes $f_1, \ldots, f_n$ sont dérivables en $t_0$. Dans ce cas :
+$$f'(t_0) = f_1'(t_0) e_1 + f_2'(t_0) e_2 + \cdots + f_n'(t_0) e_n$$
+:::
+
+::: {.example}
+Pour $f(t) = (\cos t, \sin t)$, on a $f'(t) = (-\sin t, \cos t)$.
+
+Pour $g(t) = (t, t^2, t^3)$, on a $g'(t) = (1, 2t, 3t^2)$.
+:::
+
+::: {.definition title="(Dérivées à droite et à gauche)"}
+Pour $t_0$ une extrémité de $I$, on définit la **dérivée à droite** (resp. **à gauche**) par :
+$$f'_d(t_0) = \lim_{t \to t_0^+} \frac{f(t) - f(t_0)}{t - t_0} \quad \left(\text{resp. } f'_g(t_0) = \lim_{t \to t_0^-} \frac{f(t) - f(t_0)}{t - t_0}\right)$$
+:::
+
+## Classes $\mathcal{C}^k$
+
+::: {.definition title="(Classes $\mathcal{C}^k$)"}
+Soit $k \in \mathbb{N}^* \cup \{+\infty\}$.
+
+- $f : I \to E$ est de **classe $\mathcal{C}^1$** sur $I$ si $f$ est dérivable sur $I$ et $f'$ est continue sur $I$.
+- $f$ est de **classe $\mathcal{C}^k$** sur $I$ si $f^{(k)}$ existe et est continue sur $I$.
+- $f$ est de **classe $\mathcal{C}^\infty$** si $f$ est de classe $\mathcal{C}^k$ pour tout $k \in \mathbb{N}^*$.
+
+On note $\mathcal{C}^k(I, E)$ l'espace vectoriel des fonctions de classe $\mathcal{C}^k$ sur $I$ à valeurs dans $E$.
+:::
+
+::: {.proposition}
+$f$ est de classe $\mathcal{C}^k$ sur $I$ si et seulement si toutes ses composantes $f_1, \ldots, f_n$ sont de classe $\mathcal{C}^k$ sur $I$.
+:::
+
+## Opérations sur les fonctions vectorielles
+
+::: {.proposition title="(Combinaison linéaire)"}
+Soient $f, g : I \to E$ dérivables en $t_0$ et $\lambda, \mu \in \mathbb{K}$. Alors $\lambda f + \mu g$ est dérivable en $t_0$ et :
+$$(\lambda f + \mu g)'(t_0) = \lambda f'(t_0) + \mu g'(t_0)$$
+:::
+
+::: {.proposition title="(Produit par une fonction scalaire)"}
+Soient $f : I \to E$ dérivable en $t_0$ et $\varphi : I \to \mathbb{K}$ dérivable en $t_0$. Alors $\varphi \cdot f$ est dérivable en $t_0$ et :
+$$(\varphi \cdot f)'(t_0) = \varphi'(t_0) \cdot f(t_0) + \varphi(t_0) \cdot f'(t_0)$$
+:::
+
+::: {.proposition title="(Dérivation de $f \circ \varphi$)"}
+Soient $f : I \to E$ dérivable en $u_0 \in I$ et $\varphi : J \to I$ dérivable en $t_0 \in J$ avec $\varphi(t_0) = u_0$. Alors $f \circ \varphi$ est dérivable en $t_0$ et :
+$$(f \circ \varphi)'(t_0) = \varphi'(t_0) \cdot f'(u_0)$$
+:::
+
+::: {.proposition title="(Dérivation d'un produit scalaire dans un espace préhilbertien)"}
+Soient $f, g : I \to E$ dérivables en $t_0$, où $E$ est un espace préhilbertien réel. Alors la fonction $t \mapsto \langle f(t), g(t) \rangle$ est dérivable en $t_0$ et :
+$$\frac{d}{dt}\langle f(t), g(t) \rangle \bigg|_{t=t_0} = \langle f'(t_0), g(t_0) \rangle + \langle f(t_0), g'(t_0) \rangle$$
+:::
+
+::: {.corollary title="(Dérivation de la norme)"}
+Si $f : I \to E$ est dérivable en $t_0$ et $f(t_0) \neq 0_E$, alors $t \mapsto \|f(t)\|$ est dérivable en $t_0$ et :
+$$\frac{d}{dt}\|f(t)\| \bigg|_{t=t_0} = \frac{\langle f'(t_0), f(t_0) \rangle}{\|f(t_0)\|}$$
+:::
+
+## Interprétation géométrique et cinématique
+
+::: {.definition title="(Interprétation cinématique)"}
+Soit $f : I \to \mathbb{R}^n$ une fonction vectorielle.
+
+- $f(t_0)$ est la **position** à l'instant $t_0$.
+- $f'(t_0)$ est la **vitesse** à l'instant $t_0$.
+- $f''(t_0)$ est l'**accélération** à l'instant $t_0$.
+:::
+
+::: {.proposition title="(Interprétation géométrique)"}
+Si $f : I \to \mathbb{R}^n$ est dérivable en $t_0$ et $f'(t_0) \neq 0$, la droite :
+$$D : M = f(t_0) + \lambda \cdot f'(t_0), \quad \lambda \in \mathbb{R}$$
+est la **tangente** à la courbe décrite par $f$ au point $f(t_0)$.
+:::
+
+::: {.example}
+Pour $f(t) = (\cos t, \sin t)$, la courbe décrite est le cercle unité. La tangente en $f(t_0) = (\cos t_0, \sin t_0)$ est dirigée par $f'(t_0) = (-\sin t_0, \cos t_0)$, qui est bien perpendiculaire au rayon $f(t_0)$.
+:::
+
+# Intégration d'une fonction vectorielle sur un segment
+
+## Définition
+
+::: {.definition title="(Intégrale d'une fonction vectorielle continue par morceaux)"}
+Soit $f : [a,b] \to E$ une fonction continue par morceaux. On définit l'**intégrale** de $f$ sur $[a,b]$ par :
+$$\int_a^b f(t)\, dt = \left(\int_a^b f_1(t)\, dt\right) e_1 + \cdots + \left(\int_a^b f_n(t)\, dt\right) e_n$$
+où $f_1, \ldots, f_n$ sont les composantes de $f$ dans la base $\mathcal{B}$.
+:::
+
+::: {.proposition}
+Cette définition ne dépend pas du choix de la base $\mathcal{B}$.
+:::
+
+## Propriétés
+
+::: {.proposition title="(Linéarité)"}
+Soient $f, g : [a,b] \to E$ continues par morceaux et $\lambda, \mu \in \mathbb{K}$. Alors :
+$$\int_a^b (\lambda f + \mu g)(t)\, dt = \lambda \int_a^b f(t)\, dt + \mu \int_a^b g(t)\, dt$$
+:::
+
+::: {.proposition title="(Relation de Chasles)"}
+Pour tout $c \in [a,b]$ :
+$$\int_a^b f(t)\, dt = \int_a^c f(t)\, dt + \int_c^b f(t)\, dt$$
+:::
+
+::: {.proposition title="(Inégalité triangulaire)"}
+$$\left\|\int_a^b f(t)\, dt\right\| \leq \int_a^b \|f(t)\|\, dt$$
+:::
+
+::: {.proposition title="(Intégration par parties)"}
+Soient $f : [a,b] \to E$ de classe $\mathcal{C}^1$ et $\varphi : [a,b] \to \mathbb{K}$ de classe $\mathcal{C}^1$. Alors :
+$$\int_a^b \varphi'(t) f(t)\, dt = [\varphi(t) f(t)]_a^b - \int_a^b \varphi(t) f'(t)\, dt$$
+:::
+
+::: {.proposition title="(Changement de variable)"}
+Soient $f : [a,b] \to E$ continue par morceaux et $\varphi : [c,d] \to [a,b]$ de classe $\mathcal{C}^1$. Alors :
+$$\int_a^b f(t)\, dt = \int_c^d f(\varphi(u)) \varphi'(u)\, du$$
+:::
+
+::: {.proposition title="(Théorème fondamental du calcul intégral)"}
+Si $f : [a,b] \to E$ est continue, la fonction :
+$$F(x) = \int_a^x f(t)\, dt$$
+est de classe $\mathcal{C}^1$ sur $[a,b]$ et $F' = f$.
+:::
+
+::: {.example}
+Calculons $\int_0^{\pi/2} (\cos t, \sin t)\, dt$.
+
+$$\int_0^{\pi/2} \cos t\, dt = [\sin t]_0^{\pi/2} = 1, \quad \int_0^{\pi/2} \sin t\, dt = [-\cos t]_0^{\pi/2} = 1$$
+
+Donc :
+$$\int_0^{\pi/2} (\cos t, \sin t)\, dt = (1, 1)$$
+:::
+
+# Arcs paramétrés
+
+## Définitions
+
+::: {.definition title="(Arc paramétré)"}
+Soit $k \in \mathbb{N}^* \cup \{+\infty\}$. Un **arc paramétré** (ou **courbe paramétrée**) de classe $\mathcal{C}^k$ dans $\mathbb{R}^n$ ($n \leq 3$) est une application $\gamma : I \to \mathbb{R}^n$ de classe $\mathcal{C}^k$, où $I$ est un intervalle de $\mathbb{R}$.
+
+- $I$ est l'**intervalle de définition** de l'arc.
+- L'**image** $\gamma(I)$ est le **support** de l'arc (ou la **courbe associée**, ou la **trajectoire**).
+:::
+
+::: {.definition title="(Arc simple)"}
+Un arc paramétré $\gamma$ est dit **simple** si $\gamma$ est injective, c'est-à-dire si la courbe ne se recoupe pas.
+:::
+
+::: {.definition title="(Paramètre régulier, point singulier, point birégulier)"}
+
+1. Un paramètre $t_0$ est dit **régulier** si $\gamma'(t_0) \neq 0$.
+2. Un paramètre $t_0$ est dit **singulier** si $\gamma'(t_0) = 0$.
+3. Un paramètre $t_0$ est dit **birégulier** si $\gamma'(t_0)$ et $\gamma''(t_0)$ sont linéairement indépendants.
+:::
+
+## Tangente en un point
+
+::: {.proposition title="(Tangente en un point régulier)"}
+Soit $\gamma : I \to \mathbb{R}^n$ un arc paramétré de classe $\mathcal{C}^1$ et $t_0 \in I$ un paramètre régulier ($\gamma'(t_0) \neq 0$). Alors la **tangente** à l'arc au point $\gamma(t_0)$ est la droite :
+$$D : M = \gamma(t_0) + \lambda \cdot \gamma'(t_0), \quad \lambda \in \mathbb{R}$$
+:::
+
+::: {.proposition title="(Cas où $\gamma'(t_0) = 0$)"}
+Si $\gamma'(t_0) = 0$ mais qu'il existe un entier $p \geq 2$ tel que $\gamma^{(p)}(t_0) \neq 0$, alors la tangente est dirigée par $\gamma^{(p)}(t_0)$ (premier vecteur dérivé non nul).
+:::
+
+::: {.definition title="(Normale)"}
+Si $\gamma : I \to \mathbb{R}^2$ est un arc paramétré plan et $t_0$ un paramètre régulier, la **normale** à l'arc au point $\gamma(t_0)$ est la droite perpendiculaire à la tangente en ce point.
+:::
+
+::: {.example}
+Pour l'arc $\gamma(t) = (\cos t, \sin t)$, on a $\gamma'(t) = (-\sin t, \cos t) \neq 0$ pour tout $t$. La tangente en $\gamma(t_0)$ est dirigée par $\gamma'(t_0)$ et la normale est dirigée par $\gamma(t_0) = (\cos t_0, \sin t_0)$.
+:::
+
+## Étude locale en un point birégulier
+
+::: {.proposition title="(Étude locale en un point birégulier)"}
+Soit $\gamma : I \to \mathbb{R}^n$ un arc paramétré de classe $\mathcal{C}^2$ et $t_0$ un paramètre birégulier. En effectuant un développement limité à l'ordre 2 :
+$$\gamma(t_0 + h) = \gamma(t_0) + h \gamma'(t_0) + \frac{h^2}{2} \gamma''(t_0) + o(h^2)$$
+
+La courbe admet au voisinage de $\gamma(t_0)$ :
+
+- La tangente dirigée par $\gamma'(t_0)$.
+- La courbe est du côté de $\gamma''(t_0)$ par rapport à la tangente (pour $h$ petit).
+:::
+
+::: {.example}
+Pour $\gamma(t) = (t, t^2)$ au point $t_0 = 0$ :
+- $\gamma(0) = (0, 0)$
+- $\gamma'(0) = (1, 0)$ (tangente : l'axe des $x$)
+- $\gamma''(0) = (0, 2)$ (la parabole s'ouvre vers le haut)
+:::
+
+## Longueur d'un arc paramétré
+
+::: {.definition title="(Longueur d'un arc)"}
+Soit $\gamma : [a,b] \to \mathbb{R}^n$ un arc paramétré de classe $\mathcal{C}^1$. La **longueur** de l'arc est :
+$$L(\gamma) = \int_a^b \|\gamma'(t)\|\, dt$$
+:::
+
+::: {.example}
+Pour $\gamma(t) = (\cos t, \sin t)$ avec $t \in [0, 2\pi]$ :
+$$\|\gamma'(t)\| = \sqrt{(-\sin t)^2 + (\cos t)^2} = 1$$
+$$L(\gamma) = \int_0^{2\pi} 1\, dt = 2\pi$$
+C'est bien la circonférence du cercle unité.
+:::
+
+::: {.example}
+Pour $\gamma(t) = (t, t^2)$ avec $t \in [0, 1]$ :
+$$\|\gamma'(t)\| = \sqrt{1 + 4t^2}$$
+$$L(\gamma) = \int_0^1 \sqrt{1 + 4t^2}\, dt = \frac{\sqrt{5}}{2} + \frac{1}{4}\ln(2 + \sqrt{5})$$
+:::
+
+# Exemples d'arcs paramétrés
+
+## Cercle
+
+::: {.example}
+$\gamma(t) = (a\cos t, a\sin t)$, $t \in [0, 2\pi]$ décrit le cercle de centre $O$ et de rayon $a$.
+
+- $\gamma'(t) = (-a\sin t, a\cos t) \neq 0$ pour tout $t$ : arc régulier.
+- $\gamma''(t) = (-a\cos t, -a\sin t)$.
+- $\gamma'(t)$ et $\gamma''(t)$ sont linéairement indépendants : arc birégulier.
+:::
+
+## Hélice circulaire
+
+::: {.example}
+$\gamma(t) = (a\cos t, a\sin t, bt)$, $t \in \mathbb{R}$ décrit une **hélice circulaire** de rayon $a$ et de pas $2\pi b$.
+
+- $\gamma'(t) = (-a\sin t, a\cos t, b) \neq 0$ : arc régulier.
+- $\|\gamma'(t)\| = \sqrt{a^2 + b^2}$ : la vitesse est constante.
+:::
+
+## Parabole
+
+::: {.example}
+$\gamma(t) = (t, t^2)$, $t \in \mathbb{R}$ décrit la parabole d'équation $y = x^2$.
+
+- $\gamma'(t) = (1, 2t) \neq 0$ : arc régulier.
+- $\gamma''(t) = (0, 2)$.
+:::
+
+## Folium de Descartes
+
+::: {.example}
+$\gamma(t) = \left(\frac{t}{1+t^2}, \frac{t^2}{1+t^2}\right)$ décrit une portion de cercle.
+
+On vérifie que :
+$$\gamma_1(t)^2 + \gamma_2(t)^2 = \frac{t^2 + t^4}{(1+t^2)^2} = \frac{t^2(1+t^2)}{(1+t^2)^2} = \frac{t^2}{1+t^2}$$
+:::
+
+# Exercices
+
+::: {.exercise}
+Soit $f : \mathbb{R} \to \mathbb{R}^2$ définie par $f(t) = (e^t \cos t, e^t \sin t)$.
+
+1. Calculer $f'(t)$ et $\|f'(t)\|$.
+2. Déterminer la tangente à la courbe au point $f(0)$.
+3. Calculer la longueur de l'arc entre $t = 0$ et $t = \ln 2$.
+:::
+
+::: {.exercise}
+Soit $\gamma : [0, 2\pi] \to \mathbb{R}^2$ définie par $\gamma(t) = (\cos 2t, \sin 3t)$.
+
+1. Étudier la parité et la périodicité des composantes.
+2. Déterminer les points singuliers de l'arc.
+3. Calculer $\gamma'(t)$ et déterminer la tangente en un point régulier.
+:::
+
+::: {.exercise}
+Soit $f : [0, 1] \to \mathbb{R}^3$ définie par $f(t) = (t, t^2, t^3)$.
+
+1. Calculer $f'(t)$ et $f''(t)$.
+2. Montrer que l'arc est régulier.
+3. Calculer la longueur de l'arc entre $t = 0$ et $t = 1$ (on pourra donner une valeur approchée).
+:::
+
+::: {.exercise}
+Soient $f, g : I \to \mathbb{R}^3$ de classe $\mathcal{C}^1$. Montrer que :
+$$\frac{d}{dt}\langle f(t), g(t) \rangle = \langle f'(t), g(t) \rangle + \langle f(t), g'(t) \rangle$$
+:::
+
+::: {.exercise}
+Soit $\gamma : [0, +\infty[ \to \mathbb{R}^2$ définie par $\gamma(t) = (t \cos t, t \sin t)$.
+
+1. Calculer $\gamma'(t)$ et montrer que l'arc est régulier.
+2. Calculer la longueur de l'arc entre $t = 0$ et $t = 2\pi$.
+3. Interpréter géométriquement la courbe (spirale d'Archimède).
+:::
+
+::: {.exercise}
+Soit $\gamma : \mathbb{R} \to \mathbb{R}^2$ définie par $\gamma(t) = (3\cos t, 2\sin t)$.
+
+1. Montrer que l'arc décrit une ellipse.
+2. Calculer $\gamma'(t)$ et déterminer les points où la tangente est horizontale.
+3. Calculer la longueur de l'arc entre $t = 0$ et $t = \pi/2$.
+:::
+
+# Document en PDF {-}
+[Chapitre 05 : Fonctions vectorielles d'une variable réelle, arcs paramétrés](PDF/mp-chap05.pdf)
+
+## Navigation {-}
+::: {.chap-nav}
+[Chapitre 04 : Séries dans un espace vectoriel normé et familles sommables](mp-chap04.qmd){.prev}
+[Menu MP](mp.qmd){.home}
+[Chapitre 06 : Suites et séries de fonctions](mp-chap06.qmd){.next}
+:::
