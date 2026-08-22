@@ -1,10 +1,529 @@
 ---
-title: "Chapitre 11 : Convergences probabilistes"
-pagetitle: "Convergences probabilistes - Mathématiques en CPGE"
+title: "Probabilités"
+subtitle: "Chapitre 11"
+author: "Saîd MAHARI"
+date: last-modified
+date-format: "D MMMM YYYY"
+sidebar:
+  style: docked
+  contents:
+    - href: cours/index.qmd
+      text: "← Tous les cours"
+    - section: "MP — 2e année"
+      contents:
+        - cours/mp-chap10.qmd
+        - cours/mp-chap11.qmd
+        # - cours/mp-chap12.qmd
+lang: fr
+format:
+  html:
+    theme: cosmo
+    toc: true
+    number-sections: true
+    html-math-method: katex
+    css: styles.css
+filters:
+  - custom-numbered-blocks.lua
 ---
 
-**MP (2e année) — Chapitre 11.** Markov, Tchebychev, loi faible des grands nombres.
+**MP (2e année) — Chapitre 11.** Rappels, variables aléatoires et lois de variables aléatoires, espérance et moments, fonctions génératrices, inégalités, notions de convergence et théorèmes limites.
 
-## Document
+Ce chapitre a été réalisé conformément au programme marocain de mathématiques de la filière MP.
 
-*PDF à venir : déposez le fichier `files/mp/chap11.pdf` puis régénérez la page.*
+# Rappels sur les espaces probabilisés
+
+## Univers, événements, tribus
+
+::: {.definition title="(Expérience aléatoire)"}
+La théorie des probabilités permet l'étude de phénomènes ayant un aspect hasardeux, ou **aléatoire**. On appelle **expérience aléatoire** une expérience dont le résultat dépend du hasard. L'ensemble des issues (ou résultats observables) est appelé **univers** et noté $\Omega$.
+:::
+
+::: {.definition title="(Événement, tribu)"}
+Un **événement** est une partie de $\Omega$. Une **tribu** (ou $\sigma$-algèbre) $\mathcal{T}$ sur $\Omega$ est une partie de $\mathcal{P}(\Omega)$ vérifiant :
+
+1. $\Omega \in \mathcal{T}$
+2. Si $A \in \mathcal{T}$, alors $\overline{A} = \Omega \setminus A \in \mathcal{T}$
+3. Si $(A_n)_{n \in \mathbb{N}}$ est une suite d'éléments de $\mathcal{T}$, alors $\bigcup_{n=0}^{+\infty} A_n \in \mathcal{T}$
+
+Le couple $(\Omega, \mathcal{T})$ est appelé **espace probabilisable**.
+:::
+
+::: {.definition title="(Système complet d'événements)"}
+Une famille $(A_i)_{i \in I}$ d'événements est un **système complet d'événements** si :
+
+1. Les $A_i$ sont deux à deux incompatibles : $A_i \cap A_j = \varnothing$ pour $i \neq j$
+2. $\bigcup_{i \in I} A_i = \Omega$
+:::
+
+## Espace probabilisé
+
+::: {.definition title="(Probabilité)"}
+Une **probabilité** sur l'espace probabilisable $(\Omega, \mathcal{T})$ est une application $P : \mathcal{T} \to [0,1]$ vérifiant :
+
+1. $P(\Omega) = 1$
+2. Pour toute suite $(A_n)_{n \in \mathbb{N}}$ d'événements deux à deux incompatibles :
+$$P\left(\bigcup_{n=0}^{+\infty} A_n\right) = \sum_{n=0}^{+\infty} P(A_n)$$
+
+Le triplet $(\Omega, \mathcal{T}, P)$ est appelé **espace probabilisé**.
+:::
+
+::: {.proposition title="(Propriétés des probabilités)"}
+Soit $(\Omega, \mathcal{T}, P)$ un espace probabilisé. Alors :
+
+1. $P(\varnothing) = 0$
+2. $P(\overline{A}) = 1 - P(A)$
+3. Si $A \subset B$, alors $P(A) \leq P(B)$ (croissance)
+4. $P(A \cup B) = P(A) + P(B) - P(A \cap B)$
+5. **Inégalité de Boole** : $P\left(\bigcup_{k=1}^n A_k\right) \leq \sum_{k=1}^n P(A_k)$
+:::
+
+## Probabilités conditionnelles
+
+::: {.definition title="(Probabilité conditionnelle)"}
+Soit $(\Omega, \mathcal{T}, P)$ un espace probabilisé et $B$ un événement avec $P(B) > 0$. La **probabilité de $A$ sachant $B$** est :
+$$P(A \mid B) = P_B(A) = \frac{P(A \cap B)}{P(B)}$$
+:::
+
+::: {.theorem title="(Formule des probabilités composées)"}
+Soit $(A_k)_{1 \leq k \leq n}$ une famille d'événements telle que $P\left(\bigcap_{k=1}^{n-1} A_k\right) \neq 0$. Alors :
+$$P\left(\bigcap_{k=1}^n A_k\right) = P(A_1) \cdot P_{A_1}(A_2) \cdot P_{A_1 \cap A_2}(A_3) \cdots P_{A_1 \cap \cdots \cap A_{n-1}}(A_n)$$
+:::
+
+::: {.theorem title="(Formule des probabilités totales)"}
+Soit $(A_k)_{k \in I}$ un système complet d'événements de probabilités non nulles et $B$ un événement. Alors :
+$$P(B) = \sum_{k \in I} P(B \mid A_k) \cdot P(A_k)$$
+:::
+
+::: {.theorem title="(Formule de Bayes)"}
+Soit $(A_k)_{k \in I}$ un système complet d'événements de probabilités non nulles et $B$ un événement avec $P(B) > 0$. Alors pour tout $j \in I$ :
+$$P(A_j \mid B) = \frac{P(B \mid A_j) \cdot P(A_j)}{\sum_{k \in I} P(B \mid A_k) \cdot P(A_k)}$$
+:::
+
+## Indépendance
+
+::: {.definition title="(Indépendance de deux événements)"}
+Deux événements $A$ et $B$ sont **indépendants** si :
+$$P(A \cap B) = P(A) \cdot P(B)$$
+:::
+
+::: {.definition title="(Indépendance mutuelle)"}
+Les événements $A_1, \ldots, A_n$ sont **mutuellement indépendants** si pour toute partie $J$ de $\{1, \ldots, n\}$ :
+$$P\left(\bigcap_{i \in J} A_i\right) = \prod_{i \in J} P(A_i)$$
+:::
+
+# Variables aléatoires réelles : généralités
+
+## Définition
+
+::: {.definition title="(Variable aléatoire réelle)"}
+Soit $(\Omega, \mathcal{T}, P)$ un espace probabilisé. Une **variable aléatoire réelle** est une application $X : \Omega \to \mathbb{R}$ telle que pour tout borélien $B$ de $\mathbb{R}$ :
+$$X^{-1}(B) \in \mathcal{T}$$
+
+On note $\mathcal{V}(\Omega, \mathcal{T})$ l'ensemble des variables aléatoires réelles sur $(\Omega, \mathcal{T})$.
+:::
+
+::: {.remark}
+On utilise les notations suivantes :
+- $(X \in A)$ ou $\{X \in A\}$ à la place de $X^{-1}(A)$
+- $(X \leq x)$ à la place de $X^{-1}(]-\infty, x])$
+- $P(X \in A)$, $P(X = x)$, $P(X \leq x)$
+:::
+
+## Loi d'une variable aléatoire
+
+::: {.definition title="(Loi d'une variable aléatoire)"}
+Soit $X : \Omega \to \mathbb{R}$ une variable aléatoire. La **loi** de $X$ est la probabilité $P_X$ sur $(\mathbb{R}, \mathcal{B}(\mathbb{R}))$ définie par :
+$$P_X(B) = P(X \in B) = P(X^{-1}(B))$$
+pour tout borélien $B$ de $\mathbb{R}$.
+:::
+
+::: {.definition title="(Fonction de répartition)"}
+La **fonction de répartition** d'une variable aléatoire réelle $X$ est la fonction $F_X : \mathbb{R} \to [0,1]$ définie par :
+$$F_X(x) = P(X \leq x)$$
+:::
+
+::: {.proposition title="(Propriétés de la fonction de répartition)"}
+Soit $F_X$ la fonction de répartition d'une variable aléatoire réelle $X$. Alors :
+
+1. $F_X$ est croissante.
+2. $F_X$ est continue à droite.
+3. $\lim_{x \to -\infty} F_X(x) = 0$ et $\lim_{x \to +\infty} F_X(x) = 1$.
+4. $P(X = x) = F_X(x) - F_X(x^-)$ où $F_X(x^-) = \lim_{t \to x^-} F_X(t)$.
+:::
+
+::: {.proposition title="(Caractérisation de la loi)"}
+La loi d'une variable aléatoire réelle est entièrement déterminée par sa fonction de répartition.
+:::
+
+## Opérations sur les variables aléatoires
+
+::: {.proposition title="(Opérations)"}
+Soient $X$ et $Y$ deux variables aléatoires réelles sur $(\Omega, \mathcal{T})$ et $f : \mathbb{R} \to \mathbb{R}$ une fonction borélienne. Alors :
+
+1. $X + Y$, $X - Y$, $XY$ sont des variables aléatoires réelles.
+2. $f(X)$ est une variable aléatoire réelle.
+3. $\max(X, Y)$ et $\min(X, Y)$ sont des variables aléatoires réelles.
+:::
+
+# Variables aléatoires discrètes
+
+## Définition
+
+::: {.definition title="(Variable aléatoire discrète)"}
+Une variable aléatoire réelle $X$ est dite **discrète** si $X(\Omega)$ est fini ou dénombrable.
+:::
+
+::: {.definition title="(Loi d'une variable aléatoire discrète)"}
+Soit $X$ une variable aléatoire discrète. La loi de $X$ est entièrement déterminée par la liste des $P(X = x)$ pour $x \in X(\Omega)$. On a :
+$$\sum_{x \in X(\Omega)} P(X = x) = 1$$
+:::
+
+## Couples de variables aléatoires discrètes
+
+::: {.definition title="(Loi conjointe)"}
+Soient $X$ et $Y$ deux variables aléatoires discrètes. La **loi conjointe** du couple $(X, Y)$ est déterminée par :
+$$P(X = x, Y = y) = P(\{X = x\} \cap \{Y = y\})$$
+pour tout $(x, y) \in X(\Omega) \times Y(\Omega)$.
+:::
+
+::: {.definition title="(Loi marginale)"}
+La **loi marginale** de $X$ est :
+$$P(X = x) = \sum_{y \in Y(\Omega)} P(X = x, Y = y)$$
+:::
+
+::: {.definition title="(Loi conditionnelle)"}
+Si $P(Y = y) > 0$, la **loi conditionnelle** de $X$ sachant $Y = y$ est :
+$$P(X = x \mid Y = y) = \frac{P(X = x, Y = y)}{P(Y = y)}$$
+:::
+
+::: {.definition title="(Indépendance de deux variables aléatoires)"}
+$X$ et $Y$ sont **indépendantes** si pour tous $x \in X(\Omega)$ et $y \in Y(\Omega)$ :
+$$P(X = x, Y = y) = P(X = x) \cdot P(Y = y)$$
+:::
+
+# Espérance et moments
+
+## Espérance
+
+::: {.definition title="(Espérance d'une variable aléatoire discrète)"}
+Soit $X$ une variable aléatoire discrète. On dit que $X$ **admet une espérance** si la famille $(x \cdot P(X = x))_{x \in X(\Omega)}$ est sommable. On définit alors :
+$$E(X) = \sum_{x \in X(\Omega)} x \cdot P(X = x)$$
+:::
+
+::: {.proposition title="(Formule de transfert)"}
+Soit $X$ une variable aléatoire discrète et $f : \mathbb{R} \to \mathbb{R}$ une fonction. Alors $f(X)$ admet une espérance si et seulement si la famille $(f(x) \cdot P(X = x))_{x \in X(\Omega)}$ est sommable, et :
+$$E(f(X)) = \sum_{x \in X(\Omega)} f(x) \cdot P(X = x)$$
+:::
+
+::: {.proposition title="(Propriétés de l'espérance)"}
+Soient $X$ et $Y$ deux variables aléatoires discrètes admettant une espérance et $a, b \in \mathbb{R}$.
+
+1. **Linéarité** : $E(aX + bY) = aE(X) + bE(Y)$
+2. **Positivité** : Si $X \geq 0$, alors $E(X) \geq 0$
+3. **Croissance** : Si $X \leq Y$, alors $E(X) \leq E(Y)$
+4. **Inégalité triangulaire** : $|E(X)| \leq E(|X|)$
+5. Si $X$ et $Y$ sont indépendantes et admettent une espérance, alors $XY$ admet une espérance et :
+$$E(XY) = E(X) \cdot E(Y)$$
+:::
+
+## Moments et variance
+
+::: {.definition title="(Moment d'ordre $k$)"}
+Soit $k \in \mathbb{N}^*$. Le **moment d'ordre $k$** de $X$ est, sous réserve d'existence :
+$$E(X^k) = \sum_{x \in X(\Omega)} x^k \cdot P(X = x)$$
+:::
+
+::: {.definition title="(Variance et écart-type)"}
+Soit $X$ une variable aléatoire admettant un moment d'ordre 2. La **variance** de $X$ est :
+$$V(X) = E\left((X - E(X))^2\right) = E(X^2) - (E(X))^2$$
+L'**écart-type** de $X$ est $\sigma(X) = \sqrt{V(X)}$.
+:::
+
+::: {.proposition title="(Propriétés de la variance)"}
+Soit $X$ une variable aléatoire admettant un moment d'ordre 2 et $a, b \in \mathbb{R}$.
+
+1. $V(aX + b) = a^2 V(X)$
+2. $V(X) \geq 0$
+3. $V(X) = 0$ si et seulement si $X$ est constante presque sûrement
+:::
+
+::: {.definition title="(Covariance)"}
+Soient $X$ et $Y$ deux variables aléatoires admettant un moment d'ordre 2. La **covariance** de $X$ et $Y$ est :
+$$\mathrm{Cov}(X, Y) = E((X - E(X))(Y - E(Y))) = E(XY) - E(X)E(Y)$$
+:::
+
+::: {.proposition title="(Variance d'une somme)"}
+Soient $X$ et $Y$ deux variables aléatoires admettant un moment d'ordre 2. Alors :
+$$V(X + Y) = V(X) + V(Y) + 2\mathrm{Cov}(X, Y)$$
+
+En particulier, si $X$ et $Y$ sont indépendantes :
+$$V(X + Y) = V(X) + V(Y)$$
+:::
+
+::: {.proposition title="(Variable centrée réduite)"}
+Si $\sigma(X) > 0$, la variable aléatoire $X^* = \frac{X - E(X)}{\sigma(X)}$ est **centrée réduite** :
+$$E(X^*) = 0, \quad V(X^*) = 1$$
+:::
+
+## Espérance et variance des lois usuelles
+
+::: {.proposition title="(Lois usuelles discrètes)"}
+
+| Loi | Espérance | Variance |
+|---|---|---|
+| $\mathcal{B}(p)$ (Bernoulli) | $p$ | $p(1-p)$ |
+| $\mathcal{B}(n, p)$ (Binomiale) | $np$ | $np(1-p)$ |
+| $\mathcal{P}(\lambda)$ (Poisson) | $\lambda$ | $\lambda$ |
+| $\mathcal{U}(\llbracket 1, n \rrbracket)$ (Uniforme discrète) | $\frac{n+1}{2}$ | $\frac{n^2 - 1}{12}$ |
+:::
+
+::: {.proposition title="(Lois usuelles à densité)"}
+
+| Loi | Espérance | Variance |
+|---|---|---|
+| $\mathcal{U}([a, b])$ (Uniforme) | $\frac{a+b}{2}$ | $\frac{(b-a)^2}{12}$ |
+| $\mathcal{E}(\lambda)$ (Exponentielle) | $\frac{1}{\lambda}$ | $\frac{1}{\lambda^2}$ |
+| $\mathcal{N}(m, \sigma^2)$ (Normale) | $m$ | $\sigma^2$ |
+:::
+
+# Fonctions génératrices
+
+## Définition
+
+::: {.definition title="(Fonction génératrice)"}
+Soit $X$ une variable aléatoire discrète à valeurs dans $\mathbb{N}$. La **fonction génératrice** de $X$ est la fonction $G_X : [-1, 1] \to \mathbb{R}$ définie par :
+$$G_X(s) = E(s^X) = \sum_{n=0}^{+\infty} P(X = n) \, s^n$$
+:::
+
+::: {.proposition title="(Propriétés)"}
+Soit $X$ une variable aléatoire discrète à valeurs dans $\mathbb{N}$.
+
+1. $G_X$ est bien définie sur $[-1, 1]$ et continue sur $[-1, 1]$.
+2. $G_X$ est de classe $\mathcal{C}^\infty$ sur $]-1, 1[$.
+3. $G_X(1) = 1$.
+4. Si $X$ admet une espérance : $G_X'(1) = E(X)$.
+5. Si $X$ admet un moment d'ordre 2 : $G_X''(1) = E(X(X-1))$ et $V(X) = G_X''(1) + G_X'(1) - (G_X'(1))^2$.
+:::
+
+::: {.proposition title="(Caractérisation de la loi)"}
+La fonction génératrice détermine entièrement la loi de $X$ :
+$$P(X = n) = \frac{G_X^{(n)}(0)}{n!}$$
+:::
+
+::: {.proposition title="(Somme de variables indépendantes)"}
+Si $X$ et $Y$ sont deux variables aléatoires discrètes à valeurs dans $\mathbb{N}$ et indépendantes, alors :
+$$G_{X+Y}(s) = G_X(s) \cdot G_Y(s)$$
+:::
+
+::: {.example title="(Fonctions génératrices usuelles)"}
+
+| Loi | Fonction génératrice |
+|---|---|
+| $\mathcal{B}(p)$ | $G_X(s) = q + ps$ |
+| $\mathcal{B}(n, p)$ | $G_X(s) = (q + ps)^n$ |
+| $\mathcal{P}(\lambda)$ | $G_X(s) = e^{\lambda(s-1)}$ |
+| $\mathcal{U}(\llbracket 0, n \rrbracket)$ | $G_X(s) = \frac{1 + s + \cdots + s^n}{n+1}$ |
+:::
+
+::: {.proof title="(Loi de Poisson)"}
+Si $X \hookrightarrow \mathcal{P}(\lambda)$, alors $P(X = n) = \frac{\lambda^n}{n!} e^{-\lambda}$ et :
+$$G_X(s) = \sum_{n=0}^{+\infty} \frac{\lambda^n}{n!} e^{-\lambda} s^n = e^{-\lambda} \sum_{n=0}^{+\infty} \frac{(\lambda s)^n}{n!} = e^{-\lambda} e^{\lambda s} = e^{\lambda(s-1)}$$
+:::
+
+# Inégalités
+
+## Inégalité de Markov
+
+::: {.theorem title="(Inégalité de Markov)"}
+Soit $X$ une variable aléatoire réelle positive admettant une espérance. Alors pour tout $a > 0$ :
+$$P(X \geq a) \leq \frac{E(X)}{a}$$
+:::
+
+::: {.proof}
+On a $X \geq a \cdot \mathbb{1}_{(X \geq a)}$. Par croissance de l'espérance :
+$$E(X) \geq a \cdot E(\mathbb{1}_{(X \geq a)}) = a \cdot P(X \geq a)$$
+:::
+
+## Inégalité de Bienaymé-Tchebychev
+
+::: {.theorem title="(Inégalité de Bienaymé-Tchebychev)"}
+Soit $X$ une variable aléatoire admettant un moment d'ordre 2. Alors pour tout $\varepsilon > 0$ :
+$$P(|X - E(X)| \geq \varepsilon) \leq \frac{V(X)}{\varepsilon^2}$$
+:::
+
+::: {.proof}
+On applique l'inégalité de Markov à la variable positive $(X - E(X))^2$ :
+$$P(|X - E(X)| \geq \varepsilon) = P((X - E(X))^2 \geq \varepsilon^2) \leq \frac{E((X - E(X))^2)}{\varepsilon^2} = \frac{V(X)}{\varepsilon^2}$$
+:::
+
+## Inégalité de Jensen
+
+::: {.theorem title="(Inégalité de Jensen)"}
+Soit $X$ une variable aléatoire réelle admettant une espérance, $f : \mathbb{R} \to \mathbb{R}$ une fonction convexe, et $Y = f(X)$ admettant une espérance. Alors :
+$$f(E(X)) \leq E(f(X))$$
+:::
+
+# Notions de convergence
+
+## Convergence en probabilité
+
+::: {.definition title="(Convergence en probabilité)"}
+Soit $(X_n)_{n \geq 1}$ une suite de variables aléatoires réelles et $X$ une variable aléatoire réelle. On dit que $(X_n)$ **converge en probabilité** vers $X$, noté $X_n \xrightarrow{P} X$, si :
+$$\forall \varepsilon > 0, \quad P(|X_n - X| \geq \varepsilon) \xrightarrow[n \to +\infty]{} 0$$
+:::
+
+::: {.proposition}
+La convergence en probabilité est unique : si $X_n \xrightarrow{P} X$ et $X_n \xrightarrow{P} Y$, alors $P(X = Y) = 1$.
+:::
+
+## Convergence en loi
+
+::: {.definition title="(Convergence en loi)"}
+Soit $(X_n)_{n \geq 1}$ une suite de variables aléatoires réelles et $X$ une variable aléatoire réelle. On dit que $(X_n)$ **converge en loi** vers $X$, noté $X_n \xrightarrow{\mathcal{L}} X$, si :
+$$\forall x \in \mathbb{R} \text{ point de continuité de } F_X, \quad F_{X_n}(x) \xrightarrow[n \to +\infty]{} F_X(x)$$
+:::
+
+::: {.proposition title="(Lien entre convergences)"}
+La convergence en probabilité implique la convergence en loi. La réciproque est fausse.
+:::
+
+## Convergence presque sûre
+
+::: {.definition title="(Convergence presque sûre)"}
+On dit que $(X_n)$ **converge presque sûrement** vers $X$, noté $X_n \xrightarrow{p.s.} X$, si :
+$$P\left(\{\omega \in \Omega \mid X_n(\omega) \to X(\omega)\}\right) = 1$$
+:::
+
+::: {.proposition title="(Implications)"}
+$$X_n \xrightarrow{p.s.} X \implies X_n \xrightarrow{P} X \implies X_n \xrightarrow{\mathcal{L}} X$$
+:::
+
+# Théorèmes limites
+
+## Loi faible des grands nombres
+
+::: {.theorem title="(Loi faible des grands nombres)"}
+Soit $(X_n)_{n \geq 1}$ une suite de variables aléatoires mutuellement indépendantes, de même loi, admettant un moment d'ordre 2. Notons $\mu = E(X_1)$ et $\sigma^2 = V(X_1)$. Alors la suite :
+$$\overline{X}_n = \frac{1}{n} \sum_{k=1}^n X_k$$
+converge en probabilité vers la variable constante $\mu$ :
+$$\forall \varepsilon > 0, \quad P(|\overline{X}_n - \mu| \geq \varepsilon) \xrightarrow[n \to +\infty]{} 0$$
+:::
+
+::: {.proof}
+Par indépendance et même loi :
+$$E(\overline{X}_n) = \frac{1}{n} \sum_{k=1}^n E(X_k) = \mu$$
+$$V(\overline{X}_n) = \frac{1}{n^2} \sum_{k=1}^n V(X_k) = \frac{\sigma^2}{n}$$
+Par l'inégalité de Bienaymé-Tchebychev :
+$$P(|\overline{X}_n - \mu| \geq \varepsilon) \leq \frac{V(\overline{X}_n)}{\varepsilon^2} = \frac{\sigma^2}{n\varepsilon^2} \xrightarrow[n \to +\infty]{} 0$$
+:::
+
+::: {.remark title="(Interprétation fréquentiste)"}
+La loi faible des grands nombres justifie l'approche fréquentiste de la probabilité : si l'on répète $n$ fois une expérience aléatoire, la fréquence d'apparition d'un événement $A$ converge en probabilité vers $P(A)$.
+:::
+
+## Théorème de la limite centrée (théorème central limite)
+
+::: {.theorem title="(Théorème de la limite centrée)"}
+Soit $(X_n)_{n \geq 1}$ une suite de variables aléatoires mutuellement indépendantes, de même loi, admettant un moment d'ordre 2. Notons $\mu = E(X_1)$ et $\sigma^2 = V(X_1)$ avec $\sigma > 0$. Alors :
+$$\frac{1}{\sigma\sqrt{n}}\left(\sum_{k=1}^n X_k - n\mu\right) \xrightarrow{\mathcal{L}} \mathcal{N}(0, 1)$$
+
+Autrement dit, pour tout $x \in \mathbb{R}$ :
+$$P\left(\frac{1}{\sigma\sqrt{n}}\left(\sum_{k=1}^n X_k - n\mu\right) \leq x\right) \xrightarrow[n \to +\infty]{} \Phi(x) = \frac{1}{\sqrt{2\pi}} \int_{-\infty}^x e^{-t^2/2}\, dt$$
+:::
+
+## Théorème de convergence de Poisson
+
+::: {.theorem title="(Convergence de la loi binomiale vers la loi de Poisson)"}
+Soit $(X_n)_{n \geq 1}$ une suite de variables aléatoires telles que $X_n \hookrightarrow \mathcal{B}(n, p_n)$ avec $np_n \to \lambda > 0$. Alors :
+$$X_n \xrightarrow{\mathcal{L}} \mathcal{P}(\lambda)$$
+
+Autrement dit, pour tout $k \in \mathbb{N}$ :
+$$P(X_n = k) = \binom{n}{k} p_n^k (1-p_n)^{n-k} \xrightarrow[n \to +\infty]{} \frac{\lambda^k}{k!} e^{-\lambda}$$
+:::
+
+::: {.remark title="(Loi des événements rares)"}
+La loi de Poisson modélise le nombre d'arrivées d'événements rares sur un intervalle de temps donné. Par exemple, le nombre d'appels reçus par un standard téléphonique en une minute.
+:::
+
+## Formule de Wald
+
+::: {.theorem title="(Formule de Wald)"}
+Soient $(X_k)_{k \geq 1}$ et $N$ des variables aléatoires sur un même espace probabilisé, mutuellement indépendantes, à valeurs dans $\mathbb{N}$, les $X_i$ ayant toutes même loi. On considère :
+$$S = X_1 + \cdots + X_N$$
+(avec la convention $S = 0$ si $N = 0$). Alors $S$ est une variable aléatoire et :
+
+1. Si $E(X_1)$ et $E(N)$ existent : $E(S) = E(N) \cdot E(X_1)$
+2. Si $V(X_1)$ et $E(N)$ existent : $E(S^2) = E(N) \cdot E(X_1^2) + E(N(N-1)) \cdot (E(X_1))^2$
+:::
+
+# Exercices
+
+::: {.exercise}
+Soient $A$ et $B$ deux événements tels que $P(A) = \frac{1}{3}$, $P(B) = \frac{1}{4}$ et $P(A \cup B) = \frac{1}{2}$.
+
+1. Calculer $P(A \cap B)$.
+2. $A$ et $B$ sont-ils indépendants ?
+3. Calculer $P_A(B)$ et $P_B(A)$.
+:::
+
+::: {.exercise}
+Une urne contient 5 boules rouges et 3 boules vertes. On tire successivement et sans remise 3 boules. Notons $X$ le nombre de boules rouges obtenues.
+
+1. Déterminer la loi de $X$.
+2. Calculer $E(X)$ et $V(X)$.
+:::
+
+::: {.exercise}
+Soit $X \hookrightarrow \mathcal{P}(\lambda)$.
+
+1. Déterminer la fonction génératrice $G_X$.
+2. En déduire $E(X)$ et $V(X)$.
+3. Soient $X$ et $Y$ indépendantes avec $X \hookrightarrow \mathcal{P}(\lambda)$ et $Y \hookrightarrow \mathcal{P}(\mu)$. Montrer que $X + Y \hookrightarrow \mathcal{P}(\lambda + \mu)$.
+:::
+
+::: {.exercise}
+Soient $X_1, \ldots, X_n$ des variables aléatoires indépendantes suivant toutes la loi $\mathcal{B}(p)$.
+
+1. Montrer que $S = X_1 + \cdots + X_n \hookrightarrow \mathcal{B}(n, p)$ en utilisant les fonctions génératrices.
+2. Retrouver $E(S)$ et $V(S)$.
+:::
+
+::: {.exercise title="(Inégalité de Bienaymé-Tchebychev)"}
+Soit $X$ une variable aléatoire avec $E(X) = 3$ et $V(X) = 4$.
+
+1. Majorer $P(|X - 3| \geq 2)$.
+2. Majorer $P(|X - 3| \geq 6)$.
+:::
+
+::: {.exercise title="(Loi faible des grands nombres)"}
+On lance $n$ fois un dé équilibré. Notons $S_n$ la somme des résultats obtenus.
+
+1. Calculer $E(S_n)$ et $V(S_n)$.
+2. En déduire que $\frac{S_n}{n}$ converge en probabilité vers $\frac{7}{2}$.
+3. Majorer $P\left(\left|\frac{S_n}{n} - \frac{7}{2}\right| \geq 1\right)$ en fonction de $n$.
+:::
+
+::: {.exercise title="(Convergence de Poisson)"}
+Soit $(X_n)$ une suite de variables aléatoires avec $X_n \hookrightarrow \mathcal{B}(n, \frac{\lambda}{n})$.
+
+1. Déterminer la fonction génératrice $G_{X_n}$.
+2. Montrer que $G_{X_n}(s) \to e^{\lambda(s-1)}$ pour tout $s \in [-1, 1]$.
+3. Conclure que $X_n \xrightarrow{\mathcal{L}} \mathcal{P}(\lambda)$.
+:::
+
+::: {.exercise title="(Formule de Wald)"}
+Un client arrive à un guichet. Le nombre de clients déjà présents $N$ suit une loi de Poisson de paramètre $\lambda$. Le temps de service de chaque client suit une loi exponentielle de paramètre $\mu$, indépendamment des autres. Notons $T$ le temps total d'attente.
+
+1. Exprimer $T$ en fonction de $N$ et des temps de service $X_k$.
+2. Calculer $E(T)$ en utilisant la formule de Wald.
+:::
+
+# Document en PDF {-}
+[Chapitre 11 : Probabilités](PDF/mp-chap11.pdf)
+
+## Navigation {-}
+::: {.chap-nav}
+[Chapitre 10 : Intégrales dépendant d'un paramètre](mp-chap10.qmd){.prev}
+[Menu MP](mp.qmd){.home}
+[Chapitre 12 : Variables aléatoires à densité](mp-chap12.qmd){.next}
+:::

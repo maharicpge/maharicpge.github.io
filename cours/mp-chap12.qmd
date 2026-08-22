@@ -1,0 +1,267 @@
+---
+title: "Équations différentielles linéaires"
+subtitle: "Chapitre 12"
+author: "Saîd MAHARI"
+date: last-modified
+date-format: "D MMMM YYYY"
+sidebar:
+  style: docked
+  contents:
+    - href: cours/index.qmd
+      text: "← Tous les cours"
+    - section: "MP — 2e année"
+      contents:
+        - cours/mp-chap11.qmd
+        - cours/mp-chap12.qmd
+lang: fr
+format:
+  html:
+    theme: cosmo
+    toc: true
+    number-sections: true
+    html-math-method: katex
+    css: styles.css
+filters:
+  - custom-numbered-blocks.lua
+---
+
+MP (2e année) — Chapitre 12. Problème de Cauchy, structure de la solution, systèmes d'équations différentielles linéaires, méthode de la variation de la constante.
+
+Ce chapitre a été réalisé conformément au programme marocain de mathématiques de la filière MP.
+
+Dans tout ce chapitre, $I$ désigne un intervalle de $\mathbb{R}$, $F$ un espace vectoriel normé de dimension finie, et $\mathbb{K}$ le corps $\mathbb{R}$ ou $\mathbb{C}$.
+
+# Généralités sur les équations différentielles
+
+## Équation différentielle générale
+
+::: {.definition title="(Équation différentielle et solution)"}
+Soit $U$ un ouvert de $\mathbb{R} \times F$ et $f : U \to F$ une application continue. On considère l'**équation différentielle** :
+$$x' = f(t, x)$$
+
+Une **solution** de cette équation est un couple $(J, x)$ où $J$ est un intervalle non trivial de $\mathbb{R}$ et $x : J \to F$ est une application dérivable vérifiant :
+$$\forall t \in J, \quad (t, x(t)) \in U \quad \text{et} \quad x'(t) = f(t, x(t))$$
+
+On appelle **courbe intégrale** de l'équation le graphe paramétré $t \mapsto (t, x(t))$.
+:::
+
+::: {.example title="(Équations à variables séparables)"}
+Un cas particulier important est celui des équations à variables séparables : $F = \mathbb{R}$ et $f(t, u) = a(t)b(u)$ où $a$ et $b$ sont des fonctions continues.
+
+Une telle équation $x' = a(t)b(x)$ se résout en cherchant des solutions de la forme $x(t) = g(t)$ où $g$ satisfait :
+$$\frac{g'(t)}{b(g(t))} = a(t)$$
+:::
+
+## Problème de Cauchy
+
+::: {.definition title="(Problème de Cauchy)"}
+Soit $(t_0, x_0) \in U$. Le **problème de Cauchy** associé à l'équation $x' = f(t, x)$ avec la condition initiale $x(t_0) = x_0$ consiste à trouver une solution $x$ définie sur un intervalle $J$ contenant $t_0$ et vérifiant :
+$$x'(t) = f(t, x(t)) \quad \text{et} \quad x(t_0) = x_0$$
+:::
+
+::: {.theorem title="(Théorème de Cauchy-Lipschitz, admis)"}
+Soient $f : U \to F$ une application continue et $(t_0, x_0) \in U$. Alors il existe un intervalle ouvert $J$ contenant $t_0$ et une unique solution $x : J \to F$ du problème de Cauchy :
+$$\begin{cases} x'(t) = f(t, x(t)) \\ x(t_0) = x_0 \end{cases}$$
+:::
+
+::: {.remarque}
+Le théorème de Cauchy-Lipschitz est admis et n'est pas le point central du paragraphe. Il est présenté pour préparer les élèves au cas non linéaire qui sera traité dans les cursus post classes préparatoires. Il peut aussi servir à éclairer les résultats du cas linéaire en montrant leurs spécificités.
+:::
+
+## Méthode d'Euler
+
+::: {.definition title="(Méthode d'Euler)"}
+Pour rechercher des solutions approchées de l'équation $x' = f(t, x)$ avec $x(t_0) = x_0$, la **méthode d'Euler** consiste à construire une suite $(x_n)$ par récurrence :
+$$x_{n+1} = x_n + h \cdot f(t_n, x_n)$$
+où $h > 0$ est le pas de la méthode et $t_n = t_0 + nh$.
+:::
+
+::: {.remarque}
+Les élèves doivent savoir appliquer la méthode d'Euler à des exemples simples pour obtenir des solutions approchées.
+:::
+
+# Équations différentielles linéaires
+
+## Définition et structure
+
+::: {.definition title="(Équation différentielle linéaire)"}
+Une **équation différentielle linéaire** est une équation de la forme :
+$$x'(t) = a(t)(x(t)) + b(t)$$
+où $a$ est une application continue de $I$ dans $\mathcal{L}(F)$ et $b$ une application continue de $I$ dans $F$.
+
+L'**équation homogène associée** est :
+$$x'(t) = a(t)(x(t))$$
+:::
+
+::: {.definition title="(Solution et solution globale)"}
+Une **solution** de l'équation $x' = a(t)x + b(t)$ sur un intervalle $J \subset I$ est une application $x : J \to F$ dérivable vérifiant :
+$$\forall t \in J, \quad x'(t) = a(t)(x(t)) + b(t)$$
+
+Une **solution globale** est une solution définie sur $I$ tout entier.
+:::
+
+::: {.proposition title="(Principe de superposition)"}
+Soient $x_1$ et $x_2$ deux solutions de l'équation homogène $x' = a(t)x$. Alors pour tous $\lambda, \mu \in \mathbb{K}$, la fonction $\lambda x_1 + \mu x_2$ est aussi une solution de l'équation homogène.
+
+Autrement dit, l'ensemble des solutions de l'équation homogène est un sous-espace vectoriel de $\mathcal{C}^1(I, F)$.
+:::
+
+::: {.proposition title="(Structure de l'ensemble des solutions)"}
+Si l'équation $x' = a(t)x + b(t)$ admet une solution particulière $x_p$, alors l'ensemble des solutions est :
+$$\{x_p + x_h \mid x_h \text{ solution de l'équation homogène}\}$$
+:::
+
+## Théorème de Cauchy linéaire
+
+::: {.theorem title="(Théorème de Cauchy linéaire)"}
+Soient $a : I \to \mathcal{L}(F)$ et $b : I \to F$ des applications continues. Alors pour tout $(t_0, x_0) \in I \times F$, le problème de Cauchy :
+$$\begin{cases} x'(t) = a(t)(x(t)) + b(t) \\ x(t_0) = x_0 \end{cases}$$
+admet une unique solution globale définie sur $I$.
+:::
+
+::: {.proposition title="(Mise sous forme intégrale)"}
+La solution du problème de Cauchy peut être mise sous forme intégrale :
+$$x(t) = x_0 + \int_{t_0}^t \left(a(s)(x(s)) + b(s)\right)\, ds$$
+:::
+
+## Équations différentielles scalaires
+
+::: {.definition title="(Équation différentielle linéaire scalaire)"}
+Une **équation différentielle linéaire scalaire** d'ordre $n$ est une équation de la forme :
+$$a_n(t) y^{(n)}(t) + a_{n-1}(t) y^{(n-1)}(t) + \cdots + a_1(t) y'(t) + a_0(t) y(t) = d(t)$$
+où les $a_i$ et $d$ sont des fonctions continues sur $I$.
+:::
+
+::: {.proposition title="(Représentation par un système différentiel)"}
+Toute équation différentielle linéaire scalaire d'ordre $n$ peut être représentée par un système différentiel linéaire en posant :
+$$X = \begin{pmatrix} y \\ y' \\ \vdots \\ y^{(n-1)} \end{pmatrix}$$
+:::
+
+::: {.theorem title="(Dimension de l'espace des solutions)"}
+L'ensemble des solutions globales de l'équation homogène scalaire d'ordre $n$ est un espace vectoriel de dimension $n$.
+
+L'application $x \mapsto x(t_0)$ est un isomorphisme de cet espace sur $F$.
+:::
+
+# Systèmes différentiels linéaires homogènes à coefficients constants
+
+## Définition
+
+::: {.definition title="(Système différentiel homogène à coefficients constants)"}
+Un **système différentiel linéaire homogène à coefficients constants** est une équation de la forme :
+$$x'(t) = a(x(t)), \quad a \in \mathcal{L}(F)$$
+:::
+
+::: {.definition title="(Traduction matricielle)"}
+Si $\mathcal{B}$ est une base de $F$ et $A = \mathrm{Mat}_{\mathcal{B}}(a)$, le système s'écrit :
+$$X' = AX$$
+où $X = \mathrm{Mat}_{\mathcal{B}}(x)$.
+:::
+
+## Résolution à l'aide de l'exponentielle de matrice
+
+::: {.definition title="(Exponentielle d'un endomorphisme et d'une matrice)"}
+Soit $a \in \mathcal{L}(F)$. L'**exponentielle** de $a$ est définie par :
+$$\exp(a) = e^a = \sum_{k=0}^{+\infty} \frac{a^k}{k!}$$
+La série converge normalement.
+:::
+
+::: {.theorem title="(Résolution du problème de Cauchy)"}
+Soient $x_0 \in F$ et $a \in \mathcal{L}(F)$. La solution globale du problème de Cauchy :
+$$\begin{cases} x'(t) = a(x(t)) \\ x(t_0) = x_0 \end{cases}$$
+est définie sur $\mathbb{R}$ par :
+$$t \mapsto \exp((t - t_0)a)(x_0) = e^{(t-t_0)a}(x_0)$$
+:::
+
+::: {.proposition title="(Traduction matricielle)"}
+Si $A = \mathrm{Mat}_{\mathcal{B}}(a)$, la solution du système $X' = AX$ avec $X(t_0) = X_0$ est :
+$$X(t) = e^{(t-t_0)A} X_0$$
+:::
+
+::: {.example title="(Cas diagonalisable)"}
+Si $A$ est diagonalisable : $A = PDP^{-1}$ avec $D = \mathrm{Diag}(\lambda_1, \ldots, \lambda_n)$, alors :
+$$e^{tA} = P \, \mathrm{Diag}(e^{\lambda_1 t}, \ldots, e^{\lambda_n t}) \, P^{-1}$$
+:::
+
+::: {.example title="(Résolution d'un système)"}
+Résolvons le système :
+$$\begin{cases} x' = 2x + 2y + z \\ y' = x + 3y + z \\ z' = x + 2y + 2z \end{cases}$$
+
+La matrice $A = \begin{pmatrix} 2 & 2 & 1 \\ 1 & 3 & 1 \\ 1 & 2 & 2 \end{pmatrix}$ est diagonalisable avec $P^{-1}AP = \mathrm{Diag}(1, 1, 5)$. La solution est :
+$$X(t) = P \, \mathrm{Diag}(e^t, e^t, e^{5t}) \, P^{-1} X(0)$$
+:::
+
+# Méthode de variation des constantes
+
+## Système fondamental de solutions
+
+::: {.definition title="(Système fondamental de solutions)"}
+Soit $x' = a(t)x$ une équation différentielle linéaire homogène. Un **système fondamental de solutions** est une famille de solutions $(x_1, \ldots, x_n)$ telle que pour tout $t_0 \in I$, la famille $(x_1(t_0), \ldots, x_n(t_0))$ soit une base de $F$.
+:::
+
+::: {.proposition title="(Caractérisation)"}
+Une famille $(x_1, \ldots, x_n)$ de solutions de $x' = a(t)x$ est un système fondamental de solutions si et seulement si :
+$$\forall t_0 \in I, \quad (x_1(t_0), \ldots, x_n(t_0)) \text{ est une base de } F$$
+:::
+
+## Méthode de variation des constantes pour les systèmes
+
+::: {.theorem title="(Variation des constantes)"}
+Soit $(x_1, \ldots, x_n)$ un système fondamental de solutions de l'équation homogène $x' = a(t)x$. Pour résoudre l'équation complète $x' = a(t)x + b(t)$, on cherche une solution de la forme :
+$$x(t) = \lambda_1(t) x_1(t) + \lambda_2(t) x_2(t) + \cdots + \lambda_n(t) x_n(t)$$
+
+En substituant dans l'équation et en imposant la condition :
+$$\lambda_1'(t) x_1(t) + \lambda_2'(t) x_2(t) + \cdots + \lambda_n'(t) x_n(t) = 0$$
+on obtient un système linéaire en $\lambda_1', \ldots, \lambda_n'$ dont la résolution permet de déterminer les $\lambda_i$.
+:::
+
+::: {.remarque}
+Dans les exercices pratiques, on se limite au cas de la dimension 2.
+:::
+
+## Cas particulier des systèmes à coefficients constants
+
+::: {.proposition title="(Expression intégrale des solutions)"}
+Pour un système différentiel à coefficients constants $X' = AX + B(t)$, la solution est donnée par :
+$$X(t) = e^{(t-t_0)A} X_0 + \int_{t_0}^t e^{(t-s)A} B(s)\, ds$$
+:::
+
+::: {.proposition title="(Adaptation aux équations scalaires du second ordre)"}
+Pour une équation scalaire du second ordre $y'' + ay' + by = f(t)$ avec $a, b \in \mathbb{K}$ constants, la méthode de variation des constantes s'applique en cherchant une solution de la forme :
+$$y(t) = \lambda_1(t) y_1(t) + \lambda_2(t) y_2(t)$$
+où $(y_1, y_2)$ est un système fondamental de solutions de l'équation homogène.
+:::
+
+# Exercices
+
+::: {.exercise}
+Résoudre le système différentiel :
+$$\begin{cases} x' = x + y \\ y' = x - y \end{cases}$$
+en diagonalisant la matrice $A = \begin{pmatrix} 1 & 1 \\ 1 & -1 \end{pmatrix}$.
+:::
+
+::: {.exercise}
+Résoudre l'équation différentielle $y'' + 4y = \cos(2t)$ en utilisant la méthode de variation des constantes.
+:::
+
+::: {.exercise}
+Soit $A = \begin{pmatrix} 1 & 1 \\ 0 & 1 \end{pmatrix}$. Calculer $e^{tA}$ et résoudre le système $X' = AX$ avec $X(0) = \begin{pmatrix} 1 \\ 0 \end{pmatrix}$.
+:::
+
+::: {.exercise}
+Résoudre l'équation différentielle $y' - 2y = e^{3t}$ avec $y(0) = 1$ en utilisant la transformée de Laplace.
+:::
+
+::: {.exercise}
+Soit $A \in \mathcal{M}_3(\mathbb{R})$ diagonalisable avec $P^{-1}AP = \mathrm{Diag}(1, 2, 3)$. Résoudre le système $X' = AX$ avec $X(0) = P \begin{pmatrix} 1 \\ 1 \\ 1 \end{pmatrix}$.
+:::
+
+# Document en PDF {-}
+[Chapitre 12 : Équations différentielles linéaires](PDF/mp-chap12.pdf)
+
+## Navigation {-}
+::: {.chap-nav}
+[Chapitre 11 : Probabilités](mp-chap11.qmd){.prev}
+[Menu MP](mp.qmd){.home}
+[Chapitre 13 : Fonctions holomorphes](mp-chap13.qmd){.next}
+:::

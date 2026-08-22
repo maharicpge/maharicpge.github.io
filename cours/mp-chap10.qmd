@@ -1,10 +1,273 @@
 ---
-title: "Chapitre 10 : Espaces probabilisés"
-pagetitle: "Espaces probabilisés - Mathématiques en CPGE"
+title: "Intégrales dépendant d'un paramètre"
+subtitle: "Chapitre 10"
+author: "Saîd MAHARI"
+date: last-modified
+date-format: "D MMMM YYYY"
+sidebar:
+  style: docked
+  contents:
+    - href: cours/index.qmd
+      text: "← Tous les cours"
+    - section: "MP — 2e année"
+      contents:
+        - cours/mp-chap09.qmd
+        - cours/mp-chap10.qmd
+        # - cours/mp-chap11.qmd
+lang: fr
+format:
+  html:
+    theme: cosmo
+    toc: true
+    number-sections: true
+    html-math-method: katex
+    css: styles.css
+filters:
+  - custom-numbered-blocks.lua
 ---
 
-**MP (2e année) — Chapitre 10.** Tribus, variables discrètes infinies, lois géométrique et de Poisson.
+**MP (2e année) — Chapitre 10.** Passage à la limite sous l'intégrale, continuité et dérivation d'une intégrale dépendant d'un paramètre, exemples d'applications.
 
-## Document
+Ce chapitre a été réalisé conformément au programme marocain de mathématiques de la filière MP.
 
-*PDF à venir : déposez le fichier `files/mp/chap10.pdf` puis régénérez la page.*
+Dans tout ce chapitre, $I$ désigne un intervalle de $\mathbb{R}$ et $\mathbb{K}$ le corps $\mathbb{R}$ ou $\mathbb{C}$.
+
+# Continuité uniforme
+
+## Définition
+
+::: {.definition title="(Continuité uniforme)"}
+Soient $E$ et $F$ deux espaces vectoriels normés, $A$ une partie non vide de $E$ et $f : A \to F$ une application. On dit que $f$ est **uniformément continue** sur $A$ si :
+$$\forall \varepsilon > 0, \quad \exists \delta > 0, \quad \forall x, y \in A, \quad \|x - y\| < \delta \implies \|f(x) - f(y)\| < \varepsilon$$
+:::
+
+::: {.remarque}
+La différence essentielle avec la continuité simple :
+- Dans la continuité simple, la valeur de $\delta$ peut dépendre de $x_0$ et de $\varepsilon$.
+- Dans la continuité uniforme, la valeur de $\delta$ ne dépend que de $\varepsilon$.
+:::
+
+## Théorème de Heine
+
+::: {.theorem title="(Théorème de Heine)"}
+Toute fonction continue sur un intervalle fermé borné est uniformément continue.
+:::
+
+::: {.example}
+La fonction $f : [0, 1] \to \mathbb{R}$ définie par $f(x) = \sqrt{x}$ est uniformément continue sur $[0,1]$ (par le théorème de Heine), mais elle n'est pas lipschitzienne sur $[0,1]$ (car sa dérivée $\frac{1}{2\sqrt{x}}$ tend vers $+\infty$ en $0^+$).
+:::
+
+## Application : densité des fonctions polynomiales
+
+::: {.theorem title="(Admis)"}
+L'ensemble des polynômes est dense dans l'espace $\mathcal{C}([a,b], \mathbb{K})$ muni de la norme de la convergence uniforme.
+
+Autrement dit, toute fonction continue sur $[a,b]$ peut être approchée uniformément par des polynômes.
+:::
+
+# Passage à la limite sous l'intégrale
+
+## Convergence uniforme et intégrale
+
+::: {.theorem title="(Passage à la limite sous l'intégrale)"}
+Soient $I$ un intervalle de $\mathbb{R}$ et $(f_n)_{n \geq 0}$ une suite de fonctions continues de $I$ dans $\mathbb{K}$. On suppose que la suite $(f_n)$ converge uniformément sur $I$ vers une fonction $f : I \to \mathbb{K}$. Alors :
+$$\int_I f(t)\, dt = \lim_{n \to +\infty} \int_I f_n(t)\, dt$$
+:::
+
+::: {.example}
+Soit $f_n(t) = t^n$ sur $[0, 1]$. La suite $(f_n)$ converge simplement vers :
+$$f(t) = \begin{cases} 0 & \text{si } 0 \leq t < 1 \\ 1 & \text{si } t = 1 \end{cases}$$
+Cette convergence n'est pas uniforme. Cependant :
+$$\lim_{n \to +\infty} \int_0^1 t^n\, dt = \lim_{n \to +\infty} \frac{1}{n+1} = 0 = \int_0^1 f(t)\, dt$$
+:::
+
+# Continuité et dérivabilité d'une intégrale dépendant d'un paramètre
+
+## Fonction définie par une intégrale
+
+::: {.definition title="(Fonction définie par une intégrale)"}
+Soit $f : (x,t) \mapsto f(x,t)$ une fonction de deux variables, $x$ et $t$. On considère $x$ comme un paramètre et $t \in [a,b]$ comme une variable d'intégration. Cela nous permet de définir :
+$$F(x) = \int_a^b f(x,t)\, dt$$
+:::
+
+## Continuité
+
+::: {.theorem title="(Continuité d'une intégrale dépendant d'un paramètre)"}
+Soient $I$ un intervalle de $\mathbb{R}$ et $J = [a,b]$ un intervalle fermé borné. Soit $f$ une fonction continue sur $I \times J$ à valeurs dans $\mathbb{R}$ (ou $\mathbb{C}$). Alors la fonction $F$ définie pour tout $x \in I$ par :
+$$F(x) = \int_a^b f(x,t)\, dt$$
+est continue sur $I$.
+:::
+
+::: {.example}
+Soit $F(x) = \int_0^\pi \sin(x+t) \cdot e^{xt^2}\, dt$, définie pour $x \in I = \mathbb{R}$.
+
+La fonction $(x,t) \mapsto f(x,t) = \sin(x+t) \cdot e^{xt^2}$ est continue sur $\mathbb{R} \times [0, \pi]$. D'après le théorème, $F$ est continue sur $\mathbb{R}$.
+:::
+
+## Dérivabilité
+
+::: {.theorem title="(Dérivabilité d'une intégrale dépendant d'un paramètre)"}
+Soient $I$ un intervalle de $\mathbb{R}$ et $J = [a,b]$ un intervalle fermé borné. On suppose que :
+
+1. $(x,t) \mapsto f(x,t)$ est une fonction continue sur $I \times J$ (à valeurs dans $\mathbb{R}$ ou $\mathbb{C}$),
+2. La dérivée partielle $(x,t) \mapsto \frac{\partial f}{\partial x}(x,t)$ existe et est continue sur $I \times J$.
+
+Alors la fonction $F$ définie pour tout $x \in I$ par $F(x) = \int_a^b f(x,t)\, dt$ est de classe $\mathcal{C}^1$ sur $I$ et :
+$$\boxed{F'(x) = \int_a^b \frac{\partial f}{\partial x}(x,t)\, dt}$$
+:::
+
+::: {.remarque title="(Mnémonique)"}
+On peut retenir l'abréviation mnémotechnique d'interversion dérivée/intégrale :
+$$\frac{d}{dx}\int_a^b = \int_a^b \frac{\partial}{\partial x}$$
+:::
+
+::: {.example}
+Étudions $F(x) = \int_0^1 \frac{dt}{x^2 + t^2}$ pour $x \in ]0, +\infty[$.
+
+Posons $f(x,t) = \frac{1}{x^2 + t^2}$. Alors :
+
+- $f$ est continue sur $]0, +\infty[ \times [0,1]$
+- $\frac{\partial f}{\partial x}(x,t) = \frac{-2x}{(x^2+t^2)^2}$ est aussi continue
+
+Donc, par le théorème, $F$ est continue, dérivable et :
+$$F'(x) = \int_0^1 \frac{-2x}{(x^2+t^2)^2}\, dt$$
+:::
+
+## Intégrales à bornes variables
+
+::: {.theorem title="(Intégrales à bornes variables)"}
+Soit $f$ une fonction continue sur un intervalle $[a,b]$ à valeurs dans $\mathbb{R}$ (ou $\mathbb{C}$). Soient $I$ un intervalle de $\mathbb{R}$ et $u, v : I \to [a,b]$ deux fonctions de classe $\mathcal{C}^1$. Alors la fonction $G$ définie sur l'intervalle $I$ par :
+$$G(x) = \int_{u(x)}^{v(x)} f(t)\, dt$$
+est de classe $\mathcal{C}^1$ et :
+$$G'(x) = v'(x) f(v(x)) - u'(x) f(u(x))$$
+:::
+
+::: {.example}
+Calculons la dérivée de $G(x) = \int_x^{x^2} \frac{dt}{\ln t}$ pour $x > 1$.
+
+Pour appliquer le théorème, on remarque que $f(t) = \frac{1}{\ln t}$ est continue sur $]1, +\infty[$, et $u(x) = x$, $v(x) = x^2$ sont de classe $\mathcal{C}^1$ sur $]1, +\infty[$.
+
+$$G'(x) = 2x \cdot \frac{1}{\ln(x^2)} - 1 \cdot \frac{1}{\ln x} = 2x \cdot \frac{1}{2\ln x} - \frac{1}{\ln x} = \frac{x - 1}{\ln x}$$
+:::
+
+# Intégrales impropres dépendant d'un paramètre
+
+## Fonction définie par une intégrale impropre
+
+::: {.definition}
+Soit $f : (x,t) \mapsto f(x,t)$ une fonction définie sur $I \times [0, +\infty[$, où $I$ est un intervalle de $\mathbb{R}$. Supposons que l'intégrale de l'application partielle $t \mapsto f(x,t)$ soit convergente sur $[0, +\infty[$. On souhaite étudier la fonction qui à $x \in I$ associe :
+$$F(x) = \int_0^{+\infty} f(x,t)\, dt$$
+:::
+
+::: {.remarque}
+Comme une intégrale convergente est définie comme une limite d'intégrales sur des intervalles bornés, posons :
+$$F_A(x) = \int_0^A f(x,t)\, dt, \quad \text{d'où} \quad F(x) = \lim_{A \to +\infty} F_A(x)$$
+:::
+
+## Convergence dominée
+
+::: {.definition title="(Convergence dominée)"}
+Soit $(f_A)_{A > 0}$ une famille de fonctions définies sur $I$ convergeant simplement vers $F$. On dit que la convergence est **dominée** s'il existe une fonction $\varphi : [0, +\infty[ \to \mathbb{R}^+$ telle que :
+
+1. $\varphi$ est continue par morceaux et $\int_0^{+\infty} \varphi(t)\, dt$ converge.
+2. Pour tout $A > 0$ et tout $x \in I$ : $|f(x,t)| \leq \varphi(t)$ pour tout $t \geq 0$.
+:::
+
+::: {.theorem title="(Passage à la limite sous l'intégrale impropre)"}
+Soient $I$ un intervalle de $\mathbb{R}$ et $f : I \times [0, +\infty[ \to \mathbb{K}$ une fonction continue par morceaux. On suppose que :
+
+1. Pour tout $x \in I$, l'intégrale $\int_0^{+\infty} f(x,t)\, dt$ converge.
+2. La convergence de $f_A(x) = \int_0^A f(x,t)\, dt$ vers $F(x)$ est uniforme sur $I$.
+
+Alors la fonction $F(x) = \int_0^{+\infty} f(x,t)\, dt$ est continue sur $I$ et :
+$$\int_0^{+\infty} f(x,t)\, dt = \lim_{A \to +\infty} \int_0^A f(x,t)\, dt$$
+:::
+
+## Théorème de Fubini
+
+::: {.theorem title="(Théorème de Fubini)"}
+Soient $I = [\alpha, \beta]$ un intervalle fermé borné et $J = [0, +\infty[$. Soit $f$ une fonction continue sur $I \times J$, à valeurs dans $\mathbb{R}$ (ou $\mathbb{C}$) et qui vérifie l'hypothèse de convergence dominée. Alors la fonction $F$ est intégrable sur $I$ et :
+$$\int_\alpha^\beta F(x)\, dx = \int_\alpha^\beta \left(\int_0^{+\infty} f(x,t)\, dt\right) dx = \int_0^{+\infty} \left(\int_\alpha^\beta f(x,t)\, dx\right) dt$$
+:::
+
+# Transformée de Laplace
+
+## Définition
+
+::: {.definition title="(Transformée de Laplace)"}
+Soit $f : \mathbb{R}^+ \to \mathbb{R}$ une fonction continue. La **transformée de Laplace** de $f$ est la fonction $\mathcal{L}(f)$ définie par :
+$$\mathcal{L}(f)(s) = \int_0^{+\infty} f(t) e^{-st}\, dt$$
+pour tout $s \in \mathbb{R}$ tel que l'intégrale converge.
+:::
+
+::: {.remarque}
+
+1. Dans ce cours, nous supposerons que $s$ est un paramètre réel. (Alors qu'en toute généralité $s \in \mathbb{C}$.)
+2. Nous supposerons les fonctions continues. (Alors qu'en électronique les fonctions sautent souvent d'une valeur à une autre.)
+3. Lorsque l'on écrit $F(s)$, cela signifiera par convention que l'intégrale converge.
+:::
+
+::: {.example}
+Calculons $\mathcal{L}(f)(s)$ pour $f(t) = e^{at}$ avec $a \in \mathbb{R}$.
+
+$$\mathcal{L}(f)(s) = \int_0^{+\infty} e^{at} e^{-st}\, dt = \int_0^{+\infty} e^{(a-s)t}\, dt$$
+
+Cette intégrale converge si et seulement si $a - s < 0$, c'est-à-dire $s > a$. Dans ce cas :
+$$\mathcal{L}(f)(s) = \left[\frac{e^{(a-s)t}}{a-s}\right]_0^{+\infty} = \frac{1}{s-a}$$
+:::
+
+# Transformée de Fourier
+
+## Définition
+
+::: {.definition title="(Transformée de Fourier)"}
+Soit $f : \mathbb{R} \to \mathbb{R}$ une fonction continue dont l'intégrale est absolument convergente. La **transformée de Fourier** de $f$ est la fonction $\widehat{f} : \mathbb{R} \to \mathbb{C}$ définie par :
+$$\widehat{f}(\xi) = \int_{-\infty}^{+\infty} f(t) e^{-i\xi t}\, dt$$
+:::
+
+::: {.remarque}
+
+1. Contrairement à la transformée de Laplace, la transformée de Fourier est souvent à valeurs dans $\mathbb{C}$, même si l'ensemble de départ est $\mathbb{R}$.
+2. L'intégrale impropre a deux points incertains $-\infty$ et $+\infty$. Par définition, une intégrale $\int_{-\infty}^{+\infty} g(t)\, dt$ converge si et seulement si l'intégrale $\int_{-\infty}^0 g(t)\, dt$ converge **et** l'intégrale $\int_0^{+\infty} g(t)\, dt$ converge aussi.
+:::
+
+::: {.proposition title="(Existence de la transformée de Fourier)"}
+Supposons que $f$ soit continue et que l'intégrale de $f$ soit absolument convergente, c'est-à-dire :
+$$\int_{-\infty}^{+\infty} |f(t)|\, dt \quad \text{converge}$$
+Alors :
+
+1. Pour tout $\xi \in \mathbb{R}$, l'intégrale $\widehat{f}(\xi)$ existe.
+2. La fonction $\xi \mapsto \widehat{f}(\xi)$ est continue sur $\mathbb{R}$.
+:::
+
+# Exercices
+
+::: {.exercise}
+Soit $f(x,t) = \frac{\ln t}{x^2 + t^2}$ définie pour $x \in [0,1]$ et $t \in [1, +\infty[$. Montrer que $F(x) = \int_1^{+\infty} f(x,t)\, dt$ est une fonction continue, dérivable, de dérivée continue. Calculer $F'(x)$.
+:::
+
+::: {.exercise}
+Soit $f(x,t) = t^x e^{-t}$ définie sur $[1,10] \times [1, +\infty[$. Montrer que $F(x) = \int_1^{+\infty} f(x,t)\, dt$ est une fonction continue et dérivable.
+:::
+
+::: {.exercise}
+Soit $F(x) = \int_0^1 \frac{dt}{x + \sqrt{t}}$. Montrer que $F$ est définie en $x = 0$. À l'aide d'un changement de variable sur $t$, montrer que la fonction $F$ est continue sur $[0, +\infty[$. Calculer la limite de $F$ en $0$. Que peut-on dire pour la dérivée ?
+:::
+
+::: {.exercise}
+Soit $F(x) = \int_0^{+\infty} e^{-xt}\, dt$ pour $x > 0$. Calculer $F(x)$ et $F'(x)$.
+:::
+
+::: {.exercise title="(Transformée de Laplace)"}
+Soit $f : \mathbb{R}^+ \to \mathbb{R}$ continue et dont l'intégrale $\int_0^{+\infty} |f(t)|\, dt$ converge. Montrer que $\mathcal{L}(f)$ est définie et continue sur $\mathbb{R}$.
+:::
+
+# Document en PDF {-}
+[Chapitre 10 : Intégrales dépendant d'un paramètre](PDF/mp-chap10.pdf)
+
+## Navigation {-}
+::: {.chap-nav}
+[Chapitre 09 : Espaces préhilbertiens réels et endomorphismes des espaces euclidiens](mp-chap09.qmd){.prev}
+[Menu MP](mp.qmd){.home}
+[Chapitre 11 : Équations différentielles linéaires](mp-chap11.qmd){.next}
+:::

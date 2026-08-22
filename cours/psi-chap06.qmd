@@ -1,10 +1,464 @@
 ---
-title: "Chapitre 06 : Séries entières"
-pagetitle: "Séries entières - Mathématiques en CPGE"
+title: "Compléments sur les séries numériques. Suites et séries de fonctions"
+subtitle: "Chapitre 06"
+author: "Saîd MAHARI"
+date: last-modified
+date-format: "D MMMM YYYY"
+sidebar:
+  style: docked
+  contents:
+    - href: cours/index.qmd
+      text: "← Tous les cours"
+    - section: "PSI — 2e année"
+      contents:
+        - cours/psi-chap05.qmd
+        - cours/psi-chap06.qmd
+        # - cours/psi-chap07.qmd
+lang: fr
+format:
+  html:
+    theme: cosmo
+    toc: true
+    number-sections: true
+    html-math-method: katex
+    css: styles.css
+filters:
+  - custom-numbered-blocks.lua
 ---
 
-**PSI (2e année) — Chapitre 06.** Rayon de convergence, séries entières des fonctions de la physique.
+**PSI (2e année) — Chapitre 06.** Compléments sur les séries numériques (comparaison série-intégrale, produit de Cauchy), modes de convergence (simple, uniforme, normale), stabilité des propriétés (continuité, dérivabilité, intégrabilité) par passage à la limite.
 
-## Document
+Ce chapitre a été réalisé conformément au programme marocain de mathématiques de la filière PSI.
 
-*PDF à venir : déposez le fichier `files/psi/chap06.pdf` puis régénérez la page.*
+Dans tout ce chapitre, $X$ désigne un ensemble non vide, $I$ un intervalle de $\mathbb{R}$, $E$ un $\mathbb{K}$-espace vectoriel normé de dimension finie ($\mathbb{K} = \mathbb{R}$ ou $\mathbb{C}$), et $\mathcal{F}(X, E)$ l'ensemble des fonctions de $X$ dans $E$.
+
+# Compléments sur les séries numériques
+
+## Comparaison série-intégrale
+
+::: {.theorem title="(Théorème de comparaison série-intégrale)"}
+Soit $f : [a, +\infty[ \to \mathbb{R}^+$ une fonction continue, positive et décroissante. Alors :
+
+1. Pour tout $n \in \mathbb{N}^*$ :
+$$\int_a^{n+1} f(t)\, dt \leq \sum_{k=0}^n f(a + k) \leq f(a) + \int_a^n f(t)\, dt$$
+
+2. La série $\sum_{k=0}^{+\infty} f(a+k)$ et l'intégrale $\int_a^{+\infty} f(t)\, dt$ sont de même nature.
+:::
+
+::: {.proof}
+La fonction $f$ étant décroissante, pour tout $k \in \mathbb{N}$ :
+$$\int_k^{k+1} f(t)\, dt \leq f(k) \leq \int_{k-1}^k f(t)\, dt$$
+
+En sommant ces inégalités de $k = 0$ à $n$, on obtient le résultat.
+:::
+
+::: {.example}
+La série harmonique $\sum_{n=1}^{+\infty} \frac{1}{n}$ diverge car :
+$$\int_1^{+\infty} \frac{dt}{t} = +\infty$$
+et $\frac{1}{x}$ est continue, positive et décroissante sur $[1, +\infty[$.
+:::
+
+::: {.example title="(Encadrement des sommes partielles)"}
+Pour la série harmonique, on a l'encadrement :
+$$\ln(n+1) \leq \sum_{k=1}^n \frac{1}{k} \leq 1 + \ln n$$
+
+On en déduit que la constante d'Euler $\gamma = \lim_{n \to +\infty} \left(\sum_{k=1}^n \frac{1}{k} - \ln n\right)$ existe.
+:::
+
+## Produit de Cauchy
+
+::: {.definition title="(Produit de Cauchy)"}
+Soient $\sum_{n \geq 0} a_n$ et $\sum_{n \geq 0} b_n$ deux séries numériques. On appelle **série produit de Cauchy** (ou simplement **produit de Cauchy**) des deux séries la série $\sum_{n \geq 0} c_n$ où :
+$$c_n = \sum_{k=0}^n a_k b_{n-k} = \sum_{\substack{i+j=n \\ i,j \geq 0}} a_i b_j$$
+:::
+
+::: {.remarque}
+Une autre façon d'écrire le coefficient $c_n$ est : $c_n = \sum_{i+j=n} a_i b_j$.
+:::
+
+::: {.theorem title="(Produit de Cauchy de deux séries absolument convergentes)"}
+Si les séries $\sum_{n=0}^{+\infty} a_n$ et $\sum_{n=0}^{+\infty} b_n$ de nombres réels (ou complexes) sont absolument convergentes, alors la série produit $\sum_{n=0}^{+\infty} c_n$ est absolument convergente et :
+$$\sum_{n=0}^{+\infty} c_n = \left(\sum_{n=0}^{+\infty} a_n\right) \cdot \left(\sum_{n=0}^{+\infty} b_n\right)$$
+:::
+
+::: {.example title="(Application à la fonction exponentielle)"}
+On admet que pour $x \in \mathbb{R}$, la série $\sum_{k=0}^{+\infty} \frac{x^k}{k!}$ converge et vaut $e^x$.
+
+Que vaut la série produit associée à $e^a \times e^b$ ? Par le théorème du produit de Cauchy :
+$$c_n = \sum_{k=0}^n \frac{a^k}{k!} \cdot \frac{b^{n-k}}{(n-k)!} = \frac{1}{n!} \sum_{k=0}^n \binom{n}{k} a^k b^{n-k} = \frac{(a+b)^n}{n!}$$
+
+Donc :
+$$e^a \cdot e^b = \sum_{n=0}^{+\infty} \frac{(a+b)^n}{n!} = e^{a+b}$$
+:::
+
+::: {.example title="(Contre-exemple : produit de Cauchy de séries non absolument convergentes)"}
+Soient $a_i = b_i = \frac{(-1)^i}{\sqrt{i+1}}$ pour $i \geq 0$. Alors $\sum a_i$ et $\sum b_i$ sont convergentes par le critère de Leibniz, mais ne sont pas absolument convergentes.
+
+On a :
+$$c_k = \sum_{i=0}^k \frac{(-1)^i}{\sqrt{i+1}} \cdot \frac{(-1)^{k-i}}{\sqrt{k-i+1}} = (-1)^k \sum_{i=0}^k \frac{1}{\sqrt{(i+1)(k-i+1)}}$$
+
+Cette série peut être divergente.
+:::
+
+::: {.example}
+Le produit de Cauchy de $\sum_{n \geq 0} x^n$ par elle-même donne :
+$$c_n = \sum_{k=0}^n 1 \cdot 1 = n+1$$
+
+Donc :
+$$\left(\sum_{n=0}^{+\infty} x^n\right)^2 = \sum_{n=0}^{+\infty} (n+1)x^n = \frac{1}{(1-x)^2}$$
+pour $|x| < 1$.
+:::
+
+# Norme de la convergence uniforme
+
+## Fonctions bornées
+
+::: {.definition title="(Fonction bornée)"}
+Une fonction $f : X \to E$ est dite **bornée** si l'ensemble $\{f(x) \mid x \in X\}$ est borné dans $E$, c'est-à-dire s'il existe $M > 0$ tel que :
+$$\forall x \in X, \quad \|f(x)\| \leq M$$
+
+On note $\mathcal{B}(X, E)$ l'ensemble des fonctions bornées de $X$ dans $E$.
+:::
+
+::: {.definition title="(Norme de la convergence uniforme)"}
+Pour $f \in \mathcal{B}(X, E)$, on définit :
+$$\|f\|_\infty = \sup_{x \in X} \|f(x)\|$$
+
+L'application $f \mapsto \|f\|_\infty$ est une norme sur $\mathcal{B}(X, E)$, appelée **norme de la convergence uniforme** (ou **norme infinie**).
+:::
+
+::: {.proposition title="(Propriétés de la norme)"}
+Pour $f, g \in \mathcal{B}(X, E)$ et $\lambda \in \mathbb{K}$ :
+
+1. $\|f\|_\infty = 0 \iff f = 0$
+2. $\|\lambda f\|_\infty = |\lambda| \cdot \|f\|_\infty$
+3. $\|f + g\|_\infty \leq \|f\|_\infty + \|g\|_\infty$ (inégalité triangulaire)
+:::
+
+# Suites de fonctions
+
+## Convergence simple
+
+::: {.definition title="(Convergence simple d'une suite de fonctions)"}
+Soit $(f_n)_{n \geq 0}$ une suite de fonctions de $X$ dans $E$. On dit que la suite $(f_n)$ **converge simplement** vers une fonction $f : X \to E$ si :
+$$\forall x \in X, \quad f_n(x) \xrightarrow[n \to +\infty]{} f(x)$$
+
+Autrement dit, pour tout $x \in X$ et tout $\varepsilon > 0$, il existe $N \in \mathbb{N}$ (qui dépend de $x$ et de $\varepsilon$) tel que :
+$$n \geq N \implies \|f_n(x) - f(x)\| < \varepsilon$$
+:::
+
+::: {.remarque}
+La convergence simple est une convergence **point par point**. Pour chaque $x$, on a une suite numérique $(f_n(x))$ qui converge. Mais le rang à partir duquel la convergence a lieu peut dépendre de $x$.
+:::
+
+::: {.example}
+La suite $f_n(x) = x^n$ sur $[0, 1]$ converge simplement vers la fonction :
+$$f(x) = \begin{cases} 0 & \text{si } 0 \leq x < 1 \\ 1 & \text{si } x = 1 \end{cases}$$
+
+En effet, pour $0 \leq x < 1$, $x^n \to 0$, et pour $x = 1$, $1^n = 1$.
+:::
+
+## Convergence uniforme
+
+::: {.definition title="(Convergence uniforme d'une suite de fonctions)"}
+Soit $(f_n)_{n \geq 0}$ une suite de fonctions de $X$ dans $E$. On dit que la suite $(f_n)$ **converge uniformément** vers une fonction $f : X \to E$ si :
+$$\forall \varepsilon > 0, \quad \exists N \in \mathbb{N}, \quad \forall n \geq N, \quad \forall x \in X, \quad \|f_n(x) - f(x)\| < \varepsilon$$
+
+Autrement dit, le rang $N$ ne dépend que de $\varepsilon$, pas de $x$.
+:::
+
+::: {.proposition title="(Convergence uniforme en termes de norme)"}
+La suite $(f_n)$ converge uniformément vers $f$ si et seulement si :
+$$f_n - f \in \mathcal{B}(X, E) \text{ à partir d'un certain rang} \quad \text{et} \quad \|f_n - f\|_\infty \xrightarrow[n \to +\infty]{} 0$$
+:::
+
+::: {.proposition title="(Convergence uniforme implique convergence simple)"}
+Si $(f_n)$ converge uniformément vers $f$, alors $(f_n)$ converge simplement vers $f$.
+:::
+
+::: {.proof}
+Si $(f_n)$ converge uniformément vers $f$, alors pour tout $\varepsilon > 0$, il existe $N$ tel que pour tout $n \geq N$ et tout $x \in X$ :
+$$\|f_n(x) - f(x)\| < \varepsilon$$
+En particulier, pour tout $x$ fixé, on a $f_n(x) \to f(x)$.
+:::
+
+::: {.example title="(Convergence uniforme sur un intervalle borné)"}
+La suite $f_n(x) = \frac{x}{n}$ sur $\mathbb{R}$ converge uniformément vers $0$ sur tout intervalle borné $[a,b]$, mais pas sur $\mathbb{R}$ tout entier.
+
+Sur $\mathbb{R}$ : $\sup_{x \in \mathbb{R}} \left|\frac{x}{n}\right| = +\infty$, donc $\|f_n\|_\infty = +\infty$.
+:::
+
+::: {.example title="(Contre-exemple : convergence simple non uniforme)"}
+La suite $f_n(x) = x^n$ sur $[0,1]$ converge simplement vers :
+$$f(x) = \begin{cases} 0 & \text{si } 0 \leq x < 1 \\ 1 & \text{si } x = 1 \end{cases}$$
+
+Cette convergence n'est **pas uniforme**. En effet :
+$$\|f_n - f\|_\infty = \sup_{x \in [0,1)} x^n = 1$$
+:::
+
+::: {.proposition title="(Méthode pour étudier la convergence uniforme)"}
+Pour étudier la convergence uniforme d'une suite de fonctions $(f_n)$ :
+
+1. Étudier la convergence simple : fixer $x \in X$ et étudier la limite de la suite numérique $(f_n(x))$.
+2. Définir la fonction limite simple $f(x) = \lim_{n \to +\infty} f_n(x)$.
+3. Calculer (ou majorer) $\|f_n - f\|_\infty$ et montrer que $\|f_n - f\|_\infty \xrightarrow[n \to +\infty]{} 0$.
+:::
+
+# Séries de fonctions
+
+## Convergence simple d'une série
+
+::: {.definition title="(Convergence simple d'une série de fonctions)"}
+Soit $(u_n)_{n \geq 0}$ une suite de fonctions de $X$ dans $E$. On appelle **série de fonctions** de terme général $u_n$ la suite $(S_n)_{n \geq 0}$ définie par :
+$$S_n(x) = \sum_{k=0}^n u_k(x)$$
+
+La série **converge simplement** sur $X$ si pour tout $x \in X$, la série numérique $\sum u_n(x)$ converge. La somme est :
+$$S(x) = \sum_{n=0}^{+\infty} u_n(x)$$
+:::
+
+## Convergence uniforme d'une série
+
+::: {.definition title="(Convergence uniforme d'une série de fonctions)"}
+La série $\sum u_n$ **converge uniformément** sur $X$ vers $S$ si la suite $(S_n)$ des sommes partielles converge uniformément vers $S$ sur $X$.
+:::
+
+::: {.proposition title="(Caractérisation pratique)"}
+La série $\sum u_n$ converge uniformément sur $X$ si et seulement si :
+
+1. La série $\sum u_n$ converge simplement sur $X$.
+2. La suite des restes $(R_n)$ définie par $R_n(x) = \sum_{k=n+1}^{+\infty} u_k(x)$ converge uniformément vers $0$ sur $X$, c'est-à-dire :
+$$\|R_n\|_\infty \xrightarrow[n \to +\infty]{} 0$$
+:::
+
+## Convergence normale
+
+::: {.definition title="(Convergence normale)"}
+On dit que la série $\sum u_n$ **converge normalement** sur $X$ si la série numérique $\sum \|u_n\|_\infty$ converge, c'est-à-dire si :
+$$\sum_{n=0}^{+\infty} \sup_{x \in X} \|u_n(x)\| < +\infty$$
+:::
+
+::: {.proposition title="(Convergence normale implique convergence uniforme)"}
+La convergence normale implique la convergence uniforme (et donc la convergence simple).
+:::
+
+::: {.proof}
+Supposons que $\sum \|u_n\|_\infty$ converge. Pour tout $x \in X$ :
+$$\|u_n(x)\| \leq \|u_n\|_\infty$$
+Par le critère de comparaison, $\sum u_n(x)$ converge absolument. De plus, pour les restes :
+$$\|R_n(x)\| = \left\|\sum_{k=n+1}^{+\infty} u_k(x)\right\| \leq \sum_{k=n+1}^{+\infty} \|u_k(x)\| \leq \sum_{k=n+1}^{+\infty} \|u_k\|_\infty$$
+Donc $\|R_n\|_\infty \leq \sum_{k=n+1}^{+\infty} \|u_k\|_\infty \to 0$.
+:::
+
+::: {.proposition title="(Critère de convergence normale)"}
+Pour établir la convergence normale d'une série de fonctions $\sum u_n$, il suffit de trouver une série numérique convergente $\sum \alpha_n$ telle que :
+$$\forall n \in \mathbb{N}, \quad \|u_n\|_\infty \leq \alpha_n$$
+
+La série $\sum \alpha_n$ est dite être une **série majorante** de la série $\sum u_n$.
+:::
+
+::: {.example}
+La série $\sum_{n=0}^{+\infty} \frac{x^n}{n!}$ converge normalement sur tout segment $[-A, A]$ car :
+$$\left\|\frac{x^n}{n!}\right\|_\infty \leq \frac{A^n}{n!}$$
+et la série $\sum \frac{A^n}{n!}$ converge (série entière de rayon infini).
+:::
+
+::: {.example title="(Étude des modes de convergence)"}
+Étudions les modes de convergence sur $\mathbb{R}$ de la série de fonctions $\sum_{n \geq 1} \frac{\sin(nx^2)}{n^2}$.
+
+On pose $f_n(x) = \frac{\sin(nx^2)}{n^2}$ et on calcule $\|f_n\|_\infty = \frac{1}{n^2}$. Puisque la série $\sum \frac{1}{n^2}$ converge (exemple de Riemann), la série de fonctions $\sum f_n$ converge normalement, donc uniformément, absolument et simplement.
+:::
+
+::: {.remarque title="(Hiérarchie des convergences)"}
+La convergence normale d'une série est la notion la plus forte qui entraîne les autres :
+$$\text{Convergence normale} \implies \text{Convergence uniforme} \implies \text{Convergence simple}$$
+
+On commence toujours par étudier la convergence normale.
+:::
+
+# Stabilité des propriétés par passage à la limite
+
+## Continuité de la limite
+
+::: {.theorem title="(Théorème de continuité de la limite uniforme)"}
+Soit $(f_n)_{n \geq 0}$ une suite de fonctions de $X$ dans $E$ qui converge uniformément vers $f$ sur $X$. Si chaque $f_n$ est continue en un point $x_0 \in X$, alors $f$ est continue en $x_0$.
+
+En particulier, si chaque $f_n$ est continue sur $X$, alors $f$ est continue sur $X$.
+:::
+
+::: {.proof}
+Soit $\varepsilon > 0$. Par convergence uniforme, il existe $N \in \mathbb{N}$ tel que pour tout $n \geq N$ et tout $x \in X$ :
+$$\|f_n(x) - f(x)\| < \frac{\varepsilon}{3}$$
+
+Par continuité de $f_N$ en $x_0$, il existe $\delta > 0$ tel que pour tout $x \in X$ avec $\|x - x_0\| < \delta$ :
+$$\|f_N(x) - f_N(x_0)\| < \frac{\varepsilon}{3}$$
+
+Donc pour tout $x \in X$ avec $\|x - x_0\| < \delta$ :
+$$\|f(x) - f(x_0)\| \leq \|f(x) - f_N(x)\| + \|f_N(x) - f_N(x_0)\| + \|f_N(x_0) - f(x_0)\| < \frac{\varepsilon}{3} + \frac{\varepsilon}{3} + \frac{\varepsilon}{3} = \varepsilon$$
+:::
+
+::: {.corollary title="(Continuité de la somme d'une série)"}
+Si la série $\sum u_n$ converge uniformément sur $X$ vers $S$ et si chaque $u_n$ est continue sur $X$, alors $S$ est continue sur $X$.
+:::
+
+::: {.example title="(Contre-exemple : convergence simple ne préserve pas la continuité)"}
+La suite $f_n(x) = x^n$ sur $[0,1]$ est composée de fonctions continues mais converge simplement vers :
+$$f(x) = \begin{cases} 0 & \text{si } 0 \leq x < 1 \\ 1 & \text{si } x = 1 \end{cases}$$
+qui n'est pas continue en $x = 1$. La convergence n'est donc pas uniforme.
+:::
+
+## Intégration sur un segment
+
+::: {.theorem title="(Intégration terme à terme sur un segment)"}
+Soit $(f_n)_{n \geq 0}$ une suite de fonctions continues de $[a,b]$ dans $\mathbb{K}$ qui converge uniformément vers $f$ sur $[a,b]$. Alors $f$ est continue sur $[a,b]$ et :
+$$\int_a^b f(t)\, dt = \lim_{n \to +\infty} \int_a^b f_n(t)\, dt$$
+:::
+
+::: {.proof}
+Par le théorème de continuité de la limite uniforme, $f$ est continue. Par l'inégalité triangulaire :
+$$\left|\int_a^b f(t)\, dt - \int_a^b f_n(t)\, dt\right| = \left|\int_a^b (f(t) - f_n(t))\, dt\right| \leq \int_a^b |f(t) - f_n(t)|\, dt \leq (b-a)\|f - f_n\|_\infty$$
+Comme $\|f - f_n\|_\infty \to 0$, on conclut.
+:::
+
+::: {.corollary title="(Intégration terme à terme d'une série)"}
+Soit $\sum f_n$ une série de fonctions définies sur un segment $[a,b] \subset \mathbb{R}$. On suppose que :
+
+1. Pour tout $n \in \mathbb{N}$, la fonction $f_n$ est continue sur le segment $[a,b]$.
+2. La série de fonctions $\sum f_n$ converge uniformément sur le segment $[a,b]$.
+
+Alors :
+
+1. La fonction somme $S = \sum_{n=0}^{+\infty} f_n$ est continue sur le segment $[a,b]$.
+2. La série numérique $\sum \left(\int_a^b f_n(x)\, dx\right)$ converge.
+3. On peut inverser les signes sommes :
+$$\int_a^b \left(\sum_{n=0}^{+\infty} f_n(x)\right) dx = \sum_{n=0}^{+\infty} \left(\int_a^b f_n(x)\, dx\right)$$
+:::
+
+::: {.example title="(Série « mirabili » de Johann Bernoulli, 1697)"}
+Montrons que $\int_0^1 x^x\, dx = \sum_{n=1}^{+\infty} \frac{(-1)^{n+1}}{n^n}$.
+
+Pour $x > 0$, $x^x = e^{x \ln x} = \sum_{n=0}^{+\infty} \frac{x^n (\ln x)^n}{n!}$. On peut montrer que cette série converge uniformément sur $[0,1]$, et par intégration terme à terme, on obtient le résultat.
+:::
+
+## Dérivation
+
+::: {.theorem title="(Dérivation de la limite d'une suite)"}
+Soit $(f_n)_{n \geq 0}$ une suite de fonctions de classe $\mathcal{C}^1$ sur $I$ telles que :
+
+1. La suite $(f_n(x_0))$ converge en au moins un point $x_0 \in I$.
+2. La suite $(f_n')$ converge uniformément sur tout segment contenu dans $I$ vers une fonction $g$.
+
+Alors la suite $(f_n)$ converge uniformément sur tout segment contenu dans $I$ vers une fonction $f$ de classe $\mathcal{C}^1$ sur $I$, et :
+$$f'(x) = g(x) = \lim_{n \to +\infty} f_n'(x)$$
+:::
+
+::: {.corollary title="(Dérivation terme à terme d'une série)"}
+Soit $\sum u_n$ une série de fonctions de classe $\mathcal{C}^1$ sur $I$ telle que :
+
+1. La série $\sum u_n(x_0)$ converge en au moins un point $x_0 \in I$.
+2. La série $\sum u_n'$ converge uniformément sur tout segment contenu dans $I$.
+
+Alors la série $\sum u_n$ converge uniformément sur tout segment contenu dans $I$ vers une fonction $S$ de classe $\mathcal{C}^1$ sur $I$, et :
+$$S'(x) = \sum_{n=0}^{+\infty} u_n'(x)$$
+:::
+
+::: {.remarque title="(Extension aux classes $\mathcal{C}^k$)"}
+Le théorème de dérivation s'étend aux fonctions de classe $\mathcal{C}^k$ : si les suites $(f_n^{(p)})$ convergent simplement pour $p = 0, \ldots, k-1$ et $(f_n^{(k)})$ converge uniformément sur tout segment, alors la limite est de classe $\mathcal{C}^k$ et $f^{(k)} = \lim f_n^{(k)}$.
+:::
+
+## Intégration sur un intervalle quelconque
+
+::: {.theorem title="(Théorème de convergence dominée)"}
+Soit $(f_n)_{n \geq 0}$ une suite de fonctions continues par morceaux sur $I$ convergeant simplement vers $f$. On suppose qu'il existe une fonction $\varphi : I \to \mathbb{R}^+$ continue par morceaux et intégrable sur $I$ telle que :
+$$\forall n \in \mathbb{N}, \quad \forall x \in I, \quad |f_n(x)| \leq \varphi(x)$$
+
+Alors $f$ est intégrable sur $I$ et :
+$$\int_I f(x)\, dx = \lim_{n \to +\infty} \int_I f_n(x)\, dx$$
+:::
+
+::: {.theorem title="(Intégration terme à terme sur un intervalle)"}
+Soit $\sum f_n$ une série de fonctions continues par morceaux sur $I$. On suppose que :
+
+1. Pour tout $n \in \mathbb{N}$, la fonction $f_n$ est intégrable sur $I$.
+2. La série numérique $\sum \left(\int_I |f_n(x)|\, dx\right)$ converge.
+
+Alors :
+
+1. La fonction somme $S = \sum_{n=0}^{+\infty} f_n$ est intégrable sur $I$.
+2. $\int_I |S(x)|\, dx \leq \sum_{n=0}^{+\infty} \int_I |f_n(x)|\, dx$.
+3. On peut permuter les signes sommes :
+$$\int_I \left(\sum_{n=0}^{+\infty} f_n(x)\right) dx = \sum_{n=0}^{+\infty} \left(\int_I f_n(x)\, dx\right)$$
+:::
+
+# Approximation uniforme
+
+## Théorème de Weierstrass
+
+::: {.theorem title="(Théorème de Weierstrass, admis)"}
+Soit $f : [a,b] \to \mathbb{K}$ une fonction continue. Alors il existe une suite de polynômes $(P_n)_{n \geq 0}$ qui converge uniformément vers $f$ sur $[a,b]$.
+:::
+
+::: {.remarque}
+Ce théorème montre que les polynômes sont denses dans l'espace $\mathcal{C}([a,b], \mathbb{K})$ muni de la norme de la convergence uniforme. En d'autres termes, toute fonction continue sur un segment peut être approchée uniformément par des polynômes à une précision arbitraire.
+:::
+
+::: {.remarque title="(Généralisation)"}
+Plus généralement, toute fonction continue sur un segment $[a,b]$ peut être approchée uniformément par :
+
+- des fonctions polynômiales (théorème de Weierstrass),
+- des sommes trigonométriques (théorème de Fejér),
+- des fonctions en escalier (en particulier, les fonctions continues par morceaux sont limites uniformes de fonctions en escalier).
+:::
+
+::: {.example title="(Polynômes de Bernstein)"}
+La suite des polynômes de Bernstein :
+$$B_n(f)(x) = \sum_{k=0}^n f\left(\frac{k}{n}\right) \binom{n}{k} x^k (1-x)^{n-k}$$
+converge uniformément vers $f$ sur $[0,1]$ pour toute fonction continue $f$.
+:::
+
+# Exercices
+
+::: {.exercise}
+Étudier la convergence simple et uniforme de la suite $(f_n)$ définie sur $[0,1]$ par :
+$$f_n(x) = \frac{nx}{1 + n^2 x^2}$$
+:::
+
+::: {.exercise}
+Étudier la convergence simple et uniforme de la suite $(f_n)$ définie sur $\mathbb{R}^+$ par :
+$$f_n(x) = \frac{x}{1 + nx}$$
+:::
+
+::: {.exercise}
+Soit $(f_n)$ une suite de fonctions continues de $[0,1]$ dans $\mathbb{R}$ convergeant uniformément vers $f$. Montrer que si chaque $f_n$ est positive, alors $f$ est positive.
+:::
+
+::: {.exercise}
+Étudier la convergence simple et uniforme de la série :
+$$\sum_{n=1}^{+\infty} \frac{x^n}{n} \quad \text{sur } [0, r] \text{ avec } 0 < r < 1$$
+:::
+
+::: {.exercise}
+Montrer que la série $\sum_{n=0}^{+\infty} \frac{x^n}{n!}$ converge normalement sur tout segment de $\mathbb{R}$ et que sa somme est de classe $\mathcal{C}^\infty$.
+:::
+
+::: {.exercise title="(Comparaison série-intégrale)"}
+Montrer que la série $\sum_{n=1}^{+\infty} \frac{1}{n^2}$ converge en utilisant le théorème de comparaison série-intégrale.
+:::
+
+::: {.exercise title="(Produit de Cauchy)"}
+Calculer le produit de Cauchy des séries $\sum_{n=0}^{+\infty} \frac{x^n}{n!}$ et $\sum_{n=0}^{+\infty} \frac{y^n}{n!}$. En déduire que $e^x \cdot e^y = e^{x+y}$.
+:::
+
+::: {.exercise}
+Soit $f : [0,1] \to \mathbb{R}$ continue. Montrer que :
+$$\lim_{n \to +\infty} \int_0^1 f(x) x^n\, dx = 0$$
+:::
+
+# Document en PDF {-}
+[Chapitre 06 : Compléments sur les séries numériques. Suites et séries de fonctions](PDF/psi-chap06.pdf)
+
+## Navigation {-}
+::: {.chap-nav}
+[Chapitre 05 : Fonctions vectorielles](psi-chap05.qmd){.prev}
+[Menu PSI](psi.qmd){.home}
+[Chapitre 07 : Séries entières](psi-chap07.qmd){.next}
+:::

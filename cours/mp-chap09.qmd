@@ -1,10 +1,428 @@
 ---
-title: "Chapitre 09 : Calcul différentiel"
-pagetitle: "Calcul différentiel - Mathématiques en CPGE"
+title: "Espaces préhilbertiens réels et endomorphismes des espaces euclidiens"
+subtitle: "Chapitre 09"
+author: "Saîd MAHARI"
+date: last-modified
+date-format: "D MMMM YYYY"
+sidebar:
+  style: docked
+  contents:
+    - href: cours/index.qmd
+      text: "← Tous les cours"
+    - section: "MP — 2e année"
+      contents:
+        - cours/mp-chap08.qmd
+        - cours/mp-chap09.qmd
+        # - cours/mp-chap10.qmd
+lang: fr
+format:
+  html:
+    theme: cosmo
+    toc: true
+    number-sections: true
+    html-math-method: katex
+    css: styles.css
+filters:
+  - custom-numbered-blocks.lua
 ---
 
-**MP (2e année) — Chapitre 09.** Gradient, matrice jacobienne, extrema libres et liés.
+**MP (2e année) — Chapitre 09.** Projection orthogonale sur un sous-espace de dimension finie, suites orthonormales et suites totales, endomorphismes symétriques, endomorphismes orthogonaux, formes linéaires et adjoint d'un endomorphisme, application à l'étude des extrema.
 
-## Document
+Ce chapitre a été réalisé conformément au programme marocain de mathématiques de la filière MP.
 
-*PDF à venir : déposez le fichier `files/mp/chap09.pdf` puis régénérez la page.*
+Dans tout ce chapitre, $E$ désigne un espace préhilbertien réel (de dimension finie ou infinie), muni d'un produit scalaire noté $\langle \cdot, \cdot \rangle$, et de la norme associée $\|x\| = \sqrt{\langle x, x \rangle}$.
+
+# Rappels sur les produits scalaires
+
+## Produit scalaire, espaces préhilbertiens réels
+
+::: {.definition title="(Produit scalaire)"}
+Soit $E$ un $\mathbb{R}$-espace vectoriel. On appelle **produit scalaire** sur $E$ toute application $\langle \cdot, \cdot \rangle : E \times E \to \mathbb{R}$ qui vérifie :
+
+1. **Symétrie** : $\forall x, y \in E, \quad \langle x, y \rangle = \langle y, x \rangle$
+2. **Bilinéarité** : $\forall x, y, z \in E, \; \forall \lambda, \mu \in \mathbb{R}, \quad \langle \lambda x + \mu y, z \rangle = \lambda \langle x, z \rangle + \mu \langle y, z \rangle$
+3. **Positivité** : $\forall x \in E, \quad \langle x, x \rangle \geq 0$
+4. **Définie positive** : $\forall x \in E, \quad \langle x, x \rangle = 0 \implies x = 0_E$
+:::
+
+::: {.definition title="(Espaces préhilbertiens et euclidiens)"}
+
+- Si $E$ est un $\mathbb{R}$-espace vectoriel muni d'un produit scalaire $\langle \cdot, \cdot \rangle$, il est dit **espace préhilbertien**.
+- S'il est, de plus, de dimension finie, il est dit **espace euclidien**.
+:::
+
+::: {.example title="(Produits scalaires de référence)"}
+
+1. **Produit scalaire euclidien canonique** sur $\mathbb{R}^n$ :
+$$\langle x, y \rangle = \sum_{k=1}^n x_k y_k = {}^tX Y$$
+
+2. **Produit scalaire sur** $\mathcal{M}_n(\mathbb{R})$ :
+$$\langle A, B \rangle = \mathrm{Tr}({}^tA B) = \sum_{i,j=1}^n a_{ij} b_{ij}$$
+
+3. **Produit scalaire sur les fonctions continues** :
+$$\langle f, g \rangle = \int_a^b f(t) g(t)\, dt$$
+
+4. **Produit scalaire sur les polynômes** :
+$$\langle P, Q \rangle = \sum_{k=0}^n P(a_k) Q(a_k)$$
+:::
+
+## Inégalité de Cauchy-Schwarz et inégalité de Minkowski
+
+::: {.proposition title="(Inégalité de Cauchy-Schwarz)"}
+Soit $(E, \langle \cdot, \cdot \rangle)$ un espace préhilbertien réel. Alors :
+
+1. Pour tout $(x, y) \in E^2$ :
+$$|\langle x, y \rangle| \leq \|x\| \cdot \|y\|$$
+avec égalité si et seulement si la famille $(x, y)$ est liée.
+
+2. Pour tout $(x, y) \in E^2$ :
+$$\|x + y\| \leq \|x\| + \|y\|$$
+avec égalité si et seulement si $y = \lambda x$ avec $\lambda \in \mathbb{R}^+$.
+:::
+
+::: {.proposition}
+L'application $E \to \mathbb{R}^+$, $x \mapsto \|x\| = \sqrt{\langle x, x \rangle}$ est une norme sur $E$, appelée **norme euclidienne** associée au produit scalaire de $E$.
+:::
+
+## Identités remarquables
+
+::: {.proposition title="(Identités remarquables)"}
+Pour tout $x, y \in E$ et tout $\lambda \in \mathbb{R}$ :
+$$\|x + \lambda y\|^2 = \|x\|^2 + \lambda^2 \|y\|^2 + 2\lambda \langle x, y \rangle$$
+
+En particulier :
+$$\|x + y\|^2 = \|x\|^2 + \|y\|^2 + 2\langle x, y \rangle$$
+$$\|x - y\|^2 = \|x\|^2 + \|y\|^2 - 2\langle x, y \rangle$$
+:::
+
+::: {.proposition title="(Identité du parallélogramme)"}
+Pour tout $x, y \in E$ :
+$$\|x + y\|^2 + \|x - y\|^2 = 2(\|x\|^2 + \|y\|^2)$$
+:::
+
+::: {.proposition title="(Identités de polarisation)"}
+Pour tout $x, y \in E$ :
+$$\langle x, y \rangle = \frac{1}{4}\left(\|x + y\|^2 - \|x - y\|^2\right)$$
+$$\langle x, y \rangle = \frac{1}{2}\left(\|x + y\|^2 - \|x\|^2 - \|y\|^2\right)$$
+:::
+
+::: {.remark}
+L'identité du parallélogramme caractérise les normes euclidiennes : pour démontrer qu'une norme n'est pas euclidienne, il suffit de prouver que l'identité du parallélogramme n'est pas satisfaite.
+:::
+
+# Orthogonalité
+
+## Généralités
+
+::: {.definition title="(Orthogonalité)"}
+Soit $(x, y) \in E^2$. On dit que $x$ est **orthogonal** à $y$, et on note $x \perp y$, si :
+$$\langle x, y \rangle = 0$$
+:::
+
+::: {.definition title="(Orthogonal d'une partie)"}
+Soit $A$ une partie de $E$. L'**orthogonal** de $A$ est :
+$$A^\perp = \{y \in E \mid \forall x \in A, \; \langle x, y \rangle = 0\}$$
+:::
+
+::: {.proposition title="(Propriétés de l'orthogonal)"}
+
+1. $E^\perp = \{0\}$. En particulier, pour démontrer qu'un vecteur $a$ de $E$ est nul, il suffit de prouver que $\forall x \in E, \; \langle x, a \rangle = 0$.
+2. $\{0\}^\perp = E$
+3. Pour toute partie $A$ de $E$, $A^\perp$ est un sous-espace vectoriel fermé de $E$.
+4. Pour toute partie $A$ de $E$, on a $A^\perp = (\mathrm{Vect}\, A)^\perp$.
+5. Si $A$ et $B$ sont deux parties de $E$, on dit que $A$ et $B$ sont orthogonales et on note $A \perp B$ si :
+$$\forall (a, b) \in A \times B, \quad \langle a, b \rangle = 0$$
+
+Remarquons que : $A \perp B \iff A \subset B^\perp \iff B \subset A^\perp$.
+:::
+
+## Familles orthogonales, familles orthonormées
+
+::: {.definition}
+Une famille $(e_i)_{i \in I}$ de vecteurs de $E$ est :
+
+- **orthogonale** si $\forall i \neq j, \; \langle e_i, e_j \rangle = 0$
+- **orthonormée** (ou **orthonormale**) si elle est orthogonale et si $\forall i, \; \|e_i\| = 1$
+:::
+
+::: {.proposition}
+Soit $(E, \langle \cdot, \cdot \rangle)$ un espace préhilbertien réel. Alors, toute famille orthogonale de vecteurs de $E$ formée de vecteurs non nuls est une famille libre, en particulier toute famille orthonormée de $E$ est une famille libre de $E$.
+:::
+
+::: {.proof}
+Soit $(e_i)_{i \in I}$ une telle famille. Si $J$ est une partie finie non vide de $I$ et $(\alpha_i)_{i \in J}$ une famille de scalaires telle que :
+$$\sum_{i \in J} \alpha_i e_i = 0$$
+soit $k \in J$, alors :
+$$\left\langle e_k, \sum_{i \in J} \alpha_i e_i \right\rangle = 0$$
+donc $\alpha_k \|e_k\|^2 = 0$ et comme $e_k \neq 0$, on a $\alpha_k = 0$.
+:::
+
+::: {.proposition title="(Théorème de Pythagore)"}
+Soit $E$ un espace préhilbertien réel. Alors :
+$$\forall (x, y) \in E^2, \quad x \perp y \iff \|x + y\|^2 = \|x\|^2 + \|y\|^2$$
+:::
+
+::: {.remark}
+Généralement si $m \geq 2$ et $x_1, \ldots, x_m$ des vecteurs deux à deux orthogonaux avec $m \in \mathbb{N}$, $m \geq 2$, alors :
+$$\left\|\sum_{k=1}^m x_k\right\|^2 = \sum_{k=1}^m \|x_k\|^2$$
+
+Attention ! La réciproque n'est pas vraie si $m \geq 3$.
+:::
+
+## Procédé de Gram-Schmidt
+
+::: {.theorem title="(Algorithme d'orthonormalisation de Gram-Schmidt)"}
+Soit $(E, \langle \cdot, \cdot \rangle)$ un espace préhilbertien réel et $U = (u_1, \ldots, u_n)$ une famille libre de $E$. Alors il existe une famille orthonormée $E = (e_1, \ldots, e_n)$ telle que :
+$$\forall k \in \{1, \ldots, n\}, \quad \mathrm{Vect}(u_1, \ldots, u_k) = \mathrm{Vect}(e_1, \ldots, e_k)$$
+
+L'algorithme est le suivant :
+$$e_1 = \frac{u_1}{\|u_1\|}$$
+$$\forall k \in \{1, \ldots, n-1\}, \quad e_{k+1} = \frac{u_{k+1} - \pi_k(u_{k+1})}{\|u_{k+1} - \pi_k(u_{k+1})\|}$$
+où $\pi_k$ est la projection orthogonale sur $\mathrm{Vect}(u_1, \ldots, u_k)$.
+:::
+
+## Expression du produit scalaire dans une base orthonormée
+
+::: {.proposition}
+Soit $E$ un espace euclidien de dimension non nulle $n$ et $\mathcal{E} = (e_1, \ldots, e_n)$ une base orthonormée de $E$. Alors :
+
+1. $\forall x, y \in E, \quad \langle x, y \rangle = \sum_{k=1}^n x_k y_k$ où $X$ et $Y$ sont les colonnes des coordonnées de $x$ et $y$ dans la base $\mathcal{E}$.
+
+2. $\forall x \in E, \quad x = \sum_{k=1}^n \langle x, e_k \rangle e_k$
+
+3. $\forall x \in E, \quad \|x\|^2 = \sum_{k=1}^n x_k^2$
+:::
+
+## Conséquences : Théorème de représentation, supplémentaire orthogonal
+
+::: {.theorem title="(Théorème de représentation)"}
+Soit $E$ un espace euclidien de dimension non nulle $n$. Pour toute forme linéaire $f$ sur $E$, il existe un et un seul vecteur $a$ de $E$ tel que $f = \langle a, \cdot \rangle$, c'est-à-dire :
+$$\forall x \in E, \quad f(x) = \langle a, x \rangle$$
+:::
+
+::: {.definition title="(Supplémentaire orthogonal)"}
+On dit qu'un sous-espace vectoriel $F$ de $E$ admet un **supplémentaire orthogonal** si $F + F^\perp = E$.
+:::
+
+::: {.theorem}
+Si $F$ est un sous-espace vectoriel de dimension finie d'un espace préhilbertien quelconque $E$, alors $F$ admet un supplémentaire orthogonal. Autrement dit :
+$$F \oplus F^\perp = E \quad \text{et} \quad F = F^{\perp\perp}$$
+:::
+
+::: {.proof}
+Si $F = \{0\}$ ou $F = E$, le résultat est banal. Sinon, soit $p = \dim(F)$ et $\mathcal{E} = (e_1, \ldots, e_p)$ une base orthonormée de $F$. Soit $a \in E$. L'application $f : F \to \mathbb{R}$, $x \mapsto f(x) = \langle a, x \rangle$ est une forme linéaire sur $F$. Comme $F$ est de dimension finie, il existe $b \in F$ tel que $f = \langle b, \cdot \rangle$. Donc pour tout $x \in F$, on a $\langle a, x \rangle = \langle b, x \rangle$, donc $a - b \in F^\perp$. Posons alors $a - b = b'$ avec $b' \in F^\perp$. Alors $a = b + b'$ avec $(b, b') \in F \times F^\perp$. Ainsi on a :
+$$(\forall a \in E)(\exists (b, b') \in F \times F^\perp) \quad a = b + b'$$
+Donc $E = F + F^\perp$.
+:::
+
+# Projection orthogonale
+
+## Généralités
+
+::: {.definition title="(Projection orthogonale)"}
+Soit $F$ un sous-espace vectoriel de dimension finie de $E$. La **projection orthogonale** sur $F$, notée $p_F$, est la projection sur $F$ associée à la décomposition $E = F \oplus F^\perp$.
+:::
+
+## Expression du projeté orthogonal
+
+::: {.proposition}
+Soit $F$ un sous-espace vectoriel de dimension finie non nulle $p$ de $E$ et $\mathcal{C} = (e_1, \ldots, e_p)$ une base orthonormée de $F$. Alors si $p_F$ est la projection orthogonale de $E$ sur $F$, on a :
+$$\forall x \in E, \quad p_F(x) = \sum_{k=1}^p \langle x, e_k \rangle e_k$$
+:::
+
+## Inégalité de Bessel
+
+::: {.proposition title="(Inégalité de Bessel)"}
+Soit $(E, \langle \cdot, \cdot \rangle)$ un espace préhilbertien de dimension infinie. Si $(e_n)_{n \in \mathbb{N}}$ est une suite orthonormée de vecteurs de $E$, alors pour tout vecteur $x$ de $E$, la série $\sum |\langle x, e_n \rangle|^2$ est convergente dans $E$ et on a :
+$$\sum_{n=0}^{+\infty} |\langle x, e_n \rangle|^2 \leq \|x\|^2$$
+:::
+
+## Caractérisation métrique
+
+::: {.theorem title="(Pythagore)"}
+Soit $E$ un espace préhilbertien réel. Alors :
+$$\forall (x, y) \in E^2, \quad x \perp y \iff \|x + y\|^2 = \|x\|^2 + \|y\|^2$$
+:::
+
+## Distance à un sous-espace vectoriel
+
+::: {.definition title="(Distance à un sous-espace)"}
+Soit $F$ un sous-espace vectoriel de dimension finie de $E$. La **distance** d'un vecteur $x$ à $F$ est :
+$$d(x, F) = \inf_{y \in F} \|x - y\|$$
+:::
+
+::: {.theorem title="(Le projeté orthogonal réalise la meilleure approximation)"}
+Soit $F$ un sous-espace vectoriel de dimension finie de $E$. Alors pour tout $x \in E$ :
+$$\|x - p_F(x)\| = \min_{y \in F} \|x - y\|$$
+:::
+
+::: {.proposition title="(Distance à un hyperplan)"}
+Si $H = \mathrm{Vect}(a)^\perp$ est un hyperplan avec $a \neq 0$, alors :
+$$d(x, H) = \frac{|\langle x, a \rangle|}{\|a\|} = \frac{|\sum_{i=1}^n a_i x_i|}{\sqrt{a_1^2 + a_2^2 + \cdots + a_n^2}}$$
+:::
+
+# Espaces euclidiens : rappels et compléments
+
+## Matrices orthogonales, endomorphismes orthogonaux
+
+::: {.proposition-définition title="(Matrices orthogonales)"}
+Soit $A \in \mathcal{M}_n(\mathbb{R})$. Les assertions suivantes sont équivalentes :
+
+1. ${}^tA A = I_n$
+2. $A \, {}^tA = I_n$
+3. $A$ est inversible et $A^{-1} = {}^tA$
+4. Les colonnes de $A$ forment une base orthonormée de $\mathcal{M}_{n,1}(\mathbb{R})$.
+5. Les lignes de $A$ forment une base orthonormée de $\mathcal{M}_{1,n}(\mathbb{R})$.
+:::
+
+::: {.definition title="(Endomorphisme orthogonal)"}
+Soit $u$ un endomorphisme de $E$. Les assertions suivantes sont équivalentes :
+
+1. $u$ conserve le produit scalaire : $\forall (x, y) \in E^2, \quad \langle u(x), u(y) \rangle = \langle x, y \rangle$
+2. $u$ conserve la norme : $\forall x \in E, \quad \|u(x)\| = \|x\|$
+3. Il existe une base orthonormée $\mathcal{E}$ de $E$ telle que $\mathrm{Mat}_{\mathcal{E}}(u)$ est une matrice orthogonale.
+:::
+
+## Réduction des matrices et endomorphismes orthogonaux
+
+::: {.theorem}
+Soit $E$ un espace euclidien de dimension non nulle $n$ et $u$ un endomorphisme orthogonal de $E$. Alors il existe une base orthonormée $\mathcal{E}$ de $E$ telle que $\mathrm{Mat}_{\mathcal{E}}(u)$ est une matrice diagonale par blocs de la forme :
+$$\mathrm{Mat}_{\mathcal{E}}(u) = \begin{pmatrix} I_p & & & & \\ & -I_q & & & \\ & & R_{\theta_1} & & \\ & & & \ddots & \\ & & & & R_{\theta_s} \end{pmatrix}$$
+avec $R_\theta = \begin{pmatrix} \cos\theta & -\sin\theta \\ \sin\theta & \cos\theta \end{pmatrix}$ et $p + q + 2s = n$.
+:::
+
+## Endomorphismes et matrices symétriques
+
+::: {.definition title="(Endomorphisme symétrique)"}
+Soit $(E, \langle \cdot, \cdot \rangle)$ un espace préhilbertien réel de dimension finie ou infinie et $u \in \mathcal{L}(E)$. On dit que $u$ est **symétrique** si :
+$$\forall x, y \in E, \quad \langle x, u(y) \rangle = \langle u(x), y \rangle$$
+:::
+
+::: {.proposition title="(Stabilité des sous-espaces orthogonaux)"}
+Soit $(E, \langle \cdot, \cdot \rangle)$ un espace préhilbertien réel de dimension finie ou infinie et $u$ un endomorphisme symétrique de $E$ et $F$ un sous-espace vectoriel de $E$. Si $F$ est stable par $u$, alors $F^\perp$ est stable par $u$.
+:::
+
+::: {.proposition title="(Orthogonalité des sous-espaces propres)"}
+Soit $u$ un endomorphisme symétrique de $E$. Si $\lambda$ et $\mu$ sont deux valeurs propres de $u$, alors :
+$$\lambda \neq \mu \implies E_\lambda(u) \perp E_\mu(u)$$
+:::
+
+::: {.theorem title="(Théorème spectral)"}
+Soit $u$ un endomorphisme symétrique de $E$. Alors $u$ est diagonalisable dans une base orthonormée, c'est-à-dire que $E$ admet une base formée de vecteurs propres de $u$.
+:::
+
+## Adjoint d'un endomorphisme
+
+::: {.theorem-définition title="(Adjoint d'un endomorphisme)"}
+Soit $E$ un espace euclidien et $u$ un endomorphisme de $E$. Il existe un et un seul endomorphisme $v$ de $E$ tel que :
+$$\forall (x, y) \in E^2, \quad \langle u(x), y \rangle = \langle x, v(y) \rangle$$
+
+L'endomorphisme $v$ s'appelle l'**endomorphisme adjoint** de $u$ et on le note $u^*$.
+:::
+
+::: {.proposition title="(Propriétés de l'adjoint)"}
+Soient $u, v$ des endomorphismes de $E$ et $\lambda \in \mathbb{R}$. Alors :
+
+1. $(u^*)^* = u$
+2. $(u \circ v)^* = v^* \circ u^*$
+3. $(u + \lambda v)^* = u^* + \lambda v^*$
+4. $\ker(u^*) = (\mathrm{Im}(u))^\perp$ et $\mathrm{Im}(u^*) = (\ker(u))^\perp$
+:::
+
+::: {.proposition title="(Caractérisation d'un endomorphisme orthogonal par son adjoint)"}
+Un endomorphisme $u$ est orthogonal si et seulement si $u$ est inversible et $u^{-1} = u^*$.
+:::
+
+::: {.proposition-définition title="(Endomorphisme auto-adjoint)"}
+Soit $u$ un endomorphisme de $E$. Alors $u$ est symétrique si et seulement si $u = u^*$. On dit aussi que $u$ est **auto-adjoint**.
+:::
+
+## Endomorphisme et matrice symétriques définis positifs
+
+::: {.definition title="(Symétrique positif et défini positif)"}
+Soit $E$ un espace euclidien de dimension $n$ et $u$ un endomorphisme de $E$ et soit $A \in \mathcal{M}_n(\mathbb{R})$.
+
+1. On dit que $u$ est **symétrique positif** si et seulement si $u$ est symétrique et :
+$$\forall x \in E, \quad \langle u(x), x \rangle \geq 0$$
+
+2. On dit que $u$ est **symétrique défini positif** si et seulement si $u$ est symétrique et :
+$$\forall x \in E \setminus \{0\}, \quad \langle u(x), x \rangle > 0$$
+
+3. On dit que la matrice $A$ est **symétrique positive** si et seulement si $A$ est symétrique et :
+$$\forall X \in \mathbb{R}^n, \quad \langle AX, X \rangle \geq 0$$
+:::
+
+# Application à l'étude des extrema
+
+## Forme quadratique associée à un endomorphisme symétrique
+
+::: {.proposition}
+Soit $u$ un endomorphisme symétrique de $E$ et $q$ la forme quadratique associée définie par $q(x) = \langle u(x), x \rangle$. Alors :
+
+- $q$ admet un minimum local en $0$ si et seulement si $u$ est positif.
+- $q$ admet un minimum local strict en $0$ si et seulement si $u$ est défini positif.
+:::
+
+## Application au calcul différentiel
+
+::: {.proposition title="(Condition suffisante d'ordre 2)"}
+Soit $f : \Omega \to \mathbb{R}$ une fonction de classe $\mathcal{C}^2$ sur un ouvert $\Omega$ de $\mathbb{R}^n$. Si $a \in \Omega$ est un point critique ($\nabla f(a) = 0$), alors :
+
+- Si la matrice hessienne $H_f(a)$ est définie positive, $f$ admet un minimum local strict en $a$.
+- Si la matrice hessienne $H_f(a)$ est définie négative, $f$ admet un maximum local strict en $a$.
+:::
+
+# Exercices
+
+::: {.exercise}
+Soit $E$ un espace euclidien et $F$ un sous-espace vectoriel de $E$. Montrer que :
+
+1. Si $F \subset G$, alors $G^\perp \subset F^\perp$.
+2. $(F + G)^\perp = F^\perp \cap G^\perp$.
+3. $(F \cap G)^\perp = F^\perp + G^\perp$.
+4. Si $\dim(E)$ est finie, alors $(F^\perp)^\perp = F$.
+:::
+
+::: {.exercise}
+Déterminer la matrice dans la base canonique de $\mathbb{R}^3$ de la projection orthogonale sur le plan d'équation $x + 2y - 3z = 0$.
+
+En déduire la matrice de la symétrie orthogonale par rapport à ce plan.
+:::
+
+::: {.exercise}
+Soit $E$ un espace euclidien et $u$ un vecteur non nul. Soient $p$ la projection orthogonale sur $H = u^\perp$ et $s$ la symétrie orthogonale par rapport à $H$.
+
+1. Montrer que $\forall x \in E, \quad p(x) = x - \frac{\langle x, u \rangle}{\|u\|^2} u$.
+2. Montrer que $\forall x \in E, \quad s(x) = x - 2\frac{\langle x, u \rangle}{\|u\|^2} u$.
+3. On considère dans $\mathbb{R}^3$ le plan $(\Pi : x - y + z = 0)$. Déterminer la matrice dans la base canonique de la symétrie orthogonale par rapport à $\Pi$.
+:::
+
+::: {.exercise}
+Soient $\mathcal{B} = (e_1, \ldots, e_n)$ une base orthonormale de $E$ et $(a_1, \ldots, a_n) \in \mathbb{R}^n \setminus \{(0, \ldots, 0)\}$ et $H$ le sous-espace vectoriel de $E$ d'équation cartésienne $\sum_{k=1}^n a_k x_k = 0$ dans $\mathcal{B}$.
+
+1. Déterminer l'orthogonale de $H$.
+2. Déterminer la distance du vecteur $x = \sum_{k=1}^n x_k e_k$ de $E$ au sous-espace vectoriel $H$.
+:::
+
+::: {.exercise}
+Soit $E = \mathbb{R}_n[X]$ muni du produit scalaire $\langle P, Q \rangle = \int_{-1}^1 P(t) Q(t)\, dt$.
+
+1. Montrer que $\varphi$ est un produit scalaire.
+2. On suppose $n = 2$. Écrire la matrice associée à $\varphi$ dans la base $(1, X, X^2)$. Construire une base orthonormale $(P_0, P_1, P_2)$ par le procédé d'orthogonalisation de Schmidt appliqué à $(1, X, X^2)$.
+:::
+
+::: {.exercise}
+Soit $E$ un espace euclidien, et $(e_1, \ldots, e_n)$ des vecteurs unitaires vérifiant :
+$$\forall x \in E, \quad \|x\|^2 = \sum_{i=1}^n \langle x, e_i \rangle^2$$
+Montrer que $(e_1, \ldots, e_n)$ est une famille orthonormale (NB : on ne suppose pas que la dimension de l'espace est $n$).
+:::
+
+# Document en PDF {-}
+[Chapitre 09 : Espaces préhilbertiens réels et endomorphismes des espaces euclidiens](PDF/mp-chap09.pdf)
+
+## Navigation {-}
+::: {.chap-nav}
+[Chapitre 08 : Calcul différentiel](mp-chap08.qmd){.prev}
+[Menu MP](mp.qmd){.home}
+[Chapitre 10 : Intégrales dépendant d'un paramètre](mp-chap10.qmd){.next}
+:::

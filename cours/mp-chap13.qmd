@@ -1,0 +1,277 @@
+---
+title: "Fonctions holomorphes"
+subtitle: "Chapitre 13"
+author: "Saîd MAHARI"
+date: last-modified
+date-format: "D MMMM YYYY"
+sidebar:
+  style: docked
+  contents:
+    - href: cours/index.qmd
+      text: "← Tous les cours"
+    - section: "MP — 2e année"
+      contents:
+        - cours/mp-chap12.qmd
+        - cours/mp-chap13.qmd
+lang: fr
+format:
+  html:
+    theme: cosmo
+    toc: true
+    number-sections: true
+    html-math-method: katex
+    css: styles.css
+filters:
+  - custom-numbered-blocks.lua
+---
+
+**MP (2e année) — Chapitre 13.** Dérivation complexe, équations de Cauchy-Riemann, $\mathbb{C}$-algèbre des fonctions holomorphes, fonctions analytiques, principe du prolongement analytique, principe des zéros isolés.
+
+Ce chapitre a été réalisé conformément au programme marocain de mathématiques de la filière MP.
+
+Dans tout ce chapitre, $\Omega$ désigne un ouvert non vide de $\mathbb{C}$ et on pose $\tilde{\Omega} = \{(x,y) \in \mathbb{R}^2 \mid x + iy \in \Omega\}$, qui est un ouvert non vide de $\mathbb{R}^2$.
+
+Soit $f : \Omega \to \mathbb{C}$ une application. On note $\tilde{f}$ l'application définie sur $\tilde{\Omega}$ par $\tilde{f}(x,y) = f(x+iy)$, et on pose :
+$$u(x,y) = \mathrm{Re}(\tilde{f}(x,y)), \quad v(x,y) = \mathrm{Im}(\tilde{f}(x,y))$$
+
+Pour tout $z_0 \in \mathbb{C}$ et tout $r \in \mathbb{R}^+ \cup \{+\infty\}$, on pose $D(z_0, r) = \{z \in \mathbb{C} \mid |z - z_0| < r\}$. Si $0 < r < +\infty$, $D(z_0,r)$ est le disque ouvert de centre $z_0$ et de rayon $r$. Par abus de langage, on dira que $\mathbb{C}$ est le disque ouvert de rayon $+\infty$.
+
+# Dérivation complexe
+
+## Définition
+
+::: {.definition title="(Dérivation complexe)"}
+Une application $f : \Omega \to \mathbb{C}$ est dite **$\mathbb{C}$-dérivable** en $z_0 \in \Omega$ si la limite :
+$$f'(z_0) = \lim_{\substack{z \to z_0 \\ z \neq z_0}} \frac{f(z) - f(z_0)}{z - z_0}$$
+existe. Cette limite est appelée la **dérivée** de $f$ en $z_0$.
+:::
+
+## Lien avec la différentiabilité réelle
+
+::: {.proposition title="(Caractérisation)"}
+Soit $z_0 = x_0 + iy_0 \in \Omega$. Alors $f$ est $\mathbb{C}$-dérivable en $z_0$ si et seulement si $\tilde{f}$ est différentiable en $(x_0, y_0)$ et :
+$$\frac{\partial \tilde{f}}{\partial y}(x_0, y_0) = i \cdot \frac{\partial \tilde{f}}{\partial x}(x_0, y_0)$$
+:::
+
+::: {.remarque}
+Cette condition signifie que la multiplication par $i$ dans $\mathbb{C}$ correspond à une rotation de $90°$ dans $\mathbb{R}^2$. C'est une condition très restrictive qui distingue la dérivabilité complexe de la simple différentiabilité réelle.
+:::
+
+## Équations de Cauchy-Riemann
+
+::: {.theorem title="(Équations de Cauchy-Riemann)"}
+Soit $f : \Omega \to \mathbb{C}$ une application et $z_0 = x_0 + iy_0 \in \Omega$. Alors $f$ est $\mathbb{C}$-dérivable en $z_0$ si et seulement si les fonctions $u$ et $v$ sont différentiables en $(x_0, y_0)$ et vérifient les **équations de Cauchy-Riemann** :
+$$\boxed{\frac{\partial u}{\partial x}(x_0, y_0) = \frac{\partial v}{\partial y}(x_0, y_0), \quad \frac{\partial u}{\partial y}(x_0, y_0) = -\frac{\partial v}{\partial x}(x_0, y_0)}$$
+
+Dans ce cas, la dérivée de $f$ en $z_0$ est :
+$$f'(z_0) = \frac{\partial u}{\partial x}(x_0, y_0) + i \frac{\partial v}{\partial x}(x_0, y_0)$$
+:::
+
+::: {.example}
+Vérifions que la fonction $f(z) = z^2$ est $\mathbb{C}$-dérivable.
+
+On a $f(x+iy) = (x+iy)^2 = x^2 - y^2 + 2ixy$, donc $u(x,y) = x^2 - y^2$ et $v(x,y) = 2xy$.
+
+$$\frac{\partial u}{\partial x} = 2x = \frac{\partial v}{\partial y}, \quad \frac{\partial u}{\partial y} = -2y = -\frac{\partial v}{\partial x}$$
+
+Les équations de Cauchy-Riemann sont vérifiées, donc $f$ est $\mathbb{C}$-dérivable et $f'(z) = 2x + 2iy = 2z$.
+:::
+
+::: {.example title="(Fonction non holomorphe)"}
+La fonction $f(z) = \overline{z}$ n'est pas $\mathbb{C}$-dérivable.
+
+On a $f(x+iy) = x - iy$, donc $u(x,y) = x$ et $v(x,y) = -y$.
+
+$$\frac{\partial u}{\partial x} = 1 \neq -1 = \frac{\partial v}{\partial y}$$
+
+Les équations de Cauchy-Riemann ne sont pas vérifiées.
+:::
+
+# Fonctions holomorphes
+
+## Définition
+
+::: {.definition title="(Fonction holomorphe)"}
+Une application $f : \Omega \to \mathbb{C}$ est dite **holomorphe sur $\Omega$** si elle est $\mathbb{C}$-dérivable en tout point de $\Omega$ et si la fonction $z \mapsto f'(z)$ est continue sur $\Omega$.
+
+La fonction $z \mapsto f'(z)$ est alors appelée la **dérivée** de $f$, notée $f'$.
+:::
+
+::: {.proposition}
+Toute fonction polynomiale est holomorphe sur $\mathbb{C}$ et sa dérivée au sens complexe coïncide avec sa dérivée algébrique.
+:::
+
+## La $\mathbb{C}$-algèbre des fonctions holomorphes
+
+::: {.definition title="($\mathbb{C}$-algèbre $\mathcal{H}(\Omega)$)"}
+L'ensemble des fonctions holomorphes sur $\Omega$, noté $\mathcal{H}(\Omega)$, est une sous-algèbre de la $\mathbb{C}$-algèbre des applications de $\Omega$ dans $\mathbb{C}$.
+:::
+
+::: {.proposition title="(Opérations sur les fonctions holomorphes)"}
+La dérivation est linéaire et vérifie la **formule de Leibniz** :
+$$(fg)' = f'g + fg'$$
+pour $f, g$ holomorphes sur $\Omega$.
+:::
+
+::: {.proposition title="(Composition de fonctions holomorphes)"}
+Si $f_1$ est holomorphe sur un ouvert $\Omega_1$ et si $f_2$ est holomorphe sur un ouvert $\Omega_2$ contenant $f_1(\Omega_1)$, alors $f_2 \circ f_1$ est holomorphe sur $\Omega_1$ et :
+$$(f_2 \circ f_1)' = (f_2' \circ f_1) \cdot f_1'$$
+:::
+
+::: {.example}
+La fonction $f(z) = e^{z^2}$ est holomorphe sur $\mathbb{C}$ comme composée de l'exponentielle et de $z \mapsto z^2$.
+
+Sa dérivée est $f'(z) = e^{z^2} \cdot 2z = 2ze^{z^2}$.
+:::
+
+# Fonctions analytiques
+
+## Définition
+
+::: {.definition title="(Fonction analytique)"}
+Une application $f : \Omega \to \mathbb{C}$ est dite **analytique sur $\Omega$** si elle est développable en série entière autour de tout point de $\Omega$, c'est-à-dire si pour tout $z_0 \in \Omega$, il existe un réel $r > 0$ et une série entière $\sum_{n \geq 0} a_n z^n$ de rayon de convergence $\geq r$ tels qu'on ait :
+$$D(z_0, r) \subset \Omega \quad \text{et} \quad f(z) = \sum_{n=0}^{+\infty} a_n (z - z_0)^n, \quad z \in D(z_0, r)$$
+:::
+
+::: {.proposition title="(Exemples de fonctions analytiques)"}
+
+1. Toute fonction polynomiale est analytique sur $\mathbb{C}$.
+2. La fonction exponentielle est analytique sur $\mathbb{C}$ :
+$$e^z = e^{z_0} \cdot e^{z-z_0} = e^{z_0} \cdot \sum_{n=0}^{+\infty} \frac{(z-z_0)^n}{n!}, \quad z_0, z \in \mathbb{C}$$
+3. Plus généralement, la somme d'une série entière est analytique sur son disque ouvert de convergence.
+:::
+
+## La $\mathbb{C}$-algèbre des fonctions analytiques
+
+::: {.definition title="($\mathbb{C}$-algèbre $\mathcal{O}(\Omega)$)"}
+L'ensemble des fonctions analytiques sur $\Omega$, noté $\mathcal{O}(\Omega)$, est une sous-algèbre de la $\mathbb{C}$-algèbre des applications de $\Omega$ dans $\mathbb{C}$.
+:::
+
+::: {.proposition title="(Formule de Taylor algébrique)"}
+Si $f$ est analytique sur $\Omega$, alors pour tout $z_0 \in \Omega$, le développement de $f$ autour de $z_0$ est donné par sa série de Taylor en $z_0$ :
+$$f(z) = \sum_{n=0}^{+\infty} \frac{f^{(n)}(z_0)}{n!} (z - z_0)^n$$
+:::
+
+# Lien entre fonctions holomorphes et fonctions analytiques
+
+## Toute fonction analytique est holomorphe
+
+::: {.theorem title="($\mathcal{O}(\Omega) \subset \mathcal{H}(\Omega)$)"}
+Toute fonction $f$ analytique sur $\Omega$ est holomorphe sur $\Omega$.
+:::
+
+::: {.proposition}
+Si $f$ est holomorphe sur $\Omega$, alors $f$ est indéfiniment $\mathbb{C}$-dérivable sur $\Omega$ et pour tout $z_0 \in \Omega$, le développement de $f$ autour de $z_0$ est donné par sa série de Taylor en $z_0$.
+:::
+
+## Toute fonction holomorphe est analytique
+
+::: {.theorem title="($\mathcal{H}(\Omega) \subset \mathcal{O}(\Omega)$)"}
+Toute fonction $f$ holomorphe sur $\Omega$ est analytique sur $\Omega$.
+
+Plus précisément, pour tout $z_0 \in \Omega$, si $D(z_0, R)$ désigne le plus grand disque ouvert de centre $z_0$ inclus dans $\Omega$, il existe une suite $(a_n)_{n \geq 0}$ de nombres complexes, uniquement déterminée, telle que le rayon de convergence de la série entière $\sum_{n \geq 0} a_n z^n$ soit $\geq R$ et qu'on ait :
+$$f(z) = \sum_{n=0}^{+\infty} a_n (z - z_0)^n, \quad z \in D(z_0, R)$$
+
+La démonstration de ce résultat est hors programme.
+:::
+
+::: {.corollary}
+On a l'égalité des deux $\mathbb{C}$-algèbres :
+$$\mathcal{H}(\Omega) = \mathcal{O}(\Omega)$$
+
+Les notions de fonction holomorphe et de fonction analytique coïncident.
+:::
+
+# Principe du prolongement analytique
+
+::: {.theorem title="(Principe du prolongement analytique)"}
+Soit $g$ une fonction holomorphe sur un ouvert non vide $\Omega_1$. S'il existe un ouvert connexe par arcs $\Omega$ contenant $\Omega_1$ et une fonction $f$ holomorphe sur $\Omega$ et prolongeant $g$, alors $f$ est unique.
+:::
+
+::: {.proof}
+Supposons qu'il existe deux prolongements $f_1$ et $f_2$ de $g$ sur $\Omega$. Posons $h = f_1 - f_2$. Alors $h$ est holomorphe sur $\Omega$ et $h = 0$ sur $\Omega_1$. Par le principe des zéros isolés (démontré ci-dessous), $h = 0$ sur $\Omega$ tout entier, donc $f_1 = f_2$.
+:::
+
+::: {.remarque}
+Ce principe est fondamental en analyse complexe. Il signifie qu'une fonction holomorphe est entièrement déterminée par ses valeurs sur n'importe quel ouvert non vide de son domaine. C'est une propriété très rigide, spécifique aux fonctions holomorphes.
+:::
+
+# Principe des zéros isolés
+
+::: {.theorem title="(Principe des zéros isolés)"}
+Soit $f$ une fonction non nulle et holomorphe sur $\Omega$, ouvert connexe par arcs. Si $z_0$ est un point de $\Omega$ tel que $f(z_0) = 0$, alors il existe $r > 0$ tel que $D(z_0, r) \subset \Omega$ et :
+$$f(z) \neq 0 \quad \text{pour tout } z \in D(z_0, r) \setminus \{z_0\}$$
+
+Autrement dit, les zéros d'une fonction holomorphe non nulle sont **isolés**.
+:::
+
+::: {.proof}
+Comme $f$ est holomorphe sur $\Omega$, elle est analytique. Donc autour de $z_0$, on peut écrire :
+$$f(z) = \sum_{n=0}^{+\infty} a_n (z - z_0)^n$$
+
+Comme $f(z_0) = 0$, on a $a_0 = 0$. Si $f$ n'est pas identiquement nulle, il existe un plus petit entier $m \geq 1$ tel que $a_m \neq 0$. On peut alors écrire :
+$$f(z) = (z - z_0)^m \sum_{k=0}^{+\infty} a_{k+m} (z - z_0)^k$$
+
+La série $\sum_{k=0}^{+\infty} a_{k+m} (z - z_0)^k$ converge dans un disque de rayon $r$ et vaut $a_m \neq 0$ en $z_0$. Par continuité, elle ne s'annule pas dans un voisinage de $z_0$. Donc $f(z) \neq 0$ pour $z \neq z_0$ dans ce voisinage.
+:::
+
+::: {.corollary title="(Principe d'identité)"}
+Si $f$ est une fonction holomorphe sur $\Omega$, ouvert connexe par arcs, et s'il existe $z_0 \in \Omega$ tel que pour tout $n \in \mathbb{N}$ :
+$$f^{(n)}(z_0) = 0$$
+alors $f$ est nulle sur $\Omega$.
+:::
+
+::: {.proof}
+Par le principe des zéros isolés appliqué à $f$, si $f$ n'est pas identiquement nulle, alors ses zéros sont isolés. Mais si toutes les dérivées de $f$ en $z_0$ sont nulles, alors $z_0$ est un zéro non isolé de $f$ (ou $f$ est identiquement nulle). Contradiction, donc $f = 0$ sur $\Omega$.
+:::
+
+::: {.example title="(Application)"}
+Soit $f$ une fonction holomorphe sur $\mathbb{C}$ telle que $f(n) = 0$ pour tout $n \in \mathbb{N}$. Alors $f = 0$ sur $\mathbb{C}$.
+
+En effet, les zéros de $f$ ne sont pas isolés (l'ensemble $\mathbb{N}$ a un point d'accumulation en $+\infty$). Par le principe des zéros isolés, $f$ est identiquement nulle.
+:::
+
+# Exercices
+
+::: {.exercise}
+Montrer que la fonction $f(z) = \frac{1}{z}$ est holomorphe sur $\mathbb{C}^* = \mathbb{C} \setminus \{0\}$ et calculer sa dérivée.
+:::
+
+::: {.exercise}
+Montrer que la fonction $f(z) = \overline{z}$ n'est pas holomorphe sur $\mathbb{C}$.
+:::
+
+::: {.exercise}
+Soit $f : \Omega \to \mathbb{C}$ une fonction holomorphe. Montrer que :
+
+1. $\mathrm{Re}(f)$ et $\mathrm{Im}(f)$ sont de classe $\mathcal{C}^\infty$ sur $\Omega$.
+2. $\mathrm{Re}(f)$ et $\mathrm{Im}(f)$ sont des fonctions harmoniques, c'est-à-dire qu'elles vérifient l'équation de Laplace :
+$$\frac{\partial^2 u}{\partial x^2} + \frac{\partial^2 u}{\partial y^2} = 0$$
+:::
+
+::: {.exercise}
+Soit $f$ une fonction holomorphe sur $\mathbb{C}$ telle que $f(z) = z^2$ pour tout $z$ dans un disque ouvert non vide. Montrer que $f(z) = z^2$ pour tout $z \in \mathbb{C}$.
+:::
+
+::: {.exercise}
+Soit $f$ une fonction holomorphe sur $\mathbb{D} = D(0,1)$ (le disque unité ouvert). Montrer que si $f$ s'annule en une infinité de points de $\mathbb{D}$ ayant un point d'accumulation dans $\mathbb{D}$, alors $f = 0$ sur $\mathbb{D}$.
+:::
+
+::: {.exercise title="(Fonctions entières)"}
+Une fonction entière est une fonction holomorphe sur $\mathbb{C}$. Montrer que les fonctions suivantes sont entières :
+
+1. $f(z) = e^z$
+2. $f(z) = \sin z$
+3. $f(z) = \cos z$
+4. $f(z) = \cosh z$
+5. $f(z) = \sinh z$
+:::
+
+# Document en PDF {-}
+[Chapitre 13 : Fonctions holomorphes](PDF/mp-chap13.pdf)
+
+## Navigation {-}
+::: {.chap-nav}
+[Chapitre 12 : Équations différentielles linéaires](mp-chap12.qmd){.prev}
+[Menu MP](mp.qmd){.home}
+:::
