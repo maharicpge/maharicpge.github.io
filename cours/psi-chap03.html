@@ -1,13 +1,14 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr"><head>
 
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.10.18">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Saîd MAHARI">
 
-<title>Topologie élémentaire - Mathématiques en CPGE – Mathématiques en CPGE</title>
+<title>Topologie des espaces normés – Mathématiques en CPGE</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -45,7 +46,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-7a8c080b55ea27eb37b467515007f9ee.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-e0d9a45d84245cc5e3b300860d8fa645.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -60,22 +61,66 @@ ul.task-list li input[type="checkbox"] {
   ],
   "show-item-context": false,
   "language": {
-    "search-no-results-text": "No results",
-    "search-matching-documents-text": "matching documents",
-    "search-copy-link-title": "Copy link to search",
-    "search-hide-matches-text": "Hide additional matches",
-    "search-more-match-text": "more match in this document",
-    "search-more-matches-text": "more matches in this document",
-    "search-clear-button-title": "Clear",
+    "search-no-results-text": "Pas de résultats",
+    "search-matching-documents-text": "documents trouvés",
+    "search-copy-link-title": "Copier le lien vers la recherche",
+    "search-hide-matches-text": "Cacher les correspondances additionnelles",
+    "search-more-match-text": "correspondance de plus dans ce document",
+    "search-more-matches-text": "correspondances de plus dans ce document",
+    "search-clear-button-title": "Effacer",
     "search-text-placeholder": "",
-    "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit",
-    "search-label": "Search"
+    "search-detached-cancel-button-title": "Annuler",
+    "search-submit-button-title": "Envoyer",
+    "search-label": "Recherche"
   }
 }</script>
 
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="styles.css">
 </head>
 
 <body class="nav-fixed quarto-light">
@@ -89,8 +134,8 @@ ul.task-list li input[type="checkbox"] {
     <span class="navbar-title">Accueil</span>
     </a>
   </div>
-            <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+            <div id="quarto-search" class="" title="Recherche"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Basculer la navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
@@ -140,10 +185,52 @@ ul.task-list li input[type="checkbox"] {
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
+    <h2 id="toc-title">Sur cette page</h2>
    
   <ul>
-  <li><a href="#document" id="toc-document" class="nav-link active" data-scroll-target="#document">Document</a></li>
+  <li><a href="#normes-et-espaces-vectoriels-normés" id="toc-normes-et-espaces-vectoriels-normés" class="nav-link active" data-scroll-target="#normes-et-espaces-vectoriels-normés"><span class="header-section-number">1</span> Normes et espaces vectoriels normés</a>
+  <ul class="collapse">
+  <li><a href="#définitions" id="toc-définitions" class="nav-link" data-scroll-target="#définitions"><span class="header-section-number">1.1</span> Définitions</a></li>
+  <li><a href="#normes-usuelles" id="toc-normes-usuelles" class="nav-link" data-scroll-target="#normes-usuelles"><span class="header-section-number">1.2</span> Normes usuelles</a></li>
+  <li><a href="#normes-produit" id="toc-normes-produit" class="nav-link" data-scroll-target="#normes-produit"><span class="header-section-number">1.3</span> Normes produit</a></li>
+  </ul></li>
+  <li><a href="#suites-déléments-dun-evn" id="toc-suites-déléments-dun-evn" class="nav-link" data-scroll-target="#suites-déléments-dun-evn"><span class="header-section-number">2</span> Suites d’éléments d’un EVN</a>
+  <ul class="collapse">
+  <li><a href="#convergence-et-divergence" id="toc-convergence-et-divergence" class="nav-link" data-scroll-target="#convergence-et-divergence"><span class="header-section-number">2.1</span> Convergence et divergence</a></li>
+  <li><a href="#convergence-dans-un-produit-fini-despaces-normés" id="toc-convergence-dans-un-produit-fini-despaces-normés" class="nav-link" data-scroll-target="#convergence-dans-un-produit-fini-despaces-normés"><span class="header-section-number">2.2</span> Convergence dans un produit fini d’espaces normés</a></li>
+  <li><a href="#suites-de-cauchy" id="toc-suites-de-cauchy" class="nav-link" data-scroll-target="#suites-de-cauchy"><span class="header-section-number">2.3</span> Suites de Cauchy</a></li>
+  </ul></li>
+  <li><a href="#comparaison-de-normes" id="toc-comparaison-de-normes" class="nav-link" data-scroll-target="#comparaison-de-normes"><span class="header-section-number">3</span> Comparaison de normes</a>
+  <ul class="collapse">
+  <li><a href="#définition-et-propriétés" id="toc-définition-et-propriétés" class="nav-link" data-scroll-target="#définition-et-propriétés"><span class="header-section-number">3.1</span> Définition et propriétés</a></li>
+  </ul></li>
+  <li><a href="#topologie-dun-evn" id="toc-topologie-dun-evn" class="nav-link" data-scroll-target="#topologie-dun-evn"><span class="header-section-number">4</span> Topologie d’un EVN</a>
+  <ul class="collapse">
+  <li><a href="#ouverts-et-fermés" id="toc-ouverts-et-fermés" class="nav-link" data-scroll-target="#ouverts-et-fermés"><span class="header-section-number">4.1</span> Ouverts et fermés</a></li>
+  <li><a href="#point-adhérent-adhérence-frontière" id="toc-point-adhérent-adhérence-frontière" class="nav-link" data-scroll-target="#point-adhérent-adhérence-frontière"><span class="header-section-number">4.2</span> Point adhérent, adhérence, frontière</a></li>
+  <li><a href="#parties-denses" id="toc-parties-denses" class="nav-link" data-scroll-target="#parties-denses"><span class="header-section-number">4.3</span> Parties denses</a></li>
+  </ul></li>
+  <li><a href="#étude-locale-et-propriétés-globales-dune-application-continue" id="toc-étude-locale-et-propriétés-globales-dune-application-continue" class="nav-link" data-scroll-target="#étude-locale-et-propriétés-globales-dune-application-continue"><span class="header-section-number">5</span> Étude locale et propriétés globales d’une application continue</a>
+  <ul class="collapse">
+  <li><a href="#limite-en-un-point" id="toc-limite-en-un-point" class="nav-link" data-scroll-target="#limite-en-un-point"><span class="header-section-number">5.1</span> Limite en un point</a></li>
+  <li><a href="#continuité" id="toc-continuité" class="nav-link" data-scroll-target="#continuité"><span class="header-section-number">5.2</span> Continuité</a></li>
+  <li><a href="#image-réciproque-dun-ouvert-ou-dun-fermé" id="toc-image-réciproque-dun-ouvert-ou-dun-fermé" class="nav-link" data-scroll-target="#image-réciproque-dun-ouvert-ou-dun-fermé"><span class="header-section-number">5.3</span> Image réciproque d’un ouvert ou d’un fermé</a></li>
+  <li><a href="#applications-lipschitziennes-et-uniformément-continues" id="toc-applications-lipschitziennes-et-uniformément-continues" class="nav-link" data-scroll-target="#applications-lipschitziennes-et-uniformément-continues"><span class="header-section-number">5.4</span> Applications lipschitziennes et uniformément continues</a></li>
+  <li><a href="#continuité-des-applications-linéaires" id="toc-continuité-des-applications-linéaires" class="nav-link" data-scroll-target="#continuité-des-applications-linéaires"><span class="header-section-number">5.5</span> Continuité des applications linéaires</a></li>
+  </ul></li>
+  <li><a href="#evn-de-dimension-finie" id="toc-evn-de-dimension-finie" class="nav-link" data-scroll-target="#evn-de-dimension-finie"><span class="header-section-number">6</span> EVN de dimension finie</a>
+  <ul class="collapse">
+  <li><a href="#équivalence-des-normes-en-dimension-finie" id="toc-équivalence-des-normes-en-dimension-finie" class="nav-link" data-scroll-target="#équivalence-des-normes-en-dimension-finie"><span class="header-section-number">6.1</span> Équivalence des normes en dimension finie</a></li>
+  <li><a href="#propriétés-topologiques-en-dimension-finie" id="toc-propriétés-topologiques-en-dimension-finie" class="nav-link" data-scroll-target="#propriétés-topologiques-en-dimension-finie"><span class="header-section-number">6.2</span> Propriétés topologiques en dimension finie</a></li>
+  <li><a href="#continuité-des-applications-multilinéaires" id="toc-continuité-des-applications-multilinéaires" class="nav-link" data-scroll-target="#continuité-des-applications-multilinéaires"><span class="header-section-number">6.3</span> Continuité des applications multilinéaires</a></li>
+  <li><a href="#parties-compactes" id="toc-parties-compactes" class="nav-link" data-scroll-target="#parties-compactes"><span class="header-section-number">6.4</span> Parties compactes</a></li>
+  <li><a href="#parties-connexes-par-arcs" id="toc-parties-connexes-par-arcs" class="nav-link" data-scroll-target="#parties-connexes-par-arcs"><span class="header-section-number">6.5</span> Parties connexes par arcs</a></li>
+  </ul></li>
+  <li><a href="#exercices" id="toc-exercices" class="nav-link" data-scroll-target="#exercices"><span class="header-section-number">7</span> Exercices</a></li>
+  <li><a href="#document-en-pdf" id="toc-document-en-pdf" class="nav-link" data-scroll-target="#document-en-pdf">Document en PDF</a>
+  <ul class="collapse">
+  <li><a href="#navigation" id="toc-navigation" class="nav-link" data-scroll-target="#navigation">Navigation</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -152,14 +239,27 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Chapitre 03 : Topologie élémentaire</h1>
+<h1 class="title">Topologie des espaces normés</h1>
+<p class="subtitle lead">Chapitre 03</p>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Auteur·rice</div>
+    <div class="quarto-title-meta-contents">
+             <p>Saîd MAHARI </p>
+          </div>
+  </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">Date de publication</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">22 août 2026</p>
+    </div>
+  </div>
   
     
   </div>
@@ -169,12 +269,466 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p><strong>PSI (2e année) — Chapitre 03.</strong> Normes, ouverts, fermés, continuité en dimension finie.</p>
-<section id="document" class="level2">
-<h2 class="anchored" data-anchor-id="document">Document</h2>
-<p><em>PDF à venir : déposez le fichier <code>files/psi/chap03.pdf</code> puis régénérez la page.</em></p>
+<p><strong>PSI (2e année) — Chapitre 03.</strong> Normes et EVN, suites d’éléments d’un EVN, comparaison de normes, topologie d’un EVN, étude locale et propriétés globales d’une application continue, EVN de dimension finie.</p>
+<p>Ce chapitre a été réalisé conformément au programme marocain de mathématiques de la filière PSI.</p>
+<p>Dans tout ce chapitre, <span class="math inline">\mathbb{K}</span> désigne <span class="math inline">\mathbb{R}</span> ou <span class="math inline">\mathbb{C}</span>.</p>
+<section id="normes-et-espaces-vectoriels-normés" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Normes et espaces vectoriels normés</h1>
+<section id="définitions" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="définitions"><span class="header-section-number">1.1</span> Définitions</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 1.1 — (Norme)</strong></p>
+<p>Soit <span class="math inline">E</span> un <span class="math inline">\mathbb{K}</span>-espace vectoriel. On appelle <strong>norme</strong> sur <span class="math inline">E</span> toute application <span class="math inline">\|\cdot\| : E \to \mathbb{R}^+</span> qui vérifie :</p>
+<ol type="1">
+<li><strong>Séparation</strong> : <span class="math inline">\forall x \in E, \quad \|x\| = 0 \iff x = 0_E</span></li>
+<li><strong>Homogénéité</strong> : <span class="math inline">\forall \lambda \in \mathbb{K}, \; \forall x \in E, \quad \|\lambda x\| = |\lambda| \cdot \|x\|</span></li>
+<li><strong>Inégalité triangulaire</strong> : <span class="math inline">\forall x, y \in E, \quad \|x + y\| \leq \|x\| + \|y\|</span></li>
+</ol>
+<p>Un <strong>espace vectoriel normé</strong> (EVN) est un couple <span class="math inline">(E, \|\cdot\|)</span> où <span class="math inline">E</span> est un <span class="math inline">\mathbb{K}</span>-espace vectoriel et <span class="math inline">\|\cdot\|</span> est une norme sur <span class="math inline">E</span>.</p>
+</div>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 1.2 — (Distance associée à une norme)</strong></p>
+<p>Soit <span class="math inline">(E, \|\cdot\|)</span> un EVN. La <strong>distance associée</strong> à la norme est l’application <span class="math inline">d : E \times E \to \mathbb{R}^+</span> définie par : <span class="math display">d(x, y) = \|x - y\|</span></p>
+<p>Pour une partie <span class="math inline">P</span> non vide de <span class="math inline">E</span> et un vecteur <span class="math inline">x \in E</span>, la <strong>distance de <span class="math inline">x</span> à <span class="math inline">P</span></strong> est : <span class="math display">d(x, P) = \inf_{y \in P} d(x, y)</span></p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 1.1 — (Propriétés de la distance)</strong></p>
+<p>Soit <span class="math inline">(E, \|\cdot\|)</span> un EVN. Alors :</p>
+<ol type="1">
+<li><span class="math inline">\forall x, y \in E, \quad d(x, y) = 0 \iff x = y</span></li>
+<li><span class="math inline">\forall x, y \in E, \quad d(x, y) = d(y, x)</span> (symétrie)</li>
+<li><span class="math inline">\forall x, y, z \in E, \quad d(x, z) \leq d(x, y) + d(y, z)</span> (inégalité triangulaire)</li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 1.3 — (Boules et sphères)</strong></p>
+<p>Soient <span class="math inline">(E, \|\cdot\|)</span> un EVN, <span class="math inline">a \in E</span> et <span class="math inline">r &gt; 0</span>.</p>
+<ul>
+<li><p>La <strong>boule ouverte</strong> de centre <span class="math inline">a</span> et de rayon <span class="math inline">r</span> est : <span class="math display">B(a, r) = \{x \in E \mid \|x - a\| &lt; r\}</span></p></li>
+<li><p>La <strong>boule fermée</strong> de centre <span class="math inline">a</span> et de rayon <span class="math inline">r</span> est : <span class="math display">\overline{B}(a, r) = \{x \in E \mid \|x - a\| \leq r\}</span></p></li>
+<li><p>La <strong>sphère</strong> de centre <span class="math inline">a</span> et de rayon <span class="math inline">r</span> est : <span class="math display">S(a, r) = \{x \in E \mid \|x - a\| = r\}</span></p></li>
+</ul>
+</div>
+</section>
+<section id="normes-usuelles" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="normes-usuelles"><span class="header-section-number">1.2</span> Normes usuelles</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 1.4 — (Normes usuelles sur <span class="math inline">\boldsymbol{\mathbb{K}^n}</span>)</strong></p>
+<p>Sur <span class="math inline">\mathbb{K}^n</span>, on définit les trois normes suivantes pour <span class="math inline">x = (x_1, \ldots, x_n)</span> :</p>
+<ol type="1">
+<li><span class="math inline">\|x\|_1 = \sum_{k=1}^n |x_k|</span></li>
+<li><span class="math inline">\|x\|_2 = \sqrt{\sum_{k=1}^n |x_k|^2}</span></li>
+<li><span class="math inline">\|x\|_\infty = \max_{1 \leq k \leq n} |x_k|</span></li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 1.5 — (Norme de la convergence uniforme)</strong></p>
+<p>Si <span class="math inline">X</span> est un ensemble non vide, l’espace <span class="math inline">\mathcal{B}(X, \mathbb{K})</span> des fonctions bornées de <span class="math inline">X</span> dans <span class="math inline">\mathbb{K}</span> est un EVN pour la norme : <span class="math display">\|f\|_\infty = \sup_{x \in X} |f(x)|</span></p>
+<p>Cette norme est appelée <strong>norme de la convergence uniforme</strong> (ou <strong>norme infinie</strong>).</p>
+</div>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 1.6 — (Normes de la convergence en moyenne)</strong></p>
+<p>Sur l’espace <span class="math inline">\mathcal{C}([a,b], \mathbb{K})</span> des fonctions continues sur <span class="math inline">[a,b]</span> à valeurs dans <span class="math inline">\mathbb{K}</span>, on définit :</p>
+<ol type="1">
+<li><span class="math inline">\|f\|_1 = \int_a^b |f(t)|\, dt</span> (convergence en moyenne)</li>
+<li><span class="math inline">\|f\|_2 = \left(\int_a^b |f(t)|^2\, dt\right)^{1/2}</span> (convergence en moyenne quadratique)</li>
+</ol>
+</div>
+</section>
+<section id="normes-produit" class="level2" data-number="1.3">
+<h2 data-number="1.3" class="anchored" data-anchor-id="normes-produit"><span class="header-section-number">1.3</span> Normes produit</h2>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 1.2 — (Normes produit)</strong></p>
+<p>Soient <span class="math inline">(E_1, \mathcal{N}_1), \ldots, (E_n, \mathcal{N}_n)</span> des EVN. Alors les applications suivantes définissent des normes sur le produit cartésien <span class="math inline">E = E_1 \times \cdots \times E_n</span> :</p>
+<ol type="1">
+<li><span class="math inline">\|x\|_1 = \sum_{k=1}^n \mathcal{N}_k(x_k)</span></li>
+<li><span class="math inline">\|x\|_2 = \sqrt{\sum_{k=1}^n \mathcal{N}_k(x_k)^2}</span></li>
+<li><span class="math inline">\|x\|_\infty = \max_{1 \leq k \leq n} \mathcal{N}_k(x_k)</span></li>
+</ol>
+<p>Ces normes sont appelées <strong>normes produit</strong>.</p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 1.1</strong></p>
+<p>Pour <span class="math inline">x = ((1,2), (3,4)) \in \mathbb{R}^2 \times \mathbb{R}^2</span> avec <span class="math inline">\mathbb{R}^2</span> muni de la norme <span class="math inline">\|\cdot\|_2</span> : <span class="math display">\|x\|_1 = \sqrt{1+4} + \sqrt{9+16} = \sqrt{5} + 5</span> <span class="math display">\|x\|_2 = \sqrt{5 + 25} = \sqrt{30}</span> <span class="math display">\|x\|_\infty = \max(\sqrt{5}, 5) = 5</span></p>
+</div>
+</section>
+</section>
+<section id="suites-déléments-dun-evn" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> Suites d’éléments d’un EVN</h1>
+<section id="convergence-et-divergence" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="convergence-et-divergence"><span class="header-section-number">2.1</span> Convergence et divergence</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 2.1 — (Suites convergentes et divergentes)</strong></p>
+<p>Soient <span class="math inline">(E, \|\cdot\|)</span> un EVN et <span class="math inline">(u_n)_{n \in \mathbb{N}}</span> une suite d’éléments de <span class="math inline">E</span>.</p>
+<p>On dit que la suite <span class="math inline">(u_n)</span> <strong>converge</strong> vers <span class="math inline">l \in E</span> si : <span class="math display">\forall \varepsilon &gt; 0, \quad \exists N \in \mathbb{N}, \quad n \geq N \implies \|u_n - l\| &lt; \varepsilon</span></p>
+<p>Dans le cas contraire, on dit que la suite <span class="math inline">(u_n)</span> <strong>diverge</strong>.</p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 2.1 — (Unicité de la limite)</strong></p>
+<p>Une suite convergente d’éléments d’un EVN possède une limite unique.</p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 2.2 — (Opérations algébriques sur les limites)</strong></p>
+<p>Soient <span class="math inline">(E, \|\cdot\|)</span> un EVN et <span class="math inline">(u_n)</span>, <span class="math inline">(v_n)</span> deux suites d’éléments de <span class="math inline">E</span> convergeant respectivement vers <span class="math inline">l</span> et <span class="math inline">l'</span>. Alors pour tous <span class="math inline">\lambda, \mu \in \mathbb{K}</span> : <span class="math display">\lambda u_n + \mu v_n \xrightarrow[n \to +\infty]{} \lambda l + \mu l'</span></p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 2.3 — (Caractère borné d’une suite convergente)</strong></p>
+<p>Toute suite convergente d’éléments d’un EVN est bornée.</p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 2.4 — (Suites extraites)</strong></p>
+<p>Toute suite extraite d’une suite convergente est convergente et possède la même limite.</p>
+</div>
+</section>
+<section id="convergence-dans-un-produit-fini-despaces-normés" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="convergence-dans-un-produit-fini-despaces-normés"><span class="header-section-number">2.2</span> Convergence dans un produit fini d’espaces normés</h2>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 2.5 — (Convergence dans un produit fini)</strong></p>
+<p>Soient <span class="math inline">(E_1, \mathcal{N}_1), \ldots, (E_n, \mathcal{N}_n)</span> des EVN. On munit <span class="math inline">E = \prod_{i=1}^n E_i</span> de l’une des normes produit <span class="math inline">\|\cdot\|_i</span> (<span class="math inline">i \in \{1, 2, \infty\}</span>). Soit <span class="math inline">(u_k)_{k \in \mathbb{N}} = (u_k^{(1)}, \ldots, u_k^{(n)})</span> une suite d’éléments de <span class="math inline">E</span>. Alors : <span class="math display">(u_k) \to (l^{(1)}, \ldots, l^{(n)}) \iff \forall i \in \{1, \ldots, n\}, \quad (u_k^{(i)}) \to l^{(i)}</span></p>
+</div>
+</section>
+<section id="suites-de-cauchy" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="suites-de-cauchy"><span class="header-section-number">2.3</span> Suites de Cauchy</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 2.2 — (Suite de Cauchy)</strong></p>
+<p>On dit qu’une suite <span class="math inline">(u_n)_{n \in \mathbb{N}}</span> d’éléments d’un EVN <span class="math inline">(E, \|\cdot\|)</span> est <strong>de Cauchy</strong> si : <span class="math display">\forall \varepsilon &gt; 0, \quad \exists N \in \mathbb{N}, \quad p, q \geq N \implies \|u_p - u_q\| &lt; \varepsilon</span></p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 2.6</strong></p>
+<p>Toute suite convergente est de Cauchy.</p>
+</div>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 2.3 — (Espace complet ou de Banach)</strong></p>
+<p>On dira que <span class="math inline">E</span> est un <strong>espace de Banach</strong> (ou un <strong>EVN complet</strong>) si toute suite d’éléments de <span class="math inline">E</span> de Cauchy est convergente.</p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 2.1</strong></p>
+<p><span class="math inline">\mathbb{R}</span>, <span class="math inline">\mathbb{C}</span>, <span class="math inline">\mathbb{R}^n</span>, <span class="math inline">\mathbb{C}^n</span> munis des normes usuelles sont des espaces de Banach.</p>
+<p>Plus généralement, un EVN de dimension finie est complet.</p>
+<p><span class="math inline">\mathbb{Q}</span> muni de la valeur absolue n’est pas un espace de Banach.</p>
+</div>
+</section>
+</section>
+<section id="comparaison-de-normes" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Comparaison de normes</h1>
+<section id="définition-et-propriétés" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="définition-et-propriétés"><span class="header-section-number">3.1</span> Définition et propriétés</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 3.1 — (Normes équivalentes)</strong></p>
+<p>Soient <span class="math inline">\mathcal{N}_1</span> et <span class="math inline">\mathcal{N}_2</span> deux normes sur un <span class="math inline">\mathbb{K}</span>-espace vectoriel <span class="math inline">E</span>. On dit que <span class="math inline">\mathcal{N}_1</span> et <span class="math inline">\mathcal{N}_2</span> sont <strong>équivalentes</strong> s’il existe deux réels <span class="math inline">a &gt; 0</span> et <span class="math inline">b &gt; 0</span> tels que : <span class="math display">\forall x \in E, \quad a \cdot \mathcal{N}_1(x) \leq \mathcal{N}_2(x) \leq b \cdot \mathcal{N}_1(x)</span></p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 3.1</strong></p>
+<p>Dans <span class="math inline">\mathbb{K}^n</span>, les trois normes <span class="math inline">\|\cdot\|_1</span>, <span class="math inline">\|\cdot\|_2</span>, <span class="math inline">\|\cdot\|_\infty</span> sont équivalentes.</p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 3.1 — (Propriétés des normes équivalentes)</strong></p>
+<p>Soient <span class="math inline">\mathcal{N}_1</span> et <span class="math inline">\mathcal{N}_2</span> deux normes équivalentes sur <span class="math inline">E</span>. Alors :</p>
+<ol type="1">
+<li>Une partie, une suite ou une fonction bornée pour <span class="math inline">\mathcal{N}_1</span> est bornée pour <span class="math inline">\mathcal{N}_2</span>, et réciproquement.</li>
+<li>Toute suite convergente pour <span class="math inline">\mathcal{N}_1</span> est convergente pour <span class="math inline">\mathcal{N}_2</span>, et réciproquement.</li>
+<li>Les deux normes <span class="math inline">\mathcal{N}_1</span> et <span class="math inline">\mathcal{N}_2</span> définissent la même topologie sur <span class="math inline">E</span> (c’est-à-dire les mêmes parties ouvertes et fermées).</li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 3.2 — (Normes non équivalentes)</strong></p>
+<p>Considérons l’espace vectoriel <span class="math inline">E = \mathbb{R}[X]</span>. On définit sur <span class="math inline">E</span> les deux normes suivantes : <span class="math display">\|P\|_\infty = \max_k |a_k| \quad \text{et} \quad \|P\|_h = \sum_{k=0}^{\deg(P)} \frac{|a_k|}{1+k}</span> pour <span class="math inline">P = \sum_{k=0}^{\deg(P)} a_k X^k</span>.</p>
+<p>Considérons la suite <span class="math inline">(P_n)</span> de polynômes définie par <span class="math inline">P_n = X^n</span>. On a : <span class="math display">\|P_n\|_\infty = 1 \quad \text{et} \quad \|P_n\|_h = \frac{1}{n+1} \to 0</span></p>
+<p>Ces deux normes ne sont donc pas équivalentes.</p>
+</div>
+<div class="remarque">
+<p>Lorsqu’il y a équivalence des normes, travailler avec n’importe quelle norme ne change rien à :</p>
+<ol type="1">
+<li>La définition des ouverts et des fermés de <span class="math inline">E</span> (propriétés topologiques).</li>
+<li>La convergence des suites d’éléments de <span class="math inline">E</span>.</li>
+<li>Les limites des applications définies sur <span class="math inline">E</span> ou dans <span class="math inline">E</span>.</li>
+</ol>
+</div>
+</section>
+</section>
+<section id="topologie-dun-evn" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> Topologie d’un EVN</h1>
+<section id="ouverts-et-fermés" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="ouverts-et-fermés"><span class="header-section-number">4.1</span> Ouverts et fermés</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 4.1 — (Ouvert et fermé d’un EVN)</strong></p>
+<p>Soit <span class="math inline">(E, \|\cdot\|)</span> un EVN.</p>
+<p>On appelle <strong>ouvert</strong> de <span class="math inline">E</span> toute partie <span class="math inline">\mathcal{O}</span> vide ou vérifiant : <span class="math display">\forall x \in \mathcal{O}, \quad \exists r &gt; 0, \quad B(x, r) \subset \mathcal{O}</span></p>
+<p>Une partie <span class="math inline">F</span> de <span class="math inline">E</span> est dite <strong>fermée</strong> si <span class="math inline">\complement_E(F)</span> est un ouvert de <span class="math inline">E</span>.</p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 4.1</strong></p>
+<ul>
+<li>Les boules ouvertes sont des ouverts.</li>
+<li>Les boules fermées sont des fermés.</li>
+<li>Les sphères sont des fermés.</li>
+</ul>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 4.1 — (Stabilité des ouverts et des fermés)</strong></p>
+<p>Soit <span class="math inline">(E, \|\cdot\|)</span> un EVN.</p>
+<ol type="1">
+<li>Toute réunion d’ouverts est un ouvert.</li>
+<li>Toute intersection finie d’ouverts est un ouvert.</li>
+<li>Toute intersection de fermés est un fermé.</li>
+<li>Toute réunion finie de fermés est un fermé.</li>
+</ol>
+</div>
+</section>
+<section id="point-adhérent-adhérence-frontière" class="level2" data-number="4.2">
+<h2 data-number="4.2" class="anchored" data-anchor-id="point-adhérent-adhérence-frontière"><span class="header-section-number">4.2</span> Point adhérent, adhérence, frontière</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 4.2 — (Point adhérent, adhérence, frontière)</strong></p>
+<p>Soient <span class="math inline">(E, \|\cdot\|)</span> un EVN et <span class="math inline">A</span> une partie de <span class="math inline">E</span>.</p>
+<ul>
+<li><p>Un point <span class="math inline">a \in E</span> est <strong>adhérent</strong> à <span class="math inline">A</span> si toute boule ouverte centrée en <span class="math inline">a</span> rencontre <span class="math inline">A</span> : <span class="math display">\forall \varepsilon &gt; 0, \quad B(a, \varepsilon) \cap A \neq \varnothing</span></p></li>
+<li><p>L’<strong>adhérence</strong> de <span class="math inline">A</span>, notée <span class="math inline">\overline{A}</span>, est l’ensemble des points adhérents à <span class="math inline">A</span>.</p></li>
+<li><p>L’<strong>intérieur</strong> de <span class="math inline">A</span>, noté <span class="math inline">\mathrm{Int}(A)</span> ou <span class="math inline">\mathring{A}</span>, est l’ensemble des points <span class="math inline">x</span> tels qu’il existe <span class="math inline">r &gt; 0</span> avec <span class="math inline">B(x, r) \subset A</span>.</p></li>
+<li><p>La <strong>frontière</strong> de <span class="math inline">A</span>, notée <span class="math inline">\mathrm{Fr}(A)</span>, est <span class="math inline">\overline{A} \setminus \mathring{A}</span>.</p></li>
+</ul>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 4.2 — (Caractérisation séquentielle des points adhérents et des fermés)</strong></p>
+<p>Soient <span class="math inline">(E, \|\cdot\|)</span> un EVN et <span class="math inline">A</span> une partie de <span class="math inline">E</span>. Alors :</p>
+<ol type="1">
+<li><span class="math inline">a \in \overline{A} \iff \exists (u_n)_n \subset A \; / \; u_n \xrightarrow[n \to +\infty]{} a</span></li>
+<li><span class="math inline">A</span> est fermée <span class="math inline">\iff A = \overline{A}</span></li>
+</ol>
+</div>
+</section>
+<section id="parties-denses" class="level2" data-number="4.3">
+<h2 data-number="4.3" class="anchored" data-anchor-id="parties-denses"><span class="header-section-number">4.3</span> Parties denses</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 4.3 — (Parties denses)</strong></p>
+<p>Soient <span class="math inline">(E, \|\cdot\|)</span> un EVN et <span class="math inline">A</span> une partie de <span class="math inline">E</span>. <span class="math inline">A</span> est dite <strong>dense</strong> dans <span class="math inline">E</span> si : <span class="math display">\forall x \in E, \quad \forall \varepsilon &gt; 0, \quad B(x, \varepsilon) \cap A \neq \varnothing</span></p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 4.3 — (Caractérisation des parties denses)</strong></p>
+<p><span class="math inline">A</span> est dense dans <span class="math inline">E</span> si et seulement si <span class="math inline">\overline{A} = E</span>.</p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 4.2</strong></p>
+<p><span class="math inline">\mathbb{Q}</span> est dense dans <span class="math inline">\mathbb{R}</span>. Plus généralement, <span class="math inline">\mathbb{Q}^n</span> est dense dans <span class="math inline">\mathbb{R}^n</span>.</p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 4.4 — (Continuité et densité)</strong></p>
+<p>Deux applications continues qui coïncident sur une partie dense sont égales.</p>
+</div>
+</section>
+</section>
+<section id="étude-locale-et-propriétés-globales-dune-application-continue" class="level1" data-number="5">
+<h1 data-number="5"><span class="header-section-number">5</span> Étude locale et propriétés globales d’une application continue</h1>
+<section id="limite-en-un-point" class="level2" data-number="5.1">
+<h2 data-number="5.1" class="anchored" data-anchor-id="limite-en-un-point"><span class="header-section-number">5.1</span> Limite en un point</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 5.1 — (Limite en un point)</strong></p>
+<p>Soient <span class="math inline">(E, \|\cdot\|)</span> et <span class="math inline">(F, \|\cdot\|')</span> deux EVN, <span class="math inline">A</span> une partie non vide de <span class="math inline">E</span>, <span class="math inline">f : A \to F</span> une application et <span class="math inline">a</span> un point adhérent à <span class="math inline">A</span>. On dit que <span class="math inline">f</span> admet pour limite <span class="math inline">l \in F</span> en <span class="math inline">a</span> si : <span class="math display">\forall \varepsilon &gt; 0, \quad \exists \delta &gt; 0, \quad (x \in A \text{ et } \|x - a\| &lt; \delta) \implies \|f(x) - l\|' &lt; \varepsilon</span></p>
+</div>
+</section>
+<section id="continuité" class="level2" data-number="5.2">
+<h2 data-number="5.2" class="anchored" data-anchor-id="continuité"><span class="header-section-number">5.2</span> Continuité</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 5.2 — (Continuité en un point et sur une partie)</strong></p>
+<p>Soient <span class="math inline">(E, \|\cdot\|)</span> et <span class="math inline">(F, \|\cdot\|')</span> deux EVN, <span class="math inline">A</span> une partie non vide de <span class="math inline">E</span> et <span class="math inline">f : A \to F</span> une application.</p>
+<ul>
+<li><p><span class="math inline">f</span> est <strong>continue en</strong> <span class="math inline">a \in A</span> si : <span class="math display">\forall \varepsilon &gt; 0, \quad \exists \delta &gt; 0, \quad (x \in A \text{ et } \|x - a\| &lt; \delta) \implies \|f(x) - f(a)\|' &lt; \varepsilon</span></p></li>
+<li><p><span class="math inline">f</span> est <strong>continue sur</strong> <span class="math inline">A</span> si elle est continue en tout point de <span class="math inline">A</span>.</p></li>
+</ul>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 5.1 — (Caractérisation séquentielle de la continuité)</strong></p>
+<p><span class="math inline">f</span> est continue en <span class="math inline">a</span> si et seulement si pour toute suite <span class="math inline">(x_n)_n</span> d’éléments de <span class="math inline">A</span> convergeant vers <span class="math inline">a</span>, la suite <span class="math inline">(f(x_n))_n</span> converge vers <span class="math inline">f(a)</span>.</p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 5.2 — (Opérations sur les applications continues)</strong></p>
+<ol type="1">
+<li>Toute combinaison linéaire d’applications continues est continue.</li>
+<li>La composée de deux applications continues est continue.</li>
+</ol>
+</div>
+</section>
+<section id="image-réciproque-dun-ouvert-ou-dun-fermé" class="level2" data-number="5.3">
+<h2 data-number="5.3" class="anchored" data-anchor-id="image-réciproque-dun-ouvert-ou-dun-fermé"><span class="header-section-number">5.3</span> Image réciproque d’un ouvert ou d’un fermé</h2>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 5.3 — (Image réciproque d’un ouvert/fermé)</strong></p>
+<p>Soient <span class="math inline">(E, \|\cdot\|)</span> et <span class="math inline">(F, \|\cdot\|')</span> deux EVN et <span class="math inline">f : E \to F</span> une application continue. Alors :</p>
+<ol type="1">
+<li>Si <span class="math inline">O</span> est un ouvert de <span class="math inline">F</span>, alors <span class="math inline">f^{-1}(O)</span> est un ouvert de <span class="math inline">E</span>.</li>
+<li>Si <span class="math inline">F</span> est un fermé de <span class="math inline">F</span>, alors <span class="math inline">f^{-1}(F)</span> est un fermé de <span class="math inline">E</span>.</li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 5.4</strong></p>
+<p>Si <span class="math inline">f : E \to \mathbb{R}</span> est continue, alors :</p>
+<ul>
+<li><span class="math inline">\{x \in E \mid f(x) &gt; 0\}</span> et <span class="math inline">\{x \in E \mid f(x) &lt; 0\}</span> sont des ouverts.</li>
+<li><span class="math inline">\{x \in E \mid f(x) = 0\}</span>, <span class="math inline">\{x \in E \mid f(x) \geq 0\}</span>, <span class="math inline">\{x \in E \mid f(x) \leq 0\}</span> sont des fermés.</li>
+</ul>
+</div>
+</section>
+<section id="applications-lipschitziennes-et-uniformément-continues" class="level2" data-number="5.4">
+<h2 data-number="5.4" class="anchored" data-anchor-id="applications-lipschitziennes-et-uniformément-continues"><span class="header-section-number">5.4</span> Applications lipschitziennes et uniformément continues</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 5.3 — (Application lipschitzienne)</strong></p>
+<p>Soient <span class="math inline">(E, \|\cdot\|)</span> et <span class="math inline">(F, \|\cdot\|')</span> deux EVN. Une application <span class="math inline">f : E \to F</span> est dite <strong>lipschitzienne</strong> s’il existe <span class="math inline">K \geq 0</span> tel que : <span class="math display">\forall x, y \in E, \quad \|f(x) - f(y)\|' \leq K \|x - y\|</span></p>
+</div>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 5.4 — (Application uniformément continue)</strong></p>
+<p>Une application <span class="math inline">f : E \to F</span> est dite <strong>uniformément continue</strong> si : <span class="math display">\forall \varepsilon &gt; 0, \quad \exists \delta &gt; 0, \quad \forall x, y \in E, \quad \|x - y\| &lt; \delta \implies \|f(x) - f(y)\|' &lt; \varepsilon</span></p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 5.5</strong></p>
+<p>Toute application lipschitzienne est uniformément continue. Toute application uniformément continue est continue.</p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 5.1</strong></p>
+<p>L’application <span class="math inline">x \mapsto d(x, B)</span> où <span class="math inline">B</span> est une partie non vide d’un EVN <span class="math inline">E</span> est 1-lipschitzienne.</p>
+</div>
+</section>
+<section id="continuité-des-applications-linéaires" class="level2" data-number="5.5">
+<h2 data-number="5.5" class="anchored" data-anchor-id="continuité-des-applications-linéaires"><span class="header-section-number">5.5</span> Continuité des applications linéaires</h2>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 5.6 — (Continuité des applications linéaires)</strong></p>
+<p>Soient <span class="math inline">(E, \|\cdot\|)</span> et <span class="math inline">(F, \|\cdot\|')</span> deux EVN et <span class="math inline">u : E \to F</span> une application linéaire. Les assertions suivantes sont équivalentes :</p>
+<ol type="1">
+<li><span class="math inline">u \in \mathcal{L}_c(E, F)</span> (applications linéaires continues).</li>
+<li><span class="math inline">u</span> est continue en <span class="math inline">0_E</span>.</li>
+<li>Il existe <span class="math inline">C \geq 0</span> tel que : <span class="math inline">\forall x \in E, \quad \|u(x)\|' \leq C \|x\|</span>.</li>
+<li><span class="math inline">u</span> est uniformément continue.</li>
+</ol>
+</div>
+</section>
+</section>
+<section id="evn-de-dimension-finie" class="level1" data-number="6">
+<h1 data-number="6"><span class="header-section-number">6</span> EVN de dimension finie</h1>
+<section id="équivalence-des-normes-en-dimension-finie" class="level2" data-number="6.1">
+<h2 data-number="6.1" class="anchored" data-anchor-id="équivalence-des-normes-en-dimension-finie"><span class="header-section-number">6.1</span> Équivalence des normes en dimension finie</h2>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 6.1 — (Admis)</strong></p>
+<p>Soit <span class="math inline">E</span> un <span class="math inline">\mathbb{K}</span>-espace vectoriel de dimension finie <span class="math inline">n \in \mathbb{N}^*</span> et <span class="math inline">\mathcal{B} = (e_1, \ldots, e_n)</span> une base de <span class="math inline">E</span>.</p>
+<p><strong>Toutes les normes sur <span class="math inline">E</span> sont équivalentes.</strong></p>
+</div>
+<div class="remarque">
+<p>En dimension finie, l’étude topologique d’un EVN <span class="math inline">E</span> se ramène à celle de <span class="math inline">\mathbb{K}^n</span> muni d’une norme. Le théorème de l’équivalence des normes permet de ramener l’étude topologique à celle de l’espace <span class="math inline">\mathbb{K}^n</span> (<span class="math inline">\mathbb{K} = \mathbb{R}</span> ou <span class="math inline">\mathbb{C}</span>) qui peut servir de cadre à la présentation des différentes notions (boules, ouverts, limite et continuité, …).</p>
+</div>
+</section>
+<section id="propriétés-topologiques-en-dimension-finie" class="level2" data-number="6.2">
+<h2 data-number="6.2" class="anchored" data-anchor-id="propriétés-topologiques-en-dimension-finie"><span class="header-section-number">6.2</span> Propriétés topologiques en dimension finie</h2>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 6.1</strong></p>
+<p>Dans un EVN de dimension finie :</p>
+<ol type="1">
+<li>Toute partie fermée et bornée est compacte.</li>
+<li>Tout sous-espace vectoriel est fermé.</li>
+<li>Toute partie compacte est fermée et bornée.</li>
+</ol>
+</div>
+</section>
+<section id="continuité-des-applications-multilinéaires" class="level2" data-number="6.3">
+<h2 data-number="6.3" class="anchored" data-anchor-id="continuité-des-applications-multilinéaires"><span class="header-section-number">6.3</span> Continuité des applications multilinéaires</h2>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 6.2 — (Continuité des applications multilinéaires)</strong></p>
+<p>Soient <span class="math inline">E_1, \ldots, E_p, F</span> des EVN de dimension finie. Toute application <span class="math inline">f : E_1 \times \cdots \times E_p \to F</span> multilinéaire est continue.</p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 6.1</strong></p>
+<p>Le déterminant est une forme multilinéaire et l’espace de départ <span class="math inline">\mathbb{K}^n \times \cdots \times \mathbb{K}^n</span> est de dimension finie <span class="math inline">n^2</span>, donc il est continu.</p>
+</div>
+</section>
+<section id="parties-compactes" class="level2" data-number="6.4">
+<h2 data-number="6.4" class="anchored" data-anchor-id="parties-compactes"><span class="header-section-number">6.4</span> Parties compactes</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 6.1 — (Partie compacte)</strong></p>
+<p>Soit <span class="math inline">(E, \|\cdot\|)</span> un EVN. On dit qu’une partie <span class="math inline">K</span> de <span class="math inline">E</span> est <strong>compacte</strong> si toute suite d’éléments de <span class="math inline">K</span> admet une valeur d’adhérence dans <span class="math inline">K</span>.</p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 6.3 — (Produit de compacts)</strong></p>
+<p>Soient <span class="math inline">(E_1, \mathcal{N}_1), \ldots, (E_n, \mathcal{N}_n)</span> des EVN. Pour tout <span class="math inline">i \in \{1, \ldots, n\}</span>, <span class="math inline">K_i</span> est un compact de <span class="math inline">E_i</span>. Posons <span class="math inline">E = \prod_{i=1}^n E_i</span> et munissons <span class="math inline">E</span> d’une norme produit <span class="math inline">\mathcal{N}</span>. Alors <span class="math inline">K_1 \times \cdots \times K_n</span> est un compact de <span class="math inline">E</span>.</p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 6.4 — (Image d’un compact par une application continue)</strong></p>
+<p>Soient <span class="math inline">(E, \|\cdot\|)</span> et <span class="math inline">(F, \|\cdot\|')</span> deux EVN, <span class="math inline">f : E \to F</span> une application continue et <span class="math inline">K</span> une partie compacte de <span class="math inline">E</span>. Alors <span class="math inline">f(K)</span> est une partie compacte de <span class="math inline">F</span>.</p>
+</div>
+<div class="custom-numbered-block custom-corollary">
+<p><strong>Corollaire 6.1 — (Théorème des bornes atteintes)</strong></p>
+<p>Soient <span class="math inline">(E, \|\cdot\|)</span> un EVN et <span class="math inline">f : E \to \mathbb{R}</span> une application continue. Si <span class="math inline">K</span> est un compact de <span class="math inline">E</span>, alors <span class="math inline">f</span> est bornée et atteint ses bornes sur <span class="math inline">K</span>.</p>
+<p>En particulier, pour une application <span class="math inline">f : [a,b] \to \mathbb{R}</span> continue, <span class="math inline">f</span> est bornée et atteint ses bornes sur le segment <span class="math inline">[a,b]</span>.</p>
+</div>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 6.2 — (Théorème de Heine)</strong></p>
+<p>Toute application continue sur une partie compacte est uniformément continue.</p>
+</div>
+</section>
+<section id="parties-connexes-par-arcs" class="level2" data-number="6.5">
+<h2 data-number="6.5" class="anchored" data-anchor-id="parties-connexes-par-arcs"><span class="header-section-number">6.5</span> Parties connexes par arcs</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 6.2 — (Partie connexe par arcs)</strong></p>
+<p>Soit <span class="math inline">(E, \|\cdot\|)</span> un EVN. On dit qu’une partie <span class="math inline">A</span> de <span class="math inline">E</span> est <strong>connexe par arcs</strong> si pour tous <span class="math inline">a, b \in A</span>, il existe un chemin continu <span class="math inline">\gamma : [0, 1] \to A</span> tel que <span class="math inline">\gamma(0) = a</span> et <span class="math inline">\gamma(1) = b</span>.</p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 6.5</strong></p>
+<p>Soit <span class="math inline">f : E \to F</span> une application continue. Alors <span class="math inline">f(A)</span> est une partie connexe par arcs de <span class="math inline">F</span>.</p>
+</div>
+<div class="custom-numbered-block custom-corollary">
+<p><strong>Corollaire 6.2 — (Théorème des valeurs intermédiaires)</strong></p>
+<p>Soit <span class="math inline">f : I \to \mathbb{R}</span> une application continue et <span class="math inline">(a,b) \in I^2</span> tel que <span class="math inline">a &lt; b</span>. Posons <span class="math inline">\alpha = \min\{f(a), f(b)\}</span> et <span class="math inline">\beta = \max\{f(a), f(b)\}</span>. Alors : <span class="math display">\forall y \in [\alpha, \beta], \quad \exists x \in [a, b] \text{ tel que } y = f(x)</span></p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 6.6 — (Cas des parties convexes et étoilées)</strong></p>
+<ul>
+<li>Toute partie convexe est connexe par arcs.</li>
+<li>Toute partie étoilée est connexe par arcs.</li>
+<li>Les parties connexes par arcs de <span class="math inline">\mathbb{R}</span> sont les intervalles.</li>
+</ul>
+</div>
+</section>
+</section>
+<section id="exercices" class="level1" data-number="7">
+<h1 data-number="7"><span class="header-section-number">7</span> Exercices</h1>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 7.1</strong></p>
+<p>Soient <span class="math inline">(E, \|\cdot\|)</span> un EVN et <span class="math inline">(u_n)</span> une suite d’éléments de <span class="math inline">E</span>. Montrer que :</p>
+<ol type="1">
+<li>Si <span class="math inline">u_n \to l</span>, alors <span class="math inline">\|u_n\| \to \|l\|</span>.</li>
+<li>La réciproque est fausse. Donner un contre-exemple.</li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 7.2</strong></p>
+<p>Soient <span class="math inline">(E, \|\cdot\|)</span> un EVN et <span class="math inline">B(a, r)</span> une boule ouverte. Montrer que <span class="math inline">B(a, r)</span> est un ouvert.</p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 7.3</strong></p>
+<p>Soient <span class="math inline">\mathcal{N}_1</span> et <span class="math inline">\mathcal{N}_2</span> deux normes équivalentes sur <span class="math inline">E</span>. Montrer que les deux normes définissent la même topologie sur <span class="math inline">E</span>.</p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 7.4</strong></p>
+<p>Soient <span class="math inline">(E, \|\cdot\|)</span> et <span class="math inline">(F, \|\cdot\|')</span> deux EVN et <span class="math inline">f : E \to F</span> une application continue. Montrer que si <span class="math inline">K</span> est un compact de <span class="math inline">E</span>, alors <span class="math inline">f(K)</span> est un compact de <span class="math inline">F</span>.</p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 7.5</strong></p>
+<p>Soient <span class="math inline">(E, \|\cdot\|)</span> un EVN de dimension finie et <span class="math inline">F</span> un sous-espace vectoriel de <span class="math inline">E</span>. Montrer que <span class="math inline">F</span> est fermé.</p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 7.6</strong></p>
+<p>Soient <span class="math inline">E = \mathbb{R}[X]</span> et <span class="math inline">P_n = X^n</span> pour tout <span class="math inline">n \in \mathbb{N}</span>. Montrer que les normes <span class="math inline">\|\cdot\|_\infty</span> et <span class="math inline">\|\cdot\|_h</span> ne sont pas équivalentes sur <span class="math inline">E</span>.</p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 7.7</strong></p>
+<p>Soient <span class="math inline">(E, \|\cdot\|)</span> un EVN et <span class="math inline">(u_n)</span> une suite de Cauchy d’éléments de <span class="math inline">E</span>. Montrer que <span class="math inline">(u_n)</span> est bornée.</p>
+</div>
+</section>
+<section id="document-en-pdf" class="level1 unnumbered">
+<h1 class="unnumbered">Document en PDF</h1>
+<p><a href="PDF/psi-chap03.pdf">Chapitre 03 : Topologie des espaces normés</a></p>
+<section id="navigation" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="navigation">Navigation</h2>
+<div class="chap-nav">
+<p><a href="../cours/psi-chap02.html" class="prev">Chapitre 02 : Réduction des endomorphismes et des matrices carrées</a> <a href="../cours/psi.html" class="home">Menu PSI</a> <a href="../cours/psi-chap04.html" class="next">Chapitre 04 : Intégration</a></p>
+</div>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -222,12 +776,12 @@ ul.task-list li input[type="checkbox"] {
       // flash "checked"
       button.classList.add('code-copy-button-checked');
       var currentTitle = button.getAttribute("title");
-      button.setAttribute("title", "Copied!");
+      button.setAttribute("title", "Copié");
       let tooltip;
       if (window.bootstrap) {
         button.setAttribute("data-bs-toggle", "tooltip");
         button.setAttribute("data-bs-placement", "left");
-        button.setAttribute("data-bs-title", "Copied!");
+        button.setAttribute("data-bs-title", "Copié");
         tooltip = new bootstrap.Tooltip(button, 
           { trigger: "manual", 
             customClass: "code-copy-button-tooltip",

@@ -1,13 +1,14 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr"><head>
 
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.10.18">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Saîd MAHARI">
 
-<title>Intégration sur un intervalle quelconque - Mathématiques en CPGE – Mathématiques en CPGE</title>
+<title>Calcul différentiel – Mathématiques en CPGE</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -45,7 +46,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-7a8c080b55ea27eb37b467515007f9ee.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-e0d9a45d84245cc5e3b300860d8fa645.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -60,22 +61,66 @@ ul.task-list li input[type="checkbox"] {
   ],
   "show-item-context": false,
   "language": {
-    "search-no-results-text": "No results",
-    "search-matching-documents-text": "matching documents",
-    "search-copy-link-title": "Copy link to search",
-    "search-hide-matches-text": "Hide additional matches",
-    "search-more-match-text": "more match in this document",
-    "search-more-matches-text": "more matches in this document",
-    "search-clear-button-title": "Clear",
+    "search-no-results-text": "Pas de résultats",
+    "search-matching-documents-text": "documents trouvés",
+    "search-copy-link-title": "Copier le lien vers la recherche",
+    "search-hide-matches-text": "Cacher les correspondances additionnelles",
+    "search-more-match-text": "correspondance de plus dans ce document",
+    "search-more-matches-text": "correspondances de plus dans ce document",
+    "search-clear-button-title": "Effacer",
     "search-text-placeholder": "",
-    "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit",
-    "search-label": "Search"
+    "search-detached-cancel-button-title": "Annuler",
+    "search-submit-button-title": "Envoyer",
+    "search-label": "Recherche"
   }
 }</script>
 
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="styles.css">
 </head>
 
 <body class="nav-fixed quarto-light">
@@ -89,8 +134,8 @@ ul.task-list li input[type="checkbox"] {
     <span class="navbar-title">Accueil</span>
     </a>
   </div>
-            <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+            <div id="quarto-search" class="" title="Recherche"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Basculer la navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
@@ -140,10 +185,46 @@ ul.task-list li input[type="checkbox"] {
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
+    <h2 id="toc-title">Sur cette page</h2>
    
   <ul>
-  <li><a href="#document" id="toc-document" class="nav-link active" data-scroll-target="#document">Document</a></li>
+  <li><a href="#propriétés-locales" id="toc-propriétés-locales" class="nav-link active" data-scroll-target="#propriétés-locales"><span class="header-section-number">1</span> Propriétés locales</a>
+  <ul class="collapse">
+  <li><a href="#applications-partielles" id="toc-applications-partielles" class="nav-link" data-scroll-target="#applications-partielles"><span class="header-section-number">1.1</span> Applications partielles</a>
+  <ul class="collapse">
+  <li><a href="#dérivée-selon-un-vecteur" id="toc-dérivée-selon-un-vecteur" class="nav-link" data-scroll-target="#dérivée-selon-un-vecteur"><span class="header-section-number">1.1.1</span> Dérivée selon un vecteur</a></li>
+  <li><a href="#dérivées-partielles" id="toc-dérivées-partielles" class="nav-link" data-scroll-target="#dérivées-partielles"><span class="header-section-number">1.1.2</span> Dérivées partielles</a></li>
+  </ul></li>
+  <li><a href="#différentiabilité-en-un-point" id="toc-différentiabilité-en-un-point" class="nav-link" data-scroll-target="#différentiabilité-en-un-point"><span class="header-section-number">1.2</span> Différentiabilité en un point</a></li>
+  <li><a href="#matrice-jacobienne" id="toc-matrice-jacobienne" class="nav-link" data-scroll-target="#matrice-jacobienne"><span class="header-section-number">1.3</span> Matrice Jacobienne</a></li>
+  <li><a href="#vecteur-gradient-cas-des-fonctions-numériques" id="toc-vecteur-gradient-cas-des-fonctions-numériques" class="nav-link" data-scroll-target="#vecteur-gradient-cas-des-fonctions-numériques"><span class="header-section-number">1.4</span> Vecteur Gradient (cas des fonctions numériques)</a></li>
+  </ul></li>
+  <li><a href="#propriétés-globales" id="toc-propriétés-globales" class="nav-link" data-scroll-target="#propriétés-globales"><span class="header-section-number">2</span> Propriétés globales</a>
+  <ul class="collapse">
+  <li><a href="#fonctions-de-classe-mathcalc1" id="toc-fonctions-de-classe-mathcalc1" class="nav-link" data-scroll-target="#fonctions-de-classe-mathcalc1"><span class="header-section-number">2.1</span> Fonctions de classe <span class="math inline">\mathcal{C}^1</span></a></li>
+  <li><a href="#composition-des-fonctions-différentiables" id="toc-composition-des-fonctions-différentiables" class="nav-link" data-scroll-target="#composition-des-fonctions-différentiables"><span class="header-section-number">2.2</span> Composition des fonctions différentiables</a></li>
+  </ul></li>
+  <li><a href="#fonctions-de-classe-mathcalck-k-1" id="toc-fonctions-de-classe-mathcalck-k-1" class="nav-link" data-scroll-target="#fonctions-de-classe-mathcalck-k-1"><span class="header-section-number">3</span> Fonctions de classe <span class="math inline">\mathcal{C}^k</span> (<span class="math inline">k &gt; 1</span>)</a>
+  <ul class="collapse">
+  <li><a href="#définitions" id="toc-définitions" class="nav-link" data-scroll-target="#définitions"><span class="header-section-number">3.1</span> Définitions</a></li>
+  <li><a href="#théorème-de-schwarz" id="toc-théorème-de-schwarz" class="nav-link" data-scroll-target="#théorème-de-schwarz"><span class="header-section-number">3.2</span> Théorème de Schwarz</a></li>
+  </ul></li>
+  <li><a href="#vecteurs-tangents-à-une-partie-dun-evn" id="toc-vecteurs-tangents-à-une-partie-dun-evn" class="nav-link" data-scroll-target="#vecteurs-tangents-à-une-partie-dun-evn"><span class="header-section-number">4</span> Vecteurs tangents à une partie d’un EVN</a>
+  <ul class="collapse">
+  <li><a href="#vecteur-tangent-au-support-dun-arc" id="toc-vecteur-tangent-au-support-dun-arc" class="nav-link" data-scroll-target="#vecteur-tangent-au-support-dun-arc"><span class="header-section-number">4.1</span> Vecteur tangent au support d’un arc</a></li>
+  <li><a href="#vecteur-tangent-à-une-partie-de-e" id="toc-vecteur-tangent-à-une-partie-de-e" class="nav-link" data-scroll-target="#vecteur-tangent-à-une-partie-de-e"><span class="header-section-number">4.2</span> Vecteur tangent à une partie de <span class="math inline">E</span></a></li>
+  </ul></li>
+  <li><a href="#optimisation" id="toc-optimisation" class="nav-link" data-scroll-target="#optimisation"><span class="header-section-number">5</span> Optimisation</a>
+  <ul class="collapse">
+  <li><a href="#extremum-local" id="toc-extremum-local" class="nav-link" data-scroll-target="#extremum-local"><span class="header-section-number">5.1</span> Extremum local</a></li>
+  <li><a href="#théorème-dordre-1" id="toc-théorème-dordre-1" class="nav-link" data-scroll-target="#théorème-dordre-1"><span class="header-section-number">5.2</span> Théorème d’ordre 1</a></li>
+  <li><a href="#étude-au-second-ordre" id="toc-étude-au-second-ordre" class="nav-link" data-scroll-target="#étude-au-second-ordre"><span class="header-section-number">5.3</span> Étude au second ordre</a></li>
+  </ul></li>
+  <li><a href="#exercices" id="toc-exercices" class="nav-link" data-scroll-target="#exercices"><span class="header-section-number">6</span> Exercices</a></li>
+  <li><a href="#document-en-pdf" id="toc-document-en-pdf" class="nav-link" data-scroll-target="#document-en-pdf">Document en PDF</a>
+  <ul class="collapse">
+  <li><a href="#navigation" id="toc-navigation" class="nav-link" data-scroll-target="#navigation">Navigation</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -152,14 +233,27 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Chapitre 08 : Intégration sur un intervalle quelconque</h1>
+<h1 class="title">Calcul différentiel</h1>
+<p class="subtitle lead">Chapitre 08</p>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Auteur·rice</div>
+    <div class="quarto-title-meta-contents">
+             <p>Saîd MAHARI </p>
+          </div>
+  </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">Date de publication</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">22 août 2026</p>
+    </div>
+  </div>
   
     
   </div>
@@ -169,12 +263,233 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p><strong>MP (2e année) — Chapitre 08.</strong> Convergence dominée, intégrales dépendant d’un paramètre.</p>
-<section id="document" class="level2">
-<h2 class="anchored" data-anchor-id="document">Document</h2>
-<p><em>PDF à venir : déposez le fichier <code>files/mp/chap08.pdf</code> puis régénérez la page.</em></p>
+<p><strong>MP (2e année) — Chapitre 08.</strong> Dérivée selon un vecteur, dérivées partielles, différentielle, opérations sur les applications différentiables, cas des fonctions numériques, vecteurs tangents à une partie d’un EVN de dimension finie, applications de classe <span class="math inline">\mathcal{C}^k</span>.</p>
+<p>Ce chapitre a été réalisé conformément au programme marocain de mathématiques de la filière MP.</p>
+<p>Dans tout ce chapitre, <span class="math inline">E</span> et <span class="math inline">F</span> sont deux <span class="math inline">\mathbb{R}</span>-espaces vectoriels normés de dimensions finies <span class="math inline">p</span> et <span class="math inline">n</span> respectivement, munis de bases <span class="math inline">\mathcal{B}_E = (e_1, \ldots, e_p)</span> et <span class="math inline">\mathcal{B}_F = (v_1, \ldots, v_n)</span>. On note <span class="math inline">\Omega</span> un ouvert de <span class="math inline">E</span> et <span class="math inline">f : \Omega \to F</span> une application.</p>
+<section id="propriétés-locales" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Propriétés locales</h1>
+<section id="applications-partielles" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="applications-partielles"><span class="header-section-number">1.1</span> Applications partielles</h2>
+<section id="dérivée-selon-un-vecteur" class="level3" data-number="1.1.1">
+<h3 data-number="1.1.1" class="anchored" data-anchor-id="dérivée-selon-un-vecteur"><span class="header-section-number">1.1.1</span> Dérivée selon un vecteur</h3>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 1.1 — (Dérivée selon un vecteur)</strong></p>
+<p>Soit <span class="math inline">a \in \Omega</span> et <span class="math inline">h \in E \setminus \{0_E\}</span>. On dit que <span class="math inline">f</span> est <strong>dérivable en <span class="math inline">a</span> selon le vecteur <span class="math inline">h</span></strong> si la fonction : <span class="math display">t \mapsto f(a + th)</span> est dérivable en <span class="math inline">t = 0</span> (pour <span class="math inline">t</span> assez petit). La dérivée est notée <span class="math inline">D_h f(a)</span> et : <span class="math display">D_h f(a) = \lim_{t \to 0} \frac{f(a + th) - f(a)}{t}</span></p>
+</div>
+<div class="remarque">
+<p>Si <span class="math inline">f</span> est à valeurs dans <span class="math inline">F</span> de base <span class="math inline">(v_1, \ldots, v_n)</span> et si <span class="math inline">f = f_1 v_1 + \cdots + f_n v_n</span>, alors <span class="math inline">f</span> est dérivable en <span class="math inline">a</span> selon <span class="math inline">h</span> si et seulement si chaque <span class="math inline">f_i</span> est dérivable en <span class="math inline">a</span> selon <span class="math inline">h</span>, et : <span class="math display">D_h f(a) = \sum_{i=1}^n (D_h f_i)(a) \, v_i</span></p>
+</div>
+</section>
+<section id="dérivées-partielles" class="level3" data-number="1.1.2">
+<h3 data-number="1.1.2" class="anchored" data-anchor-id="dérivées-partielles"><span class="header-section-number">1.1.2</span> Dérivées partielles</h3>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 1.2 — (Dérivée partielle)</strong></p>
+<p>On dit que <span class="math inline">f</span> est <strong>partiellement dérivable en <span class="math inline">a</span> selon la variable <span class="math inline">x_j</span></strong> si <span class="math inline">f</span> est dérivable en <span class="math inline">a</span> selon le vecteur <span class="math inline">e_j</span>. On note : <span class="math display">\frac{\partial f}{\partial x_j}(a) = \partial_j f(a) = D_{e_j} f(a) = \lim_{t \to 0} \frac{f(a + t e_j) - f(a)}{t}</span></p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 1.1</strong></p>
+<p>Pour <span class="math inline">f(x, y) = x^2 y + \sin(xy)</span> définie sur <span class="math inline">\mathbb{R}^2</span> : <span class="math display">\frac{\partial f}{\partial x}(x, y) = 2xy + y\cos(xy), \quad \frac{\partial f}{\partial y}(x, y) = x^2 + x\cos(xy)</span></p>
+</div>
+</section>
+</section>
+<section id="différentiabilité-en-un-point" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="différentiabilité-en-un-point"><span class="header-section-number">1.2</span> Différentiabilité en un point</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 1.3 — (Différentiabilité)</strong></p>
+<p>On dit que <span class="math inline">f</span> est <strong>différentiable en <span class="math inline">a</span></strong> s’il existe une application linéaire <span class="math inline">L \in \mathcal{L}(E, F)</span> telle que : <span class="math display">f(a + h) = f(a) + L(h) + o(\|h\|) \quad \text{quand } h \to 0</span></p>
+<p>L’application linéaire <span class="math inline">L</span>, si elle existe, est unique. On l’appelle la <strong>différentielle</strong> de <span class="math inline">f</span> en <span class="math inline">a</span> et on la note <span class="math inline">df(a)</span> ou <span class="math inline">d_a f</span>.</p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 1.1 — (Unicité de la différentielle)</strong></p>
+<p>Si <span class="math inline">f</span> est différentiable en <span class="math inline">a</span>, alors la différentielle <span class="math inline">df(a)</span> est unique.</p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 1.2 — (Différentiabilité implique continuité)</strong></p>
+<p>Si <span class="math inline">f</span> est différentiable en <span class="math inline">a</span>, alors <span class="math inline">f</span> est continue en <span class="math inline">a</span>.</p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 1.3 — (Différentiabilité et dérivées selon les vecteurs)</strong></p>
+<p>Si <span class="math inline">f</span> est différentiable en <span class="math inline">a</span>, alors <span class="math inline">f</span> est dérivable en <span class="math inline">a</span> selon tout vecteur <span class="math inline">h \neq 0</span> et : <span class="math display">D_h f(a) = df(a)(h)</span></p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 1.4 — (Différentiabilité et dérivées partielles)</strong></p>
+<p>Si <span class="math inline">f</span> est différentiable en <span class="math inline">a</span>, alors <span class="math inline">f</span> possède en <span class="math inline">a</span> une dérivée partielle selon chacune de ses variables et : <span class="math display">df(a)(e_j) = \frac{\partial f}{\partial x_j}(a)</span></p>
+</div>
+<div class="remarque">
+<p>La réciproque est fausse : l’existence des dérivées partielles n’implique pas la différentiabilité.</p>
+</div>
+</section>
+<section id="matrice-jacobienne" class="level2" data-number="1.3">
+<h2 data-number="1.3" class="anchored" data-anchor-id="matrice-jacobienne"><span class="header-section-number">1.3</span> Matrice Jacobienne</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 1.4 — (Matrice Jacobienne)</strong></p>
+<p>Si <span class="math inline">f</span> est différentiable en <span class="math inline">a</span>, la <strong>matrice Jacobienne</strong> de <span class="math inline">f</span> en <span class="math inline">a</span>, notée <span class="math inline">J_f(a)</span>, est la matrice de <span class="math inline">df(a)</span> dans les bases <span class="math inline">\mathcal{B}_E</span> et <span class="math inline">\mathcal{B}_F</span> : <span class="math display">J_f(a) = \begin{pmatrix} \frac{\partial f_1}{\partial x_1}(a) &amp; \cdots &amp; \frac{\partial f_1}{\partial x_p}(a) \\ \vdots &amp; \ddots &amp; \vdots \\ \frac{\partial f_n}{\partial x_1}(a) &amp; \cdots &amp; \frac{\partial f_n}{\partial x_p}(a) \end{pmatrix}</span></p>
+</div>
+</section>
+<section id="vecteur-gradient-cas-des-fonctions-numériques" class="level2" data-number="1.4">
+<h2 data-number="1.4" class="anchored" data-anchor-id="vecteur-gradient-cas-des-fonctions-numériques"><span class="header-section-number">1.4</span> Vecteur Gradient (cas des fonctions numériques)</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 1.5 — (Gradient)</strong></p>
+<p>Si <span class="math inline">f : \Omega \to \mathbb{R}</span> est différentiable en <span class="math inline">a</span>, le <strong>gradient</strong> de <span class="math inline">f</span> en <span class="math inline">a</span>, noté <span class="math inline">\nabla f(a)</span>, est le vecteur de <span class="math inline">E</span> défini par : <span class="math display">\nabla f(a) = \sum_{j=1}^p \frac{\partial f}{\partial x_j}(a) \, e_j</span></p>
+<p>On a alors pour tout <span class="math inline">h \in E</span> : <span class="math display">df(a)(h) = \langle \nabla f(a), h \rangle</span></p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 1.2</strong></p>
+<p>Pour <span class="math inline">f(x, y, z) = x^2 + y^2 + z^2</span> : <span class="math display">\nabla f(x, y, z) = (2x, 2y, 2z)</span></p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 1.5 — (Développement limité à l’ordre 1)</strong></p>
+<p>Si <span class="math inline">f</span> est de classe <span class="math inline">\mathcal{C}^1</span> sur <span class="math inline">\Omega</span>, alors pour tout <span class="math inline">a \in \Omega</span> : <span class="math display">f(a + h) = f(a) + \langle \nabla f(a), h \rangle + o(\|h\|)</span></p>
+<p>Dans le cas <span class="math inline">E = \mathbb{R}^2</span> : <span class="math display">f(x_0 + h, y_0 + k) = f(x_0, y_0) + \frac{\partial f}{\partial x}(x_0, y_0) h + \frac{\partial f}{\partial y}(x_0, y_0) k + o(\sqrt{h^2 + k^2})</span></p>
+</div>
+</section>
+</section>
+<section id="propriétés-globales" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> Propriétés globales</h1>
+<section id="fonctions-de-classe-mathcalc1" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="fonctions-de-classe-mathcalc1"><span class="header-section-number">2.1</span> Fonctions de classe <span class="math inline">\mathcal{C}^1</span></h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 2.1 — (Fonction de classe <span class="math inline">\boldsymbol{\mathcal{C}^1}</span>)</strong></p>
+<p>On dit que <span class="math inline">f : \Omega \to F</span> est de <strong>classe <span class="math inline">\mathcal{C}^1</span></strong> sur <span class="math inline">\Omega</span> si toutes les dérivées partielles <span class="math inline">\frac{\partial f_i}{\partial x_j}</span> existent et sont continues sur <span class="math inline">\Omega</span>.</p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 2.1</strong></p>
+<p>Une fonction de classe <span class="math inline">\mathcal{C}^1</span> sur <span class="math inline">\Omega</span> est différentiable en tout point de <span class="math inline">\Omega</span>.</p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 2.2 — (Opérations sur les fonctions de classe <span class="math inline">\boldsymbol{\mathcal{C}^1}</span>)</strong></p>
+<p>Soient <span class="math inline">f, g : \Omega \to F</span> de classe <span class="math inline">\mathcal{C}^1</span> et <span class="math inline">\lambda, \mu \in \mathbb{R}</span>. Alors <span class="math inline">\lambda f + \mu g</span> est de classe <span class="math inline">\mathcal{C}^1</span> et : <span class="math display">d(\lambda f + \mu g)(a) = \lambda \, df(a) + \mu \, dg(a)</span></p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 2.3 — (Produit de fonctions numériques)</strong></p>
+<p>Si <span class="math inline">f, g : \Omega \to \mathbb{R}</span> sont de classe <span class="math inline">\mathcal{C}^1</span>, alors <span class="math inline">fg</span> est de classe <span class="math inline">\mathcal{C}^1</span> et : <span class="math display">d(fg)(a) = g(a) \, df(a) + f(a) \, dg(a)</span></p>
+</div>
+</section>
+<section id="composition-des-fonctions-différentiables" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="composition-des-fonctions-différentiables"><span class="header-section-number">2.2</span> Composition des fonctions différentiables</h2>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 2.1 — (Différentielle d’une composée)</strong></p>
+<p>Soient <span class="math inline">f : \Omega \to F</span> et <span class="math inline">g : \Omega' \to G</span> avec <span class="math inline">f(\Omega) \subset \Omega'</span>.</p>
+<ul>
+<li><p>Si <span class="math inline">f</span> est différentiable en <span class="math inline">a \in \Omega</span> et <span class="math inline">g</span> est différentiable en <span class="math inline">b = f(a)</span>, alors <span class="math inline">h = g \circ f</span> est différentiable en <span class="math inline">a</span> et : <span class="math display">dh(a) = d(g \circ f)(a) = dg(f(a)) \circ df(a)</span></p></li>
+<li><p>Si <span class="math inline">f \in \mathcal{C}^1(\Omega, F)</span> et <span class="math inline">g \in \mathcal{C}^1(\Omega', G)</span>, alors <span class="math inline">h = g \circ f \in \mathcal{C}^1(\Omega, G)</span>.</p></li>
+</ul>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 2.4 — (Jacobienne d’une composée)</strong></p>
+<p>Si <span class="math inline">f</span> est différentiable en <span class="math inline">a</span> et <span class="math inline">g</span> en <span class="math inline">b = f(a)</span> : <span class="math display">J_h(a) = J_{g \circ f}(a) = J_g(f(a)) \times J_f(a)</span></p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 2.5 — (Règle de la chaîne)</strong></p>
+<p>On se limite au cas où <span class="math inline">g</span> est à valeurs dans <span class="math inline">\mathbb{R}</span>. Si <span class="math inline">f</span> et <span class="math inline">g</span> sont de classe <span class="math inline">\mathcal{C}^1</span>, alors <span class="math inline">h = g \circ f</span> est de classe <span class="math inline">\mathcal{C}^1</span> et : <span class="math display">\frac{\partial h}{\partial x_j}(a) = \sum_{i=1}^n \frac{\partial g}{\partial y_i}(f(a)) \cdot \frac{\partial f_i}{\partial x_j}(a)</span></p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 2.1 — (Cas particulier : <span class="math inline">\boldsymbol{E = \mathbb{R}}</span>)</strong></p>
+<p>Si <span class="math inline">f : I \to \Omega'</span> est de classe <span class="math inline">\mathcal{C}^1</span> sur un intervalle <span class="math inline">I</span> de <span class="math inline">\mathbb{R}</span> et <span class="math inline">g : \Omega' \to \mathbb{R}</span> est de classe <span class="math inline">\mathcal{C}^1</span>, alors <span class="math inline">h = g \circ f</span> est de classe <span class="math inline">\mathcal{C}^1</span> et : <span class="math display">h'(t) = \sum_{i=1}^n \frac{\partial g}{\partial y_i}(f(t)) \cdot f_i'(t)</span></p>
+</div>
+</section>
+</section>
+<section id="fonctions-de-classe-mathcalck-k-1" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Fonctions de classe <span class="math inline">\mathcal{C}^k</span> (<span class="math inline">k &gt; 1</span>)</h1>
+<section id="définitions" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="définitions"><span class="header-section-number">3.1</span> Définitions</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 3.1 — (Fonction de classe <span class="math inline">\boldsymbol{\mathcal{C}^k}</span>)</strong></p>
+<p>Soit <span class="math inline">f : \Omega \to \mathbb{R}</span> avec <span class="math inline">\Omega</span> ouvert.</p>
+<ul>
+<li><span class="math inline">f</span> est de <strong>classe <span class="math inline">\mathcal{C}^2</span></strong> si <span class="math inline">f</span> et ses <span class="math inline">p</span> dérivées partielles <span class="math inline">\frac{\partial f}{\partial x_j}</span> sont de classe <span class="math inline">\mathcal{C}^1</span>.</li>
+<li>Pour <span class="math inline">k &gt; 2</span>, <span class="math inline">f</span> est de <strong>classe <span class="math inline">\mathcal{C}^k</span></strong> si <span class="math inline">f</span> est de classe <span class="math inline">\mathcal{C}^{k-1}</span> et si ses <span class="math inline">p^{k-1}</span> dérivées partielles sont de classe <span class="math inline">\mathcal{C}^1</span>.</li>
+</ul>
+</div>
+</section>
+<section id="théorème-de-schwarz" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="théorème-de-schwarz"><span class="header-section-number">3.2</span> Théorème de Schwarz</h2>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 3.1 — (Théorème de Schwarz)</strong></p>
+<p>Si <span class="math inline">f</span> est de classe <span class="math inline">\mathcal{C}^2</span> sur <span class="math inline">\Omega</span>, alors les dérivées partielles secondes commutent : <span class="math display">\frac{\partial^2 f}{\partial x_i \partial x_j} = \frac{\partial^2 f}{\partial x_j \partial x_i}</span></p>
+<p>Plus généralement, si <span class="math inline">f</span> est de classe <span class="math inline">\mathcal{C}^k</span>, pour toute permutation <span class="math inline">\sigma</span> de <span class="math inline">\{1, \ldots, k\}</span> : <span class="math display">\frac{\partial^k f}{\partial x_{i_1} \cdots \partial x_{i_k}} = \frac{\partial^k f}{\partial x_{i_{\sigma(1)}} \cdots \partial x_{i_{\sigma(k)}}}</span></p>
+</div>
+</section>
+</section>
+<section id="vecteurs-tangents-à-une-partie-dun-evn" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> Vecteurs tangents à une partie d’un EVN</h1>
+<section id="vecteur-tangent-au-support-dun-arc" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="vecteur-tangent-au-support-dun-arc"><span class="header-section-number">4.1</span> Vecteur tangent au support d’un arc</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 4.1 — (Vecteur tangent)</strong></p>
+<p>Soit <span class="math inline">\gamma : I \to E</span> un arc paramétré de classe <span class="math inline">\mathcal{C}^1</span> et <span class="math inline">a = \gamma(t_0)</span>. Un vecteur <span class="math inline">v \in E</span> est <strong>tangent</strong> à <span class="math inline">\gamma</span> en <span class="math inline">a</span> s’il existe une suite <span class="math inline">(t_n)</span> tendant vers <span class="math inline">t_0</span> telle que : <span class="math display">\frac{\gamma(t_n) - \gamma(t_0)}{\|\gamma(t_n) - \gamma(t_0)\|} \to \frac{v}{\|v\|}</span></p>
+</div>
+</section>
+<section id="vecteur-tangent-à-une-partie-de-e" class="level2" data-number="4.2">
+<h2 data-number="4.2" class="anchored" data-anchor-id="vecteur-tangent-à-une-partie-de-e"><span class="header-section-number">4.2</span> Vecteur tangent à une partie de <span class="math inline">E</span></h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 4.2 — (Vecteur tangent à une partie)</strong></p>
+<p>Soit <span class="math inline">X</span> une partie de <span class="math inline">E</span> et <span class="math inline">a \in X</span>. Un vecteur <span class="math inline">v \in E</span> est <strong>tangent à <span class="math inline">X</span> en <span class="math inline">a</span></strong> s’il existe un arc <span class="math inline">\gamma : ]-\varepsilon, \varepsilon[ \to X</span> de classe <span class="math inline">\mathcal{C}^1</span> tel que <span class="math inline">\gamma(0) = a</span> et <span class="math inline">\gamma'(0) = v</span>.</p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 4.1 — (Graphe d’une fonction)</strong></p>
+<p>Si <span class="math inline">f : \Omega \subset \mathbb{R}^2 \to \mathbb{R}</span> est différentiable et <span class="math inline">X</span> est le graphe de <span class="math inline">f</span> : <span class="math display">X = \{(x, y, z) \mid (x,y) \in \Omega, \; z = f(x,y)\}</span> Les vecteurs tangents à <span class="math inline">X</span> en <span class="math inline">(a, b, c) \in X</span> constituent le plan d’équation : <span class="math display">\frac{\partial f}{\partial x}(a,b) \cdot x + \frac{\partial f}{\partial y}(a,b) \cdot y - z = 0</span></p>
+</div>
+</section>
+</section>
+<section id="optimisation" class="level1" data-number="5">
+<h1 data-number="5"><span class="header-section-number">5</span> Optimisation</h1>
+<section id="extremum-local" class="level2" data-number="5.1">
+<h2 data-number="5.1" class="anchored" data-anchor-id="extremum-local"><span class="header-section-number">5.1</span> Extremum local</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 5.1 — (Extremum local)</strong></p>
+<p>Soit <span class="math inline">f : \Omega \to \mathbb{R}</span>. On dit que <span class="math inline">f</span> admet un <strong>maximum local</strong> (resp. <strong>minimum local</strong>) en <span class="math inline">a \in \Omega</span> s’il existe un voisinage <span class="math inline">V</span> de <span class="math inline">a</span> dans <span class="math inline">\Omega</span> tel que : <span class="math display">\forall x \in V, \quad f(x) \leq f(a) \quad (\text{resp. } f(x) \geq f(a))</span></p>
+</div>
+</section>
+<section id="théorème-dordre-1" class="level2" data-number="5.2">
+<h2 data-number="5.2" class="anchored" data-anchor-id="théorème-dordre-1"><span class="header-section-number">5.2</span> Théorème d’ordre 1</h2>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 5.1 — (Condition nécessaire d’ordre 1)</strong></p>
+<p>Si <span class="math inline">f : \Omega \to \mathbb{R}</span> est de classe <span class="math inline">\mathcal{C}^1</span> et admet un extremum local en <span class="math inline">a \in \Omega</span>, alors : <span class="math display">df(a) = 0 \quad \text{c'est-à-dire} \quad \nabla f(a) = 0</span></p>
+</div>
+</section>
+<section id="étude-au-second-ordre" class="level2" data-number="5.3">
+<h2 data-number="5.3" class="anchored" data-anchor-id="étude-au-second-ordre"><span class="header-section-number">5.3</span> Étude au second ordre</h2>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 5.1 — (Condition suffisante d’ordre 2)</strong></p>
+<p>Si <span class="math inline">f</span> est de classe <span class="math inline">\mathcal{C}^2</span> et <span class="math inline">df(a) = 0</span> :</p>
+<ul>
+<li>Si la forme quadratique <span class="math inline">h \mapsto d^2 f(a)(h, h)</span> est définie positive, alors <span class="math inline">f</span> admet un minimum local strict en <span class="math inline">a</span>.</li>
+<li>Si la forme quadratique <span class="math inline">h \mapsto d^2 f(a)(h, h)</span> est définie négative, alors <span class="math inline">f</span> admet un maximum local strict en <span class="math inline">a</span>.</li>
+</ul>
+</div>
+</section>
+</section>
+<section id="exercices" class="level1" data-number="6">
+<h1 data-number="6"><span class="header-section-number">6</span> Exercices</h1>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 6.1</strong></p>
+<p>Soit <span class="math inline">f(x, y) = x^2 y + e^{xy}</span>. Calculer <span class="math inline">\frac{\partial f}{\partial x}</span>, <span class="math inline">\frac{\partial f}{\partial y}</span> et <span class="math inline">\nabla f</span>.</p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 6.2</strong></p>
+<p>Soit <span class="math inline">f(x, y) = \sqrt{x^2 + y^2}</span>. Montrer que <span class="math inline">f</span> n’est pas différentiable en <span class="math inline">(0,0)</span>.</p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 6.3</strong></p>
+<p>Soit <span class="math inline">f(x, y, z) = x^2 + y^2 - z^2</span>. Déterminer les points critiques de <span class="math inline">f</span> et leur nature.</p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 6.4</strong></p>
+<p>Résoudre l’équation aux dérivées partielles : <span class="math display">\frac{\partial f}{\partial x} + 2\frac{\partial f}{\partial y} = 0</span> en utilisant un changement de variable linéaire.</p>
+</div>
+</section>
+<section id="document-en-pdf" class="level1 unnumbered">
+<h1 class="unnumbered">Document en PDF</h1>
+<p><a href="PDF/mp-chap08.pdf">Chapitre 08 : Calcul différentiel</a></p>
+<section id="navigation" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="navigation">Navigation</h2>
+<div class="chap-nav">
+<p><a href="../cours/mp-chap07.html" class="prev">Chapitre 07 : Séries entières</a> <a href="../cours/mp.html" class="home">Menu MP</a> <a href="../cours/mp-chap09.html" class="next">Chapitre 09 : Espaces préhilbertiens réels et endomorphismes des espaces euclidiens</a></p>
+</div>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -222,12 +537,12 @@ ul.task-list li input[type="checkbox"] {
       // flash "checked"
       button.classList.add('code-copy-button-checked');
       var currentTitle = button.getAttribute("title");
-      button.setAttribute("title", "Copied!");
+      button.setAttribute("title", "Copié");
       let tooltip;
       if (window.bootstrap) {
         button.setAttribute("data-bs-toggle", "tooltip");
         button.setAttribute("data-bs-placement", "left");
-        button.setAttribute("data-bs-title", "Copied!");
+        button.setAttribute("data-bs-title", "Copié");
         tooltip = new bootstrap.Tooltip(button, 
           { trigger: "manual", 
             customClass: "code-copy-button-tooltip",

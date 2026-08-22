@@ -1,13 +1,14 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr"><head>
 
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.10.18">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Saîd MAHARI">
 
-<title>Probabilités discrètes - Mathématiques en CPGE – Mathématiques en CPGE</title>
+<title>Intégrales dépendant d’un paramètre – Mathématiques en CPGE</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -45,7 +46,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-7a8c080b55ea27eb37b467515007f9ee.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-e0d9a45d84245cc5e3b300860d8fa645.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -60,22 +61,66 @@ ul.task-list li input[type="checkbox"] {
   ],
   "show-item-context": false,
   "language": {
-    "search-no-results-text": "No results",
-    "search-matching-documents-text": "matching documents",
-    "search-copy-link-title": "Copy link to search",
-    "search-hide-matches-text": "Hide additional matches",
-    "search-more-match-text": "more match in this document",
-    "search-more-matches-text": "more matches in this document",
-    "search-clear-button-title": "Clear",
+    "search-no-results-text": "Pas de résultats",
+    "search-matching-documents-text": "documents trouvés",
+    "search-copy-link-title": "Copier le lien vers la recherche",
+    "search-hide-matches-text": "Cacher les correspondances additionnelles",
+    "search-more-match-text": "correspondance de plus dans ce document",
+    "search-more-matches-text": "correspondances de plus dans ce document",
+    "search-clear-button-title": "Effacer",
     "search-text-placeholder": "",
-    "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit",
-    "search-label": "Search"
+    "search-detached-cancel-button-title": "Annuler",
+    "search-submit-button-title": "Envoyer",
+    "search-label": "Recherche"
   }
 }</script>
 
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="styles.css">
 </head>
 
 <body class="nav-fixed quarto-light">
@@ -89,8 +134,8 @@ ul.task-list li input[type="checkbox"] {
     <span class="navbar-title">Accueil</span>
     </a>
   </div>
-            <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+            <div id="quarto-search" class="" title="Recherche"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Basculer la navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
@@ -140,10 +185,39 @@ ul.task-list li input[type="checkbox"] {
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
+    <h2 id="toc-title">Sur cette page</h2>
    
   <ul>
-  <li><a href="#document" id="toc-document" class="nav-link active" data-scroll-target="#document">Document</a></li>
+  <li><a href="#passage-à-la-limite-sous-lintégrale" id="toc-passage-à-la-limite-sous-lintégrale" class="nav-link active" data-scroll-target="#passage-à-la-limite-sous-lintégrale"><span class="header-section-number">1</span> Passage à la limite sous l’intégrale</a>
+  <ul class="collapse">
+  <li><a href="#convergence-uniforme-et-intégrale" id="toc-convergence-uniforme-et-intégrale" class="nav-link" data-scroll-target="#convergence-uniforme-et-intégrale"><span class="header-section-number">1.1</span> Convergence uniforme et intégrale</a></li>
+  <li><a href="#théorème-de-convergence-dominée" id="toc-théorème-de-convergence-dominée" class="nav-link" data-scroll-target="#théorème-de-convergence-dominée"><span class="header-section-number">1.2</span> Théorème de convergence dominée</a></li>
+  <li><a href="#intégration-terme-à-terme-dune-série-de-fonctions" id="toc-intégration-terme-à-terme-dune-série-de-fonctions" class="nav-link" data-scroll-target="#intégration-terme-à-terme-dune-série-de-fonctions"><span class="header-section-number">1.3</span> Intégration terme à terme d’une série de fonctions</a></li>
+  </ul></li>
+  <li><a href="#continuité-et-dérivation-dune-intégrale-dépendant-dun-paramètre" id="toc-continuité-et-dérivation-dune-intégrale-dépendant-dun-paramètre" class="nav-link" data-scroll-target="#continuité-et-dérivation-dune-intégrale-dépendant-dun-paramètre"><span class="header-section-number">2</span> Continuité et dérivation d’une intégrale dépendant d’un paramètre</a>
+  <ul class="collapse">
+  <li><a href="#fonction-définie-par-une-intégrale" id="toc-fonction-définie-par-une-intégrale" class="nav-link" data-scroll-target="#fonction-définie-par-une-intégrale"><span class="header-section-number">2.1</span> Fonction définie par une intégrale</a></li>
+  <li><a href="#continuité-dune-intégrale-dépendant-dun-paramètre" id="toc-continuité-dune-intégrale-dépendant-dun-paramètre" class="nav-link" data-scroll-target="#continuité-dune-intégrale-dépendant-dun-paramètre"><span class="header-section-number">2.2</span> Continuité d’une intégrale dépendant d’un paramètre</a></li>
+  <li><a href="#dérivabilité-dune-intégrale-dépendant-dun-paramètre" id="toc-dérivabilité-dune-intégrale-dépendant-dun-paramètre" class="nav-link" data-scroll-target="#dérivabilité-dune-intégrale-dépendant-dun-paramètre"><span class="header-section-number">2.3</span> Dérivabilité d’une intégrale dépendant d’un paramètre</a></li>
+  <li><a href="#intégrales-à-bornes-variables" id="toc-intégrales-à-bornes-variables" class="nav-link" data-scroll-target="#intégrales-à-bornes-variables"><span class="header-section-number">2.4</span> Intégrales à bornes variables</a></li>
+  </ul></li>
+  <li><a href="#intégrales-impropres-dépendant-dun-paramètre" id="toc-intégrales-impropres-dépendant-dun-paramètre" class="nav-link" data-scroll-target="#intégrales-impropres-dépendant-dun-paramètre"><span class="header-section-number">3</span> Intégrales impropres dépendant d’un paramètre</a>
+  <ul class="collapse">
+  <li><a href="#fonction-définie-par-une-intégrale-impropre" id="toc-fonction-définie-par-une-intégrale-impropre" class="nav-link" data-scroll-target="#fonction-définie-par-une-intégrale-impropre"><span class="header-section-number">3.1</span> Fonction définie par une intégrale impropre</a></li>
+  <li><a href="#convergence-dominée" id="toc-convergence-dominée" class="nav-link" data-scroll-target="#convergence-dominée"><span class="header-section-number">3.2</span> Convergence dominée</a></li>
+  <li><a href="#théorème-de-fubini" id="toc-théorème-de-fubini" class="nav-link" data-scroll-target="#théorème-de-fubini"><span class="header-section-number">3.3</span> Théorème de Fubini</a></li>
+  </ul></li>
+  <li><a href="#exemples-dapplications" id="toc-exemples-dapplications" class="nav-link" data-scroll-target="#exemples-dapplications"><span class="header-section-number">4</span> Exemples d’applications</a>
+  <ul class="collapse">
+  <li><a href="#intégrales-eulériennes" id="toc-intégrales-eulériennes" class="nav-link" data-scroll-target="#intégrales-eulériennes"><span class="header-section-number">4.1</span> Intégrales eulériennes</a></li>
+  <li><a href="#transformée-de-laplace" id="toc-transformée-de-laplace" class="nav-link" data-scroll-target="#transformée-de-laplace"><span class="header-section-number">4.2</span> Transformée de Laplace</a></li>
+  <li><a href="#transformée-de-fourier" id="toc-transformée-de-fourier" class="nav-link" data-scroll-target="#transformée-de-fourier"><span class="header-section-number">4.3</span> Transformée de Fourier</a></li>
+  </ul></li>
+  <li><a href="#exercices" id="toc-exercices" class="nav-link" data-scroll-target="#exercices"><span class="header-section-number">5</span> Exercices</a></li>
+  <li><a href="#document-en-pdf" id="toc-document-en-pdf" class="nav-link" data-scroll-target="#document-en-pdf">Document en PDF</a>
+  <ul class="collapse">
+  <li><a href="#navigation" id="toc-navigation" class="nav-link" data-scroll-target="#navigation">Navigation</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -152,14 +226,27 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Chapitre 09 : Probabilités discrètes</h1>
+<h1 class="title">Intégrales dépendant d’un paramètre</h1>
+<p class="subtitle lead">Chapitre 09</p>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Auteur·rice</div>
+    <div class="quarto-title-meta-contents">
+             <p>Saîd MAHARI </p>
+          </div>
+  </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">Date de publication</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">22 août 2026</p>
+    </div>
+  </div>
   
     
   </div>
@@ -169,12 +256,299 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p><strong>PSI (2e année) — Chapitre 09.</strong> Lois géométrique et de Poisson, inégalités probabilistes.</p>
-<section id="document" class="level2">
-<h2 class="anchored" data-anchor-id="document">Document</h2>
-<p><em>PDF à venir : déposez le fichier <code>files/psi/chap09.pdf</code> puis régénérez la page.</em></p>
+<p><strong>PSI (2e année) — Chapitre 09.</strong> Passage à la limite sous l’intégrale (convergence dominée, intégration terme à terme), continuité et dérivation d’une intégrale dépendant d’un paramètre, exemples d’applications.</p>
+<p>Ce chapitre a été réalisé conformément au programme marocain de mathématiques de la filière PSI.</p>
+<p>Dans tout ce chapitre, <span class="math inline">I</span> désigne un intervalle de <span class="math inline">\mathbb{R}</span> et <span class="math inline">\mathbb{K}</span> le corps <span class="math inline">\mathbb{R}</span> ou <span class="math inline">\mathbb{C}</span>.</p>
+<section id="passage-à-la-limite-sous-lintégrale" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Passage à la limite sous l’intégrale</h1>
+<section id="convergence-uniforme-et-intégrale" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="convergence-uniforme-et-intégrale"><span class="header-section-number">1.1</span> Convergence uniforme et intégrale</h2>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 1.1 — (Passage à la limite sous l’intégrale)</strong></p>
+<p>Soient <span class="math inline">I</span> un intervalle de <span class="math inline">\mathbb{R}</span> et <span class="math inline">(f_n)_{n \geq 0}</span> une suite de fonctions continues de <span class="math inline">I</span> dans <span class="math inline">\mathbb{K}</span>. On suppose que la suite <span class="math inline">(f_n)</span> converge uniformément sur <span class="math inline">I</span> vers une fonction <span class="math inline">f : I \to \mathbb{K}</span>. Alors : <span class="math display">\int_I f(t)\, dt = \lim_{n \to +\infty} \int_I f_n(t)\, dt</span></p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 1.1</strong></p>
+<p>Soit <span class="math inline">f_n(t) = t^n</span> sur <span class="math inline">[0, 1]</span>. La suite <span class="math inline">(f_n)</span> converge simplement vers : <span class="math display">f(t) = \begin{cases} 0 &amp; \text{si } 0 \leq t &lt; 1 \\ 1 &amp; \text{si } t = 1 \end{cases}</span></p>
+<p>Cette convergence n’est pas uniforme. Cependant : <span class="math display">\lim_{n \to +\infty} \int_0^1 t^n\, dt = \lim_{n \to +\infty} \frac{1}{n+1} = 0 = \int_0^1 f(t)\, dt</span></p>
+</div>
+</section>
+<section id="théorème-de-convergence-dominée" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="théorème-de-convergence-dominée"><span class="header-section-number">1.2</span> Théorème de convergence dominée</h2>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 1.2 — (Théorème de convergence dominée)</strong></p>
+<p>Soient <span class="math inline">I</span> un intervalle de <span class="math inline">\mathbb{R}</span> et <span class="math inline">(f_n)_{n \geq 0}</span> une suite de fonctions continues par morceaux sur <span class="math inline">I</span> convergeant simplement vers <span class="math inline">f</span>. On suppose qu’il existe une fonction <span class="math inline">\varphi : I \to \mathbb{R}^+</span> continue par morceaux et intégrable sur <span class="math inline">I</span> telle que : <span class="math display">\forall n \in \mathbb{N}, \quad \forall x \in I, \quad |f_n(x)| \leq \varphi(x)</span></p>
+<p>Alors :</p>
+<ol type="1">
+<li><span class="math inline">f</span> est continue par morceaux sur <span class="math inline">I</span>.</li>
+<li><span class="math inline">f</span> est intégrable sur <span class="math inline">I</span>.</li>
+<li><span class="math inline">\int_I f_n(x)\, dx \xrightarrow[n \to +\infty]{} \int_I f(x)\, dx</span>.</li>
+</ol>
+</div>
+<div class="remarque">
+<p>Ce théorème est admis. La preuve est hors programme.</p>
+</div>
+<div class="remarque">
+<p>Ce théorème est tellement pratique qu’on s’en sert souvent même si <span class="math inline">I</span> est un segment : l’hypothèse de domination est souvent plus simple à vérifier que la convergence uniforme de la suite de fonctions <span class="math inline">(f_n)</span>.</p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 1.2</strong></p>
+<p>Étudions la suite de terme général <span class="math inline">I_n = \int_0^{+\infty} \frac{e^{-nx}}{x^2+1}\, dx</span>.</p>
+<p>Posons pour <span class="math inline">n \geq 1</span>, <span class="math inline">f_n(x) = \frac{e^{-nx}}{x^2+1}</span>.</p>
+<ul>
+<li>Pour tout <span class="math inline">n \in \mathbb{N}</span>, la fonction <span class="math inline">f_n</span> est continue sur <span class="math inline">I = [0, +\infty[</span>.</li>
+<li>Pour <span class="math inline">x \in I</span> fixé, <span class="math inline">f_n(x) \xrightarrow[n \to +\infty]{} \frac{1}{x^2+1}</span>.</li>
+<li>Pour tout <span class="math inline">n \geq 1</span> et tout <span class="math inline">x \in I</span>, <span class="math inline">|f_n(x)| = \frac{e^{-nx}}{x^2+1} \leq \frac{1}{x^2+1}</span>.</li>
+<li>La fonction <span class="math inline">\varphi(x) = \frac{1}{x^2+1}</span> est continue et intégrable sur <span class="math inline">[0, +\infty[</span>.</li>
+</ul>
+<p>Par le théorème de convergence dominée : <span class="math display">I_n \xrightarrow[n \to +\infty]{} \int_0^{+\infty} \frac{dx}{x^2+1} = \left[\arctan x\right]_0^{+\infty} = \frac{\pi}{2}</span></p>
+</div>
+</section>
+<section id="intégration-terme-à-terme-dune-série-de-fonctions" class="level2" data-number="1.3">
+<h2 data-number="1.3" class="anchored" data-anchor-id="intégration-terme-à-terme-dune-série-de-fonctions"><span class="header-section-number">1.3</span> Intégration terme à terme d’une série de fonctions</h2>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 1.3 — (Intégration terme à terme sur un intervalle)</strong></p>
+<p>Soit <span class="math inline">(f_n)_{n \geq 0}</span> une suite de fonctions continues par morceaux et intégrables sur <span class="math inline">I</span> telle que :</p>
+<ol type="1">
+<li>La série <span class="math inline">\sum f_n</span> converge simplement sur <span class="math inline">I</span> vers une fonction <span class="math inline">f</span>, continue par morceaux sur <span class="math inline">I</span>.</li>
+<li>La série <span class="math inline">\sum \left(\int_I |f_n|\right)</span> converge.</li>
+</ol>
+<p>Alors <span class="math inline">f</span> est intégrable sur <span class="math inline">I</span> et : <span class="math display">\int_I f = \sum_{n=0}^{+\infty} \int_I f_n</span></p>
+</div>
+<div class="remarque">
+<p>L’hypothèse de convergence de la série <span class="math inline">\sum \left(\int_I |f_n|\right)</span> est plus importante que l’hypothèse de continuité par morceaux de <span class="math inline">f</span> ; cette dernière étant imposée par les limitations du programme.</p>
+<p>Dans la pratique, on commence par effectuer un calcul formel, où l’on permute les signes <span class="math inline">\sum</span> et <span class="math inline">\int</span>, que l’on justifie ensuite.</p>
+</div>
+</section>
+</section>
+<section id="continuité-et-dérivation-dune-intégrale-dépendant-dun-paramètre" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> Continuité et dérivation d’une intégrale dépendant d’un paramètre</h1>
+<section id="fonction-définie-par-une-intégrale" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="fonction-définie-par-une-intégrale"><span class="header-section-number">2.1</span> Fonction définie par une intégrale</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 2.1 — (Fonction définie par une intégrale)</strong></p>
+<p>Soit <span class="math inline">f : (x,t) \mapsto f(x,t)</span> une fonction de deux variables, <span class="math inline">x</span> et <span class="math inline">t</span>. On considère <span class="math inline">x</span> comme un paramètre et <span class="math inline">t \in [a,b]</span> comme une variable d’intégration. Cela nous permet de définir : <span class="math display">F(x) = \int_a^b f(x,t)\, dt</span></p>
+</div>
+</section>
+<section id="continuité-dune-intégrale-dépendant-dun-paramètre" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="continuité-dune-intégrale-dépendant-dun-paramètre"><span class="header-section-number">2.2</span> Continuité d’une intégrale dépendant d’un paramètre</h2>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 2.1 — (Continuité d’une intégrale dépendant d’un paramètre)</strong></p>
+<p>Soient <span class="math inline">I</span> un intervalle de <span class="math inline">\mathbb{R}</span> et <span class="math inline">J = [a,b]</span> un intervalle fermé borné. Soit <span class="math inline">f</span> une fonction continue sur <span class="math inline">I \times J</span> à valeurs dans <span class="math inline">\mathbb{R}</span> (ou <span class="math inline">\mathbb{C}</span>). Alors la fonction <span class="math inline">F</span> définie pour tout <span class="math inline">x \in I</span> par : <span class="math display">F(x) = \int_a^b f(x,t)\, dt</span> est continue sur <span class="math inline">I</span>.</p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 2.1</strong></p>
+<p>Soit <span class="math inline">F(x) = \int_0^\pi \sin(x+t) \cdot e^{xt^2}\, dt</span>, définie pour <span class="math inline">x \in I = \mathbb{R}</span>.</p>
+<p>La fonction <span class="math inline">(x,t) \mapsto f(x,t) = \sin(x+t) \cdot e^{xt^2}</span> est continue sur <span class="math inline">\mathbb{R} \times [0, \pi]</span>. D’après le théorème, <span class="math inline">F</span> est continue sur <span class="math inline">\mathbb{R}</span>.</p>
+</div>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 2.2 — (Extension au cas de la domination)</strong></p>
+<p>Soient <span class="math inline">A</span> une partie d’un espace vectoriel de dimension finie, <span class="math inline">I</span> un intervalle de <span class="math inline">\mathbb{R}</span> et <span class="math inline">f : (x,t) \mapsto f(x,t)</span> une fonction à valeurs réelles ou complexes définie sur <span class="math inline">A \times I</span>. On suppose que :</p>
+<ol type="1">
+<li><span class="math inline">f</span> est continue par rapport à <span class="math inline">x</span>, continue par morceaux par rapport à <span class="math inline">t</span>.</li>
+<li>Pour tout <span class="math inline">x \in A</span>, la fonction <span class="math inline">t \mapsto f(x,t)</span> est intégrable sur <span class="math inline">I</span>.</li>
+<li>Il existe une fonction positive <span class="math inline">\varphi</span>, continue par morceaux et intégrable sur <span class="math inline">I</span>, telle que pour tout <span class="math inline">(x,t) \in A \times I</span> : <span class="math display">|f(x,t)| \leq \varphi(t)</span> (hypothèse de domination)</li>
+</ol>
+<p>Alors la fonction <span class="math inline">g</span> définie sur <span class="math inline">A</span> par <span class="math inline">g(x) = \int_I f(x,t)\, dt</span> est continue sur <span class="math inline">A</span>.</p>
+</div>
+<div class="remarque">
+<p>L’hypothèse de domination est plus importante que l’hypothèse de continuité par morceaux ; cette dernière étant imposée par les limitations du programme.</p>
+<p>Extension au cas où l’hypothèse de domination est vérifiée au voisinage d’un point <span class="math inline">a</span> de <span class="math inline">A</span>.</p>
+<p>Si <span class="math inline">A</span> est un intervalle de <span class="math inline">\mathbb{R}</span>, extension au cas où l’hypothèse de domination est vérifiée sur tout segment contenu dans <span class="math inline">A</span>.</p>
+</div>
+</section>
+<section id="dérivabilité-dune-intégrale-dépendant-dun-paramètre" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="dérivabilité-dune-intégrale-dépendant-dun-paramètre"><span class="header-section-number">2.3</span> Dérivabilité d’une intégrale dépendant d’un paramètre</h2>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 2.3 — (Dérivabilité d’une intégrale dépendant d’un paramètre)</strong></p>
+<p>Soient <span class="math inline">I</span> un intervalle de <span class="math inline">\mathbb{R}</span> et <span class="math inline">J = [a,b]</span> un intervalle fermé borné. On suppose que :</p>
+<ol type="1">
+<li><span class="math inline">(x,t) \mapsto f(x,t)</span> est une fonction continue sur <span class="math inline">I \times J</span> (à valeurs dans <span class="math inline">\mathbb{R}</span> ou <span class="math inline">\mathbb{C}</span>).</li>
+<li>La dérivée partielle <span class="math inline">(x,t) \mapsto \frac{\partial f}{\partial x}(x,t)</span> existe et est continue sur <span class="math inline">I \times J</span>.</li>
+</ol>
+<p>Alors la fonction <span class="math inline">F</span> définie pour tout <span class="math inline">x \in I</span> par <span class="math inline">F(x) = \int_a^b f(x,t)\, dt</span> est de classe <span class="math inline">\mathcal{C}^1</span> sur <span class="math inline">I</span> et : <span class="math display">\boxed{F'(x) = \int_a^b \frac{\partial f}{\partial x}(x,t)\, dt}</span></p>
+</div>
+<div class="remarque" title="(Mnémonique)">
+<p>On peut retenir l’abréviation mnémotechnique d’interversion dérivée/intégrale : <span class="math display">\frac{d}{dx}\int_a^b = \int_a^b \frac{\partial}{\partial x}</span></p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 2.2</strong></p>
+<p>Étudions <span class="math inline">F(x) = \int_0^1 \frac{dt}{x^2 + t^2}</span> pour <span class="math inline">x \in ]0, +\infty[</span>.</p>
+<p>Posons <span class="math inline">f(x,t) = \frac{1}{x^2 + t^2}</span>. Alors :</p>
+<ul>
+<li><span class="math inline">f</span> est continue sur <span class="math inline">]0, +\infty[ \times [0,1]</span>.</li>
+<li><span class="math inline">\frac{\partial f}{\partial x}(x,t) = \frac{-2x}{(x^2+t^2)^2}</span> est aussi continue.</li>
+</ul>
+<p>Donc, par le théorème, <span class="math inline">F</span> est continue, dérivable et : <span class="math display">F'(x) = \int_0^1 \frac{-2x}{(x^2+t^2)^2}\, dt</span></p>
+</div>
+</section>
+<section id="intégrales-à-bornes-variables" class="level2" data-number="2.4">
+<h2 data-number="2.4" class="anchored" data-anchor-id="intégrales-à-bornes-variables"><span class="header-section-number">2.4</span> Intégrales à bornes variables</h2>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 2.4 — (Intégrales à bornes variables)</strong></p>
+<p>Soit <span class="math inline">f</span> une fonction continue sur un intervalle <span class="math inline">[a,b]</span> à valeurs dans <span class="math inline">\mathbb{R}</span> (ou <span class="math inline">\mathbb{C}</span>). Soient <span class="math inline">I</span> un intervalle de <span class="math inline">\mathbb{R}</span> et <span class="math inline">u, v : I \to [a,b]</span> deux fonctions de classe <span class="math inline">\mathcal{C}^1</span>. Alors la fonction <span class="math inline">G</span> définie sur l’intervalle <span class="math inline">I</span> par : <span class="math display">G(x) = \int_{u(x)}^{v(x)} f(t)\, dt</span> est de classe <span class="math inline">\mathcal{C}^1</span> et : <span class="math display">G'(x) = v'(x) f(v(x)) - u'(x) f(u(x))</span></p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 2.3</strong></p>
+<p>Calculons la dérivée de <span class="math inline">G(x) = \int_x^{x^2} \frac{dt}{\ln t}</span> pour <span class="math inline">x &gt; 1</span>.</p>
+<p>Pour appliquer le théorème, on remarque que <span class="math inline">f(t) = \frac{1}{\ln t}</span> est continue sur <span class="math inline">]1, +\infty[</span>, et <span class="math inline">u(x) = x</span>, <span class="math inline">v(x) = x^2</span> sont de classe <span class="math inline">\mathcal{C}^1</span> sur <span class="math inline">]1, +\infty[</span>.</p>
+<p><span class="math display">G'(x) = 2x \cdot \frac{1}{\ln(x^2)} - 1 \cdot \frac{1}{\ln x} = 2x \cdot \frac{1}{2\ln x} - \frac{1}{\ln x} = \frac{x - 1}{\ln x}</span></p>
+</div>
+</section>
+</section>
+<section id="intégrales-impropres-dépendant-dun-paramètre" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Intégrales impropres dépendant d’un paramètre</h1>
+<section id="fonction-définie-par-une-intégrale-impropre" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="fonction-définie-par-une-intégrale-impropre"><span class="header-section-number">3.1</span> Fonction définie par une intégrale impropre</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 3.1</strong></p>
+<p>Soit <span class="math inline">f : (x,t) \mapsto f(x,t)</span> une fonction définie sur <span class="math inline">I \times [0, +\infty[</span>, où <span class="math inline">I</span> est un intervalle de <span class="math inline">\mathbb{R}</span>. Supposons que l’intégrale de l’application partielle <span class="math inline">t \mapsto f(x,t)</span> soit convergente sur <span class="math inline">[0, +\infty[</span>. On souhaite étudier la fonction qui à <span class="math inline">x \in I</span> associe : <span class="math display">F(x) = \int_0^{+\infty} f(x,t)\, dt</span></p>
+</div>
+<div class="remarque">
+<p>Comme une intégrale convergente est définie comme une limite d’intégrales sur des intervalles bornés, posons : <span class="math display">F_A(x) = \int_0^A f(x,t)\, dt, \quad \text{d'où} \quad F(x) = \lim_{A \to +\infty} F_A(x)</span></p>
+<p>Les résultats des sections précédentes donnent des conditions sous lesquelles <span class="math inline">F_A(x)</span> est continue et dérivable <strong>pour <span class="math inline">A</span> fixé</strong>. Pour passer à la limite quand <span class="math inline">A</span> tend vers l’infini, nous allons ajouter une hypothèse dite de <strong>convergence dominée</strong>.</p>
+</div>
+</section>
+<section id="convergence-dominée" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="convergence-dominée"><span class="header-section-number">3.2</span> Convergence dominée</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 3.2 — (Convergence dominée)</strong></p>
+<p>Soit <span class="math inline">(f_A)_{A &gt; 0}</span> une famille de fonctions définies sur <span class="math inline">I</span> convergeant simplement vers <span class="math inline">F</span>. On dit que la convergence est <strong>dominée</strong> s’il existe une fonction <span class="math inline">\varphi : [0, +\infty[ \to \mathbb{R}^+</span> telle que :</p>
+<ol type="1">
+<li><span class="math inline">\varphi</span> est continue par morceaux et <span class="math inline">\int_0^{+\infty} \varphi(t)\, dt</span> converge.</li>
+<li>Pour tout <span class="math inline">A &gt; 0</span> et tout <span class="math inline">x \in I</span> : <span class="math inline">|f(x,t)| \leq \varphi(t)</span> pour tout <span class="math inline">t \geq 0</span>.</li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 3.1 — (Continuité d’une intégrale impropre dépendant d’un paramètre)</strong></p>
+<p>Soient <span class="math inline">I</span> un intervalle de <span class="math inline">\mathbb{R}</span> et <span class="math inline">J = [0, +\infty[</span>. On suppose que :</p>
+<ol type="1">
+<li><span class="math inline">(x,t) \mapsto f(x,t)</span> est une fonction continue sur <span class="math inline">I \times J</span> (à valeurs dans <span class="math inline">\mathbb{R}</span> ou <span class="math inline">\mathbb{C}</span>).</li>
+<li>L’hypothèse de convergence dominée est vérifiée.</li>
+</ol>
+<p>Alors la fonction <span class="math inline">F</span>, définie pour tout <span class="math inline">x \in I</span> par <span class="math inline">F(x) = \int_0^{+\infty} f(x,t)\, dt</span>, est continue sur <span class="math inline">I</span>.</p>
+</div>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 3.2 — (Dérivabilité d’une intégrale impropre dépendant d’un paramètre)</strong></p>
+<p>Soient <span class="math inline">I</span> un intervalle de <span class="math inline">\mathbb{R}</span> et <span class="math inline">J = [0, +\infty[</span>. On suppose que :</p>
+<ol type="1">
+<li><span class="math inline">(x,t) \mapsto f(x,t)</span> est une fonction continue sur <span class="math inline">I \times J</span> (à valeurs dans <span class="math inline">\mathbb{R}</span> ou <span class="math inline">\mathbb{C}</span>).</li>
+<li>La dérivée partielle <span class="math inline">(x,t) \mapsto \frac{\partial f}{\partial x}(x,t)</span> existe, est continue sur <span class="math inline">I \times J</span> et vérifie l’hypothèse de convergence dominée.</li>
+</ol>
+<p>Alors la fonction <span class="math inline">F</span>, définie pour tout <span class="math inline">x \in I</span> par <span class="math inline">F(x) = \int_0^{+\infty} f(x,t)\, dt</span>, est de classe <span class="math inline">\mathcal{C}^1</span> sur <span class="math inline">I</span> et : <span class="math display">F'(x) = \int_0^{+\infty} \frac{\partial f}{\partial x}(x,t)\, dt</span></p>
+</div>
+</section>
+<section id="théorème-de-fubini" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="théorème-de-fubini"><span class="header-section-number">3.3</span> Théorème de Fubini</h2>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 3.3 — (Théorème de Fubini)</strong></p>
+<p>Soient <span class="math inline">I = [\alpha, \beta]</span> un intervalle fermé borné et <span class="math inline">J = [0, +\infty[</span>. Soit <span class="math inline">f</span> une fonction continue sur <span class="math inline">I \times J</span>, à valeurs dans <span class="math inline">\mathbb{R}</span> (ou <span class="math inline">\mathbb{C}</span>) et qui vérifie l’hypothèse de convergence dominée. Alors la fonction <span class="math inline">F</span> est intégrable sur <span class="math inline">I</span> et : <span class="math display">\int_\alpha^\beta F(x)\, dx = \int_\alpha^\beta \left(\int_0^{+\infty} f(x,t)\, dt\right) dx = \int_0^{+\infty} \left(\int_\alpha^\beta f(x,t)\, dx\right) dt</span></p>
+</div>
+</section>
+</section>
+<section id="exemples-dapplications" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> Exemples d’applications</h1>
+<section id="intégrales-eulériennes" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="intégrales-eulériennes"><span class="header-section-number">4.1</span> Intégrales eulériennes</h2>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 4.1 — (Fonction Gamma d’Euler)</strong></p>
+<p>Pour <span class="math inline">x &gt; 0</span>, on considère l’intégrale généralisée : <span class="math display">\Gamma(x) = \int_0^{+\infty} t^{x-1} e^{-t}\, dt</span></p>
+<p><strong>Étude de la convergence.</strong> L’intégrale présente deux points singuliers : <span class="math inline">0</span> et <span class="math inline">+\infty</span>. On la décompose en <span class="math inline">\int_0^1 + \int_1^{+\infty}</span>.</p>
+<ul>
+<li><p><strong>Au voisinage de <span class="math inline">+\infty</span></strong> : Pour tout <span class="math inline">x \in \mathbb{R}</span>, par croissance comparée, <span class="math inline">t^{x-1} e^{-t} = o(t^{-2})</span> quand <span class="math inline">t \to +\infty</span>. L’intégrale de Riemann <span class="math inline">\int_1^{+\infty} \frac{dt}{t^2}</span> converge, donc <span class="math inline">\int_1^{+\infty} t^{x-1} e^{-t}\, dt</span> converge absolument si et seulement si <span class="math inline">x \in \mathbb{R}</span>.</p></li>
+<li><p><strong>Au voisinage de <span class="math inline">0^+</span></strong> : <span class="math inline">t^{x-1} e^{-t} \sim t^{x-1}</span> quand <span class="math inline">t \to 0^+</span>. L’intégrale <span class="math inline">\int_0^1 t^\alpha\, dt</span> converge si et seulement si <span class="math inline">\alpha &gt; -1</span>. Ici <span class="math inline">\alpha = x - 1</span>, donc convergence si et seulement si <span class="math inline">x &gt; 0</span>.</p></li>
+</ul>
+<p><strong>Conclusion</strong> : <span class="math inline">\Gamma(x)</span> est bien définie pour tout <span class="math inline">x &gt; 0</span>.</p>
+<p><strong>Relation fonctionnelle.</strong> Soit <span class="math inline">x &gt; 0</span>. Pour <span class="math inline">0 &lt; \varepsilon &lt; A &lt; +\infty</span> : <span class="math display">\int_\varepsilon^A t^x e^{-t}\, dt = \left[-t^x e^{-t}\right]_\varepsilon^A + x \int_\varepsilon^A t^{x-1} e^{-t}\, dt</span></p>
+<p>En faisant tendre <span class="math inline">\varepsilon \to 0^+</span> et <span class="math inline">A \to +\infty</span> (les termes aux bornes s’annulent par croissance comparée), on obtient : <span class="math display">\Gamma(x+1) = x\Gamma(x)</span></p>
+<p><strong>Valeurs particulières.</strong> <span class="math inline">\Gamma(1) = \int_0^{+\infty} e^{-t}\, dt = 1</span>. Par récurrence immédiate, on a : <span class="math display">\forall n \in \mathbb{N}, \quad \Gamma(n+1) = n!</span></p>
+<p>La fonction <span class="math inline">\Gamma</span> prolonge donc la factorielle aux réels strictement positifs.</p>
+</div>
+</section>
+<section id="transformée-de-laplace" class="level2" data-number="4.2">
+<h2 data-number="4.2" class="anchored" data-anchor-id="transformée-de-laplace"><span class="header-section-number">4.2</span> Transformée de Laplace</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 4.1 — (Transformée de Laplace)</strong></p>
+<p>Soit <span class="math inline">f : \mathbb{R}^+ \to \mathbb{R}</span> une fonction continue. La <strong>transformée de Laplace</strong> de <span class="math inline">f</span> est la fonction <span class="math inline">\mathcal{L}(f)</span> définie par : <span class="math display">\mathcal{L}(f)(s) = \int_0^{+\infty} f(t) e^{-st}\, dt</span> pour tout <span class="math inline">s \in \mathbb{R}</span> tel que l’intégrale converge.</p>
+</div>
+<div class="remarque">
+<ol type="1">
+<li>Dans ce cours, nous supposerons que <span class="math inline">s</span> est un paramètre réel. (Alors qu’en toute généralité <span class="math inline">s \in \mathbb{C}</span>.)</li>
+<li>Nous supposerons les fonctions continues. (Alors qu’en électronique les fonctions sautent souvent d’une valeur à une autre.)</li>
+<li>Lorsque l’on écrit <span class="math inline">F(s)</span>, cela signifiera par convention que l’intégrale converge.</li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 4.2</strong></p>
+<p>Calculons <span class="math inline">\mathcal{L}(f)(s)</span> pour <span class="math inline">f(t) = e^{at}</span> avec <span class="math inline">a \in \mathbb{R}</span>.</p>
+<p><span class="math display">\mathcal{L}(f)(s) = \int_0^{+\infty} e^{at} e^{-st}\, dt = \int_0^{+\infty} e^{(a-s)t}\, dt</span></p>
+<p>Cette intégrale converge si et seulement si <span class="math inline">a - s &lt; 0</span>, c’est-à-dire <span class="math inline">s &gt; a</span>. Dans ce cas : <span class="math display">\mathcal{L}(f)(s) = \left[\frac{e^{(a-s)t}}{a-s}\right]_0^{+\infty} = \frac{1}{s-a}</span></p>
+</div>
+</section>
+<section id="transformée-de-fourier" class="level2" data-number="4.3">
+<h2 data-number="4.3" class="anchored" data-anchor-id="transformée-de-fourier"><span class="header-section-number">4.3</span> Transformée de Fourier</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 4.2 — (Transformée de Fourier)</strong></p>
+<p>Soit <span class="math inline">f : \mathbb{R} \to \mathbb{R}</span> une fonction continue dont l’intégrale est absolument convergente. La <strong>transformée de Fourier</strong> de <span class="math inline">f</span> est la fonction <span class="math inline">\widehat{f} : \mathbb{R} \to \mathbb{C}</span> définie par : <span class="math display">\widehat{f}(\xi) = \int_{-\infty}^{+\infty} f(t) e^{-i\xi t}\, dt</span></p>
+</div>
+<div class="remarque">
+<ol type="1">
+<li>Contrairement à la transformée de Laplace, la transformée de Fourier est souvent à valeurs dans <span class="math inline">\mathbb{C}</span>, même si l’ensemble de départ est <span class="math inline">\mathbb{R}</span>.</li>
+<li>L’intégrale impropre a deux points incertains <span class="math inline">-\infty</span> et <span class="math inline">+\infty</span>. Par définition, une intégrale <span class="math inline">\int_{-\infty}^{+\infty} g(t)\, dt</span> converge si et seulement si l’intégrale <span class="math inline">\int_{-\infty}^0 g(t)\, dt</span> converge <strong>et</strong> l’intégrale <span class="math inline">\int_0^{+\infty} g(t)\, dt</span> converge aussi.</li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 4.1 — (Existence de la transformée de Fourier)</strong></p>
+<p>Supposons que <span class="math inline">f</span> soit continue et que l’intégrale de <span class="math inline">f</span> soit absolument convergente, c’est-à-dire : <span class="math display">\int_{-\infty}^{+\infty} |f(t)|\, dt \quad \text{converge}</span> Alors :</p>
+<ol type="1">
+<li>Pour tout <span class="math inline">\xi \in \mathbb{R}</span>, l’intégrale <span class="math inline">\widehat{f}(\xi)</span> existe.</li>
+<li>La fonction <span class="math inline">\xi \mapsto \widehat{f}(\xi)</span> est continue sur <span class="math inline">\mathbb{R}</span>.</li>
+</ol>
+</div>
+</section>
+</section>
+<section id="exercices" class="level1" data-number="5">
+<h1 data-number="5"><span class="header-section-number">5</span> Exercices</h1>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 5.1</strong></p>
+<p>Soit <span class="math inline">f(x,t) = \frac{\ln t}{x^2 + t^2}</span> définie pour <span class="math inline">x \in [0,1]</span> et <span class="math inline">t \in [1, +\infty[</span>. Montrer que <span class="math inline">F(x) = \int_1^{+\infty} f(x,t)\, dt</span> est une fonction continue, dérivable, de dérivée continue. Calculer <span class="math inline">F'(x)</span>.</p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 5.2</strong></p>
+<p>Soit <span class="math inline">f(x,t) = t^x e^{-t}</span> définie sur <span class="math inline">[1,10] \times [1, +\infty[</span>. Montrer que <span class="math inline">F(x) = \int_1^{+\infty} f(x,t)\, dt</span> est une fonction continue et dérivable.</p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 5.3</strong></p>
+<p>Soit <span class="math inline">F(x) = \int_0^1 \frac{dt}{x + \sqrt{t}}</span>. Montrer que <span class="math inline">F</span> est définie en <span class="math inline">x = 0</span>. À l’aide d’un changement de variable sur <span class="math inline">t</span>, montrer que la fonction <span class="math inline">F</span> est continue sur <span class="math inline">[0, +\infty[</span>. Calculer la limite de <span class="math inline">F</span> en <span class="math inline">0</span>. Que peut-on dire pour la dérivée ?</p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 5.4</strong></p>
+<p>Soit <span class="math inline">F(x) = \int_0^{+\infty} e^{-xt}\, dt</span> pour <span class="math inline">x &gt; 0</span>. Calculer <span class="math inline">F(x)</span> et <span class="math inline">F'(x)</span>.</p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 5.5 — (Transformée de Laplace)</strong></p>
+<p>Soit <span class="math inline">f : \mathbb{R}^+ \to \mathbb{R}</span> continue et dont l’intégrale <span class="math inline">\int_0^{+\infty} |f(t)|\, dt</span> converge. Montrer que <span class="math inline">\mathcal{L}(f)</span> est définie et continue sur <span class="math inline">\mathbb{R}</span>.</p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 5.6 — (Fonction Gamma)</strong></p>
+<p>Montrer que la fonction <span class="math inline">\Gamma</span> est de classe <span class="math inline">\mathcal{C}^\infty</span> sur <span class="math inline">]0, +\infty[</span> et que : <span class="math display">\Gamma^{(n)}(x) = \int_0^{+\infty} (\ln t)^n t^{x-1} e^{-t}\, dt</span></p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 5.7</strong></p>
+<p>Soit <span class="math inline">F(x) = \int_0^{+\infty} \frac{\sin(xt)}{t}\, dt</span> pour <span class="math inline">x &gt; 0</span>. Montrer que <span class="math inline">F</span> est continue sur <span class="math inline">]0, +\infty[</span>. Calculer <span class="math inline">F(x)</span> pour <span class="math inline">x &gt; 0</span> (on admettra que <span class="math inline">F(x) = \frac{\pi}{2}</span>).</p>
+</div>
+</section>
+<section id="document-en-pdf" class="level1 unnumbered">
+<h1 class="unnumbered">Document en PDF</h1>
+<p><a href="PDF/psi-chap09.pdf">Chapitre 09 : Intégrales dépendant d’un paramètre</a></p>
+<section id="navigation" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="navigation">Navigation</h2>
+<div class="chap-nav">
+<p><a href="../cours/psi-chap08.html" class="prev">Chapitre 08 : Espaces préhilbertiens réels. Endomorphismes d’un espace euclidien</a> <a href="../cours/psi.html" class="home">Menu PSI</a> <a href="../cours/psi-chap10.html" class="next">Chapitre 10 : Probabilités</a></p>
+</div>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -222,12 +596,12 @@ ul.task-list li input[type="checkbox"] {
       // flash "checked"
       button.classList.add('code-copy-button-checked');
       var currentTitle = button.getAttribute("title");
-      button.setAttribute("title", "Copied!");
+      button.setAttribute("title", "Copié");
       let tooltip;
       if (window.bootstrap) {
         button.setAttribute("data-bs-toggle", "tooltip");
         button.setAttribute("data-bs-placement", "left");
-        button.setAttribute("data-bs-title", "Copied!");
+        button.setAttribute("data-bs-title", "Copié");
         tooltip = new bootstrap.Tooltip(button, 
           { trigger: "manual", 
             customClass: "code-copy-button-tooltip",

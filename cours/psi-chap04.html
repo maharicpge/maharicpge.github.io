@@ -1,13 +1,14 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr"><head>
 
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.10.18">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Saîd MAHARI">
 
-<title>Séries numériques - Mathématiques en CPGE – Mathématiques en CPGE</title>
+<title>Intégration des fonctions continues par morceaux sur un intervalle – Mathématiques en CPGE</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -45,7 +46,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-7a8c080b55ea27eb37b467515007f9ee.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-e0d9a45d84245cc5e3b300860d8fa645.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -60,22 +61,66 @@ ul.task-list li input[type="checkbox"] {
   ],
   "show-item-context": false,
   "language": {
-    "search-no-results-text": "No results",
-    "search-matching-documents-text": "matching documents",
-    "search-copy-link-title": "Copy link to search",
-    "search-hide-matches-text": "Hide additional matches",
-    "search-more-match-text": "more match in this document",
-    "search-more-matches-text": "more matches in this document",
-    "search-clear-button-title": "Clear",
+    "search-no-results-text": "Pas de résultats",
+    "search-matching-documents-text": "documents trouvés",
+    "search-copy-link-title": "Copier le lien vers la recherche",
+    "search-hide-matches-text": "Cacher les correspondances additionnelles",
+    "search-more-match-text": "correspondance de plus dans ce document",
+    "search-more-matches-text": "correspondances de plus dans ce document",
+    "search-clear-button-title": "Effacer",
     "search-text-placeholder": "",
-    "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit",
-    "search-label": "Search"
+    "search-detached-cancel-button-title": "Annuler",
+    "search-submit-button-title": "Envoyer",
+    "search-label": "Recherche"
   }
 }</script>
 
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="styles.css">
 </head>
 
 <body class="nav-fixed quarto-light">
@@ -89,8 +134,8 @@ ul.task-list li input[type="checkbox"] {
     <span class="navbar-title">Accueil</span>
     </a>
   </div>
-            <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+            <div id="quarto-search" class="" title="Recherche"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Basculer la navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
@@ -140,10 +185,65 @@ ul.task-list li input[type="checkbox"] {
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
+    <h2 id="toc-title">Sur cette page</h2>
    
   <ul>
-  <li><a href="#document" id="toc-document" class="nav-link active" data-scroll-target="#document">Document</a></li>
+  <li><a href="#fonctions-continues-par-morceaux" id="toc-fonctions-continues-par-morceaux" class="nav-link active" data-scroll-target="#fonctions-continues-par-morceaux"><span class="header-section-number">1</span> Fonctions continues par morceaux</a>
+  <ul class="collapse">
+  <li><a href="#subdivision-dun-segment" id="toc-subdivision-dun-segment" class="nav-link" data-scroll-target="#subdivision-dun-segment"><span class="header-section-number">1.1</span> Subdivision d’un segment</a></li>
+  <li><a href="#continuité-par-morceaux-sur-un-segment" id="toc-continuité-par-morceaux-sur-un-segment" class="nav-link" data-scroll-target="#continuité-par-morceaux-sur-un-segment"><span class="header-section-number">1.2</span> Continuité par morceaux sur un segment</a></li>
+  <li><a href="#propriétés-des-fonctions-continues-par-morceaux" id="toc-propriétés-des-fonctions-continues-par-morceaux" class="nav-link" data-scroll-target="#propriétés-des-fonctions-continues-par-morceaux"><span class="header-section-number">1.3</span> Propriétés des fonctions continues par morceaux</a></li>
+  </ul></li>
+  <li><a href="#intégrale-dune-fonction-continue-par-morceaux-sur-un-segment" id="toc-intégrale-dune-fonction-continue-par-morceaux-sur-un-segment" class="nav-link" data-scroll-target="#intégrale-dune-fonction-continue-par-morceaux-sur-un-segment"><span class="header-section-number">2</span> Intégrale d’une fonction continue par morceaux sur un segment</a>
+  <ul class="collapse">
+  <li><a href="#fonctions-en-escalier" id="toc-fonctions-en-escalier" class="nav-link" data-scroll-target="#fonctions-en-escalier"><span class="header-section-number">2.1</span> Fonctions en escalier</a></li>
+  <li><a href="#intégrale-dune-fonction-en-escalier" id="toc-intégrale-dune-fonction-en-escalier" class="nav-link" data-scroll-target="#intégrale-dune-fonction-en-escalier"><span class="header-section-number">2.2</span> Intégrale d’une fonction en escalier</a></li>
+  <li><a href="#approximation-uniforme" id="toc-approximation-uniforme" class="nav-link" data-scroll-target="#approximation-uniforme"><span class="header-section-number">2.3</span> Approximation uniforme</a></li>
+  <li><a href="#intégrale-dune-fonction-continue-par-morceaux" id="toc-intégrale-dune-fonction-continue-par-morceaux" class="nav-link" data-scroll-target="#intégrale-dune-fonction-continue-par-morceaux"><span class="header-section-number">2.4</span> Intégrale d’une fonction continue par morceaux</a></li>
+  <li><a href="#propriétés-de-lintégrale" id="toc-propriétés-de-lintégrale" class="nav-link" data-scroll-target="#propriétés-de-lintégrale"><span class="header-section-number">2.5</span> Propriétés de l’intégrale</a></li>
+  <li><a href="#inégalité-de-cauchy-schwarz" id="toc-inégalité-de-cauchy-schwarz" class="nav-link" data-scroll-target="#inégalité-de-cauchy-schwarz"><span class="header-section-number">2.6</span> Inégalité de Cauchy-Schwarz</a></li>
+  <li><a href="#sommes-de-riemann" id="toc-sommes-de-riemann" class="nav-link" data-scroll-target="#sommes-de-riemann"><span class="header-section-number">2.7</span> Sommes de Riemann</a></li>
+  </ul></li>
+  <li><a href="#intégration-et-dérivation" id="toc-intégration-et-dérivation" class="nav-link" data-scroll-target="#intégration-et-dérivation"><span class="header-section-number">3</span> Intégration et dérivation</a>
+  <ul class="collapse">
+  <li><a href="#primitives" id="toc-primitives" class="nav-link" data-scroll-target="#primitives"><span class="header-section-number">3.1</span> Primitives</a></li>
+  <li><a href="#théorème-fondamental-du-calcul-intégral" id="toc-théorème-fondamental-du-calcul-intégral" class="nav-link" data-scroll-target="#théorème-fondamental-du-calcul-intégral"><span class="header-section-number">3.2</span> Théorème fondamental du calcul intégral</a></li>
+  <li><a href="#inégalité-des-accroissements-finis" id="toc-inégalité-des-accroissements-finis" class="nav-link" data-scroll-target="#inégalité-des-accroissements-finis"><span class="header-section-number">3.3</span> Inégalité des accroissements finis</a></li>
+  <li><a href="#intégration-par-parties" id="toc-intégration-par-parties" class="nav-link" data-scroll-target="#intégration-par-parties"><span class="header-section-number">3.4</span> Intégration par parties</a></li>
+  <li><a href="#changement-de-variable" id="toc-changement-de-variable" class="nav-link" data-scroll-target="#changement-de-variable"><span class="header-section-number">3.5</span> Changement de variable</a></li>
+  <li><a href="#intégrales-dune-fonction-paireimpairepériodique" id="toc-intégrales-dune-fonction-paireimpairepériodique" class="nav-link" data-scroll-target="#intégrales-dune-fonction-paireimpairepériodique"><span class="header-section-number">3.6</span> Intégrales d’une fonction paire/impaire/périodique</a></li>
+  </ul></li>
+  <li><a href="#intégrales-généralisées-sur-a-infty" id="toc-intégrales-généralisées-sur-a-infty" class="nav-link" data-scroll-target="#intégrales-généralisées-sur-a-infty"><span class="header-section-number">4</span> Intégrales généralisées sur <span class="math inline">[a, +\infty[</span></a>
+  <ul class="collapse">
+  <li><a href="#définition" id="toc-définition" class="nav-link" data-scroll-target="#définition"><span class="header-section-number">4.1</span> Définition</a></li>
+  <li><a href="#propriétés" id="toc-propriétés" class="nav-link" data-scroll-target="#propriétés"><span class="header-section-number">4.2</span> Propriétés</a></li>
+  <li><a href="#intégrales-de-référence" id="toc-intégrales-de-référence" class="nav-link" data-scroll-target="#intégrales-de-référence"><span class="header-section-number">4.3</span> Intégrales de référence</a></li>
+  </ul></li>
+  <li><a href="#intégrales-généralisées-sur-un-intervalle-quelconque" id="toc-intégrales-généralisées-sur-un-intervalle-quelconque" class="nav-link" data-scroll-target="#intégrales-généralisées-sur-un-intervalle-quelconque"><span class="header-section-number">5</span> Intégrales généralisées sur un intervalle quelconque</a>
+  <ul class="collapse">
+  <li><a href="#définitions" id="toc-définitions" class="nav-link" data-scroll-target="#définitions"><span class="header-section-number">5.1</span> Définitions</a></li>
+  <li><a href="#fonctions-à-valeurs-réelles" id="toc-fonctions-à-valeurs-réelles" class="nav-link" data-scroll-target="#fonctions-à-valeurs-réelles"><span class="header-section-number">5.2</span> Fonctions à valeurs réelles</a></li>
+  </ul></li>
+  <li><a href="#convergence-absolue-et-fonctions-intégrables" id="toc-convergence-absolue-et-fonctions-intégrables" class="nav-link" data-scroll-target="#convergence-absolue-et-fonctions-intégrables"><span class="header-section-number">6</span> Convergence absolue et fonctions intégrables</a>
+  <ul class="collapse">
+  <li><a href="#convergence-absolue" id="toc-convergence-absolue" class="nav-link" data-scroll-target="#convergence-absolue"><span class="header-section-number">6.1</span> Convergence absolue</a></li>
+  <li><a href="#théorème-de-comparaison" id="toc-théorème-de-comparaison" class="nav-link" data-scroll-target="#théorème-de-comparaison"><span class="header-section-number">6.2</span> Théorème de comparaison</a></li>
+  </ul></li>
+  <li><a href="#méthodes-de-calcul" id="toc-méthodes-de-calcul" class="nav-link" data-scroll-target="#méthodes-de-calcul"><span class="header-section-number">7</span> Méthodes de calcul</a>
+  <ul class="collapse">
+  <li><a href="#primitives-1" id="toc-primitives-1" class="nav-link" data-scroll-target="#primitives-1"><span class="header-section-number">7.1</span> Primitives</a></li>
+  <li><a href="#intégration-par-parties-1" id="toc-intégration-par-parties-1" class="nav-link" data-scroll-target="#intégration-par-parties-1"><span class="header-section-number">7.2</span> Intégration par parties</a></li>
+  <li><a href="#changement-de-variable-1" id="toc-changement-de-variable-1" class="nav-link" data-scroll-target="#changement-de-variable-1"><span class="header-section-number">7.3</span> Changement de variable</a></li>
+  </ul></li>
+  <li><a href="#espaces-fonctionnels" id="toc-espaces-fonctionnels" class="nav-link" data-scroll-target="#espaces-fonctionnels"><span class="header-section-number">8</span> Espaces fonctionnels</a>
+  <ul class="collapse">
+  <li><a href="#définitions-1" id="toc-définitions-1" class="nav-link" data-scroll-target="#définitions-1"><span class="header-section-number">8.1</span> Définitions</a></li>
+  </ul></li>
+  <li><a href="#exercices" id="toc-exercices" class="nav-link" data-scroll-target="#exercices"><span class="header-section-number">9</span> Exercices</a></li>
+  <li><a href="#document-en-pdf" id="toc-document-en-pdf" class="nav-link" data-scroll-target="#document-en-pdf">Document en PDF</a>
+  <ul class="collapse">
+  <li><a href="#navigation" id="toc-navigation" class="nav-link" data-scroll-target="#navigation">Navigation</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -152,14 +252,27 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Chapitre 04 : Séries numériques</h1>
+<h1 class="title">Intégration des fonctions continues par morceaux sur un intervalle</h1>
+<p class="subtitle lead">Chapitre 04</p>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Auteur·rice</div>
+    <div class="quarto-title-meta-contents">
+             <p>Saîd MAHARI </p>
+          </div>
+  </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">Date de publication</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">22 août 2026</p>
+    </div>
+  </div>
   
     
   </div>
@@ -169,12 +282,416 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p><strong>PSI (2e année) — Chapitre 04.</strong> Convergence absolue, séries de Riemann, séries alternées.</p>
-<section id="document" class="level2">
-<h2 class="anchored" data-anchor-id="document">Document</h2>
-<p><em>PDF à venir : déposez le fichier <code>files/psi/chap04.pdf</code> puis régénérez la page.</em></p>
+<p><strong>PSI (2e année) — Chapitre 04.</strong> Fonctions continues par morceaux, intégrales généralisées sur <span class="math inline">[a,+\infty[</span>, intégrabilité, intégrales généralisées sur un intervalle quelconque, intégrales absolument convergentes et fonctions intégrables.</p>
+<p>Ce chapitre a été réalisé conformément au programme marocain de mathématiques de la filière PSI.</p>
+<p>Dans tout ce chapitre, <span class="math inline">\mathbb{K}</span> désigne <span class="math inline">\mathbb{R}</span> ou <span class="math inline">\mathbb{C}</span>. On note <span class="math inline">\mathcal{CM}(I, \mathbb{K})</span> l’ensemble des fonctions continues par morceaux sur un intervalle <span class="math inline">I</span> à valeurs dans <span class="math inline">\mathbb{K}</span>.</p>
+<section id="fonctions-continues-par-morceaux" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Fonctions continues par morceaux</h1>
+<section id="subdivision-dun-segment" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="subdivision-dun-segment"><span class="header-section-number">1.1</span> Subdivision d’un segment</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 1.1 — (Subdivision)</strong></p>
+<p>Une <strong>subdivision</strong> du segment <span class="math inline">[a,b]</span> est une suite finie <span class="math inline">(x_0, x_1, \ldots, x_n)</span>, où <span class="math inline">n \in \mathbb{N}^*</span>, telle que : <span class="math display">a = x_0 &lt; x_1 &lt; x_2 &lt; \cdots &lt; x_n = b</span></p>
+<p>Le <strong>pas</strong> de la subdivision est le réel <span class="math inline">\max_{i \in \{1, \ldots, n\}} (x_i - x_{i-1})</span>.</p>
+<p>La subdivision est dite <strong>régulière</strong> si la quantité <span class="math inline">x_i - x_{i-1}</span> est constante.</p>
+</div>
+</section>
+<section id="continuité-par-morceaux-sur-un-segment" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="continuité-par-morceaux-sur-un-segment"><span class="header-section-number">1.2</span> Continuité par morceaux sur un segment</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 1.2 — (Continuité par morceaux sur un segment)</strong></p>
+<p>Soit <span class="math inline">f \in \mathcal{F}([a,b], \mathbb{K})</span>. La fonction <span class="math inline">f</span> est <strong>continue par morceaux</strong> sur <span class="math inline">[a,b]</span> si :</p>
+<ol type="1">
+<li>Il existe une subdivision <span class="math inline">\pi = (x_i)_{i \in \{0, \ldots, n\}}</span> de <span class="math inline">[a,b]</span> telle que pour tout <span class="math inline">i \in \{0, \ldots, n-1\}</span>, la restriction <span class="math inline">f|_{]x_i, x_{i+1}[}</span> soit continue.</li>
+<li><span class="math inline">f</span> admet des limites finies à droite et à gauche en tout point de <span class="math inline">[a,b]</span>.</li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 1.3 — (Continuité par morceaux sur un intervalle)</strong></p>
+<p>Soit <span class="math inline">f \in \mathcal{F}(I, \mathbb{K})</span>. La fonction <span class="math inline">f</span> est <strong>continue par morceaux</strong> sur <span class="math inline">I</span> si pour tout <span class="math inline">(x,y) \in I^2</span> tel que <span class="math inline">x &lt; y</span>, la fonction <span class="math inline">f</span> est continue par morceaux sur <span class="math inline">[x,y]</span>.</p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 1.1</strong></p>
+<ol type="1">
+<li>Toute fonction continue sur <span class="math inline">I</span> est continue par morceaux.</li>
+<li>La fonction partie entière <span class="math inline">x \mapsto E(x)</span> est continue par morceaux sur <span class="math inline">\mathbb{R}</span>. En effet, sur tout segment <span class="math inline">[a,b]</span>, les seuls points de discontinuité sont les entiers <span class="math inline">k \in [a,b] \cap \mathbb{Z}</span> (en nombre fini), et <span class="math inline">E</span> admet des limites finies à gauche et à droite en chaque entier.</li>
+<li>La fonction en escalier définie sur <span class="math inline">[0,3]</span> par <span class="math inline">f(x) = 1</span> si <span class="math inline">x \in [0,1[</span>, <span class="math inline">f(x) = 2</span> si <span class="math inline">x \in [1,2[</span> et <span class="math inline">f(x) = 3</span> si <span class="math inline">x \in [2,3]</span> est continue par morceaux.</li>
+<li>La fonction <span class="math inline">f : \mathbb{R} \to \mathbb{R}</span> définie par <span class="math inline">f(x) = \sin(1/x)</span> si <span class="math inline">x \neq 0</span> et <span class="math inline">f(0) = 0</span> n’est <strong>pas</strong> continue par morceaux sur un intervalle contenant <span class="math inline">0</span>, car elle n’admet pas de limite finie en <span class="math inline">0^+</span> ni en <span class="math inline">0^-</span>.</li>
+</ol>
+</div>
+<div class="remarque">
+<p>Des fonctions aussi simples que la fonction inverse et la fonction logarithme ne sont pas continues par morceaux sur <span class="math inline">[0,1]</span> quand bien même on les prolonge artificiellement en <span class="math inline">0</span> car le prolongement ne pourra jamais se faire par continuité. L’exigence de prolongement par continuité de la définition n’est pas anodine.</p>
+</div>
+</section>
+<section id="propriétés-des-fonctions-continues-par-morceaux" class="level2" data-number="1.3">
+<h2 data-number="1.3" class="anchored" data-anchor-id="propriétés-des-fonctions-continues-par-morceaux"><span class="header-section-number">1.3</span> Propriétés des fonctions continues par morceaux</h2>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 1.1 — (Structure)</strong></p>
+<p>L’ensemble des fonctions continues par morceaux sur <span class="math inline">[a,b]</span> est un sous-espace vectoriel de l’ensemble des fonctions de <span class="math inline">[a,b]</span> dans <span class="math inline">\mathbb{K}</span> stable par multiplication et par passage à la valeur absolue.</p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 1.2 — (Caractère borné)</strong></p>
+<p>Toute fonction continue par morceaux sur <span class="math inline">[a,b]</span> est bornée et possède donc une norme infinie <span class="math inline">\|f\|_\infty</span>.</p>
+</div>
+<div class="remarque">
+<p>Bornée oui… MAIS ELLE N’ATTEINT PAS FORCÉMENT SES BORNES !</p>
+</div>
+</section>
+</section>
+<section id="intégrale-dune-fonction-continue-par-morceaux-sur-un-segment" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> Intégrale d’une fonction continue par morceaux sur un segment</h1>
+<section id="fonctions-en-escalier" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="fonctions-en-escalier"><span class="header-section-number">2.1</span> Fonctions en escalier</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 2.1 — (Fonction en escalier, subdivision adaptée)</strong></p>
+<p>On dit qu’une fonction <span class="math inline">f : [a,b] \to \mathbb{C}</span> est <strong>en escalier</strong> si pour une certaine subdivision <span class="math inline">(x_0, \ldots, x_n)</span> de <span class="math inline">[a,b]</span>, dite <strong>adaptée</strong> à <span class="math inline">f</span> : <span class="math display">f \text{ est constante sur } ]x_i, x_{i+1}[ \text{ pour tout } i \in \{0, \ldots, n-1\}</span></p>
+<p>Cette définition ne garantit nullement l’unicité de la subdivision adaptée <span class="math inline">(x_0, \ldots, x_n)</span> et elle n’impose aucune valeur à <span class="math inline">f</span> en <span class="math inline">x_0, \ldots, x_n</span>.</p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 2.1 — (Propriétés élémentaires des fonctions en escalier)</strong></p>
+<p>Soient <span class="math inline">f : [a,b] \to \mathbb{C}</span> et <span class="math inline">g : [a,b] \to \mathbb{C}</span> deux fonctions en escalier et <span class="math inline">\lambda, \mu \in \mathbb{C}</span>.</p>
+<ul>
+<li><p><strong>Ajout de points à une subdivision adaptée</strong> : Lorsqu’on ajoute un nombre fini de points à une subdivision de <span class="math inline">[a,b]</span> adaptée à <span class="math inline">f</span>, le résultat est encore une subdivision de <span class="math inline">[a,b]</span> adaptée à <span class="math inline">f</span>.</p></li>
+<li><p><strong>Opérations sur les fonctions en escalier</strong> : La réunion d’une subdivision de <span class="math inline">[a,b]</span> adaptée à <span class="math inline">f</span> et d’une subdivision de <span class="math inline">[a,b]</span> adaptée à <span class="math inline">g</span> est une subdivision de <span class="math inline">[a,b]</span> adaptée à <span class="math inline">f</span> ET à <span class="math inline">g</span>.</p></li>
+</ul>
+<p>Les fonctions <span class="math inline">|f|</span>, <span class="math inline">\mathrm{Re}(f)</span>, <span class="math inline">\mathrm{Im}(f)</span>, <span class="math inline">\lambda f + \mu g</span> et <span class="math inline">fg</span> sont elles aussi en escalier sur <span class="math inline">[a,b]</span>.</p>
+</div>
+</section>
+<section id="intégrale-dune-fonction-en-escalier" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="intégrale-dune-fonction-en-escalier"><span class="header-section-number">2.2</span> Intégrale d’une fonction en escalier</h2>
+<div class="definition-theoreme" title="(Intégrale d'une fonction en escalier)">
+<p>Soient <span class="math inline">f : [a,b] \to \mathbb{C}</span> en escalier et <span class="math inline">(x_0, \ldots, x_n)</span> une subdivision de <span class="math inline">[a,b]</span> adaptée à <span class="math inline">f</span>. Si <span class="math inline">y_i</span> désigne pour tout <span class="math inline">i \in \{0, \ldots, n-1\}</span> la valeur de <span class="math inline">f</span> sur <span class="math inline">]x_i, x_{i+1}[</span>, le nombre complexe : <span class="math display">\sum_{i=0}^{n-1} y_i (x_{i+1} - x_i)</span> ne dépend pas de la subdivision <span class="math inline">(x_0, \ldots, x_n)</span> choisie.</p>
+<p>On l’appelle l’<strong>intégrale</strong> de <span class="math inline">f</span> sur <span class="math inline">[a,b]</span>, notée <span class="math inline">\int_{[a,b]} f</span> ou <span class="math inline">\int_a^b f(t)\, dt</span>.</p>
+</div>
+<div class="remarque">
+<p>On définit ici directement l’intégrale d’une fonction en escalier COMPLEXE. Une telle intégrale ne peut bien sûr pas être interprétée en termes d’« aire sous la courbe », fût-elle algébrique.</p>
+</div>
+</section>
+<section id="approximation-uniforme" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="approximation-uniforme"><span class="header-section-number">2.3</span> Approximation uniforme</h2>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 2.1 — (Approximation uniforme d’une fonction continue par morceaux par des fonctions en escalier)</strong></p>
+<p>Toute fonction continue par morceaux sur <span class="math inline">[a,b]</span> à valeurs dans <span class="math inline">\mathbb{K}</span> est la limite uniforme d’une suite de fonctions en escalier sur <span class="math inline">[a,b]</span> à valeurs dans <span class="math inline">\mathbb{K}</span>.</p>
+</div>
+</section>
+<section id="intégrale-dune-fonction-continue-par-morceaux" class="level2" data-number="2.4">
+<h2 data-number="2.4" class="anchored" data-anchor-id="intégrale-dune-fonction-continue-par-morceaux"><span class="header-section-number">2.4</span> Intégrale d’une fonction continue par morceaux</h2>
+<div class="definition-theoreme" title="(Intégrale d'une fonction continue par morceaux)">
+<p>Soit <span class="math inline">f \in \mathcal{CM}([a,b], \mathbb{K})</span>. Pour toute suite de fonctions en escalier <span class="math inline">(\varphi_p)_{p \in \mathbb{N}}</span> sur <span class="math inline">[a,b]</span> qui converge uniformément vers <span class="math inline">f</span>, la suite <span class="math inline">\left(\int_{[a,b]} \varphi_p\right)_{p \in \mathbb{N}}</span> converge et sa limite ne dépend pas du choix de <span class="math inline">(\varphi_p)_{p \in \mathbb{N}}</span>.</p>
+<p>Cette limite est appelée l’<strong>intégrale</strong> de <span class="math inline">f</span> sur <span class="math inline">[a,b]</span>, notée <span class="math inline">\int_{[a,b]} f</span> ou <span class="math inline">\int_a^b f(t)\, dt</span>.</p>
+</div>
+</section>
+<section id="propriétés-de-lintégrale" class="level2" data-number="2.5">
+<h2 data-number="2.5" class="anchored" data-anchor-id="propriétés-de-lintégrale"><span class="header-section-number">2.5</span> Propriétés de l’intégrale</h2>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 2.2 — (Propriétés de l’intégrale d’une fonction continue par morceaux)</strong></p>
+<p>Soient <span class="math inline">f, g \in \mathcal{CM}([a,b], \mathbb{K})</span>.</p>
+<ol type="1">
+<li><p><strong>Linéarité</strong> : Pour tous <span class="math inline">\lambda, \mu \in \mathbb{K}</span> : <span class="math display">\int_{[a,b]} (\lambda f + \mu g) = \lambda \int_{[a,b]} f + \mu \int_{[a,b]} g</span></p></li>
+<li><p><strong>Inégalité triangulaire</strong> : <span class="math display">\left|\int_{[a,b]} f\right| \leq \int_{[a,b]} |f|</span></p></li>
+<li><p><strong>Relation de Chasles</strong> : Pour tout <span class="math inline">c \in [a,b]</span> : <span class="math display">\int_{[a,b]} f = \int_{[a,c]} f + \int_{[c,b]} f</span></p></li>
+<li><p><strong>Lien avec les parties réelle et imaginaire</strong> : <span class="math display">\int_{[a,b]} f = \int_{[a,b]} \mathrm{Re}(f) + i \int_{[a,b]} \mathrm{Im}(f)</span> En particulier, si <span class="math inline">f</span> est réelle, son intégrale sur <span class="math inline">[a,b]</span> est un réel.</p></li>
+<li><p><strong>Modification d’un nombre fini de valeurs</strong> : Si <span class="math inline">f</span> et <span class="math inline">g</span> sont égales sur <span class="math inline">[a,b]</span> sauf en un nombre fini de points : <span class="math display">\int_{[a,b]} f = \int_{[a,b]} g</span></p></li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 2.2 — (Croissance)</strong></p>
+<p>Si <span class="math inline">f, g \in \mathcal{CM}([a,b], \mathbb{R})</span> et si pour tout <span class="math inline">x \in [a,b]</span>, <span class="math inline">f(x) \leq g(x)</span>, alors : <span class="math display">\int_{[a,b]} f \leq \int_{[a,b]} g</span></p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 2.3 — (Positivité stricte)</strong></p>
+<p>Soit <span class="math inline">f</span> une fonction continue sur <span class="math inline">[a,b]</span> à valeurs positives. Alors <span class="math inline">f \equiv 0</span> si et seulement si <span class="math inline">\int_a^b f(t)\, dt = 0</span>.</p>
+</div>
+<div class="remarque">
+<p>Ce résultat est faux en général si la fonction est continue par morceaux.</p>
+</div>
+</section>
+<section id="inégalité-de-cauchy-schwarz" class="level2" data-number="2.6">
+<h2 data-number="2.6" class="anchored" data-anchor-id="inégalité-de-cauchy-schwarz"><span class="header-section-number">2.6</span> Inégalité de Cauchy-Schwarz</h2>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 2.3 — (Inégalité de Cauchy-Schwarz)</strong></p>
+<p>Soit <span class="math inline">(f, g) \in \mathcal{CM}([a,b], \mathbb{R})^2</span>. Alors : <span class="math display">\left|\int_{[a,b]} fg\right| \leq \sqrt{\int_{[a,b]} f^2} \cdot \sqrt{\int_{[a,b]} g^2}</span></p>
+<p>De plus, lorsque <span class="math inline">f</span> et <span class="math inline">g</span> sont continues sur <span class="math inline">[a,b]</span>, il y a égalité si et seulement si <span class="math inline">f</span> et <span class="math inline">g</span> sont colinéaires.</p>
+</div>
+</section>
+<section id="sommes-de-riemann" class="level2" data-number="2.7">
+<h2 data-number="2.7" class="anchored" data-anchor-id="sommes-de-riemann"><span class="header-section-number">2.7</span> Sommes de Riemann</h2>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 2.4 — (Sommes de Riemann)</strong></p>
+<p>Soit <span class="math inline">f : [a,b] \to \mathbb{K}</span> une fonction continue par morceaux. Alors : <span class="math display">\frac{b-a}{n} \sum_{k=0}^{n-1} f\left(a + k\frac{b-a}{n}\right) \xrightarrow[n \to +\infty]{} \int_a^b f(t)\, dt</span></p>
+</div>
+</section>
+</section>
+<section id="intégration-et-dérivation" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Intégration et dérivation</h1>
+<section id="primitives" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="primitives"><span class="header-section-number">3.1</span> Primitives</h2>
+<div class="definition-theoreme" title="(Primitives, unicité à constante additive près)">
+<p>Soit <span class="math inline">f : I \to \mathbb{K}</span> une fonction. On dit qu’une fonction <span class="math inline">F : I \to \mathbb{K}</span> est UNE <strong>primitive</strong> de <span class="math inline">f</span> sur <span class="math inline">I</span> si <span class="math inline">F</span> est dérivable sur <span class="math inline">I</span> de dérivée <span class="math inline">f</span>.</p>
+<p>Deux primitives d’une même fonction diffèrent d’une constante.</p>
+</div>
+</section>
+<section id="théorème-fondamental-du-calcul-intégral" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="théorème-fondamental-du-calcul-intégral"><span class="header-section-number">3.2</span> Théorème fondamental du calcul intégral</h2>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 3.1 — (Théorème fondamental du calcul intégral)</strong></p>
+<p>Soit <span class="math inline">f</span> une fonction continue sur <span class="math inline">I</span> et <span class="math inline">a \in I</span>. La fonction : <span class="math display">x \mapsto \int_a^x f(t)\, dt</span> est une primitive de <span class="math inline">f</span> sur <span class="math inline">I</span>. C’est l’unique primitive de <span class="math inline">f</span> qui s’annule en <span class="math inline">a</span>.</p>
+<p>De plus, pour toute primitive <span class="math inline">G</span> de <span class="math inline">f</span> sur <span class="math inline">I</span> : <span class="math display">G(x) = G(a) + \int_a^x f(t)\, dt</span></p>
+</div>
+</section>
+<section id="inégalité-des-accroissements-finis" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="inégalité-des-accroissements-finis"><span class="header-section-number">3.3</span> Inégalité des accroissements finis</h2>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 3.2 — (Inégalité des accroissements finis)</strong></p>
+<p>Si <span class="math inline">f</span> est de classe <span class="math inline">\mathcal{C}^1</span> sur le segment <span class="math inline">[a,b]</span>, alors : <span class="math display">|f(b) - f(a)| \leq (b-a) \sup_{[a,b]} |f'|</span></p>
+</div>
+</section>
+<section id="intégration-par-parties" class="level2" data-number="3.4">
+<h2 data-number="3.4" class="anchored" data-anchor-id="intégration-par-parties"><span class="header-section-number">3.4</span> Intégration par parties</h2>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 3.3 — (Intégration par parties ou IPP)</strong></p>
+<p>Soient <span class="math inline">u, v \in \mathcal{C}^1(I, \mathbb{K})</span> et <span class="math inline">a, b \in I</span>. Alors : <span class="math display">\int_a^b u' v = [uv]_a^b - \int_a^b u v'</span></p>
+</div>
+</section>
+<section id="changement-de-variable" class="level2" data-number="3.5">
+<h2 data-number="3.5" class="anchored" data-anchor-id="changement-de-variable"><span class="header-section-number">3.5</span> Changement de variable</h2>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 3.4 — (Changement de variable)</strong></p>
+<p>Soient <span class="math inline">\varphi \in \mathcal{C}^1(I, \mathbb{R})</span> à valeurs dans <span class="math inline">J</span>, <span class="math inline">f \in \mathcal{C}(J, \mathbb{K})</span> et <span class="math inline">a, b \in I</span>. Alors : <span class="math display">\int_a^b f(\varphi(t)) \varphi'(t)\, dt = \int_{\varphi(a)}^{\varphi(b)} f(x)\, dx</span></p>
+</div>
+<div class="remarque" title="(Intérêt d'un changement de variable affine)">
+<p>Un changement de variable affine permet d’exploiter la périodicité et les symétries, ou pour se ramener au cas où l’intervalle d’intégration est <span class="math inline">[0,1]</span> ou <span class="math inline">[-1,1]</span>.</p>
+</div>
+</section>
+<section id="intégrales-dune-fonction-paireimpairepériodique" class="level2" data-number="3.6">
+<h2 data-number="3.6" class="anchored" data-anchor-id="intégrales-dune-fonction-paireimpairepériodique"><span class="header-section-number">3.6</span> Intégrales d’une fonction paire/impaire/périodique</h2>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 3.5 — (Intégrales d’une fonction paire/impaire/périodique)</strong></p>
+<ol type="1">
+<li><strong>Fonctions paires/impaires</strong> : Soit <span class="math inline">f \in \mathcal{CM}([-a,a], \mathbb{K})</span>.
+<ul>
+<li>Si <span class="math inline">f</span> est paire : <span class="math inline">\int_{-a}^a f(x)\, dx = 2\int_0^a f(x)\, dx</span></li>
+<li>Si <span class="math inline">f</span> est impaire : <span class="math inline">\int_{-a}^a f(x)\, dx = 0</span></li>
+</ul></li>
+<li><strong>Fonctions périodiques</strong> : Pour toute fonction <span class="math inline">f \in \mathcal{CM}(\mathbb{R}, \mathbb{K})</span> <span class="math inline">T</span>-périodique : <span class="math display">\int_a^{a+T} f(x)\, dx = \int_0^T f(x)\, dx</span></li>
+</ol>
+</div>
+</section>
+</section>
+<section id="intégrales-généralisées-sur-a-infty" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> Intégrales généralisées sur <span class="math inline">[a, +\infty[</span></h1>
+<section id="définition" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="définition"><span class="header-section-number">4.1</span> Définition</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 4.1 — (Convergence d’une intégrale généralisée sur <span class="math inline">\boldsymbol{[a, b[}</span>)</strong></p>
+<p>Soit <span class="math inline">f \in \mathcal{CM}([a, b[, \mathbb{K})</span>. L’intégrale généralisée <span class="math inline">\int_a^b f(t)\, dt</span> <strong>converge</strong> si la fonction <span class="math inline">x \mapsto \int_a^x f(t)\, dt</span> possède une limite finie lorsque <span class="math inline">x</span> tend vers <span class="math inline">b</span>.</p>
+<p>Dans ce cas, on pose : <span class="math display">\int_a^b f(t)\, dt = \lim_{x \to b^-} \int_a^x f(t)\, dt</span></p>
+</div>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 4.2 — (Convergence d’une intégrale généralisée sur <span class="math inline">\boldsymbol{[a, +\infty[}</span>)</strong></p>
+<p>Soit <span class="math inline">f \in \mathcal{CM}([a, +\infty[, \mathbb{K})</span>. L’intégrale généralisée <span class="math inline">\int_a^{+\infty} f(t)\, dt</span> <strong>converge</strong> si la fonction <span class="math inline">x \mapsto \int_a^x f(t)\, dt</span> possède une limite finie lorsque <span class="math inline">x \to +\infty</span>.</p>
+</div>
+</section>
+<section id="propriétés" class="level2" data-number="4.2">
+<h2 data-number="4.2" class="anchored" data-anchor-id="propriétés"><span class="header-section-number">4.2</span> Propriétés</h2>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 4.1 — (Intégrale faussement impropre)</strong></p>
+<p>Soit <span class="math inline">f</span> une fonction continue par morceaux sur le segment <span class="math inline">[a,b]</span>. Alors les intégrales de <span class="math inline">f</span> sur <span class="math inline">[a,b]</span>, <span class="math inline">]a,b]</span>, <span class="math inline">]a,b[</span> et <span class="math inline">[a,b[</span> sont égales.</p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 4.2 — (Linéarité)</strong></p>
+<p>Soit <span class="math inline">\lambda \in \mathbb{K}</span>. Si <span class="math inline">\int_a^b f(t)\, dt</span> et <span class="math inline">\int_a^b g(t)\, dt</span> convergent, alors <span class="math inline">\int_a^b (f(t) + \lambda g(t))\, dt</span> converge et : <span class="math display">\int_a^b (f(t) + \lambda g(t))\, dt = \int_a^b f(t)\, dt + \lambda \int_a^b g(t)\, dt</span></p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 4.3 — (Relation de Chasles)</strong></p>
+<p>On suppose que <span class="math inline">\int_a^b f(t)\, dt</span> converge et <span class="math inline">c \in ]a,b[</span>. Alors <span class="math inline">\int_a^c f(t)\, dt</span> et <span class="math inline">\int_c^b f(t)\, dt</span> convergent et : <span class="math display">\int_a^b f(t)\, dt = \int_a^c f(t)\, dt + \int_c^b f(t)\, dt</span></p>
+</div>
+</section>
+<section id="intégrales-de-référence" class="level2" data-number="4.3">
+<h2 data-number="4.3" class="anchored" data-anchor-id="intégrales-de-référence"><span class="header-section-number">4.3</span> Intégrales de référence</h2>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 4.4 — (Intégrales de Riemann)</strong></p>
+<ol type="1">
+<li><p><strong>Intégrales de Riemann sur <span class="math inline">[1, +\infty[</span></strong> : <span class="math inline">\int_1^{+\infty} \frac{dt}{t^\alpha}</span> converge si et seulement si <span class="math inline">\alpha &gt; 1</span>. Alors : <span class="math display">\int_1^{+\infty} \frac{dt}{t^\alpha} = \frac{1}{\alpha - 1}</span></p></li>
+<li><p><strong>Intégrales de Riemann sur <span class="math inline">]0, 1]</span></strong> : <span class="math inline">\int_0^1 \frac{dt}{t^\alpha}</span> converge si et seulement si <span class="math inline">\alpha &lt; 1</span>. Alors : <span class="math display">\int_0^1 \frac{dt}{t^\alpha} = \frac{1}{1-\alpha}</span></p></li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 4.5 — (Fonction exponentielle)</strong></p>
+<p><span class="math inline">\int_0^{+\infty} e^{-\alpha t}\, dt</span> converge si et seulement si <span class="math inline">\alpha &gt; 0</span>. Alors : <span class="math display">\int_0^{+\infty} e^{-\alpha t}\, dt = \frac{1}{\alpha}</span></p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 4.6 — (Fonction logarithme)</strong></p>
+<p><span class="math inline">\int_0^1 \ln(t)\, dt</span> converge. De plus : <span class="math display">\int_0^1 \ln(t)\, dt = -1</span></p>
+</div>
+</section>
+</section>
+<section id="intégrales-généralisées-sur-un-intervalle-quelconque" class="level1" data-number="5">
+<h1 data-number="5"><span class="header-section-number">5</span> Intégrales généralisées sur un intervalle quelconque</h1>
+<section id="définitions" class="level2" data-number="5.1">
+<h2 data-number="5.1" class="anchored" data-anchor-id="définitions"><span class="header-section-number">5.1</span> Définitions</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 5.1 — (Convergence sur un intervalle quelconque)</strong></p>
+<p>Dans tout ce paragraphe, <span class="math inline">I</span> désigne un intervalle de <span class="math inline">\mathbb{R}</span> d’extrémités <span class="math inline">a</span> et <span class="math inline">b</span>, où <span class="math inline">-\infty \leq a &lt; b \leq +\infty</span>.</p>
+<ul>
+<li><p>Si <span class="math inline">I = [a, b[</span> : L’intégrale généralisée <span class="math inline">\int_a^b f(t)\, dt</span> converge si <span class="math inline">x \mapsto \int_a^x f(t)\, dt</span> possède une limite finie lorsque <span class="math inline">x \to b^-</span>.</p></li>
+<li><p>Si <span class="math inline">I = ]a, b]</span> : L’intégrale généralisée <span class="math inline">\int_a^b f(t)\, dt</span> converge si <span class="math inline">x \mapsto \int_x^b f(t)\, dt</span> possède une limite finie lorsque <span class="math inline">x \to a^+</span>.</p></li>
+<li><p>Si <span class="math inline">I = ]a, b[</span> : L’intégrale généralisée <span class="math inline">\int_a^b f(t)\, dt</span> converge s’il existe <span class="math inline">c \in ]a,b[</span> tel que <span class="math inline">\int_a^c f(t)\, dt</span> et <span class="math inline">\int_c^b f(t)\, dt</span> soient convergentes.</p></li>
+</ul>
+</div>
+</section>
+<section id="fonctions-à-valeurs-réelles" class="level2" data-number="5.2">
+<h2 data-number="5.2" class="anchored" data-anchor-id="fonctions-à-valeurs-réelles"><span class="header-section-number">5.2</span> Fonctions à valeurs réelles</h2>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 5.1 — (Positivité)</strong></p>
+<p>Si <span class="math inline">f \geq 0</span> sur <span class="math inline">I</span> et si <span class="math inline">\int_a^b f(t)\, dt</span> converge, alors : <span class="math display">\int_a^b f(t)\, dt \geq 0</span></p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 5.2 — (Croissance)</strong></p>
+<p>Si <span class="math inline">f \leq g</span> sur <span class="math inline">I</span> et si les deux intégrales convergent, alors : <span class="math display">\int_a^b f(t)\, dt \leq \int_a^b g(t)\, dt</span></p>
+</div>
+</section>
+</section>
+<section id="convergence-absolue-et-fonctions-intégrables" class="level1" data-number="6">
+<h1 data-number="6"><span class="header-section-number">6</span> Convergence absolue et fonctions intégrables</h1>
+<section id="convergence-absolue" class="level2" data-number="6.1">
+<h2 data-number="6.1" class="anchored" data-anchor-id="convergence-absolue"><span class="header-section-number">6.1</span> Convergence absolue</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 6.1 — (Convergence absolue)</strong></p>
+<p>L’intégrale <span class="math inline">\int_a^b f(t)\, dt</span> est <strong>absolument convergente</strong> si l’intégrale <span class="math inline">\int_a^b |f(t)|\, dt</span> est convergente.</p>
+</div>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 6.1 — (Absolue convergence implique convergence)</strong></p>
+<p>Si l’intégrale <span class="math inline">\int_a^b f(t)\, dt</span> est absolument convergente, alors elle est convergente. La fonction <span class="math inline">f</span> est alors <strong>intégrable</strong> sur <span class="math inline">I</span>. La valeur de son intégrale sera notée <span class="math inline">\int_a^b f(t)\, dt</span> ou <span class="math inline">\int_I f(t)\, dt</span> ou <span class="math inline">\int_I f</span>.</p>
+</div>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 6.2 — (Inégalité triangulaire)</strong></p>
+<p>Si <span class="math inline">\int_a^b f(t)\, dt</span> est absolument convergente, alors : <span class="math display">\left|\int_a^b f(t)\, dt\right| \leq \int_a^b |f(t)|\, dt</span></p>
+</div>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 6.3</strong></p>
+<p>Soit <span class="math inline">f : I \to \mathbb{K}</span> une fonction continue et intégrable sur <span class="math inline">I</span>. Si <span class="math inline">\int_I |f| = 0</span>, alors <span class="math inline">f \equiv 0</span> sur <span class="math inline">I</span>.</p>
+</div>
+</section>
+<section id="théorème-de-comparaison" class="level2" data-number="6.2">
+<h2 data-number="6.2" class="anchored" data-anchor-id="théorème-de-comparaison"><span class="header-section-number">6.2</span> Théorème de comparaison</h2>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 6.4 — (Théorème de comparaison)</strong></p>
+<p>On suppose que <span class="math inline">I = [a, b[</span>.</p>
+<ol type="1">
+<li>Si <span class="math inline">|f| \leq |g|</span> sur <span class="math inline">I</span> et <span class="math inline">g</span> est intégrable sur <span class="math inline">I</span>, alors <span class="math inline">f</span> est intégrable sur <span class="math inline">I</span>.</li>
+<li>Si <span class="math inline">f = O_b(g)</span> et <span class="math inline">g</span> est intégrable sur <span class="math inline">I</span>, alors <span class="math inline">f</span> est intégrable sur <span class="math inline">I</span>.</li>
+<li>Si <span class="math inline">f(t) \sim_b g(t)</span>, alors <span class="math inline">f</span> est intégrable sur <span class="math inline">I</span> si et seulement si <span class="math inline">g</span> est intégrable sur <span class="math inline">I</span>.</li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 6.1 — (Comparaison par domination)</strong></p>
+<p>Soient <span class="math inline">f, g \in \mathcal{CM}([a,b[, \mathbb{R}^+)</span> telles que <span class="math inline">0 \leq f(t) \leq g(t)</span> au voisinage de <span class="math inline">b</span>.</p>
+<ol type="1">
+<li>Si <span class="math inline">\int_a^b g(t)\, dt</span> converge, alors <span class="math inline">\int_a^b f(t)\, dt</span> converge.</li>
+<li>Si <span class="math inline">\int_a^b f(t)\, dt</span> diverge, alors <span class="math inline">\int_a^b g(t)\, dt</span> diverge.</li>
+</ol>
+</div>
+</section>
+</section>
+<section id="méthodes-de-calcul" class="level1" data-number="7">
+<h1 data-number="7"><span class="header-section-number">7</span> Méthodes de calcul</h1>
+<section id="primitives-1" class="level2" data-number="7.1">
+<h2 data-number="7.1" class="anchored" data-anchor-id="primitives-1"><span class="header-section-number">7.1</span> Primitives</h2>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 7.1 — (Primitive)</strong></p>
+<p>Soit <span class="math inline">f</span> une fonction continue sur <span class="math inline">[a,b[</span> possédant une primitive <span class="math inline">F</span>. Alors <span class="math inline">\int_a^b f(t)\, dt</span> converge si et seulement si <span class="math inline">F</span> possède une limite finie en <span class="math inline">b</span>. Si ces propriétés sont vérifiées : <span class="math display">\int_a^b f(t)\, dt = \lim_{x \to b^-} F(x) - F(a)</span></p>
+</div>
+</section>
+<section id="intégration-par-parties-1" class="level2" data-number="7.2">
+<h2 data-number="7.2" class="anchored" data-anchor-id="intégration-par-parties-1"><span class="header-section-number">7.2</span> Intégration par parties</h2>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 7.2 — (Intégration par parties)</strong></p>
+<p>Soient <span class="math inline">f</span> et <span class="math inline">g</span> deux fonctions de classe <span class="math inline">\mathcal{C}^1</span> sur <span class="math inline">I</span>. Si la fonction <span class="math inline">fg</span> a une limite finie en <span class="math inline">a</span> et en <span class="math inline">b</span>, alors les intégrales <span class="math inline">\int_a^b f'(t)g(t)\, dt</span> et <span class="math inline">\int_a^b f(t)g'(t)\, dt</span> sont de même nature. Si ces quantités sont convergentes, en notant : <span class="math display">[f(t)g(t)]_a^b = \lim_{x \to b^-} (f(x)g(x)) - \lim_{x \to a^+} (f(x)g(x))</span> on obtient la relation : <span class="math display">\int_a^b f'(t)g(t)\, dt = [f(t)g(t)]_a^b - \int_a^b f(t)g'(t)\, dt</span></p>
+</div>
+</section>
+<section id="changement-de-variable-1" class="level2" data-number="7.3">
+<h2 data-number="7.3" class="anchored" data-anchor-id="changement-de-variable-1"><span class="header-section-number">7.3</span> Changement de variable</h2>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 7.3 — (Changement de variable)</strong></p>
+<p>Soit <span class="math inline">\varphi : I \to J</span> une bijection de classe <span class="math inline">\mathcal{C}^1</span>. Alors : <span class="math display">\int_I f(x)\, dx = \int_{\varphi^{-1}(I)} f(\varphi(t)) \varphi'(t)\, dt</span></p>
+</div>
+</section>
+</section>
+<section id="espaces-fonctionnels" class="level1" data-number="8">
+<h1 data-number="8"><span class="header-section-number">8</span> Espaces fonctionnels</h1>
+<section id="définitions-1" class="level2" data-number="8.1">
+<h2 data-number="8.1" class="anchored" data-anchor-id="définitions-1"><span class="header-section-number">8.1</span> Définitions</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 8.1 — (<span class="math inline">\boldsymbol{\mathcal{L}^1}</span> et <span class="math inline">\boldsymbol{\mathcal{L}^2}</span>)</strong></p>
+<ol type="1">
+<li><p>L’ensemble des fonctions continues par morceaux intégrables sur <span class="math inline">I</span>, à valeurs dans <span class="math inline">\mathbb{K}</span>, est noté <span class="math inline">\mathcal{L}^1(I, \mathbb{K})</span>.</p></li>
+<li><p>L’ensemble des fonctions continues par morceaux sur <span class="math inline">I</span>, à valeurs dans <span class="math inline">\mathbb{K}</span>, de carré intégrable, c’est-à-dire pour lesquelles <span class="math inline">|f|^2</span> est intégrable sur <span class="math inline">I</span>, est noté <span class="math inline">\mathcal{L}^2(I, \mathbb{K})</span>.</p></li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 8.1 — (Structure d’espace vectoriel)</strong></p>
+<p><span class="math inline">\mathcal{L}^1(I, \mathbb{K})</span> et <span class="math inline">\mathcal{L}^2(I, \mathbb{K})</span> sont des <span class="math inline">\mathbb{K}</span>-espaces vectoriels.</p>
+</div>
+</section>
+</section>
+<section id="exercices" class="level1" data-number="9">
+<h1 data-number="9"><span class="header-section-number">9</span> Exercices</h1>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 9.1</strong></p>
+<p>Donner des exemples de fonctions continues par morceaux. Montrer que toute fonction continue par morceaux est bornée. Ses bornes sont-elles nécessairement atteintes ?</p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 9.2</strong></p>
+<p>Montrer que la fonction définie sur <span class="math inline">\mathbb{R}^+</span> par <span class="math inline">f(x) = x \lfloor 1/x \rfloor</span> si <span class="math inline">x \neq 0</span> et <span class="math inline">f(0) = 1</span>, n’est pas continue par morceaux sur <span class="math inline">\mathbb{R}^+</span>.</p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 9.3</strong></p>
+<p>Montrer que <span class="math inline">\int_1^{+\infty} \frac{dx}{1+x^\alpha}</span> converge si et seulement si <span class="math inline">\alpha &gt; 1</span>.</p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 9.4</strong></p>
+<p>Montrer que, si <span class="math inline">f</span> est continue par morceaux, positive et décroissante sur <span class="math inline">\mathbb{R}^+</span>, alors : <span class="math display">\int_0^{+\infty} f(x)\, dx \text{ converge} \iff \sum f(n) \text{ converge}</span></p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 9.5</strong></p>
+<p>Étudier l’intégrabilité des fonctions suivantes :</p>
+<ol type="1">
+<li><span class="math inline">t \mapsto \frac{\sin(t)}{t^2}</span> sur <span class="math inline">[1, +\infty[</span></li>
+<li><span class="math inline">t \mapsto t\cos(t)</span> et <span class="math inline">t \mapsto \frac{1}{t}</span> sur <span class="math inline">]0, +\infty[</span></li>
+<li><span class="math inline">t \mapsto \frac{1}{1-t^2}</span> sur <span class="math inline">[0, 1[</span></li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 9.6 — (Fonction Gamma d’Euler)</strong></p>
+<p>Pour tout nombre réel <span class="math inline">x</span>, on pose, sous réserve d’existence : <span class="math display">\Gamma(x) = \int_0^{+\infty} t^{x-1} e^{-t}\, dt</span></p>
+<ol type="1">
+<li>Montrer que <span class="math inline">\Gamma(x)</span> existe pour tout <span class="math inline">x &gt; 0</span>.</li>
+<li>Montrer que <span class="math inline">\Gamma(x+1) = x\Gamma(x)</span> pour tout <span class="math inline">x &gt; 0</span>.</li>
+<li>En déduire que <span class="math inline">\Gamma(n+1) = n!</span> pour tout <span class="math inline">n \in \mathbb{N}</span>.</li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 9.7</strong></p>
+<p>Soit <span class="math inline">\alpha &gt; 1</span>. Montrer que l’intégrale <span class="math inline">\int_0^{+\infty} \frac{\sin(x)}{1+x^\alpha}\, dx</span> est absolument convergente.</p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 9.8</strong></p>
+<p>Déterminer une fonction <span class="math inline">f</span> qui appartienne à <span class="math inline">\mathcal{L}^1(]0,1], \mathbb{R})</span> mais pas à <span class="math inline">\mathcal{L}^2(]0,1], \mathbb{R})</span>.</p>
+<p>Déterminer une fonction <span class="math inline">f</span> qui appartienne à <span class="math inline">\mathcal{L}^2([1,+\infty[, \mathbb{R})</span> mais pas à <span class="math inline">\mathcal{L}^1([1,+\infty[, \mathbb{R})</span>.</p>
+</div>
+</section>
+<section id="document-en-pdf" class="level1 unnumbered">
+<h1 class="unnumbered">Document en PDF</h1>
+<p><a href="PDF/psi-chap04.pdf">Chapitre 04 : Intégration des fonctions continues par morceaux sur un intervalle</a></p>
+<section id="navigation" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="navigation">Navigation</h2>
+<div class="chap-nav">
+<p><a href="../cours/psi-chap03.html" class="prev">Chapitre 03 : Topologie des espaces normés</a> <a href="../cours/psi.html" class="home">Menu PSI</a> <a href="../cours/psi-chap05.html" class="next">Chapitre 05 : Fonctions vectorielles</a></p>
+</div>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -222,12 +739,12 @@ ul.task-list li input[type="checkbox"] {
       // flash "checked"
       button.classList.add('code-copy-button-checked');
       var currentTitle = button.getAttribute("title");
-      button.setAttribute("title", "Copied!");
+      button.setAttribute("title", "Copié");
       let tooltip;
       if (window.bootstrap) {
         button.setAttribute("data-bs-toggle", "tooltip");
         button.setAttribute("data-bs-placement", "left");
-        button.setAttribute("data-bs-title", "Copied!");
+        button.setAttribute("data-bs-title", "Copié");
         tooltip = new bootstrap.Tooltip(button, 
           { trigger: "manual", 
             customClass: "code-copy-button-tooltip",

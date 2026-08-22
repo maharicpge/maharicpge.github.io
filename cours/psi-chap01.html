@@ -1,13 +1,14 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr"><head>
 
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.10.18">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Saîd MAHARI">
 
-<title>Algèbre linéaire et réduction - Mathématiques en CPGE – Mathématiques en CPGE</title>
+<title>Rappels et compléments sur les espaces vectoriels, les endomorphismes et les matrices – Mathématiques en CPGE</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -45,7 +46,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-7a8c080b55ea27eb37b467515007f9ee.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-e0d9a45d84245cc5e3b300860d8fa645.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -60,22 +61,66 @@ ul.task-list li input[type="checkbox"] {
   ],
   "show-item-context": false,
   "language": {
-    "search-no-results-text": "No results",
-    "search-matching-documents-text": "matching documents",
-    "search-copy-link-title": "Copy link to search",
-    "search-hide-matches-text": "Hide additional matches",
-    "search-more-match-text": "more match in this document",
-    "search-more-matches-text": "more matches in this document",
-    "search-clear-button-title": "Clear",
+    "search-no-results-text": "Pas de résultats",
+    "search-matching-documents-text": "documents trouvés",
+    "search-copy-link-title": "Copier le lien vers la recherche",
+    "search-hide-matches-text": "Cacher les correspondances additionnelles",
+    "search-more-match-text": "correspondance de plus dans ce document",
+    "search-more-matches-text": "correspondances de plus dans ce document",
+    "search-clear-button-title": "Effacer",
     "search-text-placeholder": "",
-    "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit",
-    "search-label": "Search"
+    "search-detached-cancel-button-title": "Annuler",
+    "search-submit-button-title": "Envoyer",
+    "search-label": "Recherche"
   }
 }</script>
 
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="styles.css">
 </head>
 
 <body class="nav-fixed quarto-light">
@@ -89,8 +134,8 @@ ul.task-list li input[type="checkbox"] {
     <span class="navbar-title">Accueil</span>
     </a>
   </div>
-            <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+            <div id="quarto-search" class="" title="Recherche"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Basculer la navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
@@ -140,10 +185,42 @@ ul.task-list li input[type="checkbox"] {
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
+    <h2 id="toc-title">Sur cette page</h2>
    
   <ul>
-  <li><a href="#document" id="toc-document" class="nav-link active" data-scroll-target="#document">Document</a></li>
+  <li><a href="#produit-et-somme-despaces-vectoriels" id="toc-produit-et-somme-despaces-vectoriels" class="nav-link active" data-scroll-target="#produit-et-somme-despaces-vectoriels"><span class="header-section-number">1</span> Produit et somme d’espaces vectoriels</a>
+  <ul class="collapse">
+  <li><a href="#produit-despaces-vectoriels" id="toc-produit-despaces-vectoriels" class="nav-link" data-scroll-target="#produit-despaces-vectoriels"><span class="header-section-number">1.1</span> Produit d’espaces vectoriels</a></li>
+  <li><a href="#somme-de-sous-espaces-vectoriels" id="toc-somme-de-sous-espaces-vectoriels" class="nav-link" data-scroll-target="#somme-de-sous-espaces-vectoriels"><span class="header-section-number">1.2</span> Somme de sous-espaces vectoriels</a></li>
+  <li><a href="#projecteurs-et-symétries" id="toc-projecteurs-et-symétries" class="nav-link" data-scroll-target="#projecteurs-et-symétries"><span class="header-section-number">1.3</span> Projecteurs et symétries</a></li>
+  </ul></li>
+  <li><a href="#matrices-par-blocs-et-sous-espaces-stables" id="toc-matrices-par-blocs-et-sous-espaces-stables" class="nav-link" data-scroll-target="#matrices-par-blocs-et-sous-espaces-stables"><span class="header-section-number">2</span> Matrices par blocs et sous-espaces stables</a>
+  <ul class="collapse">
+  <li><a href="#matrices-par-blocs" id="toc-matrices-par-blocs" class="nav-link" data-scroll-target="#matrices-par-blocs"><span class="header-section-number">2.1</span> Matrices par blocs</a></li>
+  <li><a href="#sous-espaces-stables" id="toc-sous-espaces-stables" class="nav-link" data-scroll-target="#sous-espaces-stables"><span class="header-section-number">2.2</span> Sous-espaces stables</a></li>
+  </ul></li>
+  <li><a href="#trace-dune-matrice-et-dun-endomorphisme" id="toc-trace-dune-matrice-et-dun-endomorphisme" class="nav-link" data-scroll-target="#trace-dune-matrice-et-dun-endomorphisme"><span class="header-section-number">3</span> Trace d’une matrice et d’un endomorphisme</a>
+  <ul class="collapse">
+  <li><a href="#trace-dune-matrice-carrée" id="toc-trace-dune-matrice-carrée" class="nav-link" data-scroll-target="#trace-dune-matrice-carrée"><span class="header-section-number">3.1</span> Trace d’une matrice carrée</a></li>
+  <li><a href="#trace-dun-endomorphisme" id="toc-trace-dun-endomorphisme" class="nav-link" data-scroll-target="#trace-dun-endomorphisme"><span class="header-section-number">3.2</span> Trace d’un endomorphisme</a></li>
+  </ul></li>
+  <li><a href="#polynômes-dendomorphismes-et-de-matrices-carrées" id="toc-polynômes-dendomorphismes-et-de-matrices-carrées" class="nav-link" data-scroll-target="#polynômes-dendomorphismes-et-de-matrices-carrées"><span class="header-section-number">4</span> Polynômes d’endomorphismes et de matrices carrées</a>
+  <ul class="collapse">
+  <li><a href="#morphisme-dévaluation" id="toc-morphisme-dévaluation" class="nav-link" data-scroll-target="#morphisme-dévaluation"><span class="header-section-number">4.1</span> Morphisme d’évaluation</a></li>
+  <li><a href="#idéal-annulateur-et-polynôme-minimal" id="toc-idéal-annulateur-et-polynôme-minimal" class="nav-link" data-scroll-target="#idéal-annulateur-et-polynôme-minimal"><span class="header-section-number">4.2</span> Idéal annulateur et polynôme minimal</a></li>
+  <li><a href="#théorème-de-cayley-hamilton" id="toc-théorème-de-cayley-hamilton" class="nav-link" data-scroll-target="#théorème-de-cayley-hamilton"><span class="header-section-number">4.3</span> Théorème de Cayley-Hamilton</a></li>
+  </ul></li>
+  <li><a href="#interpolation-de-lagrange" id="toc-interpolation-de-lagrange" class="nav-link" data-scroll-target="#interpolation-de-lagrange"><span class="header-section-number">5</span> Interpolation de Lagrange</a>
+  <ul class="collapse">
+  <li><a href="#polynômes-de-lagrange" id="toc-polynômes-de-lagrange" class="nav-link" data-scroll-target="#polynômes-de-lagrange"><span class="header-section-number">5.1</span> Polynômes de Lagrange</a></li>
+  <li><a href="#théorème-dinterpolation-de-lagrange" id="toc-théorème-dinterpolation-de-lagrange" class="nav-link" data-scroll-target="#théorème-dinterpolation-de-lagrange"><span class="header-section-number">5.2</span> Théorème d’interpolation de Lagrange</a></li>
+  <li><a href="#lien-avec-le-déterminant-de-vandermonde" id="toc-lien-avec-le-déterminant-de-vandermonde" class="nav-link" data-scroll-target="#lien-avec-le-déterminant-de-vandermonde"><span class="header-section-number">5.3</span> Lien avec le déterminant de Vandermonde</a></li>
+  </ul></li>
+  <li><a href="#exercices" id="toc-exercices" class="nav-link" data-scroll-target="#exercices"><span class="header-section-number">6</span> Exercices</a></li>
+  <li><a href="#document-en-pdf" id="toc-document-en-pdf" class="nav-link" data-scroll-target="#document-en-pdf">Document en PDF</a>
+  <ul class="collapse">
+  <li><a href="#navigation" id="toc-navigation" class="nav-link" data-scroll-target="#navigation">Navigation</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -152,14 +229,27 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Chapitre 01 : Algèbre linéaire et réduction</h1>
+<h1 class="title">Rappels et compléments sur les espaces vectoriels, les endomorphismes et les matrices</h1>
+<p class="subtitle lead">Chapitre 01</p>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Auteur·rice</div>
+    <div class="quarto-title-meta-contents">
+             <p>Saîd MAHARI </p>
+          </div>
+  </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">Date de publication</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">22 août 2026</p>
+    </div>
+  </div>
   
     
   </div>
@@ -169,12 +259,333 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p><strong>PSI (2e année) — Chapitre 01.</strong> Trace, valeurs propres, diagonalisation, trigonalisation.</p>
-<section id="document" class="level2">
-<h2 class="anchored" data-anchor-id="document">Document</h2>
-<p><em>PDF à venir : déposez le fichier <code>files/psi/chap01.pdf</code> puis régénérez la page.</em></p>
+<p><strong>PSI (2e année) — Chapitre 01.</strong> Produit et somme d’espaces vectoriels, matrices par blocs et sous-espaces stables, trace d’une matrice et d’un endomorphisme, polynômes d’endomorphismes et de matrices carrées, interpolation de Lagrange.</p>
+<p>Ce chapitre a été réalisé conformément au programme marocain de mathématiques de la filière PSI.</p>
+<p>Dans tout ce chapitre, <span class="math inline">\mathbb{K}</span> désigne <span class="math inline">\mathbb{R}</span> ou <span class="math inline">\mathbb{C}</span>.</p>
+<section id="produit-et-somme-despaces-vectoriels" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Produit et somme d’espaces vectoriels</h1>
+<section id="produit-despaces-vectoriels" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="produit-despaces-vectoriels"><span class="header-section-number">1.1</span> Produit d’espaces vectoriels</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 1.1 — (Produit d’espaces vectoriels)</strong></p>
+<p>Soient <span class="math inline">E_1, E_2, \ldots, E_p</span> des <span class="math inline">\mathbb{K}</span>-espaces vectoriels. Le <strong>produit</strong> <span class="math inline">E = E_1 \times E_2 \times \cdots \times E_p</span> est muni d’une structure de <span class="math inline">\mathbb{K}</span>-espace vectoriel par les lois : <span class="math display">(x_1, \ldots, x_p) + (y_1, \ldots, y_p) = (x_1 + y_1, \ldots, x_p + y_p)</span> <span class="math display">\lambda \cdot (x_1, \ldots, x_p) = (\lambda x_1, \ldots, \lambda x_p)</span></p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 1.1</strong></p>
+<p>Si <span class="math inline">E_1, \ldots, E_p</span> sont de dimensions finies, alors <span class="math inline">E = E_1 \times \cdots \times E_p</span> est de dimension finie et : <span class="math display">\dim(E) = \dim(E_1) + \dim(E_2) + \cdots + \dim(E_p)</span></p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 1.1</strong></p>
+<p><span class="math inline">\mathbb{K}^n = \mathbb{K} \times \mathbb{K} \times \cdots \times \mathbb{K}</span> (<span class="math inline">n</span> fois) est un <span class="math inline">\mathbb{K}</span>-espace vectoriel de dimension <span class="math inline">n</span>.</p>
+</div>
+</section>
+<section id="somme-de-sous-espaces-vectoriels" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="somme-de-sous-espaces-vectoriels"><span class="header-section-number">1.2</span> Somme de sous-espaces vectoriels</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 1.2 — (Somme de sous-espaces)</strong></p>
+<p>Soient <span class="math inline">F_1, F_2, \ldots, F_p</span> des sous-espaces vectoriels d’un <span class="math inline">\mathbb{K}</span>-espace vectoriel <span class="math inline">E</span>. La <strong>somme</strong> de ces sous-espaces est : <span class="math display">F_1 + F_2 + \cdots + F_p = \{x_1 + x_2 + \cdots + x_p \mid x_i \in F_i\}</span></p>
+</div>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 1.3 — (Somme directe)</strong></p>
+<p>La somme <span class="math inline">F_1 + F_2 + \cdots + F_p</span> est dite <strong>directe</strong>, notée <span class="math inline">F_1 \oplus F_2 \oplus \cdots \oplus F_p</span>, si tout vecteur de cette somme s’écrit de manière unique comme somme d’un vecteur de chaque <span class="math inline">F_i</span>.</p>
+<p>On a l’équivalence : <span class="math display">F_1 + \cdots + F_p \text{ est directe} \iff \forall i, \; F_i \cap \sum_{j \neq i} F_j = \{0_E\}</span></p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 1.2 — (Dimension d’une somme directe)</strong></p>
+<p>Si <span class="math inline">E = F_1 \oplus F_2 \oplus \cdots \oplus F_p</span> avec chaque <span class="math inline">F_i</span> de dimension finie, alors : <span class="math display">\dim(E) = \dim(F_1) + \dim(F_2) + \cdots + \dim(F_p)</span></p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 1.3 — (Formule de Grassmann)</strong></p>
+<p>Soient <span class="math inline">F</span> et <span class="math inline">G</span> deux sous-espaces vectoriels de dimension finie d’un <span class="math inline">\mathbb{K}</span>-espace vectoriel <span class="math inline">E</span>. Alors : <span class="math display">\dim(F + G) = \dim(F) + \dim(G) - \dim(F \cap G)</span></p>
+</div>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 1.4 — (Supplémentaires)</strong></p>
+<p>Deux sous-espaces vectoriels <span class="math inline">F</span> et <span class="math inline">G</span> de <span class="math inline">E</span> sont dits <strong>supplémentaires</strong> si : <span class="math display">E = F \oplus G</span></p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 1.4</strong></p>
+<p>Tout sous-espace vectoriel d’un espace vectoriel de dimension finie admet au moins un supplémentaire.</p>
+</div>
+</section>
+<section id="projecteurs-et-symétries" class="level2" data-number="1.3">
+<h2 data-number="1.3" class="anchored" data-anchor-id="projecteurs-et-symétries"><span class="header-section-number">1.3</span> Projecteurs et symétries</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 1.5 — (Projecteur)</strong></p>
+<p>Soient <span class="math inline">F</span> et <span class="math inline">G</span> deux sous-espaces vectoriels supplémentaires de <span class="math inline">E</span>. La <strong>projection</strong> sur <span class="math inline">F</span> parallèlement à <span class="math inline">G</span> est l’application linéaire <span class="math inline">p : E \to E</span> définie par : <span class="math display">\forall x = f + g \in E \text{ avec } (f, g) \in F \times G, \quad p(x) = f</span></p>
+<p>On a <span class="math inline">p^2 = p</span>, <span class="math inline">\mathrm{Im}(p) = F</span> et <span class="math inline">\ker(p) = G</span>.</p>
+</div>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 1.6 — (Symétrie)</strong></p>
+<p>La <strong>symétrie</strong> par rapport à <span class="math inline">F</span> parallèlement à <span class="math inline">G</span> est l’application linéaire <span class="math inline">s : E \to E</span> définie par : <span class="math display">\forall x = f + g \in E \text{ avec } (f, g) \in F \times G, \quad s(x) = f - g</span></p>
+<p>On a <span class="math inline">s^2 = \mathrm{Id}_E</span> et <span class="math inline">s = 2p - \mathrm{Id}_E</span>.</p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 1.5 — (Caractérisation)</strong></p>
+<p>Soit <span class="math inline">u \in \mathcal{L}(E)</span>.</p>
+<ul>
+<li><span class="math inline">u</span> est un projecteur si et seulement si <span class="math inline">u^2 = u</span>.</li>
+<li><span class="math inline">u</span> est une symétrie si et seulement si <span class="math inline">u^2 = \mathrm{Id}_E</span>.</li>
+</ul>
+</div>
+</section>
+</section>
+<section id="matrices-par-blocs-et-sous-espaces-stables" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> Matrices par blocs et sous-espaces stables</h1>
+<section id="matrices-par-blocs" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="matrices-par-blocs"><span class="header-section-number">2.1</span> Matrices par blocs</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 2.1 — (Matrice par blocs)</strong></p>
+<p>Une <strong>matrice par blocs</strong> est une matrice dont les coefficients sont regroupés en sous-matrices appelées <strong>blocs</strong>. Par exemple, si <span class="math inline">A \in \mathcal{M}_{n,p}(\mathbb{K})</span> et si on partitionne les lignes en deux groupes de tailles <span class="math inline">n_1</span> et <span class="math inline">n_2</span> (<span class="math inline">n_1 + n_2 = n</span>) et les colonnes en deux groupes de tailles <span class="math inline">p_1</span> et <span class="math inline">p_2</span> (<span class="math inline">p_1 + p_2 = p</span>), on peut écrire : <span class="math display">A = \begin{pmatrix} A_{11} &amp; A_{12} \\ A_{21} &amp; A_{22} \end{pmatrix}</span> où <span class="math inline">A_{11} \in \mathcal{M}_{n_1, p_1}(\mathbb{K})</span>, <span class="math inline">A_{12} \in \mathcal{M}_{n_1, p_2}(\mathbb{K})</span>, <span class="math inline">A_{21} \in \mathcal{M}_{n_2, p_1}(\mathbb{K})</span> et <span class="math inline">A_{22} \in \mathcal{M}_{n_2, p_2}(\mathbb{K})</span>.</p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 2.1 — (Opérations sur les matrices par blocs)</strong></p>
+<p>Les opérations sur les matrices par blocs suivent les mêmes règles que les opérations sur les matrices usuelles, à condition que les tailles des blocs soient compatibles :</p>
+<ul>
+<li><strong>Addition</strong> : <span class="math inline">(A + B)_{ij} = A_{ij} + B_{ij}</span></li>
+<li><strong>Multiplication</strong> : <span class="math inline">(AB)_{ij} = \sum_k A_{ik} B_{kj}</span></li>
+</ul>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 2.1</strong></p>
+<p>Si <span class="math inline">A = \begin{pmatrix} A_{11} &amp; A_{12} \\ A_{21} &amp; A_{22} \end{pmatrix}</span> et <span class="math inline">B = \begin{pmatrix} B_{11} &amp; B_{12} \\ B_{21} &amp; B_{22} \end{pmatrix}</span>, alors : <span class="math display">AB = \begin{pmatrix} A_{11}B_{11} + A_{12}B_{21} &amp; A_{11}B_{12} + A_{12}B_{22} \\ A_{21}B_{11} + A_{22}B_{21} &amp; A_{21}B_{12} + A_{22}B_{22} \end{pmatrix}</span></p>
+</div>
+</section>
+<section id="sous-espaces-stables" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="sous-espaces-stables"><span class="header-section-number">2.2</span> Sous-espaces stables</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 2.2 — (Sous-espace stable)</strong></p>
+<p>Soient <span class="math inline">E</span> un <span class="math inline">\mathbb{K}</span>-espace vectoriel et <span class="math inline">u \in \mathcal{L}(E)</span>. Un sous-espace vectoriel <span class="math inline">F</span> de <span class="math inline">E</span> est dit <strong>stable par <span class="math inline">u</span></strong> (ou <strong><span class="math inline">u</span>-stable</strong>) si : <span class="math display">u(F) \subset F</span></p>
+<p>On parle alors de l’<strong>endomorphisme induit</strong> <span class="math inline">u_F : F \to F</span> défini par <span class="math inline">u_F(x) = u(x)</span> pour <span class="math inline">x \in F</span>.</p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 2.2 — (Matrice par blocs et stabilité)</strong></p>
+<p>Soient <span class="math inline">E</span> un <span class="math inline">\mathbb{K}</span>-espace vectoriel de dimension finie <span class="math inline">n</span>, <span class="math inline">F</span> un sous-espace vectoriel de <span class="math inline">E</span> de dimension <span class="math inline">p</span>, et <span class="math inline">u \in \mathcal{L}(E)</span>.</p>
+<p>Si <span class="math inline">F</span> est stable par <span class="math inline">u</span> et si <span class="math inline">\mathcal{B} = (e_1, \ldots, e_p, e_{p+1}, \ldots, e_n)</span> est une base de <span class="math inline">E</span> adaptée à <span class="math inline">F</span> (c’est-à-dire <span class="math inline">(e_1, \ldots, e_p)</span> est une base de <span class="math inline">F</span>), alors la matrice de <span class="math inline">u</span> dans la base <span class="math inline">\mathcal{B}</span> est de la forme : <span class="math display">\mathrm{Mat}_{\mathcal{B}}(u) = \begin{pmatrix} A &amp; C \\ 0 &amp; D \end{pmatrix}</span> où <span class="math inline">A \in \mathcal{M}_p(\mathbb{K})</span> est la matrice de l’endomorphisme induit <span class="math inline">u_F</span> dans la base <span class="math inline">(e_1, \ldots, e_p)</span>.</p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 2.3 — (Caractérisation par la matrice)</strong></p>
+<p>Réciproquement, si la matrice de <span class="math inline">u</span> dans une base <span class="math inline">\mathcal{B} = (e_1, \ldots, e_n)</span> est de la forme : <span class="math display">\mathrm{Mat}_{\mathcal{B}}(u) = \begin{pmatrix} A &amp; C \\ 0 &amp; D \end{pmatrix}</span> alors <span class="math inline">F = \mathrm{Vect}(e_1, \ldots, e_p)</span> est stable par <span class="math inline">u</span>.</p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 2.4 — (Cas d’une décomposition en somme directe)</strong></p>
+<p>Soient <span class="math inline">F</span> et <span class="math inline">G</span> deux sous-espaces vectoriels supplémentaires de <span class="math inline">E</span> stables par <span class="math inline">u</span>. Si <span class="math inline">\mathcal{B} = (e_1, \ldots, e_p, e_{p+1}, \ldots, e_n)</span> est une base de <span class="math inline">E</span> adaptée à la décomposition <span class="math inline">E = F \oplus G</span>, alors : <span class="math display">\mathrm{Mat}_{\mathcal{B}}(u) = \begin{pmatrix} A &amp; 0 \\ 0 &amp; D \end{pmatrix}</span> où <span class="math inline">A</span> est la matrice de <span class="math inline">u_F</span> et <span class="math inline">D</span> est la matrice de <span class="math inline">u_G</span>.</p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 2.2 — (Matrice d’un projecteur)</strong></p>
+<p>Si <span class="math inline">p</span> est un projecteur sur <span class="math inline">F</span> parallèlement à <span class="math inline">G</span> avec <span class="math inline">E = F \oplus G</span>, et si <span class="math inline">\mathcal{B}</span> est une base adaptée, alors : <span class="math display">\mathrm{Mat}_{\mathcal{B}}(p) = \begin{pmatrix} I_p &amp; 0 \\ 0 &amp; 0 \end{pmatrix}</span></p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 2.3 — (Matrice d’une symétrie)</strong></p>
+<p>Si <span class="math inline">s</span> est une symétrie par rapport à <span class="math inline">F</span> parallèlement à <span class="math inline">G</span> avec <span class="math inline">E = F \oplus G</span>, et si <span class="math inline">\mathcal{B}</span> est une base adaptée, alors : <span class="math display">\mathrm{Mat}_{\mathcal{B}}(s) = \begin{pmatrix} I_p &amp; 0 \\ 0 &amp; -I_{n-p} \end{pmatrix}</span></p>
+</div>
+</section>
+</section>
+<section id="trace-dune-matrice-et-dun-endomorphisme" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Trace d’une matrice et d’un endomorphisme</h1>
+<section id="trace-dune-matrice-carrée" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="trace-dune-matrice-carrée"><span class="header-section-number">3.1</span> Trace d’une matrice carrée</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 3.1 — (Trace d’une matrice)</strong></p>
+<p>Soit <span class="math inline">A = (a_{ij}) \in \mathcal{M}_n(\mathbb{K})</span>. La <strong>trace</strong> de <span class="math inline">A</span> est : <span class="math display">\mathrm{tr}(A) = \sum_{i=1}^n a_{ii}</span></p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 3.1 — (Propriétés de la trace)</strong></p>
+<p>Soient <span class="math inline">A, B \in \mathcal{M}_n(\mathbb{K})</span> et <span class="math inline">\lambda \in \mathbb{K}</span>.</p>
+<ol type="1">
+<li><strong>Linéarité</strong> : <span class="math inline">\mathrm{tr}(\lambda A + B) = \lambda \mathrm{tr}(A) + \mathrm{tr}(B)</span></li>
+<li><strong>Invariance par transposition</strong> : <span class="math inline">\mathrm{tr}({}^tA) = \mathrm{tr}(A)</span></li>
+<li><strong>Trace d’un produit</strong> : <span class="math inline">\mathrm{tr}(AB) = \mathrm{tr}(BA)</span></li>
+<li><strong>Trace de l’identité</strong> : <span class="math inline">\mathrm{tr}(I_n) = n</span></li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 3.2 — (Trace d’une matrice triangulaire)</strong></p>
+<p>Si <span class="math inline">A</span> est une matrice triangulaire (supérieure ou inférieure), alors : <span class="math display">\mathrm{tr}(A) = \sum_{i=1}^n a_{ii}</span></p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 3.3 — (Trace d’une matrice diagonalisable)</strong></p>
+<p>Si <span class="math inline">A</span> est diagonalisable avec <span class="math inline">A = PDP^{-1}</span> où <span class="math inline">D = \mathrm{Diag}(\lambda_1, \ldots, \lambda_n)</span>, alors : <span class="math display">\mathrm{tr}(A) = \lambda_1 + \lambda_2 + \cdots + \lambda_n</span></p>
+</div>
+</section>
+<section id="trace-dun-endomorphisme" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="trace-dun-endomorphisme"><span class="header-section-number">3.2</span> Trace d’un endomorphisme</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 3.2 — (Trace d’un endomorphisme)</strong></p>
+<p>Soit <span class="math inline">E</span> un <span class="math inline">\mathbb{K}</span>-espace vectoriel de dimension finie et <span class="math inline">u \in \mathcal{L}(E)</span>. La <strong>trace</strong> de <span class="math inline">u</span> est : <span class="math display">\mathrm{tr}(u) = \mathrm{tr}(\mathrm{Mat}_{\mathcal{B}}(u))</span> où <span class="math inline">\mathcal{B}</span> est une base quelconque de <span class="math inline">E</span>.</p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 3.4 — (Indépendance de la base)</strong></p>
+<p>La trace d’un endomorphisme ne dépend pas du choix de la base.</p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Preuve</em>. </span>Si <span class="math inline">\mathcal{B}</span> et <span class="math inline">\mathcal{B}'</span> sont deux bases de <span class="math inline">E</span>, alors <span class="math inline">\mathrm{Mat}_{\mathcal{B}'}(u) = P^{-1} \mathrm{Mat}_{\mathcal{B}}(u) P</span> où <span class="math inline">P</span> est la matrice de passage. Donc : <span class="math display">\mathrm{tr}(\mathrm{Mat}_{\mathcal{B}'}(u)) = \mathrm{tr}(P^{-1} \mathrm{Mat}_{\mathcal{B}}(u) P) = \mathrm{tr}(\mathrm{Mat}_{\mathcal{B}}(u) P P^{-1}) = \mathrm{tr}(\mathrm{Mat}_{\mathcal{B}}(u))</span></p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 3.5 — (Trace et valeurs propres)</strong></p>
+<p>Si <span class="math inline">u</span> est diagonalisable avec des valeurs propres <span class="math inline">\lambda_1, \ldots, \lambda_n</span> (comptées avec multiplicité), alors : <span class="math display">\mathrm{tr}(u) = \lambda_1 + \lambda_2 + \cdots + \lambda_n</span></p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 3.6 — (Trace et projecteur)</strong></p>
+<p>Si <span class="math inline">p</span> est un projecteur de <span class="math inline">E</span>, alors : <span class="math display">\mathrm{tr}(p) = \mathrm{rg}(p) = \dim(\mathrm{Im}(p))</span></p>
+</div>
+</section>
+</section>
+<section id="polynômes-dendomorphismes-et-de-matrices-carrées" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> Polynômes d’endomorphismes et de matrices carrées</h1>
+<section id="morphisme-dévaluation" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="morphisme-dévaluation"><span class="header-section-number">4.1</span> Morphisme d’évaluation</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 4.1 — (Polynôme d’endomorphisme)</strong></p>
+<p>Soit <span class="math inline">u \in \mathcal{L}(E)</span>. Pour tout polynôme <span class="math inline">P = \sum_{k=0}^d a_k X^k \in \mathbb{K}[X]</span>, on définit : <span class="math display">P(u) = \sum_{k=0}^d a_k u^k</span> où <span class="math inline">u^0 = \mathrm{Id}_E</span> et <span class="math inline">u^k = u \circ u \circ \cdots \circ u</span> (<span class="math inline">k</span> fois).</p>
+</div>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 4.2 — (Polynôme de matrice)</strong></p>
+<p>Soit <span class="math inline">A \in \mathcal{M}_n(\mathbb{K})</span>. Pour tout polynôme <span class="math inline">P = \sum_{k=0}^d a_k X^k \in \mathbb{K}[X]</span>, on définit : <span class="math display">P(A) = \sum_{k=0}^d a_k A^k</span> où <span class="math inline">A^0 = I_n</span> et <span class="math inline">A^k = A \cdot A \cdot \cdots \cdot A</span> (<span class="math inline">k</span> fois).</p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 4.1 — (Morphisme de <span class="math inline">\boldsymbol{\mathbb{K}}</span>-algèbres)</strong></p>
+<p>L’application <span class="math inline">\Phi_u : \mathbb{K}[X] \to \mathcal{L}(E)</span> définie par <span class="math inline">P \mapsto P(u)</span> est un morphisme de <span class="math inline">\mathbb{K}</span>-algèbres. De même, <span class="math inline">\Phi_A : P \mapsto P(A)</span> est un morphisme de <span class="math inline">\mathbb{K}</span>-algèbres.</p>
+</div>
+</section>
+<section id="idéal-annulateur-et-polynôme-minimal" class="level2" data-number="4.2">
+<h2 data-number="4.2" class="anchored" data-anchor-id="idéal-annulateur-et-polynôme-minimal"><span class="header-section-number">4.2</span> Idéal annulateur et polynôme minimal</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 4.3 — (Polynôme annulateur)</strong></p>
+<p>Un polynôme <span class="math inline">P \in \mathbb{K}[X]</span> est dit <strong>annulateur</strong> de <span class="math inline">u</span> (resp. de <span class="math inline">A</span>) si <span class="math inline">P(u) = 0</span> (resp. <span class="math inline">P(A) = 0</span>).</p>
+<p>L’ensemble des polynômes annulateurs de <span class="math inline">u</span> est un idéal de <span class="math inline">\mathbb{K}[X]</span>, appelé <strong>idéal annulateur</strong> de <span class="math inline">u</span>.</p>
+</div>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 4.1 — (Existence du polynôme minimal)</strong></p>
+<p>Soit <span class="math inline">E</span> un <span class="math inline">\mathbb{K}</span>-espace vectoriel de dimension finie et <span class="math inline">u \in \mathcal{L}(E)</span>. Alors l’idéal annulateur de <span class="math inline">u</span> est non réduit à <span class="math inline">\{0\}</span>.</p>
+<p>Il existe un unique polynôme unitaire <span class="math inline">P_u \in \mathbb{K}[X]</span> de plus petit degré annulant <span class="math inline">u</span>, appelé <strong>polynôme minimal</strong> de <span class="math inline">u</span>. On a : <span class="math display">\{P \in \mathbb{K}[X] \mid P(u) = 0\} = P_u \cdot \mathbb{K}[X]</span></p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 4.2 — (Lien entre polynôme minimal et valeurs propres)</strong></p>
+<p>Si <span class="math inline">\lambda</span> est une valeur propre de <span class="math inline">u</span>, alors <span class="math inline">\lambda</span> est une racine du polynôme minimal <span class="math inline">P_u</span>.</p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 4.3 — (Polynôme minimal d’une matrice diagonalisable)</strong></p>
+<p>Si <span class="math inline">A</span> est diagonalisable avec des valeurs propres distinctes <span class="math inline">\lambda_1, \ldots, \lambda_r</span>, alors : <span class="math display">P_A(X) = \prod_{k=1}^r (X - \lambda_k)</span></p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 4.1</strong></p>
+<p>Soit <span class="math inline">A = \begin{pmatrix} 2 &amp; 1 \\ 0 &amp; 2 \end{pmatrix}</span>. Le polynôme caractéristique est <span class="math inline">\chi_A(X) = (X-2)^2</span>.</p>
+<p>On vérifie que <span class="math inline">A - 2I_2 = \begin{pmatrix} 0 &amp; 1 \\ 0 &amp; 0 \end{pmatrix} \neq 0</span> mais <span class="math inline">(A - 2I_2)^2 = 0</span>.</p>
+<p>Donc le polynôme minimal est <span class="math inline">P_A(X) = (X-2)^2</span>.</p>
+</div>
+</section>
+<section id="théorème-de-cayley-hamilton" class="level2" data-number="4.3">
+<h2 data-number="4.3" class="anchored" data-anchor-id="théorème-de-cayley-hamilton"><span class="header-section-number">4.3</span> Théorème de Cayley-Hamilton</h2>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 4.2 — (Théorème de Cayley-Hamilton)</strong></p>
+<p>Soit <span class="math inline">A \in \mathcal{M}_n(\mathbb{K})</span> et <span class="math inline">\chi_A</span> son polynôme caractéristique. Alors : <span class="math display">\chi_A(A) = 0</span></p>
+<p>Autrement dit, le polynôme caractéristique est un polynôme annulateur de <span class="math inline">A</span>.</p>
+</div>
+<div class="custom-numbered-block custom-corollary">
+<p><strong>Corollaire 4.1</strong></p>
+<p>Le polynôme minimal <span class="math inline">P_A</span> divise le polynôme caractéristique <span class="math inline">\chi_A</span>.</p>
+</div>
+</section>
+</section>
+<section id="interpolation-de-lagrange" class="level1" data-number="5">
+<h1 data-number="5"><span class="header-section-number">5</span> Interpolation de Lagrange</h1>
+<section id="polynômes-de-lagrange" class="level2" data-number="5.1">
+<h2 data-number="5.1" class="anchored" data-anchor-id="polynômes-de-lagrange"><span class="header-section-number">5.1</span> Polynômes de Lagrange</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 5.1 — (Polynômes de Lagrange)</strong></p>
+<p>Soient <span class="math inline">a_0, a_1, \ldots, a_n</span> des éléments de <span class="math inline">\mathbb{K}</span> deux à deux distincts. Pour chaque <span class="math inline">k \in \{0, 1, \ldots, n\}</span>, on définit le <strong>polynôme de Lagrange</strong> : <span class="math display">L_k(X) = \prod_{\substack{j=0 \\ j \neq k}}^n \frac{X - a_j}{a_k - a_j}</span></p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 5.1 — (Propriétés des polynômes de Lagrange)</strong></p>
+<p>Les polynômes de Lagrange vérifient :</p>
+<ol type="1">
+<li><span class="math inline">L_k \in \mathbb{K}_n[X]</span> pour tout <span class="math inline">k</span>.</li>
+<li><span class="math inline">L_k(a_j) = \delta_{k,j}</span> (symbole de Kronecker) pour tous <span class="math inline">k, j</span>.</li>
+<li><span class="math inline">\sum_{k=0}^n L_k(X) = 1</span>.</li>
+</ol>
+</div>
+</section>
+<section id="théorème-dinterpolation-de-lagrange" class="level2" data-number="5.2">
+<h2 data-number="5.2" class="anchored" data-anchor-id="théorème-dinterpolation-de-lagrange"><span class="header-section-number">5.2</span> Théorème d’interpolation de Lagrange</h2>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 5.1 — (Théorème d’interpolation de Lagrange)</strong></p>
+<p>Soient <span class="math inline">a_0, a_1, \ldots, a_n</span> des éléments de <span class="math inline">\mathbb{K}</span> deux à deux distincts et <span class="math inline">b_0, b_1, \ldots, b_n</span> des éléments de <span class="math inline">\mathbb{K}</span>. Alors il existe un unique polynôme <span class="math inline">P \in \mathbb{K}_n[X]</span> tel que : <span class="math display">P(a_k) = b_k \quad \text{pour tout } k \in \{0, 1, \ldots, n\}</span></p>
+<p>Ce polynôme est donné par la <strong>formule d’interpolation de Lagrange</strong> : <span class="math display">\boxed{P(X) = \sum_{k=0}^n b_k L_k(X) = \sum_{k=0}^n b_k \prod_{\substack{j=0 \\ j \neq k}}^n \frac{X - a_j}{a_k - a_j}}</span></p>
+</div>
+<div class="proof" title="(Unicité)">
+<p><span class="proof-title"><em>Preuve</em>. </span>Si <span class="math inline">P</span> et <span class="math inline">Q</span> sont deux polynômes de <span class="math inline">\mathbb{K}_n[X]</span> vérifiant <span class="math inline">P(a_k) = Q(a_k) = b_k</span> pour tout <span class="math inline">k</span>, alors <span class="math inline">P - Q</span> est un polynôme de degré <span class="math inline">\leq n</span> qui s’annule en <span class="math inline">n+1</span> points distincts. Donc <span class="math inline">P - Q = 0</span>, c’est-à-dire <span class="math inline">P = Q</span>.</p>
+</div>
+<div class="proof" title="(Existence)">
+<p><span class="proof-title"><em>Preuve</em>. </span>Le polynôme <span class="math inline">P(X) = \sum_{k=0}^n b_k L_k(X)</span> vérifie : <span class="math display">P(a_j) = \sum_{k=0}^n b_k L_k(a_j) = \sum_{k=0}^n b_k \delta_{k,j} = b_j</span></p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 5.1</strong></p>
+<p>Trouver le polynôme <span class="math inline">P \in \mathbb{R}_2[X]</span> tel que <span class="math inline">P(0) = 1</span>, <span class="math inline">P(1) = 2</span> et <span class="math inline">P(2) = 5</span>.</p>
+<p>Les polynômes de Lagrange sont : <span class="math display">L_0(X) = \frac{(X-1)(X-2)}{(0-1)(0-2)} = \frac{(X-1)(X-2)}{2}</span> <span class="math display">L_1(X) = \frac{(X-0)(X-2)}{(1-0)(1-2)} = -X(X-2)</span> <span class="math display">L_2(X) = \frac{(X-0)(X-1)}{(2-0)(2-1)} = \frac{X(X-1)}{2}</span></p>
+<p>Donc : <span class="math display">P(X) = 1 \cdot L_0(X) + 2 \cdot L_1(X) + 5 \cdot L_2(X) = X^2 + 1</span></p>
+</div>
+</section>
+<section id="lien-avec-le-déterminant-de-vandermonde" class="level2" data-number="5.3">
+<h2 data-number="5.3" class="anchored" data-anchor-id="lien-avec-le-déterminant-de-vandermonde"><span class="header-section-number">5.3</span> Lien avec le déterminant de Vandermonde</h2>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 5.2 — (Déterminant de Vandermonde)</strong></p>
+<p>Soient <span class="math inline">a_0, a_1, \ldots, a_n</span> des éléments de <span class="math inline">\mathbb{K}</span>. Le déterminant de la matrice de Vandermonde : <span class="math display">V = \begin{pmatrix} 1 &amp; 1 &amp; \cdots &amp; 1 \\ a_0 &amp; a_1 &amp; \cdots &amp; a_n \\ a_0^2 &amp; a_1^2 &amp; \cdots &amp; a_n^2 \\ \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\ a_0^n &amp; a_1^n &amp; \cdots &amp; a_n^n \end{pmatrix}</span> est : <span class="math display">\det(V) = \prod_{0 \leq i &lt; j \leq n} (a_j - a_i)</span></p>
+</div>
+<div class="custom-numbered-block custom-corollary">
+<p><strong>Corollaire 5.1</strong></p>
+<p>La matrice de Vandermonde est inversible si et seulement si les <span class="math inline">a_i</span> sont deux à deux distincts. C’est une autre démonstration de l’unicité du polynôme d’interpolation.</p>
+</div>
+</section>
+</section>
+<section id="exercices" class="level1" data-number="6">
+<h1 data-number="6"><span class="header-section-number">6</span> Exercices</h1>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 6.1</strong></p>
+<p>Soient <span class="math inline">F = \{(x, y, z) \in \mathbb{R}^3 \mid x + y + z = 0\}</span> et <span class="math inline">G = \{(x, y, z) \in \mathbb{R}^3 \mid x = y = z\}</span>.</p>
+<ol type="1">
+<li>Montrer que <span class="math inline">F</span> et <span class="math inline">G</span> sont des sous-espaces vectoriels de <span class="math inline">\mathbb{R}^3</span>.</li>
+<li>Montrer que <span class="math inline">\mathbb{R}^3 = F \oplus G</span>.</li>
+<li>Déterminer la matrice de la projection sur <span class="math inline">F</span> parallèlement à <span class="math inline">G</span> dans la base canonique.</li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 6.2</strong></p>
+<p>Soit <span class="math inline">A = \begin{pmatrix} 1 &amp; 2 &amp; 0 \\ 0 &amp; 1 &amp; 0 \\ 0 &amp; 0 &amp; 3 \end{pmatrix}</span>.</p>
+<ol type="1">
+<li>Calculer <span class="math inline">\mathrm{tr}(A)</span> et <span class="math inline">\det(A)</span>.</li>
+<li><span class="math inline">A</span> est-elle diagonalisable ?</li>
+<li>Déterminer le polynôme minimal de <span class="math inline">A</span>.</li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 6.3</strong></p>
+<p>Soit <span class="math inline">u \in \mathcal{L}(E)</span> avec <span class="math inline">\dim(E) = 3</span> et <span class="math inline">\mathrm{Mat}_{\mathcal{B}}(u) = \begin{pmatrix} 0 &amp; 1 &amp; 0 \\ 0 &amp; 0 &amp; 1 \\ 0 &amp; 0 &amp; 0 \end{pmatrix}</span>.</p>
+<ol type="1">
+<li>Montrer que <span class="math inline">u^3 = 0</span> mais <span class="math inline">u^2 \neq 0</span>.</li>
+<li>Déterminer le polynôme minimal de <span class="math inline">u</span>.</li>
+<li><span class="math inline">u</span> est-elle diagonalisable ?</li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 6.4 — (Interpolation de Lagrange)</strong></p>
+<p>Trouver le polynôme <span class="math inline">P \in \mathbb{R}_3[X]</span> tel que : <span class="math display">P(0) = 1, \quad P(1) = 0, \quad P(2) = 1, \quad P(3) = 0</span></p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 6.5</strong></p>
+<p>Soit <span class="math inline">A \in \mathcal{M}_n(\mathbb{K})</span> inversible. Montrer que <span class="math inline">\mathrm{tr}(A^{-1}) = \frac{1}{\det(A)} \mathrm{tr}(\mathrm{Com}(A))</span> où <span class="math inline">\mathrm{Com}(A)</span> est la comatrice de <span class="math inline">A</span>.</p>
+</div>
+</section>
+<section id="document-en-pdf" class="level1 unnumbered">
+<h1 class="unnumbered">Document en PDF</h1>
+<p><a href="PDF/psi-chap01.pdf">Chapitre 01 : Rappels et compléments sur les espaces vectoriels, les endomorphismes et les matrices</a></p>
+<section id="navigation" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="navigation">Navigation</h2>
+<div class="chap-nav">
+<p><a href="../index.html" class="prev">Accueil</a> <a href="../cours/psi.html" class="home">Menu PSI</a> <a href="../cours/psi-chap02.html" class="next">Chapitre 02 : Réduction des endomorphismes et des matrices</a></p>
+</div>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -222,12 +633,12 @@ ul.task-list li input[type="checkbox"] {
       // flash "checked"
       button.classList.add('code-copy-button-checked');
       var currentTitle = button.getAttribute("title");
-      button.setAttribute("title", "Copied!");
+      button.setAttribute("title", "Copié");
       let tooltip;
       if (window.bootstrap) {
         button.setAttribute("data-bs-toggle", "tooltip");
         button.setAttribute("data-bs-placement", "left");
-        button.setAttribute("data-bs-title", "Copied!");
+        button.setAttribute("data-bs-title", "Copié");
         tooltip = new bootstrap.Tooltip(button, 
           { trigger: "manual", 
             customClass: "code-copy-button-tooltip",

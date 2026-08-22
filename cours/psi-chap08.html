@@ -1,13 +1,14 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr"><head>
 
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.10.18">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Saîd MAHARI">
 
-<title>Calcul différentiel - Mathématiques en CPGE – Mathématiques en CPGE</title>
+<title>Espaces préhilbertiens réels. Endomorphismes d’un espace euclidien – Mathématiques en CPGE</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -45,7 +46,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-7a8c080b55ea27eb37b467515007f9ee.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-e0d9a45d84245cc5e3b300860d8fa645.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -60,22 +61,66 @@ ul.task-list li input[type="checkbox"] {
   ],
   "show-item-context": false,
   "language": {
-    "search-no-results-text": "No results",
-    "search-matching-documents-text": "matching documents",
-    "search-copy-link-title": "Copy link to search",
-    "search-hide-matches-text": "Hide additional matches",
-    "search-more-match-text": "more match in this document",
-    "search-more-matches-text": "more matches in this document",
-    "search-clear-button-title": "Clear",
+    "search-no-results-text": "Pas de résultats",
+    "search-matching-documents-text": "documents trouvés",
+    "search-copy-link-title": "Copier le lien vers la recherche",
+    "search-hide-matches-text": "Cacher les correspondances additionnelles",
+    "search-more-match-text": "correspondance de plus dans ce document",
+    "search-more-matches-text": "correspondances de plus dans ce document",
+    "search-clear-button-title": "Effacer",
     "search-text-placeholder": "",
-    "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit",
-    "search-label": "Search"
+    "search-detached-cancel-button-title": "Annuler",
+    "search-submit-button-title": "Envoyer",
+    "search-label": "Recherche"
   }
 }</script>
 
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="styles.css">
 </head>
 
 <body class="nav-fixed quarto-light">
@@ -89,8 +134,8 @@ ul.task-list li input[type="checkbox"] {
     <span class="navbar-title">Accueil</span>
     </a>
   </div>
-            <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+            <div id="quarto-search" class="" title="Recherche"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Basculer la navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
@@ -140,10 +185,56 @@ ul.task-list li input[type="checkbox"] {
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
+    <h2 id="toc-title">Sur cette page</h2>
    
   <ul>
-  <li><a href="#document" id="toc-document" class="nav-link active" data-scroll-target="#document">Document</a></li>
+  <li><a href="#produits-scalaires" id="toc-produits-scalaires" class="nav-link active" data-scroll-target="#produits-scalaires"><span class="header-section-number">1</span> Produits scalaires</a>
+  <ul class="collapse">
+  <li><a href="#définition" id="toc-définition" class="nav-link" data-scroll-target="#définition"><span class="header-section-number">1.1</span> Définition</a></li>
+  <li><a href="#norme-euclidienne" id="toc-norme-euclidienne" class="nav-link" data-scroll-target="#norme-euclidienne"><span class="header-section-number">1.2</span> Norme euclidienne</a></li>
+  <li><a href="#inégalité-de-cauchy-schwarz" id="toc-inégalité-de-cauchy-schwarz" class="nav-link" data-scroll-target="#inégalité-de-cauchy-schwarz"><span class="header-section-number">1.3</span> Inégalité de Cauchy-Schwarz</a></li>
+  <li><a href="#exemples-de-produits-scalaires" id="toc-exemples-de-produits-scalaires" class="nav-link" data-scroll-target="#exemples-de-produits-scalaires"><span class="header-section-number">1.4</span> Exemples de produits scalaires</a></li>
+  </ul></li>
+  <li><a href="#orthogonalité" id="toc-orthogonalité" class="nav-link" data-scroll-target="#orthogonalité"><span class="header-section-number">2</span> Orthogonalité</a>
+  <ul class="collapse">
+  <li><a href="#définitions-et-propriétés" id="toc-définitions-et-propriétés" class="nav-link" data-scroll-target="#définitions-et-propriétés"><span class="header-section-number">2.1</span> Définitions et propriétés</a></li>
+  <li><a href="#familles-orthogonales-et-orthonormées" id="toc-familles-orthogonales-et-orthonormées" class="nav-link" data-scroll-target="#familles-orthogonales-et-orthonormées"><span class="header-section-number">2.2</span> Familles orthogonales et orthonormées</a></li>
+  <li><a href="#procédé-de-gram-schmidt" id="toc-procédé-de-gram-schmidt" class="nav-link" data-scroll-target="#procédé-de-gram-schmidt"><span class="header-section-number">2.3</span> Procédé de Gram-Schmidt</a></li>
+  <li><a href="#expression-du-produit-scalaire-dans-une-base-orthonormée" id="toc-expression-du-produit-scalaire-dans-une-base-orthonormée" class="nav-link" data-scroll-target="#expression-du-produit-scalaire-dans-une-base-orthonormée"><span class="header-section-number">2.4</span> Expression du produit scalaire dans une base orthonormée</a></li>
+  <li><a href="#théorème-de-représentation-et-supplémentaire-orthogonal" id="toc-théorème-de-représentation-et-supplémentaire-orthogonal" class="nav-link" data-scroll-target="#théorème-de-représentation-et-supplémentaire-orthogonal"><span class="header-section-number">2.5</span> Théorème de représentation et supplémentaire orthogonal</a></li>
+  </ul></li>
+  <li><a href="#projection-orthogonale" id="toc-projection-orthogonale" class="nav-link" data-scroll-target="#projection-orthogonale"><span class="header-section-number">3</span> Projection orthogonale</a>
+  <ul class="collapse">
+  <li><a href="#définition-et-caractérisation" id="toc-définition-et-caractérisation" class="nav-link" data-scroll-target="#définition-et-caractérisation"><span class="header-section-number">3.1</span> Définition et caractérisation</a></li>
+  <li><a href="#expression-du-projeté-orthogonal" id="toc-expression-du-projeté-orthogonal" class="nav-link" data-scroll-target="#expression-du-projeté-orthogonal"><span class="header-section-number">3.2</span> Expression du projeté orthogonal</a></li>
+  <li><a href="#caractérisation-métrique" id="toc-caractérisation-métrique" class="nav-link" data-scroll-target="#caractérisation-métrique"><span class="header-section-number">3.3</span> Caractérisation métrique</a></li>
+  <li><a href="#distance-à-un-sous-espace-vectoriel" id="toc-distance-à-un-sous-espace-vectoriel" class="nav-link" data-scroll-target="#distance-à-un-sous-espace-vectoriel"><span class="header-section-number">3.4</span> Distance à un sous-espace vectoriel</a></li>
+  <li><a href="#projecteurs-et-symétries-orthogonaux" id="toc-projecteurs-et-symétries-orthogonaux" class="nav-link" data-scroll-target="#projecteurs-et-symétries-orthogonaux"><span class="header-section-number">3.5</span> Projecteurs et symétries orthogonaux</a></li>
+  </ul></li>
+  <li><a href="#formes-linéaires-dun-espace-euclidien" id="toc-formes-linéaires-dun-espace-euclidien" class="nav-link" data-scroll-target="#formes-linéaires-dun-espace-euclidien"><span class="header-section-number">4</span> Formes linéaires d’un espace euclidien</a>
+  <ul class="collapse">
+  <li><a href="#théorème-de-représentation" id="toc-théorème-de-représentation" class="nav-link" data-scroll-target="#théorème-de-représentation"><span class="header-section-number">4.1</span> Théorème de représentation</a></li>
+  <li><a href="#adjoint-dun-endomorphisme" id="toc-adjoint-dun-endomorphisme" class="nav-link" data-scroll-target="#adjoint-dun-endomorphisme"><span class="header-section-number">4.2</span> Adjoint d’un endomorphisme</a></li>
+  </ul></li>
+  <li><a href="#matrices-orthogonales-et-isométries-vectorielles" id="toc-matrices-orthogonales-et-isométries-vectorielles" class="nav-link" data-scroll-target="#matrices-orthogonales-et-isométries-vectorielles"><span class="header-section-number">5</span> Matrices orthogonales et isométries vectorielles</a>
+  <ul class="collapse">
+  <li><a href="#matrices-orthogonales" id="toc-matrices-orthogonales" class="nav-link" data-scroll-target="#matrices-orthogonales"><span class="header-section-number">5.1</span> Matrices orthogonales</a></li>
+  <li><a href="#endomorphismes-orthogonaux" id="toc-endomorphismes-orthogonaux" class="nav-link" data-scroll-target="#endomorphismes-orthogonaux"><span class="header-section-number">5.2</span> Endomorphismes orthogonaux</a></li>
+  <li><a href="#isométries-directes-et-indirectes" id="toc-isométries-directes-et-indirectes" class="nav-link" data-scroll-target="#isométries-directes-et-indirectes"><span class="header-section-number">5.3</span> Isométries directes et indirectes</a></li>
+  <li><a href="#étude-du-groupe-orthogonal-en-dimension-2" id="toc-étude-du-groupe-orthogonal-en-dimension-2" class="nav-link" data-scroll-target="#étude-du-groupe-orthogonal-en-dimension-2"><span class="header-section-number">5.4</span> Étude du groupe orthogonal en dimension 2</a></li>
+  <li><a href="#étude-du-groupe-orthogonal-en-dimension-3" id="toc-étude-du-groupe-orthogonal-en-dimension-3" class="nav-link" data-scroll-target="#étude-du-groupe-orthogonal-en-dimension-3"><span class="header-section-number">5.5</span> Étude du groupe orthogonal en dimension 3</a></li>
+  </ul></li>
+  <li><a href="#réduction-des-endomorphismes-autoadjoints-et-des-matrices-symétriques-réelles" id="toc-réduction-des-endomorphismes-autoadjoints-et-des-matrices-symétriques-réelles" class="nav-link" data-scroll-target="#réduction-des-endomorphismes-autoadjoints-et-des-matrices-symétriques-réelles"><span class="header-section-number">6</span> Réduction des endomorphismes autoadjoints et des matrices symétriques réelles</a>
+  <ul class="collapse">
+  <li><a href="#endomorphismes-symétriques" id="toc-endomorphismes-symétriques" class="nav-link" data-scroll-target="#endomorphismes-symétriques"><span class="header-section-number">6.1</span> Endomorphismes symétriques</a></li>
+  <li><a href="#théorème-spectral" id="toc-théorème-spectral" class="nav-link" data-scroll-target="#théorème-spectral"><span class="header-section-number">6.2</span> Théorème spectral</a></li>
+  <li><a href="#endomorphismes-symétriques-positifs-et-définis-positifs" id="toc-endomorphismes-symétriques-positifs-et-définis-positifs" class="nav-link" data-scroll-target="#endomorphismes-symétriques-positifs-et-définis-positifs"><span class="header-section-number">6.3</span> Endomorphismes symétriques positifs et définis positifs</a></li>
+  </ul></li>
+  <li><a href="#exercices" id="toc-exercices" class="nav-link" data-scroll-target="#exercices"><span class="header-section-number">7</span> Exercices</a></li>
+  <li><a href="#document-en-pdf" id="toc-document-en-pdf" class="nav-link" data-scroll-target="#document-en-pdf">Document en PDF</a>
+  <ul class="collapse">
+  <li><a href="#navigation" id="toc-navigation" class="nav-link" data-scroll-target="#navigation">Navigation</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -152,14 +243,27 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Chapitre 08 : Calcul différentiel</h1>
+<h1 class="title">Espaces préhilbertiens réels. Endomorphismes d’un espace euclidien</h1>
+<p class="subtitle lead">Chapitre 08</p>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Auteur·rice</div>
+    <div class="quarto-title-meta-contents">
+             <p>Saîd MAHARI </p>
+          </div>
+  </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">Date de publication</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">22 août 2026</p>
+    </div>
+  </div>
   
     
   </div>
@@ -169,12 +273,510 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p><strong>PSI (2e année) — Chapitre 08.</strong> Dérivées partielles, gradient, jacobienne, extrema.</p>
-<section id="document" class="level2">
-<h2 class="anchored" data-anchor-id="document">Document</h2>
-<p><em>PDF à venir : déposez le fichier <code>files/psi/chap08.pdf</code> puis régénérez la page.</em></p>
+<p><strong>PSI (2e année) — Chapitre 08.</strong> Produits scalaires, orthogonalité, projection orthogonale, formes linéaires, matrices orthogonales, isométries vectorielles (plan et espace), réduction des endomorphismes autoadjoints et des matrices symétriques réelles.</p>
+<p>Ce chapitre a été réalisé conformément au programme marocain de mathématiques de la filière PSI.</p>
+<p>Dans tout ce chapitre, <span class="math inline">E</span> désigne un <span class="math inline">\mathbb{R}</span>-espace vectoriel de dimension finie <span class="math inline">n \geq 1</span>, muni d’un produit scalaire noté <span class="math inline">\langle \cdot, \cdot \rangle</span>, et de la norme associée <span class="math inline">\|x\| = \sqrt{\langle x, x \rangle}</span>. On note <span class="math inline">\mathscr{B} = (e_1, \ldots, e_n)</span> une base orthonormée de <span class="math inline">E</span>.</p>
+<section id="produits-scalaires" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Produits scalaires</h1>
+<section id="définition" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="définition"><span class="header-section-number">1.1</span> Définition</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 1.1 — (Produit scalaire)</strong></p>
+<p>Soit <span class="math inline">E</span> un <span class="math inline">\mathbb{R}</span>-espace vectoriel. On appelle <strong>produit scalaire</strong> sur <span class="math inline">E</span> toute application <span class="math inline">\langle \cdot, \cdot \rangle : E \times E \to \mathbb{R}</span> qui vérifie :</p>
+<ol type="1">
+<li><strong>Symétrie</strong> : <span class="math inline">\forall x, y \in E, \quad \langle x, y \rangle = \langle y, x \rangle</span></li>
+<li><strong>Bilinéarité</strong> : <span class="math inline">\forall x, y, z \in E, \; \forall \lambda, \mu \in \mathbb{R}, \quad \langle \lambda x + \mu y, z \rangle = \lambda \langle x, z \rangle + \mu \langle y, z \rangle</span></li>
+<li><strong>Positivité</strong> : <span class="math inline">\forall x \in E, \quad \langle x, x \rangle \geq 0</span></li>
+<li><strong>Définie positive</strong> : <span class="math inline">\forall x \in E, \quad \langle x, x \rangle = 0 \implies x = 0_E</span></li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 1.2 — (Espaces préhilbertiens et euclidiens)</strong></p>
+<ul>
+<li>Si <span class="math inline">E</span> est un <span class="math inline">\mathbb{R}</span>-espace vectoriel muni d’un produit scalaire <span class="math inline">\langle \cdot, \cdot \rangle</span>, il est dit <strong>espace préhilbertien réel</strong>.</li>
+<li>S’il est, de plus, de dimension finie, il est dit <strong>espace euclidien</strong>.</li>
+</ul>
+</div>
+</section>
+<section id="norme-euclidienne" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="norme-euclidienne"><span class="header-section-number">1.2</span> Norme euclidienne</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 1.3 — (Norme euclidienne)</strong></p>
+<p>On définit la <strong>norme euclidienne</strong> associée à un produit scalaire <span class="math inline">\langle \cdot, \cdot \rangle</span> par : <span class="math display">\forall x \in E, \quad \|x\| = \sqrt{\langle x, x \rangle}</span></p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 1.1 — (Règles de calcul)</strong></p>
+<p>Pour tous vecteurs <span class="math inline">x, y \in E</span>, et tout réel <span class="math inline">\lambda \in \mathbb{R}</span> :</p>
+<ol type="1">
+<li><span class="math inline">\|\lambda x\| = |\lambda| \cdot \|x\|</span></li>
+<li><span class="math inline">\|x + y\|^2 = \|x\|^2 + 2\langle x, y \rangle + \|y\|^2</span></li>
+<li><span class="math inline">\|x - y\|^2 = \|x\|^2 - 2\langle x, y \rangle + \|y\|^2</span></li>
+<li><span class="math inline">\|x + y\|^2 + \|x - y\|^2 = 2(\|x\|^2 + \|y\|^2)</span> (identité du parallélogramme)</li>
+<li><span class="math inline">\langle x, y \rangle = \frac{1}{4}(\|x + y\|^2 - \|x - y\|^2)</span> (identité de polarisation)</li>
+</ol>
+</div>
+</section>
+<section id="inégalité-de-cauchy-schwarz" class="level2" data-number="1.3">
+<h2 data-number="1.3" class="anchored" data-anchor-id="inégalité-de-cauchy-schwarz"><span class="header-section-number">1.3</span> Inégalité de Cauchy-Schwarz</h2>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 1.2 — (Inégalité de Cauchy-Schwarz)</strong></p>
+<p>Soit <span class="math inline">(E, \langle \cdot, \cdot \rangle)</span> un espace préhilbertien réel. Alors :</p>
+<ol type="1">
+<li><p>Pour tout <span class="math inline">(x, y) \in E^2</span> : <span class="math display">|\langle x, y \rangle| \leq \|x\| \cdot \|y\|</span> avec égalité si et seulement si la famille <span class="math inline">(x, y)</span> est liée.</p></li>
+<li><p>Pour tout <span class="math inline">(x, y) \in E^2</span> : <span class="math display">\|x + y\| \leq \|x\| + \|y\|</span> avec égalité si et seulement si <span class="math inline">y = \lambda x</span> avec <span class="math inline">\lambda \in \mathbb{R}^+</span>.</p></li>
+</ol>
+</div>
+<div class="proof" title="(Démonstration de Cauchy-Schwarz)">
+<p><span class="proof-title"><em>Preuve</em>. </span>Si <span class="math inline">x = 0</span>, le résultat est trivial. Supposons <span class="math inline">x \neq 0</span>. Pour tout <span class="math inline">\lambda \in \mathbb{R}</span> : <span class="math display">0 \leq \|x - \lambda y\|^2 = \|x\|^2 - 2\lambda \langle x, y \rangle + \lambda^2 \|y\|^2</span></p>
+<p>Le discriminant de ce polynôme du second degré en <span class="math inline">\lambda</span> est négatif ou nul : <span class="math display">\Delta = 4\langle x, y \rangle^2 - 4\|x\|^2 \|y\|^2 \leq 0</span></p>
+<p>D’où <span class="math inline">|\langle x, y \rangle| \leq \|x\| \cdot \|y\|</span>.</p>
+<p>Pour le cas d’égalité, on vérifie que <span class="math inline">\Delta = 0</span> si et seulement si <span class="math inline">x</span> et <span class="math inline">y</span> sont liés.</p>
+</div>
+</section>
+<section id="exemples-de-produits-scalaires" class="level2" data-number="1.4">
+<h2 data-number="1.4" class="anchored" data-anchor-id="exemples-de-produits-scalaires"><span class="header-section-number">1.4</span> Exemples de produits scalaires</h2>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 1.1 — (Produits scalaires de référence)</strong></p>
+<ol type="1">
+<li><p><strong>Produit scalaire euclidien canonique</strong> sur <span class="math inline">\mathbb{R}^n</span> : <span class="math display">\langle x, y \rangle = \sum_{k=1}^n x_k y_k = {}^tX Y</span></p></li>
+<li><p><strong>Produit scalaire sur</strong> <span class="math inline">\mathcal{M}_n(\mathbb{R})</span> : <span class="math display">\langle A, B \rangle = \mathrm{Tr}({}^tA B) = \sum_{i,j=1}^n a_{ij} b_{ij}</span></p></li>
+<li><p><strong>Produit scalaire sur les fonctions continues</strong> : <span class="math display">\langle f, g \rangle = \int_a^b f(t) g(t)\, dt</span></p></li>
+<li><p><strong>Produit scalaire sur les polynômes</strong> : <span class="math display">\langle P, Q \rangle = \sum_{k=0}^n P(a_k) Q(a_k)</span> où <span class="math inline">a_0, \ldots, a_n</span> sont des réels deux à deux distincts.</p></li>
+</ol>
+</div>
+</section>
+</section>
+<section id="orthogonalité" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> Orthogonalité</h1>
+<section id="définitions-et-propriétés" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="définitions-et-propriétés"><span class="header-section-number">2.1</span> Définitions et propriétés</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 2.1 — (Orthogonalité)</strong></p>
+<p>Soit <span class="math inline">(x, y) \in E^2</span>. On dit que <span class="math inline">x</span> est <strong>orthogonal</strong> à <span class="math inline">y</span>, et on note <span class="math inline">x \perp y</span>, si : <span class="math display">\langle x, y \rangle = 0</span></p>
+</div>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 2.2 — (Orthogonal d’une partie)</strong></p>
+<p>Soit <span class="math inline">A</span> une partie de <span class="math inline">E</span>. L’<strong>orthogonal</strong> de <span class="math inline">A</span> est : <span class="math display">A^\perp = \{y \in E \mid \forall x \in A, \; \langle x, y \rangle = 0\}</span></p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 2.1 — (Propriétés de l’orthogonal)</strong></p>
+<ol type="1">
+<li><span class="math inline">E^\perp = \{0\}</span>. En particulier, pour démontrer qu’un vecteur <span class="math inline">a</span> de <span class="math inline">E</span> est nul, il suffit de prouver que <span class="math inline">\forall x \in E, \; \langle x, a \rangle = 0</span>.</li>
+<li><span class="math inline">\{0\}^\perp = E</span></li>
+<li>Pour toute partie <span class="math inline">A</span> de <span class="math inline">E</span>, <span class="math inline">A^\perp</span> est un sous-espace vectoriel fermé de <span class="math inline">E</span>.</li>
+<li>Pour toute partie <span class="math inline">A</span> de <span class="math inline">E</span>, on a <span class="math inline">A^\perp = (\mathrm{Vect}\, A)^\perp</span>.</li>
+<li>Si <span class="math inline">A</span> et <span class="math inline">B</span> sont deux parties de <span class="math inline">E</span>, on dit que <span class="math inline">A</span> et <span class="math inline">B</span> sont orthogonales et on note <span class="math inline">A \perp B</span> si : <span class="math display">\forall (a, b) \in A \times B, \quad \langle a, b \rangle = 0</span></li>
+</ol>
+<p>Remarquons que : <span class="math inline">A \perp B \iff A \subset B^\perp \iff B \subset A^\perp</span>.</p>
+</div>
+</section>
+<section id="familles-orthogonales-et-orthonormées" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="familles-orthogonales-et-orthonormées"><span class="header-section-number">2.2</span> Familles orthogonales et orthonormées</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 2.3</strong></p>
+<p>Une famille <span class="math inline">(e_i)_{i \in I}</span> de vecteurs de <span class="math inline">E</span> est :</p>
+<ul>
+<li><strong>orthogonale</strong> si <span class="math inline">\forall i \neq j, \; \langle e_i, e_j \rangle = 0</span></li>
+<li><strong>orthonormée</strong> (ou <strong>orthonormale</strong>) si elle est orthogonale et si <span class="math inline">\forall i, \; \|e_i\| = 1</span></li>
+</ul>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 2.2</strong></p>
+<p>Soit <span class="math inline">(E, \langle \cdot, \cdot \rangle)</span> un espace préhilbertien réel. Alors, toute famille orthogonale de vecteurs de <span class="math inline">E</span> formée de vecteurs non nuls est une famille libre, en particulier toute famille orthonormée de <span class="math inline">E</span> est une famille libre de <span class="math inline">E</span>.</p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Preuve</em>. </span>Soit <span class="math inline">(e_i)_{i \in I}</span> une telle famille. Si <span class="math inline">J</span> est une partie finie non vide de <span class="math inline">I</span> et <span class="math inline">(\alpha_i)_{i \in J}</span> une famille de scalaires telle que : <span class="math display">\sum_{i \in J} \alpha_i e_i = 0</span> soit <span class="math inline">k \in J</span>, alors : <span class="math display">\left\langle e_k, \sum_{i \in J} \alpha_i e_i \right\rangle = 0</span> donc <span class="math inline">\alpha_k \|e_k\|^2 = 0</span> et comme <span class="math inline">e_k \neq 0</span>, on a <span class="math inline">\alpha_k = 0</span>.</p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 2.3 — (Théorème de Pythagore)</strong></p>
+<p>Soit <span class="math inline">E</span> un espace préhilbertien réel. Alors : <span class="math display">\forall (x, y) \in E^2, \quad x \perp y \iff \|x + y\|^2 = \|x\|^2 + \|y\|^2</span></p>
+</div>
+<div class="remarque">
+<p>Généralement si <span class="math inline">m \geq 2</span> et <span class="math inline">x_1, \ldots, x_m</span> des vecteurs deux à deux orthogonaux avec <span class="math inline">m \in \mathbb{N}</span>, <span class="math inline">m \geq 2</span>, alors : <span class="math display">\left\|\sum_{k=1}^m x_k\right\|^2 = \sum_{k=1}^m \|x_k\|^2</span></p>
+<p>Attention ! La réciproque n’est pas vraie si <span class="math inline">m \geq 3</span>.</p>
+</div>
+</section>
+<section id="procédé-de-gram-schmidt" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="procédé-de-gram-schmidt"><span class="header-section-number">2.3</span> Procédé de Gram-Schmidt</h2>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 2.1 — (Algorithme d’orthonormalisation de Gram-Schmidt)</strong></p>
+<p>Soit <span class="math inline">(E, \langle \cdot, \cdot \rangle)</span> un espace préhilbertien réel et <span class="math inline">U = (u_1, \ldots, u_n)</span> une famille libre de <span class="math inline">E</span>. Alors il existe une famille orthonormée <span class="math inline">E = (e_1, \ldots, e_n)</span> telle que : <span class="math display">\forall k \in \{1, \ldots, n\}, \quad \mathrm{Vect}(u_1, \ldots, u_k) = \mathrm{Vect}(e_1, \ldots, e_k)</span></p>
+<p>L’algorithme est le suivant : <span class="math display">e_1 = \frac{u_1}{\|u_1\|}</span> <span class="math display">\forall k \in \{1, \ldots, n-1\}, \quad e_{k+1} = \frac{u_{k+1} - \pi_k(u_{k+1})}{\|u_{k+1} - \pi_k(u_{k+1})\|}</span> où <span class="math inline">\pi_k</span> est la projection orthogonale sur <span class="math inline">\mathrm{Vect}(u_1, \ldots, u_k)</span>.</p>
+</div>
+</section>
+<section id="expression-du-produit-scalaire-dans-une-base-orthonormée" class="level2" data-number="2.4">
+<h2 data-number="2.4" class="anchored" data-anchor-id="expression-du-produit-scalaire-dans-une-base-orthonormée"><span class="header-section-number">2.4</span> Expression du produit scalaire dans une base orthonormée</h2>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 2.4</strong></p>
+<p>Soit <span class="math inline">E</span> un espace euclidien de dimension non nulle <span class="math inline">n</span> et <span class="math inline">\mathcal{E} = (e_1, \ldots, e_n)</span> une base orthonormée de <span class="math inline">E</span>. Alors :</p>
+<ol type="1">
+<li><p><span class="math inline">\forall x, y \in E, \quad \langle x, y \rangle = \sum_{k=1}^n x_k y_k</span> où <span class="math inline">X</span> et <span class="math inline">Y</span> sont les colonnes des coordonnées de <span class="math inline">x</span> et <span class="math inline">y</span> dans la base <span class="math inline">\mathcal{E}</span>.</p></li>
+<li><p><span class="math inline">\forall x \in E, \quad x = \sum_{k=1}^n \langle x, e_k \rangle e_k</span></p></li>
+<li><p><span class="math inline">\forall x \in E, \quad \|x\|^2 = \sum_{k=1}^n x_k^2</span></p></li>
+</ol>
+</div>
+</section>
+<section id="théorème-de-représentation-et-supplémentaire-orthogonal" class="level2" data-number="2.5">
+<h2 data-number="2.5" class="anchored" data-anchor-id="théorème-de-représentation-et-supplémentaire-orthogonal"><span class="header-section-number">2.5</span> Théorème de représentation et supplémentaire orthogonal</h2>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 2.2 — (Théorème de représentation)</strong></p>
+<p>Soit <span class="math inline">E</span> un espace euclidien de dimension non nulle <span class="math inline">n</span>. Pour toute forme linéaire <span class="math inline">f</span> sur <span class="math inline">E</span>, il existe un et un seul vecteur <span class="math inline">a</span> de <span class="math inline">E</span> tel que <span class="math inline">f = \langle a, \cdot \rangle</span>, c’est-à-dire : <span class="math display">\forall x \in E, \quad f(x) = \langle a, x \rangle</span></p>
+</div>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 2.4 — (Supplémentaire orthogonal)</strong></p>
+<p>On dit qu’un sous-espace vectoriel <span class="math inline">F</span> de <span class="math inline">E</span> admet un <strong>supplémentaire orthogonal</strong> si <span class="math inline">F + F^\perp = E</span>.</p>
+</div>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 2.3</strong></p>
+<p>Si <span class="math inline">F</span> est un sous-espace vectoriel de dimension finie d’un espace préhilbertien quelconque <span class="math inline">E</span>, alors <span class="math inline">F</span> admet un supplémentaire orthogonal. Autrement dit : <span class="math display">F \oplus F^\perp = E \quad \text{et} \quad F = F^{\perp\perp}</span></p>
+</div>
+</section>
+</section>
+<section id="projection-orthogonale" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Projection orthogonale</h1>
+<section id="définition-et-caractérisation" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="définition-et-caractérisation"><span class="header-section-number">3.1</span> Définition et caractérisation</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 3.1 — (Projection orthogonale)</strong></p>
+<p>Soit <span class="math inline">F</span> un sous-espace vectoriel de dimension finie de <span class="math inline">E</span>. La <strong>projection orthogonale</strong> sur <span class="math inline">F</span>, notée <span class="math inline">p_F</span>, est la projection sur <span class="math inline">F</span> associée à la décomposition <span class="math inline">E = F \oplus F^\perp</span>.</p>
+</div>
+</section>
+<section id="expression-du-projeté-orthogonal" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="expression-du-projeté-orthogonal"><span class="header-section-number">3.2</span> Expression du projeté orthogonal</h2>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 3.1</strong></p>
+<p>Soit <span class="math inline">F</span> un sous-espace vectoriel de dimension finie non nulle <span class="math inline">p</span> de <span class="math inline">E</span> et <span class="math inline">\mathcal{C} = (e_1, \ldots, e_p)</span> une base orthonormée de <span class="math inline">F</span>. Alors si <span class="math inline">p_F</span> est la projection orthogonale de <span class="math inline">E</span> sur <span class="math inline">F</span>, on a : <span class="math display">\forall x \in E, \quad p_F(x) = \sum_{k=1}^p \langle x, e_k \rangle e_k</span></p>
+</div>
+</section>
+<section id="caractérisation-métrique" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="caractérisation-métrique"><span class="header-section-number">3.3</span> Caractérisation métrique</h2>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 3.1 — (Le projeté orthogonal réalise la meilleure approximation)</strong></p>
+<p>Soit <span class="math inline">F</span> un sous-espace vectoriel de dimension finie de <span class="math inline">E</span>. Alors pour tout <span class="math inline">x \in E</span> : <span class="math display">\|x - p_F(x)\| = \min_{y \in F} \|x - y\|</span></p>
+</div>
+</section>
+<section id="distance-à-un-sous-espace-vectoriel" class="level2" data-number="3.4">
+<h2 data-number="3.4" class="anchored" data-anchor-id="distance-à-un-sous-espace-vectoriel"><span class="header-section-number">3.4</span> Distance à un sous-espace vectoriel</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 3.2 — (Distance à un sous-espace)</strong></p>
+<p>Soit <span class="math inline">F</span> un sous-espace vectoriel de dimension finie de <span class="math inline">E</span>. La <strong>distance</strong> d’un vecteur <span class="math inline">x</span> à <span class="math inline">F</span> est : <span class="math display">d(x, F) = \inf_{y \in F} \|x - y\|</span></p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 3.2 — (Distance à un hyperplan)</strong></p>
+<p>Si <span class="math inline">H = \mathrm{Vect}(a)^\perp</span> est un hyperplan avec <span class="math inline">a \neq 0</span>, alors : <span class="math display">d(x, H) = \frac{|\langle x, a \rangle|}{\|a\|} = \frac{|\sum_{i=1}^n a_i x_i|}{\sqrt{a_1^2 + a_2^2 + \cdots + a_n^2}}</span></p>
+</div>
+</section>
+<section id="projecteurs-et-symétries-orthogonaux" class="level2" data-number="3.5">
+<h2 data-number="3.5" class="anchored" data-anchor-id="projecteurs-et-symétries-orthogonaux"><span class="header-section-number">3.5</span> Projecteurs et symétries orthogonaux</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 3.3 — (Projecteur orthogonal)</strong></p>
+<p>Un projecteur <span class="math inline">p</span> est dit <strong>orthogonal</strong> si <span class="math inline">\ker(p) \perp \mathrm{Im}(p)</span>.</p>
+</div>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 3.4 — (Symétrie orthogonale, réflexion)</strong></p>
+<p>Soit <span class="math inline">s \in \mathcal{L}(E)</span> une symétrie vectorielle (c’est-à-dire un endomorphisme de <span class="math inline">E</span> tel que <span class="math inline">s \circ s = \mathrm{Id}_E</span>).</p>
+<ul>
+<li>On dit que <span class="math inline">s</span> est une <strong>symétrie orthogonale</strong> si et seulement si les deux sous-espaces vectoriels <span class="math inline">\ker(s - \mathrm{Id}_E)</span> et <span class="math inline">\ker(s + \mathrm{Id}_E)</span> sont orthogonaux.</li>
+<li>On dit de plus que <span class="math inline">s</span> est une <strong>réflexion</strong> si l’ensemble des vecteurs invariants de <span class="math inline">s</span>, <span class="math inline">\ker(s - \mathrm{Id}_E)</span>, est un hyperplan de <span class="math inline">E</span>.</li>
+</ul>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 3.3 — (Caractérisation des projecteurs orthogonaux)</strong></p>
+<p>Un endomorphisme <span class="math inline">p \in \mathcal{L}(E)</span> est un projecteur orthogonal si et seulement si :</p>
+<ol type="1">
+<li>c’est un projecteur : <span class="math inline">p^2 = p</span></li>
+<li><span class="math inline">p</span> est autoadjoint.</li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 3.4 — (Caractérisation des symétries orthogonales)</strong></p>
+<p>Un endomorphisme <span class="math inline">s \in \mathcal{L}(E)</span> est une symétrie orthogonale si et seulement si :</p>
+<ol type="1">
+<li>c’est une symétrie : <span class="math inline">s^2 = \mathrm{Id}_E</span></li>
+<li><span class="math inline">s</span> est autoadjoint.</li>
+</ol>
+</div>
+</section>
+</section>
+<section id="formes-linéaires-dun-espace-euclidien" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> Formes linéaires d’un espace euclidien</h1>
+<section id="théorème-de-représentation" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="théorème-de-représentation"><span class="header-section-number">4.1</span> Théorème de représentation</h2>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 4.1 — (Théorème de représentation)</strong></p>
+<p>Pour toute forme linéaire <span class="math inline">\varphi</span> sur <span class="math inline">E</span>, il existe un et un seul vecteur <span class="math inline">x</span> tel que : <span class="math display">\forall y \in E, \quad \varphi(y) = \langle x, y \rangle</span></p>
+</div>
+</section>
+<section id="adjoint-dun-endomorphisme" class="level2" data-number="4.2">
+<h2 data-number="4.2" class="anchored" data-anchor-id="adjoint-dun-endomorphisme"><span class="header-section-number">4.2</span> Adjoint d’un endomorphisme</h2>
+<div class="theorem-definition" title="(Adjoint d'un endomorphisme)">
+<p>Soit <span class="math inline">E</span> un espace euclidien et <span class="math inline">u</span> un endomorphisme de <span class="math inline">E</span>. Il existe un et un seul endomorphisme <span class="math inline">v</span> de <span class="math inline">E</span> tel que : <span class="math display">\forall (x, y) \in E^2, \quad \langle u(x), y \rangle = \langle x, v(y) \rangle</span></p>
+<p>L’endomorphisme <span class="math inline">v</span> s’appelle l’<strong>endomorphisme adjoint</strong> de <span class="math inline">u</span> et on le note <span class="math inline">u^*</span>.</p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 4.1 — (Propriétés de l’adjoint)</strong></p>
+<p>Soient <span class="math inline">u, v</span> des endomorphismes de <span class="math inline">E</span> et <span class="math inline">\lambda \in \mathbb{R}</span>. Alors :</p>
+<ol type="1">
+<li><span class="math inline">(u^*)^* = u</span></li>
+<li><span class="math inline">(u \circ v)^* = v^* \circ u^*</span></li>
+<li><span class="math inline">(u + \lambda v)^* = u^* + \lambda v^*</span></li>
+<li><span class="math inline">\ker(u^*) = (\mathrm{Im}(u))^\perp</span> et <span class="math inline">\mathrm{Im}(u^*) = (\ker(u))^\perp</span></li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 4.2 — (Caractérisation d’un endomorphisme orthogonal par son adjoint)</strong></p>
+<p>Un endomorphisme <span class="math inline">u</span> est orthogonal si et seulement si <span class="math inline">u</span> est inversible et <span class="math inline">u^{-1} = u^*</span>.</p>
+</div>
+<div class="proposition-definition" title="(Endomorphisme auto-adjoint)">
+<p>Soit <span class="math inline">u</span> un endomorphisme de <span class="math inline">E</span>. Alors <span class="math inline">u</span> est symétrique si et seulement si <span class="math inline">u = u^*</span>. On dit aussi que <span class="math inline">u</span> est <strong>auto-adjoint</strong>.</p>
+</div>
+</section>
+</section>
+<section id="matrices-orthogonales-et-isométries-vectorielles" class="level1" data-number="5">
+<h1 data-number="5"><span class="header-section-number">5</span> Matrices orthogonales et isométries vectorielles</h1>
+<section id="matrices-orthogonales" class="level2" data-number="5.1">
+<h2 data-number="5.1" class="anchored" data-anchor-id="matrices-orthogonales"><span class="header-section-number">5.1</span> Matrices orthogonales</h2>
+<div class="proposition-definition" title="(Matrices orthogonales)">
+<p>Soit <span class="math inline">A \in \mathcal{M}_n(\mathbb{R})</span>. Les assertions suivantes sont équivalentes :</p>
+<ol type="1">
+<li><span class="math inline">{}^tA A = I_n</span></li>
+<li><span class="math inline">A \, {}^tA = I_n</span></li>
+<li><span class="math inline">A</span> est inversible et <span class="math inline">A^{-1} = {}^tA</span></li>
+<li>Les colonnes de <span class="math inline">A</span> forment une base orthonormée de <span class="math inline">\mathcal{M}_{n,1}(\mathbb{R})</span>.</li>
+<li>Les lignes de <span class="math inline">A</span> forment une base orthonormée de <span class="math inline">\mathcal{M}_{1,n}(\mathbb{R})</span>.</li>
+</ol>
+</div>
+</section>
+<section id="endomorphismes-orthogonaux" class="level2" data-number="5.2">
+<h2 data-number="5.2" class="anchored" data-anchor-id="endomorphismes-orthogonaux"><span class="header-section-number">5.2</span> Endomorphismes orthogonaux</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 5.1 — (Endomorphisme orthogonal, isométrie vectorielle)</strong></p>
+<p>Soit <span class="math inline">u \in \mathcal{L}(E)</span> un endomorphisme de <span class="math inline">E</span>. On dit que <span class="math inline">u</span> est un <strong>endomorphisme orthogonal</strong> ou une <strong>isométrie vectorielle</strong> si : <span class="math display">\forall x \in E, \quad \|u(x)\| = \|x\|</span></p>
+<p>On note <span class="math inline">O(E)</span> l’ensemble des endomorphismes orthogonaux de <span class="math inline">E</span>.</p>
+</div>
+<div class="proposition-definition" title="(Caractérisations des endomorphismes orthogonaux)">
+<p>Soit <span class="math inline">u</span> un endomorphisme de <span class="math inline">E</span>. Les assertions suivantes sont équivalentes :</p>
+<ol type="1">
+<li><span class="math inline">u</span> conserve le produit scalaire : <span class="math inline">\forall (x, y) \in E^2, \quad \langle u(x), u(y) \rangle = \langle x, y \rangle</span></li>
+<li><span class="math inline">u</span> conserve la norme : <span class="math inline">\forall x \in E, \quad \|u(x)\| = \|x\|</span></li>
+<li>Il existe une base orthonormée <span class="math inline">\mathcal{E}</span> de <span class="math inline">E</span> telle que <span class="math inline">\mathrm{Mat}_{\mathcal{E}}(u)</span> est une matrice orthogonale.</li>
+<li>Pour toute base orthonormée <span class="math inline">\mathcal{E}</span> de <span class="math inline">E</span>, la matrice <span class="math inline">\mathrm{Mat}_{\mathcal{E}}(u)</span> est une matrice orthogonale.</li>
+<li><span class="math inline">u</span> transforme au moins une base orthonormée de <span class="math inline">E</span> en une base orthonormée de <span class="math inline">E</span>.</li>
+<li><span class="math inline">u</span> transforme toute base orthonormée de <span class="math inline">E</span> en une base orthonormée de <span class="math inline">E</span>.</li>
+</ol>
+<p>Si l’une des assertions ci-dessus est vérifiée, on dit que <span class="math inline">u</span> est un <strong>automorphisme orthogonal</strong>.</p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 5.1</strong></p>
+<p>Pour tout endomorphisme orthogonal <span class="math inline">u</span> de <span class="math inline">E</span>, on a <span class="math inline">\det(u) \in \{-1, 1\}</span>.</p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 5.2 — (Stabilité de l’orthogonal)</strong></p>
+<p>Soit <span class="math inline">u \in O(E)</span> et soit <span class="math inline">F</span> un sous-espace vectoriel de <span class="math inline">E</span> stable pour <span class="math inline">u</span>. Alors : <span class="math display">u(F) \subset F \implies u(F^\perp) \subset F^\perp</span></p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 5.3 — (Valeurs propres d’une isométrie)</strong></p>
+<p>Soit <span class="math inline">u \in O(E)</span> qui admet une valeur propre <span class="math inline">\lambda \in \mathbb{R}</span>. Alors <span class="math inline">\lambda = \pm 1</span>.</p>
+</div>
+</section>
+<section id="isométries-directes-et-indirectes" class="level2" data-number="5.3">
+<h2 data-number="5.3" class="anchored" data-anchor-id="isométries-directes-et-indirectes"><span class="header-section-number">5.3</span> Isométries directes et indirectes</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 5.2 — (Isométrie directe, indirecte)</strong></p>
+<p>Soit <span class="math inline">u</span> un endomorphisme orthogonal de <span class="math inline">E</span>.</p>
+<ul>
+<li>Si <span class="math inline">\det(u) = 1</span>, on dit que <span class="math inline">u</span> est une <strong>isométrie directe</strong>. L’ensemble des isométries directes est noté <span class="math inline">O^+(E)</span> ou <span class="math inline">\mathrm{SO}(E)</span>.</li>
+<li>Si <span class="math inline">\det(u) = -1</span>, on dit que <span class="math inline">u</span> est une <strong>isométrie indirecte</strong>.</li>
+</ul>
+</div>
+</section>
+<section id="étude-du-groupe-orthogonal-en-dimension-2" class="level2" data-number="5.4">
+<h2 data-number="5.4" class="anchored" data-anchor-id="étude-du-groupe-orthogonal-en-dimension-2"><span class="header-section-number">5.4</span> Étude du groupe orthogonal en dimension 2</h2>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 5.1 — (Étude de <span class="math inline">\boldsymbol{O_2^+(\mathbb{R})}</span>)</strong></p>
+<ol type="1">
+<li><p>Les matrices de <span class="math inline">O_2^+(\mathbb{R})</span> sont de la forme : <span class="math display">R_\theta = \begin{pmatrix} \cos\theta &amp; -\sin\theta \\ \sin\theta &amp; \cos\theta \end{pmatrix}</span> où <span class="math inline">\theta \in \mathbb{R}</span>.</p></li>
+<li><p>Les endomorphismes associés sont les <strong>rotations</strong> du plan d’angle <span class="math inline">\theta</span>.</p></li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-corollary">
+<p><strong>Corollaire 5.1 — (Les isométries indirectes d’un espace euclidien de dimension 2 sont diagonalisables et de spectre <span class="math inline">\boldsymbol{{\pm 1}}</span>)</strong></p>
+<p>Soit <span class="math inline">E</span> un espace euclidien de dimension 2 et soit <span class="math inline">u</span> une isométrie indirecte de <span class="math inline">E</span>. Alors <span class="math inline">u</span> est diagonalisable et ses valeurs propres sont <span class="math inline">\pm 1</span>.</p>
+</div>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 5.2 — (Isométries indirectes et réflexions)</strong></p>
+<p>Une isométrie indirecte d’un espace euclidien orienté de dimension 2 est une symétrie orthogonale par rapport à une droite, c’est-à-dire une <strong>réflexion</strong>.</p>
+</div>
+</section>
+<section id="étude-du-groupe-orthogonal-en-dimension-3" class="level2" data-number="5.5">
+<h2 data-number="5.5" class="anchored" data-anchor-id="étude-du-groupe-orthogonal-en-dimension-3"><span class="header-section-number">5.5</span> Étude du groupe orthogonal en dimension 3</h2>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 5.3 — (Classification des isométries en dimension 3)</strong></p>
+<p>Soit un endomorphisme orthogonal <span class="math inline">u \in O(E)</span>. On note <span class="math inline">E(1) = \ker(u - \mathrm{Id}_E)</span> le sous-espace formé des vecteurs invariants.</p>
+<p>Selon la dimension de <span class="math inline">E(1)</span>, on a la classification suivante :</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th><span class="math inline">\dim E(1)</span></th>
+<th><span class="math inline">\det(u)</span></th>
+<th><span class="math inline">u \in</span></th>
+<th>Nature de <span class="math inline">u</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>3</td>
+<td>1</td>
+<td><span class="math inline">O^+(E)</span></td>
+<td><span class="math inline">\mathrm{Id}_E</span></td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>-1</td>
+<td><span class="math inline">O^-(E)</span></td>
+<td>Réflexion <span class="math inline">s_H</span></td>
+</tr>
+<tr class="odd">
+<td>1</td>
+<td>1</td>
+<td><span class="math inline">O^+(E)</span></td>
+<td>Rotation autour d’un axe <span class="math inline">r_{D,\theta}</span> (dont les demi-tours)</td>
+</tr>
+<tr class="even">
+<td>0</td>
+<td>-1</td>
+<td><span class="math inline">O^-(E)</span></td>
+<td>Composée d’une rotation et d’une réflexion</td>
+</tr>
+</tbody>
+</table>
+<p>Dans le dernier cas, <span class="math inline">u = r \circ s_H</span>, où le plan <span class="math inline">H</span> invariant par la réflexion est orthogonal à l’axe de la rotation <span class="math inline">r</span>.</p>
+</div>
+</section>
+</section>
+<section id="réduction-des-endomorphismes-autoadjoints-et-des-matrices-symétriques-réelles" class="level1" data-number="6">
+<h1 data-number="6"><span class="header-section-number">6</span> Réduction des endomorphismes autoadjoints et des matrices symétriques réelles</h1>
+<section id="endomorphismes-symétriques" class="level2" data-number="6.1">
+<h2 data-number="6.1" class="anchored" data-anchor-id="endomorphismes-symétriques"><span class="header-section-number">6.1</span> Endomorphismes symétriques</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 6.1 — (Endomorphisme symétrique)</strong></p>
+<p>Soit <span class="math inline">(E, \langle \cdot, \cdot \rangle)</span> un espace préhilbertien réel de dimension finie ou infinie et <span class="math inline">u \in \mathcal{L}(E)</span>. On dit que <span class="math inline">u</span> est <strong>symétrique</strong> si : <span class="math display">\forall x, y \in E, \quad \langle x, u(y) \rangle = \langle u(x), y \rangle</span></p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 6.1 — (Stabilité des sous-espaces orthogonaux)</strong></p>
+<p>Soit <span class="math inline">(E, \langle \cdot, \cdot \rangle)</span> un espace préhilbertien réel de dimension finie ou infinie et <span class="math inline">u</span> un endomorphisme symétrique de <span class="math inline">E</span> et <span class="math inline">F</span> un sous-espace vectoriel de <span class="math inline">E</span>. Si <span class="math inline">F</span> est stable par <span class="math inline">u</span>, alors <span class="math inline">F^\perp</span> est stable par <span class="math inline">u</span>.</p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Preuve</em>. </span>Soit <span class="math inline">x \in F^\perp</span>, montrons que <span class="math inline">u(x) \in F^\perp</span>. Pour cela soit <span class="math inline">y \in F</span> alors : <span class="math display">\langle u(x), y \rangle = \langle x, u(y) \rangle = 0</span> car <span class="math inline">u(y) \in F</span> par stabilité de <span class="math inline">F</span> et <span class="math inline">x \in F^\perp</span> par hypothèse.</p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 6.2 — (Orthogonalité des sous-espaces propres)</strong></p>
+<p>Soit <span class="math inline">u</span> un endomorphisme symétrique de <span class="math inline">E</span>. Si <span class="math inline">\lambda</span> et <span class="math inline">\mu</span> sont deux valeurs propres de <span class="math inline">u</span>, alors : <span class="math display">\lambda \neq \mu \implies E_\lambda(u) \perp E_\mu(u)</span></p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Preuve</em>. </span>Considérons <span class="math inline">\lambda, \mu \in \mathrm{Sp}(u)</span> tel que <span class="math inline">\lambda \neq \mu</span> et montrons que <span class="math inline">E_\lambda(u) \perp E_\mu(u)</span>. Pour cela soit <span class="math inline">x \in E_\lambda(u)</span> et <span class="math inline">y \in E_\mu(u)</span> deux vecteurs propres associés respectivement aux valeurs propres distinctes <span class="math inline">\lambda</span> et <span class="math inline">\mu</span> de <span class="math inline">u</span>. On a : <span class="math display">\langle u(x), y \rangle = \lambda \langle x, y \rangle = \langle x, u(y) \rangle = \mu \langle x, y \rangle</span> donc <span class="math inline">(\lambda - \mu)\langle x, y \rangle = 0</span>. Comme <span class="math inline">\lambda - \mu \neq 0</span>, on a : <span class="math inline">\langle x, y \rangle = 0</span>. Ainsi <span class="math inline">E_\lambda(u) \perp E_\mu(u)</span>.</p>
+</div>
+</section>
+<section id="théorème-spectral" class="level2" data-number="6.2">
+<h2 data-number="6.2" class="anchored" data-anchor-id="théorème-spectral"><span class="header-section-number">6.2</span> Théorème spectral</h2>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 6.1 — (Théorème spectral)</strong></p>
+<p>Soit <span class="math inline">u</span> un endomorphisme symétrique de <span class="math inline">E</span>. Alors <span class="math inline">u</span> est diagonalisable dans une base orthonormée, c’est-à-dire que <span class="math inline">E</span> admet une base formée de vecteurs propres de <span class="math inline">u</span>.</p>
+</div>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 6.2 — (Version matricielle du théorème spectral)</strong></p>
+<p>Soit <span class="math inline">A \in \mathcal{S}_n(\mathbb{R})</span> une matrice carrée réelle symétrique d’ordre <span class="math inline">n</span> avec <span class="math inline">n \in \mathbb{N}^*</span>. Alors il existe une matrice orthogonale <span class="math inline">P</span> et une matrice diagonale réelle <span class="math inline">\Delta</span> toutes de taille <span class="math inline">n</span> telles que : <span class="math display">A = {}^tP \Delta P</span></p>
+<p>On dit que <span class="math inline">A</span> est <strong>orthogonalement diagonalisable</strong>.</p>
+</div>
+</section>
+<section id="endomorphismes-symétriques-positifs-et-définis-positifs" class="level2" data-number="6.3">
+<h2 data-number="6.3" class="anchored" data-anchor-id="endomorphismes-symétriques-positifs-et-définis-positifs"><span class="header-section-number">6.3</span> Endomorphismes symétriques positifs et définis positifs</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 6.2 — (Symétrique positif et défini positif)</strong></p>
+<p>Soit <span class="math inline">E</span> un espace euclidien de dimension <span class="math inline">n</span> et <span class="math inline">u</span> un endomorphisme de <span class="math inline">E</span> et soit <span class="math inline">A \in \mathcal{M}_n(\mathbb{R})</span>.</p>
+<ol type="1">
+<li><p>On dit que <span class="math inline">u</span> est <strong>symétrique positif</strong> si et seulement si <span class="math inline">u</span> est symétrique et : <span class="math display">\forall x \in E, \quad \langle u(x), x \rangle \geq 0</span></p></li>
+<li><p>On dit que <span class="math inline">u</span> est <strong>symétrique défini positif</strong> si et seulement si <span class="math inline">u</span> est symétrique et : <span class="math display">\forall x \in E \setminus \{0\}, \quad \langle u(x), x \rangle &gt; 0</span></p></li>
+<li><p>On dit que la matrice <span class="math inline">A</span> est <strong>symétrique positive</strong> si et seulement si <span class="math inline">A</span> est symétrique et : <span class="math display">\forall X \in \mathbb{R}^n, \quad \langle AX, X \rangle \geq 0</span></p></li>
+</ol>
+</div>
+</section>
+</section>
+<section id="exercices" class="level1" data-number="7">
+<h1 data-number="7"><span class="header-section-number">7</span> Exercices</h1>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 7.1</strong></p>
+<p>Soit <span class="math inline">E</span> un espace euclidien et <span class="math inline">F</span> un sous-espace vectoriel de <span class="math inline">E</span>. Montrer que :</p>
+<ol type="1">
+<li>Si <span class="math inline">F \subset G</span>, alors <span class="math inline">G^\perp \subset F^\perp</span>.</li>
+<li><span class="math inline">(F + G)^\perp = F^\perp \cap G^\perp</span>.</li>
+<li><span class="math inline">(F \cap G)^\perp = F^\perp + G^\perp</span>.</li>
+<li>Si <span class="math inline">\dim(E)</span> est finie, alors <span class="math inline">(F^\perp)^\perp = F</span>.</li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 7.2</strong></p>
+<p>Déterminer la matrice dans la base canonique de <span class="math inline">\mathbb{R}^3</span> de la projection orthogonale sur le plan d’équation <span class="math inline">x + 2y - 3z = 0</span>.</p>
+<p>En déduire la matrice de la symétrie orthogonale par rapport à ce plan.</p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 7.3</strong></p>
+<p>Soient <span class="math inline">E</span> un espace euclidien, <span class="math inline">u</span> un vecteur non nul et <span class="math inline">H = u^\perp</span>. Soient <span class="math inline">p</span> la projection orthogonale sur <span class="math inline">H</span> et <span class="math inline">s</span> la symétrie orthogonale par rapport à <span class="math inline">H</span>.</p>
+<ol type="1">
+<li>Montrer que <span class="math inline">\forall x \in E, \quad p(x) = x - \frac{\langle x, u \rangle}{\|u\|^2} u</span>.</li>
+<li>Montrer que <span class="math inline">\forall x \in E, \quad s(x) = x - 2\frac{\langle x, u \rangle}{\|u\|^2} u</span>.</li>
+<li>On considère dans <span class="math inline">\mathbb{R}^3</span> le plan <span class="math inline">(\Pi : x - y + z = 0)</span>. Déterminer la matrice dans la base canonique de la symétrie orthogonale par rapport à <span class="math inline">\Pi</span>.</li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 7.4</strong></p>
+<p>Soient <span class="math inline">\mathcal{B} = (e_1, \ldots, e_n)</span> une base orthonormale de <span class="math inline">E</span> et <span class="math inline">(a_1, \ldots, a_n) \in \mathbb{R}^n \setminus \{(0, \ldots, 0)\}</span> et <span class="math inline">H</span> le sous-espace vectoriel de <span class="math inline">E</span> d’équation cartésienne <span class="math inline">\sum_{k=1}^n a_k x_k = 0</span> dans <span class="math inline">\mathcal{B}</span>.</p>
+<ol type="1">
+<li>Déterminer l’orthogonale de <span class="math inline">H</span>.</li>
+<li>Déterminer la distance du vecteur <span class="math inline">x = \sum_{k=1}^n x_k e_k</span> de <span class="math inline">E</span> au sous-espace vectoriel <span class="math inline">H</span>.</li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 7.5</strong></p>
+<p>Soit <span class="math inline">E = \mathbb{R}_n[X]</span> muni du produit scalaire <span class="math inline">\langle P, Q \rangle = \int_{-1}^1 P(t) Q(t)\, dt</span>.</p>
+<ol type="1">
+<li>Montrer que <span class="math inline">\varphi</span> est un produit scalaire.</li>
+<li>On suppose <span class="math inline">n = 2</span>. Écrire la matrice associée à <span class="math inline">\varphi</span> dans la base <span class="math inline">(1, X, X^2)</span>. Construire une base orthonormale <span class="math inline">(P_0, P_1, P_2)</span> par le procédé d’orthogonalisation de Schmidt appliqué à <span class="math inline">(1, X, X^2)</span>.</li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 7.6</strong></p>
+<p>Soit <span class="math inline">E</span> un espace euclidien, et <span class="math inline">(e_1, \ldots, e_n)</span> des vecteurs unitaires vérifiant : <span class="math display">\forall x \in E, \quad \|x\|^2 = \sum_{i=1}^n \langle x, e_i \rangle^2</span></p>
+<p>Montrer que <span class="math inline">(e_1, \ldots, e_n)</span> est une famille orthonormale (NB : on ne suppose pas que la dimension de l’espace est <span class="math inline">n</span>).</p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 7.7 — (Classification des isométries)</strong></p>
+<p>Soit <span class="math inline">A \in \mathcal{M}_3(\mathbb{R})</span> une matrice orthogonale. Montrer que <span class="math inline">A</span> est semblable à l’une des matrices suivantes :</p>
+<ol type="1">
+<li><span class="math inline">\mathrm{Diag}(1, 1, 1)</span> (identité)</li>
+<li><span class="math inline">\mathrm{Diag}(1, 1, -1)</span> (réflexion)</li>
+<li><span class="math inline">\begin{pmatrix} 1 &amp; 0 &amp; 0 \\ 0 &amp; \cos\theta &amp; -\sin\theta \\ 0 &amp; \sin\theta &amp; \cos\theta \end{pmatrix}</span> (rotation)</li>
+<li><span class="math inline">\begin{pmatrix} -1 &amp; 0 &amp; 0 \\ 0 &amp; \cos\theta &amp; -\sin\theta \\ 0 &amp; \sin\theta &amp; \cos\theta \end{pmatrix}</span> (composée d’une rotation et d’une réflexion)</li>
+</ol>
+</div>
+</section>
+<section id="document-en-pdf" class="level1 unnumbered">
+<h1 class="unnumbered">Document en PDF</h1>
+<p><a href="PDF/psi-chap08.pdf">Chapitre 08 : Espaces préhilbertiens réels. Endomorphismes d’un espace euclidien</a></p>
+<section id="navigation" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="navigation">Navigation</h2>
+<div class="chap-nav">
+<p><a href="../cours/psi-chap07.html" class="prev">Chapitre 07 : Séries entières</a> <a href="../cours/psi.html" class="home">Menu PSI</a> <a href="../cours/psi-chap09.html" class="next">Chapitre 09 : Intégrales dépendant d’un paramètre</a></p>
+</div>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -222,12 +824,12 @@ ul.task-list li input[type="checkbox"] {
       // flash "checked"
       button.classList.add('code-copy-button-checked');
       var currentTitle = button.getAttribute("title");
-      button.setAttribute("title", "Copied!");
+      button.setAttribute("title", "Copié");
       let tooltip;
       if (window.bootstrap) {
         button.setAttribute("data-bs-toggle", "tooltip");
         button.setAttribute("data-bs-placement", "left");
-        button.setAttribute("data-bs-title", "Copied!");
+        button.setAttribute("data-bs-title", "Copié");
         tooltip = new bootstrap.Tooltip(button, 
           { trigger: "manual", 
             customClass: "code-copy-button-tooltip",
