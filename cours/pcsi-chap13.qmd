@@ -1,0 +1,490 @@
+---
+title: "Espaces vectoriels"
+subtitle: "Chapitre 13"
+author: "Saîd MAHARI"
+date: last-modified
+date-format: "D MMMM YYYY"
+sidebar:
+  style: docked
+  contents:
+    - href: cours/index.qmd
+      text: "← Tous les cours"
+    - section: "PCSI — 1re année"
+      contents:
+        - cours/pcsi-chap12.qmd
+        - cours/pcsi-chap13.qmd
+        # - cours/pcsi-chap14.qmd
+lang: fr
+format:
+  html:
+    theme: cosmo
+    toc: true
+    number-sections: true
+    html-math-method: katex
+    css: styles.css
+filters:
+  - custom-numbered-blocks.lua
+---
+
+**PCSI 1re année — Chapitre 13.** EV, sous-espaces vectoriels, familles libres et génératrices, bases, dimension finie, théorème de la base incomplète, dimension d'un sous-espace.
+
+Ce chapitre a été réalisé conformément au programme marocain de mathématiques de la filière PCSI.
+
+Dans tout ce chapitre, $\mathbb{K}$ désigne $\mathbb{R}$ ou $\mathbb{C}$.
+
+# Notion d'espace vectoriel
+
+## Structure de $\mathbb{K}$-espace vectoriel
+
+::: {.definition}
+Un **$\mathbb{K}$-espace vectoriel** est un ensemble non vide $E$ muni :
+
+- d'une **loi de composition interne**, c'est-à-dire une application de $E \times E$ dans $E$ :
+$$\begin{array}{rcl} E \times E & \to & E \\ (u, v) & \mapsto & u+v \end{array}$$
+
+- d'une **loi de composition externe**, c'est-à-dire une application de $\mathbb{K} \times E$ dans $E$ :
+$$\begin{array}{rcl} \mathbb{K} \times E & \to & E \\ (\lambda, u) & \mapsto & \lambda \cdot u \end{array}$$
+
+qui vérifient les propriétés suivantes :
+
+1. $u + v = v + u$ pour tous $u,v \in E$ (commutativité)
+2. $u + (v+w) = (u+v) +w$ pour tous $u,v,w \in E$ (associativité)
+3. Il existe un **élément neutre** $0_E \in E$ tel que $u + 0_E = u$ pour tout $u \in E$
+4. Tout $u \in E$ admet un **symétrique** $u'$ tel que $u + u' = 0_E$. Cet élément $u'$ est noté $-u$.
+5. $1 \cdot u = u$ pour tout $u \in E$
+6. $\lambda \cdot (\mu \cdot u) = (\lambda\mu) \cdot u$ pour tous $\lambda, \mu \in \mathbb{K}$, $u \in E$
+7. $\lambda \cdot (u+v) = \lambda \cdot u + \lambda \cdot v$ pour tous $\lambda \in \mathbb{K}$, $u,v \in E$
+8. $(\lambda + \mu) \cdot u = \lambda \cdot u + \mu \cdot u$ pour tous $\lambda,\mu \in \mathbb{K}$, $u \in E$
+:::
+
+::: {.remark}
+- L'élément neutre $0_E$ s'appelle aussi le **vecteur nul**. Il ne doit pas être confondu avec l'élément $0$ de $\mathbb{K}$.
+- Le symétrique $-u$ d'un vecteur $u$ s'appelle aussi l'**opposé**.
+- Les éléments de $E$ sont appelés des **vecteurs**.
+- Les éléments de $\mathbb{K}$ sont appelés des **scalaires**.
+:::
+
+## Premiers exemples
+
+::: {.example}
+$\mathbb{K}^n$ est un $\mathbb{K}$-espace vectoriel. Plus précisément :
+
+- $\mathbb{R}^n$ est un $\mathbb{R}$-espace vectoriel
+- $\mathbb{C}^n$ est un $\mathbb{C}$-espace vectoriel
+
+L'addition et la multiplication par un scalaire se font composante par composante.
+:::
+
+::: {.example}
+$\mathbb{K}[X]$, l'ensemble des polynômes à coefficients dans $\mathbb{K}$, est un $\mathbb{K}$-espace vectoriel.
+:::
+
+::: {.example}
+$\mathcal{M}_{n,p}(\mathbb{K})$, l'ensemble des matrices à $n$ lignes et $p$ colonnes à coefficients dans $\mathbb{K}$, est un $\mathbb{K}$-espace vectoriel.
+:::
+
+::: {.example}
+Soit $A$ un ensemble non vide et $E$ un $\mathbb{K}$-espace vectoriel. L'ensemble $E^A$ des fonctions de $A$ dans $E$ est un $\mathbb{K}$-espace vectoriel.
+
+Cas particulier : $\mathbb{K}^A$ est un $\mathbb{K}$-espace vectoriel. En particulier, $\mathbb{K}^{\mathbb{N}}$ est un $\mathbb{K}$-espace vectoriel.
+:::
+
+::: {.proposition}
+Soient $E_1, E_2, \ldots, E_p$ des $\mathbb{K}$-espaces vectoriels. Le produit $E_1 \times E_2 \times \cdots \times E_p$ est un $\mathbb{K}$-espace vectoriel.
+:::
+
+## Combinaisons linéaires
+
+::: {.definition}
+Soit $E$ un $\mathbb{K}$-espace vectoriel et $v_1, v_2, \ldots, v_p$ des vecteurs de $E$.
+
+Un vecteur $u \in E$ est une **combinaison linéaire** de $v_1, v_2, \ldots, v_p$ s'il existe des scalaires $\lambda_1, \lambda_2, \ldots, \lambda_p \in \mathbb{K}$ tels que :
+$$u = \lambda_1 v_1 + \lambda_2 v_2 + \cdots + \lambda_p v_p$$
+:::
+
+::: {.example}
+Dans $\mathbb{R}^3$ :
+
+- Le vecteur $(3, 5, 7)$ est une combinaison linéaire de $(1,0,0)$, $(0,1,0)$ et $(0,0,1)$ car $(3,5,7) = 3(1,0,0) + 5(0,1,0) + 7(0,0,1)$.
+- Le vecteur $(1,1,1)$ est une combinaison linéaire de $(1,0,0)$ et $(0,1,1)$ car $(1,1,1) = 1 \cdot (1,0,0) + 1 \cdot (0,1,1)$.
+:::
+
+::: {.example}
+Dans $\mathbb{R}^2$, le vecteur $(1, 2)$ est-il une combinaison linéaire de $(1, 1)$ et $(2, 2)$ ?
+
+Non, car $(1,2) = \lambda(1,1) + \mu(2,2) = (\lambda + 2\mu, \lambda + 2\mu)$ impliquerait $\lambda + 2\mu = 1$ et $\lambda + 2\mu = 2$, ce qui est contradictoire.
+:::
+
+# Sous-espaces vectoriels
+
+## Définition et caractérisation
+
+::: {.definition}
+Soit $E$ un $\mathbb{K}$-espace vectoriel. Une partie $F$ de $E$ est un **sous-espace vectoriel** de $E$ si :
+
+1. $0_E \in F$
+2. Pour tous $u, v \in F$, on a $u + v \in F$ (stabilité par addition)
+3. Pour tout $\lambda \in \mathbb{K}$ et tout $u \in F$, on a $\lambda \cdot u \in F$ (stabilité par multiplication par un scalaire)
+:::
+
+::: {.proposition title="(Caractérisation des sous-espaces vectoriels)"}
+Soit $E$ un $\mathbb{K}$-espace vectoriel et $F$ une partie non vide de $E$. Alors $F$ est un sous-espace vectoriel de $E$ si et seulement si :
+$$\forall u, v \in F, \quad \forall \lambda, \mu \in \mathbb{K}, \quad \lambda u + \mu v \in F$$
+:::
+
+::: {.example}
+$\{0_E\}$ et $E$ sont des sous-espaces vectoriels de $E$.
+:::
+
+::: {.example}
+Dans $\mathbb{R}^3$, l'ensemble $F = \{(x, y, z) \in \mathbb{R}^3 \mid x + y + z = 0\}$ est un sous-espace vectoriel.
+
+Vérification :
+
+- $(0,0,0) \in F$ car $0 + 0 + 0 = 0$
+- Si $(x_1, y_1, z_1)$ et $(x_2, y_2, z_2)$ sont dans $F$, alors $(x_1+x_2) + (y_1+y_2) + (z_1+z_2) = (x_1+y_1+z_1) + (x_2+y_2+z_2) = 0 + 0 = 0$
+- Si $(x,y,z) \in F$ et $\lambda \in \mathbb{R}$, alors $\lambda x + \lambda y + \lambda z = \lambda(x+y+z) = 0$
+:::
+
+::: {.example}
+L'ensemble $\mathbb{K}[X]$ est un sous-espace vectoriel de l'ensemble des fonctions de $\mathbb{K}$ dans $\mathbb{K}$.
+
+L'ensemble $\mathbb{K}_n[X]$ des polynômes de degré au plus $n$ est un sous-espace vectoriel de $\mathbb{K}[X]$.
+:::
+
+## Exemples de sous-espaces vectoriels
+
+::: {.example}
+**Sous-espaces vectoriels de $\mathbb{R}^2$ :**
+
+- $\{0\}$ (le sous-espace nul)
+- Les droites vectorielles passant par l'origine : $\{(x, y) \in \mathbb{R}^2 \mid ax + by = 0\}$ avec $(a,b) \neq (0,0)$
+- $\mathbb{R}^2$ tout entier
+:::
+
+::: {.example}
+**Sous-espaces vectoriels de $\mathbb{R}^3$ :**
+
+- $\{0\}$ (le sous-espace nul)
+- Les droites vectorielles passant par l'origine
+- Les plans vectoriels passant par l'origine : $\{(x,y,z) \in \mathbb{R}^3 \mid ax + by + cz = 0\}$ avec $(a,b,c) \neq (0,0,0)$
+- $\mathbb{R}^3$ tout entier
+:::
+
+## Intersection de sous-espaces vectoriels
+
+::: {.proposition}
+Soit $(F_i)_{i \in I}$ une famille de sous-espaces vectoriels d'un $\mathbb{K}$-espace vectoriel $E$. Alors :
+$$\bigcap_{i \in I} F_i$$
+est un sous-espace vectoriel de $E$.
+:::
+
+::: {.proof}
+- $0_E \in F_i$ pour tout $i \in I$, donc $0_E \in \bigcap_{i \in I} F_i$.
+- Si $u, v \in \bigcap_{i \in I} F_i$, alors $u, v \in F_i$ pour tout $i$, donc $u+v \in F_i$ pour tout $i$, donc $u+v \in \bigcap_{i \in I} F_i$.
+- De même pour la multiplication par un scalaire.
+:::
+
+::: {.example}
+L'intersection de deux droites vectorielles de $\mathbb{R}^2$ est soit $\{0\}$ (si les droites sont distinctes), soit la droite elle-même (si les droites sont confondues).
+:::
+
+::: {.remark}
+La réunion de deux sous-espaces vectoriels n'est en général **pas** un sous-espace vectoriel. Par exemple, dans $\mathbb{R}^2$, la réunion des deux axes $\{(x,0) \mid x \in \mathbb{R}\} \cup \{(0,y) \mid y \in \mathbb{R}\}$ n'est pas un sous-espace vectoriel car $(1,0) + (0,1) = (1,1)$ n'appartient pas à cette réunion.
+:::
+
+## Sous-espace vectoriel engendré
+
+::: {.definition}
+Soit $E$ un $\mathbb{K}$-espace vectoriel et $v_1, v_2, \ldots, v_p$ des vecteurs de $E$. Le **sous-espace vectoriel engendré** par $v_1, v_2, \ldots, v_p$ est :
+$$\text{Vect}(v_1, v_2, \ldots, v_p) = \{\lambda_1 v_1 + \lambda_2 v_2 + \cdots + \lambda_p v_p \mid \lambda_1, \ldots, \lambda_p \in \mathbb{K}\}$$
+:::
+
+::: {.proposition}
+Soit $E$ un $\mathbb{K}$-espace vectoriel et $v_1, \ldots, v_p$ des vecteurs de $E$. Alors $\text{Vect}(v_1, \ldots, v_p)$ est le plus petit sous-espace vectoriel de $E$ contenant $v_1, \ldots, v_p$.
+:::
+
+::: {.example}
+Dans $\mathbb{R}^3$ :
+
+- $\text{Vect}((1,0,0)) = \{(x, 0, 0) \mid x \in \mathbb{R}\}$ est une droite vectorielle.
+- $\text{Vect}((1,0,0), (0,1,0)) = \{(x, y, 0) \mid x, y \in \mathbb{R}\}$ est un plan vectoriel.
+- $\text{Vect}((1,0,0), (0,1,0), (0,0,1)) = \mathbb{R}^3$.
+:::
+
+::: {.example}
+Dans $\mathbb{K}[X]$, $\text{Vect}(1, X, X^2) = \mathbb{K}_2[X]$.
+:::
+
+## Somme de sous-espaces vectoriels
+
+::: {.definition}
+Soient $F$ et $G$ deux sous-espaces vectoriels d'un $\mathbb{K}$-espace vectoriel $E$. La **somme** de $F$ et $G$ est :
+$$F + G = \{u + v \mid u \in F, v \in G\}$$
+:::
+
+::: {.proposition}
+$F + G$ est un sous-espace vectoriel de $E$.
+:::
+
+::: {.definition}
+On dit que $F$ et $G$ sont en **somme directe** si $F \cap G = \{0_E\}$. On note alors $F \oplus G$.
+
+On dit que $F$ et $G$ sont **supplémentaires** dans $E$ si $E = F \oplus G$, c'est-à-dire :
+
+- $F \cap G = \{0_E\}$
+- $F + G = E$
+:::
+
+::: {.proposition title="(Caractérisation de la somme directe)"}
+$F$ et $G$ sont en somme directe si et seulement si tout vecteur de $F + G$ s'écrit de manière **unique** comme somme d'un vecteur de $F$ et d'un vecteur de $G$.
+:::
+
+::: {.example}
+Dans $\mathbb{R}^2$, soient $F = \{(x, 0) \mid x \in \mathbb{R}\}$ et $G = \{(0, y) \mid y \in \mathbb{R}\}$.
+
+- $F \cap G = \{(0,0)\}$
+- $F + G = \mathbb{R}^2$
+
+Donc $\mathbb{R}^2 = F \oplus G$.
+:::
+
+::: {.example}
+Dans $\mathbb{K}[X]$, l'ensemble des polynômes pairs et l'ensemble des polynômes impairs sont des sous-espaces vectoriels supplémentaires.
+:::
+
+::: {.proposition title="(Base adaptée à une somme directe)"}
+Si $E = F \oplus G$ et si $(e_1, \ldots, e_p)$ est une base de $F$ et $(e_{p+1}, \ldots, e_n)$ est une base de $G$, alors $(e_1, \ldots, e_p, e_{p+1}, \ldots, e_n)$ est une base de $E$.
+:::
+
+# Familles libres et génératrices
+
+## Familles libres
+
+::: {.definition}
+Soit $E$ un $\mathbb{K}$-espace vectoriel et $v_1, \ldots, v_p$ des vecteurs de $E$.
+
+- On dit que $v_1, \ldots, v_p$ sont **linéairement indépendants** (ou que la famille $(v_1, \ldots, v_p)$ est **libre**) si :
+$$\lambda_1 v_1 + \lambda_2 v_2 + \cdots + \lambda_p v_p = 0_E \implies \lambda_1 = \lambda_2 = \cdots = \lambda_p = 0$$
+
+- On dit que $v_1, \ldots, v_p$ sont **linéairement dépendants** (ou que la famille est **liée**) s'il existe des scalaires $\lambda_1, \ldots, \lambda_p$ non tous nuls tels que :
+$$\lambda_1 v_1 + \lambda_2 v_2 + \cdots + \lambda_p v_p = 0_E$$
+:::
+
+::: {.proposition}
+Une famille $(v_1, \ldots, v_p)$ est liée si et seulement si l'un des vecteurs est combinaison linéaire des autres.
+:::
+
+::: {.example}
+Dans $\mathbb{R}^3$ :
+
+- La famille $((1,0,0), (0,1,0))$ est libre.
+- La famille $((1,0,0), (2,0,0))$ est liée car $(2,0,0) = 2(1,0,0)$.
+- La famille $((1,0,0), (0,1,0), (0,0,1))$ est libre.
+- La famille $((1,1,0), (0,1,1), (1,0,-1))$ est liée car $(1,1,0) - (0,1,1) + (1,0,-1) = (0,0,0)$.
+:::
+
+::: {.example}
+Dans $\mathbb{K}[X]$, la famille $(1, X, X^2, \ldots, X^n)$ est libre.
+:::
+
+## Familles génératrices
+
+::: {.definition}
+Soit $E$ un $\mathbb{K}$-espace vectoriel et $v_1, \ldots, v_p$ des vecteurs de $E$. On dit que $(v_1, \ldots, v_p)$ est une **famille génératrice** de $E$ si :
+$$\text{Vect}(v_1, \ldots, v_p) = E$$
+c'est-à-dire si tout vecteur de $E$ est combinaison linéaire de $v_1, \ldots, v_p$.
+:::
+
+::: {.example}
+- La famille $((1,0,0), (0,1,0), (0,0,1))$ est une famille génératrice de $\mathbb{R}^3$.
+- La famille $(1, X, X^2, \ldots, X^n)$ est une famille génératrice de $\mathbb{K}_n[X]$.
+:::
+
+# Bases
+
+## Définition
+
+::: {.definition}
+Une famille $(e_1, \ldots, e_p)$ de vecteurs de $E$ est une **base** de $E$ si elle est à la fois libre et génératrice.
+
+Autrement dit, $(e_1, \ldots, e_p)$ est une base de $E$ si tout vecteur de $E$ s'écrit de manière **unique** comme combinaison linéaire de $e_1, \ldots, e_p$.
+:::
+
+::: {.proposition title="(Coordonnées dans une base)"}
+Si $(e_1, \ldots, e_p)$ est une base de $E$, alors pour tout $u \in E$, il existe des scalaires **uniques** $\lambda_1, \ldots, \lambda_p \in \mathbb{K}$ tels que :
+$$u = \lambda_1 e_1 + \lambda_2 e_2 + \cdots + \lambda_p e_p$$
+Les scalaires $\lambda_1, \ldots, \lambda_p$ sont appelés les **coordonnées** de $u$ dans la base $(e_1, \ldots, e_p)$.
+:::
+
+::: {.example}
+**Bases canoniques :**
+
+- La base canonique de $\mathbb{R}^n$ est $((1,0,\ldots,0), (0,1,0,\ldots,0), \ldots, (0,\ldots,0,1))$.
+- La base canonique de $\mathbb{K}_n[X]$ est $(1, X, X^2, \ldots, X^n)$.
+- La base canonique de $\mathcal{M}_{n,p}(\mathbb{K})$ est la famille des matrices élémentaires $(E_{i,j})_{1 \leq i \leq n, 1 \leq j \leq p}$.
+:::
+
+::: {.proposition title="(Existence de bases)"}
+Tout espace vectoriel de dimension finie (c'est-à-dire engendré par une famille finie de vecteurs) admet au moins une base.
+:::
+
+# Dimension finie
+
+## Théorème de la base incomplète
+
+::: {.theorem title="(Théorème de la base incomplète)"}
+Soit $E$ un $\mathbb{K}$-espace vectoriel engendré par une famille finie de vecteurs. Alors :
+
+1. Toute famille libre de $E$ peut être complétée en une base de $E$.
+2. De toute famille génératrice de $E$, on peut extraire une base de $E$.
+:::
+
+::: {.corollary}
+Dans un espace vectoriel engendré par $p$ vecteurs, toute famille de plus de $p$ vecteurs est liée.
+:::
+
+## Dimension d'un espace vectoriel
+
+::: {.definition}
+La **dimension** d'un espace vectoriel $E$ de dimension finie est le nombre de vecteurs d'une base de $E$. On la note $\dim(E)$.
+:::
+
+::: {.theorem}
+Toutes les bases d'un espace vectoriel de dimension finie ont le même nombre d'éléments.
+:::
+
+::: {.example}
+- $\dim(\mathbb{R}^n) = n$
+- $\dim(\mathbb{K}_n[X]) = n + 1$
+- $\dim(\mathcal{M}_{n,p}(\mathbb{K})) = np$
+- $\dim(\{0\}) = 0$
+:::
+
+::: {.proposition}
+Dans un espace vectoriel de dimension $n$ :
+
+- Toute famille libre a au plus $n$ vecteurs.
+- Toute famille génératrice a au moins $n$ vecteurs.
+- Une famille de $n$ vecteurs est une base si et seulement si elle est libre, si et seulement si elle est génératrice.
+:::
+
+## Dimension d'un sous-espace vectoriel
+
+::: {.proposition}
+Soit $E$ un espace vectoriel de dimension finie et $F$ un sous-espace vectoriel de $E$. Alors :
+
+1. $F$ est de dimension finie.
+2. $\dim(F) \leq \dim(E)$.
+3. $\dim(F) = \dim(E)$ si et seulement si $F = E$.
+:::
+
+::: {.example}
+- $\dim(\mathbb{K}_n[X]) = n + 1$
+- Une droite vectorielle de $\mathbb{R}^3$ est de dimension $1$.
+- Un plan vectoriel de $\mathbb{R}^3$ est de dimension $2$.
+:::
+
+## Dimension d'une somme de sous-espaces
+
+::: {.proposition title="(Formule de Grassmann)"}
+Soient $F$ et $G$ deux sous-espaces vectoriels de dimension finie d'un $\mathbb{K}$-espace vectoriel $E$. Alors :
+$$\dim(F + G) = \dim(F) + \dim(G) - \dim(F \cap G)$$
+:::
+
+::: {.corollary}
+Si $F$ et $G$ sont supplémentaires dans $E$ (c'est-à-dire $E = F \oplus G$), alors :
+$$\dim(E) = \dim(F) + \dim(G)$$
+:::
+
+## Rang d'une famille de vecteurs
+
+::: {.definition}
+Le **rang** d'une famille de vecteurs $(v_1, \ldots, v_p)$ est la dimension du sous-espace vectoriel engendré :
+$$\text{rg}(v_1, \ldots, v_p) = \dim(\text{Vect}(v_1, \ldots, v_p))$$
+:::
+
+::: {.proposition}
+Le rang d'une famille de vecteurs est le nombre de vecteurs d'une sous-famille libre maximale.
+:::
+
+::: {.example}
+Dans $\mathbb{R}^3$ :
+
+- $\text{rg}((1,0,0), (0,1,0)) = 2$
+- $\text{rg}((1,0,0), (2,0,0)) = 1$
+- $\text{rg}((1,0,0), (0,1,0), (0,0,1)) = 3$
+- $\text{rg}((1,1,0), (0,1,1), (1,0,-1)) = 2$ (car la famille est liée)
+:::
+
+# Applications et exercices
+
+::: {.exercise}
+Montrer que les ensembles suivants sont des sous-espaces vectoriels de $\mathbb{R}^3$ :
+
+1. $F_1 = \{(x, y, z) \in \mathbb{R}^3 \mid x + y + z = 0\}$
+2. $F_2 = \{(x, y, z) \in \mathbb{R}^3 \mid x = y\}$
+3. $F_3 = \{(x, y, z) \in \mathbb{R}^3 \mid x + 2y + 3z = 0\}$
+:::
+
+::: {.exercise}
+Montrer que les ensembles suivants ne sont **pas** des sous-espaces vectoriels :
+
+1. $F_1 = \{(x, y) \in \mathbb{R}^2 \mid x + y = 1\}$
+2. $F_2 = \{(x, y) \in \mathbb{R}^2 \mid x \geq 0\}$
+3. $F_3 = \{(x, y) \in \mathbb{R}^2 \mid x^2 + y^2 \leq 1\}$
+:::
+
+::: {.exercise}
+Montrer que les familles suivantes sont libres :
+
+1. $((1, 0, 0), (0, 1, 0), (0, 0, 1))$ dans $\mathbb{R}^3$
+2. $(1, X, X^2)$ dans $\mathbb{R}[X]$
+3. $((1, 1, 0), (0, 1, 1))$ dans $\mathbb{R}^3$
+:::
+
+::: {.exercise}
+Montrer que les familles suivantes sont liées :
+
+1. $((1, 2, 3), (2, 4, 6))$ dans $\mathbb{R}^3$
+2. $((1, 1, 0), (0, 1, 1), (1, 0, -1))$ dans $\mathbb{R}^3$
+:::
+
+::: {.exercise}
+Montrer que $\mathbb{R}^3 = F \oplus G$ où :
+$$F = \{(x, y, z) \in \mathbb{R}^3 \mid x + y + z = 0\} \quad \text{et} \quad G = \text{Vect}((1, 1, 1))$$
+:::
+
+::: {.exercise}
+Montrer que $\dim(\mathbb{K}_n[X]) = n + 1$ en exhibant une base.
+:::
+
+::: {.exercise}
+Soit $F = \{(x, y, z) \in \mathbb{R}^3 \mid x + y + z = 0\}$. Montrer que $\dim(F) = 2$ en exhibant une base de $F$.
+:::
+
+::: {.exercise}
+Soient $F = \text{Vect}((1, 1, 0), (0, 1, 1))$ et $G = \text{Vect}((1, 0, 1))$ dans $\mathbb{R}^3$.
+
+1. Montrer que $F$ et $G$ sont des sous-espaces vectoriels.
+2. Montrer que $\mathbb{R}^3 = F \oplus G$.
+3. Déterminer $\dim(F)$, $\dim(G)$ et vérifier la formule de Grassmann.
+:::
+
+::: {.exercise}
+Soit $E = \mathbb{K}_2[X]$. Montrer que les polynômes $P_1 = 1$, $P_2 = X + 1$, $P_3 = X^2 + X + 1$ forment une base de $E$.
+:::
+
+::: {.exercise}
+Soit $E$ un espace vectoriel de dimension $3$ et $F$, $G$ deux sous-espaces vectoriels de $E$ tels que $\dim(F) = 2$ et $\dim(G) = 2$. Montrer que $F \cap G \neq \{0_E\}$.
+:::
+
+# Document en PDF {-}
+[Chapitre 13 : Espaces vectoriels](PDF/pcsi-chap13.pdf)
+
+## Navigation {-}
+::: {.chap-nav}
+[Chapitre 12 : Développements limités, calcul asymptotique](pcsi-chap12.qmd){.prev}
+[Menu PCSI1](pcsi.qmd){.home}
+[Chapitre 14 : Applications linéaires](pcsi-chap14.qmd){.next}
+:::

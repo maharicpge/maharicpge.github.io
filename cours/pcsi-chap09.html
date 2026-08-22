@@ -1,13 +1,14 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr"><head>
 
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.10.18">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Saîd MAHARI">
 
-<title>Probabilités - Mathématiques en CPGE – Mathématiques en CPGE</title>
+<title>Primitives et équations différentielles linéaires – Mathématiques en CPGE</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -45,7 +46,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-7a8c080b55ea27eb37b467515007f9ee.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-e0d9a45d84245cc5e3b300860d8fa645.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -60,22 +61,66 @@ ul.task-list li input[type="checkbox"] {
   ],
   "show-item-context": false,
   "language": {
-    "search-no-results-text": "No results",
-    "search-matching-documents-text": "matching documents",
-    "search-copy-link-title": "Copy link to search",
-    "search-hide-matches-text": "Hide additional matches",
-    "search-more-match-text": "more match in this document",
-    "search-more-matches-text": "more matches in this document",
-    "search-clear-button-title": "Clear",
+    "search-no-results-text": "Pas de résultats",
+    "search-matching-documents-text": "documents trouvés",
+    "search-copy-link-title": "Copier le lien vers la recherche",
+    "search-hide-matches-text": "Cacher les correspondances additionnelles",
+    "search-more-match-text": "correspondance de plus dans ce document",
+    "search-more-matches-text": "correspondances de plus dans ce document",
+    "search-clear-button-title": "Effacer",
     "search-text-placeholder": "",
-    "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit",
-    "search-label": "Search"
+    "search-detached-cancel-button-title": "Annuler",
+    "search-submit-button-title": "Envoyer",
+    "search-label": "Recherche"
   }
 }</script>
 
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="styles.css">
 </head>
 
 <body class="nav-fixed quarto-light">
@@ -89,8 +134,8 @@ ul.task-list li input[type="checkbox"] {
     <span class="navbar-title">Accueil</span>
     </a>
   </div>
-            <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+            <div id="quarto-search" class="" title="Recherche"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Basculer la navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
@@ -140,10 +185,43 @@ ul.task-list li input[type="checkbox"] {
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
+    <h2 id="toc-title">Sur cette page</h2>
    
   <ul>
-  <li><a href="#document" id="toc-document" class="nav-link active" data-scroll-target="#document">Document</a></li>
+  <li><a href="#primitives-dune-fonction" id="toc-primitives-dune-fonction" class="nav-link active" data-scroll-target="#primitives-dune-fonction"><span class="header-section-number">1</span> Primitives d’une fonction</a>
+  <ul class="collapse">
+  <li><a href="#définition-et-propriétés" id="toc-définition-et-propriétés" class="nav-link" data-scroll-target="#définition-et-propriétés"><span class="header-section-number">1.1</span> Définition et propriétés</a></li>
+  <li><a href="#primitives-des-fonctions-usuelles" id="toc-primitives-des-fonctions-usuelles" class="nav-link" data-scroll-target="#primitives-des-fonctions-usuelles"><span class="header-section-number">1.2</span> Primitives des fonctions usuelles</a></li>
+  </ul></li>
+  <li><a href="#techniques-de-calcul-de-primitives" id="toc-techniques-de-calcul-de-primitives" class="nav-link" data-scroll-target="#techniques-de-calcul-de-primitives"><span class="header-section-number">2</span> Techniques de calcul de primitives</a>
+  <ul class="collapse">
+  <li><a href="#intégration-par-parties-ipp" id="toc-intégration-par-parties-ipp" class="nav-link" data-scroll-target="#intégration-par-parties-ipp"><span class="header-section-number">2.1</span> Intégration par parties (IPP)</a></li>
+  <li><a href="#changement-de-variable" id="toc-changement-de-variable" class="nav-link" data-scroll-target="#changement-de-variable"><span class="header-section-number">2.2</span> Changement de variable</a></li>
+  </ul></li>
+  <li><a href="#équations-différentielles-linéaires-du-premier-ordre" id="toc-équations-différentielles-linéaires-du-premier-ordre" class="nav-link" data-scroll-target="#équations-différentielles-linéaires-du-premier-ordre"><span class="header-section-number">3</span> Équations différentielles linéaires du premier ordre</a>
+  <ul class="collapse">
+  <li><a href="#définitions-et-structure-des-solutions" id="toc-définitions-et-structure-des-solutions" class="nav-link" data-scroll-target="#définitions-et-structure-des-solutions"><span class="header-section-number">3.1</span> Définitions et structure des solutions</a></li>
+  <li><a href="#résolution-de-léquation-homogène" id="toc-résolution-de-léquation-homogène" class="nav-link" data-scroll-target="#résolution-de-léquation-homogène"><span class="header-section-number">3.2</span> Résolution de l’équation homogène</a></li>
+  <li><a href="#méthode-de-variation-de-la-constante" id="toc-méthode-de-variation-de-la-constante" class="nav-link" data-scroll-target="#méthode-de-variation-de-la-constante"><span class="header-section-number">3.3</span> Méthode de variation de la constante</a></li>
+  <li><a href="#cas-particulier-coefficients-constants" id="toc-cas-particulier-coefficients-constants" class="nav-link" data-scroll-target="#cas-particulier-coefficients-constants"><span class="header-section-number">3.4</span> Cas particulier : coefficients constants</a></li>
+  <li><a href="#problème-de-cauchy" id="toc-problème-de-cauchy" class="nav-link" data-scroll-target="#problème-de-cauchy"><span class="header-section-number">3.5</span> Problème de Cauchy</a></li>
+  </ul></li>
+  <li><a href="#équations-différentielles-linéaires-du-second-ordre-à-coefficients-constants" id="toc-équations-différentielles-linéaires-du-second-ordre-à-coefficients-constants" class="nav-link" data-scroll-target="#équations-différentielles-linéaires-du-second-ordre-à-coefficients-constants"><span class="header-section-number">4</span> Équations différentielles linéaires du second ordre à coefficients constants</a>
+  <ul class="collapse">
+  <li><a href="#définition-et-structure-des-solutions" id="toc-définition-et-structure-des-solutions" class="nav-link" data-scroll-target="#définition-et-structure-des-solutions"><span class="header-section-number">4.1</span> Définition et structure des solutions</a></li>
+  <li><a href="#équation-caractéristique" id="toc-équation-caractéristique" class="nav-link" data-scroll-target="#équation-caractéristique"><span class="header-section-number">4.2</span> Équation caractéristique</a></li>
+  <li><a href="#résolution-de-léquation-complète-à-coefficients-constants" id="toc-résolution-de-léquation-complète-à-coefficients-constants" class="nav-link" data-scroll-target="#résolution-de-léquation-complète-à-coefficients-constants"><span class="header-section-number">4.3</span> Résolution de l’équation complète à coefficients constants</a></li>
+  <li><a href="#problème-de-cauchy-pour-léquation-du-second-ordre" id="toc-problème-de-cauchy-pour-léquation-du-second-ordre" class="nav-link" data-scroll-target="#problème-de-cauchy-pour-léquation-du-second-ordre"><span class="header-section-number">4.4</span> Problème de Cauchy pour l’équation du second ordre</a></li>
+  </ul></li>
+  <li><a href="#applications-et-modélisation" id="toc-applications-et-modélisation" class="nav-link" data-scroll-target="#applications-et-modélisation"><span class="header-section-number">5</span> Applications et modélisation</a>
+  <ul class="collapse">
+  <li><a href="#régimes-transitoire-et-établi" id="toc-régimes-transitoire-et-établi" class="nav-link" data-scroll-target="#régimes-transitoire-et-établi"><span class="header-section-number">5.1</span> Régimes transitoire et établi</a></li>
+  <li><a href="#systèmes-mécaniques-linéaires" id="toc-systèmes-mécaniques-linéaires" class="nav-link" data-scroll-target="#systèmes-mécaniques-linéaires"><span class="header-section-number">5.2</span> Systèmes mécaniques linéaires</a></li>
+  </ul></li>
+  <li><a href="#document-en-pdf" id="toc-document-en-pdf" class="nav-link" data-scroll-target="#document-en-pdf">Document en PDF</a>
+  <ul class="collapse">
+  <li><a href="#navigation" id="toc-navigation" class="nav-link" data-scroll-target="#navigation">Navigation</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -152,14 +230,27 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Chapitre 09 : Probabilités</h1>
+<h1 class="title">Primitives et équations différentielles linéaires</h1>
+<p class="subtitle lead">Chapitre 09</p>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Auteur·rice</div>
+    <div class="quarto-title-meta-contents">
+             <p>Saîd MAHARI </p>
+          </div>
+  </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">Date de publication</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">22 août 2026</p>
+    </div>
+  </div>
   
     
   </div>
@@ -169,12 +260,443 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p><strong>PCSI (1re année) — Chapitre 09.</strong> Espaces finis, variables aléatoires finies, lois usuelles.</p>
-<section id="document" class="level2">
-<h2 class="anchored" data-anchor-id="document">Document</h2>
-<p><em>PDF à venir : déposez le fichier <code>files/pcsi/chap09.pdf</code> puis régénérez la page.</em></p>
+<p><strong>PCSI 1re année — Chapitre 09.</strong> Primitives, IPP, changement de variable, équations différentielles linéaires d’ordre 1 et d’ordre 2 à coefficients constants, problème de Cauchy.</p>
+<p>Ce chapitre a été réalisé conformément au programme marocain de mathématiques de la filière PCSI.</p>
+<p>Dans tout ce chapitre, <span class="math inline">\mathbb{K}</span> désigne <span class="math inline">\mathbb{R}</span> ou <span class="math inline">\mathbb{C}</span>, et <span class="math inline">I</span> désigne un intervalle de <span class="math inline">\mathbb{R}</span> non vide et non réduit à un point.</p>
+<section id="primitives-dune-fonction" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Primitives d’une fonction</h1>
+<section id="définition-et-propriétés" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="définition-et-propriétés"><span class="header-section-number">1.1</span> Définition et propriétés</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 1.1</strong></p>
+<p>Soit <span class="math inline">f : I \to \mathbb{K}</span> une fonction définie sur un intervalle <span class="math inline">I</span>. On appelle <strong>primitive</strong> de <span class="math inline">f</span> sur <span class="math inline">I</span> toute fonction <span class="math inline">F : I \to \mathbb{K}</span> dérivable sur <span class="math inline">I</span> telle que : <span class="math display">\forall x \in I,\quad F'(x) = f(x)</span></p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 1.1</strong></p>
+<p>Soit <span class="math inline">f : I \to \mathbb{K}</span> une fonction admettant une primitive <span class="math inline">F</span> sur <span class="math inline">I</span>. Alors :</p>
+<ol type="1">
+<li>Toute primitive de <span class="math inline">f</span> sur <span class="math inline">I</span> est de la forme <span class="math inline">F + C</span>, où <span class="math inline">C \in \mathbb{K}</span> est une constante.</li>
+<li>Réciproquement, pour toute constante <span class="math inline">C \in \mathbb{K}</span>, la fonction <span class="math inline">F + C</span> est une primitive de <span class="math inline">f</span> sur <span class="math inline">I</span>.</li>
+</ol>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Preuve</em>. </span>Si <span class="math inline">G</span> est une autre primitive de <span class="math inline">f</span> sur <span class="math inline">I</span>, alors <span class="math inline">(G - F)' = G' - F' = f - f = 0</span> sur <span class="math inline">I</span>. Comme <span class="math inline">I</span> est un intervalle, <span class="math inline">G - F</span> est constante sur <span class="math inline">I</span>, donc <span class="math inline">G = F + C</span> pour une certaine constante <span class="math inline">C</span>.</p>
+</div>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 1.1 — (Existence de primitives)</strong></p>
+<p>Toute fonction continue sur un intervalle <span class="math inline">I</span> admet des primitives sur <span class="math inline">I</span>.</p>
+</div>
+<div class="proof remark">
+<p><span class="proof-title"><em>Remarque</em>. </span>Ce résultat est admis à ce stade. Sa démonstration sera donnée dans le chapitre consacré à l’intégration.</p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 1.1</strong></p>
+<ul>
+<li>Les primitives de <span class="math inline">f(x) = x</span> sur <span class="math inline">\mathbb{R}</span> sont les fonctions <span class="math inline">F(x) = \frac{x^2}{2} + C</span>, <span class="math inline">C \in \mathbb{R}</span>.</li>
+<li>Les primitives de <span class="math inline">f(x) = \frac{1}{x}</span> sur <span class="math inline">]0, +\infty[</span> sont les fonctions <span class="math inline">F(x) = \ln x + C</span>, <span class="math inline">C \in \mathbb{R}</span>.</li>
+</ul>
+</div>
+</section>
+<section id="primitives-des-fonctions-usuelles" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="primitives-des-fonctions-usuelles"><span class="header-section-number">1.2</span> Primitives des fonctions usuelles</h2>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 1.2 — (Table des primitives usuelles)</strong></p>
+<p>Les primitives des fonctions usuelles sont données dans le tableau suivant (sur un intervalle adapté) :</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Fonction <span class="math inline">f(x)</span></th>
+<th>Primitive <span class="math inline">F(x)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">x^n</span> (<span class="math inline">n \in \mathbb{N}</span>)</td>
+<td><span class="math inline">\frac{x^{n+1}}{n+1} + C</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\frac{1}{x}</span></td>
+<td><span class="math inline">\ln|x| + C</span> (sur un intervalle de <span class="math inline">\mathbb{R}^*</span>)</td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">e^{\alpha x}</span> (<span class="math inline">\alpha \neq 0</span>)</td>
+<td><span class="math inline">\frac{1}{\alpha} e^{\alpha x} + C</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\cos(ax)</span> (<span class="math inline">a \neq 0</span>)</td>
+<td><span class="math inline">\frac{1}{a} \sin(ax) + C</span></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\sin(ax)</span> (<span class="math inline">a \neq 0</span>)</td>
+<td><span class="math inline">-\frac{1}{a} \cos(ax) + C</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\cos^2(ax)</span> (<span class="math inline">a \neq 0</span>)</td>
+<td><span class="math inline">\frac{x}{2} + \frac{1}{4a}\sin(2ax) + C</span></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\sin^2(ax)</span> (<span class="math inline">a \neq 0</span>)</td>
+<td><span class="math inline">\frac{x}{2} - \frac{1}{4a}\sin(2ax) + C</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\tan(ax)</span> (<span class="math inline">a \neq 0</span>)</td>
+<td><span class="math inline">-\frac{1}{a} \ln|\cos(ax)| + C</span></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\frac{1}{\sqrt{x}}</span> (sur <span class="math inline">\mathbb{R}^{+*}</span>)</td>
+<td><span class="math inline">2\sqrt{x} + C</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 1.2</strong></p>
+<p>Pour calculer les primitives de <span class="math inline">x \mapsto \cos^2(x)</span>, on utilise la formule de linéarisation : <span class="math display">\cos^2(x) = \frac{1 + \cos(2x)}{2}</span> donc : <span class="math display">\int \cos^2(x)\, dx = \frac{x}{2} + \frac{\sin(2x)}{4} + C</span></p>
+</div>
+</section>
+</section>
+<section id="techniques-de-calcul-de-primitives" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> Techniques de calcul de primitives</h1>
+<section id="intégration-par-parties-ipp" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="intégration-par-parties-ipp"><span class="header-section-number">2.1</span> Intégration par parties (IPP)</h2>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 2.1 — (Intégration par parties)</strong></p>
+<p>Soient <span class="math inline">u, v</span> deux fonctions de classe <span class="math inline">\mathcal{C}^1</span> sur un intervalle <span class="math inline">I</span>. Alors pour tous <span class="math inline">a, b \in I</span> : <span class="math display">\int_a^b u'(t)v(t)\, dt = \left[u(t)v(t)\right]_a^b - \int_a^b u(t)v'(t)\, dt</span></p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Preuve</em>. </span>On a <span class="math inline">(uv)' = u'v + uv'</span>. En intégrant les deux membres sur <span class="math inline">[a,b]</span> : <span class="math display">\int_a^b (uv)'(t)\, dt = \int_a^b u'(t)v(t)\, dt + \int_a^b u(t)v'(t)\, dt</span> Or <span class="math inline">\int_a^b (uv)'(t)\, dt = [u(t)v(t)]_a^b</span>, d’où le résultat.</p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 2.1</strong></p>
+<p>Calculons <span class="math inline">\int_0^1 x e^x\, dx</span>.</p>
+<p>Posons <span class="math inline">u(x) = x</span> et <span class="math inline">v(x) = e^x</span>, donc <span class="math inline">u'(x) = 1</span> et <span class="math inline">v'(x) = e^x</span>. Alors : <span class="math display">\int_0^1 x e^x\, dx = \left[xe^x\right]_0^1 - \int_0^1 1 \cdot e^x\, dx = e - \left[e^x\right]_0^1 = e - (e - 1) = 1</span></p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 2.2</strong></p>
+<p>Calculons <span class="math inline">\int_0^{\pi} t\sin(t)\, dt</span>.</p>
+<p>Posons <span class="math inline">u(t) = t</span> et <span class="math inline">v'(t) = \sin(t)</span>, donc <span class="math inline">u'(t) = 1</span> et <span class="math inline">v(t) = -\cos(t)</span>. Alors : <span class="math display">\int_0^{\pi} t\sin(t)\, dt = \left[-t\cos(t)\right]_0^{\pi} - \int_0^{\pi} (-\cos(t))\, dt = \pi + \left[\cos(t)\right]_0^{\pi} = \pi + (-1 - 1) = \pi - 2</span></p>
+</div>
+</section>
+<section id="changement-de-variable" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="changement-de-variable"><span class="header-section-number">2.2</span> Changement de variable</h2>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 2.2 — (Changement de variable)</strong></p>
+<p>Soit <span class="math inline">\varphi : J \to I</span> une fonction de classe <span class="math inline">\mathcal{C}^1</span> et <span class="math inline">f : I \to \mathbb{K}</span> une fonction continue. Alors pour tous <span class="math inline">a, b \in J</span> : <span class="math display">\int_{\varphi(a)}^{\varphi(b)} f(t)\, dt = \int_a^b f(\varphi(t))\varphi'(t)\, dt</span></p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 2.3</strong></p>
+<p>Calculons <span class="math inline">\int_0^1 \frac{x}{1+x^2}\, dx</span>.</p>
+<p>Posons <span class="math inline">t = 1 + x^2</span>, donc <span class="math inline">dt = 2x\, dx</span> et <span class="math inline">x\, dx = \frac{dt}{2}</span>. Quand <span class="math inline">x = 0</span>, <span class="math inline">t = 1</span> ; quand <span class="math inline">x = 1</span>, <span class="math inline">t = 2</span>. Donc : <span class="math display">\int_0^1 \frac{x}{1+x^2}\, dx = \int_1^2 \frac{1}{t}\cdot\frac{dt}{2} = \frac{1}{2}\left[\ln t\right]_1^2 = \frac{\ln 2}{2}</span></p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 2.4</strong></p>
+<p>Calculons <span class="math inline">\int_0^{\pi/2} \sin(x)\cos(x)\, dx</span>.</p>
+<p><strong>Méthode 1</strong> (changement de variable) : Posons <span class="math inline">t = \sin(x)</span>, donc <span class="math inline">dt = \cos(x)\, dx</span>. Quand <span class="math inline">x = 0</span>, <span class="math inline">t = 0</span> ; quand <span class="math inline">x = \frac{\pi}{2}</span>, <span class="math inline">t = 1</span>. Donc : <span class="math display">\int_0^{\pi/2} \sin(x)\cos(x)\, dx = \int_0^1 t\, dt = \frac{1}{2}</span></p>
+<p><strong>Méthode 2</strong> (linéarisation) : <span class="math inline">\sin(x)\cos(x) = \frac{\sin(2x)}{2}</span>, donc : <span class="math display">\int_0^{\pi/2} \sin(x)\cos(x)\, dx = \frac{1}{2}\int_0^{\pi/2} \sin(2x)\, dx = \frac{1}{2}\left[-\frac{\cos(2x)}{2}\right]_0^{\pi/2} = \frac{1}{2}</span></p>
+</div>
+<div class="proof remark" title="(Intérêt du changement de variable affine)">
+<p><span class="proof-title"><em>Remarque</em>. </span>Le changement de variable affine <span class="math inline">x = a + (b-a)t</span> permet de se ramener à l’intervalle <span class="math inline">[0,1]</span>. Il est aussi utile pour exploiter la périodicité et les symétries d’une fonction.</p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 2.5</strong></p>
+<p>Pour calculer <span class="math inline">\int_0^{2\pi} \sin^2(x)\, dx</span>, on peut utiliser la périodicité de <span class="math inline">\sin^2</span> (période <span class="math inline">\pi</span>) : <span class="math display">\int_0^{2\pi} \sin^2(x)\, dx = 2\int_0^{\pi} \sin^2(x)\, dx = 2\int_0^{\pi} \frac{1 - \cos(2x)}{2}\, dx = \int_0^{\pi} (1 - \cos(2x))\, dx = \pi</span></p>
+</div>
+</section>
+</section>
+<section id="équations-différentielles-linéaires-du-premier-ordre" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Équations différentielles linéaires du premier ordre</h1>
+<section id="définitions-et-structure-des-solutions" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="définitions-et-structure-des-solutions"><span class="header-section-number">3.1</span> Définitions et structure des solutions</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 3.1</strong></p>
+<p>On appelle <strong>équation différentielle linéaire du premier ordre</strong> une équation de la forme : <span class="math display">\alpha(x)y' + \beta(x)y = \gamma(x) \quad (E)</span> où <span class="math inline">\alpha</span>, <span class="math inline">\beta</span> et <span class="math inline">\gamma</span> sont des fonctions définies sur un intervalle <span class="math inline">I</span>, avec <span class="math inline">\alpha</span> non identiquement nulle.</p>
+<p>On appelle <strong>équation homogène associée</strong> à <span class="math inline">(E)</span> l’équation : <span class="math display">\alpha(x)y' + \beta(x)y = 0 \quad (E_0)</span></p>
+<p>Une <strong>solution</strong> de <span class="math inline">(E)</span> sur un sous-intervalle <span class="math inline">J \subset I</span> est une fonction <span class="math inline">y : J \to \mathbb{K}</span> dérivable sur <span class="math inline">J</span> vérifiant <span class="math inline">(E)</span> en tout point de <span class="math inline">J</span>.</p>
+</div>
+<div class="proof remark">
+<p><span class="proof-title"><em>Remarque</em>. </span>On se ramène souvent à la forme normalisée <span class="math inline">y' + a(x)y = b(x)</span> en divisant par <span class="math inline">\alpha(x)</span> lorsque <span class="math inline">\alpha(x) \neq 0</span>.</p>
+</div>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 3.2</strong></p>
+<p>On dit que <span class="math inline">y</span> est une solution de l’équation <span class="math inline">(E)</span> sur <span class="math inline">I</span> si <span class="math inline">y</span> est une solution de <span class="math inline">(E)</span> sur tout sous-intervalle de <span class="math inline">I</span> sur lequel <span class="math inline">\alpha</span> ne s’annule pas.</p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 3.1 — (Structure des solutions de l’équation homogène)</strong></p>
+<p>Soit <span class="math inline">I</span> un intervalle sur lequel <span class="math inline">\alpha</span> ne s’annule pas. Alors :</p>
+<ol type="1">
+<li>L’ensemble des solutions de <span class="math inline">(E_0)</span> sur <span class="math inline">I</span> est un <span class="math inline">\mathbb{K}</span>-espace vectoriel.</li>
+<li>Si <span class="math inline">y_1</span> est une solution non nulle de <span class="math inline">(E_0)</span> sur <span class="math inline">I</span>, alors toute solution de <span class="math inline">(E_0)</span> sur <span class="math inline">I</span> est de la forme <span class="math inline">\lambda y_1</span>, <span class="math inline">\lambda \in \mathbb{K}</span>.</li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 3.2 — (Structure des solutions de l’équation complète)</strong></p>
+<p>Soit <span class="math inline">I</span> un intervalle sur lequel <span class="math inline">\alpha</span> ne s’annule pas. Alors :</p>
+<ol type="1">
+<li>Si <span class="math inline">y_p</span> est une solution particulière de <span class="math inline">(E)</span> sur <span class="math inline">I</span>, alors l’ensemble des solutions de <span class="math inline">(E)</span> sur <span class="math inline">I</span> est : <span class="math display">\{y_p + y_0 \mid y_0 \text{ solution de } (E_0) \text{ sur } I\}</span></li>
+<li>En particulier, si <span class="math inline">y_1</span> est une solution non nulle de <span class="math inline">(E_0)</span> sur <span class="math inline">I</span>, l’ensemble des solutions de <span class="math inline">(E)</span> est : <span class="math display">\{y_p + \lambda y_1 \mid \lambda \in \mathbb{K}\}</span></li>
+</ol>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Preuve</em>. </span>Si <span class="math inline">y</span> est une solution de <span class="math inline">(E)</span> et <span class="math inline">y_p</span> une solution particulière, alors <span class="math inline">y - y_p</span> est une solution de <span class="math inline">(E_0)</span> car : <span class="math display">\alpha(x)(y - y_p)' + \beta(x)(y - y_p) = \gamma(x) - \gamma(x) = 0</span></p>
+</div>
+<div class="proof remark" title="(Principe de superposition)">
+<p><span class="proof-title"><em>Remarque</em>. </span>Si <span class="math inline">y_1</span> est solution de <span class="math inline">\alpha(x)y' + \beta(x)y = \gamma_1(x)</span> et <span class="math inline">y_2</span> est solution de <span class="math inline">\alpha(x)y' + \beta(x)y = \gamma_2(x)</span>, alors <span class="math inline">\lambda y_1 + \mu y_2</span> est solution de <span class="math inline">\alpha(x)y' + \beta(x)y = \lambda\gamma_1(x) + \mu\gamma_2(x)</span>.</p>
+</div>
+</section>
+<section id="résolution-de-léquation-homogène" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="résolution-de-léquation-homogène"><span class="header-section-number">3.2</span> Résolution de l’équation homogène</h2>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 3.1 — (Résolution de l’équation homogène)</strong></p>
+<p>Soit <span class="math inline">I</span> un intervalle sur lequel <span class="math inline">a</span> et <span class="math inline">b</span> sont continues et <span class="math inline">a</span> ne s’annule pas. Soit <span class="math inline">G</span> une primitive de <span class="math inline">\frac{b}{a}</span> sur <span class="math inline">I</span>. Alors l’ensemble des solutions de <span class="math inline">y' + \frac{b(x)}{a(x)}y = 0</span> sur <span class="math inline">I</span> est : <span class="math display">\left\{x \mapsto \lambda e^{G(x)} \mid \lambda \in \mathbb{K}\right\}</span></p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Preuve</em>. </span>Si <span class="math inline">y</span> est une solution de <span class="math inline">(E_0)</span>, posons <span class="math inline">z(x) = y(x)e^{-G(x)}</span>. Alors : <span class="math display">z'(x) = y'(x)e^{-G(x)} - y(x)G'(x)e^{-G(x)} = e^{-G(x)}\left(y'(x) + \frac{b(x)}{a(x)}y(x)\right) = 0</span> Donc <span class="math inline">z</span> est constante sur <span class="math inline">I</span>, et <span class="math inline">y(x) = \lambda e^{G(x)}</span>.</p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 3.1</strong></p>
+<p>Résolvons <span class="math inline">y' - 2y = 0</span> sur <span class="math inline">\mathbb{R}</span>.</p>
+<p>Ici <span class="math inline">a(x) = 1</span>, <span class="math inline">b(x) = -2</span>. Une primitive de <span class="math inline">-2</span> est <span class="math inline">G(x) = -2x</span>. Les solutions sont : <span class="math display">y(x) = \lambda e^{-2x}, \quad \lambda \in \mathbb{R}</span></p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 3.2</strong></p>
+<p>Résolvons <span class="math inline">y' + \frac{1}{x}y = 0</span> sur <span class="math inline">]0, +\infty[</span>.</p>
+<p>Ici <span class="math inline">a(x) = x</span>, <span class="math inline">b(x) = 1</span>. Une primitive de <span class="math inline">\frac{1}{x}</span> sur <span class="math inline">]0, +\infty[</span> est <span class="math inline">G(x) = \ln x</span>. Les solutions sont : <span class="math display">y(x) = \lambda e^{\ln x} = \lambda x, \quad \lambda \in \mathbb{R}</span></p>
+</div>
+</section>
+<section id="méthode-de-variation-de-la-constante" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="méthode-de-variation-de-la-constante"><span class="header-section-number">3.3</span> Méthode de variation de la constante</h2>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 3.2 — (Méthode de variation de la constante)</strong></p>
+<p>Soit <span class="math inline">I</span> un intervalle sur lequel <span class="math inline">a</span>, <span class="math inline">b</span> et <span class="math inline">c</span> sont continues et <span class="math inline">a</span> ne s’annule pas. Soit <span class="math inline">y_1</span> une solution non nulle de l’équation homogène <span class="math inline">(E_0)</span>. Alors une solution particulière de <span class="math inline">(E)</span> est donnée par : <span class="math display">y_p(x) = y_1(x)\int_{x_0}^{x} \frac{c(t)}{a(t)y_1(t)}\, dt</span> où <span class="math inline">x_0 \in I</span> est fixé.</p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 3.3</strong></p>
+<p>Résolvons <span class="math inline">y' - y = e^x</span> sur <span class="math inline">\mathbb{R}</span>.</p>
+<p><strong>Étape 1</strong> : Résolution de l’équation homogène <span class="math inline">y' - y = 0</span>. Les solutions sont <span class="math inline">y_h(x) = \lambda e^x</span>, <span class="math inline">\lambda \in \mathbb{R}</span>.</p>
+<p><strong>Étape 2</strong> : Méthode de variation de la constante. Posons <span class="math inline">y_p(x) = \lambda(x)e^x</span>. Alors : <span class="math display">y_p'(x) = \lambda'(x)e^x + \lambda(x)e^x</span> En substituant dans l’équation : <span class="math display">\lambda'(x)e^x + \lambda(x)e^x - \lambda(x)e^x = e^x</span> <span class="math display">\lambda'(x)e^x = e^x</span> <span class="math display">\lambda'(x) = 1</span> Donc <span class="math inline">\lambda(x) = x + C</span>. Une solution particulière est <span class="math inline">y_p(x) = xe^x</span>.</p>
+<p><strong>Solution générale</strong> : <span class="math inline">y(x) = xe^x + \lambda e^x = (x + \lambda)e^x</span>, <span class="math inline">\lambda \in \mathbb{R}</span>.</p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 3.4</strong></p>
+<p>Résolvons <span class="math inline">y' + y = xe^{-x}</span> sur <span class="math inline">\mathbb{R}</span>.</p>
+<p><strong>Étape 1</strong> : Résolution de l’équation homogène <span class="math inline">y' + y = 0</span>. Les solutions sont <span class="math inline">y_h(x) = \lambda e^{-x}</span>, <span class="math inline">\lambda \in \mathbb{R}</span>.</p>
+<p><strong>Étape 2</strong> : Méthode de variation de la constante. Posons <span class="math inline">y_p(x) = \lambda(x)e^{-x}</span>. Alors : <span class="math display">y_p'(x) = \lambda'(x)e^{-x} - \lambda(x)e^{-x}</span> En substituant : <span class="math display">\lambda'(x)e^{-x} - \lambda(x)e^{-x} + \lambda(x)e^{-x} = xe^{-x}</span> <span class="math display">\lambda'(x)e^{-x} = xe^{-x}</span> <span class="math display">\lambda'(x) = x</span> Donc <span class="math inline">\lambda(x) = \frac{x^2}{2} + C</span>. Une solution particulière est <span class="math inline">y_p(x) = \frac{x^2}{2}e^{-x}</span>.</p>
+<p><strong>Solution générale</strong> : <span class="math inline">y(x) = \left(\frac{x^2}{2} + \lambda\right)e^{-x}</span>, <span class="math inline">\lambda \in \mathbb{R}</span>.</p>
+</div>
+</section>
+<section id="cas-particulier-coefficients-constants" class="level2" data-number="3.4">
+<h2 data-number="3.4" class="anchored" data-anchor-id="cas-particulier-coefficients-constants"><span class="header-section-number">3.4</span> Cas particulier : coefficients constants</h2>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 3.3 — (Équation différentielle linéaire du premier ordre à coefficients constants)</strong></p>
+<p>Soient <span class="math inline">\alpha \neq 0</span> et <span class="math inline">\beta</span> des constantes. L’équation <span class="math inline">\alpha y' + \beta y = \gamma(x)</span> admet pour solution générale :</p>
+<p><strong>Équation homogène</strong> : <span class="math inline">y_h(x) = \lambda e^{-\beta x/\alpha}</span>, <span class="math inline">\lambda \in \mathbb{K}</span>.</p>
+<p><strong>Solution particulière</strong> : Si <span class="math inline">\gamma(x) = c</span> est une constante et <span class="math inline">\beta \neq 0</span>, une solution particulière est <span class="math inline">y_p = \frac{c}{\beta}</span>.</p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 3.5</strong></p>
+<p>Résolvons <span class="math inline">y' + 3y = 6</span> sur <span class="math inline">\mathbb{R}</span>.</p>
+<p><strong>Étape 1</strong> : <span class="math inline">y' + 3y = 0</span> a pour solutions <span class="math inline">y_h(x) = \lambda e^{-3x}</span>.</p>
+<p><strong>Étape 2</strong> : Une solution particulière est <span class="math inline">y_p = \frac{6}{3} = 2</span>.</p>
+<p><strong>Solution générale</strong> : <span class="math inline">y(x) = \lambda e^{-3x} + 2</span>, <span class="math inline">\lambda \in \mathbb{R}</span>.</p>
+</div>
+</section>
+<section id="problème-de-cauchy" class="level2" data-number="3.5">
+<h2 data-number="3.5" class="anchored" data-anchor-id="problème-de-cauchy"><span class="header-section-number">3.5</span> Problème de Cauchy</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 3.3</strong></p>
+<p>On appelle <strong>problème de Cauchy</strong> associé à l’équation <span class="math inline">(E)</span> et à la condition initiale <span class="math inline">y(x_0) = y_0</span> (où <span class="math inline">x_0 \in I</span> et <span class="math inline">y_0 \in \mathbb{K}</span> sont donnés) la recherche d’une solution <span class="math inline">y</span> de <span class="math inline">(E)</span> sur <span class="math inline">I</span> vérifiant <span class="math inline">y(x_0) = y_0</span>.</p>
+</div>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 3.4 — (Existence et unicité de la solution du problème de Cauchy)</strong></p>
+<p>Soit <span class="math inline">I</span> un intervalle sur lequel <span class="math inline">a</span>, <span class="math inline">b</span> et <span class="math inline">c</span> sont continues et <span class="math inline">a</span> ne s’annule pas. Soit <span class="math inline">x_0 \in I</span> et <span class="math inline">y_0 \in \mathbb{K}</span>. Alors le problème de Cauchy : <span class="math display">\begin{cases} y' + \frac{b(x)}{a(x)}y = \frac{c(x)}{a(x)} \\ y(x_0) = y_0 \end{cases}</span> admet une unique solution sur <span class="math inline">I</span>.</p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 3.6</strong></p>
+<p>Résolvons le problème de Cauchy : <span class="math display">\begin{cases} y' - 2y = 0 \\ y(0) = 3 \end{cases}</span></p>
+<p>Les solutions de <span class="math inline">y' - 2y = 0</span> sont <span class="math inline">y(x) = \lambda e^{-2x}</span>. La condition <span class="math inline">y(0) = 3</span> donne <span class="math inline">\lambda = 3</span>. La solution est donc : <span class="math display">y(x) = 3e^{-2x}</span></p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 3.7</strong></p>
+<p>Résolvons le problème de Cauchy : <span class="math display">\begin{cases} y' + y = 2e^x \\ y(0) = 0 \end{cases}</span></p>
+<p><strong>Étape 1</strong> : Solutions de <span class="math inline">y' + y = 0</span> : <span class="math inline">y_h(x) = \lambda e^{-x}</span>.</p>
+<p><strong>Étape 2</strong> : Méthode de variation de la constante. Posons <span class="math inline">y_p(x) = \lambda(x)e^{-x}</span>. <span class="math display">\lambda'(x)e^{-x} = 2e^x \implies \lambda'(x) = 2e^{2x} \implies \lambda(x) = e^{2x} + C</span> Une solution particulière est <span class="math inline">y_p(x) = e^x</span>.</p>
+<p><strong>Solution générale</strong> : <span class="math inline">y(x) = e^x + \lambda e^{-x}</span>.</p>
+<p><strong>Condition initiale</strong> : <span class="math inline">y(0) = 1 + \lambda = 0 \implies \lambda = -1</span>.</p>
+<p>La solution est <span class="math inline">y(x) = e^x - e^{-x} = 2\sinh(x)</span>.</p>
+</div>
+</section>
+</section>
+<section id="équations-différentielles-linéaires-du-second-ordre-à-coefficients-constants" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> Équations différentielles linéaires du second ordre à coefficients constants</h1>
+<section id="définition-et-structure-des-solutions" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="définition-et-structure-des-solutions"><span class="header-section-number">4.1</span> Définition et structure des solutions</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 4.1</strong></p>
+<p>On appelle <strong>équation différentielle linéaire du second ordre à coefficients constants</strong> une équation de la forme : <span class="math display">ay'' + by' + cy = f(x) \quad (E)</span> où <span class="math inline">a \neq 0</span>, <span class="math inline">b</span> et <span class="math inline">c</span> sont des constantes et <span class="math inline">f</span> est une fonction continue sur un intervalle <span class="math inline">I</span>.</p>
+<p>L’<strong>équation homogène associée</strong> est : <span class="math display">ay'' + by' + cy = 0 \quad (E_0)</span></p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 4.1 — (Structure des solutions)</strong></p>
+<ol type="1">
+<li>L’ensemble des solutions de <span class="math inline">(E_0)</span> sur <span class="math inline">I</span> est un <span class="math inline">\mathbb{K}</span>-espace vectoriel de dimension 2.</li>
+<li>Si <span class="math inline">y_p</span> est une solution particulière de <span class="math inline">(E)</span> sur <span class="math inline">I</span>, alors l’ensemble des solutions de <span class="math inline">(E)</span> sur <span class="math inline">I</span> est : <span class="math display">\{y_p + y_0 \mid y_0 \text{ solution de } (E_0)\}</span></li>
+</ol>
+</div>
+</section>
+<section id="équation-caractéristique" class="level2" data-number="4.2">
+<h2 data-number="4.2" class="anchored" data-anchor-id="équation-caractéristique"><span class="header-section-number">4.2</span> Équation caractéristique</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 4.2</strong></p>
+<p>On appelle <strong>équation caractéristique</strong> associée à l’équation <span class="math inline">(E_0)</span> l’équation : <span class="math display">ar^2 + br + c = 0</span></p>
+</div>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 4.1 — (Résolution de l’équation homogène à coefficients constants)</strong></p>
+<p>Soit <span class="math inline">ar^2 + br + c = 0</span> l’équation caractéristique de discriminant <span class="math inline">\Delta = b^2 - 4ac</span>.</p>
+<ol type="1">
+<li><p>Si <span class="math inline">\Delta &gt; 0</span> (deux racines réelles distinctes <span class="math inline">r_1</span> et <span class="math inline">r_2</span>) : <span class="math display">y(x) = \lambda e^{r_1 x} + \mu e^{r_2 x}, \quad \lambda, \mu \in \mathbb{R}</span></p></li>
+<li><p>Si <span class="math inline">\Delta = 0</span> (racine double <span class="math inline">r</span>) : <span class="math display">y(x) = (\lambda x + \mu)e^{rx}, \quad \lambda, \mu \in \mathbb{R}</span></p></li>
+<li><p>Si <span class="math inline">\Delta &lt; 0</span> (racines complexes conjuguées <span class="math inline">r = \alpha \pm i\omega</span>) : <span class="math display">y(x) = e^{\alpha x}(\lambda\cos(\omega x) + \mu\sin(\omega x)), \quad \lambda, \mu \in \mathbb{R}</span></p></li>
+</ol>
+</div>
+<div class="proof" title="(Cas $\Delta > 0$)">
+<p><span class="proof-title"><em>Preuve</em>. </span>Si <span class="math inline">r_1</span> et <span class="math inline">r_2</span> sont les deux racines distinctes de l’équation caractéristique, alors <span class="math inline">y_1(x) = e^{r_1 x}</span> et <span class="math inline">y_2(x) = e^{r_2 x}</span> sont deux solutions linéairement indépendantes de <span class="math inline">(E_0)</span>. En effet : <span class="math display">a(r_1 e^{r_1 x})' + b(r_1 e^{r_1 x})' + c(e^{r_1 x}) = (ar_1^2 + br_1 + c)e^{r_1 x} = 0</span> De même pour <span class="math inline">y_2</span>. Comme <span class="math inline">r_1 \neq r_2</span>, <span class="math inline">y_1</span> et <span class="math inline">y_2</span> sont linéairement indépendantes. L’ensemble des solutions est donc <span class="math inline">\text{Vect}(y_1, y_2)</span>.</p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 4.1</strong></p>
+<p>Résolvons <span class="math inline">y'' - 5y' + 6y = 0</span>.</p>
+<p>L’équation caractéristique est <span class="math inline">r^2 - 5r + 6 = 0</span>, de discriminant <span class="math inline">\Delta = 25 - 24 = 1 &gt; 0</span>. Les racines sont <span class="math inline">r_1 = 2</span> et <span class="math inline">r_2 = 3</span>.</p>
+<p>Les solutions sont : <span class="math display">y(x) = \lambda e^{2x} + \mu e^{3x}, \quad \lambda, \mu \in \mathbb{R}</span></p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 4.2</strong></p>
+<p>Résolvons <span class="math inline">y'' - 4y' + 4y = 0</span>.</p>
+<p>L’équation caractéristique est <span class="math inline">r^2 - 4r + 4 = 0 = (r-2)^2</span>, de discriminant <span class="math inline">\Delta = 0</span>. La racine double est <span class="math inline">r = 2</span>.</p>
+<p>Les solutions sont : <span class="math display">y(x) = (\lambda x + \mu)e^{2x}, \quad \lambda, \mu \in \mathbb{R}</span></p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 4.3</strong></p>
+<p>Résolvons <span class="math inline">y'' + 2y' + 5y = 0</span>.</p>
+<p>L’équation caractéristique est <span class="math inline">r^2 + 2r + 5 = 0</span>, de discriminant <span class="math inline">\Delta = 4 - 20 = -16 &lt; 0</span>. Les racines complexes sont <span class="math inline">r = -1 \pm 2i</span>.</p>
+<p>Les solutions sont : <span class="math display">y(x) = e^{-x}(\lambda\cos(2x) + \mu\sin(2x)), \quad \lambda, \mu \in \mathbb{R}</span></p>
+</div>
+</section>
+<section id="résolution-de-léquation-complète-à-coefficients-constants" class="level2" data-number="4.3">
+<h2 data-number="4.3" class="anchored" data-anchor-id="résolution-de-léquation-complète-à-coefficients-constants"><span class="header-section-number">4.3</span> Résolution de l’équation complète à coefficients constants</h2>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 4.2 — (Recherche d’une solution particulière)</strong></p>
+<p>Pour l’équation <span class="math inline">ay'' + by' + cy = f(x)</span> à coefficients constants, on recherche une solution particulière selon la forme de <span class="math inline">f(x)</span> :</p>
+<ol type="1">
+<li>Si <span class="math inline">f(x) = c</span> (constante) et <span class="math inline">c \neq 0</span> :
+<ul>
+<li>Si <span class="math inline">c \neq 0</span> : une solution particulière est <span class="math inline">y_p = \frac{c}{c} = \frac{c}{c}</span> (si <span class="math inline">c \neq 0</span>).</li>
+<li>Si <span class="math inline">c = 0</span> et <span class="math inline">b \neq 0</span> : <span class="math inline">y_p = \frac{cx}{b}</span>.</li>
+<li>Si <span class="math inline">b = c = 0</span> : <span class="math inline">y_p = \frac{cx^2}{2a}</span>.</li>
+</ul></li>
+<li>Si <span class="math inline">f(x) = P_n(x)e^{\alpha x}</span> où <span class="math inline">P_n</span> est un polynôme de degré <span class="math inline">n</span> :
+<ul>
+<li>Si <span class="math inline">\alpha</span> n’est pas racine de l’équation caractéristique : <span class="math inline">y_p = Q_n(x)e^{\alpha x}</span> où <span class="math inline">Q_n</span> est un polynôme de degré <span class="math inline">n</span>.</li>
+<li>Si <span class="math inline">\alpha</span> est racine simple : <span class="math inline">y_p = xQ_n(x)e^{\alpha x}</span>.</li>
+<li>Si <span class="math inline">\alpha</span> est racine double : <span class="math inline">y_p = x^2 Q_n(x)e^{\alpha x}</span>.</li>
+</ul></li>
+<li>Si <span class="math inline">f(x) = P_n(x)\cos(\omega x)</span> ou <span class="math inline">P_n(x)\sin(\omega x)</span> : on cherche <span class="math inline">y_p = Q_n(x)\cos(\omega x) + R_n(x)\sin(\omega x)</span> où <span class="math inline">Q_n</span> et <span class="math inline">R_n</span> sont des polynômes de degré <span class="math inline">n</span>.</li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 4.4</strong></p>
+<p>Résolvons <span class="math inline">y'' - 3y' + 2y = 6</span>.</p>
+<p><strong>Étape 1</strong> : Équation homogène <span class="math inline">y'' - 3y' + 2y = 0</span>. Équation caractéristique : <span class="math inline">r^2 - 3r + 2 = 0</span>, racines <span class="math inline">r_1 = 1</span>, <span class="math inline">r_2 = 2</span>. Solutions : <span class="math inline">y_h(x) = \lambda e^x + \mu e^{2x}</span>.</p>
+<p><strong>Étape 2</strong> : Solution particulière. <span class="math inline">f(x) = 6</span> (constante). Comme <span class="math inline">c = 2 \neq 0</span>, une solution particulière est <span class="math inline">y_p = \frac{6}{2} = 3</span>.</p>
+<p><strong>Solution générale</strong> : <span class="math inline">y(x) = \lambda e^x + \mu e^{2x} + 3</span>, <span class="math inline">\lambda, \mu \in \mathbb{R}</span>.</p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 4.5</strong></p>
+<p>Résolvons <span class="math inline">y'' + y = \cos(x)</span>.</p>
+<p><strong>Étape 1</strong> : Équation homogène <span class="math inline">y'' + y = 0</span>. Équation caractéristique : <span class="math inline">r^2 + 1 = 0</span>, racines <span class="math inline">r = \pm i</span>. Solutions : <span class="math inline">y_h(x) = \lambda\cos(x) + \mu\sin(x)</span>.</p>
+<p><strong>Étape 2</strong> : Solution particulière. <span class="math inline">f(x) = \cos(x)</span>. Comme <span class="math inline">\omega = 1</span> et <span class="math inline">\pm i</span> sont racines de l’équation caractéristique, on cherche : <span class="math display">y_p(x) = x(A\cos(x) + B\sin(x))</span> On calcule : <span class="math display">y_p'(x) = A\cos(x) + B\sin(x) + x(-A\sin(x) + B\cos(x))</span> <span class="math display">y_p''(x) = -A\sin(x) + B\cos(x) + (-A\sin(x) + B\cos(x)) + x(-A\cos(x) - B\sin(x))</span> <span class="math display">= -2A\sin(x) + 2B\cos(x) - x(A\cos(x) + B\sin(x))</span> En substituant dans <span class="math inline">y'' + y = \cos(x)</span> : <span class="math display">-2A\sin(x) + 2B\cos(x) - x(A\cos(x) + B\sin(x)) + x(A\cos(x) + B\sin(x)) = \cos(x)</span> <span class="math display">-2A\sin(x) + 2B\cos(x) = \cos(x)</span> Par identification : <span class="math inline">-2A = 0 \implies A = 0</span> et <span class="math inline">2B = 1 \implies B = \frac{1}{2}</span>.</p>
+<p>Une solution particulière est <span class="math inline">y_p(x) = \frac{x}{2}\sin(x)</span>.</p>
+<p><strong>Solution générale</strong> : <span class="math inline">y(x) = \lambda\cos(x) + \mu\sin(x) + \frac{x}{2}\sin(x)</span>, <span class="math inline">\lambda, \mu \in \mathbb{R}</span>.</p>
+</div>
+</section>
+<section id="problème-de-cauchy-pour-léquation-du-second-ordre" class="level2" data-number="4.4">
+<h2 data-number="4.4" class="anchored" data-anchor-id="problème-de-cauchy-pour-léquation-du-second-ordre"><span class="header-section-number">4.4</span> Problème de Cauchy pour l’équation du second ordre</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 4.3</strong></p>
+<p>On appelle <strong>problème de Cauchy</strong> associé à l’équation <span class="math inline">(E)</span> et aux conditions initiales <span class="math inline">y(x_0) = y_0</span>, <span class="math inline">y'(x_0) = y_0'</span> (où <span class="math inline">x_0 \in I</span>, <span class="math inline">y_0, y_0' \in \mathbb{K}</span> sont donnés) la recherche d’une solution <span class="math inline">y</span> de <span class="math inline">(E)</span> sur <span class="math inline">I</span> vérifiant <span class="math inline">y(x_0) = y_0</span> et <span class="math inline">y'(x_0) = y_0'</span>.</p>
+</div>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 4.3 — (Existence et unicité)</strong></p>
+<p>Soit <span class="math inline">I</span> un intervalle. Soit <span class="math inline">x_0 \in I</span> et <span class="math inline">y_0, y_0' \in \mathbb{K}</span>. Alors le problème de Cauchy : <span class="math display">\begin{cases} ay'' + by' + cy = f(x) \\ y(x_0) = y_0 \\ y'(x_0) = y_0' \end{cases}</span> admet une unique solution sur <span class="math inline">I</span>.</p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 4.6</strong></p>
+<p>Résolvons le problème de Cauchy : <span class="math display">\begin{cases} y'' + y = 0 \\ y(0) = 1 \\ y'(0) = 0 \end{cases}</span></p>
+<p><strong>Étape 1</strong> : Solutions de <span class="math inline">y'' + y = 0</span> : <span class="math inline">y(x) = \lambda\cos(x) + \mu\sin(x)</span>.</p>
+<p><strong>Étape 2</strong> : Conditions initiales. <span class="math inline">y(0) = \lambda = 1</span>. <span class="math inline">y'(x) = -\lambda\sin(x) + \mu\cos(x)</span>, donc <span class="math inline">y'(0) = \mu = 0</span>.</p>
+<p>La solution est <span class="math inline">y(x) = \cos(x)</span>.</p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 4.7</strong></p>
+<p>Résolvons le problème de Cauchy : <span class="math display">\begin{cases} y'' - 2y' + y = 0 \\ y(0) = 1 \\ y'(0) = 3 \end{cases}</span></p>
+<p><strong>Étape 1</strong> : Équation caractéristique <span class="math inline">r^2 - 2r + 1 = (r-1)^2 = 0</span>, racine double <span class="math inline">r = 1</span>. Solutions : <span class="math inline">y(x) = (\lambda x + \mu)e^x</span>.</p>
+<p><strong>Étape 2</strong> : Conditions initiales. <span class="math inline">y(0) = \mu = 1</span>. <span class="math inline">y'(x) = (\lambda x + \mu)e^x + \lambda e^x = (\lambda x + \mu + \lambda)e^x</span>. <span class="math inline">y'(0) = \mu + \lambda = 3 \implies \lambda = 2</span>.</p>
+<p>La solution est <span class="math inline">y(x) = (2x + 1)e^x</span>.</p>
+</div>
+</section>
+</section>
+<section id="applications-et-modélisation" class="level1" data-number="5">
+<h1 data-number="5"><span class="header-section-number">5</span> Applications et modélisation</h1>
+<section id="régimes-transitoire-et-établi" class="level2" data-number="5.1">
+<h2 data-number="5.1" class="anchored" data-anchor-id="régimes-transitoire-et-établi"><span class="header-section-number">5.1</span> Régimes transitoire et établi</h2>
+<div class="proof remark" title="(Interprétation physique)">
+<p><span class="proof-title"><em>Remarque</em>. </span>Dans les applications physiques (circuits électriques RC, RL, RLC, systèmes mécaniques), la solution générale d’une équation différentielle linéaire se décompose en :</p>
+<ul>
+<li><strong>Régime transitoire</strong> : la solution de l’équation homogène, qui tend vers 0 quand <span class="math inline">t \to +\infty</span> (si le système est stable).</li>
+<li><strong>Régime établi (ou forcé)</strong> : une solution particulière de l’équation complète, qui persiste quand <span class="math inline">t \to +\infty</span>.</li>
+</ul>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 5.1 — (Circuit RC)</strong></p>
+<p>Un circuit RC est modélisé par l’équation : <span class="math display">RC\frac{du}{dt} + u = E</span> où <span class="math inline">u</span> est la tension aux bornes du condensateur, <span class="math inline">R</span> la résistance, <span class="math inline">C</span> la capacité et <span class="math inline">E</span> la tension d’alimentation.</p>
+<p><strong>Solution</strong> : <span class="math inline">u(t) = E + \lambda e^{-t/(RC)}</span>.</p>
+<p>Le régime transitoire est <span class="math inline">\lambda e^{-t/(RC)}</span> (qui tend vers 0) et le régime établi est <span class="math inline">E</span>.</p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 5.2 — (Circuit RLC)</strong></p>
+<p>Un circuit RLC série est modélisé par : <span class="math display">L\frac{d^2 u}{dt^2} + R\frac{du}{dt} + \frac{1}{C}u = \frac{1}{C}E</span></p>
+<p>L’équation caractéristique est <span class="math inline">Lr^2 + Rr + \frac{1}{C} = 0</span>. Selon le signe du discriminant <span class="math inline">\Delta = R^2 - \frac{4L}{C}</span> :</p>
+<ul>
+<li><span class="math inline">\Delta &gt; 0</span> : régime apériodique (deux racines réelles distinctes).</li>
+<li><span class="math inline">\Delta = 0</span> : régime critique (racine double).</li>
+<li><span class="math inline">\Delta &lt; 0</span> : régime oscillatoire (racines complexes conjuguées).</li>
+</ul>
+</div>
+</section>
+<section id="systèmes-mécaniques-linéaires" class="level2" data-number="5.2">
+<h2 data-number="5.2" class="anchored" data-anchor-id="systèmes-mécaniques-linéaires"><span class="header-section-number">5.2</span> Systèmes mécaniques linéaires</h2>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 5.3 — (Oscillateur harmonique)</strong></p>
+<p>Un oscillateur harmonique non amorti est modélisé par : <span class="math display">m\frac{d^2 x}{dt^2} + kx = 0</span> où <span class="math inline">m</span> est la masse et <span class="math inline">k</span> la constante de raideur.</p>
+<p>L’équation caractéristique est <span class="math inline">mr^2 + k = 0</span>, de racines <span class="math inline">r = \pm i\omega</span> avec <span class="math inline">\omega = \sqrt{k/m}</span>.</p>
+<p>Les solutions sont : <span class="math display">x(t) = A\cos(\omega t) + B\sin(\omega t) = A_0\cos(\omega t + \varphi)</span></p>
+<p>C’est un mouvement périodique de période <span class="math inline">T = \frac{2\pi}{\omega}</span>.</p>
+</div>
+</section>
+</section>
+<section id="document-en-pdf" class="level1 unnumbered">
+<h1 class="unnumbered">Document en PDF</h1>
+<p><a href="PDF/pcsi-chap09.pdf">Chapitre 09 : Primitives et équations différentielles linéaires</a></p>
+<section id="navigation" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="navigation">Navigation</h2>
+<div class="chap-nav">
+<p><a href="../cours/pcsi-chap08.html" class="prev">Chapitre 08 : Fonctions usuelles, fonctions convexes</a> <a href="../cours/pcsi.html" class="home">Menu PCSI</a> <a href="../cours/pcsi-chap10.html" class="next">Chapitre 10 : Calcul matriciel et systèmes d’équations linéaires</a></p>
+</div>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -222,12 +744,12 @@ ul.task-list li input[type="checkbox"] {
       // flash "checked"
       button.classList.add('code-copy-button-checked');
       var currentTitle = button.getAttribute("title");
-      button.setAttribute("title", "Copied!");
+      button.setAttribute("title", "Copié");
       let tooltip;
       if (window.bootstrap) {
         button.setAttribute("data-bs-toggle", "tooltip");
         button.setAttribute("data-bs-placement", "left");
-        button.setAttribute("data-bs-title", "Copied!");
+        button.setAttribute("data-bs-title", "Copié");
         tooltip = new bootstrap.Tooltip(button, 
           { trigger: "manual", 
             customClass: "code-copy-button-tooltip",

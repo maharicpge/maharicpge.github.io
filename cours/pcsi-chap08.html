@@ -1,13 +1,14 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr"><head>
 
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.10.18">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Saîd MAHARI">
 
-<title>Polynômes - Mathématiques en CPGE – Mathématiques en CPGE</title>
+<title>Fonctions usuelles, fonctions convexes – Mathématiques en CPGE</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -45,7 +46,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-7a8c080b55ea27eb37b467515007f9ee.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-e0d9a45d84245cc5e3b300860d8fa645.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -60,22 +61,66 @@ ul.task-list li input[type="checkbox"] {
   ],
   "show-item-context": false,
   "language": {
-    "search-no-results-text": "No results",
-    "search-matching-documents-text": "matching documents",
-    "search-copy-link-title": "Copy link to search",
-    "search-hide-matches-text": "Hide additional matches",
-    "search-more-match-text": "more match in this document",
-    "search-more-matches-text": "more matches in this document",
-    "search-clear-button-title": "Clear",
+    "search-no-results-text": "Pas de résultats",
+    "search-matching-documents-text": "documents trouvés",
+    "search-copy-link-title": "Copier le lien vers la recherche",
+    "search-hide-matches-text": "Cacher les correspondances additionnelles",
+    "search-more-match-text": "correspondance de plus dans ce document",
+    "search-more-matches-text": "correspondances de plus dans ce document",
+    "search-clear-button-title": "Effacer",
     "search-text-placeholder": "",
-    "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit",
-    "search-label": "Search"
+    "search-detached-cancel-button-title": "Annuler",
+    "search-submit-button-title": "Envoyer",
+    "search-label": "Recherche"
   }
 }</script>
 
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="styles.css">
 </head>
 
 <body class="nav-fixed quarto-light">
@@ -89,8 +134,8 @@ ul.task-list li input[type="checkbox"] {
     <span class="navbar-title">Accueil</span>
     </a>
   </div>
-            <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+            <div id="quarto-search" class="" title="Recherche"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Basculer la navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
@@ -140,10 +185,40 @@ ul.task-list li input[type="checkbox"] {
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
+    <h2 id="toc-title">Sur cette page</h2>
    
   <ul>
-  <li><a href="#document" id="toc-document" class="nav-link active" data-scroll-target="#document">Document</a></li>
+  <li><a href="#généralités-sur-létude-dune-fonction" id="toc-généralités-sur-létude-dune-fonction" class="nav-link active" data-scroll-target="#généralités-sur-létude-dune-fonction"><span class="header-section-number">1</span> Généralités sur l’étude d’une fonction</a>
+  <ul class="collapse">
+  <li><a href="#détermination-des-symétries-et-des-périodicités" id="toc-détermination-des-symétries-et-des-périodicités" class="nav-link" data-scroll-target="#détermination-des-symétries-et-des-périodicités"><span class="header-section-number">1.1</span> Détermination des symétries et des périodicités</a></li>
+  <li><a href="#tableau-de-variations-et-tracé-du-graphe" id="toc-tableau-de-variations-et-tracé-du-graphe" class="nav-link" data-scroll-target="#tableau-de-variations-et-tracé-du-graphe"><span class="header-section-number">1.2</span> Tableau de variations et tracé du graphe</a></li>
+  <li><a href="#graphe-dune-réciproque" id="toc-graphe-dune-réciproque" class="nav-link" data-scroll-target="#graphe-dune-réciproque"><span class="header-section-number">1.3</span> Graphe d’une réciproque</a></li>
+  </ul></li>
+  <li><a href="#fonctions-exponentielle-logarithme-népérien-puissances" id="toc-fonctions-exponentielle-logarithme-népérien-puissances" class="nav-link" data-scroll-target="#fonctions-exponentielle-logarithme-népérien-puissances"><span class="header-section-number">2</span> Fonctions exponentielle, logarithme népérien, puissances</a>
+  <ul class="collapse">
+  <li><a href="#croissances-comparées" id="toc-croissances-comparées" class="nav-link" data-scroll-target="#croissances-comparées"><span class="header-section-number">2.1</span> Croissances comparées</a></li>
+  </ul></li>
+  <li><a href="#fonctions-trigonométriques-circulaires-et-hyperboliques" id="toc-fonctions-trigonométriques-circulaires-et-hyperboliques" class="nav-link" data-scroll-target="#fonctions-trigonométriques-circulaires-et-hyperboliques"><span class="header-section-number">3</span> Fonctions trigonométriques circulaires et hyperboliques</a>
+  <ul class="collapse">
+  <li><a href="#fonctions-circulaires" id="toc-fonctions-circulaires" class="nav-link" data-scroll-target="#fonctions-circulaires"><span class="header-section-number">3.1</span> Fonctions circulaires</a></li>
+  <li><a href="#fonctions-hyperboliques" id="toc-fonctions-hyperboliques" class="nav-link" data-scroll-target="#fonctions-hyperboliques"><span class="header-section-number">3.2</span> Fonctions hyperboliques</a></li>
+  <li><a href="#fonction-theta-mapsto-eitheta" id="toc-fonction-theta-mapsto-eitheta" class="nav-link" data-scroll-target="#fonction-theta-mapsto-eitheta"><span class="header-section-number">3.3</span> Fonction <span class="math inline">\theta \mapsto e^{i\theta}</span></a></li>
+  </ul></li>
+  <li><a href="#fonctions-réciproques" id="toc-fonctions-réciproques" class="nav-link" data-scroll-target="#fonctions-réciproques"><span class="header-section-number">4</span> Fonctions réciproques</a>
+  <ul class="collapse">
+  <li><a href="#fonctions-réciproques-circulaires" id="toc-fonctions-réciproques-circulaires" class="nav-link" data-scroll-target="#fonctions-réciproques-circulaires"><span class="header-section-number">4.1</span> Fonctions réciproques circulaires</a></li>
+  <li><a href="#fonctions-réciproques-hyperboliques" id="toc-fonctions-réciproques-hyperboliques" class="nav-link" data-scroll-target="#fonctions-réciproques-hyperboliques"><span class="header-section-number">4.2</span> Fonctions réciproques hyperboliques</a></li>
+  </ul></li>
+  <li><a href="#fonctions-convexes" id="toc-fonctions-convexes" class="nav-link" data-scroll-target="#fonctions-convexes"><span class="header-section-number">5</span> Fonctions convexes</a>
+  <ul class="collapse">
+  <li><a href="#définition-et-interprétation-géométrique" id="toc-définition-et-interprétation-géométrique" class="nav-link" data-scroll-target="#définition-et-interprétation-géométrique"><span class="header-section-number">5.1</span> Définition et interprétation géométrique</a></li>
+  <li><a href="#inégalité-de-jensen" id="toc-inégalité-de-jensen" class="nav-link" data-scroll-target="#inégalité-de-jensen"><span class="header-section-number">5.2</span> Inégalité de Jensen</a></li>
+  <li><a href="#applications" id="toc-applications" class="nav-link" data-scroll-target="#applications"><span class="header-section-number">5.3</span> Applications</a></li>
+  </ul></li>
+  <li><a href="#document-en-pdf" id="toc-document-en-pdf" class="nav-link" data-scroll-target="#document-en-pdf">Document en PDF</a>
+  <ul class="collapse">
+  <li><a href="#navigation" id="toc-navigation" class="nav-link" data-scroll-target="#navigation">Navigation</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -152,14 +227,27 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Chapitre 08 : Polynômes</h1>
+<h1 class="title">Fonctions usuelles, fonctions convexes</h1>
+<p class="subtitle lead">Chapitre 08</p>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Auteur·rice</div>
+    <div class="quarto-title-meta-contents">
+             <p>Saîd MAHARI </p>
+          </div>
+  </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">Date de publication</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">22 août 2026</p>
+    </div>
+  </div>
   
     
   </div>
@@ -169,12 +257,283 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p><strong>PCSI (1re année) — Chapitre 08.</strong> Opérations, racines, factorisation élémentaire.</p>
-<section id="document" class="level2">
-<h2 class="anchored" data-anchor-id="document">Document</h2>
-<p><em>PDF à venir : déposez le fichier <code>files/pcsi/chap08.pdf</code> puis régénérez la page.</em></p>
+<p><strong>PCSI 1re année — Chapitre 08.</strong> exp, ln, puissances, trigonométrie circulaire et hyperbolique, fonctions réciproques, convexité, inégalité de Jensen, applications.</p>
+<p>Ce chapitre a été réalisé conformément au programme marocain de mathématiques de la filière PCSI.</p>
+<section id="généralités-sur-létude-dune-fonction" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Généralités sur l’étude d’une fonction</h1>
+<section id="détermination-des-symétries-et-des-périodicités" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="détermination-des-symétries-et-des-périodicités"><span class="header-section-number">1.1</span> Détermination des symétries et des périodicités</h2>
+<p>Afin de réduire le domaine d’étude d’une fonction, on détermine ses symétries et ses périodicités.</p>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 1.1</strong></p>
+<p>Soit <span class="math inline">I</span> un intervalle de <span class="math inline">\mathbb{R}</span> symétrique par rapport à <span class="math inline">0</span> et <span class="math inline">f:I\to \mathbb{R}</span> une fonction.</p>
+<ul>
+<li><span class="math inline">f</span> est <strong>paire</strong> si <span class="math inline">\forall x\in I,\ f(-x)=f(x)</span>. Le graphe est symétrique par rapport à l’axe des ordonnées.</li>
+<li><span class="math inline">f</span> est <strong>impaire</strong> si <span class="math inline">\forall x\in I,\ f(-x)=-f(x)</span>. Le graphe est symétrique par rapport à l’origine.</li>
+</ul>
+</div>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 1.2</strong></p>
+<p>Soit <span class="math inline">f:\mathbb{R} \to \mathbb{R}</span> une fonction et <span class="math inline">T &gt; 0</span>. La fonction <span class="math inline">f</span> est dite <strong>périodique</strong> de période <span class="math inline">T</span> si <span class="math inline">\forall x\in\mathbb{R},\ f(x+T)=f(x)</span>. Le graphe est invariant par la translation de vecteur <span class="math inline">T\vec{i}</span>.</p>
+</div>
+</section>
+<section id="tableau-de-variations-et-tracé-du-graphe" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="tableau-de-variations-et-tracé-du-graphe"><span class="header-section-number">1.2</span> Tableau de variations et tracé du graphe</h2>
+<p>Le tableau de variations résume le comportement d’une fonction : sens de variation, extremums, limites. Il permet de tracer le graphe de la fonction.</p>
+<p><strong>Asymptotes :</strong></p>
+<ul>
+<li><strong>Asymptote verticale</strong> en <span class="math inline">a</span> si <span class="math inline">\lim_{x\to a} f(x) = \pm\infty</span>.</li>
+<li><strong>Asymptote horizontale</strong> <span class="math inline">y=\ell</span> si <span class="math inline">\lim_{x\to\pm\infty} f(x) = \ell</span>.</li>
+<li><strong>Asymptote oblique</strong> <span class="math inline">y=ax+b</span> si <span class="math inline">\lim_{x\to\pm\infty} [f(x)-(ax+b)] = 0</span>.</li>
+</ul>
+</section>
+<section id="graphe-dune-réciproque" class="level2" data-number="1.3">
+<h2 data-number="1.3" class="anchored" data-anchor-id="graphe-dune-réciproque"><span class="header-section-number">1.3</span> Graphe d’une réciproque</h2>
+<p>Le graphe de <span class="math inline">f^{-1}</span> est le symétrique du graphe de <span class="math inline">f</span> par rapport à la première bissectrice <span class="math inline">y=x</span>.</p>
+</section>
+</section>
+<section id="fonctions-exponentielle-logarithme-népérien-puissances" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> Fonctions exponentielle, logarithme népérien, puissances</h1>
+<p>Les fonctions puissances, l’exponentielle réelle et les fonctions sinus et cosinus sont décrites en détail mais leur existence est admise ; leurs propriétés peuvent être démontrées en partie. On en déduit l’étude des autres fonctions usuelles.</p>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 2.1 — (Fonction exponentielle)</strong></p>
+<p>La fonction <strong>exponentielle</strong> <span class="math inline">\exp : \mathbb{R} \to ]0,+\infty[</span> est l’unique fonction dérivable sur <span class="math inline">\mathbb{R}</span> telle que <span class="math inline">\exp' = \exp</span> et <span class="math inline">\exp(0)=1</span>. On note <span class="math inline">e^x = \exp(x)</span>.</p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 2.1 — (Propriétés de l’exponentielle)</strong></p>
+<ul>
+<li><span class="math inline">\exp</span> est strictement croissante sur <span class="math inline">\mathbb{R}</span>.</li>
+<li><span class="math inline">\forall x,y \in \mathbb{R},\ e^{x+y} = e^x \cdot e^y</span>.</li>
+<li><span class="math inline">\forall x \in \mathbb{R},\ e^{-x} = \frac{1}{e^x}</span>.</li>
+<li><span class="math inline">\forall x \in \mathbb{R},\ e^x &gt; 0</span>.</li>
+<li><span class="math inline">\lim_{x\to+\infty} e^x = +\infty</span> et <span class="math inline">\lim_{x\to-\infty} e^x = 0</span>.</li>
+</ul>
+</div>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 2.2 — (Fonction logarithme népérien)</strong></p>
+<p>La fonction <strong>logarithme népérien</strong> <span class="math inline">\ln : ]0,+\infty[ \to \mathbb{R}</span> est la bijection réciproque de <span class="math inline">\exp</span>. Elle est dérivable et <span class="math inline">\ln'(x) = \frac{1}{x}</span>.</p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 2.2 — (Propriétés du logarithme)</strong></p>
+<ul>
+<li><span class="math inline">\ln</span> est strictement croissante sur <span class="math inline">]0,+\infty[</span>.</li>
+<li><span class="math inline">\forall x,y &gt; 0,\ \ln(xy) = \ln(x) + \ln(y)</span>.</li>
+<li><span class="math inline">\forall x &gt; 0,\ \ln\left(\frac{1}{x}\right) = -\ln(x)</span>.</li>
+<li><span class="math inline">\forall x &gt; 0,\ \forall n \in \mathbb{Z},\ \ln(x^n) = n\ln(x)</span>.</li>
+<li><span class="math inline">\lim_{x\to+\infty} \ln(x) = +\infty</span> et <span class="math inline">\lim_{x\to 0^+} \ln(x) = -\infty</span>.</li>
+</ul>
+</div>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 2.3 — (Fonctions puissances)</strong></p>
+<p>Pour <span class="math inline">\alpha \in \mathbb{R}</span>, la fonction puissance <span class="math inline">x \mapsto x^\alpha</span> est définie sur <span class="math inline">]0,+\infty[</span> par <span class="math inline">x^\alpha = e^{\alpha \ln x}</span>.</p>
+<p>Pour <span class="math inline">n \in \mathbb{N}^*</span>, la fonction <span class="math inline">x \mapsto x^n</span> est définie sur <span class="math inline">\mathbb{R}</span> tout entier.</p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 2.3 — (Relations fonctionnelles)</strong></p>
+<p>Pour <span class="math inline">x,y &gt; 0</span> et <span class="math inline">\alpha, \beta \in \mathbb{R}</span> :</p>
+<ul>
+<li><span class="math inline">(xy)^\alpha = x^\alpha y^\alpha</span></li>
+<li><span class="math inline">x^{\alpha+\beta} = x^\alpha x^\beta</span></li>
+<li><span class="math inline">(x^\alpha)^\beta = x^{\alpha\beta}</span></li>
+</ul>
+</div>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 2.4 — (Logarithme en base <span class="math inline">\boldsymbol{a}</span>)</strong></p>
+<p>Pour <span class="math inline">a &gt; 0</span>, <span class="math inline">a \neq 1</span>, on définit le logarithme en base <span class="math inline">a</span> par : <span class="math display">\log_a(x) = \frac{\ln(x)}{\ln(a)}</span></p>
+<p>En particulier, le logarithme décimal est <span class="math inline">\log_{10}</span> et le logarithme en base 2 est <span class="math inline">\log_2</span>.</p>
+</div>
+<section id="croissances-comparées" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="croissances-comparées"><span class="header-section-number">2.1</span> Croissances comparées</h2>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 2.4 — (Croissances comparées)</strong></p>
+<p>Pour tout <span class="math inline">\alpha &gt; 0</span> :</p>
+<p><span class="math display">\lim_{x\to+\infty} \frac{\ln(x)}{x^\alpha} = 0 \qquad \lim_{x\to+\infty} \frac{x^\alpha}{e^x} = 0 \qquad \lim_{x\to 0^+} x^\alpha \ln(x) = 0</span></p>
+<p>En particulier, au voisinage de <span class="math inline">+\infty</span> : <span class="math inline">\ln(x) \ll x^\alpha \ll e^x</span>.</p>
+</div>
+</section>
+</section>
+<section id="fonctions-trigonométriques-circulaires-et-hyperboliques" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Fonctions trigonométriques circulaires et hyperboliques</h1>
+<section id="fonctions-circulaires" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="fonctions-circulaires"><span class="header-section-number">3.1</span> Fonctions circulaires</h2>
+<p>Les fonctions <span class="math inline">\sin</span>, <span class="math inline">\cos</span>, <span class="math inline">\tan</span> sont <span class="math inline">2\pi</span>-périodiques (sauf <span class="math inline">\tan</span> qui est <span class="math inline">\pi</span>-périodique).</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Fonction</th>
+<th>Dérivée</th>
+<th>Période</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\sin x</span></td>
+<td><span class="math inline">\cos x</span></td>
+<td><span class="math inline">2\pi</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\cos x</span></td>
+<td><span class="math inline">-\sin x</span></td>
+<td><span class="math inline">2\pi</span></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\tan x</span></td>
+<td><span class="math inline">1+\tan^2 x</span></td>
+<td><span class="math inline">\pi</span></td>
+</tr>
+</tbody>
+</table>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 3.1 — (Formules d’addition)</strong></p>
+<p>Pour tout <span class="math inline">a,b \in \mathbb{R}</span> :</p>
+<ul>
+<li><span class="math inline">\cos(a+b) = \cos a \cos b - \sin a \sin b</span></li>
+<li><span class="math inline">\sin(a+b) = \sin a \cos b + \cos a \sin b</span></li>
+<li><span class="math inline">\tan(a+b) = \frac{\tan a + \tan b}{1 - \tan a \tan b}</span> (si défini)</li>
+</ul>
+</div>
+</section>
+<section id="fonctions-hyperboliques" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="fonctions-hyperboliques"><span class="header-section-number">3.2</span> Fonctions hyperboliques</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 3.1</strong></p>
+<p>Les fonctions hyperboliques sont définies par :</p>
+<p><span class="math display">\sinh(x) = \frac{e^x - e^{-x}}{2} \qquad \cosh(x) = \frac{e^x + e^{-x}}{2} \qquad \tanh(x) = \frac{\sinh(x)}{\cosh(x)}</span></p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 3.2</strong></p>
+<ul>
+<li><span class="math inline">\cosh^2(x) - \sinh^2(x) = 1</span></li>
+<li><span class="math inline">\cosh'(x) = \sinh(x)</span> et <span class="math inline">\sinh'(x) = \cosh(x)</span></li>
+<li><span class="math inline">\tanh'(x) = 1 - \tanh^2(x) = \frac{1}{\cosh^2(x)}</span></li>
+<li><span class="math inline">\cosh</span> est paire, <span class="math inline">\sinh</span> est impaire.</li>
+<li><span class="math inline">\cosh(x) \ge 1</span> pour tout <span class="math inline">x \in \mathbb{R}</span>.</li>
+</ul>
+</div>
+</section>
+<section id="fonction-theta-mapsto-eitheta" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="fonction-theta-mapsto-eitheta"><span class="header-section-number">3.3</span> Fonction <span class="math inline">\theta \mapsto e^{i\theta}</span></h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 3.2</strong></p>
+<p>Pour <span class="math inline">\theta \in \mathbb{R}</span>, on pose <span class="math inline">e^{i\theta} = \cos\theta + i\sin\theta</span>.</p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 3.3 — (Formules d’Euler)</strong></p>
+<p><span class="math display">\cos\theta = \frac{e^{i\theta}+e^{-i\theta}}{2} \qquad \sin\theta = \frac{e^{i\theta}-e^{-i\theta}}{2i}</span></p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 3.4 — (Formule de Moivre)</strong></p>
+<p>Pour tout <span class="math inline">\theta \in \mathbb{R}</span> et <span class="math inline">n \in \mathbb{Z}</span> : <span class="math display">(\cos\theta + i\sin\theta)^n = \cos(n\theta) + i\sin(n\theta)</span></p>
+</div>
+</section>
+</section>
+<section id="fonctions-réciproques" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> Fonctions réciproques</h1>
+<section id="fonctions-réciproques-circulaires" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="fonctions-réciproques-circulaires"><span class="header-section-number">4.1</span> Fonctions réciproques circulaires</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 4.1 — (arcsin)</strong></p>
+<p>La fonction <span class="math inline">\arcsin : [-1,1] \to \left[-\frac{\pi}{2},\frac{\pi}{2}\right]</span> est la bijection réciproque de <span class="math inline">\sin</span> restreinte à <span class="math inline">\left[-\frac{\pi}{2},\frac{\pi}{2}\right]</span>.</p>
+<p><span class="math display">\arcsin'(x) = \frac{1}{\sqrt{1-x^2}} \quad \text{pour } x \in ]-1,1[</span></p>
+</div>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 4.2 — (arccos)</strong></p>
+<p>La fonction <span class="math inline">\arccos : [-1,1] \to [0,\pi]</span> est la bijection réciproque de <span class="math inline">\cos</span> restreinte à <span class="math inline">[0,\pi]</span>.</p>
+<p><span class="math display">\arccos'(x) = -\frac{1}{\sqrt{1-x^2}} \quad \text{pour } x \in ]-1,1[</span></p>
+</div>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 4.3 — (arctan)</strong></p>
+<p>La fonction <span class="math inline">\arctan : \mathbb{R} \to \left]-\frac{\pi}{2},\frac{\pi}{2}\right[</span> est la bijection réciproque de <span class="math inline">\tan</span> restreinte à <span class="math inline">\left]-\frac{\pi}{2},\frac{\pi}{2}\right[</span>.</p>
+<p><span class="math display">\arctan'(x) = \frac{1}{1+x^2} \quad \text{pour } x \in \mathbb{R}</span></p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 4.1</strong></p>
+<p>Pour tout <span class="math inline">x \in [-1,1]</span> : <span class="math inline">\arcsin(x) + \arccos(x) = \frac{\pi}{2}</span>.</p>
+</div>
+</section>
+<section id="fonctions-réciproques-hyperboliques" class="level2" data-number="4.2">
+<h2 data-number="4.2" class="anchored" data-anchor-id="fonctions-réciproques-hyperboliques"><span class="header-section-number">4.2</span> Fonctions réciproques hyperboliques</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 4.4 — (argsh)</strong></p>
+<p>La fonction <span class="math inline">\operatorname{argsh} : \mathbb{R} \to \mathbb{R}</span> est la bijection réciproque de <span class="math inline">\sinh</span>.</p>
+<p><span class="math display">\operatorname{argsh}'(x) = \frac{1}{\sqrt{1+x^2}} \quad \text{pour } x \in \mathbb{R}</span></p>
+</div>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 4.5 — (argcosh)</strong></p>
+<p>La fonction <span class="math inline">\operatorname{argcosh} : [1,+\infty[ \to [0,+\infty[</span> est la bijection réciproque de <span class="math inline">\cosh</span> restreinte à <span class="math inline">[0,+\infty[</span>.</p>
+<p><span class="math display">\operatorname{argcosh}'(x) = \frac{1}{\sqrt{x^2-1}} \quad \text{pour } x \in ]1,+\infty[</span></p>
+</div>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 4.6 — (argth)</strong></p>
+<p>La fonction <span class="math inline">\operatorname{argth} : ]-1,1[ \to \mathbb{R}</span> est la bijection réciproque de <span class="math inline">\tanh</span>.</p>
+<p><span class="math display">\operatorname{argth}'(x) = \frac{1}{1-x^2} \quad \text{pour } x \in ]-1,1[</span></p>
+</div>
+</section>
+</section>
+<section id="fonctions-convexes" class="level1" data-number="5">
+<h1 data-number="5"><span class="header-section-number">5</span> Fonctions convexes</h1>
+<p>L’objectif de cette section est d’étudier les fonctions convexes d’une variable réelle. Le cours gagne à être illustré par de nombreuses figures. On soulignera l’intérêt des fonctions convexes pour obtenir des inégalités.</p>
+<section id="définition-et-interprétation-géométrique" class="level2" data-number="5.1">
+<h2 data-number="5.1" class="anchored" data-anchor-id="définition-et-interprétation-géométrique"><span class="header-section-number">5.1</span> Définition et interprétation géométrique</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 5.1</strong></p>
+<p>Une fonction <span class="math inline">f : I \to \mathbb{R}</span> est <strong>convexe</strong> sur l’intervalle <span class="math inline">I</span> si pour tout <span class="math inline">(x,y) \in I^2</span> et tout <span class="math inline">\lambda \in [0,1]</span> : <span class="math display">f((1-\lambda)x + \lambda y) \le (1-\lambda)f(x) + \lambda f(y)</span></p>
+<p>Une fonction <span class="math inline">f</span> est <strong>concave</strong> si <span class="math inline">-f</span> est convexe.</p>
+</div>
+<p><strong>Interprétation géométrique :</strong> une fonction convexe est une fonction dont le graphe est « en dessous » de ses cordes. Autrement dit, le graphe de <span class="math inline">f</span> est en dessous de la corde reliant deux points quelconques du graphe.</p>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 5.1 — (Caractérisations des fonctions convexes)</strong></p>
+<ol type="1">
+<li><p><strong>Position relative du graphe et d’une de ses cordes :</strong> <span class="math inline">f</span> est convexe si et seulement si pour tout <span class="math inline">x,y \in I</span> et <span class="math inline">\lambda \in [0,1]</span> : <span class="math display">f((1-\lambda)x + \lambda y) \le (1-\lambda)f(x) + \lambda f(y)</span></p></li>
+<li><p><strong>Inégalité des pentes :</strong> <span class="math inline">f</span> est convexe si et seulement si pour tout <span class="math inline">x_1 &lt; x_2 &lt; x_3</span> dans <span class="math inline">I</span> : <span class="math display">\frac{f(x_2)-f(x_1)}{x_2-x_1} \le \frac{f(x_3)-f(x_2)}{x_3-x_2}</span></p></li>
+<li><p><strong>Caractérisation par la dérivée :</strong> si <span class="math inline">f</span> est dérivable sur <span class="math inline">I</span>, alors <span class="math inline">f</span> est convexe si et seulement si <span class="math inline">f'</span> est croissante sur <span class="math inline">I</span>.</p></li>
+<li><p><strong>Caractérisation par la dérivée seconde :</strong> si <span class="math inline">f</span> est deux fois dérivable sur <span class="math inline">I</span>, alors <span class="math inline">f</span> est convexe si et seulement si <span class="math inline">f''(x) \ge 0</span> pour tout <span class="math inline">x \in I</span>.</p></li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 5.2 — (Position relative du graphe et de ses tangentes)</strong></p>
+<p>Si <span class="math inline">f</span> est convexe et dérivable sur <span class="math inline">I</span>, alors le graphe de <span class="math inline">f</span> est au-dessus de ses tangentes : <span class="math display">\forall x, x_0 \in I,\quad f(x) \ge f(x_0) + f'(x_0)(x-x_0)</span></p>
+</div>
+</section>
+<section id="inégalité-de-jensen" class="level2" data-number="5.2">
+<h2 data-number="5.2" class="anchored" data-anchor-id="inégalité-de-jensen"><span class="header-section-number">5.2</span> Inégalité de Jensen</h2>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 5.1 — (Inégalité de Jensen)</strong></p>
+<p>Soit <span class="math inline">f : I \to \mathbb{R}</span> une fonction convexe. Soient <span class="math inline">x_1, x_2, \ldots, x_n</span> des points de <span class="math inline">I</span> et <span class="math inline">\lambda_1, \lambda_2, \ldots, \lambda_n</span> des éléments de <span class="math inline">\mathbb{R}_+</span> de somme 1. Alors : <span class="math display">f\left(\sum_{i=1}^n \lambda_i x_i\right) \le \sum_{i=1}^n \lambda_i f(x_i)</span></p>
+</div>
+<div class="proof remark">
+<p><span class="proof-title"><em>Remarque</em>. </span>L’inégalité de Jensen généralise la définition de la convexité à un nombre quelconque de points. Elle est particulièrement utile pour obtenir des inégalités.</p>
+</div>
+</section>
+<section id="applications" class="level2" data-number="5.3">
+<h2 data-number="5.3" class="anchored" data-anchor-id="applications"><span class="header-section-number">5.3</span> Applications</h2>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 5.3 — (Inégalité arithmético-géométrique)</strong></p>
+<p>Pour tout <span class="math inline">x_1, x_2, \ldots, x_n &gt; 0</span> : <span class="math display">\left(\prod_{i=1}^n x_i\right)^{1/n} \le \frac{x_1 + x_2 + \cdots + x_n}{n}</span></p>
+<p>Cette inégalité se démontre en appliquant l’inégalité de Jensen à la fonction convexe <span class="math inline">f(x) = -\ln(x)</span> sur <span class="math inline">]0,+\infty[</span>.</p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 5.4 — (Inégalité de Cauchy-Schwarz)</strong></p>
+<p>Pour tout <span class="math inline">x_1, \ldots, x_n, y_1, \ldots, y_n \in \mathbb{R}</span> : <span class="math display">\left(\sum_{i=1}^n x_i y_i\right)^2 \le \left(\sum_{i=1}^n x_i^2\right)\left(\sum_{i=1}^n y_i^2\right)</span></p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 5.5 — (Inégalité de Young)</strong></p>
+<p>Pour tout <span class="math inline">a,b &gt; 0</span> et <span class="math inline">p,q &gt; 1</span> tels que <span class="math inline">\frac{1}{p} + \frac{1}{q} = 1</span> : <span class="math display">ab \le \frac{a^p}{p} + \frac{b^q}{q}</span></p>
+<p>Cette inégalité se démontre en appliquant l’inégalité de Jensen à la fonction convexe <span class="math inline">f(x) = e^x</span>.</p>
+</div>
+</section>
+</section>
+<section id="document-en-pdf" class="level1 unnumbered">
+<h1 class="unnumbered">Document en PDF</h1>
+<p><a href="PDF/pcsi-chap08.pdf">Chapitre 08 : Fonctions usuelles, fonctions convexes</a></p>
+<section id="navigation" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="navigation">Navigation</h2>
+<div class="chap-nav">
+<p><a href="../cours/pcsi-chap07.html" class="prev">Chapitre 07 : Fonctions de la variable réelle, dérivation</a> <a href="../cours/pcsi.html" class="home">Menu PCSI</a> <a href="../cours/pcsi-chap09.html" class="next">Chapitre 09 : Primitives et équations différentielles linéaires</a></p>
+</div>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -222,12 +581,12 @@ ul.task-list li input[type="checkbox"] {
       // flash "checked"
       button.classList.add('code-copy-button-checked');
       var currentTitle = button.getAttribute("title");
-      button.setAttribute("title", "Copied!");
+      button.setAttribute("title", "Copié");
       let tooltip;
       if (window.bootstrap) {
         button.setAttribute("data-bs-toggle", "tooltip");
         button.setAttribute("data-bs-placement", "left");
-        button.setAttribute("data-bs-title", "Copied!");
+        button.setAttribute("data-bs-title", "Copié");
         tooltip = new bootstrap.Tooltip(button, 
           { trigger: "manual", 
             customClass: "code-copy-button-tooltip",

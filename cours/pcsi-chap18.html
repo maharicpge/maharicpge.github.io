@@ -1,0 +1,954 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.18">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Said MAHARI">
+
+<title>Courbes planes – Mathématiques en CPGE</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-e0d9a45d84245cc5e3b300860d8fa645.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "Pas de résultats",
+    "search-matching-documents-text": "documents trouvés",
+    "search-copy-link-title": "Copier le lien vers la recherche",
+    "search-hide-matches-text": "Cacher les correspondances additionnelles",
+    "search-more-match-text": "correspondance de plus dans ce document",
+    "search-more-matches-text": "correspondances de plus dans ce document",
+    "search-clear-button-title": "Effacer",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Annuler",
+    "search-submit-button-title": "Envoyer",
+    "search-label": "Recherche"
+  }
+}</script>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">Accueil</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Recherche"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Basculer la navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../cours/index.html"> 
+<span class="menu-text">Cours</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../td/index.html"> 
+<span class="menu-text">TD</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../annales/index.html"> 
+<span class="menu-text">Annales</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../tipe/index.html"> 
+<span class="menu-text">TIPE</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../conseils.html"> 
+<span class="menu-text">Conseils et méthode</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../professeurs.html"> 
+<span class="menu-text">Aux professeurs</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../contact.html"> 
+<span class="menu-text">Contact</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../apropos.html"> 
+<span class="menu-text">À propos de l’auteur</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Sur cette page</h2>
+   
+  <ul>
+  <li><a href="#courbes-planes" id="toc-courbes-planes" class="nav-link active" data-scroll-target="#courbes-planes">Courbes planes</a></li>
+  <li><a href="#étude-locale-dune-courbe-paramétrée" id="toc-étude-locale-dune-courbe-paramétrée" class="nav-link" data-scroll-target="#étude-locale-dune-courbe-paramétrée"><span class="header-section-number">1</span> Étude locale d’une courbe paramétrée</a>
+  <ul class="collapse">
+  <li><a href="#tangente-et-demi-tangente-en-un-point" id="toc-tangente-et-demi-tangente-en-un-point" class="nav-link" data-scroll-target="#tangente-et-demi-tangente-en-un-point"><span class="header-section-number">1.1</span> Tangente et demi-tangente en un point</a></li>
+  <li><a href="#étude-locale-dune-courbe-plane" id="toc-étude-locale-dune-courbe-plane" class="nav-link" data-scroll-target="#étude-locale-dune-courbe-plane"><span class="header-section-number">1.2</span> Étude locale d’une courbe plane</a></li>
+  <li><a href="#branches-infinies" id="toc-branches-infinies" class="nav-link" data-scroll-target="#branches-infinies"><span class="header-section-number">1.3</span> Branches infinies</a></li>
+  </ul></li>
+  <li><a href="#courbes-planes-définies-de-façon-implicite" id="toc-courbes-planes-définies-de-façon-implicite" class="nav-link" data-scroll-target="#courbes-planes-définies-de-façon-implicite"><span class="header-section-number">2</span> Courbes planes définies de façon implicite</a>
+  <ul class="collapse">
+  <li><a href="#lignes-de-niveau" id="toc-lignes-de-niveau" class="nav-link" data-scroll-target="#lignes-de-niveau"><span class="header-section-number">2.1</span> Lignes de niveau</a></li>
+  <li><a href="#tangente-en-un-point-non-singulier" id="toc-tangente-en-un-point-non-singulier" class="nav-link" data-scroll-target="#tangente-en-un-point-non-singulier"><span class="header-section-number">2.2</span> Tangente en un point non singulier</a></li>
+  <li><a href="#paramétrer-une-ligne-de-niveau" id="toc-paramétrer-une-ligne-de-niveau" class="nav-link" data-scroll-target="#paramétrer-une-ligne-de-niveau"><span class="header-section-number">2.3</span> Paramétrer une ligne de niveau</a></li>
+  </ul></li>
+  <li><a href="#courbes-planes-en-coordonnées-polaires" id="toc-courbes-planes-en-coordonnées-polaires" class="nav-link" data-scroll-target="#courbes-planes-en-coordonnées-polaires"><span class="header-section-number">3</span> Courbes planes en coordonnées polaires</a>
+  <ul class="collapse">
+  <li><a href="#courbes-en-coordonnées-polaires" id="toc-courbes-en-coordonnées-polaires" class="nav-link" data-scroll-target="#courbes-en-coordonnées-polaires"><span class="header-section-number">3.1</span> Courbes en coordonnées polaires</a></li>
+  <li><a href="#ensemble-détude" id="toc-ensemble-détude" class="nav-link" data-scroll-target="#ensemble-détude"><span class="header-section-number">3.2</span> Ensemble d’étude</a></li>
+  <li><a href="#tangente" id="toc-tangente" class="nav-link" data-scroll-target="#tangente"><span class="header-section-number">3.3</span> Tangente</a></li>
+  <li><a href="#branches-infinies-1" id="toc-branches-infinies-1" class="nav-link" data-scroll-target="#branches-infinies-1"><span class="header-section-number">3.4</span> Branches infinies</a></li>
+  <li><a href="#plan-détude" id="toc-plan-détude" class="nav-link" data-scroll-target="#plan-détude"><span class="header-section-number">3.5</span> Plan d’étude</a></li>
+  <li><a href="#exemple" id="toc-exemple" class="nav-link" data-scroll-target="#exemple"><span class="header-section-number">3.6</span> Exemple</a></li>
+  <li><a href="#courbes-usuelles-en-polaires" id="toc-courbes-usuelles-en-polaires" class="nav-link" data-scroll-target="#courbes-usuelles-en-polaires"><span class="header-section-number">3.7</span> Courbes usuelles en polaires</a></li>
+  </ul></li>
+  <li><a href="#document-en-pdf" id="toc-document-en-pdf" class="nav-link" data-scroll-target="#document-en-pdf">Document en PDF</a>
+  <ul class="collapse">
+  <li><a href="#navigation" id="toc-navigation" class="nav-link" data-scroll-target="#navigation">Navigation</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Courbes planes</h1>
+<p class="subtitle lead">Chapitre 18</p>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Auteur·rice</div>
+    <div class="quarto-title-meta-contents">
+             <p>Said MAHARI </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Date de publication</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">22 août 2026</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p><strong>PCSI (1re année) — Chapitre 18.</strong> Courbes paramétrées, étude locale (tangentes, points singuliers), branches infinies et asymptotes, courbes définies implicitement, courbes en coordonnées polaires.</p>
+<p>Ce chapitre a été réalisé conformément au programme marocain de mathématiques de la filière PCSI.</p>
+<section id="courbes-planes" class="level1 unnumbered">
+<h1 class="unnumbered">Courbes planes</h1>
+</section>
+<section id="étude-locale-dune-courbe-paramétrée" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Étude locale d’une courbe paramétrée</h1>
+<section id="tangente-et-demi-tangente-en-un-point" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="tangente-et-demi-tangente-en-un-point"><span class="header-section-number">1.1</span> Tangente et demi-tangente en un point</h2>
+<p>La courbe <span class="math inline">C</span> est l’ensemble des points <span class="math inline">M</span> ou <span class="math inline">M(t)</span> tels que <span class="math inline">\overrightarrow{OM}=\overrightarrow{F}(t)</span> de coordonnées <span class="math inline">(x(t),y(t))</span> ou <span class="math inline">(x(t),y(t),z(t))</span>, <span class="math inline">t\in I</span>. On suppose au minimum que <span class="math inline">\overrightarrow{F}</span> est continue sur cet intervalle.</p>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 2.1</strong></p>
+<p><span class="math inline">M_0(t_0)\in C</span>, on dit que <span class="math inline">C</span> admet une <strong>tangente</strong> en <span class="math inline">M_0</span> <span class="math inline">\iff</span> la droite <span class="math inline">(M_0M)</span>, avec <span class="math inline">M=M(t)</span>, a une limite quand <span class="math inline">M\to M_0</span>, c’est-à-dire quand <span class="math inline">t\to t_0</span>. Cette droite est alors la tangente à <span class="math inline">C</span> en <span class="math inline">M_0</span>.</p>
+<p>On parlera éventuellement de <strong>demi-tangente</strong> si on a une limite à droite ou une limite à gauche.</p>
+</div>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 2.2</strong></p>
+<p>Un point <span class="math inline">M_0(t_0)\in C</span> est <strong>régulier</strong> <span class="math inline">\iff</span> <span class="math inline">\overrightarrow{F}\,'(t_0)\neq\overrightarrow{0}</span>. Un point non régulier est un point <strong>stationnaire</strong>.</p>
+</div>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 2.1</strong></p>
+<p>En un point <span class="math inline">M_0(t_0)</span> régulier, la courbe <span class="math inline">C</span> admet une tangente dirigée par <span class="math inline">\overrightarrow{F}\,'(t_0)</span>.</p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Preuve</em>. </span>On fait la démonstration pour une courbe plane, c’est exactement la même pour une courbe paramétrée de l’espace. <span class="math inline">\dfrac{\overrightarrow{M_0M}}{\|\overrightarrow{M_0M}\|}</span> a pour coordonnées : <span class="math display">\frac{t-t_0}{\|\overrightarrow{M_0M}\|}\begin{pmatrix}\dfrac{x(t)-x(t_0)}{t-t_0}\\[1ex]\dfrac{y(t)-y(t_0)}{t-t_0}\end{pmatrix}</span> Or <span class="math display">\lim_{t\to t_0}\frac{t-t_0}{\|\overrightarrow{M_0M}\|}=\frac{\pm1}{\sqrt{x'(t_0)^2+y'(t_0)^2}}</span> donc <span class="math display">\lim_{t\to t_0}\frac{1}{\|\overrightarrow{M_0M}\|}\begin{pmatrix}x(t)-x(t_0)\\ y(t)-y(t_0)\end{pmatrix}=\frac{\pm1}{\sqrt{x'(t_0)^2+y'(t_0)^2}}\begin{pmatrix}x'(t_0)\\ y'(t_0)\end{pmatrix}</span> Ce qui assure le résultat.</p>
+</div>
+</section>
+<section id="étude-locale-dune-courbe-plane" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="étude-locale-dune-courbe-plane"><span class="header-section-number">1.2</span> Étude locale d’une courbe plane</h2>
+<p>On appelle encore <span class="math inline">p</span> le rang de dérivation du premier vecteur dérivé non nul, <span class="math inline">\overrightarrow{F}^{\,(p)}(t_0)\neq\overrightarrow{0}</span>, et <span class="math inline">q</span> le rang du premier vecteur dérivé non colinéaire à <span class="math inline">\overrightarrow{F}^{\,(p)}(t_0)</span>, sous réserve bien sûr que <span class="math inline">\overrightarrow{F}</span> soit de classe suffisante. <span class="math inline">\left(\overrightarrow{F}^{\,(p)}(t_0),\overrightarrow{F}^{\,(q)}(t_0)\right)</span> est ainsi une famille libre.</p>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 2.3</strong></p>
+<p>On dit que <span class="math inline">M_0</span> est <strong>birégulier</strong> <span class="math inline">\iff</span> <span class="math inline">p=1</span> et <span class="math inline">q=2</span>. Dans tous les cas, on obtient l’allure locale de la courbe en faisant un développement limité à l’ordre <span class="math inline">q</span> de <span class="math inline">\overrightarrow{F}</span> : <span class="math display">\overrightarrow{M_0M}=\overrightarrow{F}(t)-\overrightarrow{F}(t_0)=\frac{(t-t_0)^p}{p!}(1+o(t-t_0))\overrightarrow{F}^{\,(p)}(t_0)+\frac{(t-t_0)^q}{q!}\overrightarrow{F}^{\,(q)}(t_0)+(t-t_0)^q\vec{\varepsilon}(t-t_0)</span></p>
+</div>
+<p>Dans la base <span class="math inline">\left(\overrightarrow{F}^{\,(p)}(t_0),\overrightarrow{F}^{\,(q)}(t_0)\right)</span>, les coordonnées de <span class="math inline">\overrightarrow{M_0M}</span> sont équivalentes à <span class="math inline">\dfrac{(t-t_0)^p}{p!}</span> et <span class="math inline">\dfrac{(t-t_0)^q}{q!}</span> quand <span class="math inline">t\to t_0</span>. On travaille donc dans le repère <span class="math inline">\left(M_0,\overrightarrow{F}^{\,(p)}(t_0),\overrightarrow{F}^{\,(q)}(t_0)\right)</span>, tout se décide alors suivant la parité de <span class="math inline">p</span> et <span class="math inline">q</span> :</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Parité de <span class="math inline">p</span></th>
+<th>Parité de <span class="math inline">q</span></th>
+<th>Allure locale</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">p</span> impair</td>
+<td><span class="math inline">q</span> pair</td>
+<td>point ordinaire</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">p</span> impair</td>
+<td><span class="math inline">q</span> impair</td>
+<td>point d’inflexion</td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">p</span> pair</td>
+<td><span class="math inline">q</span> impair</td>
+<td>point de rebroussement de 1re espèce</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">p</span> pair</td>
+<td><span class="math inline">q</span> pair</td>
+<td>point de rebroussement de 2e espèce</td>
+</tr>
+</tbody>
+</table>
+<div class="proof remark">
+<p><span class="proof-title"><em>Remarque</em>. </span></p>
+<ul>
+<li>En un point birégulier, la concavité est tournée vers <span class="math inline">\overrightarrow{F}^{\,''}(t_0)</span>.</li>
+<li><span class="math inline">\lim_{t\to t_0}\dfrac{y'(t)}{x'(t)}</span> quand elle existe, est toujours la pente de la tangente à la courbe au point considéré.</li>
+<li>Quand la pente de la tangente, donnée par <span class="math inline">\overrightarrow{F}^{\,(p)}(t_0)</span> ou par <span class="math inline">\lim_{t\to t_0}\dfrac{y'(t)}{x'(t)}</span> est nulle ou infinie, c’est-à-dire quand la tangente est horizontale ou verticale, la recherche de <span class="math inline">q</span> est inutile puisque les variations de <span class="math inline">x(t)</span> et <span class="math inline">y(t)</span> permettent alors de déterminer le type de point.</li>
+</ul>
+</div>
+</section>
+<section id="branches-infinies" class="level2" data-number="1.3">
+<h2 data-number="1.3" class="anchored" data-anchor-id="branches-infinies"><span class="header-section-number">1.3</span> Branches infinies</h2>
+<p>On dit que <span class="math inline">C</span> admet une <strong>branche infinie</strong> quand <span class="math inline">x(t)</span> ou <span class="math inline">y(t)</span> tendent vers <span class="math inline">\pm\infty</span> en <span class="math inline">t_0</span> ou <span class="math inline">\pm\infty</span>. Une hyperbole a ainsi 4 branches infinies.</p>
+<ol type="1">
+<li><span class="math inline">y(t)\to\pm\infty</span> et <span class="math inline">x(t)\to l</span> quand <span class="math inline">t\to t_0</span> : on a une <strong>asymptote verticale</strong> d’équation <span class="math inline">x=l</span>.</li>
+<li><span class="math inline">x(t)\to\pm\infty</span> et <span class="math inline">y(t)\to l</span> quand <span class="math inline">t\to t_0</span> : on a une <strong>asymptote horizontale</strong> d’équation <span class="math inline">y=l</span>.</li>
+<li><span class="math inline">x(t)</span> et <span class="math inline">y(t)\to\pm\infty</span> quand <span class="math inline">t\to t_0</span> on calcule <span class="math inline">\lim_{t\to t_0}\dfrac{y(t)}{x(t)}</span> appelée <span class="math inline">a</span> si elle existe :
+<ul>
+<li>s’il n’y a pas de limite, on ne dit rien de plus ;</li>
+<li><span class="math inline">a=\pm\infty</span> : on a une <strong>branche parabolique de direction <span class="math inline">Oy</span></strong> ;</li>
+<li><span class="math inline">a=0</span> : on a une <strong>branche parabolique de direction <span class="math inline">Ox</span></strong> ;</li>
+<li>dans les autres cas, on calcule <span class="math inline">\lim_{t\to t_0}\big(y(t)-ax(t)\big)</span> appelée <span class="math inline">b</span> :
+<ul>
+<li>s’il n’y a pas de limite, on a une branche infinie de direction asymptotique <span class="math inline">y=ax</span> ;</li>
+<li><span class="math inline">b=\pm\infty</span> : on a une branche parabolique de direction <span class="math inline">y=ax</span> ;</li>
+<li>dans les autres cas, on a une <strong>asymptote</strong> <span class="math inline">y=ax+b</span>, de plus :
+<ul>
+<li>si <span class="math inline">y(t)-ax(t)-b&gt;0</span>, la courbe est au-dessus de l’asymptote ;</li>
+<li>si <span class="math inline">y(t)-ax(t)-b&lt;0</span>, la courbe est au-dessous de l’asymptote.</li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ol>
+</section>
+</section>
+<section id="courbes-planes-définies-de-façon-implicite" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> Courbes planes définies de façon implicite</h1>
+<section id="lignes-de-niveau" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="lignes-de-niveau"><span class="header-section-number">2.1</span> Lignes de niveau</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 3.1</strong></p>
+<p>On se donne une fonction <span class="math inline">F:\mathbb{R}^2\to\mathbb{R}</span>. Pour <span class="math inline">\lambda\in\mathbb{R}</span>, la <strong>ligne de niveau</strong> <span class="math inline">\lambda</span> de <span class="math inline">F</span> est l’ensemble : <span class="math display">\mathcal{C}_\lambda=\{(x,y)\in\mathbb{R}^2\,/\,F(x,y)=\lambda\}</span></p>
+</div>
+</section>
+<section id="tangente-en-un-point-non-singulier" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="tangente-en-un-point-non-singulier"><span class="header-section-number">2.2</span> Tangente en un point non singulier</h2>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 3.1</strong></p>
+<p>Soit <span class="math inline">M_0=(x_0,y_0)</span> un point de <span class="math inline">\mathcal{C}_\lambda</span> non singulier (c’est-à-dire <span class="math inline">\overrightarrow{\nabla}F(M_0)\neq\overrightarrow{0}</span>). Alors <span class="math inline">\mathcal{C}_\lambda</span> admet une tangente en <span class="math inline">M_0</span>, normale à <span class="math inline">\overrightarrow{\nabla}F(M_0)</span>. Son équation est : <span class="math display">\frac{\partial F}{\partial x}(M_0)(x-x_0)+\frac{\partial F}{\partial y}(M_0)(y-y_0)=0</span></p>
+</div>
+</section>
+<section id="paramétrer-une-ligne-de-niveau" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="paramétrer-une-ligne-de-niveau"><span class="header-section-number">2.3</span> Paramétrer une ligne de niveau</h2>
+<p>Pour étudier une ligne de niveau, il est souvent utile de la paramétrer. Les deux moyens habituels sont : - poser <span class="math inline">y=tx</span>, résoudre <span class="math inline">F(x,tx)=0</span> en <span class="math inline">x</span>, et on a alors la courbe paramétrée par <span class="math inline">t</span> ; - passer en polaire et résoudre <span class="math inline">F(\rho\cos\theta,\rho\sin\theta)=0</span> en <span class="math inline">\rho</span>. On a alors la courbe de façon usuelle en polaires.</p>
+</section>
+</section>
+<section id="courbes-planes-en-coordonnées-polaires" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Courbes planes en coordonnées polaires</h1>
+<section id="courbes-en-coordonnées-polaires" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="courbes-en-coordonnées-polaires"><span class="header-section-number">3.1</span> Courbes en coordonnées polaires</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 4.1</strong></p>
+<p><span class="math inline">C</span> la courbe définie en coordonnées polaires par <span class="math inline">\rho=f(\theta)=\rho(\theta)</span>, <span class="math inline">\theta\in I</span>, <span class="math inline">C</span> est l’ensemble des points <span class="math inline">M</span> dont les coordonnées vérifient : <span class="math display">\begin{cases}x=\rho(\theta)\cos\theta\\ y=\rho(\theta)\sin\theta\end{cases}\quad \text{avec } \theta\in I</span> On prendra toujours l’application <span class="math inline">\rho</span> au moins de classe <span class="math inline">\mathcal{C}^1</span> sur <span class="math inline">I</span>.</p>
+</div>
+</section>
+<section id="ensemble-détude" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="ensemble-détude"><span class="header-section-number">3.2</span> Ensemble d’étude</h2>
+<p>En général, <span class="math inline">\rho</span> est <span class="math inline">T</span>-périodique. On cherche l’ensemble de définition, la périodicité, un premier ensemble d’étude : celui-ci doit être un multiple de la période et de <span class="math inline">2\pi</span>. On recherche d’éventuelles symétries pour réduire l’ensemble d’étude. On regarde en fait comment change <span class="math inline">\rho</span> quand on change <span class="math inline">\theta</span>, ce qui est résumé dans le tableau suivant :</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Transformation de <span class="math inline">\theta</span></th>
+<th>Transformation de <span class="math inline">\rho</span></th>
+<th>Symétrie de <span class="math inline">C</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\theta\to-\theta</span></td>
+<td><span class="math inline">\rho\to\rho</span></td>
+<td>symétrie par rapport à <span class="math inline">Oy</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\theta\to-\theta</span></td>
+<td><span class="math inline">\rho\to-\rho</span></td>
+<td>symétrie par rapport à <span class="math inline">Ox</span></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\theta\to\pi-\theta</span></td>
+<td><span class="math inline">\rho\to\rho</span></td>
+<td>symétrie par rapport à <span class="math inline">Oy</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\theta\to\pi-\theta</span></td>
+<td><span class="math inline">\rho\to-\rho</span></td>
+<td>symétrie par rapport à <span class="math inline">Ox</span></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\theta\to\pi+\theta</span></td>
+<td><span class="math inline">\rho\to\rho</span></td>
+<td>symétrie par rapport à <span class="math inline">O</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\theta\to\pi+\theta</span></td>
+<td><span class="math inline">\rho\to-\rho</span></td>
+<td>uniquement des points doubles</td>
+</tr>
+</tbody>
+</table>
+<p>Dans chaque cas, on peut réduire l’intervalle d’étude.</p>
+</section>
+<section id="tangente" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="tangente"><span class="header-section-number">3.3</span> Tangente</h2>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 4.1</strong></p>
+<p><span class="math inline">C</span> la courbe définie en coordonnées polaires par <span class="math inline">\rho=\rho(\theta)</span> avec <span class="math inline">\rho</span> de classe <span class="math inline">\mathcal{C}^1</span> au voisinage de <span class="math inline">\theta_0</span>. Alors <span class="math inline">C</span> admet une tangente en <span class="math inline">M_0(\theta_0)</span> définie par : <span class="math display">\tan V=\frac{\rho}{\rho'}</span> avec <span class="math inline">V</span> l’angle, orienté, entre le rayon vecteur et la tangente. En un point où <span class="math inline">\rho(\theta_0)=0</span>, la tangente à la courbe est la droite <span class="math inline">\theta=\theta_0</span>.</p>
+</div>
+<div class="custom-numbered-block custom-corollary">
+<p><strong>Corollaire 4.1</strong></p>
+<p>Si de plus <span class="math inline">\rho(\theta_0)=0</span>, alors <span class="math inline">V=0</span>. Conclusion : dans tous les cas, l’équation de la tangente dans le repère local <span class="math inline">(M_0,\vec{u}_r,\vec{u}_\theta)</span> est <span class="math inline">Y=\tan V\,X</span>.</p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Preuve</em>. </span>On utilise ici les notations des physiciens <span class="math inline">\vec{u}_r</span> et <span class="math inline">\vec{u}_\theta</span>. On a <span class="math inline">\overrightarrow{OM}=\rho(\theta)\vec{u}_r</span> et donc comme la dérivée de <span class="math inline">\vec{u}_r</span> par rapport à <span class="math inline">\theta</span> est <span class="math inline">\vec{u}_\theta</span> : <span class="math display">\frac{d\overrightarrow{OM}}{d\theta}=\rho'(\theta)\vec{u}_r+\rho(\theta)\vec{u}_\theta</span> En écrivant cette égalité en <span class="math inline">\theta_0</span>, on obtient que <span class="math inline">\tan V=\dfrac{\rho(\theta_0)}{\rho'(\theta_0)}</span>, avec <span class="math inline">V</span> l’angle, orienté, entre le rayon vecteur et la tangente. Si <span class="math inline">\rho(\theta_0)=0</span>, la pente de <span class="math inline">M_0M=\overrightarrow{OM}</span> est <span class="math inline">\dfrac{y}{x}=\dfrac{\rho(\theta)\sin\theta}{\rho(\theta)\cos\theta}</span> qui tend bien vers <span class="math inline">\tan\theta_0</span>.</p>
+</div>
+</section>
+<section id="branches-infinies-1" class="level2" data-number="3.4">
+<h2 data-number="3.4" class="anchored" data-anchor-id="branches-infinies-1"><span class="header-section-number">3.4</span> Branches infinies</h2>
+<p>On a une branche infinie quand <span class="math inline">\lim_{\theta\to\theta_0}\rho(\theta)</span> est infini. On remarque que dans le repère tourné de <span class="math inline">\theta_0</span> : <span class="math display">\begin{cases}\rho(\theta)\cos(\theta-\theta_0)=X\\ \rho(\theta)\sin(\theta-\theta_0)=Y\end{cases}</span> Dans tous les cas, quand <span class="math inline">\theta\to\theta_0</span> : <span class="math inline">X\to\infty</span>, <span class="math inline">\dfrac{Y}{X}\to 0</span>. La direction asymptotique est donc toujours <span class="math inline">OX</span>. Pour l’étude des branches infinies, on cherche donc <span class="math inline">\lim_{\theta\to\theta_0}Y=\lim_{\theta\to\theta_0}\rho(\theta)\sin(\theta-\theta_0)</span> : - s’il n’y a pas de limite, on a une branche infinie de direction asymptotique <span class="math inline">OX</span> ; - cette limite est infinie : on a une branche parabolique de direction <span class="math inline">OX</span> ; - cette limite est finie <span class="math inline">Y_0</span> : on a une asymptote d’équation <span class="math inline">Y=Y_0</span>. Comme <span class="math inline">X\sim\rho</span>, on sait de quel côté de l’asymptote on est, puisqu’on a pris soin de tracer le repère local.</p>
+</section>
+<section id="plan-détude" class="level2" data-number="3.5">
+<h2 data-number="3.5" class="anchored" data-anchor-id="plan-détude"><span class="header-section-number">3.5</span> Plan d’étude</h2>
+<p>Pour étudier une courbe en polaires <span class="math inline">\rho=\rho(\theta)</span> : 1. Chercher l’ensemble de définition, la périodicité et les symétries pour réduire l’ensemble d’étude. 2. Étudier <span class="math inline">\rho</span> et <span class="math inline">\rho'</span> sur l’ensemble d’étude réduit (variations, signe de <span class="math inline">\rho</span>). 3. Étudier les points où <span class="math inline">\rho=0</span> (tangente) et les branches infinies. 4. Tracer la courbe.</p>
+</section>
+<section id="exemple" class="level2" data-number="3.6">
+<h2 data-number="3.6" class="anchored" data-anchor-id="exemple"><span class="header-section-number">3.6</span> Exemple</h2>
+<p>Étudier la courbe d’équation polaire <span class="math inline">\rho(\theta)=1+\cos\theta</span> (cardioïde). - <span class="math inline">\rho</span> est <span class="math inline">2\pi</span>-périodique et paire (<span class="math inline">\rho(-\theta)=\rho(\theta)</span>), donc on étudie sur <span class="math inline">[0,\pi]</span> et on complète par symétrie par rapport à <span class="math inline">Ox</span>. - <span class="math inline">\rho'(\theta)=-\sin\theta</span>, qui s’annule en <span class="math inline">\theta=0</span> et <span class="math inline">\theta=\pi</span>. <span class="math inline">\rho</span> est décroissante sur <span class="math inline">[0,\pi]</span>, avec <span class="math inline">\rho(0)=2</span> et <span class="math inline">\rho(\pi)=0</span>. - En <span class="math inline">\theta=\pi</span>, <span class="math inline">\rho=0</span>, donc la tangente est la droite <span class="math inline">\theta=\pi</span>. - La courbe est un cardioïde.</p>
+</section>
+<section id="courbes-usuelles-en-polaires" class="level2" data-number="3.7">
+<h2 data-number="3.7" class="anchored" data-anchor-id="courbes-usuelles-en-polaires"><span class="header-section-number">3.7</span> Courbes usuelles en polaires</h2>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Courbe</th>
+<th>Équation polaire</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Cercle de centre <span class="math inline">O</span> et rayon <span class="math inline">R</span></td>
+<td><span class="math inline">\rho=R</span></td>
+</tr>
+<tr class="even">
+<td>Cardioïde</td>
+<td><span class="math inline">\rho=a(1+\cos\theta)</span></td>
+</tr>
+<tr class="odd">
+<td>Limaçon de Pascal</td>
+<td><span class="math inline">\rho=a+b\cos\theta</span></td>
+</tr>
+<tr class="even">
+<td>Rosace</td>
+<td><span class="math inline">\rho=a\cos(k\theta)</span></td>
+</tr>
+<tr class="odd">
+<td>Spirale d’Archimède</td>
+<td><span class="math inline">\rho=a\theta</span></td>
+</tr>
+<tr class="even">
+<td>Lemniscate de Bernoulli</td>
+<td><span class="math inline">\rho^2=a^2\cos(2\theta)</span></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="document-en-pdf" class="level1 unnumbered">
+<h1 class="unnumbered">Document en PDF</h1>
+<p><a href="PDF/pcsi-chap18.pdf">Chapitre 18 : Courbes planes</a></p>
+<section id="navigation" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="navigation">Navigation</h2>
+<div class="chap-nav">
+<p><a href="../cours/pcsi-chap17.html" class="prev">Chapitre 17 : Séries numériques</a></p>
+<p><a href="../cours/pcsi.html" class="home">Menu PCSI</a></p>
+<p><a href="../cours/pcsi-chap19.html" class="next">Chapitre 19 : Dénombrement</a></p>
+</div>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<!-- Compteur de visites GoatCounter -->
+<script data-goatcounter="https://maharicpge.goatcounter.com/count" async="" src="//gc.zgo.at/count.js"></script>
+
+<!-- Compteur de téléchargements : compte chaque clic sur un lien PDF -->
+<script>
+  window.addEventListener('load', function () {
+    document.querySelectorAll('a[href$=".pdf"]').forEach(function (lien) {
+      lien.addEventListener('click', function () {
+        if (window.goatcounter) {
+          window.goatcounter.count({
+            path:  'download: ' + lien.getAttribute('href'),
+            title: lien.textContent.trim(),
+            event: true
+          });
+        }
+      });
+    });
+  });
+</script>
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copié");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copié");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/maharicpge\.github\.io\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">
+<p>© 2026 - Mathématiques en CPGE ————- Créateur : Saîd MAHARI (GSM: 0670050667)</p>
+</div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
+
+
+
+
+</body></html>

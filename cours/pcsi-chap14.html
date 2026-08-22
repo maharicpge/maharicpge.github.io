@@ -8,7 +8,7 @@
 
 <meta name="author" content="Saîd MAHARI">
 
-<title>Représentations matricielles – Mathématiques en CPGE</title>
+<title>Matrices et déterminants – Mathématiques en CPGE</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -188,45 +188,44 @@ window.Quarto = {
     <h2 id="toc-title">Sur cette page</h2>
    
   <ul>
-  <li><a href="#matrice-dune-application-linéaire-dans-des-bases" id="toc-matrice-dune-application-linéaire-dans-des-bases" class="nav-link active" data-scroll-target="#matrice-dune-application-linéaire-dans-des-bases"><span class="header-section-number">1</span> Matrice d’une application linéaire dans des bases</a>
+  <li><a href="#matrice-dune-application-linéaire" id="toc-matrice-dune-application-linéaire" class="nav-link active" data-scroll-target="#matrice-dune-application-linéaire"><span class="header-section-number">1</span> Matrice d’une application linéaire</a>
   <ul class="collapse">
   <li><a href="#matrice-dune-famille-de-vecteurs" id="toc-matrice-dune-famille-de-vecteurs" class="nav-link" data-scroll-target="#matrice-dune-famille-de-vecteurs"><span class="header-section-number">1.1</span> Matrice d’une famille de vecteurs</a></li>
-  <li><a href="#matrice-dune-application-linéaire" id="toc-matrice-dune-application-linéaire" class="nav-link" data-scroll-target="#matrice-dune-application-linéaire"><span class="header-section-number">1.2</span> Matrice d’une application linéaire</a></li>
+  <li><a href="#matrice-dune-application-linéaire-1" id="toc-matrice-dune-application-linéaire-1" class="nav-link" data-scroll-target="#matrice-dune-application-linéaire-1"><span class="header-section-number">1.2</span> Matrice d’une application linéaire</a></li>
   <li><a href="#coordonnées-de-limage-dun-vecteur" id="toc-coordonnées-de-limage-dun-vecteur" class="nav-link" data-scroll-target="#coordonnées-de-limage-dun-vecteur"><span class="header-section-number">1.3</span> Coordonnées de l’image d’un vecteur</a></li>
   <li><a href="#matrice-dune-composée" id="toc-matrice-dune-composée" class="nav-link" data-scroll-target="#matrice-dune-composée"><span class="header-section-number">1.4</span> Matrice d’une composée</a></li>
   <li><a href="#isomorphisme-entre-mathcallef-et-mathcalm_npmathbbk" id="toc-isomorphisme-entre-mathcallef-et-mathcalm_npmathbbk" class="nav-link" data-scroll-target="#isomorphisme-entre-mathcallef-et-mathcalm_npmathbbk"><span class="header-section-number">1.5</span> Isomorphisme entre <span class="math inline">\mathcal{L}(E,F)</span> et <span class="math inline">\mathcal{M}_{n,p}(\mathbb{K})</span></a></li>
   </ul></li>
-  <li><a href="#application-linéaire-canoniquement-associée-à-une-matrice" id="toc-application-linéaire-canoniquement-associée-à-une-matrice" class="nav-link" data-scroll-target="#application-linéaire-canoniquement-associée-à-une-matrice"><span class="header-section-number">2</span> Application linéaire canoniquement associée à une matrice</a>
+  <li><a href="#changements-de-bases" id="toc-changements-de-bases" class="nav-link" data-scroll-target="#changements-de-bases"><span class="header-section-number">2</span> Changements de bases</a>
   <ul class="collapse">
-  <li><a href="#définition" id="toc-définition" class="nav-link" data-scroll-target="#définition"><span class="header-section-number">2.1</span> Définition</a></li>
-  <li><a href="#noyau-et-image-dune-matrice" id="toc-noyau-et-image-dune-matrice" class="nav-link" data-scroll-target="#noyau-et-image-dune-matrice"><span class="header-section-number">2.2</span> Noyau et image d’une matrice</a></li>
-  <li><a href="#rang-dune-matrice" id="toc-rang-dune-matrice" class="nav-link" data-scroll-target="#rang-dune-matrice"><span class="header-section-number">2.3</span> Rang d’une matrice</a></li>
+  <li><a href="#matrice-de-passage" id="toc-matrice-de-passage" class="nav-link" data-scroll-target="#matrice-de-passage"><span class="header-section-number">2.1</span> Matrice de passage</a></li>
+  <li><a href="#effet-dun-changement-de-base-sur-les-coordonnées-dun-vecteur" id="toc-effet-dun-changement-de-base-sur-les-coordonnées-dun-vecteur" class="nav-link" data-scroll-target="#effet-dun-changement-de-base-sur-les-coordonnées-dun-vecteur"><span class="header-section-number">2.2</span> Effet d’un changement de base sur les coordonnées d’un vecteur</a></li>
+  <li><a href="#effet-dun-changement-de-bases-sur-la-matrice-dune-application-linéaire" id="toc-effet-dun-changement-de-bases-sur-la-matrice-dune-application-linéaire" class="nav-link" data-scroll-target="#effet-dun-changement-de-bases-sur-la-matrice-dune-application-linéaire"><span class="header-section-number">2.3</span> Effet d’un changement de bases sur la matrice d’une application linéaire</a></li>
+  <li><a href="#cas-particulier-des-endomorphismes" id="toc-cas-particulier-des-endomorphismes" class="nav-link" data-scroll-target="#cas-particulier-des-endomorphismes"><span class="header-section-number">2.4</span> Cas particulier des endomorphismes</a></li>
   </ul></li>
-  <li><a href="#changements-de-bases" id="toc-changements-de-bases" class="nav-link" data-scroll-target="#changements-de-bases"><span class="header-section-number">3</span> Changements de bases</a>
+  <li><a href="#matrices-semblables" id="toc-matrices-semblables" class="nav-link" data-scroll-target="#matrices-semblables"><span class="header-section-number">3</span> Matrices semblables</a>
   <ul class="collapse">
-  <li><a href="#matrice-de-passage" id="toc-matrice-de-passage" class="nav-link" data-scroll-target="#matrice-de-passage"><span class="header-section-number">3.1</span> Matrice de passage</a></li>
-  <li><a href="#effet-dun-changement-de-base-sur-les-coordonnées-dun-vecteur" id="toc-effet-dun-changement-de-base-sur-les-coordonnées-dun-vecteur" class="nav-link" data-scroll-target="#effet-dun-changement-de-base-sur-les-coordonnées-dun-vecteur"><span class="header-section-number">3.2</span> Effet d’un changement de base sur les coordonnées d’un vecteur</a></li>
-  <li><a href="#effet-dun-changement-de-bases-sur-la-matrice-dune-application-linéaire" id="toc-effet-dun-changement-de-bases-sur-la-matrice-dune-application-linéaire" class="nav-link" data-scroll-target="#effet-dun-changement-de-bases-sur-la-matrice-dune-application-linéaire"><span class="header-section-number">3.3</span> Effet d’un changement de bases sur la matrice d’une application linéaire</a></li>
-  <li><a href="#cas-particulier-des-endomorphismes" id="toc-cas-particulier-des-endomorphismes" class="nav-link" data-scroll-target="#cas-particulier-des-endomorphismes"><span class="header-section-number">3.4</span> Cas particulier des endomorphismes</a></li>
+  <li><a href="#définition" id="toc-définition" class="nav-link" data-scroll-target="#définition"><span class="header-section-number">3.1</span> Définition</a></li>
   </ul></li>
-  <li><a href="#matrices-semblables" id="toc-matrices-semblables" class="nav-link" data-scroll-target="#matrices-semblables"><span class="header-section-number">4</span> Matrices semblables</a>
+  <li><a href="#déterminants" id="toc-déterminants" class="nav-link" data-scroll-target="#déterminants"><span class="header-section-number">4</span> Déterminants</a>
   <ul class="collapse">
-  <li><a href="#définition-1" id="toc-définition-1" class="nav-link" data-scroll-target="#définition-1"><span class="header-section-number">4.1</span> Définition</a></li>
+  <li><a href="#définition-du-déterminant-dune-matrice-carrée" id="toc-définition-du-déterminant-dune-matrice-carrée" class="nav-link" data-scroll-target="#définition-du-déterminant-dune-matrice-carrée"><span class="header-section-number">4.1</span> Définition du déterminant d’une matrice carrée</a></li>
+  <li><a href="#développement-de-laplace" id="toc-développement-de-laplace" class="nav-link" data-scroll-target="#développement-de-laplace"><span class="header-section-number">4.2</span> Développement de Laplace</a></li>
+  <li><a href="#propriétés-du-déterminant" id="toc-propriétés-du-déterminant" class="nav-link" data-scroll-target="#propriétés-du-déterminant"><span class="header-section-number">4.3</span> Propriétés du déterminant</a></li>
+  <li><a href="#déterminant-dune-famille-de-vecteurs" id="toc-déterminant-dune-famille-de-vecteurs" class="nav-link" data-scroll-target="#déterminant-dune-famille-de-vecteurs"><span class="header-section-number">4.4</span> Déterminant d’une famille de vecteurs</a></li>
+  <li><a href="#déterminant-dun-endomorphisme" id="toc-déterminant-dun-endomorphisme" class="nav-link" data-scroll-target="#déterminant-dun-endomorphisme"><span class="header-section-number">4.5</span> Déterminant d’un endomorphisme</a></li>
   </ul></li>
-  <li><a href="#retour-sur-les-systèmes-linéaires" id="toc-retour-sur-les-systèmes-linéaires" class="nav-link" data-scroll-target="#retour-sur-les-systèmes-linéaires"><span class="header-section-number">5</span> Retour sur les systèmes linéaires</a>
+  <li><a href="#comatrice" id="toc-comatrice" class="nav-link" data-scroll-target="#comatrice"><span class="header-section-number">5</span> Comatrice</a>
   <ul class="collapse">
-  <li><a href="#écriture-matricielle" id="toc-écriture-matricielle" class="nav-link" data-scroll-target="#écriture-matricielle"><span class="header-section-number">5.1</span> Écriture matricielle</a></li>
-  <li><a href="#système-homogène-associé" id="toc-système-homogène-associé" class="nav-link" data-scroll-target="#système-homogène-associé"><span class="header-section-number">5.2</span> Système homogène associé</a></li>
-  <li><a href="#condition-de-compatibilité" id="toc-condition-de-compatibilité" class="nav-link" data-scroll-target="#condition-de-compatibilité"><span class="header-section-number">5.3</span> Condition de compatibilité</a></li>
-  <li><a href="#structure-de-lensemble-des-solutions" id="toc-structure-de-lensemble-des-solutions" class="nav-link" data-scroll-target="#structure-de-lensemble-des-solutions"><span class="header-section-number">5.4</span> Structure de l’ensemble des solutions</a></li>
-  <li><a href="#formulation-du-théorème-du-rang-pour-les-systèmes" id="toc-formulation-du-théorème-du-rang-pour-les-systèmes" class="nav-link" data-scroll-target="#formulation-du-théorème-du-rang-pour-les-systèmes"><span class="header-section-number">5.5</span> Formulation du théorème du rang pour les systèmes</a></li>
-  <li><a href="#cas-des-systèmes-carrés" id="toc-cas-des-systèmes-carrés" class="nav-link" data-scroll-target="#cas-des-systèmes-carrés"><span class="header-section-number">5.6</span> Cas des systèmes carrés</a></li>
+  <li><a href="#définition-1" id="toc-définition-1" class="nav-link" data-scroll-target="#définition-1"><span class="header-section-number">5.1</span> Définition</a></li>
   </ul></li>
-  <li><a href="#matrices-élémentaires-et-opérations-élémentaires" id="toc-matrices-élémentaires-et-opérations-élémentaires" class="nav-link" data-scroll-target="#matrices-élémentaires-et-opérations-élémentaires"><span class="header-section-number">6</span> Matrices élémentaires et opérations élémentaires</a>
+  <li><a href="#formules-de-cramer" id="toc-formules-de-cramer" class="nav-link" data-scroll-target="#formules-de-cramer"><span class="header-section-number">6</span> Formules de Cramer</a></li>
+  <li><a href="#déterminant-de-vandermonde" id="toc-déterminant-de-vandermonde" class="nav-link" data-scroll-target="#déterminant-de-vandermonde"><span class="header-section-number">7</span> Déterminant de Vandermonde</a>
   <ul class="collapse">
-  <li><a href="#matrices-élémentaires" id="toc-matrices-élémentaires" class="nav-link" data-scroll-target="#matrices-élémentaires"><span class="header-section-number">6.1</span> Matrices élémentaires</a></li>
+  <li><a href="#définition-et-formule" id="toc-définition-et-formule" class="nav-link" data-scroll-target="#définition-et-formule"><span class="header-section-number">7.1</span> Définition et formule</a></li>
+  <li><a href="#lien-avec-le-problème-dinterpolation-de-lagrange" id="toc-lien-avec-le-problème-dinterpolation-de-lagrange" class="nav-link" data-scroll-target="#lien-avec-le-problème-dinterpolation-de-lagrange"><span class="header-section-number">7.2</span> Lien avec le problème d’interpolation de Lagrange</a></li>
   </ul></li>
-  <li><a href="#exercices" id="toc-exercices" class="nav-link" data-scroll-target="#exercices"><span class="header-section-number">7</span> Exercices</a></li>
+  <li><a href="#exercices" id="toc-exercices" class="nav-link" data-scroll-target="#exercices"><span class="header-section-number">8</span> Exercices</a></li>
   <li><a href="#document-en-pdf" id="toc-document-en-pdf" class="nav-link" data-scroll-target="#document-en-pdf">Document en PDF</a>
   <ul class="collapse">
   <li><a href="#navigation" id="toc-navigation" class="nav-link" data-scroll-target="#navigation">Navigation</a></li>
@@ -239,8 +238,8 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Représentations matricielles</h1>
-<p class="subtitle lead">Chapitre 15</p>
+<h1 class="title">Matrices et déterminants</h1>
+<p class="subtitle lead">Chapitre 14</p>
 </div>
 
 
@@ -269,11 +268,11 @@ window.Quarto = {
 </header>
 
 
-<p><strong>TSI 1re année — Chapitre 15.</strong> Matrice d’une application linéaire, changements de bases, matrices semblables, rang d’une matrice, retour sur les systèmes linéaires.</p>
-<p>Ce chapitre a été réalisé conformément au programme marocain de mathématiques de la filière TSI1.</p>
+<p><strong>PCSI (1re année) — Chapitre 14.</strong> Matrice d’une application linéaire, changements de bases, matrices semblables, déterminants (matrice, famille de vecteurs, endomorphisme), comatrice, formules de Cramer, déterminant de Vandermonde.</p>
+<p>Ce chapitre a été réalisé conformément au programme marocain de mathématiques de la filière PCSI.</p>
 <p>Dans tout ce chapitre, <span class="math inline">\mathbb{K}</span> désigne <span class="math inline">\mathbb{R}</span> ou <span class="math inline">\mathbb{C}</span>, et tous les espaces vectoriels considérés sont de dimension finie.</p>
-<section id="matrice-dune-application-linéaire-dans-des-bases" class="level1" data-number="1">
-<h1 data-number="1"><span class="header-section-number">1</span> Matrice d’une application linéaire dans des bases</h1>
+<section id="matrice-dune-application-linéaire" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Matrice d’une application linéaire</h1>
 <section id="matrice-dune-famille-de-vecteurs" class="level2" data-number="1.1">
 <h2 data-number="1.1" class="anchored" data-anchor-id="matrice-dune-famille-de-vecteurs"><span class="header-section-number">1.1</span> Matrice d’une famille de vecteurs</h2>
 <div class="custom-numbered-block custom-definition">
@@ -288,8 +287,8 @@ window.Quarto = {
 <p>Dans <span class="math inline">\mathbb{R}^3</span> muni de la base canonique <span class="math inline">\mathcal{B} = (e_1, e_2, e_3)</span>, la matrice de la famille <span class="math inline">((1,2,3), (4,5,6))</span> est : <span class="math display">A = \begin{pmatrix} 1 &amp; 4 \\ 2 &amp; 5 \\ 3 &amp; 6 \end{pmatrix}</span></p>
 </div>
 </section>
-<section id="matrice-dune-application-linéaire" class="level2" data-number="1.2">
-<h2 data-number="1.2" class="anchored" data-anchor-id="matrice-dune-application-linéaire"><span class="header-section-number">1.2</span> Matrice d’une application linéaire</h2>
+<section id="matrice-dune-application-linéaire-1" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="matrice-dune-application-linéaire-1"><span class="header-section-number">1.2</span> Matrice d’une application linéaire</h2>
 <div class="custom-numbered-block custom-definition">
 <p><strong>Définition 1.2</strong></p>
 <p>Soient <span class="math inline">E</span> et <span class="math inline">F</span> deux <span class="math inline">\mathbb{K}</span>-espaces vectoriels de dimensions respectives <span class="math inline">p</span> et <span class="math inline">n</span>, <span class="math inline">\mathcal{B} = (e_1, \ldots, e_p)</span> une base de <span class="math inline">E</span> et <span class="math inline">\mathcal{B}' = (f_1, \ldots, f_n)</span> une base de <span class="math inline">F</span>.</p>
@@ -297,12 +296,12 @@ window.Quarto = {
 <p>La <strong>matrice de l’application linéaire</strong> <span class="math inline">u</span> par rapport aux bases <span class="math inline">\mathcal{B}</span> et <span class="math inline">\mathcal{B}'</span> est la matrice <span class="math inline">A \in \mathcal{M}_{n,p}(\mathbb{K})</span> dont la <span class="math inline">j</span>-ème colonne est constituée des coordonnées de <span class="math inline">u(e_j)</span> dans la base <span class="math inline">\mathcal{B}'</span>. On note : <span class="math display">A = \mathrm{Mat}_{\mathcal{B}, \mathcal{B}'}(u)</span></p>
 </div>
 <div class="proof remark">
-<p><span class="proof-title"><em>Remarque</em>. </span>Une application linéaire entre deux espaces vectoriels de dimension finie est entièrement déterminée par l’image d’une base de l’espace de départ. La matrice <span class="math inline">\mathrm{Mat}_{\mathcal{B}, \mathcal{B}'}(u)</span> est donc la représentation matricielle complète de <span class="math inline">u</span>.</p>
+<p><span class="proof-title"><em>Remarque</em>. </span>Une application linéaire entre deux espaces vectoriels de dimension finie est entièrement déterminée par l’image d’une base de l’espace de départ.</p>
 </div>
 <div class="custom-numbered-block custom-example">
 <p><strong>Exemple 1.2</strong></p>
 <p>Soit <span class="math inline">u : \mathbb{R}^2 \to \mathbb{R}^3</span> définie par <span class="math inline">u(x,y) = (x+y, x-y, 2x)</span>.</p>
-<p>Dans les bases canoniques, on a : <span class="math display">u(e_1) = u(1,0) = (1, 1, 2), \quad u(e_2) = u(0,1) = (1, -1, 0)</span></p>
+<p>Dans les bases canoniques : <span class="math display">u(e_1) = u(1,0) = (1, 1, 2), \quad u(e_2) = u(0,1) = (1, -1, 0)</span></p>
 <p>Donc : <span class="math display">\mathrm{Mat}_{\mathcal{B}, \mathcal{B}'}(u) = \begin{pmatrix} 1 &amp; 1 \\ 1 &amp; -1 \\ 2 &amp; 0 \end{pmatrix}</span></p>
 </div>
 <div class="custom-numbered-block custom-example">
@@ -337,13 +336,6 @@ window.Quarto = {
 <div class="proof remark">
 <p><span class="proof-title"><em>Remarque</em>. </span>Le produit matriciel est défini de manière à correspondre à la composition des applications linéaires. L’ordre est important : la matrice de <span class="math inline">v \circ u</span> est le produit de la matrice de <span class="math inline">v</span> par la matrice de <span class="math inline">u</span>, dans cet ordre.</p>
 </div>
-<div class="custom-numbered-block custom-example">
-<p><strong>Exemple 1.5</strong></p>
-<p>Soient <span class="math inline">u : \mathbb{R}^2 \to \mathbb{R}^3</span> et <span class="math inline">v : \mathbb{R}^3 \to \mathbb{R}^2</span> définies par : <span class="math display">u(x,y) = (x+y, x-y, 2x), \quad v(a,b,c) = (a+b, b+c)</span></p>
-<p>On a : <span class="math display">A = \mathrm{Mat}(u) = \begin{pmatrix} 1 &amp; 1 \\ 1 &amp; -1 \\ 2 &amp; 0 \end{pmatrix}, \quad B = \mathrm{Mat}(v) = \begin{pmatrix} 1 &amp; 1 &amp; 0 \\ 0 &amp; 1 &amp; 1 \end{pmatrix}</span></p>
-<p><span class="math display">\mathrm{Mat}(v \circ u) = BA = \begin{pmatrix} 1 &amp; 1 &amp; 0 \\ 0 &amp; 1 &amp; 1 \end{pmatrix} \begin{pmatrix} 1 &amp; 1 \\ 1 &amp; -1 \\ 2 &amp; 0 \end{pmatrix} = \begin{pmatrix} 2 &amp; 0 \\ 3 &amp; -1 \end{pmatrix}</span></p>
-<p>Vérification : <span class="math inline">(v \circ u)(x,y) = v(x+y, x-y, 2x) = (2x, x-y+2x) = (2x, 3x-y)</span>. ✓</p>
-</div>
 </section>
 <section id="isomorphisme-entre-mathcallef-et-mathcalm_npmathbbk" class="level2" data-number="1.5">
 <h2 data-number="1.5" class="anchored" data-anchor-id="isomorphisme-entre-mathcallef-et-mathcalm_npmathbbk"><span class="header-section-number">1.5</span> Isomorphisme entre <span class="math inline">\mathcal{L}(E,F)</span> et <span class="math inline">\mathcal{M}_{n,p}(\mathbb{K})</span></h2>
@@ -358,146 +350,60 @@ window.Quarto = {
 </div>
 </section>
 </section>
-<section id="application-linéaire-canoniquement-associée-à-une-matrice" class="level1" data-number="2">
-<h1 data-number="2"><span class="header-section-number">2</span> Application linéaire canoniquement associée à une matrice</h1>
-<section id="définition" class="level2" data-number="2.1">
-<h2 data-number="2.1" class="anchored" data-anchor-id="définition"><span class="header-section-number">2.1</span> Définition</h2>
+<section id="changements-de-bases" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> Changements de bases</h1>
+<section id="matrice-de-passage" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="matrice-de-passage"><span class="header-section-number">2.1</span> Matrice de passage</h2>
 <div class="custom-numbered-block custom-definition">
 <p><strong>Définition 2.1</strong></p>
-<p>Soit <span class="math inline">A \in \mathcal{M}_{n,p}(\mathbb{K})</span>. L’<strong>application linéaire canoniquement associée</strong> à <span class="math inline">A</span> est l’application : <span class="math display">f_A : \mathbb{K}^p \to \mathbb{K}^n, \quad X \mapsto AX</span></p>
-</div>
-<div class="custom-numbered-block custom-proposition">
-<p><strong>Proposition 2.1</strong></p>
-<p><span class="math inline">f_A</span> est une application linéaire.</p>
-</div>
-<div class="custom-numbered-block custom-example">
-<p><strong>Exemple 2.1</strong></p>
-<p>Soit <span class="math inline">A = \begin{pmatrix} 1 &amp; 2 &amp; -1 \\ 2 &amp; 3 &amp; 0 \end{pmatrix}</span>. L’application linéaire associée est : <span class="math display">f_A : \mathbb{K}^3 \to \mathbb{K}^2, \quad \begin{pmatrix} x_1 \\ x_2 \\ x_3 \end{pmatrix} \mapsto \begin{pmatrix} x_1 + 2x_2 - x_3 \\ 2x_1 + 3x_2 \end{pmatrix}</span></p>
-</div>
-</section>
-<section id="noyau-et-image-dune-matrice" class="level2" data-number="2.2">
-<h2 data-number="2.2" class="anchored" data-anchor-id="noyau-et-image-dune-matrice"><span class="header-section-number">2.2</span> Noyau et image d’une matrice</h2>
-<div class="custom-numbered-block custom-definition">
-<p><strong>Définition 2.2</strong></p>
-<p>Soit <span class="math inline">A \in \mathcal{M}_{n,p}(\mathbb{K})</span>.</p>
-<ul>
-<li><p>Le <strong>noyau</strong> de <span class="math inline">A</span>, noté <span class="math inline">\mathrm{Ker}(A)</span>, est le noyau de l’application linéaire <span class="math inline">f_A</span> : <span class="math display">\mathrm{Ker}(A) = \{X \in \mathbb{K}^p \mid AX = 0\}</span></p></li>
-<li><p>L’<strong>image</strong> de <span class="math inline">A</span>, notée <span class="math inline">\mathrm{Im}(A)</span>, est l’image de <span class="math inline">f_A</span> : <span class="math display">\mathrm{Im}(A) = \{AX \mid X \in \mathbb{K}^p\}</span></p></li>
-</ul>
-</div>
-<div class="custom-numbered-block custom-proposition">
-<p><strong>Proposition 2.2</strong></p>
-<p>Soit <span class="math inline">A \in \mathcal{M}_{n,p}(\mathbb{K})</span>.</p>
-<ol type="1">
-<li><span class="math inline">\mathrm{Ker}(A)</span> est un sous-espace vectoriel de <span class="math inline">\mathbb{K}^p</span>.</li>
-<li><span class="math inline">\mathrm{Im}(A)</span> est un sous-espace vectoriel de <span class="math inline">\mathbb{K}^n</span>.</li>
-<li>Les colonnes de <span class="math inline">A</span> engendrent <span class="math inline">\mathrm{Im}(A)</span>.</li>
-<li>Les lignes de <span class="math inline">A</span> donnent un système d’équations de <span class="math inline">\mathrm{Ker}(A)</span>.</li>
-</ol>
-</div>
-<div class="custom-numbered-block custom-example">
-<p><strong>Exemple 2.2</strong></p>
-<p>Soit <span class="math inline">A = \begin{pmatrix} 1 &amp; 2 &amp; -1 \\ 2 &amp; 3 &amp; 0 \end{pmatrix}</span>.</p>
-<p><strong>Noyau</strong> : <span class="math inline">AX = 0</span> donne : <span class="math display">\begin{cases} x_1 + 2x_2 - x_3 = 0 \\ 2x_1 + 3x_2 = 0 \end{cases}</span> De la deuxième équation : <span class="math inline">x_1 = -\frac{3}{2}x_2</span>. En substituant dans la première : <span class="math inline">-\frac{3}{2}x_2 + 2x_2 - x_3 = 0</span>, donc <span class="math inline">x_3 = \frac{1}{2}x_2</span>.</p>
-<p><span class="math display">\mathrm{Ker}(A) = \mathrm{Vect}\left(\begin{pmatrix} -3 \\ 2 \\ 1 \end{pmatrix}\right)</span></p>
-<p><strong>Image</strong> : Les colonnes de <span class="math inline">A</span> sont <span class="math inline">\begin{pmatrix} 1 \\ 2 \end{pmatrix}</span> et <span class="math inline">\begin{pmatrix} 2 \\ 3 \end{pmatrix}</span> et <span class="math inline">\begin{pmatrix} -1 \\ 0 \end{pmatrix}</span>. Comme <span class="math inline">\begin{pmatrix} 1 \\ 2 \end{pmatrix}</span> et <span class="math inline">\begin{pmatrix} 2 \\ 3 \end{pmatrix}</span> sont libres, <span class="math inline">\mathrm{Im}(A) = \mathbb{K}^2</span>.</p>
-</div>
-</section>
-<section id="rang-dune-matrice" class="level2" data-number="2.3">
-<h2 data-number="2.3" class="anchored" data-anchor-id="rang-dune-matrice"><span class="header-section-number">2.3</span> Rang d’une matrice</h2>
-<div class="custom-numbered-block custom-definition">
-<p><strong>Définition 2.3</strong></p>
-<p>Le <strong>rang</strong> d’une matrice <span class="math inline">A \in \mathcal{M}_{n,p}(\mathbb{K})</span>, noté <span class="math inline">\mathrm{rg}(A)</span>, est le rang de l’application linéaire <span class="math inline">f_A</span>, c’est-à-dire : <span class="math display">\mathrm{rg}(A) = \dim(\mathrm{Im}(A))</span></p>
-</div>
-<div class="custom-numbered-block custom-proposition">
-<p><strong>Proposition 2.3</strong></p>
-<p>Le rang d’une matrice est égal au nombre de pivots obtenus par l’algorithme de Gauss-Jordan.</p>
-</div>
-<div class="custom-numbered-block custom-proposition">
-<p><strong>Proposition 2.4 — (Caractérisations des matrices inversibles)</strong></p>
-<p>Soit <span class="math inline">A \in \mathcal{M}_n(\mathbb{K})</span>. Les assertions suivantes sont équivalentes :</p>
-<ol type="1">
-<li><span class="math inline">A</span> est inversible.</li>
-<li><span class="math inline">\mathrm{Ker}(A) = \{0\}</span>.</li>
-<li><span class="math inline">\mathrm{Im}(A) = \mathbb{K}^n</span>.</li>
-<li><span class="math inline">\mathrm{rg}(A) = n</span>.</li>
-<li>Le système <span class="math inline">AX = 0</span> a une unique solution <span class="math inline">X = 0</span>.</li>
-<li>Pour tout <span class="math inline">B \in \mathbb{K}^n</span>, le système <span class="math inline">AX = B</span> a une unique solution.</li>
-</ol>
-</div>
-<div class="custom-numbered-block custom-proposition">
-<p><strong>Proposition 2.5 — (Conservation du rang)</strong></p>
-<p>Le rang d’une matrice est conservé par multiplication à gauche ou à droite par une matrice inversible.</p>
-</div>
-<div class="custom-numbered-block custom-proposition">
-<p><strong>Proposition 2.6</strong></p>
-<p>Une matrice et sa transposée ont le même rang : <span class="math display">\mathrm{rg}(A) = \mathrm{rg}({}^tA)</span></p>
-</div>
-</section>
-</section>
-<section id="changements-de-bases" class="level1" data-number="3">
-<h1 data-number="3"><span class="header-section-number">3</span> Changements de bases</h1>
-<section id="matrice-de-passage" class="level2" data-number="3.1">
-<h2 data-number="3.1" class="anchored" data-anchor-id="matrice-de-passage"><span class="header-section-number">3.1</span> Matrice de passage</h2>
-<div class="custom-numbered-block custom-definition">
-<p><strong>Définition 3.1</strong></p>
 <p>Soient <span class="math inline">E</span> un <span class="math inline">\mathbb{K}</span>-espace vectoriel de dimension <span class="math inline">n</span>, <span class="math inline">\mathcal{B} = (e_1, \ldots, e_n)</span> et <span class="math inline">\mathcal{B}' = (e'_1, \ldots, e'_n)</span> deux bases de <span class="math inline">E</span>.</p>
 <p>La <strong>matrice de passage</strong> de <span class="math inline">\mathcal{B}</span> à <span class="math inline">\mathcal{B}'</span>, notée <span class="math inline">P = \mathrm{Pass}_{\mathcal{B}, \mathcal{B}'}</span>, est la matrice de la famille <span class="math inline">\mathcal{B}'</span> dans la base <span class="math inline">\mathcal{B}</span>. Autrement dit, la <span class="math inline">j</span>-ème colonne de <span class="math inline">P</span> est constituée des coordonnées de <span class="math inline">e'_j</span> dans la base <span class="math inline">\mathcal{B}</span>.</p>
 </div>
 <div class="custom-numbered-block custom-proposition">
-<p><strong>Proposition 3.1</strong></p>
+<p><strong>Proposition 2.1</strong></p>
 <p>La matrice de passage <span class="math inline">P = \mathrm{Pass}_{\mathcal{B}, \mathcal{B}'}</span> est inversible, et : <span class="math display">P^{-1} = \mathrm{Pass}_{\mathcal{B}', \mathcal{B}}</span></p>
 </div>
 <div class="custom-numbered-block custom-example">
-<p><strong>Exemple 3.1</strong></p>
+<p><strong>Exemple 2.1</strong></p>
 <p>Dans <span class="math inline">\mathbb{R}^2</span>, soient <span class="math inline">\mathcal{B} = (e_1, e_2)</span> la base canonique et <span class="math inline">\mathcal{B}' = (e'_1, e'_2)</span> avec <span class="math inline">e'_1 = e_1 + e_2</span> et <span class="math inline">e'_2 = e_1 - e_2</span>.</p>
 <p><span class="math display">P = \mathrm{Pass}_{\mathcal{B}, \mathcal{B}'} = \begin{pmatrix} 1 &amp; 1 \\ 1 &amp; -1 \end{pmatrix}</span></p>
 <p><span class="math display">P^{-1} = \frac{1}{-2}\begin{pmatrix} -1 &amp; -1 \\ -1 &amp; 1 \end{pmatrix} = \begin{pmatrix} 1/2 &amp; 1/2 \\ 1/2 &amp; -1/2 \end{pmatrix}</span></p>
 </div>
 </section>
-<section id="effet-dun-changement-de-base-sur-les-coordonnées-dun-vecteur" class="level2" data-number="3.2">
-<h2 data-number="3.2" class="anchored" data-anchor-id="effet-dun-changement-de-base-sur-les-coordonnées-dun-vecteur"><span class="header-section-number">3.2</span> Effet d’un changement de base sur les coordonnées d’un vecteur</h2>
+<section id="effet-dun-changement-de-base-sur-les-coordonnées-dun-vecteur" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="effet-dun-changement-de-base-sur-les-coordonnées-dun-vecteur"><span class="header-section-number">2.2</span> Effet d’un changement de base sur les coordonnées d’un vecteur</h2>
 <div class="custom-numbered-block custom-proposition">
-<p><strong>Proposition 3.2</strong></p>
+<p><strong>Proposition 2.2</strong></p>
 <p>Soient <span class="math inline">\mathcal{B}</span> et <span class="math inline">\mathcal{B}'</span> deux bases de <span class="math inline">E</span>, <span class="math inline">P = \mathrm{Pass}_{\mathcal{B}, \mathcal{B}'}</span>, et <span class="math inline">x \in E</span>. Si <span class="math inline">X = \mathrm{Mat}_{\mathcal{B}}(x)</span> et <span class="math inline">X' = \mathrm{Mat}_{\mathcal{B}'}(x)</span>, alors : <span class="math display">X = P \cdot X' \quad \text{et} \quad X' = P^{-1} \cdot X</span></p>
 </div>
 </section>
-<section id="effet-dun-changement-de-bases-sur-la-matrice-dune-application-linéaire" class="level2" data-number="3.3">
-<h2 data-number="3.3" class="anchored" data-anchor-id="effet-dun-changement-de-bases-sur-la-matrice-dune-application-linéaire"><span class="header-section-number">3.3</span> Effet d’un changement de bases sur la matrice d’une application linéaire</h2>
+<section id="effet-dun-changement-de-bases-sur-la-matrice-dune-application-linéaire" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="effet-dun-changement-de-bases-sur-la-matrice-dune-application-linéaire"><span class="header-section-number">2.3</span> Effet d’un changement de bases sur la matrice d’une application linéaire</h2>
 <div class="custom-numbered-block custom-theorem">
-<p><strong>Théorème 3.1 — (Formule de changement de bases)</strong></p>
+<p><strong>Théorème 2.1 — (Formule de changement de bases)</strong></p>
 <p>Soient <span class="math inline">E</span> et <span class="math inline">F</span> deux <span class="math inline">\mathbb{K}</span>-espaces vectoriels de dimensions finies, <span class="math inline">\mathcal{B}_E</span>, <span class="math inline">\mathcal{B}'_E</span> deux bases de <span class="math inline">E</span>, <span class="math inline">\mathcal{B}_F</span>, <span class="math inline">\mathcal{B}'_F</span> deux bases de <span class="math inline">F</span>.</p>
 <p>Soit <span class="math inline">u \in \mathcal{L}(E,F)</span>. On pose : - <span class="math inline">P = \mathrm{Pass}_{\mathcal{B}_E, \mathcal{B}'_E}</span> - <span class="math inline">Q = \mathrm{Pass}_{\mathcal{B}_F, \mathcal{B}'_F}</span> - <span class="math inline">A = \mathrm{Mat}_{\mathcal{B}_E, \mathcal{B}_F}(u)</span> - <span class="math inline">B = \mathrm{Mat}_{\mathcal{B}'_E, \mathcal{B}'_F}(u)</span></p>
 <p>Alors : <span class="math display">\boxed{B = Q^{-1} A P}</span></p>
 </div>
-<div class="custom-numbered-block custom-example">
-<p><strong>Exemple 3.2</strong></p>
-<p>Soit <span class="math inline">u : \mathbb{R}^2 \to \mathbb{R}^2</span> définie par <span class="math inline">u(x,y) = (2x+y, x-y)</span>.</p>
-<p>Dans la base canonique <span class="math inline">\mathcal{B}</span> : <span class="math display">A = \mathrm{Mat}_{\mathcal{B}}(u) = \begin{pmatrix} 2 &amp; 1 \\ 1 &amp; -1 \end{pmatrix}</span></p>
-<p>Soit <span class="math inline">\mathcal{B}' = ((1,1), (1,-1))</span>. On a : <span class="math display">P = \mathrm{Pass}_{\mathcal{B}, \mathcal{B}'} = \begin{pmatrix} 1 &amp; 1 \\ 1 &amp; -1 \end{pmatrix}, \quad P^{-1} = \begin{pmatrix} 1/2 &amp; 1/2 \\ 1/2 &amp; -1/2 \end{pmatrix}</span></p>
-<p><span class="math display">B = P^{-1} A P = \begin{pmatrix} 1/2 &amp; 1/2 \\ 1/2 &amp; -1/2 \end{pmatrix} \begin{pmatrix} 2 &amp; 1 \\ 1 &amp; -1 \end{pmatrix} \begin{pmatrix} 1 &amp; 1 \\ 1 &amp; -1 \end{pmatrix}</span></p>
-<p><span class="math display">= \begin{pmatrix} 3/2 &amp; 0 \\ 1/2 &amp; 1 \end{pmatrix} \begin{pmatrix} 1 &amp; 1 \\ 1 &amp; -1 \end{pmatrix} = \begin{pmatrix} 3/2 &amp; 3/2 \\ 3/2 &amp; -1/2 \end{pmatrix}</span></p>
-<p>Vérification : <span class="math inline">u(1,1) = (3, 0) = \frac{3}{2}(1,1) + \frac{3}{2}(1,-1)</span> et <span class="math inline">u(1,-1) = (1, 2) = \frac{3}{2}(1,1) - \frac{1}{2}(1,-1)</span>. ✓</p>
-</div>
 </section>
-<section id="cas-particulier-des-endomorphismes" class="level2" data-number="3.4">
-<h2 data-number="3.4" class="anchored" data-anchor-id="cas-particulier-des-endomorphismes"><span class="header-section-number">3.4</span> Cas particulier des endomorphismes</h2>
+<section id="cas-particulier-des-endomorphismes" class="level2" data-number="2.4">
+<h2 data-number="2.4" class="anchored" data-anchor-id="cas-particulier-des-endomorphismes"><span class="header-section-number">2.4</span> Cas particulier des endomorphismes</h2>
 <div class="custom-numbered-block custom-corollary">
-<p><strong>Corollaire 3.1 — (Formule de changement de base pour un endomorphisme)</strong></p>
+<p><strong>Corollaire 2.1 — (Formule de changement de base pour un endomorphisme)</strong></p>
 <p>Soit <span class="math inline">E</span> un <span class="math inline">\mathbb{K}</span>-espace vectoriel de dimension finie, <span class="math inline">\mathcal{B}</span> et <span class="math inline">\mathcal{B}'</span> deux bases de <span class="math inline">E</span>, <span class="math inline">P = \mathrm{Pass}_{\mathcal{B}, \mathcal{B}'}</span>, et <span class="math inline">u \in \mathcal{L}(E)</span>. Si <span class="math inline">A = \mathrm{Mat}_{\mathcal{B}}(u)</span> et <span class="math inline">B = \mathrm{Mat}_{\mathcal{B}'}(u)</span>, alors : <span class="math display">\boxed{B = P^{-1} A P}</span></p>
 </div>
 </section>
 </section>
-<section id="matrices-semblables" class="level1" data-number="4">
-<h1 data-number="4"><span class="header-section-number">4</span> Matrices semblables</h1>
-<section id="définition-1" class="level2" data-number="4.1">
-<h2 data-number="4.1" class="anchored" data-anchor-id="définition-1"><span class="header-section-number">4.1</span> Définition</h2>
+<section id="matrices-semblables" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Matrices semblables</h1>
+<section id="définition" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="définition"><span class="header-section-number">3.1</span> Définition</h2>
 <div class="custom-numbered-block custom-definition">
-<p><strong>Définition 4.1</strong></p>
+<p><strong>Définition 3.1</strong></p>
 <p>Deux matrices <span class="math inline">A, B \in \mathcal{M}_n(\mathbb{K})</span> sont dites <strong>semblables</strong> s’il existe une matrice inversible <span class="math inline">P \in \mathrm{GL}_n(\mathbb{K})</span> telle que : <span class="math display">B = P^{-1} A P</span></p>
 </div>
 <div class="custom-numbered-block custom-proposition">
-<p><strong>Proposition 4.1</strong></p>
+<p><strong>Proposition 3.1</strong></p>
 <p>La relation de similitude est une relation d’équivalence sur <span class="math inline">\mathcal{M}_n(\mathbb{K})</span> :</p>
 <ol type="1">
 <li><strong>Réflexivité</strong> : <span class="math inline">A</span> est semblable à elle-même (avec <span class="math inline">P = I_n</span>).</li>
@@ -506,114 +412,224 @@ window.Quarto = {
 </ol>
 </div>
 <div class="custom-numbered-block custom-proposition">
-<p><strong>Proposition 4.2 — (Interprétation)</strong></p>
+<p><strong>Proposition 3.2 — (Interprétation)</strong></p>
 <p>Deux matrices sont semblables si et seulement si elles représentent le même endomorphisme dans deux bases différentes.</p>
 </div>
 <div class="custom-numbered-block custom-proposition">
-<p><strong>Proposition 4.3 — (Invariants par similitude)</strong></p>
+<p><strong>Proposition 3.3 — (Invariants par similitude)</strong></p>
 <p>Si <span class="math inline">A</span> et <span class="math inline">B</span> sont semblables, alors :</p>
 <ol type="1">
-<li><span class="math inline">\det(A) = \det(B)</span> (si les déterminants sont définis)</li>
+<li><span class="math inline">\det(A) = \det(B)</span></li>
 <li><span class="math inline">\mathrm{rg}(A) = \mathrm{rg}(B)</span></li>
-<li><span class="math inline">\mathrm{tr}(A) = \mathrm{tr}(B)</span> (si les traces sont définies)</li>
+<li><span class="math inline">\mathrm{tr}(A) = \mathrm{tr}(B)</span></li>
 <li><span class="math inline">A</span> et <span class="math inline">B</span> ont les mêmes valeurs propres</li>
 <li><span class="math inline">A^n</span> et <span class="math inline">B^n</span> sont semblables pour tout <span class="math inline">n \in \mathbb{N}</span></li>
 </ol>
 </div>
 <div class="custom-numbered-block custom-example">
-<p><strong>Exemple 4.1</strong></p>
+<p><strong>Exemple 3.1</strong></p>
 <p>Les matrices <span class="math inline">A = \begin{pmatrix} 2 &amp; 1 \\ 0 &amp; 3 \end{pmatrix}</span> et <span class="math inline">B = \begin{pmatrix} 3 &amp; 0 \\ 1 &amp; 2 \end{pmatrix}</span> sont-elles semblables ?</p>
 <p>On vérifie les invariants : <span class="math inline">\mathrm{tr}(A) = 5 = \mathrm{tr}(B)</span>, <span class="math inline">\det(A) = 6 = \det(B)</span>, <span class="math inline">\mathrm{rg}(A) = 2 = \mathrm{rg}(B)</span>.</p>
 <p>Les valeurs propres de <span class="math inline">A</span> sont <span class="math inline">2</span> et <span class="math inline">3</span>. Les valeurs propres de <span class="math inline">B</span> sont aussi <span class="math inline">2</span> et <span class="math inline">3</span>. Donc <span class="math inline">A</span> et <span class="math inline">B</span> sont semblables.</p>
 </div>
 </section>
 </section>
-<section id="retour-sur-les-systèmes-linéaires" class="level1" data-number="5">
-<h1 data-number="5"><span class="header-section-number">5</span> Retour sur les systèmes linéaires</h1>
-<section id="écriture-matricielle" class="level2" data-number="5.1">
-<h2 data-number="5.1" class="anchored" data-anchor-id="écriture-matricielle"><span class="header-section-number">5.1</span> Écriture matricielle</h2>
-<div class="custom-numbered-block custom-proposition">
-<p><strong>Proposition 5.1</strong></p>
-<p>Le système linéaire : <span class="math display">\begin{cases} a_{1,1}x_1 + a_{1,2}x_2 + \cdots + a_{1,p}x_p = b_1 \\ a_{2,1}x_1 + a_{2,2}x_2 + \cdots + a_{2,p}x_p = b_2 \\ \vdots \\ a_{n,1}x_1 + a_{n,2}x_2 + \cdots + a_{n,p}x_p = b_n \end{cases}</span> s’écrit sous forme matricielle : <span class="math display">AX = B</span> où <span class="math inline">A \in \mathcal{M}_{n,p}(\mathbb{K})</span> est la matrice des coefficients, <span class="math inline">X = \begin{pmatrix} x_1 \\ \vdots \\ x_p \end{pmatrix}</span> et <span class="math inline">B = \begin{pmatrix} b_1 \\ \vdots \\ b_n \end{pmatrix}</span>.</p>
-</div>
-</section>
-<section id="système-homogène-associé" class="level2" data-number="5.2">
-<h2 data-number="5.2" class="anchored" data-anchor-id="système-homogène-associé"><span class="header-section-number">5.2</span> Système homogène associé</h2>
-<div class="custom-numbered-block custom-proposition">
-<p><strong>Proposition 5.2</strong></p>
-<p>Le système homogène associé à <span class="math inline">AX = B</span> est <span class="math inline">AX = 0</span>. L’ensemble des solutions de <span class="math inline">AX = 0</span> est <span class="math inline">\mathrm{Ker}(A)</span>, qui est un sous-espace vectoriel de <span class="math inline">\mathbb{K}^p</span> de dimension <span class="math inline">p - \mathrm{rg}(A)</span>.</p>
-</div>
-</section>
-<section id="condition-de-compatibilité" class="level2" data-number="5.3">
-<h2 data-number="5.3" class="anchored" data-anchor-id="condition-de-compatibilité"><span class="header-section-number">5.3</span> Condition de compatibilité</h2>
-<div class="custom-numbered-block custom-proposition">
-<p><strong>Proposition 5.3</strong></p>
-<p>Le système <span class="math inline">AX = B</span> est compatible si et seulement si <span class="math inline">B \in \mathrm{Im}(A)</span>, c’est-à-dire si et seulement si : <span class="math display">\mathrm{rg}(A) = \mathrm{rg}(A|B)</span> où <span class="math inline">(A|B)</span> est la matrice augmentée.</p>
-</div>
-</section>
-<section id="structure-de-lensemble-des-solutions" class="level2" data-number="5.4">
-<h2 data-number="5.4" class="anchored" data-anchor-id="structure-de-lensemble-des-solutions"><span class="header-section-number">5.4</span> Structure de l’ensemble des solutions</h2>
-<div class="custom-numbered-block custom-proposition">
-<p><strong>Proposition 5.4</strong></p>
-<p>Si le système <span class="math inline">AX = B</span> est compatible et si <span class="math inline">X_0</span> est une solution particulière, alors l’ensemble des solutions est : <span class="math display">\{X_0 + Y \mid Y \in \mathrm{Ker}(A)\}</span></p>
-<p>C’est un sous-espace affine de <span class="math inline">\mathbb{K}^p</span> de dimension <span class="math inline">p - \mathrm{rg}(A)</span>.</p>
-</div>
-</section>
-<section id="formulation-du-théorème-du-rang-pour-les-systèmes" class="level2" data-number="5.5">
-<h2 data-number="5.5" class="anchored" data-anchor-id="formulation-du-théorème-du-rang-pour-les-systèmes"><span class="header-section-number">5.5</span> Formulation du théorème du rang pour les systèmes</h2>
-<div class="custom-numbered-block custom-theorem">
-<p><strong>Théorème 5.1 — (Théorème du rang pour les systèmes linéaires)</strong></p>
-<p>Soit <span class="math inline">AX = B</span> un système linéaire de <span class="math inline">n</span> équations à <span class="math inline">p</span> inconnues. Alors :</p>
-<ol type="1">
-<li>Le rang du système est <span class="math inline">\mathrm{rg}(A)</span>.</li>
-<li>La dimension de l’espace des solutions du système homogène associé est <span class="math inline">p - \mathrm{rg}(A)</span>.</li>
-<li>Le système est compatible si et seulement si <span class="math inline">\mathrm{rg}(A) = \mathrm{rg}(A|B)</span>.</li>
-</ol>
-</div>
-</section>
-<section id="cas-des-systèmes-carrés" class="level2" data-number="5.6">
-<h2 data-number="5.6" class="anchored" data-anchor-id="cas-des-systèmes-carrés"><span class="header-section-number">5.6</span> Cas des systèmes carrés</h2>
-<div class="custom-numbered-block custom-proposition">
-<p><strong>Proposition 5.5</strong></p>
-<p>Soit <span class="math inline">A \in \mathcal{M}_n(\mathbb{K})</span>. Les assertions suivantes sont équivalentes :</p>
-<ol type="1">
-<li><span class="math inline">A</span> est inversible.</li>
-<li><span class="math inline">\mathrm{rg}(A) = n</span>.</li>
-<li>Pour tout <span class="math inline">B \in \mathbb{K}^n</span>, le système <span class="math inline">AX = B</span> a une unique solution <span class="math inline">X = A^{-1}B</span>.</li>
-<li>Le système <span class="math inline">AX = 0</span> a une unique solution <span class="math inline">X = 0</span>.</li>
-</ol>
-</div>
-</section>
-</section>
-<section id="matrices-élémentaires-et-opérations-élémentaires" class="level1" data-number="6">
-<h1 data-number="6"><span class="header-section-number">6</span> Matrices élémentaires et opérations élémentaires</h1>
-<section id="matrices-élémentaires" class="level2" data-number="6.1">
-<h2 data-number="6.1" class="anchored" data-anchor-id="matrices-élémentaires"><span class="header-section-number">6.1</span> Matrices élémentaires</h2>
+<section id="déterminants" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> Déterminants</h1>
+<section id="définition-du-déterminant-dune-matrice-carrée" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="définition-du-déterminant-dune-matrice-carrée"><span class="header-section-number">4.1</span> Définition du déterminant d’une matrice carrée</h2>
 <div class="custom-numbered-block custom-definition">
-<p><strong>Définition 6.1</strong></p>
-<p>Les <strong>matrices élémentaires</strong> de <span class="math inline">\mathcal{M}_n(\mathbb{K})</span> sont les matrices obtenues à partir de <span class="math inline">I_n</span> par une seule opération élémentaire sur les lignes (ou les colonnes) :</p>
+<p><strong>Définition 4.1 — (Déterminant d’une matrice carrée)</strong></p>
+<p>Soit <span class="math inline">A = (a_{i,j}) \in \mathcal{M}_n(\mathbb{K})</span>. Le <strong>déterminant</strong> de <span class="math inline">A</span>, noté <span class="math inline">\det(A)</span> ou <span class="math inline">|A|</span>, est défini récursivement par :</p>
+<ul>
+<li>Pour <span class="math inline">n = 1</span> : <span class="math inline">\det(a_{1,1}) = a_{1,1}</span></li>
+<li>Pour <span class="math inline">n \geq 2</span> : développement par rapport à la première ligne (ou colonne) : <span class="math display">\det(A) = \sum_{j=1}^n (-1)^{1+j} a_{1,j} \det(A_{1,j})</span> où <span class="math inline">A_{1,j}</span> est la matrice obtenue en supprimant la première ligne et la <span class="math inline">j</span>-ème colonne de <span class="math inline">A</span>.</li>
+</ul>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 4.1</strong></p>
+<p>Pour <span class="math inline">n = 2</span> : <span class="math display">\det\begin{pmatrix} a &amp; b \\ c &amp; d \end{pmatrix} = ad - bc</span></p>
+<p>Pour <span class="math inline">n = 3</span> : <span class="math display">\det\begin{pmatrix} a_{1,1} &amp; a_{1,2} &amp; a_{1,3} \\ a_{2,1} &amp; a_{2,2} &amp; a_{2,3} \\ a_{3,1} &amp; a_{3,2} &amp; a_{3,3} \end{pmatrix} = a_{1,1}(a_{2,2}a_{3,3} - a_{2,3}a_{3,2}) - a_{1,2}(a_{2,1}a_{3,3} - a_{2,3}a_{3,1}) + a_{1,3}(a_{2,1}a_{3,2} - a_{2,2}a_{3,1})</span></p>
+</div>
+</section>
+<section id="développement-de-laplace" class="level2" data-number="4.2">
+<h2 data-number="4.2" class="anchored" data-anchor-id="développement-de-laplace"><span class="header-section-number">4.2</span> Développement de Laplace</h2>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 4.1 — (Développement de Laplace)</strong></p>
+<p>Soit <span class="math inline">A \in \mathcal{M}_n(\mathbb{K})</span>. Alors pour tout <span class="math inline">i \in \{1, \ldots, n\}</span> : <span class="math display">\det(A) = \sum_{j=1}^n (-1)^{i+j} a_{i,j} \det(A_{i,j})</span> et pour tout <span class="math inline">j \in \{1, \ldots, n\}</span> : <span class="math display">\det(A) = \sum_{i=1}^n (-1)^{i+j} a_{i,j} \det(A_{i,j})</span></p>
+<p>On appelle ce développement le <strong>développement de Laplace</strong> par rapport à la <span class="math inline">i</span>-ème ligne (resp. <span class="math inline">j</span>-ème colonne).</p>
+</div>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 4.2 — (Mineur et cofacteur)</strong></p>
+<p>Soit <span class="math inline">A \in \mathcal{M}_n(\mathbb{K})</span>.</p>
+<ul>
+<li>Le <strong>mineur</strong> de <span class="math inline">a_{i,j}</span> est le déterminant <span class="math inline">\det(A_{i,j})</span>.</li>
+<li>Le <strong>cofacteur</strong> de <span class="math inline">a_{i,j}</span> est <span class="math inline">\Delta_{i,j} = (-1)^{i+j} \det(A_{i,j})</span>.</li>
+</ul>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 4.2</strong></p>
+<p>Calculons le déterminant de <span class="math inline">A = \begin{pmatrix} 1 &amp; 2 &amp; 3 \\ 4 &amp; 5 &amp; 6 \\ 7 &amp; 8 &amp; 9 \end{pmatrix}</span> en développant par rapport à la première ligne :</p>
+<p><span class="math display">\det(A) = 1 \cdot \det\begin{pmatrix} 5 &amp; 6 \\ 8 &amp; 9 \end{pmatrix} - 2 \cdot \det\begin{pmatrix} 4 &amp; 6 \\ 7 &amp; 9 \end{pmatrix} + 3 \cdot \det\begin{pmatrix} 4 &amp; 5 \\ 7 &amp; 8 \end{pmatrix}</span></p>
+<p><span class="math display">= 1 \cdot (45 - 48) - 2 \cdot (36 - 42) + 3 \cdot (32 - 35) = -3 + 12 - 9 = 0</span></p>
+</div>
+</section>
+<section id="propriétés-du-déterminant" class="level2" data-number="4.3">
+<h2 data-number="4.3" class="anchored" data-anchor-id="propriétés-du-déterminant"><span class="header-section-number">4.3</span> Propriétés du déterminant</h2>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 4.1 — (Propriétés fondamentales du déterminant)</strong></p>
+<p>Soient <span class="math inline">A, B \in \mathcal{M}_n(\mathbb{K})</span>.</p>
 <ol type="1">
-<li><strong>Dilatation</strong> : <span class="math inline">E_{L_i \leftarrow \lambda L_i}</span> avec <span class="math inline">\lambda \neq 0</span></li>
-<li><strong>Transvection</strong> : <span class="math inline">E_{L_i \leftarrow L_i + \lambda L_j}</span> avec <span class="math inline">i \neq j</span></li>
-<li><strong>Échange</strong> : <span class="math inline">E_{L_i \leftrightarrow L_j}</span> avec <span class="math inline">i \neq j</span></li>
+<li><strong>Multiplicativité</strong> : <span class="math inline">\det(AB) = \det(A) \cdot \det(B)</span></li>
+<li><strong>Inverse</strong> : Si <span class="math inline">A</span> est inversible, <span class="math inline">\det(A^{-1}) = \frac{1}{\det(A)}</span></li>
+<li><strong>Transposée</strong> : <span class="math inline">\det({}^tA) = \det(A)</span></li>
+<li><strong>Scalaire</strong> : <span class="math inline">\det(\lambda A) = \lambda^n \det(A)</span></li>
 </ol>
 </div>
 <div class="custom-numbered-block custom-proposition">
-<p><strong>Proposition 6.1</strong></p>
-<p>Toute matrice élémentaire est inversible.</p>
-<p>Effectuer une opération élémentaire sur les lignes d’une matrice <span class="math inline">A</span> revient à multiplier <span class="math inline">A</span> à gauche par la matrice élémentaire correspondante.</p>
-<p>Effectuer une opération élémentaire sur les colonnes de <span class="math inline">A</span> revient à multiplier <span class="math inline">A</span> à droite par la matrice élémentaire correspondante.</p>
+<p><strong>Proposition 4.2 — (Effet des opérations élémentaires sur le déterminant)</strong></p>
+<p>Les opérations élémentaires sur les lignes (ou colonnes) ont les effets suivants sur le déterminant :</p>
+<ol type="1">
+<li><span class="math inline">L_i \leftarrow \lambda L_i</span> avec <span class="math inline">\lambda \neq 0</span> : le déterminant est multiplié par <span class="math inline">\lambda</span>.</li>
+<li><span class="math inline">L_i \leftarrow L_i + \lambda L_j</span> avec <span class="math inline">\lambda \in \mathbb{K}</span> (et <span class="math inline">j \neq i</span>) : le déterminant ne change pas.</li>
+<li><span class="math inline">L_i \leftrightarrow L_j</span> : le déterminant change de signe.</li>
+</ol>
 </div>
 <div class="custom-numbered-block custom-proposition">
-<p><strong>Proposition 6.2 — (Conservation du rang)</strong></p>
-<p>Les opérations élémentaires sur les lignes (resp. colonnes) conservent l’image (resp. le noyau) et le rang d’une matrice.</p>
+<p><strong>Proposition 4.3 — (Caractérisation de l’inversibilité)</strong></p>
+<p>Soit <span class="math inline">A \in \mathcal{M}_n(\mathbb{K})</span>. Alors : <span class="math display">A \text{ est inversible} \iff \det(A) \neq 0</span></p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 4.4 — (Déterminant d’une matrice triangulaire)</strong></p>
+<p>Le déterminant d’une matrice triangulaire (supérieure ou inférieure) est le produit de ses coefficients diagonaux.</p>
+<p>En particulier, le déterminant d’une matrice diagonale est le produit de ses coefficients diagonaux.</p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 4.3</strong></p>
+<p><span class="math display">\det\begin{pmatrix} 2 &amp; 3 &amp; 5 \\ 0 &amp; 7 &amp; 1 \\ 0 &amp; 0 &amp; 4 \end{pmatrix} = 2 \times 7 \times 4 = 56</span></p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 4.5 — (Cas de deux colonnes identiques)</strong></p>
+<p>Si une matrice carrée a deux colonnes identiques, son déterminant est nul.</p>
+</div>
+</section>
+<section id="déterminant-dune-famille-de-vecteurs" class="level2" data-number="4.4">
+<h2 data-number="4.4" class="anchored" data-anchor-id="déterminant-dune-famille-de-vecteurs"><span class="header-section-number">4.4</span> Déterminant d’une famille de vecteurs</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 4.3 — (Déterminant d’une famille de vecteurs)</strong></p>
+<p>Soient <span class="math inline">E</span> un <span class="math inline">\mathbb{K}</span>-espace vectoriel de dimension <span class="math inline">n</span>, <span class="math inline">\mathcal{B} = (e_1, \ldots, e_n)</span> une base de <span class="math inline">E</span>, et <span class="math inline">(v_1, \ldots, v_n)</span> une famille de <span class="math inline">n</span> vecteurs de <span class="math inline">E</span>.</p>
+<p>Le <strong>déterminant</strong> de la famille <span class="math inline">(v_1, \ldots, v_n)</span> dans la base <span class="math inline">\mathcal{B}</span>, noté <span class="math inline">\det_{\mathcal{B}}(v_1, \ldots, v_n)</span>, est le déterminant de la matrice dont les colonnes sont les coordonnées des <span class="math inline">v_j</span> dans la base <span class="math inline">\mathcal{B}</span>.</p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 4.6 — (Caractérisation des bases)</strong></p>
+<p>Une famille <span class="math inline">(v_1, \ldots, v_n)</span> de <span class="math inline">n</span> vecteurs d’un espace vectoriel de dimension <span class="math inline">n</span> est une base si et seulement si : <span class="math display">\det_{\mathcal{B}}(v_1, \ldots, v_n) \neq 0</span></p>
+</div>
+</section>
+<section id="déterminant-dun-endomorphisme" class="level2" data-number="4.5">
+<h2 data-number="4.5" class="anchored" data-anchor-id="déterminant-dun-endomorphisme"><span class="header-section-number">4.5</span> Déterminant d’un endomorphisme</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 4.4 — (Déterminant d’un endomorphisme)</strong></p>
+<p>Soit <span class="math inline">u \in \mathcal{L}(E)</span> avec <span class="math inline">\dim(E) = n</span>. Le <strong>déterminant</strong> de <span class="math inline">u</span> est : <span class="math display">\det(u) = \det(\mathrm{Mat}_{\mathcal{B}}(u))</span> où <span class="math inline">\mathcal{B}</span> est une base quelconque de <span class="math inline">E</span>.</p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 4.7</strong></p>
+<p>Le déterminant d’un endomorphisme ne dépend pas du choix de la base. De plus :</p>
+<ol type="1">
+<li><span class="math inline">\det(v \circ u) = \det(v) \cdot \det(u)</span></li>
+<li>Si <span class="math inline">u</span> est un automorphisme : <span class="math inline">\det(u^{-1}) = \frac{1}{\det(u)}</span></li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 4.8 — (Interprétation géométrique)</strong></p>
+<p>Dans <span class="math inline">\mathbb{R}^2</span> ou <span class="math inline">\mathbb{R}^3</span> muni d’une base orthonormée directe :</p>
+<ul>
+<li>Le déterminant de deux vecteurs <span class="math inline">(u, v)</span> de <span class="math inline">\mathbb{R}^2</span> représente l’<strong>aire algébrique</strong> du parallélogramme construit sur <span class="math inline">u</span> et <span class="math inline">v</span>.</li>
+<li>Le déterminant de trois vecteurs <span class="math inline">(u, v, w)</span> de <span class="math inline">\mathbb{R}^3</span> représente le <strong>volume algébrique</strong> du parallélépipède construit sur <span class="math inline">u</span>, <span class="math inline">v</span> et <span class="math inline">w</span>.</li>
+</ul>
 </div>
 </section>
 </section>
-<section id="exercices" class="level1" data-number="7">
-<h1 data-number="7"><span class="header-section-number">7</span> Exercices</h1>
+<section id="comatrice" class="level1" data-number="5">
+<h1 data-number="5"><span class="header-section-number">5</span> Comatrice</h1>
+<section id="définition-1" class="level2" data-number="5.1">
+<h2 data-number="5.1" class="anchored" data-anchor-id="définition-1"><span class="header-section-number">5.1</span> Définition</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 5.1 — (Comatrice)</strong></p>
+<p>Soit <span class="math inline">A = (a_{i,j}) \in \mathcal{M}_n(\mathbb{K})</span>. La <strong>comatrice</strong> de <span class="math inline">A</span>, notée <span class="math inline">\mathrm{Com}(A)</span>, est la matrice définie par : <span class="math display">\mathrm{Com}(A)_{i,j} = \Delta_{i,j} = (-1)^{i+j} \det(A_{i,j})</span> où <span class="math inline">\Delta_{i,j}</span> est le cofacteur de <span class="math inline">a_{i,j}</span>.</p>
+</div>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 5.1 — (Formule de la comatrice)</strong></p>
+<p>Soit <span class="math inline">A \in \mathcal{M}_n(\mathbb{K})</span>. Alors : <span class="math display">A \cdot {}^t\mathrm{Com}(A) = {}^t\mathrm{Com}(A) \cdot A = \det(A) \cdot I_n</span></p>
+</div>
+<div class="custom-numbered-block custom-corollary">
+<p><strong>Corollaire 5.1 — (Inverse d’une matrice inversible)</strong></p>
+<p>Si <span class="math inline">A</span> est inversible : <span class="math display">\boxed{A^{-1} = \frac{1}{\det(A)} \cdot {}^t\mathrm{Com}(A)}</span></p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 5.1</strong></p>
+<p>Calculons l’inverse de <span class="math inline">A = \begin{pmatrix} 1 &amp; 2 \\ 3 &amp; 4 \end{pmatrix}</span>.</p>
+<p><span class="math inline">\det(A) = 1 \times 4 - 2 \times 3 = -2</span>.</p>
+<p>La comatrice est : <span class="math display">\mathrm{Com}(A) = \begin{pmatrix} 4 &amp; -3 \\ -2 &amp; 1 \end{pmatrix}</span></p>
+<p>Donc : <span class="math display">A^{-1} = \frac{1}{-2}\begin{pmatrix} 4 &amp; -2 \\ -3 &amp; 1 \end{pmatrix} = \begin{pmatrix} -2 &amp; 1 \\ 3/2 &amp; -1/2 \end{pmatrix}</span></p>
+<p>Vérification : <span class="math inline">A \cdot A^{-1} = \begin{pmatrix} 1 &amp; 2 \\ 3 &amp; 4 \end{pmatrix} \begin{pmatrix} -2 &amp; 1 \\ 3/2 &amp; -1/2 \end{pmatrix} = \begin{pmatrix} 1 &amp; 0 \\ 0 &amp; 1 \end{pmatrix}</span>. ✓</p>
+</div>
+</section>
+</section>
+<section id="formules-de-cramer" class="level1" data-number="6">
+<h1 data-number="6"><span class="header-section-number">6</span> Formules de Cramer</h1>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 6.1 — (Règle de Cramer)</strong></p>
+<p>Soit <span class="math inline">A \in \mathrm{GL}_n(\mathbb{K})</span> et <span class="math inline">B = \begin{pmatrix} b_1 \\ \vdots \\ b_n \end{pmatrix} \in \mathbb{K}^n</span>. Le système <span class="math inline">AX = B</span> admet une unique solution <span class="math inline">X = \begin{pmatrix} x_1 \\ \vdots \\ x_n \end{pmatrix}</span> donnée par : <span class="math display">\boxed{x_j = \frac{\det(A_j)}{\det(A)}}</span> où <span class="math inline">A_j</span> est la matrice obtenue en remplaçant la <span class="math inline">j</span>-ème colonne de <span class="math inline">A</span> par <span class="math inline">B</span>.</p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 6.1</strong></p>
+<p>Résolvons le système : <span class="math display">\begin{cases} x + 2y = 5 \\ 3x + 4y = 11 \end{cases}</span></p>
+<p>On a <span class="math inline">A = \begin{pmatrix} 1 &amp; 2 \\ 3 &amp; 4 \end{pmatrix}</span> et <span class="math inline">B = \begin{pmatrix} 5 \\ 11 \end{pmatrix}</span>.</p>
+<p><span class="math inline">\det(A) = 4 - 6 = -2</span>.</p>
+<p><span class="math inline">x = \frac{\det\begin{pmatrix} 5 &amp; 2 \\ 11 &amp; 4 \end{pmatrix}}{-2} = \frac{20 - 22}{-2} = \frac{-2}{-2} = 1</span></p>
+<p><span class="math inline">y = \frac{\det\begin{pmatrix} 1 &amp; 5 \\ 3 &amp; 11 \end{pmatrix}}{-2} = \frac{11 - 15}{-2} = \frac{-4}{-2} = 2</span></p>
+<p>Donc la solution est <span class="math inline">(x, y) = (1, 2)</span>.</p>
+</div>
+</section>
+<section id="déterminant-de-vandermonde" class="level1" data-number="7">
+<h1 data-number="7"><span class="header-section-number">7</span> Déterminant de Vandermonde</h1>
+<section id="définition-et-formule" class="level2" data-number="7.1">
+<h2 data-number="7.1" class="anchored" data-anchor-id="définition-et-formule"><span class="header-section-number">7.1</span> Définition et formule</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 7.1 — (Matrice de Vandermonde)</strong></p>
+<p>Soient <span class="math inline">x_1, x_2, \ldots, x_n \in \mathbb{K}</span>. La <strong>matrice de Vandermonde</strong> associée est : <span class="math display">V = \begin{pmatrix} 1 &amp; 1 &amp; \cdots &amp; 1 \\ x_1 &amp; x_2 &amp; \cdots &amp; x_n \\ x_1^2 &amp; x_2^2 &amp; \cdots &amp; x_n^2 \\ \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\ x_1^{n-1} &amp; x_2^{n-1} &amp; \cdots &amp; x_n^{n-1} \end{pmatrix}</span></p>
+</div>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 7.1 — (Déterminant de Vandermonde)</strong></p>
+<p><span class="math display">\boxed{\det(V) = \prod_{1 \leq i &lt; j \leq n} (x_j - x_i)}</span></p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 7.1</strong></p>
+<p>Pour <span class="math inline">n = 3</span> : <span class="math display">\det\begin{pmatrix} 1 &amp; 1 &amp; 1 \\ x_1 &amp; x_2 &amp; x_3 \\ x_1^2 &amp; x_2^2 &amp; x_3^2 \end{pmatrix} = (x_2 - x_1)(x_3 - x_1)(x_3 - x_2)</span></p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 7.1 — (Conséquence : caractérisation de l’inversibilité)</strong></p>
+<p>La matrice de Vandermonde <span class="math inline">V</span> est inversible si et seulement si les <span class="math inline">x_i</span> sont deux à deux distincts.</p>
+</div>
+</section>
+<section id="lien-avec-le-problème-dinterpolation-de-lagrange" class="level2" data-number="7.2">
+<h2 data-number="7.2" class="anchored" data-anchor-id="lien-avec-le-problème-dinterpolation-de-lagrange"><span class="header-section-number">7.2</span> Lien avec le problème d’interpolation de Lagrange</h2>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 7.2 — (Interpolation de Lagrange)</strong></p>
+<p>Soient <span class="math inline">n</span> points distincts <span class="math inline">x_1, \ldots, x_n</span> de <span class="math inline">\mathbb{K}</span> et <span class="math inline">y_1, \ldots, y_n \in \mathbb{K}</span>. Il existe un unique polynôme <span class="math inline">P \in \mathbb{K}_{n-1}[X]</span> tel que : <span class="math display">P(x_i) = y_i \quad \text{pour tout } i \in \{1, \ldots, n\}</span></p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Preuve</em>. </span>Le problème revient à résoudre un système linéaire de <span class="math inline">n</span> équations à <span class="math inline">n</span> inconnues (les coefficients du polynôme). La matrice de ce système est une matrice de Vandermonde, qui est inversible car les <span class="math inline">x_i</span> sont distincts. D’après la règle de Cramer, le système admet une unique solution.</p>
+</div>
+<div class="remarque">
+<p>Le déterminant de Vandermonde joue un rôle fondamental dans l’interpolation polynomiale, car il garantit l’existence et l’unicité du polynôme d’interpolation.</p>
+</div>
+</section>
+</section>
+<section id="exercices" class="level1" data-number="8">
+<h1 data-number="8"><span class="header-section-number">8</span> Exercices</h1>
 <div class="custom-numbered-block custom-exercise">
-<p><strong>Exercice 7.1</strong></p>
+<p><strong>Exercice 8.1</strong></p>
 <p>Soit <span class="math inline">u : \mathbb{R}^3 \to \mathbb{R}^2</span> définie par <span class="math inline">u(x,y,z) = (x+2y-z, 2x+3y)</span>.</p>
 <ol type="1">
 <li>Déterminer la matrice de <span class="math inline">u</span> dans les bases canoniques.</li>
@@ -622,7 +638,7 @@ window.Quarto = {
 </ol>
 </div>
 <div class="custom-numbered-block custom-exercise">
-<p><strong>Exercice 7.2</strong></p>
+<p><strong>Exercice 8.2</strong></p>
 <p>Soient <span class="math inline">\mathcal{B} = (e_1, e_2, e_3)</span> la base canonique de <span class="math inline">\mathbb{R}^3</span> et <span class="math inline">\mathcal{B}' = (e'_1, e'_2, e'_3)</span> avec : <span class="math display">e'_1 = e_1 + e_2, \quad e'_2 = e_2 + e_3, \quad e'_3 = e_1 + e_3</span></p>
 <ol type="1">
 <li>Déterminer la matrice de passage <span class="math inline">P = \mathrm{Pass}_{\mathcal{B}, \mathcal{B}'}</span>.</li>
@@ -631,7 +647,7 @@ window.Quarto = {
 </ol>
 </div>
 <div class="custom-numbered-block custom-exercise">
-<p><strong>Exercice 7.3</strong></p>
+<p><strong>Exercice 8.3</strong></p>
 <p>Soit <span class="math inline">u : \mathbb{R}^2 \to \mathbb{R}^2</span> définie par <span class="math inline">u(x,y) = (3x-y, x+y)</span>.</p>
 <ol type="1">
 <li>Déterminer la matrice <span class="math inline">A</span> de <span class="math inline">u</span> dans la base canonique.</li>
@@ -640,44 +656,47 @@ window.Quarto = {
 </ol>
 </div>
 <div class="custom-numbered-block custom-exercise">
-<p><strong>Exercice 7.4</strong></p>
-<p>Résoudre le système : <span class="math display">\begin{cases} x + 2y + z = 1 \\ 2x + 3y + z = 2 \\ x + y = 1 \end{cases}</span></p>
+<p><strong>Exercice 8.4</strong></p>
+<p>Calculer les déterminants suivants :</p>
 <ol type="1">
-<li>Écrire le système sous forme matricielle <span class="math inline">AX = B</span>.</li>
-<li>Déterminer <span class="math inline">\mathrm{rg}(A)</span> et <span class="math inline">\mathrm{rg}(A|B)</span>.</li>
-<li>Le système est-il compatible ? Si oui, déterminer l’ensemble des solutions.</li>
+<li><span class="math inline">\det\begin{pmatrix} 2 &amp; 1 &amp; 3 \\ 0 &amp; 4 &amp; 5 \\ 0 &amp; 0 &amp; 6 \end{pmatrix}</span></li>
+<li><span class="math inline">\det\begin{pmatrix} 1 &amp; 2 &amp; 3 \\ 2 &amp; 4 &amp; 6 \\ 3 &amp; 6 &amp; 9 \end{pmatrix}</span></li>
+<li><span class="math inline">\det\begin{pmatrix} 1 &amp; 1 &amp; 1 \\ a &amp; b &amp; c \\ a^2 &amp; b^2 &amp; c^2 \end{pmatrix}</span></li>
 </ol>
 </div>
 <div class="custom-numbered-block custom-exercise">
-<p><strong>Exercice 7.5</strong></p>
-<p>Soit <span class="math inline">A = \begin{pmatrix} 1 &amp; 2 &amp; 3 \\ 2 &amp; 4 &amp; 6 \\ 1 &amp; 2 &amp; 3 \end{pmatrix}</span>.</p>
+<p><strong>Exercice 8.5</strong></p>
+<p>Soit <span class="math inline">A = \begin{pmatrix} 1 &amp; 2 &amp; 3 \\ 0 &amp; 1 &amp; 4 \\ 5 &amp; 6 &amp; 0 \end{pmatrix}</span>.</p>
 <ol type="1">
-<li>Déterminer <span class="math inline">\mathrm{rg}(A)</span>.</li>
-<li>Déterminer <span class="math inline">\mathrm{Ker}(A)</span> et <span class="math inline">\mathrm{Im}(A)</span>.</li>
-<li><span class="math inline">A</span> est-elle inversible ?</li>
+<li>Calculer <span class="math inline">\det(A)</span>.</li>
+<li>Déterminer la comatrice de <span class="math inline">A</span>.</li>
+<li>Calculer <span class="math inline">A^{-1}</span> en utilisant la comatrice.</li>
 </ol>
 </div>
 <div class="custom-numbered-block custom-exercise">
-<p><strong>Exercice 7.6</strong></p>
-<p>Montrer que les matrices <span class="math inline">A = \begin{pmatrix} 1 &amp; 1 \\ 0 &amp; 2 \end{pmatrix}</span> et <span class="math inline">B = \begin{pmatrix} 2 &amp; 0 \\ 1 &amp; 1 \end{pmatrix}</span> sont semblables en déterminant explicitement une matrice de passage <span class="math inline">P</span>.</p>
+<p><strong>Exercice 8.6</strong></p>
+<p>Résoudre le système suivant par la règle de Cramer : <span class="math display">\begin{cases} 2x + y - z = 1 \\ x + 2y + z = 2 \\ x + y + 2z = 3 \end{cases}</span></p>
 </div>
 <div class="custom-numbered-block custom-exercise">
-<p><strong>Exercice 7.7</strong></p>
-<p>Soit <span class="math inline">A = \begin{pmatrix} 0 &amp; 1 &amp; 0 \\ 0 &amp; 0 &amp; 1 \\ 1 &amp; 0 &amp; 0 \end{pmatrix}</span>.</p>
+<p><strong>Exercice 8.7</strong></p>
+<p>Calculer le déterminant de Vandermonde pour <span class="math inline">n = 4</span> et <span class="math inline">x_1 = 1, x_2 = 2, x_3 = 3, x_4 = 4</span>.</p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 8.8</strong></p>
+<p>Soit <span class="math inline">P \in \mathbb{R}_3[X]</span> tel que <span class="math inline">P(0) = 1</span>, <span class="math inline">P(1) = 2</span>, <span class="math inline">P(2) = 5</span>, <span class="math inline">P(3) = 10</span>.</p>
 <ol type="1">
-<li>Montrer que <span class="math inline">A^3 = I_3</span>.</li>
-<li>En déduire que <span class="math inline">A</span> est inversible et calculer <span class="math inline">A^{-1}</span>.</li>
-<li>Déterminer <span class="math inline">\mathrm{Ker}(A - I_3)</span> et <span class="math inline">\mathrm{Im}(A - I_3)</span>.</li>
+<li>Montrer qu’il existe un unique polynôme <span class="math inline">P</span> vérifiant ces conditions.</li>
+<li>Déterminer <span class="math inline">P</span> en utilisant l’interpolation de Lagrange.</li>
 </ol>
 </div>
 </section>
 <section id="document-en-pdf" class="level1 unnumbered">
 <h1 class="unnumbered">Document en PDF</h1>
-<p><a href="PDF/tsi1-chap15.pdf">Chapitre 15 : Représentations matricielles</a></p>
+<p><a href="PDF/pcsi-chap14.pdf">Chapitre 14 : Matrices et déterminants</a></p>
 <section id="navigation" class="level2 unnumbered">
 <h2 class="unnumbered anchored" data-anchor-id="navigation">Navigation</h2>
 <div class="chap-nav">
-<p><a href="../cours/tsi1-chap14.html" class="prev">Chapitre 14 : Applications linéaires</a> <a href="../cours/tsi1.html" class="home">Menu TSI1</a> <a href="../cours/tsi1-chap16.html" class="next">Chapitre 16 : Intégration des fonctions continues sur un segment</a></p>
+<p><a href="../cours/pcsi-chap13.html" class="prev">Chapitre 13 : Espaces vectoriels et applications linéaires</a> <a href="../cours/pcsi.html" class="home">Menu PCSI</a> <a href="../cours/pcsi-chap15.html" class="next">Chapitre 15 : Espaces préhilbertiens réels</a></p>
 </div>
 
 

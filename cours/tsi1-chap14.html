@@ -1,15 +1,14 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr"><head>
 
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.10.18">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="">
-<meta name="dcterms.date" content="2026-08-21">
+<meta name="author" content="Saîd MAHARI">
 
-<title>Chapitre 14 : – Mathématiques en CPGE</title>
+<title>Applications linéaires – Mathématiques en CPGE</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -62,20 +61,63 @@ ul.task-list li input[type="checkbox"] {
   ],
   "show-item-context": false,
   "language": {
-    "search-no-results-text": "No results",
-    "search-matching-documents-text": "matching documents",
-    "search-copy-link-title": "Copy link to search",
-    "search-hide-matches-text": "Hide additional matches",
-    "search-more-match-text": "more match in this document",
-    "search-more-matches-text": "more matches in this document",
-    "search-clear-button-title": "Clear",
+    "search-no-results-text": "Pas de résultats",
+    "search-matching-documents-text": "documents trouvés",
+    "search-copy-link-title": "Copier le lien vers la recherche",
+    "search-hide-matches-text": "Cacher les correspondances additionnelles",
+    "search-more-match-text": "correspondance de plus dans ce document",
+    "search-more-matches-text": "correspondances de plus dans ce document",
+    "search-clear-button-title": "Effacer",
     "search-text-placeholder": "",
-    "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit",
-    "search-label": "Search"
+    "search-detached-cancel-button-title": "Annuler",
+    "search-submit-button-title": "Envoyer",
+    "search-label": "Recherche"
   }
 }</script>
 
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../styles.css">
 <link rel="stylesheet" href="styles.css">
@@ -92,8 +134,8 @@ ul.task-list li input[type="checkbox"] {
     <span class="navbar-title">Accueil</span>
     </a>
   </div>
-            <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+            <div id="quarto-search" class="" title="Recherche"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Basculer la navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
@@ -143,10 +185,44 @@ ul.task-list li input[type="checkbox"] {
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
+    <h2 id="toc-title">Sur cette page</h2>
    
   <ul>
-  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
+  <li><a href="#définition-et-exemples" id="toc-définition-et-exemples" class="nav-link active" data-scroll-target="#définition-et-exemples"><span class="header-section-number">1</span> Définition et exemples</a>
+  <ul class="collapse">
+  <li><a href="#définition" id="toc-définition" class="nav-link" data-scroll-target="#définition"><span class="header-section-number">1.1</span> Définition</a></li>
+  <li><a href="#exemples-géométriques" id="toc-exemples-géométriques" class="nav-link" data-scroll-target="#exemples-géométriques"><span class="header-section-number">1.2</span> Exemples géométriques</a></li>
+  </ul></li>
+  <li><a href="#opérations-sur-les-applications-linéaires" id="toc-opérations-sur-les-applications-linéaires" class="nav-link" data-scroll-target="#opérations-sur-les-applications-linéaires"><span class="header-section-number">2</span> Opérations sur les applications linéaires</a>
+  <ul class="collapse">
+  <li><a href="#structure-despace-vectoriel" id="toc-structure-despace-vectoriel" class="nav-link" data-scroll-target="#structure-despace-vectoriel"><span class="header-section-number">2.1</span> Structure d’espace vectoriel</a></li>
+  <li><a href="#composition" id="toc-composition" class="nav-link" data-scroll-target="#composition"><span class="header-section-number">2.2</span> Composition</a></li>
+  </ul></li>
+  <li><a href="#image-et-noyau" id="toc-image-et-noyau" class="nav-link" data-scroll-target="#image-et-noyau"><span class="header-section-number">3</span> Image et noyau</a>
+  <ul class="collapse">
+  <li><a href="#définitions" id="toc-définitions" class="nav-link" data-scroll-target="#définitions"><span class="header-section-number">3.1</span> Définitions</a></li>
+  <li><a href="#image-dun-sous-espace-vectoriel" id="toc-image-dun-sous-espace-vectoriel" class="nav-link" data-scroll-target="#image-dun-sous-espace-vectoriel"><span class="header-section-number">3.2</span> Image d’un sous-espace vectoriel</a></li>
+  </ul></li>
+  <li><a href="#injectivité-surjectivité-bijectivité" id="toc-injectivité-surjectivité-bijectivité" class="nav-link" data-scroll-target="#injectivité-surjectivité-bijectivité"><span class="header-section-number">4</span> Injectivité, surjectivité, bijectivité</a>
+  <ul class="collapse">
+  <li><a href="#caractérisations" id="toc-caractérisations" class="nav-link" data-scroll-target="#caractérisations"><span class="header-section-number">4.1</span> Caractérisations</a></li>
+  <li><a href="#isomorphismes" id="toc-isomorphismes" class="nav-link" data-scroll-target="#isomorphismes"><span class="header-section-number">4.2</span> Isomorphismes</a></li>
+  </ul></li>
+  <li><a href="#projecteurs-et-symétries" id="toc-projecteurs-et-symétries" class="nav-link" data-scroll-target="#projecteurs-et-symétries"><span class="header-section-number">5</span> Projecteurs et symétries</a>
+  <ul class="collapse">
+  <li><a href="#définition-géométrique" id="toc-définition-géométrique" class="nav-link" data-scroll-target="#définition-géométrique"><span class="header-section-number">5.1</span> Définition géométrique</a></li>
+  </ul></li>
+  <li><a href="#automorphismes-et-groupe-linéaire" id="toc-automorphismes-et-groupe-linéaire" class="nav-link" data-scroll-target="#automorphismes-et-groupe-linéaire"><span class="header-section-number">6</span> Automorphismes et groupe linéaire</a></li>
+  <li><a href="#applications-linéaires-et-dimension-finie" id="toc-applications-linéaires-et-dimension-finie" class="nav-link" data-scroll-target="#applications-linéaires-et-dimension-finie"><span class="header-section-number">7</span> Applications linéaires et dimension finie</a>
+  <ul class="collapse">
+  <li><a href="#détermination-par-les-images-dune-base" id="toc-détermination-par-les-images-dune-base" class="nav-link" data-scroll-target="#détermination-par-les-images-dune-base"><span class="header-section-number">7.1</span> Détermination par les images d’une base</a></li>
+  <li><a href="#rang-dune-application-linéaire" id="toc-rang-dune-application-linéaire" class="nav-link" data-scroll-target="#rang-dune-application-linéaire"><span class="header-section-number">7.2</span> Rang d’une application linéaire</a></li>
+  <li><a href="#théorème-du-rang" id="toc-théorème-du-rang" class="nav-link" data-scroll-target="#théorème-du-rang"><span class="header-section-number">7.3</span> Théorème du rang</a></li>
+  </ul></li>
+  <li><a href="#document-en-pdf" id="toc-document-en-pdf" class="nav-link" data-scroll-target="#document-en-pdf">Document en PDF</a>
+  <ul class="collapse">
+  <li><a href="#navigation" id="toc-navigation" class="nav-link" data-scroll-target="#navigation">Navigation</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -155,18 +231,25 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Chapitre 14 :</h1>
+<h1 class="title">Applications linéaires</h1>
+<p class="subtitle lead">Chapitre 14</p>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Auteur·rice</div>
+    <div class="quarto-title-meta-contents">
+             <p>Saîd MAHARI </p>
+          </div>
+  </div>
     
     <div>
-    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-heading">Date de publication</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">August 21, 2026</p>
+      <p class="date">22 août 2026</p>
     </div>
   </div>
   
@@ -178,13 +261,392 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="introduction" class="level1">
-<h1>Introduction</h1>
-<div class="proposition" title="(Exemple en $0$)">
-<p>Contenu à écrire…</p>
+<p><strong>TSI 1re année — Chapitre 14.</strong> Opérations, image, noyau, isomorphismes, projecteurs, symétries, théorème du rang.</p>
+<p>Ce chapitre a été réalisé conformément au programme marocain de mathématiques de la filière TSI1.</p>
+<p>Dans tout ce chapitre, <span class="math inline">\mathbb{K}</span> désigne <span class="math inline">\mathbb{R}</span> ou <span class="math inline">\mathbb{C}</span>, et <span class="math inline">E</span>, <span class="math inline">F</span>, <span class="math inline">G</span> désignent des <span class="math inline">\mathbb{K}</span>-espaces vectoriels.</p>
+<section id="définition-et-exemples" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Définition et exemples</h1>
+<section id="définition" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="définition"><span class="header-section-number">1.1</span> Définition</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 1.1</strong></p>
+<p>Soient <span class="math inline">E</span> et <span class="math inline">F</span> deux <span class="math inline">\mathbb{K}</span>-espaces vectoriels. Une application <span class="math inline">f : E \to F</span> est dite <strong>linéaire</strong> si elle satisfait aux deux conditions suivantes :</p>
+<ol type="1">
+<li><strong>Additivité</strong> : <span class="math inline">\forall u, v \in E, \quad f(u+v) = f(u) + f(v)</span></li>
+<li><strong>Homogénéité</strong> : <span class="math inline">\forall \lambda \in \mathbb{K}, \; \forall u \in E, \quad f(\lambda u) = \lambda f(u)</span></li>
+</ol>
+<p>On dit aussi que <span class="math inline">f</span> est un <strong>morphisme</strong> de <span class="math inline">\mathbb{K}</span>-espaces vectoriels.</p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 1.1 — (Caractérisation)</strong></p>
+<p>Une application <span class="math inline">f : E \to F</span> est linéaire si et seulement si : <span class="math display">\forall u, v \in E, \; \forall \lambda, \mu \in \mathbb{K}, \quad f(\lambda u + \mu v) = \lambda f(u) + \mu f(v)</span></p>
+</div>
+<div class="proof remark">
+<p><span class="proof-title"><em>Remarque</em>. </span>On note <span class="math inline">\mathcal{L}(E, F)</span> l’ensemble des applications linéaires de <span class="math inline">E</span> dans <span class="math inline">F</span>.</p>
+</div>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 1.2</strong></p>
+<ul>
+<li>Une application linéaire de <span class="math inline">E</span> dans <span class="math inline">E</span> est appelée <strong>endomorphisme</strong> de <span class="math inline">E</span>. L’ensemble des endomorphismes de <span class="math inline">E</span> est noté <span class="math inline">\mathcal{L}(E)</span>.</li>
+<li>Une application linéaire de <span class="math inline">E</span> dans <span class="math inline">\mathbb{K}</span> est appelée <strong>forme linéaire</strong> sur <span class="math inline">E</span>.</li>
+<li>Une application linéaire bijective de <span class="math inline">E</span> dans <span class="math inline">F</span> est appelée <strong>isomorphisme</strong> de <span class="math inline">E</span> sur <span class="math inline">F</span>.</li>
+<li>Un endomorphisme bijectif est appelé <strong>automorphisme</strong> de <span class="math inline">E</span>.</li>
+</ul>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 1.1</strong></p>
+<ol type="1">
+<li>L’application nulle <span class="math inline">f : E \to F</span>, <span class="math inline">u \mapsto 0_F</span> est linéaire.</li>
+<li>L’application identité <span class="math inline">\mathrm{Id}_E : E \to E</span>, <span class="math inline">u \mapsto u</span> est linéaire.</li>
+<li>Soit <span class="math inline">\lambda \in \mathbb{K}</span>. L’application <span class="math inline">f : E \to E</span>, <span class="math inline">u \mapsto \lambda u</span> est linéaire. C’est une <strong>homothétie</strong> de rapport <span class="math inline">\lambda</span>.</li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 1.2</strong></p>
+<ol type="1">
+<li><p>Pour une matrice fixée <span class="math inline">A \in \mathcal{M}_{n,p}(\mathbb{K})</span>, l’application : <span class="math display">\begin{array}{rcl} \mathbb{K}^p &amp; \to &amp; \mathbb{K}^n \\ X &amp; \mapsto &amp; AX \end{array}</span> est une application linéaire.</p></li>
+<li><p>L’application <span class="math inline">f : \mathbb{R}^3 \to \mathbb{R}^2</span> définie par <span class="math inline">f(x,y,z) = (-2x, y+3z)</span> est une application linéaire.</p></li>
+</ol>
+<p><strong>Preuve</strong> : Soient <span class="math inline">u = (x,y,z)</span> et <span class="math inline">v = (x',y',z')</span> deux éléments de <span class="math inline">\mathbb{R}^3</span> et <span class="math inline">\lambda \in \mathbb{R}</span>.</p>
+<p><span class="math display">\begin{aligned}
+f(u+v) &amp;= f(x+x', y+y', z+z') = (-2(x+x'), y+y'+3(z+z')) \\
+&amp;= (-2x, y+3z) + (-2x', y'+3z') = f(u) + f(v)
+\end{aligned}</span></p>
+<p><span class="math display">\begin{aligned}
+f(\lambda u) &amp;= f(\lambda x, \lambda y, \lambda z) = (-2\lambda x, \lambda y + 3\lambda z) \\
+&amp;= \lambda \cdot (-2x, y+3z) = \lambda f(u)
+\end{aligned}</span></p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 1.3</strong></p>
+<p>Voici d’autres exemples d’applications linéaires :</p>
+<ol type="1">
+<li><p>La dérivée : l’application <span class="math inline">f : \mathbb{K}[X] \to \mathbb{K}[X]</span>, <span class="math inline">P \mapsto P'</span> est un endomorphisme de <span class="math inline">\mathbb{K}[X]</span>.</p></li>
+<li><p>La transposition : l’application <span class="math inline">T : \mathcal{M}_n(\mathbb{K}) \to \mathcal{M}_n(\mathbb{K})</span>, <span class="math inline">A \mapsto A^T</span> est un endomorphisme de <span class="math inline">\mathcal{M}_n(\mathbb{K})</span>.</p></li>
+<li><p>La trace : l’application <span class="math inline">\mathrm{tr} : \mathcal{M}_n(\mathbb{K}) \to \mathbb{K}</span>, <span class="math inline">A \mapsto \mathrm{tr}(A)</span> est une forme linéaire.</p></li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 1.4 — (Applications qui ne sont pas linéaires)</strong></p>
+<ol type="1">
+<li><p>L’application <span class="math inline">f : \mathbb{R} \to \mathbb{R}</span>, <span class="math inline">x \mapsto x^2</span> n’est pas linéaire car <span class="math inline">f(2) = 4 \neq 2 \cdot f(1) = 2</span>.</p></li>
+<li><p>L’application <span class="math inline">f : \mathbb{R} \to \mathbb{R}</span>, <span class="math inline">x \mapsto x + 1</span> n’est pas linéaire car <span class="math inline">f(0) = 1 \neq 0</span>.</p></li>
+<li><p>L’application <span class="math inline">f : \mathbb{R}^2 \to \mathbb{R}</span>, <span class="math inline">(x,y) \mapsto xy</span> n’est pas linéaire car <span class="math inline">f(1,1) + f(1,1) = 2 \neq f(2,2) = 4</span>.</p></li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 1.1</strong></p>
+<p>Montrer que les applications suivantes <span class="math inline">f_i : \mathbb{R}^2 \to \mathbb{R}^2</span> sont linéaires. Caractériser géométriquement ces applications et faire un dessin.</p>
+<ol type="1">
+<li><span class="math inline">f_1(x,y) = (-x, -y)</span></li>
+<li><span class="math inline">f_2(x,y) = (3x, 3y)</span></li>
+<li><span class="math inline">f_3(x,y) = (x, -y)</span></li>
+<li><span class="math inline">f_4(x,y) = (-x, y)</span></li>
+<li><span class="math inline">f_5(x,y) = \left(\frac{\sqrt{3}}{2}x - \frac{1}{2}y, \frac{1}{2}x + \frac{\sqrt{3}}{2}y\right)</span></li>
+</ol>
+</div>
+</section>
+<section id="exemples-géométriques" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="exemples-géométriques"><span class="header-section-number">1.2</span> Exemples géométriques</h2>
+<p><strong>Symétrie centrale.</strong> Soit <span class="math inline">E</span> un <span class="math inline">\mathbb{K}</span>-espace vectoriel. L’application <span class="math inline">f : E \to E</span>, <span class="math inline">u \mapsto -u</span> est linéaire et s’appelle la <strong>symétrie centrale</strong> par rapport à l’origine <span class="math inline">0_E</span>.</p>
+<p><strong>Projection.</strong> Soient <span class="math inline">E</span> un <span class="math inline">\mathbb{K}</span>-espace vectoriel et <span class="math inline">F</span> et <span class="math inline">G</span> deux sous-espaces vectoriels supplémentaires dans <span class="math inline">E</span>, c’est-à-dire <span class="math inline">E = F \oplus G</span>. Tout vecteur <span class="math inline">u</span> de <span class="math inline">E</span> s’écrit de façon unique <span class="math inline">u = v + w</span> avec <span class="math inline">v \in F</span> et <span class="math inline">w \in G</span>. La <strong>projection</strong> sur <span class="math inline">F</span> parallèlement à <span class="math inline">G</span> est l’application <span class="math inline">p : E \to E</span> définie par <span class="math inline">p(u) = v</span>.</p>
+<p><strong>Symétrie.</strong> Avec les mêmes hypothèses, la <strong>symétrie</strong> par rapport à <span class="math inline">F</span> parallèlement à <span class="math inline">G</span> est l’application <span class="math inline">s : E \to E</span> définie par <span class="math inline">s(u) = v - w</span>.</p>
+</section>
+</section>
+<section id="opérations-sur-les-applications-linéaires" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> Opérations sur les applications linéaires</h1>
+<section id="structure-despace-vectoriel" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="structure-despace-vectoriel"><span class="header-section-number">2.1</span> Structure d’espace vectoriel</h2>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 2.1</strong></p>
+<p><span class="math inline">\mathcal{L}(E, F)</span> est un <span class="math inline">\mathbb{K}</span>-espace vectoriel. La somme de deux applications linéaires et le produit par un scalaire d’une application linéaire sont des applications linéaires.</p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Preuve</em>. </span>Soient <span class="math inline">f, g \in \mathcal{L}(E,F)</span> et <span class="math inline">\lambda, \mu \in \mathbb{K}</span>. Pour tous <span class="math inline">u, v \in E</span> :</p>
+<p><span class="math display">(\lambda f + \mu g)(u+v) = \lambda f(u+v) + \mu g(u+v) = \lambda(f(u)+f(v)) + \mu(g(u)+g(v))</span> <span class="math display">= \lambda f(u) + \mu g(u) + \lambda f(v) + \mu g(v) = (\lambda f + \mu g)(u) + (\lambda f + \mu g)(v)</span></p>
+<p>De même pour la multiplication par un scalaire.</p>
+</div>
+</section>
+<section id="composition" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="composition"><span class="header-section-number">2.2</span> Composition</h2>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 2.2 — (Bilinéarité de la composition)</strong></p>
+<p>Soient <span class="math inline">f, f_1, f_2 \in \mathcal{L}(E,F)</span> et <span class="math inline">g, g_1, g_2 \in \mathcal{L}(F,G)</span>. Alors :</p>
+<ol type="1">
+<li><span class="math inline">g \circ (f_1 + f_2) = g \circ f_1 + g \circ f_2</span></li>
+<li><span class="math inline">(g_1 + g_2) \circ f = g_1 \circ f + g_2 \circ f</span></li>
+<li><span class="math inline">(\lambda g) \circ f = g \circ (\lambda f) = \lambda (g \circ f)</span></li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 2.3</strong></p>
+<p>Si <span class="math inline">f \in \mathcal{L}(E,F)</span> et <span class="math inline">g \in \mathcal{L}(F,G)</span>, alors <span class="math inline">g \circ f \in \mathcal{L}(E,G)</span>.</p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Preuve</em>. </span>Soient <span class="math inline">u, v \in E</span> et <span class="math inline">\lambda, \mu \in \mathbb{K}</span>. On a :</p>
+<p><span class="math display">\begin{aligned}
+(g \circ f)(\lambda u + \mu v) &amp;= g(f(\lambda u + \mu v)) \\
+&amp;= g(\lambda f(u) + \mu f(v)) \quad \text{(linéarité de } f\text{)} \\
+&amp;= \lambda g(f(u)) + \mu g(f(v)) \quad \text{(linéarité de } g\text{)} \\
+&amp;= \lambda (g \circ f)(u) + \mu (g \circ f)(v)
+\end{aligned}</span></p>
+</div>
+<div class="proof remark">
+<p><span class="proof-title"><em>Remarque</em>. </span>La composition des applications linéaires n’est en général <strong>pas commutative</strong> : <span class="math inline">g \circ f \neq f \circ g</span>.</p>
+</div>
+</section>
+</section>
+<section id="image-et-noyau" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Image et noyau</h1>
+<section id="définitions" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="définitions"><span class="header-section-number">3.1</span> Définitions</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 3.1</strong></p>
+<p>Soit <span class="math inline">f : E \to F</span> une application linéaire.</p>
+<ul>
+<li><p>Le <strong>noyau</strong> de <span class="math inline">f</span>, noté <span class="math inline">\mathrm{Ker}(f)</span>, est l’ensemble des vecteurs de <span class="math inline">E</span> dont l’image par <span class="math inline">f</span> est le vecteur nul : <span class="math display">\mathrm{Ker}(f) = \{x \in E \mid f(x) = 0_F\}</span></p></li>
+<li><p>L’<strong>image</strong> de <span class="math inline">f</span>, notée <span class="math inline">\mathrm{Im}(f)</span>, est l’ensemble des vecteurs de <span class="math inline">F</span> qui sont l’image d’au moins un vecteur de <span class="math inline">E</span> : <span class="math display">\mathrm{Im}(f) = \{y \in F \mid \exists x \in E, \; y = f(x)\}</span></p></li>
+</ul>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 3.1</strong></p>
+<p>Soit <span class="math inline">f : E \to F</span> une application linéaire. Alors :</p>
+<ol type="1">
+<li><span class="math inline">\mathrm{Ker}(f)</span> est un sous-espace vectoriel de <span class="math inline">E</span>.</li>
+<li><span class="math inline">\mathrm{Im}(f)</span> est un sous-espace vectoriel de <span class="math inline">F</span>.</li>
+</ol>
+</div>
+<div class="proof" title="(Noyau)">
+<p><span class="proof-title"><em>Preuve</em>. </span>Soient <span class="math inline">x_1, x_2 \in \mathrm{Ker}(f)</span> et <span class="math inline">\lambda, \mu \in \mathbb{K}</span>. On a : <span class="math display">f(\lambda x_1 + \mu x_2) = \lambda f(x_1) + \mu f(x_2) = \lambda \cdot 0_F + \mu \cdot 0_F = 0_F</span> Donc <span class="math inline">\lambda x_1 + \mu x_2 \in \mathrm{Ker}(f)</span>.</p>
+</div>
+<div class="proof" title="(Image)">
+<p><span class="proof-title"><em>Preuve</em>. </span>Soient <span class="math inline">y_1, y_2 \in \mathrm{Im}(f)</span>. Il existe <span class="math inline">x_1, x_2 \in E</span> tels que <span class="math inline">y_1 = f(x_1)</span> et <span class="math inline">y_2 = f(x_2)</span>. Soient <span class="math inline">\lambda, \mu \in \mathbb{K}</span>. On a : <span class="math display">\lambda y_1 + \mu y_2 = \lambda f(x_1) + \mu f(x_2) = f(\lambda x_1 + \mu x_2) \in \mathrm{Im}(f)</span></p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 3.1</strong></p>
+<p>Reprenons l’exemple de l’application linéaire <span class="math inline">f : \mathbb{R}^3 \to \mathbb{R}^2</span> définie par <span class="math inline">f(x,y,z) = (-2x, y+3z)</span>.</p>
+<p><strong>Noyau</strong> : <span class="math display">\begin{aligned}
+(x,y,z) \in \mathrm{Ker}(f) &amp;\iff f(x,y,z) = (0,0) \\
+&amp;\iff (-2x, y+3z) = (0,0) \\
+&amp;\iff x = 0 \text{ et } y = -3z
+\end{aligned}</span> Donc <span class="math inline">\mathrm{Ker}(f) = \{(0, -3z, z) \mid z \in \mathbb{R}\} = \mathrm{Vect}((0,-3,1))</span>.</p>
+<p><strong>Image</strong> : <span class="math display">\mathrm{Im}(f) = \{(-2x, y+3z) \mid (x,y,z) \in \mathbb{R}^3\} = \mathbb{R}^2</span></p>
+</div>
+</section>
+<section id="image-dun-sous-espace-vectoriel" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="image-dun-sous-espace-vectoriel"><span class="header-section-number">3.2</span> Image d’un sous-espace vectoriel</h2>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 3.2</strong></p>
+<p>Soit <span class="math inline">f : E \to F</span> une application linéaire et <span class="math inline">A</span> un sous-ensemble de <span class="math inline">E</span>. L’<strong>image directe</strong> de <span class="math inline">A</span> par <span class="math inline">f</span> est : <span class="math display">f(A) = \{f(x) \mid x \in A\}</span> L’<strong>image réciproque</strong> d’un sous-ensemble <span class="math inline">B</span> de <span class="math inline">F</span> par <span class="math inline">f</span> est : <span class="math display">f^{-1}(B) = \{x \in E \mid f(x) \in B\}</span></p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 3.3</strong></p>
+<p>Si <span class="math inline">A</span> est un sous-espace vectoriel de <span class="math inline">E</span>, alors <span class="math inline">f(A)</span> est un sous-espace vectoriel de <span class="math inline">F</span>.</p>
+<p>Si <span class="math inline">B</span> est un sous-espace vectoriel de <span class="math inline">F</span>, alors <span class="math inline">f^{-1}(B)</span> est un sous-espace vectoriel de <span class="math inline">E</span>.</p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 3.4</strong></p>
+<p>Si <span class="math inline">(x_i)_{i \in I}</span> est une famille génératrice de <span class="math inline">E</span>, alors : <span class="math display">\mathrm{Im}(f) = \mathrm{Vect}(\{f(x_i) \mid i \in I\})</span></p>
+</div>
+</section>
+</section>
+<section id="injectivité-surjectivité-bijectivité" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> Injectivité, surjectivité, bijectivité</h1>
+<section id="caractérisations" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="caractérisations"><span class="header-section-number">4.1</span> Caractérisations</h2>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 4.1 — (Injectivité)</strong></p>
+<p>Soit <span class="math inline">f : E \to F</span> une application linéaire. Alors : <span class="math display">f \text{ est injective} \iff \mathrm{Ker}(f) = \{0_E\}</span></p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Preuve</em>. </span><span class="math inline">(\Rightarrow)</span> Si <span class="math inline">f</span> est injective et <span class="math inline">x \in \mathrm{Ker}(f)</span>, alors <span class="math inline">f(x) = 0_F = f(0_E)</span>, donc <span class="math inline">x = 0_E</span>.</p>
+<p><span class="math inline">(\Leftarrow)</span> Si <span class="math inline">\mathrm{Ker}(f) = \{0_E\}</span> et <span class="math inline">f(x_1) = f(x_2)</span>, alors <span class="math inline">f(x_1 - x_2) = 0_F</span>, donc <span class="math inline">x_1 - x_2 \in \mathrm{Ker}(f) = \{0_E\}</span>, donc <span class="math inline">x_1 = x_2</span>.</p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 4.2 — (Surjectivité)</strong></p>
+<p>Soit <span class="math inline">f : E \to F</span> une application linéaire. Alors : <span class="math display">f \text{ est surjective} \iff \mathrm{Im}(f) = F</span></p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 4.1</strong></p>
+<p>L’application <span class="math inline">f : \mathbb{R}^3 \to \mathbb{R}^2</span>, <span class="math inline">(x,y,z) \mapsto (-2x, y+3z)</span> est surjective mais pas injective.</p>
+<p>L’application <span class="math inline">f : \mathbb{R}^2 \to \mathbb{R}^3</span>, <span class="math inline">(x,y) \mapsto (x, y, 0)</span> est injective mais pas surjective.</p>
+</div>
+</section>
+<section id="isomorphismes" class="level2" data-number="4.2">
+<h2 data-number="4.2" class="anchored" data-anchor-id="isomorphismes"><span class="header-section-number">4.2</span> Isomorphismes</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 4.1</strong></p>
+<p>Une application linéaire <span class="math inline">f : E \to F</span> est un <strong>isomorphisme</strong> si elle est bijective (injective et surjective).</p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 4.3</strong></p>
+<p>Si <span class="math inline">f : E \to F</span> est un isomorphisme, alors <span class="math inline">f^{-1} : F \to E</span> est aussi une application linéaire.</p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Preuve</em>. </span>Soient <span class="math inline">z, w \in F</span> et <span class="math inline">\alpha \in \mathbb{K}</span>. Posons <span class="math inline">u = f^{-1}(z)</span> et <span class="math inline">v = f^{-1}(w)</span>, donc <span class="math inline">f(u) = z</span> et <span class="math inline">f(v) = w</span>.</p>
+<p>On a d’une part <span class="math inline">f(\alpha u + v) = \alpha f(u) + f(v) = \alpha z + w</span>.</p>
+<p>D’autre part <span class="math inline">f(\alpha f^{-1}(z) + f^{-1}(w)) = \alpha f(f^{-1}(z)) + f(f^{-1}(w)) = \alpha z + w</span>.</p>
+<p>Donc <span class="math inline">f(\alpha u + v) = f(\alpha f^{-1}(z) + f^{-1}(w))</span>. Comme <span class="math inline">f</span> est injective, <span class="math inline">\alpha u + v = \alpha f^{-1}(z) + f^{-1}(w)</span>, c’est-à-dire : <span class="math display">f^{-1}(\alpha z + w) = \alpha f^{-1}(z) + f^{-1}(w)</span></p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 4.2</strong></p>
+<p>Soit <span class="math inline">f : \mathbb{R}^2 \to \mathbb{R}^2</span> définie par <span class="math inline">f(x,y) = (2x+3y, x+y)</span>. Cette application est linéaire.</p>
+<p>Pour montrer qu’elle est bijective, on résout <span class="math inline">f(x,y) = (x',y')</span> : <span class="math display">(2x+3y, x+y) = (x', y')</span> C’est un système linéaire à deux équations et deux inconnues. On trouve <span class="math inline">(x,y) = (-x'+3y', x'-2y')</span>.</p>
+<p>Donc <span class="math inline">f^{-1}(x',y') = (-x'+3y', x'-2y')</span>. On vérifie que <span class="math inline">f^{-1}</span> est bien l’inverse de <span class="math inline">f</span> et que <span class="math inline">f^{-1}</span> est linéaire.</p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 4.4 — (Classification à isomorphisme près)</strong></p>
+<p>Deux espaces vectoriels de dimension finie sont isomorphes si et seulement si ils ont la même dimension.</p>
+</div>
+</section>
+</section>
+<section id="projecteurs-et-symétries" class="level1" data-number="5">
+<h1 data-number="5"><span class="header-section-number">5</span> Projecteurs et symétries</h1>
+<section id="définition-géométrique" class="level2" data-number="5.1">
+<h2 data-number="5.1" class="anchored" data-anchor-id="définition-géométrique"><span class="header-section-number">5.1</span> Définition géométrique</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 5.1 — (Projection ou projecteur)</strong></p>
+<p>Soient <span class="math inline">E</span> un <span class="math inline">\mathbb{K}</span>-espace vectoriel et <span class="math inline">F</span> et <span class="math inline">G</span> deux sous-espaces vectoriels supplémentaires dans <span class="math inline">E</span>, c’est-à-dire <span class="math inline">E = F \oplus G</span>. Tout vecteur <span class="math inline">u</span> de <span class="math inline">E</span> s’écrit de façon unique <span class="math inline">u = v + w</span> avec <span class="math inline">v \in F</span> et <span class="math inline">w \in G</span>.</p>
+<p>La <strong>projection</strong> (ou <strong>projecteur</strong>) sur <span class="math inline">F</span> parallèlement à <span class="math inline">G</span> est l’application <span class="math inline">p : E \to E</span> définie par : <span class="math display">p(u) = v</span></p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 5.1 — (Caractérisation des projecteurs)</strong></p>
+<p>Une application linéaire <span class="math inline">p : E \to E</span> est un projecteur si et seulement si : <span class="math display">p^2 = p</span></p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Preuve</em>. </span><span class="math inline">(\Rightarrow)</span> Si <span class="math inline">p</span> est un projecteur sur <span class="math inline">F</span> parallèlement à <span class="math inline">G</span>, alors pour tout <span class="math inline">u = v + w</span> avec <span class="math inline">v \in F</span> et <span class="math inline">w \in G</span> : <span class="math display">p^2(u) = p(p(u)) = p(v) = v = p(u)</span> car <span class="math inline">v \in F</span> et <span class="math inline">p(v) = v</span>.</p>
+<p><span class="math inline">(\Leftarrow)</span> Si <span class="math inline">p^2 = p</span>, posons <span class="math inline">F = \mathrm{Im}(p)</span> et <span class="math inline">G = \mathrm{Ker}(p)</span>. On montre que <span class="math inline">E = F \oplus G</span> et que <span class="math inline">p</span> est la projection sur <span class="math inline">F</span> parallèlement à <span class="math inline">G</span>.</p>
+</div>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 5.2 — (Symétrie)</strong></p>
+<p>Soient <span class="math inline">E</span> un <span class="math inline">\mathbb{K}</span>-espace vectoriel et <span class="math inline">F</span> et <span class="math inline">G</span> deux sous-espaces vectoriels supplémentaires dans <span class="math inline">E</span>. La <strong>symétrie</strong> par rapport à <span class="math inline">F</span> parallèlement à <span class="math inline">G</span> est l’application <span class="math inline">s : E \to E</span> définie par : <span class="math display">s(u) = v - w \quad \text{où } u = v + w \text{ avec } v \in F, \; w \in G</span></p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 5.2 — (Caractérisation des symétries)</strong></p>
+<p>Une application linéaire <span class="math inline">s : E \to E</span> est une symétrie si et seulement si : <span class="math display">s^2 = \mathrm{Id}_E</span></p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Preuve</em>. </span><span class="math inline">(\Rightarrow)</span> Si <span class="math inline">s</span> est une symétrie, alors pour tout <span class="math inline">u = v + w</span> : <span class="math display">s^2(u) = s(s(u)) = s(v - w) = v - (-w) = v + w = u</span></p>
+<p><span class="math inline">(\Leftarrow)</span> Si <span class="math inline">s^2 = \mathrm{Id}_E</span>, alors <span class="math inline">s</span> est bijective (d’inverse <span class="math inline">s</span>) et on peut montrer que <span class="math inline">s</span> est une symétrie.</p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 5.1</strong></p>
+<p>Soient <span class="math inline">E</span> un espace vectoriel, et <span class="math inline">F</span>, <span class="math inline">G</span> deux sous-espaces tels que <span class="math inline">E = F \oplus G</span>. Chaque <span class="math inline">u \in E</span> se décompose de manière unique <span class="math inline">u = v + w</span> avec <span class="math inline">v \in F</span>, <span class="math inline">w \in G</span>.</p>
+<ol type="1">
+<li><p>La <strong>projection</strong> sur <span class="math inline">F</span> parallèlement à <span class="math inline">G</span> est l’application <span class="math inline">p : E \to E</span> définie par <span class="math inline">p(u) = v</span>. Montrer que <span class="math inline">p</span> est une application linéaire. Montrer que <span class="math inline">p^2 = p</span>. Calculer <span class="math inline">\mathrm{Ker}(p)</span> et <span class="math inline">\mathrm{Im}(p)</span>.</p></li>
+<li><p>La <strong>symétrie</strong> par rapport à <span class="math inline">F</span> parallèlement à <span class="math inline">G</span> est l’application <span class="math inline">s : E \to E</span> définie par <span class="math inline">s(u) = v - w</span>. Montrer que <span class="math inline">s</span> est une application linéaire. Montrer que <span class="math inline">s^2 = \mathrm{Id}_E</span>. Calculer <span class="math inline">\mathrm{Ker}(s)</span> et <span class="math inline">\mathrm{Im}(s)</span>.</p></li>
+</ol>
+</div>
+</section>
+</section>
+<section id="automorphismes-et-groupe-linéaire" class="level1" data-number="6">
+<h1 data-number="6"><span class="header-section-number">6</span> Automorphismes et groupe linéaire</h1>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 6.1</strong></p>
+<p>Un <strong>automorphisme</strong> de <span class="math inline">E</span> est un endomorphisme bijectif de <span class="math inline">E</span>. L’ensemble des automorphismes de <span class="math inline">E</span> est noté <span class="math inline">\mathrm{GL}(E)</span> et est appelé <strong>groupe linéaire</strong> de <span class="math inline">E</span>.</p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 6.1</strong></p>
+<p><span class="math inline">\mathrm{GL}(E)</span> muni de la composition est un groupe. La composition est associative, l’élément neutre est <span class="math inline">\mathrm{Id}_E</span>, et tout élément de <span class="math inline">\mathrm{GL}(E)</span> admet un inverse dans <span class="math inline">\mathrm{GL}(E)</span>.</p>
+</div>
+<div class="proof remark">
+<p><span class="proof-title"><em>Remarque</em>. </span>La composition dans <span class="math inline">\mathrm{GL}(E)</span> n’est pas commutative si <span class="math inline">\dim(E) &gt; 2</span>.</p>
+</div>
+</section>
+<section id="applications-linéaires-et-dimension-finie" class="level1" data-number="7">
+<h1 data-number="7"><span class="header-section-number">7</span> Applications linéaires et dimension finie</h1>
+<section id="détermination-par-les-images-dune-base" class="level2" data-number="7.1">
+<h2 data-number="7.1" class="anchored" data-anchor-id="détermination-par-les-images-dune-base"><span class="header-section-number">7.1</span> Détermination par les images d’une base</h2>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 7.1</strong></p>
+<p>Soit <span class="math inline">E</span> un espace vectoriel de dimension finie et <span class="math inline">(e_1, \ldots, e_n)</span> une base de <span class="math inline">E</span>. Soient <span class="math inline">f_1, \ldots, f_n</span> des vecteurs de <span class="math inline">F</span>. Alors il existe une et une seule application linéaire <span class="math inline">f : E \to F</span> telle que : <span class="math display">\forall i \in \{1, \ldots, n\}, \quad f(e_i) = f_i</span></p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Preuve</em>. </span><strong>Existence</strong> : Pour tout <span class="math inline">u = \lambda_1 e_1 + \cdots + \lambda_n e_n \in E</span>, on pose : <span class="math display">f(u) = \lambda_1 f_1 + \cdots + \lambda_n f_n</span> On vérifie que <span class="math inline">f</span> est linéaire et que <span class="math inline">f(e_i) = f_i</span>.</p>
+<p><strong>Unicité</strong> : Si <span class="math inline">g</span> est une autre application linéaire telle que <span class="math inline">g(e_i) = f_i</span>, alors pour tout <span class="math inline">u = \lambda_1 e_1 + \cdots + \lambda_n e_n</span> : <span class="math display">g(u) = \lambda_1 g(e_1) + \cdots + \lambda_n g(e_n) = \lambda_1 f_1 + \cdots + \lambda_n f_n = f(u)</span> Donc <span class="math inline">g = f</span>.</p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 7.1</strong></p>
+<p>Une application linéaire entre deux espaces vectoriels de même dimension finie est bijective si et seulement si elle est injective, si et seulement si elle est surjective.</p>
+</div>
+</section>
+<section id="rang-dune-application-linéaire" class="level2" data-number="7.2">
+<h2 data-number="7.2" class="anchored" data-anchor-id="rang-dune-application-linéaire"><span class="header-section-number">7.2</span> Rang d’une application linéaire</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 7.1</strong></p>
+<p>Soit <span class="math inline">f : E \to F</span> une application linéaire avec <span class="math inline">E</span> de dimension finie. Le <strong>rang</strong> de <span class="math inline">f</span>, noté <span class="math inline">\mathrm{rg}(f)</span>, est la dimension de <span class="math inline">\mathrm{Im}(f)</span> : <span class="math display">\mathrm{rg}(f) = \dim(\mathrm{Im}(f))</span></p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 7.2 — (Inégalité sur le rang)</strong></p>
+<p>Soient <span class="math inline">f \in \mathcal{L}(E,F)</span> et <span class="math inline">g \in \mathcal{L}(F,G)</span>. Alors : <span class="math display">\mathrm{rg}(g \circ f) \leq \min(\mathrm{rg}(f), \mathrm{rg}(g))</span></p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 7.3 — (Invariance du rang par composition par un isomorphisme)</strong></p>
+<p>Si <span class="math inline">f \in \mathcal{L}(E,F)</span> et si <span class="math inline">\varphi : F \to G</span> est un isomorphisme, alors : <span class="math display">\mathrm{rg}(\varphi \circ f) = \mathrm{rg}(f)</span></p>
+</div>
+</section>
+<section id="théorème-du-rang" class="level2" data-number="7.3">
+<h2 data-number="7.3" class="anchored" data-anchor-id="théorème-du-rang"><span class="header-section-number">7.3</span> Théorème du rang</h2>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 7.2 — (Théorème du rang)</strong></p>
+<p>Soit <span class="math inline">E</span> un espace vectoriel de dimension finie et <span class="math inline">f \in \mathcal{L}(E,F)</span>. Alors <span class="math inline">f</span> est de rang fini et : <span class="math display">\boxed{\dim(E) = \dim(\mathrm{Ker}(f)) + \mathrm{rg}(f)}</span></p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Preuve</em>. </span>Soit <span class="math inline">(e_1, \ldots, e_k)</span> une base de <span class="math inline">\mathrm{Ker}(f)</span>. Par le théorème de la base incomplète, on peut compléter cette base en une base <span class="math inline">(e_1, \ldots, e_k, e_{k+1}, \ldots, e_n)</span> de <span class="math inline">E</span>.</p>
+<p>On montre que <span class="math inline">(f(e_{k+1}), \ldots, f(e_n))</span> est une base de <span class="math inline">\mathrm{Im}(f)</span>.</p>
+<p><strong>Génératrice</strong> : Soit <span class="math inline">y \in \mathrm{Im}(f)</span>. Il existe <span class="math inline">x = \lambda_1 e_1 + \cdots + \lambda_n e_n \in E</span> tel que <span class="math inline">y = f(x)</span>. Alors : <span class="math display">y = \lambda_1 f(e_1) + \cdots + \lambda_k f(e_k) + \lambda_{k+1} f(e_{k+1}) + \cdots + \lambda_n f(e_n) = \lambda_{k+1} f(e_{k+1}) + \cdots + \lambda_n f(e_n)</span> car <span class="math inline">f(e_i) = 0_F</span> pour <span class="math inline">i \leq k</span>.</p>
+<p><strong>Libre</strong> : Supposons <span class="math inline">\lambda_{k+1} f(e_{k+1}) + \cdots + \lambda_n f(e_n) = 0_F</span>. Alors : <span class="math display">f(\lambda_{k+1} e_{k+1} + \cdots + \lambda_n e_n) = 0_F</span> Donc <span class="math inline">\lambda_{k+1} e_{k+1} + \cdots + \lambda_n e_n \in \mathrm{Ker}(f) = \mathrm{Vect}(e_1, \ldots, e_k)</span>. Comme <span class="math inline">(e_1, \ldots, e_n)</span> est une base de <span class="math inline">E</span>, on a <span class="math inline">\lambda_{k+1} = \cdots = \lambda_n = 0</span>.</p>
+<p>Donc <span class="math inline">\mathrm{rg}(f) = n - k = \dim(E) - \dim(\mathrm{Ker}(f))</span>.</p>
+</div>
+<div class="custom-numbered-block custom-corollary">
+<p><strong>Corollaire 7.1</strong></p>
+<p>Soit <span class="math inline">f : E \to F</span> une application linéaire avec <span class="math inline">E</span> de dimension finie. Alors :</p>
+<ul>
+<li><span class="math inline">f</span> est injective si et seulement si <span class="math inline">\mathrm{rg}(f) = \dim(E)</span>.</li>
+<li><span class="math inline">f</span> est surjective si et seulement si <span class="math inline">\mathrm{rg}(f) = \dim(F)</span> (si <span class="math inline">F</span> est de dimension finie).</li>
+</ul>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 7.1</strong></p>
+<p>Soit <span class="math inline">f : \mathbb{R}^3 \to \mathbb{R}^2</span> définie par <span class="math inline">f(x,y,z) = (-2x, y+3z)</span>.</p>
+<p>On a <span class="math inline">\dim(\mathbb{R}^3) = 3</span> et <span class="math inline">\dim(\mathrm{Ker}(f)) = 1</span> (car <span class="math inline">\mathrm{Ker}(f) = \mathrm{Vect}((0,-3,1))</span>).</p>
+<p>Par le théorème du rang : <span class="math inline">\mathrm{rg}(f) = 3 - 1 = 2</span>.</p>
+<p>Comme <span class="math inline">\dim(\mathbb{R}^2) = 2</span>, <span class="math inline">f</span> est surjective.</p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 7.1</strong></p>
+<p>Soit <span class="math inline">f : \mathbb{R}_3[X] \to \mathbb{R}_3[X]</span> définie par <span class="math inline">P(X) \mapsto P''(X)</span> (où <span class="math inline">P''</span> désigne la dérivée seconde).</p>
+<ol type="1">
+<li>Montrer que <span class="math inline">f</span> est une application linéaire.</li>
+<li>Calculer <span class="math inline">\mathrm{Ker}(f)</span> et <span class="math inline">\mathrm{Im}(f)</span>.</li>
+<li>Vérifier le théorème du rang.</li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 7.2</strong></p>
+<p>Soient <span class="math inline">E</span> un espace vectoriel de dimension <span class="math inline">n</span> et <span class="math inline">f \in \mathcal{L}(E)</span>. Montrer que :</p>
+<ol type="1">
+<li>Si <span class="math inline">f^2 = 0</span>, alors <span class="math inline">\mathrm{rg}(f) \leq \frac{n}{2}</span>.</li>
+<li>Si <span class="math inline">f^2 = f</span>, alors <span class="math inline">E = \mathrm{Ker}(f) \oplus \mathrm{Im}(f)</span>.</li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 7.3</strong></p>
+<p>Soient <span class="math inline">f, g \in \mathcal{L}(E)</span> avec <span class="math inline">E</span> de dimension finie. Montrer que : <span class="math display">\mathrm{rg}(f) + \mathrm{rg}(g) - \dim(E) \leq \mathrm{rg}(f \circ g) \leq \min(\mathrm{rg}(f), \mathrm{rg}(g))</span></p>
+</div>
+</section>
+</section>
+<section id="document-en-pdf" class="level1 unnumbered">
+<h1 class="unnumbered">Document en PDF</h1>
+<p><a href="PDF/tsi1-chap14.pdf">Chapitre 14 : Applications linéaires</a></p>
+<section id="navigation" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="navigation">Navigation</h2>
+<div class="chap-nav">
+<p><a href="../cours/tsi1-chap13.html" class="prev">Chapitre 13 : Espaces vectoriels</a> <a href="../cours/tsi1.html" class="home">Menu TSI1</a> <a href="../cours/tsi1-chap15.html" class="next">Chapitre 15 : Représentations matricielles</a></p>
 </div>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -232,12 +694,12 @@ ul.task-list li input[type="checkbox"] {
       // flash "checked"
       button.classList.add('code-copy-button-checked');
       var currentTitle = button.getAttribute("title");
-      button.setAttribute("title", "Copied!");
+      button.setAttribute("title", "Copié");
       let tooltip;
       if (window.bootstrap) {
         button.setAttribute("data-bs-toggle", "tooltip");
         button.setAttribute("data-bs-placement", "left");
-        button.setAttribute("data-bs-title", "Copied!");
+        button.setAttribute("data-bs-title", "Copié");
         tooltip = new bootstrap.Tooltip(button, 
           { trigger: "manual", 
             customClass: "code-copy-button-tooltip",
