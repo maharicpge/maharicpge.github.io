@@ -1,16 +1,475 @@
 ---
-title: "Chapitre 14 : "
-author: ""
+title: "Applications linéaires"
+subtitle: "Chapitre 14"
+author: "Saîd MAHARI"
 date: last-modified
+date-format: "D MMMM YYYY"
+sidebar:
+  style: docked
+  contents:
+    - href: cours/index.qmd
+      text: "← Tous les cours"
+    - section: "TSI — 1re année"
+      contents:
+        - cours/tsi1-chap13.qmd
+        - cours/tsi1-chap14.qmd
+        # - cours/tsi1-chap15.qmd
+lang: fr
 format:
   html:
     theme: cosmo
+    toc: true
+    number-sections: true
+    html-math-method: katex
     css: styles.css
+filters:
+  - custom-numbered-blocks.lua
 ---
 
-# Introduction
+**TSI 1re année — Chapitre 14.** Opérations, image, noyau, isomorphismes, projecteurs, symétries, théorème du rang.
 
-::: {.proposition title="(Exemple en $0$)"}
-Contenu à écrire...
+Ce chapitre a été réalisé conformément au programme marocain de mathématiques de la filière TSI1.
+
+Dans tout ce chapitre, $\mathbb{K}$ désigne $\mathbb{R}$ ou $\mathbb{C}$, et $E$, $F$, $G$ désignent des $\mathbb{K}$-espaces vectoriels.
+
+# Définition et exemples
+
+## Définition
+
+::: {.definition}
+Soient $E$ et $F$ deux $\mathbb{K}$-espaces vectoriels. Une application $f : E \to F$ est dite **linéaire** si elle satisfait aux deux conditions suivantes :
+
+1. **Additivité** : $\forall u, v \in E, \quad f(u+v) = f(u) + f(v)$
+2. **Homogénéité** : $\forall \lambda \in \mathbb{K}, \; \forall u \in E, \quad f(\lambda u) = \lambda f(u)$
+
+On dit aussi que $f$ est un **morphisme** de $\mathbb{K}$-espaces vectoriels.
 :::
 
+::: {.proposition title="(Caractérisation)"}
+Une application $f : E \to F$ est linéaire si et seulement si :
+$$\forall u, v \in E, \; \forall \lambda, \mu \in \mathbb{K}, \quad f(\lambda u + \mu v) = \lambda f(u) + \mu f(v)$$
+:::
+
+::: {.remark}
+On note $\mathcal{L}(E, F)$ l'ensemble des applications linéaires de $E$ dans $F$.
+:::
+
+::: {.definition}
+
+- Une application linéaire de $E$ dans $E$ est appelée **endomorphisme** de $E$. L'ensemble des endomorphismes de $E$ est noté $\mathcal{L}(E)$.
+- Une application linéaire de $E$ dans $\mathbb{K}$ est appelée **forme linéaire** sur $E$.
+- Une application linéaire bijective de $E$ dans $F$ est appelée **isomorphisme** de $E$ sur $F$.
+- Un endomorphisme bijectif est appelé **automorphisme** de $E$.
+:::
+
+::: {.example}
+
+1. L'application nulle $f : E \to F$, $u \mapsto 0_F$ est linéaire.
+2. L'application identité $\mathrm{Id}_E : E \to E$, $u \mapsto u$ est linéaire.
+3. Soit $\lambda \in \mathbb{K}$. L'application $f : E \to E$, $u \mapsto \lambda u$ est linéaire. C'est une **homothétie** de rapport $\lambda$.
+:::
+
+::: {.example}
+
+1. Pour une matrice fixée $A \in \mathcal{M}_{n,p}(\mathbb{K})$, l'application :
+$$\begin{array}{rcl} \mathbb{K}^p & \to & \mathbb{K}^n \\ X & \mapsto & AX \end{array}$$
+est une application linéaire.
+
+2. L'application $f : \mathbb{R}^3 \to \mathbb{R}^2$ définie par $f(x,y,z) = (-2x, y+3z)$ est une application linéaire.
+
+**Preuve** : Soient $u = (x,y,z)$ et $v = (x',y',z')$ deux éléments de $\mathbb{R}^3$ et $\lambda \in \mathbb{R}$.
+
+$$\begin{aligned}
+f(u+v) &= f(x+x', y+y', z+z') = (-2(x+x'), y+y'+3(z+z')) \\
+&= (-2x, y+3z) + (-2x', y'+3z') = f(u) + f(v)
+\end{aligned}$$
+
+$$\begin{aligned}
+f(\lambda u) &= f(\lambda x, \lambda y, \lambda z) = (-2\lambda x, \lambda y + 3\lambda z) \\
+&= \lambda \cdot (-2x, y+3z) = \lambda f(u)
+\end{aligned}$$
+:::
+
+::: {.example}
+Voici d'autres exemples d'applications linéaires :
+
+1. La dérivée : l'application $f : \mathbb{K}[X] \to \mathbb{K}[X]$, $P \mapsto P'$ est un endomorphisme de $\mathbb{K}[X]$.
+
+2. La transposition : l'application $T : \mathcal{M}_n(\mathbb{K}) \to \mathcal{M}_n(\mathbb{K})$, $A \mapsto A^T$ est un endomorphisme de $\mathcal{M}_n(\mathbb{K})$.
+
+3. La trace : l'application $\mathrm{tr} : \mathcal{M}_n(\mathbb{K}) \to \mathbb{K}$, $A \mapsto \mathrm{tr}(A)$ est une forme linéaire.
+:::
+
+::: {.example title="(Applications qui ne sont pas linéaires)"}
+
+1. L'application $f : \mathbb{R} \to \mathbb{R}$, $x \mapsto x^2$ n'est pas linéaire car $f(2) = 4 \neq 2 \cdot f(1) = 2$.
+
+2. L'application $f : \mathbb{R} \to \mathbb{R}$, $x \mapsto x + 1$ n'est pas linéaire car $f(0) = 1 \neq 0$.
+
+3. L'application $f : \mathbb{R}^2 \to \mathbb{R}$, $(x,y) \mapsto xy$ n'est pas linéaire car $f(1,1) + f(1,1) = 2 \neq f(2,2) = 4$.
+:::
+
+::: {.exercise}
+Montrer que les applications suivantes $f_i : \mathbb{R}^2 \to \mathbb{R}^2$ sont linéaires. Caractériser géométriquement ces applications et faire un dessin.
+
+1. $f_1(x,y) = (-x, -y)$
+2. $f_2(x,y) = (3x, 3y)$
+3. $f_3(x,y) = (x, -y)$
+4. $f_4(x,y) = (-x, y)$
+5. $f_5(x,y) = \left(\frac{\sqrt{3}}{2}x - \frac{1}{2}y, \frac{1}{2}x + \frac{\sqrt{3}}{2}y\right)$
+:::
+
+## Exemples géométriques
+
+**Symétrie centrale.** Soit $E$ un $\mathbb{K}$-espace vectoriel. L'application $f : E \to E$, $u \mapsto -u$ est linéaire et s'appelle la **symétrie centrale** par rapport à l'origine $0_E$.
+
+**Projection.** Soient $E$ un $\mathbb{K}$-espace vectoriel et $F$ et $G$ deux sous-espaces vectoriels supplémentaires dans $E$, c'est-à-dire $E = F \oplus G$. Tout vecteur $u$ de $E$ s'écrit de façon unique $u = v + w$ avec $v \in F$ et $w \in G$. La **projection** sur $F$ parallèlement à $G$ est l'application $p : E \to E$ définie par $p(u) = v$.
+
+**Symétrie.** Avec les mêmes hypothèses, la **symétrie** par rapport à $F$ parallèlement à $G$ est l'application $s : E \to E$ définie par $s(u) = v - w$.
+
+# Opérations sur les applications linéaires
+
+## Structure d'espace vectoriel
+
+::: {.proposition}
+$\mathcal{L}(E, F)$ est un $\mathbb{K}$-espace vectoriel. La somme de deux applications linéaires et le produit par un scalaire d'une application linéaire sont des applications linéaires.
+:::
+
+::: {.proof}
+Soient $f, g \in \mathcal{L}(E,F)$ et $\lambda, \mu \in \mathbb{K}$. Pour tous $u, v \in E$ :
+
+$$(\lambda f + \mu g)(u+v) = \lambda f(u+v) + \mu g(u+v) = \lambda(f(u)+f(v)) + \mu(g(u)+g(v))$$
+$$= \lambda f(u) + \mu g(u) + \lambda f(v) + \mu g(v) = (\lambda f + \mu g)(u) + (\lambda f + \mu g)(v)$$
+
+De même pour la multiplication par un scalaire.
+:::
+
+## Composition
+
+::: {.proposition title="(Bilinéarité de la composition)"}
+Soient $f, f_1, f_2 \in \mathcal{L}(E,F)$ et $g, g_1, g_2 \in \mathcal{L}(F,G)$. Alors :
+
+1. $g \circ (f_1 + f_2) = g \circ f_1 + g \circ f_2$
+2. $(g_1 + g_2) \circ f = g_1 \circ f + g_2 \circ f$
+3. $(\lambda g) \circ f = g \circ (\lambda f) = \lambda (g \circ f)$
+:::
+
+::: {.proposition}
+Si $f \in \mathcal{L}(E,F)$ et $g \in \mathcal{L}(F,G)$, alors $g \circ f \in \mathcal{L}(E,G)$.
+:::
+
+::: {.proof}
+Soient $u, v \in E$ et $\lambda, \mu \in \mathbb{K}$. On a :
+
+$$\begin{aligned}
+(g \circ f)(\lambda u + \mu v) &= g(f(\lambda u + \mu v)) \\
+&= g(\lambda f(u) + \mu f(v)) \quad \text{(linéarité de } f\text{)} \\
+&= \lambda g(f(u)) + \mu g(f(v)) \quad \text{(linéarité de } g\text{)} \\
+&= \lambda (g \circ f)(u) + \mu (g \circ f)(v)
+\end{aligned}$$
+:::
+
+::: {.remark}
+La composition des applications linéaires n'est en général **pas commutative** : $g \circ f \neq f \circ g$.
+:::
+
+# Image et noyau
+
+## Définitions
+
+::: {.definition}
+Soit $f : E \to F$ une application linéaire.
+
+- Le **noyau** de $f$, noté $\mathrm{Ker}(f)$, est l'ensemble des vecteurs de $E$ dont l'image par $f$ est le vecteur nul :
+$$\mathrm{Ker}(f) = \{x \in E \mid f(x) = 0_F\}$$
+
+- L'**image** de $f$, notée $\mathrm{Im}(f)$, est l'ensemble des vecteurs de $F$ qui sont l'image d'au moins un vecteur de $E$ :
+$$\mathrm{Im}(f) = \{y \in F \mid \exists x \in E, \; y = f(x)\}$$
+:::
+
+::: {.proposition}
+Soit $f : E \to F$ une application linéaire. Alors :
+
+1. $\mathrm{Ker}(f)$ est un sous-espace vectoriel de $E$.
+2. $\mathrm{Im}(f)$ est un sous-espace vectoriel de $F$.
+:::
+
+::: {.proof title="(Noyau)"}
+Soient $x_1, x_2 \in \mathrm{Ker}(f)$ et $\lambda, \mu \in \mathbb{K}$. On a :
+$$f(\lambda x_1 + \mu x_2) = \lambda f(x_1) + \mu f(x_2) = \lambda \cdot 0_F + \mu \cdot 0_F = 0_F$$
+Donc $\lambda x_1 + \mu x_2 \in \mathrm{Ker}(f)$.
+:::
+
+::: {.proof title="(Image)"}
+Soient $y_1, y_2 \in \mathrm{Im}(f)$. Il existe $x_1, x_2 \in E$ tels que $y_1 = f(x_1)$ et $y_2 = f(x_2)$. Soient $\lambda, \mu \in \mathbb{K}$. On a :
+$$\lambda y_1 + \mu y_2 = \lambda f(x_1) + \mu f(x_2) = f(\lambda x_1 + \mu x_2) \in \mathrm{Im}(f)$$
+:::
+
+::: {.example}
+Reprenons l'exemple de l'application linéaire $f : \mathbb{R}^3 \to \mathbb{R}^2$ définie par $f(x,y,z) = (-2x, y+3z)$.
+
+**Noyau** :
+$$\begin{aligned}
+(x,y,z) \in \mathrm{Ker}(f) &\iff f(x,y,z) = (0,0) \\
+&\iff (-2x, y+3z) = (0,0) \\
+&\iff x = 0 \text{ et } y = -3z
+\end{aligned}$$
+Donc $\mathrm{Ker}(f) = \{(0, -3z, z) \mid z \in \mathbb{R}\} = \mathrm{Vect}((0,-3,1))$.
+
+**Image** :
+$$\mathrm{Im}(f) = \{(-2x, y+3z) \mid (x,y,z) \in \mathbb{R}^3\} = \mathbb{R}^2$$
+:::
+
+## Image d'un sous-espace vectoriel
+
+::: {.proposition}
+Soit $f : E \to F$ une application linéaire et $A$ un sous-ensemble de $E$. L'**image directe** de $A$ par $f$ est :
+$$f(A) = \{f(x) \mid x \in A\}$$
+L'**image réciproque** d'un sous-ensemble $B$ de $F$ par $f$ est :
+$$f^{-1}(B) = \{x \in E \mid f(x) \in B\}$$
+:::
+
+::: {.proposition}
+Si $A$ est un sous-espace vectoriel de $E$, alors $f(A)$ est un sous-espace vectoriel de $F$.
+
+Si $B$ est un sous-espace vectoriel de $F$, alors $f^{-1}(B)$ est un sous-espace vectoriel de $E$.
+:::
+
+::: {.proposition}
+Si $(x_i)_{i \in I}$ est une famille génératrice de $E$, alors :
+$$\mathrm{Im}(f) = \mathrm{Vect}(\{f(x_i) \mid i \in I\})$$
+:::
+
+# Injectivité, surjectivité, bijectivité
+
+## Caractérisations
+
+::: {.proposition title="(Injectivité)"}
+Soit $f : E \to F$ une application linéaire. Alors :
+$$f \text{ est injective} \iff \mathrm{Ker}(f) = \{0_E\}$$
+:::
+
+::: {.proof}
+$(\Rightarrow)$ Si $f$ est injective et $x \in \mathrm{Ker}(f)$, alors $f(x) = 0_F = f(0_E)$, donc $x = 0_E$.
+
+$(\Leftarrow)$ Si $\mathrm{Ker}(f) = \{0_E\}$ et $f(x_1) = f(x_2)$, alors $f(x_1 - x_2) = 0_F$, donc $x_1 - x_2 \in \mathrm{Ker}(f) = \{0_E\}$, donc $x_1 = x_2$.
+:::
+
+::: {.proposition title="(Surjectivité)"}
+Soit $f : E \to F$ une application linéaire. Alors :
+$$f \text{ est surjective} \iff \mathrm{Im}(f) = F$$
+:::
+
+::: {.example}
+L'application $f : \mathbb{R}^3 \to \mathbb{R}^2$, $(x,y,z) \mapsto (-2x, y+3z)$ est surjective mais pas injective.
+
+L'application $f : \mathbb{R}^2 \to \mathbb{R}^3$, $(x,y) \mapsto (x, y, 0)$ est injective mais pas surjective.
+:::
+
+## Isomorphismes
+
+::: {.definition}
+Une application linéaire $f : E \to F$ est un **isomorphisme** si elle est bijective (injective et surjective).
+:::
+
+::: {.proposition}
+Si $f : E \to F$ est un isomorphisme, alors $f^{-1} : F \to E$ est aussi une application linéaire.
+:::
+
+::: {.proof}
+Soient $z, w \in F$ et $\alpha \in \mathbb{K}$. Posons $u = f^{-1}(z)$ et $v = f^{-1}(w)$, donc $f(u) = z$ et $f(v) = w$.
+
+On a d'une part $f(\alpha u + v) = \alpha f(u) + f(v) = \alpha z + w$.
+
+D'autre part $f(\alpha f^{-1}(z) + f^{-1}(w)) = \alpha f(f^{-1}(z)) + f(f^{-1}(w)) = \alpha z + w$.
+
+Donc $f(\alpha u + v) = f(\alpha f^{-1}(z) + f^{-1}(w))$. Comme $f$ est injective, $\alpha u + v = \alpha f^{-1}(z) + f^{-1}(w)$, c'est-à-dire :
+$$f^{-1}(\alpha z + w) = \alpha f^{-1}(z) + f^{-1}(w)$$
+:::
+
+::: {.example}
+Soit $f : \mathbb{R}^2 \to \mathbb{R}^2$ définie par $f(x,y) = (2x+3y, x+y)$. Cette application est linéaire.
+
+Pour montrer qu'elle est bijective, on résout $f(x,y) = (x',y')$ :
+$$(2x+3y, x+y) = (x', y')$$
+C'est un système linéaire à deux équations et deux inconnues. On trouve $(x,y) = (-x'+3y', x'-2y')$.
+
+Donc $f^{-1}(x',y') = (-x'+3y', x'-2y')$. On vérifie que $f^{-1}$ est bien l'inverse de $f$ et que $f^{-1}$ est linéaire.
+:::
+
+::: {.proposition title="(Classification à isomorphisme près)"}
+Deux espaces vectoriels de dimension finie sont isomorphes si et seulement si ils ont la même dimension.
+:::
+
+# Projecteurs et symétries
+
+## Définition géométrique
+
+::: {.definition title="(Projection ou projecteur)"}
+Soient $E$ un $\mathbb{K}$-espace vectoriel et $F$ et $G$ deux sous-espaces vectoriels supplémentaires dans $E$, c'est-à-dire $E = F \oplus G$. Tout vecteur $u$ de $E$ s'écrit de façon unique $u = v + w$ avec $v \in F$ et $w \in G$.
+
+La **projection** (ou **projecteur**) sur $F$ parallèlement à $G$ est l'application $p : E \to E$ définie par :
+$$p(u) = v$$
+:::
+
+::: {.proposition title="(Caractérisation des projecteurs)"}
+Une application linéaire $p : E \to E$ est un projecteur si et seulement si :
+$$p^2 = p$$
+:::
+
+::: {.proof}
+$(\Rightarrow)$ Si $p$ est un projecteur sur $F$ parallèlement à $G$, alors pour tout $u = v + w$ avec $v \in F$ et $w \in G$ :
+$$p^2(u) = p(p(u)) = p(v) = v = p(u)$$
+car $v \in F$ et $p(v) = v$.
+
+$(\Leftarrow)$ Si $p^2 = p$, posons $F = \mathrm{Im}(p)$ et $G = \mathrm{Ker}(p)$. On montre que $E = F \oplus G$ et que $p$ est la projection sur $F$ parallèlement à $G$.
+:::
+
+::: {.definition title="(Symétrie)"}
+Soient $E$ un $\mathbb{K}$-espace vectoriel et $F$ et $G$ deux sous-espaces vectoriels supplémentaires dans $E$. La **symétrie** par rapport à $F$ parallèlement à $G$ est l'application $s : E \to E$ définie par :
+$$s(u) = v - w \quad \text{où } u = v + w \text{ avec } v \in F, \; w \in G$$
+:::
+
+::: {.proposition title="(Caractérisation des symétries)"}
+Une application linéaire $s : E \to E$ est une symétrie si et seulement si :
+$$s^2 = \mathrm{Id}_E$$
+:::
+
+::: {.proof}
+$(\Rightarrow)$ Si $s$ est une symétrie, alors pour tout $u = v + w$ :
+$$s^2(u) = s(s(u)) = s(v - w) = v - (-w) = v + w = u$$
+
+$(\Leftarrow)$ Si $s^2 = \mathrm{Id}_E$, alors $s$ est bijective (d'inverse $s$) et on peut montrer que $s$ est une symétrie.
+:::
+
+::: {.exercise}
+Soient $E$ un espace vectoriel, et $F$, $G$ deux sous-espaces tels que $E = F \oplus G$. Chaque $u \in E$ se décompose de manière unique $u = v + w$ avec $v \in F$, $w \in G$.
+
+1. La **projection** sur $F$ parallèlement à $G$ est l'application $p : E \to E$ définie par $p(u) = v$. Montrer que $p$ est une application linéaire. Montrer que $p^2 = p$. Calculer $\mathrm{Ker}(p)$ et $\mathrm{Im}(p)$.
+
+2. La **symétrie** par rapport à $F$ parallèlement à $G$ est l'application $s : E \to E$ définie par $s(u) = v - w$. Montrer que $s$ est une application linéaire. Montrer que $s^2 = \mathrm{Id}_E$. Calculer $\mathrm{Ker}(s)$ et $\mathrm{Im}(s)$.
+:::
+
+# Automorphismes et groupe linéaire
+
+::: {.definition}
+Un **automorphisme** de $E$ est un endomorphisme bijectif de $E$. L'ensemble des automorphismes de $E$ est noté $\mathrm{GL}(E)$ et est appelé **groupe linéaire** de $E$.
+:::
+
+::: {.proposition}
+$\mathrm{GL}(E)$ muni de la composition est un groupe. La composition est associative, l'élément neutre est $\mathrm{Id}_E$, et tout élément de $\mathrm{GL}(E)$ admet un inverse dans $\mathrm{GL}(E)$.
+:::
+
+::: {.remark}
+La composition dans $\mathrm{GL}(E)$ n'est pas commutative si $\dim(E) > 2$.
+:::
+
+# Applications linéaires et dimension finie
+
+## Détermination par les images d'une base
+
+::: {.theorem}
+Soit $E$ un espace vectoriel de dimension finie et $(e_1, \ldots, e_n)$ une base de $E$. Soient $f_1, \ldots, f_n$ des vecteurs de $F$. Alors il existe une et une seule application linéaire $f : E \to F$ telle que :
+$$\forall i \in \{1, \ldots, n\}, \quad f(e_i) = f_i$$
+:::
+
+::: {.proof}
+**Existence** : Pour tout $u = \lambda_1 e_1 + \cdots + \lambda_n e_n \in E$, on pose :
+$$f(u) = \lambda_1 f_1 + \cdots + \lambda_n f_n$$
+On vérifie que $f$ est linéaire et que $f(e_i) = f_i$.
+
+**Unicité** : Si $g$ est une autre application linéaire telle que $g(e_i) = f_i$, alors pour tout $u = \lambda_1 e_1 + \cdots + \lambda_n e_n$ :
+$$g(u) = \lambda_1 g(e_1) + \cdots + \lambda_n g(e_n) = \lambda_1 f_1 + \cdots + \lambda_n f_n = f(u)$$
+Donc $g = f$.
+:::
+
+::: {.proposition}
+Une application linéaire entre deux espaces vectoriels de même dimension finie est bijective si et seulement si elle est injective, si et seulement si elle est surjective.
+:::
+
+## Rang d'une application linéaire
+
+::: {.definition}
+Soit $f : E \to F$ une application linéaire avec $E$ de dimension finie. Le **rang** de $f$, noté $\mathrm{rg}(f)$, est la dimension de $\mathrm{Im}(f)$ :
+$$\mathrm{rg}(f) = \dim(\mathrm{Im}(f))$$
+:::
+
+::: {.proposition title="(Inégalité sur le rang)"}
+Soient $f \in \mathcal{L}(E,F)$ et $g \in \mathcal{L}(F,G)$. Alors :
+$$\mathrm{rg}(g \circ f) \leq \min(\mathrm{rg}(f), \mathrm{rg}(g))$$
+:::
+
+::: {.proposition title="(Invariance du rang par composition par un isomorphisme)"}
+Si $f \in \mathcal{L}(E,F)$ et si $\varphi : F \to G$ est un isomorphisme, alors :
+$$\mathrm{rg}(\varphi \circ f) = \mathrm{rg}(f)$$
+:::
+
+## Théorème du rang
+
+::: {.theorem title="(Théorème du rang)"}
+Soit $E$ un espace vectoriel de dimension finie et $f \in \mathcal{L}(E,F)$. Alors $f$ est de rang fini et :
+$$\boxed{\dim(E) = \dim(\mathrm{Ker}(f)) + \mathrm{rg}(f)}$$
+:::
+
+::: {.proof}
+Soit $(e_1, \ldots, e_k)$ une base de $\mathrm{Ker}(f)$. Par le théorème de la base incomplète, on peut compléter cette base en une base $(e_1, \ldots, e_k, e_{k+1}, \ldots, e_n)$ de $E$.
+
+On montre que $(f(e_{k+1}), \ldots, f(e_n))$ est une base de $\mathrm{Im}(f)$.
+
+**Génératrice** : Soit $y \in \mathrm{Im}(f)$. Il existe $x = \lambda_1 e_1 + \cdots + \lambda_n e_n \in E$ tel que $y = f(x)$. Alors :
+$$y = \lambda_1 f(e_1) + \cdots + \lambda_k f(e_k) + \lambda_{k+1} f(e_{k+1}) + \cdots + \lambda_n f(e_n) = \lambda_{k+1} f(e_{k+1}) + \cdots + \lambda_n f(e_n)$$
+car $f(e_i) = 0_F$ pour $i \leq k$.
+
+**Libre** : Supposons $\lambda_{k+1} f(e_{k+1}) + \cdots + \lambda_n f(e_n) = 0_F$. Alors :
+$$f(\lambda_{k+1} e_{k+1} + \cdots + \lambda_n e_n) = 0_F$$
+Donc $\lambda_{k+1} e_{k+1} + \cdots + \lambda_n e_n \in \mathrm{Ker}(f) = \mathrm{Vect}(e_1, \ldots, e_k)$. Comme $(e_1, \ldots, e_n)$ est une base de $E$, on a $\lambda_{k+1} = \cdots = \lambda_n = 0$.
+
+Donc $\mathrm{rg}(f) = n - k = \dim(E) - \dim(\mathrm{Ker}(f))$.
+:::
+
+::: {.corollary}
+Soit $f : E \to F$ une application linéaire avec $E$ de dimension finie. Alors :
+
+- $f$ est injective si et seulement si $\mathrm{rg}(f) = \dim(E)$.
+- $f$ est surjective si et seulement si $\mathrm{rg}(f) = \dim(F)$ (si $F$ est de dimension finie).
+:::
+
+::: {.example}
+Soit $f : \mathbb{R}^3 \to \mathbb{R}^2$ définie par $f(x,y,z) = (-2x, y+3z)$.
+
+On a $\dim(\mathbb{R}^3) = 3$ et $\dim(\mathrm{Ker}(f)) = 1$ (car $\mathrm{Ker}(f) = \mathrm{Vect}((0,-3,1))$).
+
+Par le théorème du rang : $\mathrm{rg}(f) = 3 - 1 = 2$.
+
+Comme $\dim(\mathbb{R}^2) = 2$, $f$ est surjective.
+:::
+
+::: {.exercise}
+Soit $f : \mathbb{R}_3[X] \to \mathbb{R}_3[X]$ définie par $P(X) \mapsto P''(X)$ (où $P''$ désigne la dérivée seconde).
+
+1. Montrer que $f$ est une application linéaire.
+2. Calculer $\mathrm{Ker}(f)$ et $\mathrm{Im}(f)$.
+3. Vérifier le théorème du rang.
+:::
+
+::: {.exercise}
+Soient $E$ un espace vectoriel de dimension $n$ et $f \in \mathcal{L}(E)$. Montrer que :
+
+1. Si $f^2 = 0$, alors $\mathrm{rg}(f) \leq \frac{n}{2}$.
+2. Si $f^2 = f$, alors $E = \mathrm{Ker}(f) \oplus \mathrm{Im}(f)$.
+:::
+
+::: {.exercise}
+Soient $f, g \in \mathcal{L}(E)$ avec $E$ de dimension finie. Montrer que :
+$$\mathrm{rg}(f) + \mathrm{rg}(g) - \dim(E) \leq \mathrm{rg}(f \circ g) \leq \min(\mathrm{rg}(f), \mathrm{rg}(g))$$
+:::
+
+# Document en PDF {-}
+[Chapitre 14 : Applications linéaires](PDF/tsi1-chap14.pdf)
+
+## Navigation {-}
+::: {.chap-nav}
+[Chapitre 13 : Espaces vectoriels](tsi1-chap13.qmd){.prev}
+[Menu TSI1](tsi1.qmd){.home}
+[Chapitre 15 : Représentations matricielles](tsi1-chap15.qmd){.next}
+:::

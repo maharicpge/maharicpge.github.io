@@ -1,10 +1,554 @@
 ---
-title: "Chapitre 09 : Probabilités"
-pagetitle: "Probabilités - Mathématiques en CPGE"
+title: "Primitives et équations différentielles linéaires"
+subtitle: "Chapitre 09"
+author: "Saîd MAHARI"
+date: last-modified
+date-format: "D MMMM YYYY"
+sidebar:
+  style: docked
+  contents:
+    - href: cours/index.qmd
+      text: "← Tous les cours"
+    - section: "PCSI — 1re année"
+      contents:
+        - cours/pcsi-chap08.qmd
+        - cours/pcsi-chap09.qmd
+        # - cours/pcsi-chap10.qmd
+lang: fr
+format:
+  html:
+    theme: cosmo
+    toc: true
+    number-sections: true
+    html-math-method: katex
+    css: styles.css
+filters:
+  - custom-numbered-blocks.lua
 ---
 
-**PCSI (1re année) — Chapitre 09.** Espaces finis, variables aléatoires finies, lois usuelles.
+**PCSI 1re année — Chapitre 09.** Primitives, IPP, changement de variable, équations différentielles linéaires d'ordre 1 et d'ordre 2 à coefficients constants, problème de Cauchy.
 
-## Document
+Ce chapitre a été réalisé conformément au programme marocain de mathématiques de la filière PCSI.
 
-*PDF à venir : déposez le fichier `files/pcsi/chap09.pdf` puis régénérez la page.*
+Dans tout ce chapitre, $\mathbb{K}$ désigne $\mathbb{R}$ ou $\mathbb{C}$, et $I$ désigne un intervalle de $\mathbb{R}$ non vide et non réduit à un point.
+
+# Primitives d'une fonction
+
+## Définition et propriétés
+
+::: {.definition}
+Soit $f : I \to \mathbb{K}$ une fonction définie sur un intervalle $I$. On appelle **primitive** de $f$ sur $I$ toute fonction $F : I \to \mathbb{K}$ dérivable sur $I$ telle que :
+$$\forall x \in I,\quad F'(x) = f(x)$$
+:::
+
+::: {.proposition}
+Soit $f : I \to \mathbb{K}$ une fonction admettant une primitive $F$ sur $I$. Alors :
+
+1. Toute primitive de $f$ sur $I$ est de la forme $F + C$, où $C \in \mathbb{K}$ est une constante.
+2. Réciproquement, pour toute constante $C \in \mathbb{K}$, la fonction $F + C$ est une primitive de $f$ sur $I$.
+:::
+
+::: {.proof}
+Si $G$ est une autre primitive de $f$ sur $I$, alors $(G - F)' = G' - F' = f - f = 0$ sur $I$. Comme $I$ est un intervalle, $G - F$ est constante sur $I$, donc $G = F + C$ pour une certaine constante $C$.
+:::
+
+::: {.theorem title="(Existence de primitives)"}
+Toute fonction continue sur un intervalle $I$ admet des primitives sur $I$.
+:::
+
+::: {.remark}
+Ce résultat est admis à ce stade. Sa démonstration sera donnée dans le chapitre consacré à l'intégration.
+:::
+
+::: {.example}
+- Les primitives de $f(x) = x$ sur $\mathbb{R}$ sont les fonctions $F(x) = \frac{x^2}{2} + C$, $C \in \mathbb{R}$.
+- Les primitives de $f(x) = \frac{1}{x}$ sur $]0, +\infty[$ sont les fonctions $F(x) = \ln x + C$, $C \in \mathbb{R}$.
+:::
+
+## Primitives des fonctions usuelles
+
+::: {.proposition title="(Table des primitives usuelles)"}
+Les primitives des fonctions usuelles sont données dans le tableau suivant (sur un intervalle adapté) :
+
+| Fonction $f(x)$ | Primitive $F(x)$ |
+|---|---|
+| $x^n$ ($n \in \mathbb{N}$) | $\frac{x^{n+1}}{n+1} + C$ |
+| $\frac{1}{x}$ | $\ln|x| + C$ (sur un intervalle de $\mathbb{R}^*$) |
+| $e^{\alpha x}$ ($\alpha \neq 0$) | $\frac{1}{\alpha} e^{\alpha x} + C$ |
+| $\cos(ax)$ ($a \neq 0$) | $\frac{1}{a} \sin(ax) + C$ |
+| $\sin(ax)$ ($a \neq 0$) | $-\frac{1}{a} \cos(ax) + C$ |
+| $\cos^2(ax)$ ($a \neq 0$) | $\frac{x}{2} + \frac{1}{4a}\sin(2ax) + C$ |
+| $\sin^2(ax)$ ($a \neq 0$) | $\frac{x}{2} - \frac{1}{4a}\sin(2ax) + C$ |
+| $\tan(ax)$ ($a \neq 0$) | $-\frac{1}{a} \ln|\cos(ax)| + C$ |
+| $\frac{1}{\sqrt{x}}$ (sur $\mathbb{R}^{+*}$) | $2\sqrt{x} + C$ |
+:::
+
+::: {.example}
+Pour calculer les primitives de $x \mapsto \cos^2(x)$, on utilise la formule de linéarisation :
+$$\cos^2(x) = \frac{1 + \cos(2x)}{2}$$
+donc :
+$$\int \cos^2(x)\, dx = \frac{x}{2} + \frac{\sin(2x)}{4} + C$$
+:::
+
+# Techniques de calcul de primitives
+
+## Intégration par parties (IPP)
+
+::: {.theorem title="(Intégration par parties)"}
+Soient $u, v$ deux fonctions de classe $\mathcal{C}^1$ sur un intervalle $I$. Alors pour tous $a, b \in I$ :
+$$\int_a^b u'(t)v(t)\, dt = \left[u(t)v(t)\right]_a^b - \int_a^b u(t)v'(t)\, dt$$
+:::
+
+::: {.proof}
+On a $(uv)' = u'v + uv'$. En intégrant les deux membres sur $[a,b]$ :
+$$\int_a^b (uv)'(t)\, dt = \int_a^b u'(t)v(t)\, dt + \int_a^b u(t)v'(t)\, dt$$
+Or $\int_a^b (uv)'(t)\, dt = [u(t)v(t)]_a^b$, d'où le résultat.
+:::
+
+::: {.example}
+Calculons $\int_0^1 x e^x\, dx$.
+
+Posons $u(x) = x$ et $v(x) = e^x$, donc $u'(x) = 1$ et $v'(x) = e^x$. Alors :
+$$\int_0^1 x e^x\, dx = \left[xe^x\right]_0^1 - \int_0^1 1 \cdot e^x\, dx = e - \left[e^x\right]_0^1 = e - (e - 1) = 1$$
+:::
+
+::: {.example}
+Calculons $\int_0^{\pi} t\sin(t)\, dt$.
+
+Posons $u(t) = t$ et $v'(t) = \sin(t)$, donc $u'(t) = 1$ et $v(t) = -\cos(t)$. Alors :
+$$\int_0^{\pi} t\sin(t)\, dt = \left[-t\cos(t)\right]_0^{\pi} - \int_0^{\pi} (-\cos(t))\, dt = \pi + \left[\cos(t)\right]_0^{\pi} = \pi + (-1 - 1) = \pi - 2$$
+:::
+
+## Changement de variable
+
+::: {.theorem title="(Changement de variable)"}
+Soit $\varphi : J \to I$ une fonction de classe $\mathcal{C}^1$ et $f : I \to \mathbb{K}$ une fonction continue. Alors pour tous $a, b \in J$ :
+$$\int_{\varphi(a)}^{\varphi(b)} f(t)\, dt = \int_a^b f(\varphi(t))\varphi'(t)\, dt$$
+:::
+
+::: {.example}
+Calculons $\int_0^1 \frac{x}{1+x^2}\, dx$.
+
+Posons $t = 1 + x^2$, donc $dt = 2x\, dx$ et $x\, dx = \frac{dt}{2}$. Quand $x = 0$, $t = 1$ ; quand $x = 1$, $t = 2$. Donc :
+$$\int_0^1 \frac{x}{1+x^2}\, dx = \int_1^2 \frac{1}{t}\cdot\frac{dt}{2} = \frac{1}{2}\left[\ln t\right]_1^2 = \frac{\ln 2}{2}$$
+:::
+
+::: {.example}
+Calculons $\int_0^{\pi/2} \sin(x)\cos(x)\, dx$.
+
+**Méthode 1** (changement de variable) : Posons $t = \sin(x)$, donc $dt = \cos(x)\, dx$. Quand $x = 0$, $t = 0$ ; quand $x = \frac{\pi}{2}$, $t = 1$. Donc :
+$$\int_0^{\pi/2} \sin(x)\cos(x)\, dx = \int_0^1 t\, dt = \frac{1}{2}$$
+
+**Méthode 2** (linéarisation) : $\sin(x)\cos(x) = \frac{\sin(2x)}{2}$, donc :
+$$\int_0^{\pi/2} \sin(x)\cos(x)\, dx = \frac{1}{2}\int_0^{\pi/2} \sin(2x)\, dx = \frac{1}{2}\left[-\frac{\cos(2x)}{2}\right]_0^{\pi/2} = \frac{1}{2}$$
+:::
+
+::: {.remark title="(Intérêt du changement de variable affine)"}
+Le changement de variable affine $x = a + (b-a)t$ permet de se ramener à l'intervalle $[0,1]$. Il est aussi utile pour exploiter la périodicité et les symétries d'une fonction.
+:::
+
+::: {.example}
+Pour calculer $\int_0^{2\pi} \sin^2(x)\, dx$, on peut utiliser la périodicité de $\sin^2$ (période $\pi$) :
+$$\int_0^{2\pi} \sin^2(x)\, dx = 2\int_0^{\pi} \sin^2(x)\, dx = 2\int_0^{\pi} \frac{1 - \cos(2x)}{2}\, dx = \int_0^{\pi} (1 - \cos(2x))\, dx = \pi$$
+:::
+
+# Équations différentielles linéaires du premier ordre
+
+## Définitions et structure des solutions
+
+::: {.definition}
+On appelle **équation différentielle linéaire du premier ordre** une équation de la forme :
+$$\alpha(x)y' + \beta(x)y = \gamma(x) \quad (E)$$
+où $\alpha$, $\beta$ et $\gamma$ sont des fonctions définies sur un intervalle $I$, avec $\alpha$ non identiquement nulle.
+
+On appelle **équation homogène associée** à $(E)$ l'équation :
+$$\alpha(x)y' + \beta(x)y = 0 \quad (E_0)$$
+
+Une **solution** de $(E)$ sur un sous-intervalle $J \subset I$ est une fonction $y : J \to \mathbb{K}$ dérivable sur $J$ vérifiant $(E)$ en tout point de $J$.
+:::
+
+::: {.remark}
+On se ramène souvent à la forme normalisée $y' + a(x)y = b(x)$ en divisant par $\alpha(x)$ lorsque $\alpha(x) \neq 0$.
+:::
+
+::: {.definition}
+On dit que $y$ est une solution de l'équation $(E)$ sur $I$ si $y$ est une solution de $(E)$ sur tout sous-intervalle de $I$ sur lequel $\alpha$ ne s'annule pas.
+:::
+
+::: {.proposition title="(Structure des solutions de l'équation homogène)"}
+Soit $I$ un intervalle sur lequel $\alpha$ ne s'annule pas. Alors :
+
+1. L'ensemble des solutions de $(E_0)$ sur $I$ est un $\mathbb{K}$-espace vectoriel.
+2. Si $y_1$ est une solution non nulle de $(E_0)$ sur $I$, alors toute solution de $(E_0)$ sur $I$ est de la forme $\lambda y_1$, $\lambda \in \mathbb{K}$.
+:::
+
+::: {.proposition title="(Structure des solutions de l'équation complète)"}
+Soit $I$ un intervalle sur lequel $\alpha$ ne s'annule pas. Alors :
+
+1. Si $y_p$ est une solution particulière de $(E)$ sur $I$, alors l'ensemble des solutions de $(E)$ sur $I$ est :
+$$\{y_p + y_0 \mid y_0 \text{ solution de } (E_0) \text{ sur } I\}$$
+2. En particulier, si $y_1$ est une solution non nulle de $(E_0)$ sur $I$, l'ensemble des solutions de $(E)$ est :
+$$\{y_p + \lambda y_1 \mid \lambda \in \mathbb{K}\}$$
+:::
+
+::: {.proof}
+Si $y$ est une solution de $(E)$ et $y_p$ une solution particulière, alors $y - y_p$ est une solution de $(E_0)$ car :
+$$\alpha(x)(y - y_p)' + \beta(x)(y - y_p) = \gamma(x) - \gamma(x) = 0$$
+:::
+
+::: {.remark title="(Principe de superposition)"}
+Si $y_1$ est solution de $\alpha(x)y' + \beta(x)y = \gamma_1(x)$ et $y_2$ est solution de $\alpha(x)y' + \beta(x)y = \gamma_2(x)$, alors $\lambda y_1 + \mu y_2$ est solution de $\alpha(x)y' + \beta(x)y = \lambda\gamma_1(x) + \mu\gamma_2(x)$.
+:::
+
+## Résolution de l'équation homogène
+
+::: {.theorem title="(Résolution de l'équation homogène)"}
+Soit $I$ un intervalle sur lequel $a$ et $b$ sont continues et $a$ ne s'annule pas. Soit $G$ une primitive de $\frac{b}{a}$ sur $I$. Alors l'ensemble des solutions de $y' + \frac{b(x)}{a(x)}y = 0$ sur $I$ est :
+$$\left\{x \mapsto \lambda e^{G(x)} \mid \lambda \in \mathbb{K}\right\}$$
+:::
+
+::: {.proof}
+Si $y$ est une solution de $(E_0)$, posons $z(x) = y(x)e^{-G(x)}$. Alors :
+$$z'(x) = y'(x)e^{-G(x)} - y(x)G'(x)e^{-G(x)} = e^{-G(x)}\left(y'(x) + \frac{b(x)}{a(x)}y(x)\right) = 0$$
+Donc $z$ est constante sur $I$, et $y(x) = \lambda e^{G(x)}$.
+:::
+
+::: {.example}
+Résolvons $y' - 2y = 0$ sur $\mathbb{R}$.
+
+Ici $a(x) = 1$, $b(x) = -2$. Une primitive de $-2$ est $G(x) = -2x$. Les solutions sont :
+$$y(x) = \lambda e^{-2x}, \quad \lambda \in \mathbb{R}$$
+:::
+
+::: {.example}
+Résolvons $y' + \frac{1}{x}y = 0$ sur $]0, +\infty[$.
+
+Ici $a(x) = x$, $b(x) = 1$. Une primitive de $\frac{1}{x}$ sur $]0, +\infty[$ est $G(x) = \ln x$. Les solutions sont :
+$$y(x) = \lambda e^{\ln x} = \lambda x, \quad \lambda \in \mathbb{R}$$
+:::
+
+## Méthode de variation de la constante
+
+::: {.theorem title="(Méthode de variation de la constante)"}
+Soit $I$ un intervalle sur lequel $a$, $b$ et $c$ sont continues et $a$ ne s'annule pas. Soit $y_1$ une solution non nulle de l'équation homogène $(E_0)$. Alors une solution particulière de $(E)$ est donnée par :
+$$y_p(x) = y_1(x)\int_{x_0}^{x} \frac{c(t)}{a(t)y_1(t)}\, dt$$
+où $x_0 \in I$ est fixé.
+:::
+
+::: {.example}
+Résolvons $y' - y = e^x$ sur $\mathbb{R}$.
+
+**Étape 1** : Résolution de l'équation homogène $y' - y = 0$.
+Les solutions sont $y_h(x) = \lambda e^x$, $\lambda \in \mathbb{R}$.
+
+**Étape 2** : Méthode de variation de la constante.
+Posons $y_p(x) = \lambda(x)e^x$. Alors :
+$$y_p'(x) = \lambda'(x)e^x + \lambda(x)e^x$$
+En substituant dans l'équation :
+$$\lambda'(x)e^x + \lambda(x)e^x - \lambda(x)e^x = e^x$$
+$$\lambda'(x)e^x = e^x$$
+$$\lambda'(x) = 1$$
+Donc $\lambda(x) = x + C$. Une solution particulière est $y_p(x) = xe^x$.
+
+**Solution générale** : $y(x) = xe^x + \lambda e^x = (x + \lambda)e^x$, $\lambda \in \mathbb{R}$.
+:::
+
+::: {.example}
+Résolvons $y' + y = xe^{-x}$ sur $\mathbb{R}$.
+
+**Étape 1** : Résolution de l'équation homogène $y' + y = 0$.
+Les solutions sont $y_h(x) = \lambda e^{-x}$, $\lambda \in \mathbb{R}$.
+
+**Étape 2** : Méthode de variation de la constante.
+Posons $y_p(x) = \lambda(x)e^{-x}$. Alors :
+$$y_p'(x) = \lambda'(x)e^{-x} - \lambda(x)e^{-x}$$
+En substituant :
+$$\lambda'(x)e^{-x} - \lambda(x)e^{-x} + \lambda(x)e^{-x} = xe^{-x}$$
+$$\lambda'(x)e^{-x} = xe^{-x}$$
+$$\lambda'(x) = x$$
+Donc $\lambda(x) = \frac{x^2}{2} + C$. Une solution particulière est $y_p(x) = \frac{x^2}{2}e^{-x}$.
+
+**Solution générale** : $y(x) = \left(\frac{x^2}{2} + \lambda\right)e^{-x}$, $\lambda \in \mathbb{R}$.
+:::
+
+## Cas particulier : coefficients constants
+
+::: {.theorem title="(Équation différentielle linéaire du premier ordre à coefficients constants)"}
+Soient $\alpha \neq 0$ et $\beta$ des constantes. L'équation $\alpha y' + \beta y = \gamma(x)$ admet pour solution générale :
+
+**Équation homogène** : $y_h(x) = \lambda e^{-\beta x/\alpha}$, $\lambda \in \mathbb{K}$.
+
+**Solution particulière** : Si $\gamma(x) = c$ est une constante et $\beta \neq 0$, une solution particulière est $y_p = \frac{c}{\beta}$.
+:::
+
+::: {.example}
+Résolvons $y' + 3y = 6$ sur $\mathbb{R}$.
+
+**Étape 1** : $y' + 3y = 0$ a pour solutions $y_h(x) = \lambda e^{-3x}$.
+
+**Étape 2** : Une solution particulière est $y_p = \frac{6}{3} = 2$.
+
+**Solution générale** : $y(x) = \lambda e^{-3x} + 2$, $\lambda \in \mathbb{R}$.
+:::
+
+## Problème de Cauchy
+
+::: {.definition}
+On appelle **problème de Cauchy** associé à l'équation $(E)$ et à la condition initiale $y(x_0) = y_0$ (où $x_0 \in I$ et $y_0 \in \mathbb{K}$ sont donnés) la recherche d'une solution $y$ de $(E)$ sur $I$ vérifiant $y(x_0) = y_0$.
+:::
+
+::: {.theorem title="(Existence et unicité de la solution du problème de Cauchy)"}
+Soit $I$ un intervalle sur lequel $a$, $b$ et $c$ sont continues et $a$ ne s'annule pas. Soit $x_0 \in I$ et $y_0 \in \mathbb{K}$. Alors le problème de Cauchy :
+$$\begin{cases} y' + \frac{b(x)}{a(x)}y = \frac{c(x)}{a(x)} \\ y(x_0) = y_0 \end{cases}$$
+admet une unique solution sur $I$.
+:::
+
+::: {.example}
+Résolvons le problème de Cauchy :
+$$\begin{cases} y' - 2y = 0 \\ y(0) = 3 \end{cases}$$
+
+Les solutions de $y' - 2y = 0$ sont $y(x) = \lambda e^{-2x}$. La condition $y(0) = 3$ donne $\lambda = 3$. La solution est donc :
+$$y(x) = 3e^{-2x}$$
+:::
+
+::: {.example}
+Résolvons le problème de Cauchy :
+$$\begin{cases} y' + y = 2e^x \\ y(0) = 0 \end{cases}$$
+
+**Étape 1** : Solutions de $y' + y = 0$ : $y_h(x) = \lambda e^{-x}$.
+
+**Étape 2** : Méthode de variation de la constante. Posons $y_p(x) = \lambda(x)e^{-x}$.
+$$\lambda'(x)e^{-x} = 2e^x \implies \lambda'(x) = 2e^{2x} \implies \lambda(x) = e^{2x} + C$$
+Une solution particulière est $y_p(x) = e^x$.
+
+**Solution générale** : $y(x) = e^x + \lambda e^{-x}$.
+
+**Condition initiale** : $y(0) = 1 + \lambda = 0 \implies \lambda = -1$.
+
+La solution est $y(x) = e^x - e^{-x} = 2\sinh(x)$.
+:::
+
+# Équations différentielles linéaires du second ordre à coefficients constants
+
+## Définition et structure des solutions
+
+::: {.definition}
+On appelle **équation différentielle linéaire du second ordre à coefficients constants** une équation de la forme :
+$$ay'' + by' + cy = f(x) \quad (E)$$
+où $a \neq 0$, $b$ et $c$ sont des constantes et $f$ est une fonction continue sur un intervalle $I$.
+
+L'**équation homogène associée** est :
+$$ay'' + by' + cy = 0 \quad (E_0)$$
+:::
+
+::: {.proposition title="(Structure des solutions)"}
+
+1. L'ensemble des solutions de $(E_0)$ sur $I$ est un $\mathbb{K}$-espace vectoriel de dimension 2.
+2. Si $y_p$ est une solution particulière de $(E)$ sur $I$, alors l'ensemble des solutions de $(E)$ sur $I$ est :
+$$\{y_p + y_0 \mid y_0 \text{ solution de } (E_0)\}$$
+:::
+
+## Équation caractéristique
+
+::: {.definition}
+On appelle **équation caractéristique** associée à l'équation $(E_0)$ l'équation :
+$$ar^2 + br + c = 0$$
+:::
+
+::: {.theorem title="(Résolution de l'équation homogène à coefficients constants)"}
+Soit $ar^2 + br + c = 0$ l'équation caractéristique de discriminant $\Delta = b^2 - 4ac$.
+
+1. Si $\Delta > 0$ (deux racines réelles distinctes $r_1$ et $r_2$) :
+$$y(x) = \lambda e^{r_1 x} + \mu e^{r_2 x}, \quad \lambda, \mu \in \mathbb{R}$$
+
+2. Si $\Delta = 0$ (racine double $r$) :
+$$y(x) = (\lambda x + \mu)e^{rx}, \quad \lambda, \mu \in \mathbb{R}$$
+
+3. Si $\Delta < 0$ (racines complexes conjuguées $r = \alpha \pm i\omega$) :
+$$y(x) = e^{\alpha x}(\lambda\cos(\omega x) + \mu\sin(\omega x)), \quad \lambda, \mu \in \mathbb{R}$$
+:::
+
+::: {.proof title="(Cas $\Delta > 0$)"}
+Si $r_1$ et $r_2$ sont les deux racines distinctes de l'équation caractéristique, alors $y_1(x) = e^{r_1 x}$ et $y_2(x) = e^{r_2 x}$ sont deux solutions linéairement indépendantes de $(E_0)$. En effet :
+$$a(r_1 e^{r_1 x})' + b(r_1 e^{r_1 x})' + c(e^{r_1 x}) = (ar_1^2 + br_1 + c)e^{r_1 x} = 0$$
+De même pour $y_2$. Comme $r_1 \neq r_2$, $y_1$ et $y_2$ sont linéairement indépendantes. L'ensemble des solutions est donc $\text{Vect}(y_1, y_2)$.
+:::
+
+::: {.example}
+Résolvons $y'' - 5y' + 6y = 0$.
+
+L'équation caractéristique est $r^2 - 5r + 6 = 0$, de discriminant $\Delta = 25 - 24 = 1 > 0$. Les racines sont $r_1 = 2$ et $r_2 = 3$.
+
+Les solutions sont :
+$$y(x) = \lambda e^{2x} + \mu e^{3x}, \quad \lambda, \mu \in \mathbb{R}$$
+:::
+
+::: {.example}
+Résolvons $y'' - 4y' + 4y = 0$.
+
+L'équation caractéristique est $r^2 - 4r + 4 = 0 = (r-2)^2$, de discriminant $\Delta = 0$. La racine double est $r = 2$.
+
+Les solutions sont :
+$$y(x) = (\lambda x + \mu)e^{2x}, \quad \lambda, \mu \in \mathbb{R}$$
+:::
+
+::: {.example}
+Résolvons $y'' + 2y' + 5y = 0$.
+
+L'équation caractéristique est $r^2 + 2r + 5 = 0$, de discriminant $\Delta = 4 - 20 = -16 < 0$. Les racines complexes sont $r = -1 \pm 2i$.
+
+Les solutions sont :
+$$y(x) = e^{-x}(\lambda\cos(2x) + \mu\sin(2x)), \quad \lambda, \mu \in \mathbb{R}$$
+:::
+
+## Résolution de l'équation complète à coefficients constants
+
+::: {.theorem title="(Recherche d'une solution particulière)"}
+Pour l'équation $ay'' + by' + cy = f(x)$ à coefficients constants, on recherche une solution particulière selon la forme de $f(x)$ :
+
+1. Si $f(x) = c$ (constante) et $c \neq 0$ :
+   - Si $c \neq 0$ : une solution particulière est $y_p = \frac{c}{c} = \frac{c}{c}$ (si $c \neq 0$).
+   - Si $c = 0$ et $b \neq 0$ : $y_p = \frac{cx}{b}$.
+   - Si $b = c = 0$ : $y_p = \frac{cx^2}{2a}$.
+
+2. Si $f(x) = P_n(x)e^{\alpha x}$ où $P_n$ est un polynôme de degré $n$ :
+   - Si $\alpha$ n'est pas racine de l'équation caractéristique : $y_p = Q_n(x)e^{\alpha x}$ où $Q_n$ est un polynôme de degré $n$.
+   - Si $\alpha$ est racine simple : $y_p = xQ_n(x)e^{\alpha x}$.
+   - Si $\alpha$ est racine double : $y_p = x^2 Q_n(x)e^{\alpha x}$.
+
+3. Si $f(x) = P_n(x)\cos(\omega x)$ ou $P_n(x)\sin(\omega x)$ : on cherche $y_p = Q_n(x)\cos(\omega x) + R_n(x)\sin(\omega x)$ où $Q_n$ et $R_n$ sont des polynômes de degré $n$.
+:::
+
+::: {.example}
+Résolvons $y'' - 3y' + 2y = 6$.
+
+**Étape 1** : Équation homogène $y'' - 3y' + 2y = 0$.
+Équation caractéristique : $r^2 - 3r + 2 = 0$, racines $r_1 = 1$, $r_2 = 2$.
+Solutions : $y_h(x) = \lambda e^x + \mu e^{2x}$.
+
+**Étape 2** : Solution particulière.
+$f(x) = 6$ (constante). Comme $c = 2 \neq 0$, une solution particulière est $y_p = \frac{6}{2} = 3$.
+
+**Solution générale** : $y(x) = \lambda e^x + \mu e^{2x} + 3$, $\lambda, \mu \in \mathbb{R}$.
+:::
+
+::: {.example}
+Résolvons $y'' + y = \cos(x)$.
+
+**Étape 1** : Équation homogène $y'' + y = 0$.
+Équation caractéristique : $r^2 + 1 = 0$, racines $r = \pm i$.
+Solutions : $y_h(x) = \lambda\cos(x) + \mu\sin(x)$.
+
+**Étape 2** : Solution particulière.
+$f(x) = \cos(x)$. Comme $\omega = 1$ et $\pm i$ sont racines de l'équation caractéristique, on cherche :
+$$y_p(x) = x(A\cos(x) + B\sin(x))$$
+On calcule :
+$$y_p'(x) = A\cos(x) + B\sin(x) + x(-A\sin(x) + B\cos(x))$$
+$$y_p''(x) = -A\sin(x) + B\cos(x) + (-A\sin(x) + B\cos(x)) + x(-A\cos(x) - B\sin(x))$$
+$$= -2A\sin(x) + 2B\cos(x) - x(A\cos(x) + B\sin(x))$$
+En substituant dans $y'' + y = \cos(x)$ :
+$$-2A\sin(x) + 2B\cos(x) - x(A\cos(x) + B\sin(x)) + x(A\cos(x) + B\sin(x)) = \cos(x)$$
+$$-2A\sin(x) + 2B\cos(x) = \cos(x)$$
+Par identification : $-2A = 0 \implies A = 0$ et $2B = 1 \implies B = \frac{1}{2}$.
+
+Une solution particulière est $y_p(x) = \frac{x}{2}\sin(x)$.
+
+**Solution générale** : $y(x) = \lambda\cos(x) + \mu\sin(x) + \frac{x}{2}\sin(x)$, $\lambda, \mu \in \mathbb{R}$.
+:::
+
+## Problème de Cauchy pour l'équation du second ordre
+
+::: {.definition}
+On appelle **problème de Cauchy** associé à l'équation $(E)$ et aux conditions initiales $y(x_0) = y_0$, $y'(x_0) = y_0'$ (où $x_0 \in I$, $y_0, y_0' \in \mathbb{K}$ sont donnés) la recherche d'une solution $y$ de $(E)$ sur $I$ vérifiant $y(x_0) = y_0$ et $y'(x_0) = y_0'$.
+:::
+
+::: {.theorem title="(Existence et unicité)"}
+Soit $I$ un intervalle. Soit $x_0 \in I$ et $y_0, y_0' \in \mathbb{K}$. Alors le problème de Cauchy :
+$$\begin{cases} ay'' + by' + cy = f(x) \\ y(x_0) = y_0 \\ y'(x_0) = y_0' \end{cases}$$
+admet une unique solution sur $I$.
+:::
+
+::: {.example}
+Résolvons le problème de Cauchy :
+$$\begin{cases} y'' + y = 0 \\ y(0) = 1 \\ y'(0) = 0 \end{cases}$$
+
+**Étape 1** : Solutions de $y'' + y = 0$ : $y(x) = \lambda\cos(x) + \mu\sin(x)$.
+
+**Étape 2** : Conditions initiales.
+$y(0) = \lambda = 1$.
+$y'(x) = -\lambda\sin(x) + \mu\cos(x)$, donc $y'(0) = \mu = 0$.
+
+La solution est $y(x) = \cos(x)$.
+:::
+
+::: {.example}
+Résolvons le problème de Cauchy :
+$$\begin{cases} y'' - 2y' + y = 0 \\ y(0) = 1 \\ y'(0) = 3 \end{cases}$$
+
+**Étape 1** : Équation caractéristique $r^2 - 2r + 1 = (r-1)^2 = 0$, racine double $r = 1$.
+Solutions : $y(x) = (\lambda x + \mu)e^x$.
+
+**Étape 2** : Conditions initiales.
+$y(0) = \mu = 1$.
+$y'(x) = (\lambda x + \mu)e^x + \lambda e^x = (\lambda x + \mu + \lambda)e^x$.
+$y'(0) = \mu + \lambda = 3 \implies \lambda = 2$.
+
+La solution est $y(x) = (2x + 1)e^x$.
+:::
+
+# Applications et modélisation
+
+## Régimes transitoire et établi
+
+::: {.remark title="(Interprétation physique)"}
+Dans les applications physiques (circuits électriques RC, RL, RLC, systèmes mécaniques), la solution générale d'une équation différentielle linéaire se décompose en :
+
+- **Régime transitoire** : la solution de l'équation homogène, qui tend vers 0 quand $t \to +\infty$ (si le système est stable).
+- **Régime établi (ou forcé)** : une solution particulière de l'équation complète, qui persiste quand $t \to +\infty$.
+:::
+
+::: {.example title="(Circuit RC)"}
+Un circuit RC est modélisé par l'équation :
+$$RC\frac{du}{dt} + u = E$$
+où $u$ est la tension aux bornes du condensateur, $R$ la résistance, $C$ la capacité et $E$ la tension d'alimentation.
+
+**Solution** : $u(t) = E + \lambda e^{-t/(RC)}$.
+
+Le régime transitoire est $\lambda e^{-t/(RC)}$ (qui tend vers 0) et le régime établi est $E$.
+:::
+
+::: {.example title="(Circuit RLC)"}
+Un circuit RLC série est modélisé par :
+$$L\frac{d^2 u}{dt^2} + R\frac{du}{dt} + \frac{1}{C}u = \frac{1}{C}E$$
+
+L'équation caractéristique est $Lr^2 + Rr + \frac{1}{C} = 0$. Selon le signe du discriminant $\Delta = R^2 - \frac{4L}{C}$ :
+
+- $\Delta > 0$ : régime apériodique (deux racines réelles distinctes).
+- $\Delta = 0$ : régime critique (racine double).
+- $\Delta < 0$ : régime oscillatoire (racines complexes conjuguées).
+:::
+
+## Systèmes mécaniques linéaires
+
+::: {.example title="(Oscillateur harmonique)"}
+Un oscillateur harmonique non amorti est modélisé par :
+$$m\frac{d^2 x}{dt^2} + kx = 0$$
+où $m$ est la masse et $k$ la constante de raideur.
+
+L'équation caractéristique est $mr^2 + k = 0$, de racines $r = \pm i\omega$ avec $\omega = \sqrt{k/m}$.
+
+Les solutions sont :
+$$x(t) = A\cos(\omega t) + B\sin(\omega t) = A_0\cos(\omega t + \varphi)$$
+
+C'est un mouvement périodique de période $T = \frac{2\pi}{\omega}$.
+:::
+
+# Document en PDF {-}
+[Chapitre 09 : Primitives et équations différentielles linéaires](PDF/pcsi-chap09.pdf)
+
+## Navigation {-}
+::: {.chap-nav}
+[Chapitre 08 : Fonctions usuelles, fonctions convexes](pcsi-chap08.qmd){.prev}
+[Menu PCSI](pcsi.qmd){.home}
+[Chapitre 10 : Calcul matriciel et systèmes d'équations linéaires](pcsi-chap10.qmd){.next}
+:::

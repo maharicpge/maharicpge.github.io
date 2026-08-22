@@ -9,11 +9,11 @@ sidebar:
   contents:
     - href: cours/index.qmd
       text: "← Tous les cours"
-    - section: "TSI — 1re année"
+    - section: "PCSI — 1re année"
       contents:
-        - cours/tsi1-chap15.qmd
-        - cours/tsi1-chap16.qmd
-        # - cours/tsi1-chap17.qmd
+        - cours/pcsi-chap15.qmd
+        - cours/pcsi-chap16.qmd
+        # - cours/pcsi-chap17.qmd
 lang: fr
 format:
   html:
@@ -26,9 +26,9 @@ filters:
   - custom-numbered-blocks.lua
 ---
 
-**TSI 1re année — Chapitre 16.** Fonctions en escalier, construction de l'intégrale, propriétés, sommes de Riemann, théorème fondamental, IPP, Taylor avec reste intégral, changement de variable, intégration numérique.
+**PCSI 1re année — Chapitre 16.** Fonctions en escalier, construction de l'intégrale, propriétés, sommes de Riemann, théorème fondamental, IPP, Taylor avec reste intégral, changement de variable, intégration numérique.
 
-Ce chapitre a été réalisé conformément au programme marocain de mathématiques de la filière TSI1.
+Ce chapitre a été réalisé conformément au programme marocain de mathématiques de la filière PCSI.
 
 Dans tout ce chapitre, $a$ et $b$ sont deux réels avec $a \leq b$, $\mathbb{K}$ désigne $\mathbb{R}$ ou $\mathbb{C}$, et $I$, $J$, ... désignent des intervalles. Quand on notera $[a,b]$, il sera sous-entendu que $a \leq b$.
 
@@ -453,11 +453,11 @@ Calculer les sommes suivantes en reconnaissant des sommes de Riemann :
 :::
 
 # Document en PDF {-}
-[Chapitre 16 : Intégration des fonctions continues sur un segment](PDF/tsi1-chap16.pdf)
+[Chapitre 16 : Intégration des fonctions continues sur un segment](PDF/pcsi-chap16.pdf)
 
 ## Navigation {-}
 ::: {.chap-nav}
-[Chapitre 15 : Représentations matricielles](tsi1-chap15.qmd){.prev}
-[Menu TSI1](tsi1.qmd){.home}
-[Chapitre 17 : Dénombrement](tsi1-chap17.qmd){.next}
+[Chapitre 15 : Représentations matricielles](pcsi-chap15.qmd){.prev}
+[Menu PCSI](pcsi.qmd){.home}
+[Chapitre 17 : Séries numériques](pcsi-chap17.qmd){.next}
 :::

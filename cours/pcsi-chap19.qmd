@@ -1,6 +1,6 @@
 ---
 title: "Dénombrement"
-subtitle: "Chapitre 17"
+subtitle: "Chapitre 19"
 author: "Saîd MAHARI"
 date: last-modified
 date-format: "D MMMM YYYY"
@@ -9,11 +9,11 @@ sidebar:
   contents:
     - href: cours/index.qmd
       text: "← Tous les cours"
-    - section: "TSI — 1re année"
+    - section: "PCSI — 1re année"
       contents:
-        - cours/tsi1-chap16.qmd
-        - cours/tsi1-chap17.qmd
-        # - cours/tsi1-chap18.qmd
+        - cours/pcsi-chap18.qmd
+        - cours/pcsi-chap19.qmd
+        # - cours/pcsi-chap20.qmd
 lang: fr
 format:
   html:
@@ -26,9 +26,9 @@ filters:
   - custom-numbered-blocks.lua
 ---
 
-**TSI 1re année — Chapitre 17.** Cardinaux, parties, $p$-listes, arrangements, permutations, combinaisons, formules de Pascal et du binôme.
+**PCSI 1re année — Chapitre 19.** Cardinaux, parties, $p$-listes, arrangements, permutations, combinaisons, formules de Pascal et du binôme.
 
-Ce chapitre a été réalisé conformément au programme marocain de mathématiques de la filière TSI1.
+Ce chapitre a été réalisé conformément au programme marocain de mathématiques de la filière PCSI.
 
 Dans ce chapitre, on note $I_n = \llbracket 1, n \rrbracket$ (intervalle d'entiers compris entre 1 et $n$), où $n \in \mathbb{N}^*$, et $I_0 = \varnothing$.
 
@@ -322,11 +322,11 @@ Soit $E$ un ensemble de $n$ éléments.
 :::
 
 # Document en PDF {-}
-[Chapitre 17 : Dénombrement](PDF/tsi1-chap17.pdf)
+[Chapitre 19 : Dénombrement](PDF/pcsi-chap19.pdf)
 
 ## Navigation {-}
 ::: {.chap-nav}
-[Chapitre 16 : Intégration des fonctions continues sur un segment](tsi1-chap16.qmd){.prev}
-[Menu TSI1](tsi1.qmd){.home}
-[Chapitre 18 : Probabilité sur un univers fini](tsi1-chap18.qmd){.next}
+[Chapitre 18 : Courbes planes](pcsi-chap18.qmd){.prev}
+[Menu PCSI](pcsi.qmd){.home}
+[Chapitre 20 : Probabilité sur un univers fini](pcsi-chap20.qmd){.next}
 :::

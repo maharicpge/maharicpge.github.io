@@ -1,0 +1,210 @@
+---
+title: "Courbes planes"
+subtitle: "Chapitre 18"
+author: "Said MAHARI"
+date: last-modified
+date-format: "D MMMM YYYY"
+lang: fr
+format:
+  html:
+    theme: cosmo
+    toc: true
+    number-sections: true
+    html-math-method: katex
+    css: styles.css
+filters:
+  - custom-numbered-blocks.lua
+---
+
+**PCSI (1re année) — Chapitre 18.** Courbes paramétrées, étude locale (tangentes, points singuliers), branches infinies et asymptotes, courbes définies implicitement, courbes en coordonnées polaires.
+
+Ce chapitre a été réalisé conformément au programme marocain de mathématiques de la filière PCSI.
+
+# Courbes planes {-}
+
+# Étude locale d'une courbe paramétrée
+
+## Tangente et demi-tangente en un point
+
+La courbe $C$ est l'ensemble des points $M$ ou $M(t)$ tels que $\overrightarrow{OM}=\overrightarrow{F}(t)$ de coordonnées $(x(t),y(t))$ ou $(x(t),y(t),z(t))$, $t\in I$. On suppose au minimum que $\overrightarrow{F}$ est continue sur cet intervalle.
+
+::: {.definition}
+$M_0(t_0)\in C$, on dit que $C$ admet une **tangente** en $M_0$ $\iff$ la droite $(M_0M)$, avec $M=M(t)$, a une limite quand $M\to M_0$, c'est-à-dire quand $t\to t_0$. Cette droite est alors la tangente à $C$ en $M_0$.
+
+On parlera éventuellement de **demi-tangente** si on a une limite à droite ou une limite à gauche.
+:::
+
+::: {.definition}
+Un point $M_0(t_0)\in C$ est **régulier** $\iff$ $\overrightarrow{F}\,'(t_0)\neq\overrightarrow{0}$. Un point non régulier est un point **stationnaire**.
+:::
+
+::: {.theorem}
+En un point $M_0(t_0)$ régulier, la courbe $C$ admet une tangente dirigée par $\overrightarrow{F}\,'(t_0)$.
+:::
+
+::: {.proof}
+On fait la démonstration pour une courbe plane, c'est exactement la même pour une courbe paramétrée de l'espace. $\dfrac{\overrightarrow{M_0M}}{\|\overrightarrow{M_0M}\|}$ a pour coordonnées :
+$$\frac{t-t_0}{\|\overrightarrow{M_0M}\|}\begin{pmatrix}\dfrac{x(t)-x(t_0)}{t-t_0}\\[1ex]\dfrac{y(t)-y(t_0)}{t-t_0}\end{pmatrix}$$
+Or
+$$\lim_{t\to t_0}\frac{t-t_0}{\|\overrightarrow{M_0M}\|}=\frac{\pm1}{\sqrt{x'(t_0)^2+y'(t_0)^2}}$$
+donc
+$$\lim_{t\to t_0}\frac{1}{\|\overrightarrow{M_0M}\|}\begin{pmatrix}x(t)-x(t_0)\\ y(t)-y(t_0)\end{pmatrix}=\frac{\pm1}{\sqrt{x'(t_0)^2+y'(t_0)^2}}\begin{pmatrix}x'(t_0)\\ y'(t_0)\end{pmatrix}$$
+Ce qui assure le résultat.
+:::
+
+## Étude locale d'une courbe plane
+
+On appelle encore $p$ le rang de dérivation du premier vecteur dérivé non nul, $\overrightarrow{F}^{\,(p)}(t_0)\neq\overrightarrow{0}$, et $q$ le rang du premier vecteur dérivé non colinéaire à $\overrightarrow{F}^{\,(p)}(t_0)$, sous réserve bien sûr que $\overrightarrow{F}$ soit de classe suffisante. $\left(\overrightarrow{F}^{\,(p)}(t_0),\overrightarrow{F}^{\,(q)}(t_0)\right)$ est ainsi une famille libre.
+
+::: {.definition}
+On dit que $M_0$ est **birégulier** $\iff$ $p=1$ et $q=2$. Dans tous les cas, on obtient l'allure locale de la courbe en faisant un développement limité à l'ordre $q$ de $\overrightarrow{F}$ :
+$$\overrightarrow{M_0M}=\overrightarrow{F}(t)-\overrightarrow{F}(t_0)=\frac{(t-t_0)^p}{p!}(1+o(t-t_0))\overrightarrow{F}^{\,(p)}(t_0)+\frac{(t-t_0)^q}{q!}\overrightarrow{F}^{\,(q)}(t_0)+(t-t_0)^q\vec{\varepsilon}(t-t_0)$$
+:::
+
+Dans la base $\left(\overrightarrow{F}^{\,(p)}(t_0),\overrightarrow{F}^{\,(q)}(t_0)\right)$, les coordonnées de $\overrightarrow{M_0M}$ sont équivalentes à $\dfrac{(t-t_0)^p}{p!}$ et $\dfrac{(t-t_0)^q}{q!}$ quand $t\to t_0$. On travaille donc dans le repère $\left(M_0,\overrightarrow{F}^{\,(p)}(t_0),\overrightarrow{F}^{\,(q)}(t_0)\right)$, tout se décide alors suivant la parité de $p$ et $q$ :
+
+| Parité de $p$ | Parité de $q$ | Allure locale |
+|---|---|---|
+| $p$ impair | $q$ pair | point ordinaire |
+| $p$ impair | $q$ impair | point d'inflexion |
+| $p$ pair | $q$ impair | point de rebroussement de 1re espèce |
+| $p$ pair | $q$ pair | point de rebroussement de 2e espèce |
+
+::: {.remark}
+\sauteligne
+- En un point birégulier, la concavité est tournée vers $\overrightarrow{F}^{\,''}(t_0)$.
+- $\lim_{t\to t_0}\dfrac{y'(t)}{x'(t)}$ quand elle existe, est toujours la pente de la tangente à la courbe au point considéré.
+- Quand la pente de la tangente, donnée par $\overrightarrow{F}^{\,(p)}(t_0)$ ou par $\lim_{t\to t_0}\dfrac{y'(t)}{x'(t)}$ est nulle ou infinie, c'est-à-dire quand la tangente est horizontale ou verticale, la recherche de $q$ est inutile puisque les variations de $x(t)$ et $y(t)$ permettent alors de déterminer le type de point.
+:::
+
+## Branches infinies
+
+On dit que $C$ admet une **branche infinie** quand $x(t)$ ou $y(t)$ tendent vers $\pm\infty$ en $t_0$ ou $\pm\infty$. Une hyperbole a ainsi 4 branches infinies.
+
+1. $y(t)\to\pm\infty$ et $x(t)\to l$ quand $t\to t_0$ : on a une **asymptote verticale** d'équation $x=l$.
+2. $x(t)\to\pm\infty$ et $y(t)\to l$ quand $t\to t_0$ : on a une **asymptote horizontale** d'équation $y=l$.
+3. $x(t)$ et $y(t)\to\pm\infty$ quand $t\to t_0$ on calcule $\lim_{t\to t_0}\dfrac{y(t)}{x(t)}$ appelée $a$ si elle existe :
+   - s'il n'y a pas de limite, on ne dit rien de plus ;
+   - $a=\pm\infty$ : on a une **branche parabolique de direction $Oy$** ;
+   - $a=0$ : on a une **branche parabolique de direction $Ox$** ;
+   - dans les autres cas, on calcule $\lim_{t\to t_0}\big(y(t)-ax(t)\big)$ appelée $b$ :
+     - s'il n'y a pas de limite, on a une branche infinie de direction asymptotique $y=ax$ ;
+     - $b=\pm\infty$ : on a une branche parabolique de direction $y=ax$ ;
+     - dans les autres cas, on a une **asymptote** $y=ax+b$, de plus :
+       - si $y(t)-ax(t)-b>0$, la courbe est au-dessus de l'asymptote ;
+       - si $y(t)-ax(t)-b<0$, la courbe est au-dessous de l'asymptote.
+
+# Courbes planes définies de façon implicite
+
+## Lignes de niveau
+
+::: {.definition}
+On se donne une fonction $F:\mathbb{R}^2\to\mathbb{R}$. Pour $\lambda\in\mathbb{R}$, la **ligne de niveau** $\lambda$ de $F$ est l'ensemble :
+$$\mathcal{C}_\lambda=\{(x,y)\in\mathbb{R}^2\,/\,F(x,y)=\lambda\}$$
+:::
+
+## Tangente en un point non singulier
+
+::: {.theorem}
+Soit $M_0=(x_0,y_0)$ un point de $\mathcal{C}_\lambda$ non singulier (c'est-à-dire $\overrightarrow{\nabla}F(M_0)\neq\overrightarrow{0}$). Alors $\mathcal{C}_\lambda$ admet une tangente en $M_0$, normale à $\overrightarrow{\nabla}F(M_0)$. Son équation est :
+$$\frac{\partial F}{\partial x}(M_0)(x-x_0)+\frac{\partial F}{\partial y}(M_0)(y-y_0)=0$$
+:::
+
+## Paramétrer une ligne de niveau
+
+Pour étudier une ligne de niveau, il est souvent utile de la paramétrer. Les deux moyens habituels sont :
+- poser $y=tx$, résoudre $F(x,tx)=0$ en $x$, et on a alors la courbe paramétrée par $t$ ;
+- passer en polaire et résoudre $F(\rho\cos\theta,\rho\sin\theta)=0$ en $\rho$. On a alors la courbe de façon usuelle en polaires.
+
+# Courbes planes en coordonnées polaires
+
+## Courbes en coordonnées polaires
+
+::: {.definition}
+$C$ la courbe définie en coordonnées polaires par $\rho=f(\theta)=\rho(\theta)$, $\theta\in I$, $C$ est l'ensemble des points $M$ dont les coordonnées vérifient :
+$$\begin{cases}x=\rho(\theta)\cos\theta\\ y=\rho(\theta)\sin\theta\end{cases}\quad \text{avec } \theta\in I$$
+On prendra toujours l'application $\rho$ au moins de classe $\mathcal{C}^1$ sur $I$.
+:::
+
+## Ensemble d'étude
+
+En général, $\rho$ est $T$-périodique. On cherche l'ensemble de définition, la périodicité, un premier ensemble d'étude : celui-ci doit être un multiple de la période et de $2\pi$. On recherche d'éventuelles symétries pour réduire l'ensemble d'étude. On regarde en fait comment change $\rho$ quand on change $\theta$, ce qui est résumé dans le tableau suivant :
+
+| Transformation de $\theta$ | Transformation de $\rho$ | Symétrie de $C$ |
+|---|---|---|
+| $\theta\to-\theta$ | $\rho\to\rho$ | symétrie par rapport à $Oy$ |
+| $\theta\to-\theta$ | $\rho\to-\rho$ | symétrie par rapport à $Ox$ |
+| $\theta\to\pi-\theta$ | $\rho\to\rho$ | symétrie par rapport à $Oy$ |
+| $\theta\to\pi-\theta$ | $\rho\to-\rho$ | symétrie par rapport à $Ox$ |
+| $\theta\to\pi+\theta$ | $\rho\to\rho$ | symétrie par rapport à $O$ |
+| $\theta\to\pi+\theta$ | $\rho\to-\rho$ | uniquement des points doubles |
+
+Dans chaque cas, on peut réduire l'intervalle d'étude.
+
+## Tangente
+
+::: {.theorem}
+$C$ la courbe définie en coordonnées polaires par $\rho=\rho(\theta)$ avec $\rho$ de classe $\mathcal{C}^1$ au voisinage de $\theta_0$. Alors $C$ admet une tangente en $M_0(\theta_0)$ définie par :
+$$\tan V=\frac{\rho}{\rho'}$$
+avec $V$ l'angle, orienté, entre le rayon vecteur et la tangente. En un point où $\rho(\theta_0)=0$, la tangente à la courbe est la droite $\theta=\theta_0$.
+:::
+
+::: {.corollary}
+Si de plus $\rho(\theta_0)=0$, alors $V=0$. Conclusion : dans tous les cas, l'équation de la tangente dans le repère local $(M_0,\vec{u}_r,\vec{u}_\theta)$ est $Y=\tan V\,X$.
+:::
+
+::: {.proof}
+On utilise ici les notations des physiciens $\vec{u}_r$ et $\vec{u}_\theta$. On a $\overrightarrow{OM}=\rho(\theta)\vec{u}_r$ et donc comme la dérivée de $\vec{u}_r$ par rapport à $\theta$ est $\vec{u}_\theta$ :
+$$\frac{d\overrightarrow{OM}}{d\theta}=\rho'(\theta)\vec{u}_r+\rho(\theta)\vec{u}_\theta$$
+En écrivant cette égalité en $\theta_0$, on obtient que $\tan V=\dfrac{\rho(\theta_0)}{\rho'(\theta_0)}$, avec $V$ l'angle, orienté, entre le rayon vecteur et la tangente. Si $\rho(\theta_0)=0$, la pente de $M_0M=\overrightarrow{OM}$ est $\dfrac{y}{x}=\dfrac{\rho(\theta)\sin\theta}{\rho(\theta)\cos\theta}$ qui tend bien vers $\tan\theta_0$.
+:::
+
+## Branches infinies
+
+On a une branche infinie quand $\lim_{\theta\to\theta_0}\rho(\theta)$ est infini. On remarque que dans le repère tourné de $\theta_0$ :
+$$\begin{cases}\rho(\theta)\cos(\theta-\theta_0)=X\\ \rho(\theta)\sin(\theta-\theta_0)=Y\end{cases}$$
+Dans tous les cas, quand $\theta\to\theta_0$ : $X\to\infty$, $\dfrac{Y}{X}\to 0$. La direction asymptotique est donc toujours $OX$. Pour l'étude des branches infinies, on cherche donc $\lim_{\theta\to\theta_0}Y=\lim_{\theta\to\theta_0}\rho(\theta)\sin(\theta-\theta_0)$ :
+- s'il n'y a pas de limite, on a une branche infinie de direction asymptotique $OX$ ;
+- cette limite est infinie : on a une branche parabolique de direction $OX$ ;
+- cette limite est finie $Y_0$ : on a une asymptote d'équation $Y=Y_0$. Comme $X\sim\rho$, on sait de quel côté de l'asymptote on est, puisqu'on a pris soin de tracer le repère local.
+
+## Plan d'étude
+
+Pour étudier une courbe en polaires $\rho=\rho(\theta)$ :
+1. Chercher l'ensemble de définition, la périodicité et les symétries pour réduire l'ensemble d'étude.
+2. Étudier $\rho$ et $\rho'$ sur l'ensemble d'étude réduit (variations, signe de $\rho$).
+3. Étudier les points où $\rho=0$ (tangente) et les branches infinies.
+4. Tracer la courbe.
+
+## Exemple
+
+Étudier la courbe d'équation polaire $\rho(\theta)=1+\cos\theta$ (cardioïde).
+- $\rho$ est $2\pi$-périodique et paire ($\rho(-\theta)=\rho(\theta)$), donc on étudie sur $[0,\pi]$ et on complète par symétrie par rapport à $Ox$.
+- $\rho'(\theta)=-\sin\theta$, qui s'annule en $\theta=0$ et $\theta=\pi$. $\rho$ est décroissante sur $[0,\pi]$, avec $\rho(0)=2$ et $\rho(\pi)=0$.
+- En $\theta=\pi$, $\rho=0$, donc la tangente est la droite $\theta=\pi$.
+- La courbe est un cardioïde.
+
+## Courbes usuelles en polaires
+
+| Courbe | Équation polaire |
+|---|---|
+| Cercle de centre $O$ et rayon $R$ | $\rho=R$ |
+| Cardioïde | $\rho=a(1+\cos\theta)$ |
+ Limaçon de Pascal | $\rho=a+b\cos\theta$ |
+| Rosace | $\rho=a\cos(k\theta)$ |
+| Spirale d'Archimède | $\rho=a\theta$ |
+| Lemniscate de Bernoulli | $\rho^2=a^2\cos(2\theta)$ |
+
+# Document en PDF {-}
+
+[Chapitre 18 : Courbes planes](PDF/pcsi-chap18.pdf)
+
+## Navigation {-}
+
+::: {.chap-nav}
+[Chapitre 17 : Séries numériques](pcsi-chap17.qmd){.prev}
+
+[Menu PCSI](pcsi.qmd){.home}
+
+[Chapitre 19 : Dénombrement](pcsi-chap19.qmd){.next}
+:::
