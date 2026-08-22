@@ -1,13 +1,14 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr"><head>
 
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.10.18">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Saîd MAHARI">
 
-<title>Séries numériques - Mathématiques en CPGE – Mathématiques en CPGE</title>
+<title>Fonctions vectorielles d’une variable réelle, arcs paramétrés – Mathématiques en CPGE</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -45,7 +46,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-7a8c080b55ea27eb37b467515007f9ee.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-e0d9a45d84245cc5e3b300860d8fa645.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -60,22 +61,66 @@ ul.task-list li input[type="checkbox"] {
   ],
   "show-item-context": false,
   "language": {
-    "search-no-results-text": "No results",
-    "search-matching-documents-text": "matching documents",
-    "search-copy-link-title": "Copy link to search",
-    "search-hide-matches-text": "Hide additional matches",
-    "search-more-match-text": "more match in this document",
-    "search-more-matches-text": "more matches in this document",
-    "search-clear-button-title": "Clear",
+    "search-no-results-text": "Pas de résultats",
+    "search-matching-documents-text": "documents trouvés",
+    "search-copy-link-title": "Copier le lien vers la recherche",
+    "search-hide-matches-text": "Cacher les correspondances additionnelles",
+    "search-more-match-text": "correspondance de plus dans ce document",
+    "search-more-matches-text": "correspondances de plus dans ce document",
+    "search-clear-button-title": "Effacer",
     "search-text-placeholder": "",
-    "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit",
-    "search-label": "Search"
+    "search-detached-cancel-button-title": "Annuler",
+    "search-submit-button-title": "Envoyer",
+    "search-label": "Recherche"
   }
 }</script>
 
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="styles.css">
 </head>
 
 <body class="nav-fixed quarto-light">
@@ -89,8 +134,8 @@ ul.task-list li input[type="checkbox"] {
     <span class="navbar-title">Accueil</span>
     </a>
   </div>
-            <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+            <div id="quarto-search" class="" title="Recherche"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Basculer la navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
@@ -140,10 +185,39 @@ ul.task-list li input[type="checkbox"] {
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
+    <h2 id="toc-title">Sur cette page</h2>
    
   <ul>
-  <li><a href="#document" id="toc-document" class="nav-link active" data-scroll-target="#document">Document</a></li>
+  <li><a href="#fonctions-vectorielles-dune-variable-réelle" id="toc-fonctions-vectorielles-dune-variable-réelle" class="nav-link active" data-scroll-target="#fonctions-vectorielles-dune-variable-réelle"><span class="header-section-number">1</span> Fonctions vectorielles d’une variable réelle</a>
+  <ul class="collapse">
+  <li><a href="#définitions" id="toc-définitions" class="nav-link" data-scroll-target="#définitions"><span class="header-section-number">1.1</span> Définitions</a></li>
+  <li><a href="#continuité" id="toc-continuité" class="nav-link" data-scroll-target="#continuité"><span class="header-section-number">1.2</span> Continuité</a></li>
+  <li><a href="#dérivabilité-et-dérivée" id="toc-dérivabilité-et-dérivée" class="nav-link" data-scroll-target="#dérivabilité-et-dérivée"><span class="header-section-number">1.3</span> Dérivabilité et dérivée</a></li>
+  <li><a href="#classes-mathcalck" id="toc-classes-mathcalck" class="nav-link" data-scroll-target="#classes-mathcalck"><span class="header-section-number">1.4</span> Classes <span class="math inline">\mathcal{C}^k</span></a></li>
+  <li><a href="#opérations-sur-les-fonctions-vectorielles" id="toc-opérations-sur-les-fonctions-vectorielles" class="nav-link" data-scroll-target="#opérations-sur-les-fonctions-vectorielles"><span class="header-section-number">1.5</span> Opérations sur les fonctions vectorielles</a></li>
+  <li><a href="#interprétation-géométrique-et-cinématique" id="toc-interprétation-géométrique-et-cinématique" class="nav-link" data-scroll-target="#interprétation-géométrique-et-cinématique"><span class="header-section-number">1.6</span> Interprétation géométrique et cinématique</a></li>
+  </ul></li>
+  <li><a href="#intégration-dune-fonction-vectorielle-sur-un-segment" id="toc-intégration-dune-fonction-vectorielle-sur-un-segment" class="nav-link" data-scroll-target="#intégration-dune-fonction-vectorielle-sur-un-segment"><span class="header-section-number">2</span> Intégration d’une fonction vectorielle sur un segment</a>
+  <ul class="collapse">
+  <li><a href="#définition" id="toc-définition" class="nav-link" data-scroll-target="#définition"><span class="header-section-number">2.1</span> Définition</a></li>
+  <li><a href="#propriétés" id="toc-propriétés" class="nav-link" data-scroll-target="#propriétés"><span class="header-section-number">2.2</span> Propriétés</a></li>
+  </ul></li>
+  <li><a href="#arcs-paramétrés" id="toc-arcs-paramétrés" class="nav-link" data-scroll-target="#arcs-paramétrés"><span class="header-section-number">3</span> Arcs paramétrés</a>
+  <ul class="collapse">
+  <li><a href="#définitions-1" id="toc-définitions-1" class="nav-link" data-scroll-target="#définitions-1"><span class="header-section-number">3.1</span> Définitions</a></li>
+  <li><a href="#tangente-en-un-point" id="toc-tangente-en-un-point" class="nav-link" data-scroll-target="#tangente-en-un-point"><span class="header-section-number">3.2</span> Tangente en un point</a></li>
+  <li><a href="#étude-locale-en-un-point-birégulier" id="toc-étude-locale-en-un-point-birégulier" class="nav-link" data-scroll-target="#étude-locale-en-un-point-birégulier"><span class="header-section-number">3.3</span> Étude locale en un point birégulier</a></li>
+  <li><a href="#longueur-dun-arc-paramétré" id="toc-longueur-dun-arc-paramétré" class="nav-link" data-scroll-target="#longueur-dun-arc-paramétré"><span class="header-section-number">3.4</span> Longueur d’un arc paramétré</a></li>
+  </ul></li>
+  <li><a href="#exemples-darcs-paramétrés" id="toc-exemples-darcs-paramétrés" class="nav-link" data-scroll-target="#exemples-darcs-paramétrés"><span class="header-section-number">4</span> Exemples d’arcs paramétrés</a>
+  <ul class="collapse">
+  <li><a href="#cercle" id="toc-cercle" class="nav-link" data-scroll-target="#cercle"><span class="header-section-number">4.1</span> Cercle</a></li>
+  <li><a href="#hélice-circulaire" id="toc-hélice-circulaire" class="nav-link" data-scroll-target="#hélice-circulaire"><span class="header-section-number">4.2</span> Hélice circulaire</a></li>
+  <li><a href="#parabole" id="toc-parabole" class="nav-link" data-scroll-target="#parabole"><span class="header-section-number">4.3</span> Parabole</a></li>
+  <li><a href="#folium-de-descartes" id="toc-folium-de-descartes" class="nav-link" data-scroll-target="#folium-de-descartes"><span class="header-section-number">4.4</span> Folium de Descartes</a></li>
+  </ul></li>
+  <li><a href="#exercices" id="toc-exercices" class="nav-link" data-scroll-target="#exercices"><span class="header-section-number">5</span> Exercices</a></li>
+  <li><a href="#document-en-pdf" id="toc-document-en-pdf" class="nav-link" data-scroll-target="#document-en-pdf">Document en PDF</a></li>
   </ul>
 </nav>
     </div>
@@ -152,14 +226,27 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Chapitre 05 : Séries numériques</h1>
+<h1 class="title">Fonctions vectorielles d’une variable réelle, arcs paramétrés</h1>
+<p class="subtitle lead">Chapitre 05</p>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Auteur·rice</div>
+    <div class="quarto-title-meta-contents">
+             <p>Saîd MAHARI </p>
+          </div>
+  </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">Date de publication</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">22 août 2026</p>
+    </div>
+  </div>
   
     
   </div>
@@ -169,10 +256,349 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p><strong>MP (2e année) — Chapitre 05.</strong> Convergence absolue, critères de comparaison, séries alternées.</p>
-<section id="document" class="level2">
-<h2 class="anchored" data-anchor-id="document">Document</h2>
-<p><em>PDF à venir : déposez le fichier <code>files/mp/chap05.pdf</code> puis régénérez la page.</em></p>
+<p><strong>MP (2e année) — Chapitre 05.</strong> Dérivation, intégration sur un segment, arc paramétré de classe <span class="math inline">\mathcal{C}^k</span>.</p>
+<p>Ce chapitre a été réalisé conformément au programme marocain de mathématiques de la filière MP.</p>
+<p>Dans tout ce chapitre, <span class="math inline">I</span> désigne un intervalle de <span class="math inline">\mathbb{R}</span> non vide et non réduit à un point, <span class="math inline">n \geq 1</span> un entier, <span class="math inline">E</span> un <span class="math inline">\mathbb{K}</span>-espace vectoriel normé de dimension finie <span class="math inline">n</span> (<span class="math inline">\mathbb{K} = \mathbb{R}</span> ou <span class="math inline">\mathbb{C}</span>), et <span class="math inline">\mathcal{B} = (e_1, \ldots, e_n)</span> une base de <span class="math inline">E</span>.</p>
+<section id="fonctions-vectorielles-dune-variable-réelle" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Fonctions vectorielles d’une variable réelle</h1>
+<section id="définitions" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="définitions"><span class="header-section-number">1.1</span> Définitions</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 1.1 — (Fonction vectorielle)</strong></p>
+<p>On appelle <strong>fonction vectorielle</strong> sur <span class="math inline">I</span> toute application <span class="math inline">f : I \to E</span> où <span class="math inline">E</span> est un espace vectoriel normé de dimension finie.</p>
+<p>Si <span class="math inline">\mathcal{B} = (e_1, \ldots, e_n)</span> est une base de <span class="math inline">E</span>, les <strong>fonctions composantes</strong> de <span class="math inline">f</span> dans <span class="math inline">\mathcal{B}</span> sont les applications <span class="math inline">f_1, \ldots, f_n : I \to \mathbb{K}</span> définies par : <span class="math display">f(t) = f_1(t) e_1 + f_2(t) e_2 + \cdots + f_n(t) e_n</span></p>
+<p>En particulier, pour <span class="math inline">E = \mathbb{R}^n</span> muni de la base canonique, on identifie <span class="math inline">f</span> à un <span class="math inline">n</span>-uplet de fonctions : <span class="math display">f(t) = (f_1(t), f_2(t), \ldots, f_n(t))</span></p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 1.1</strong></p>
+<ol type="1">
+<li><p>La fonction <span class="math inline">f : \mathbb{R} \to \mathbb{R}^2</span> définie par <span class="math inline">f(t) = (\cos t, \sin t)</span> est une fonction vectorielle à deux composantes.</p></li>
+<li><p>La fonction <span class="math inline">g : \mathbb{R} \to \mathbb{R}^3</span> définie par <span class="math inline">g(t) = (t, t^2, t^3)</span> est une fonction vectorielle à trois composantes.</p></li>
+</ol>
+</div>
+</section>
+<section id="continuité" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="continuité"><span class="header-section-number">1.2</span> Continuité</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 1.2 — (Continuité d’une fonction vectorielle)</strong></p>
+<p>Une fonction vectorielle <span class="math inline">f : I \to E</span> est <strong>continue en</strong> <span class="math inline">t_0 \in I</span> si : <span class="math display">\lim_{t \to t_0} \|f(t) - f(t_0)\| = 0</span></p>
+<p><span class="math inline">f</span> est <strong>continue sur <span class="math inline">I</span></strong> si elle est continue en tout point de <span class="math inline">I</span>.</p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 1.1 — (Caractérisation de la continuité par les composantes)</strong></p>
+<p><span class="math inline">f : I \to E</span> est continue en <span class="math inline">t_0</span> si et seulement si toutes ses fonctions composantes <span class="math inline">f_1, \ldots, f_n</span> sont continues en <span class="math inline">t_0</span>.</p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 1.2</strong></p>
+<p>La fonction <span class="math inline">f(t) = (\cos t, \sin t)</span> est continue sur <span class="math inline">\mathbb{R}</span> car <span class="math inline">\cos</span> et <span class="math inline">\sin</span> sont continues sur <span class="math inline">\mathbb{R}</span>.</p>
+</div>
+</section>
+<section id="dérivabilité-et-dérivée" class="level2" data-number="1.3">
+<h2 data-number="1.3" class="anchored" data-anchor-id="dérivabilité-et-dérivée"><span class="header-section-number">1.3</span> Dérivabilité et dérivée</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 1.3 — (Dérivabilité et dérivée)</strong></p>
+<p>Soit <span class="math inline">f : I \to E</span> une fonction vectorielle et <span class="math inline">t_0 \in I</span> (qui n’est pas une extrémité de <span class="math inline">I</span>). On dit que <span class="math inline">f</span> est <strong>dérivable en</strong> <span class="math inline">t_0</span> si la limite suivante existe : <span class="math display">f'(t_0) = \lim_{t \to t_0} \frac{f(t) - f(t_0)}{t - t_0} = \lim_{h \to 0} \frac{f(t_0 + h) - f(t_0)}{h}</span></p>
+<p>La fonction <span class="math inline">f'</span> ainsi définie (lorsqu’elle existe partout sur <span class="math inline">I</span>) est appelée la <strong>dérivée</strong> de <span class="math inline">f</span>.</p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 1.2 — (Caractérisation de la dérivabilité par les composantes)</strong></p>
+<p><span class="math inline">f : I \to E</span> est dérivable en <span class="math inline">t_0</span> si et seulement si toutes ses fonctions composantes <span class="math inline">f_1, \ldots, f_n</span> sont dérivables en <span class="math inline">t_0</span>. Dans ce cas : <span class="math display">f'(t_0) = f_1'(t_0) e_1 + f_2'(t_0) e_2 + \cdots + f_n'(t_0) e_n</span></p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 1.3</strong></p>
+<p>Pour <span class="math inline">f(t) = (\cos t, \sin t)</span>, on a <span class="math inline">f'(t) = (-\sin t, \cos t)</span>.</p>
+<p>Pour <span class="math inline">g(t) = (t, t^2, t^3)</span>, on a <span class="math inline">g'(t) = (1, 2t, 3t^2)</span>.</p>
+</div>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 1.4 — (Dérivées à droite et à gauche)</strong></p>
+<p>Pour <span class="math inline">t_0</span> une extrémité de <span class="math inline">I</span>, on définit la <strong>dérivée à droite</strong> (resp. <strong>à gauche</strong>) par : <span class="math display">f'_d(t_0) = \lim_{t \to t_0^+} \frac{f(t) - f(t_0)}{t - t_0} \quad \left(\text{resp. } f'_g(t_0) = \lim_{t \to t_0^-} \frac{f(t) - f(t_0)}{t - t_0}\right)</span></p>
+</div>
+</section>
+<section id="classes-mathcalck" class="level2" data-number="1.4">
+<h2 data-number="1.4" class="anchored" data-anchor-id="classes-mathcalck"><span class="header-section-number">1.4</span> Classes <span class="math inline">\mathcal{C}^k</span></h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 1.5 — (Classes <span class="math inline">\boldsymbol{\mathcal{C}^k}</span>)</strong></p>
+<p>Soit <span class="math inline">k \in \mathbb{N}^* \cup \{+\infty\}</span>.</p>
+<ul>
+<li><span class="math inline">f : I \to E</span> est de <strong>classe <span class="math inline">\mathcal{C}^1</span></strong> sur <span class="math inline">I</span> si <span class="math inline">f</span> est dérivable sur <span class="math inline">I</span> et <span class="math inline">f'</span> est continue sur <span class="math inline">I</span>.</li>
+<li><span class="math inline">f</span> est de <strong>classe <span class="math inline">\mathcal{C}^k</span></strong> sur <span class="math inline">I</span> si <span class="math inline">f^{(k)}</span> existe et est continue sur <span class="math inline">I</span>.</li>
+<li><span class="math inline">f</span> est de <strong>classe <span class="math inline">\mathcal{C}^\infty</span></strong> si <span class="math inline">f</span> est de classe <span class="math inline">\mathcal{C}^k</span> pour tout <span class="math inline">k \in \mathbb{N}^*</span>.</li>
+</ul>
+<p>On note <span class="math inline">\mathcal{C}^k(I, E)</span> l’espace vectoriel des fonctions de classe <span class="math inline">\mathcal{C}^k</span> sur <span class="math inline">I</span> à valeurs dans <span class="math inline">E</span>.</p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 1.3</strong></p>
+<p><span class="math inline">f</span> est de classe <span class="math inline">\mathcal{C}^k</span> sur <span class="math inline">I</span> si et seulement si toutes ses composantes <span class="math inline">f_1, \ldots, f_n</span> sont de classe <span class="math inline">\mathcal{C}^k</span> sur <span class="math inline">I</span>.</p>
+</div>
+</section>
+<section id="opérations-sur-les-fonctions-vectorielles" class="level2" data-number="1.5">
+<h2 data-number="1.5" class="anchored" data-anchor-id="opérations-sur-les-fonctions-vectorielles"><span class="header-section-number">1.5</span> Opérations sur les fonctions vectorielles</h2>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 1.4 — (Combinaison linéaire)</strong></p>
+<p>Soient <span class="math inline">f, g : I \to E</span> dérivables en <span class="math inline">t_0</span> et <span class="math inline">\lambda, \mu \in \mathbb{K}</span>. Alors <span class="math inline">\lambda f + \mu g</span> est dérivable en <span class="math inline">t_0</span> et : <span class="math display">(\lambda f + \mu g)'(t_0) = \lambda f'(t_0) + \mu g'(t_0)</span></p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 1.5 — (Produit par une fonction scalaire)</strong></p>
+<p>Soient <span class="math inline">f : I \to E</span> dérivable en <span class="math inline">t_0</span> et <span class="math inline">\varphi : I \to \mathbb{K}</span> dérivable en <span class="math inline">t_0</span>. Alors <span class="math inline">\varphi \cdot f</span> est dérivable en <span class="math inline">t_0</span> et : <span class="math display">(\varphi \cdot f)'(t_0) = \varphi'(t_0) \cdot f(t_0) + \varphi(t_0) \cdot f'(t_0)</span></p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 1.6 — (Dérivation de <span class="math inline">\boldsymbol{f \circ \varphi}</span>)</strong></p>
+<p>Soient <span class="math inline">f : I \to E</span> dérivable en <span class="math inline">u_0 \in I</span> et <span class="math inline">\varphi : J \to I</span> dérivable en <span class="math inline">t_0 \in J</span> avec <span class="math inline">\varphi(t_0) = u_0</span>. Alors <span class="math inline">f \circ \varphi</span> est dérivable en <span class="math inline">t_0</span> et : <span class="math display">(f \circ \varphi)'(t_0) = \varphi'(t_0) \cdot f'(u_0)</span></p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 1.7 — (Dérivation d’un produit scalaire dans un espace préhilbertien)</strong></p>
+<p>Soient <span class="math inline">f, g : I \to E</span> dérivables en <span class="math inline">t_0</span>, où <span class="math inline">E</span> est un espace préhilbertien réel. Alors la fonction <span class="math inline">t \mapsto \langle f(t), g(t) \rangle</span> est dérivable en <span class="math inline">t_0</span> et : <span class="math display">\frac{d}{dt}\langle f(t), g(t) \rangle \bigg|_{t=t_0} = \langle f'(t_0), g(t_0) \rangle + \langle f(t_0), g'(t_0) \rangle</span></p>
+</div>
+<div class="custom-numbered-block custom-corollary">
+<p><strong>Corollaire 1.1 — (Dérivation de la norme)</strong></p>
+<p>Si <span class="math inline">f : I \to E</span> est dérivable en <span class="math inline">t_0</span> et <span class="math inline">f(t_0) \neq 0_E</span>, alors <span class="math inline">t \mapsto \|f(t)\|</span> est dérivable en <span class="math inline">t_0</span> et : <span class="math display">\frac{d}{dt}\|f(t)\| \bigg|_{t=t_0} = \frac{\langle f'(t_0), f(t_0) \rangle}{\|f(t_0)\|}</span></p>
+</div>
+</section>
+<section id="interprétation-géométrique-et-cinématique" class="level2" data-number="1.6">
+<h2 data-number="1.6" class="anchored" data-anchor-id="interprétation-géométrique-et-cinématique"><span class="header-section-number">1.6</span> Interprétation géométrique et cinématique</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 1.6 — (Interprétation cinématique)</strong></p>
+<p>Soit <span class="math inline">f : I \to \mathbb{R}^n</span> une fonction vectorielle.</p>
+<ul>
+<li><span class="math inline">f(t_0)</span> est la <strong>position</strong> à l’instant <span class="math inline">t_0</span>.</li>
+<li><span class="math inline">f'(t_0)</span> est la <strong>vitesse</strong> à l’instant <span class="math inline">t_0</span>.</li>
+<li><span class="math inline">f''(t_0)</span> est l’<strong>accélération</strong> à l’instant <span class="math inline">t_0</span>.</li>
+</ul>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 1.8 — (Interprétation géométrique)</strong></p>
+<p>Si <span class="math inline">f : I \to \mathbb{R}^n</span> est dérivable en <span class="math inline">t_0</span> et <span class="math inline">f'(t_0) \neq 0</span>, la droite : <span class="math display">D : M = f(t_0) + \lambda \cdot f'(t_0), \quad \lambda \in \mathbb{R}</span> est la <strong>tangente</strong> à la courbe décrite par <span class="math inline">f</span> au point <span class="math inline">f(t_0)</span>.</p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 1.4</strong></p>
+<p>Pour <span class="math inline">f(t) = (\cos t, \sin t)</span>, la courbe décrite est le cercle unité. La tangente en <span class="math inline">f(t_0) = (\cos t_0, \sin t_0)</span> est dirigée par <span class="math inline">f'(t_0) = (-\sin t_0, \cos t_0)</span>, qui est bien perpendiculaire au rayon <span class="math inline">f(t_0)</span>.</p>
+</div>
+</section>
+</section>
+<section id="intégration-dune-fonction-vectorielle-sur-un-segment" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> Intégration d’une fonction vectorielle sur un segment</h1>
+<section id="définition" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="définition"><span class="header-section-number">2.1</span> Définition</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 2.1 — (Intégrale d’une fonction vectorielle continue par morceaux)</strong></p>
+<p>Soit <span class="math inline">f : [a,b] \to E</span> une fonction continue par morceaux. On définit l’<strong>intégrale</strong> de <span class="math inline">f</span> sur <span class="math inline">[a,b]</span> par : <span class="math display">\int_a^b f(t)\, dt = \left(\int_a^b f_1(t)\, dt\right) e_1 + \cdots + \left(\int_a^b f_n(t)\, dt\right) e_n</span> où <span class="math inline">f_1, \ldots, f_n</span> sont les composantes de <span class="math inline">f</span> dans la base <span class="math inline">\mathcal{B}</span>.</p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 2.1</strong></p>
+<p>Cette définition ne dépend pas du choix de la base <span class="math inline">\mathcal{B}</span>.</p>
+</div>
+</section>
+<section id="propriétés" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="propriétés"><span class="header-section-number">2.2</span> Propriétés</h2>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 2.2 — (Linéarité)</strong></p>
+<p>Soient <span class="math inline">f, g : [a,b] \to E</span> continues par morceaux et <span class="math inline">\lambda, \mu \in \mathbb{K}</span>. Alors : <span class="math display">\int_a^b (\lambda f + \mu g)(t)\, dt = \lambda \int_a^b f(t)\, dt + \mu \int_a^b g(t)\, dt</span></p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 2.3 — (Relation de Chasles)</strong></p>
+<p>Pour tout <span class="math inline">c \in [a,b]</span> : <span class="math display">\int_a^b f(t)\, dt = \int_a^c f(t)\, dt + \int_c^b f(t)\, dt</span></p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 2.4 — (Inégalité triangulaire)</strong></p>
+<p><span class="math display">\left\|\int_a^b f(t)\, dt\right\| \leq \int_a^b \|f(t)\|\, dt</span></p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 2.5 — (Intégration par parties)</strong></p>
+<p>Soient <span class="math inline">f : [a,b] \to E</span> de classe <span class="math inline">\mathcal{C}^1</span> et <span class="math inline">\varphi : [a,b] \to \mathbb{K}</span> de classe <span class="math inline">\mathcal{C}^1</span>. Alors : <span class="math display">\int_a^b \varphi'(t) f(t)\, dt = [\varphi(t) f(t)]_a^b - \int_a^b \varphi(t) f'(t)\, dt</span></p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 2.6 — (Changement de variable)</strong></p>
+<p>Soient <span class="math inline">f : [a,b] \to E</span> continue par morceaux et <span class="math inline">\varphi : [c,d] \to [a,b]</span> de classe <span class="math inline">\mathcal{C}^1</span>. Alors : <span class="math display">\int_a^b f(t)\, dt = \int_c^d f(\varphi(u)) \varphi'(u)\, du</span></p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 2.7 — (Théorème fondamental du calcul intégral)</strong></p>
+<p>Si <span class="math inline">f : [a,b] \to E</span> est continue, la fonction : <span class="math display">F(x) = \int_a^x f(t)\, dt</span> est de classe <span class="math inline">\mathcal{C}^1</span> sur <span class="math inline">[a,b]</span> et <span class="math inline">F' = f</span>.</p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 2.1</strong></p>
+<p>Calculons <span class="math inline">\int_0^{\pi/2} (\cos t, \sin t)\, dt</span>.</p>
+<p><span class="math display">\int_0^{\pi/2} \cos t\, dt = [\sin t]_0^{\pi/2} = 1, \quad \int_0^{\pi/2} \sin t\, dt = [-\cos t]_0^{\pi/2} = 1</span></p>
+<p>Donc : <span class="math display">\int_0^{\pi/2} (\cos t, \sin t)\, dt = (1, 1)</span></p>
+</div>
+</section>
+</section>
+<section id="arcs-paramétrés" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Arcs paramétrés</h1>
+<section id="définitions-1" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="définitions-1"><span class="header-section-number">3.1</span> Définitions</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 3.1 — (Arc paramétré)</strong></p>
+<p>Soit <span class="math inline">k \in \mathbb{N}^* \cup \{+\infty\}</span>. Un <strong>arc paramétré</strong> (ou <strong>courbe paramétrée</strong>) de classe <span class="math inline">\mathcal{C}^k</span> dans <span class="math inline">\mathbb{R}^n</span> (<span class="math inline">n \leq 3</span>) est une application <span class="math inline">\gamma : I \to \mathbb{R}^n</span> de classe <span class="math inline">\mathcal{C}^k</span>, où <span class="math inline">I</span> est un intervalle de <span class="math inline">\mathbb{R}</span>.</p>
+<ul>
+<li><span class="math inline">I</span> est l’<strong>intervalle de définition</strong> de l’arc.</li>
+<li>L’<strong>image</strong> <span class="math inline">\gamma(I)</span> est le <strong>support</strong> de l’arc (ou la <strong>courbe associée</strong>, ou la <strong>trajectoire</strong>).</li>
+</ul>
+</div>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 3.2 — (Arc simple)</strong></p>
+<p>Un arc paramétré <span class="math inline">\gamma</span> est dit <strong>simple</strong> si <span class="math inline">\gamma</span> est injective, c’est-à-dire si la courbe ne se recoupe pas.</p>
+</div>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 3.3 — (Paramètre régulier, point singulier, point birégulier)</strong></p>
+<ol type="1">
+<li>Un paramètre <span class="math inline">t_0</span> est dit <strong>régulier</strong> si <span class="math inline">\gamma'(t_0) \neq 0</span>.</li>
+<li>Un paramètre <span class="math inline">t_0</span> est dit <strong>singulier</strong> si <span class="math inline">\gamma'(t_0) = 0</span>.</li>
+<li>Un paramètre <span class="math inline">t_0</span> est dit <strong>birégulier</strong> si <span class="math inline">\gamma'(t_0)</span> et <span class="math inline">\gamma''(t_0)</span> sont linéairement indépendants.</li>
+</ol>
+</div>
+</section>
+<section id="tangente-en-un-point" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="tangente-en-un-point"><span class="header-section-number">3.2</span> Tangente en un point</h2>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 3.1 — (Tangente en un point régulier)</strong></p>
+<p>Soit <span class="math inline">\gamma : I \to \mathbb{R}^n</span> un arc paramétré de classe <span class="math inline">\mathcal{C}^1</span> et <span class="math inline">t_0 \in I</span> un paramètre régulier (<span class="math inline">\gamma'(t_0) \neq 0</span>). Alors la <strong>tangente</strong> à l’arc au point <span class="math inline">\gamma(t_0)</span> est la droite : <span class="math display">D : M = \gamma(t_0) + \lambda \cdot \gamma'(t_0), \quad \lambda \in \mathbb{R}</span></p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 3.2 — (Cas où <span class="math inline">\boldsymbol{\gamma'(t_0) = 0}</span>)</strong></p>
+<p>Si <span class="math inline">\gamma'(t_0) = 0</span> mais qu’il existe un entier <span class="math inline">p \geq 2</span> tel que <span class="math inline">\gamma^{(p)}(t_0) \neq 0</span>, alors la tangente est dirigée par <span class="math inline">\gamma^{(p)}(t_0)</span> (premier vecteur dérivé non nul).</p>
+</div>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 3.4 — (Normale)</strong></p>
+<p>Si <span class="math inline">\gamma : I \to \mathbb{R}^2</span> est un arc paramétré plan et <span class="math inline">t_0</span> un paramètre régulier, la <strong>normale</strong> à l’arc au point <span class="math inline">\gamma(t_0)</span> est la droite perpendiculaire à la tangente en ce point.</p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 3.1</strong></p>
+<p>Pour l’arc <span class="math inline">\gamma(t) = (\cos t, \sin t)</span>, on a <span class="math inline">\gamma'(t) = (-\sin t, \cos t) \neq 0</span> pour tout <span class="math inline">t</span>. La tangente en <span class="math inline">\gamma(t_0)</span> est dirigée par <span class="math inline">\gamma'(t_0)</span> et la normale est dirigée par <span class="math inline">\gamma(t_0) = (\cos t_0, \sin t_0)</span>.</p>
+</div>
+</section>
+<section id="étude-locale-en-un-point-birégulier" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="étude-locale-en-un-point-birégulier"><span class="header-section-number">3.3</span> Étude locale en un point birégulier</h2>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 3.3 — (Étude locale en un point birégulier)</strong></p>
+<p>Soit <span class="math inline">\gamma : I \to \mathbb{R}^n</span> un arc paramétré de classe <span class="math inline">\mathcal{C}^2</span> et <span class="math inline">t_0</span> un paramètre birégulier. En effectuant un développement limité à l’ordre 2 : <span class="math display">\gamma(t_0 + h) = \gamma(t_0) + h \gamma'(t_0) + \frac{h^2}{2} \gamma''(t_0) + o(h^2)</span></p>
+<p>La courbe admet au voisinage de <span class="math inline">\gamma(t_0)</span> :</p>
+<ul>
+<li>La tangente dirigée par <span class="math inline">\gamma'(t_0)</span>.</li>
+<li>La courbe est du côté de <span class="math inline">\gamma''(t_0)</span> par rapport à la tangente (pour <span class="math inline">h</span> petit).</li>
+</ul>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 3.2</strong></p>
+<p>Pour <span class="math inline">\gamma(t) = (t, t^2)</span> au point <span class="math inline">t_0 = 0</span> : - <span class="math inline">\gamma(0) = (0, 0)</span> - <span class="math inline">\gamma'(0) = (1, 0)</span> (tangente : l’axe des <span class="math inline">x</span>) - <span class="math inline">\gamma''(0) = (0, 2)</span> (la parabole s’ouvre vers le haut)</p>
+</div>
+</section>
+<section id="longueur-dun-arc-paramétré" class="level2" data-number="3.4">
+<h2 data-number="3.4" class="anchored" data-anchor-id="longueur-dun-arc-paramétré"><span class="header-section-number">3.4</span> Longueur d’un arc paramétré</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 3.5 — (Longueur d’un arc)</strong></p>
+<p>Soit <span class="math inline">\gamma : [a,b] \to \mathbb{R}^n</span> un arc paramétré de classe <span class="math inline">\mathcal{C}^1</span>. La <strong>longueur</strong> de l’arc est : <span class="math display">L(\gamma) = \int_a^b \|\gamma'(t)\|\, dt</span></p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 3.3</strong></p>
+<p>Pour <span class="math inline">\gamma(t) = (\cos t, \sin t)</span> avec <span class="math inline">t \in [0, 2\pi]</span> : <span class="math display">\|\gamma'(t)\| = \sqrt{(-\sin t)^2 + (\cos t)^2} = 1</span> <span class="math display">L(\gamma) = \int_0^{2\pi} 1\, dt = 2\pi</span> C’est bien la circonférence du cercle unité.</p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 3.4</strong></p>
+<p>Pour <span class="math inline">\gamma(t) = (t, t^2)</span> avec <span class="math inline">t \in [0, 1]</span> : <span class="math display">\|\gamma'(t)\| = \sqrt{1 + 4t^2}</span> <span class="math display">L(\gamma) = \int_0^1 \sqrt{1 + 4t^2}\, dt = \frac{\sqrt{5}}{2} + \frac{1}{4}\ln(2 + \sqrt{5})</span></p>
+</div>
+</section>
+</section>
+<section id="exemples-darcs-paramétrés" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> Exemples d’arcs paramétrés</h1>
+<section id="cercle" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="cercle"><span class="header-section-number">4.1</span> Cercle</h2>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 4.1</strong></p>
+<p><span class="math inline">\gamma(t) = (a\cos t, a\sin t)</span>, <span class="math inline">t \in [0, 2\pi]</span> décrit le cercle de centre <span class="math inline">O</span> et de rayon <span class="math inline">a</span>.</p>
+<ul>
+<li><span class="math inline">\gamma'(t) = (-a\sin t, a\cos t) \neq 0</span> pour tout <span class="math inline">t</span> : arc régulier.</li>
+<li><span class="math inline">\gamma''(t) = (-a\cos t, -a\sin t)</span>.</li>
+<li><span class="math inline">\gamma'(t)</span> et <span class="math inline">\gamma''(t)</span> sont linéairement indépendants : arc birégulier.</li>
+</ul>
+</div>
+</section>
+<section id="hélice-circulaire" class="level2" data-number="4.2">
+<h2 data-number="4.2" class="anchored" data-anchor-id="hélice-circulaire"><span class="header-section-number">4.2</span> Hélice circulaire</h2>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 4.2</strong></p>
+<p><span class="math inline">\gamma(t) = (a\cos t, a\sin t, bt)</span>, <span class="math inline">t \in \mathbb{R}</span> décrit une <strong>hélice circulaire</strong> de rayon <span class="math inline">a</span> et de pas <span class="math inline">2\pi b</span>.</p>
+<ul>
+<li><span class="math inline">\gamma'(t) = (-a\sin t, a\cos t, b) \neq 0</span> : arc régulier.</li>
+<li><span class="math inline">\|\gamma'(t)\| = \sqrt{a^2 + b^2}</span> : la vitesse est constante.</li>
+</ul>
+</div>
+</section>
+<section id="parabole" class="level2" data-number="4.3">
+<h2 data-number="4.3" class="anchored" data-anchor-id="parabole"><span class="header-section-number">4.3</span> Parabole</h2>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 4.3</strong></p>
+<p><span class="math inline">\gamma(t) = (t, t^2)</span>, <span class="math inline">t \in \mathbb{R}</span> décrit la parabole d’équation <span class="math inline">y = x^2</span>.</p>
+<ul>
+<li><span class="math inline">\gamma'(t) = (1, 2t) \neq 0</span> : arc régulier.</li>
+<li><span class="math inline">\gamma''(t) = (0, 2)</span>.</li>
+</ul>
+</div>
+</section>
+<section id="folium-de-descartes" class="level2" data-number="4.4">
+<h2 data-number="4.4" class="anchored" data-anchor-id="folium-de-descartes"><span class="header-section-number">4.4</span> Folium de Descartes</h2>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 4.4</strong></p>
+<p><span class="math inline">\gamma(t) = \left(\frac{t}{1+t^2}, \frac{t^2}{1+t^2}\right)</span> décrit une portion de cercle.</p>
+<p>On vérifie que : <span class="math display">\gamma_1(t)^2 + \gamma_2(t)^2 = \frac{t^2 + t^4}{(1+t^2)^2} = \frac{t^2(1+t^2)}{(1+t^2)^2} = \frac{t^2}{1+t^2}</span></p>
+</div>
+</section>
+</section>
+<section id="exercices" class="level1" data-number="5">
+<h1 data-number="5"><span class="header-section-number">5</span> Exercices</h1>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 5.1</strong></p>
+<p>Soit <span class="math inline">f : \mathbb{R} \to \mathbb{R}^2</span> définie par <span class="math inline">f(t) = (e^t \cos t, e^t \sin t)</span>.</p>
+<ol type="1">
+<li>Calculer <span class="math inline">f'(t)</span> et <span class="math inline">\|f'(t)\|</span>.</li>
+<li>Déterminer la tangente à la courbe au point <span class="math inline">f(0)</span>.</li>
+<li>Calculer la longueur de l’arc entre <span class="math inline">t = 0</span> et <span class="math inline">t = \ln 2</span>.</li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 5.2</strong></p>
+<p>Soit <span class="math inline">\gamma : [0, 2\pi] \to \mathbb{R}^2</span> définie par <span class="math inline">\gamma(t) = (\cos 2t, \sin 3t)</span>.</p>
+<ol type="1">
+<li>Étudier la parité et la périodicité des composantes.</li>
+<li>Déterminer les points singuliers de l’arc.</li>
+<li>Calculer <span class="math inline">\gamma'(t)</span> et déterminer la tangente en un point régulier.</li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 5.3</strong></p>
+<p>Soit <span class="math inline">f : [0, 1] \to \mathbb{R}^3</span> définie par <span class="math inline">f(t) = (t, t^2, t^3)</span>.</p>
+<ol type="1">
+<li>Calculer <span class="math inline">f'(t)</span> et <span class="math inline">f''(t)</span>.</li>
+<li>Montrer que l’arc est régulier.</li>
+<li>Calculer la longueur de l’arc entre <span class="math inline">t = 0</span> et <span class="math inline">t = 1</span> (on pourra donner une valeur approchée).</li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 5.4</strong></p>
+<p>Soient <span class="math inline">f, g : I \to \mathbb{R}^3</span> de classe <span class="math inline">\mathcal{C}^1</span>. Montrer que : <span class="math display">\frac{d}{dt}\langle f(t), g(t) \rangle = \langle f'(t), g(t) \rangle + \langle f(t), g'(t) \rangle</span></p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 5.5</strong></p>
+<p>Soit <span class="math inline">\gamma : [0, +\infty[ \to \mathbb{R}^2</span> définie par <span class="math inline">\gamma(t) = (t \cos t, t \sin t)</span>.</p>
+<ol type="1">
+<li>Calculer <span class="math inline">\gamma'(t)</span> et montrer que l’arc est régulier.</li>
+<li>Calculer la longueur de l’arc entre <span class="math inline">t = 0</span> et <span class="math inline">t = 2\pi</span>.</li>
+<li>Interpréter géométriquement la courbe (spirale d’Archimède).</li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 5.6</strong></p>
+<p>Soit <span class="math inline">\gamma : \mathbb{R} \to \mathbb{R}^2</span> définie par <span class="math inline">\gamma(t) = (3\cos t, 2\sin t)</span>.</p>
+<ol type="1">
+<li>Montrer que l’arc décrit une ellipse.</li>
+<li>Calculer <span class="math inline">\gamma'(t)</span> et déterminer les points où la tangente est horizontale.</li>
+<li>Calculer la longueur de l’arc entre <span class="math inline">t = 0</span> et <span class="math inline">t = \pi/2</span>.</li>
+</ol>
+</div>
+</section>
+<section id="document-en-pdf" class="level1 unnumbered">
+<h1 class="unnumbered">Document en PDF</h1>
+<p><a href="PDF/mp-chap05.pdf">Chapitre 05 : Fonctions vectorielles d’une variable réelle, arcs paramétrés</a></p>
+<p>##&nbsp;Navigation {-} ::: {.chap-nav} <a href="../cours/mp-chap04.html" class="prev">Chapitre 04 : Séries dans un espace vectoriel normé et familles sommables</a> <a href="../cours/mp.html" class="home">Menu MP</a> <a href="../cours/mp-chap06.html" class="next">Chapitre 06 : Suites et séries de fonctions</a> :::</p>
 
 
 </section>
@@ -222,12 +648,12 @@ ul.task-list li input[type="checkbox"] {
       // flash "checked"
       button.classList.add('code-copy-button-checked');
       var currentTitle = button.getAttribute("title");
-      button.setAttribute("title", "Copied!");
+      button.setAttribute("title", "Copié");
       let tooltip;
       if (window.bootstrap) {
         button.setAttribute("data-bs-toggle", "tooltip");
         button.setAttribute("data-bs-placement", "left");
-        button.setAttribute("data-bs-title", "Copied!");
+        button.setAttribute("data-bs-title", "Copié");
         tooltip = new bootstrap.Tooltip(button, 
           { trigger: "manual", 
             customClass: "code-copy-button-tooltip",

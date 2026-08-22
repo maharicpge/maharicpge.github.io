@@ -1,13 +1,14 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr"><head>
 
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.10.18">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Saîd MAHARI">
 
-<title>Espaces euclidiens (compléments) - Mathématiques en CPGE – Mathématiques en CPGE</title>
+<title>Séries dans un espace vectoriel normé et familles sommables – Mathématiques en CPGE</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -45,7 +46,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-7a8c080b55ea27eb37b467515007f9ee.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-e0d9a45d84245cc5e3b300860d8fa645.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -60,22 +61,66 @@ ul.task-list li input[type="checkbox"] {
   ],
   "show-item-context": false,
   "language": {
-    "search-no-results-text": "No results",
-    "search-matching-documents-text": "matching documents",
-    "search-copy-link-title": "Copy link to search",
-    "search-hide-matches-text": "Hide additional matches",
-    "search-more-match-text": "more match in this document",
-    "search-more-matches-text": "more matches in this document",
-    "search-clear-button-title": "Clear",
+    "search-no-results-text": "Pas de résultats",
+    "search-matching-documents-text": "documents trouvés",
+    "search-copy-link-title": "Copier le lien vers la recherche",
+    "search-hide-matches-text": "Cacher les correspondances additionnelles",
+    "search-more-match-text": "correspondance de plus dans ce document",
+    "search-more-matches-text": "correspondances de plus dans ce document",
+    "search-clear-button-title": "Effacer",
     "search-text-placeholder": "",
-    "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit",
-    "search-label": "Search"
+    "search-detached-cancel-button-title": "Annuler",
+    "search-submit-button-title": "Envoyer",
+    "search-label": "Recherche"
   }
 }</script>
 
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="styles.css">
 </head>
 
 <body class="nav-fixed quarto-light">
@@ -89,8 +134,8 @@ ul.task-list li input[type="checkbox"] {
     <span class="navbar-title">Accueil</span>
     </a>
   </div>
-            <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+            <div id="quarto-search" class="" title="Recherche"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Basculer la navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
@@ -140,10 +185,42 @@ ul.task-list li input[type="checkbox"] {
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
+    <h2 id="toc-title">Sur cette page</h2>
    
   <ul>
-  <li><a href="#document" id="toc-document" class="nav-link active" data-scroll-target="#document">Document</a></li>
+  <li><a href="#séries-à-valeurs-dans-un-espace-normé-de-dimension-finie" id="toc-séries-à-valeurs-dans-un-espace-normé-de-dimension-finie" class="nav-link active" data-scroll-target="#séries-à-valeurs-dans-un-espace-normé-de-dimension-finie"><span class="header-section-number">1</span> Séries à valeurs dans un espace normé de dimension finie</a>
+  <ul class="collapse">
+  <li><a href="#rappels-sur-les-séries-numériques" id="toc-rappels-sur-les-séries-numériques" class="nav-link" data-scroll-target="#rappels-sur-les-séries-numériques"><span class="header-section-number">1.1</span> Rappels sur les séries numériques</a></li>
+  <li><a href="#séries-à-valeurs-dans-un-espace-normé" id="toc-séries-à-valeurs-dans-un-espace-normé" class="nav-link" data-scroll-target="#séries-à-valeurs-dans-un-espace-normé"><span class="header-section-number">1.2</span> Séries à valeurs dans un espace normé</a></li>
+  <li><a href="#séries-absolument-convergentes-dans-un-espace-normé" id="toc-séries-absolument-convergentes-dans-un-espace-normé" class="nav-link" data-scroll-target="#séries-absolument-convergentes-dans-un-espace-normé"><span class="header-section-number">1.3</span> Séries absolument convergentes dans un espace normé</a></li>
+  </ul></li>
+  <li><a href="#séries-à-termes-dans-une-mathbbk-algèbre" id="toc-séries-à-termes-dans-une-mathbbk-algèbre" class="nav-link" data-scroll-target="#séries-à-termes-dans-une-mathbbk-algèbre"><span class="header-section-number">2</span> Séries à termes dans une <span class="math inline">\mathbb{K}</span>-algèbre</a>
+  <ul class="collapse">
+  <li><a href="#définition-et-propriétés" id="toc-définition-et-propriétés" class="nav-link" data-scroll-target="#définition-et-propriétés"><span class="header-section-number">2.1</span> Définition et propriétés</a></li>
+  </ul></li>
+  <li><a href="#familles-sommables" id="toc-familles-sommables" class="nav-link" data-scroll-target="#familles-sommables"><span class="header-section-number">3</span> Familles sommables</a>
+  <ul class="collapse">
+  <li><a href="#familles-sommables-de-nombres-réels-positifs" id="toc-familles-sommables-de-nombres-réels-positifs" class="nav-link" data-scroll-target="#familles-sommables-de-nombres-réels-positifs"><span class="header-section-number">3.1</span> Familles sommables de nombres réels positifs</a></li>
+  <li><a href="#critère-de-comparaison" id="toc-critère-de-comparaison" class="nav-link" data-scroll-target="#critère-de-comparaison"><span class="header-section-number">3.2</span> Critère de comparaison</a></li>
+  <li><a href="#opérations" id="toc-opérations" class="nav-link" data-scroll-target="#opérations"><span class="header-section-number">3.3</span> Opérations</a></li>
+  <li><a href="#théorème-de-sommation-par-paquets" id="toc-théorème-de-sommation-par-paquets" class="nav-link" data-scroll-target="#théorème-de-sommation-par-paquets"><span class="header-section-number">3.4</span> Théorème de sommation par paquets</a></li>
+  <li><a href="#familles-sommables-de-nombres-complexes" id="toc-familles-sommables-de-nombres-complexes" class="nav-link" data-scroll-target="#familles-sommables-de-nombres-complexes"><span class="header-section-number">3.5</span> Familles sommables de nombres complexes</a></li>
+  <li><a href="#espace-vectoriel-des-familles-sommables" id="toc-espace-vectoriel-des-familles-sommables" class="nav-link" data-scroll-target="#espace-vectoriel-des-familles-sommables"><span class="header-section-number">3.6</span> Espace vectoriel des familles sommables</a></li>
+  <li><a href="#théorème-de-sommation-par-paquets-pour-les-familles-complexes" id="toc-théorème-de-sommation-par-paquets-pour-les-familles-complexes" class="nav-link" data-scroll-target="#théorème-de-sommation-par-paquets-pour-les-familles-complexes"><span class="header-section-number">3.7</span> Théorème de sommation par paquets pour les familles complexes</a></li>
+  <li><a href="#théorème-de-fubini-pour-les-familles" id="toc-théorème-de-fubini-pour-les-familles" class="nav-link" data-scroll-target="#théorème-de-fubini-pour-les-familles"><span class="header-section-number">3.8</span> Théorème de Fubini pour les familles</a></li>
+  <li><a href="#produit-de-familles-sommables" id="toc-produit-de-familles-sommables" class="nav-link" data-scroll-target="#produit-de-familles-sommables"><span class="header-section-number">3.9</span> Produit de familles sommables</a></li>
+  </ul></li>
+  <li><a href="#produit-de-cauchy" id="toc-produit-de-cauchy" class="nav-link" data-scroll-target="#produit-de-cauchy"><span class="header-section-number">4</span> Produit de Cauchy</a>
+  <ul class="collapse">
+  <li><a href="#définition" id="toc-définition" class="nav-link" data-scroll-target="#définition"><span class="header-section-number">4.1</span> Définition</a></li>
+  <li><a href="#produit-de-cauchy-de-deux-séries-absolument-convergentes" id="toc-produit-de-cauchy-de-deux-séries-absolument-convergentes" class="nav-link" data-scroll-target="#produit-de-cauchy-de-deux-séries-absolument-convergentes"><span class="header-section-number">4.2</span> Produit de Cauchy de deux séries absolument convergentes</a></li>
+  <li><a href="#produit-de-cauchy-dans-une-mathbbk-algèbre" id="toc-produit-de-cauchy-dans-une-mathbbk-algèbre" class="nav-link" data-scroll-target="#produit-de-cauchy-dans-une-mathbbk-algèbre"><span class="header-section-number">4.3</span> Produit de Cauchy dans une <span class="math inline">\mathbb{K}</span>-algèbre</a></li>
+  </ul></li>
+  <li><a href="#exercices" id="toc-exercices" class="nav-link" data-scroll-target="#exercices"><span class="header-section-number">5</span> Exercices</a></li>
+  <li><a href="#document-en-pdf" id="toc-document-en-pdf" class="nav-link" data-scroll-target="#document-en-pdf">Document en PDF</a>
+  <ul class="collapse">
+  <li><a href="#navigation" id="toc-navigation" class="nav-link" data-scroll-target="#navigation">Navigation</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -152,14 +229,27 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Chapitre 04 : Espaces euclidiens (compléments)</h1>
+<h1 class="title">Séries dans un espace vectoriel normé et familles sommables</h1>
+<p class="subtitle lead">Chapitre 04</p>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Auteur·rice</div>
+    <div class="quarto-title-meta-contents">
+             <p>Saîd MAHARI </p>
+          </div>
+  </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">Date de publication</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">22 août 2026</p>
+    </div>
+  </div>
   
     
   </div>
@@ -169,12 +259,285 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p><strong>MP (2e année) — Chapitre 04.</strong> Adjoint, endomorphismes symétriques, théorème spectral.</p>
-<section id="document" class="level2">
-<h2 class="anchored" data-anchor-id="document">Document</h2>
-<p><em>PDF à venir : déposez le fichier <code>files/mp/chap04.pdf</code> puis régénérez la page.</em></p>
+<p><strong>MP (2e année) — Chapitre 04.</strong> Convergence, convergence absolue, reste, séries d’éléments d’une <span class="math inline">\mathbb{K}</span>-algèbre normée, famille sommable de nombres complexes, critère de comparaison, théorème de sommation par paquets, critère de sommabilité, produit de Cauchy.</p>
+<p>Ce chapitre a été réalisé conformément au programme marocain de mathématiques de la filière MP.</p>
+<p>Dans tout ce chapitre, <span class="math inline">E</span> désigne un <span class="math inline">\mathbb{K}</span>-espace vectoriel de dimension finie <span class="math inline">n \in \mathbb{N}^*</span> muni d’une norme <span class="math inline">\|\cdot\|</span>, où <span class="math inline">\mathbb{K}</span> est le corps <span class="math inline">\mathbb{R}</span> ou <span class="math inline">\mathbb{C}</span>.</p>
+<section id="séries-à-valeurs-dans-un-espace-normé-de-dimension-finie" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Séries à valeurs dans un espace normé de dimension finie</h1>
+<section id="rappels-sur-les-séries-numériques" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="rappels-sur-les-séries-numériques"><span class="header-section-number">1.1</span> Rappels sur les séries numériques</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 1.1 — (Série numérique)</strong></p>
+<p>Soit <span class="math inline">(u_n)_{n \geq n_0}</span> une suite d’éléments de <span class="math inline">\mathbb{K}</span>. On appelle <strong>série</strong> de terme général <span class="math inline">u_n</span> la suite <span class="math inline">(S_n)_{n \geq n_0}</span> définie par : <span class="math display">S_n = \sum_{k=n_0}^n u_k</span> On note <span class="math inline">\sum u_n</span> ou <span class="math inline">\sum_{k \geq n_0} u_k</span> cette série.</p>
+</div>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 1.2 — (Convergence et divergence)</strong></p>
+<p>On dit que la série <span class="math inline">\sum u_n</span> <strong>converge</strong> si la suite <span class="math inline">(S_n)</span> converge vers une limite finie <span class="math inline">S \in \mathbb{K}</span>. On note alors : <span class="math display">S = \sum_{k=n_0}^{+\infty} u_k</span> et <span class="math inline">S</span> est appelée la <strong>somme</strong> de la série.</p>
+<p>Si la suite <span class="math inline">(S_n)</span> diverge, on dit que la série <span class="math inline">\sum u_n</span> <strong>diverge</strong>.</p>
+</div>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 1.3 — (Reste d’une série convergente)</strong></p>
+<p>Si la série <span class="math inline">\sum u_n</span> converge et si <span class="math inline">S</span> est sa somme, on note : <span class="math display">R_n = \sum_{k=n+1}^{+\infty} u_k</span> le <strong>reste</strong> de la série <span class="math inline">\sum u_n</span> et on a <span class="math inline">R_n \xrightarrow[n \to +\infty]{} 0</span>.</p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 1.1 — (Critère de Cauchy)</strong></p>
+<p>Soit <span class="math inline">\sum u_n</span> une série numérique. La série <span class="math inline">\sum u_n</span> converge si et seulement si : <span class="math display">\forall \varepsilon &gt; 0, \; \exists N \in \mathbb{N}, \; \forall n \geq N, \; \forall p \geq 0, \quad |S_{n+p} - S_n| = |u_{n+1} + \cdots + u_{n+p}| \leq \varepsilon</span></p>
+</div>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 1.4 — (Séries absolument convergentes ; semi-convergentes)</strong></p>
+<p>Soit <span class="math inline">\sum u_n</span> une série numérique. On dit que <span class="math inline">\sum u_n</span> est <strong>absolument convergente</strong> si la série <span class="math inline">\sum |u_n|</span> est convergente.</p>
+<p>Une série convergente mais non absolument convergente est dite <strong>semi-convergente</strong>.</p>
+</div>
+</section>
+<section id="séries-à-valeurs-dans-un-espace-normé" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="séries-à-valeurs-dans-un-espace-normé"><span class="header-section-number">1.2</span> Séries à valeurs dans un espace normé</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 1.5 — (Série à valeurs dans un espace normé)</strong></p>
+<p>Soit <span class="math inline">(u_n)_{n \geq n_0}</span> une suite d’éléments de <span class="math inline">E</span>. On appelle <strong>série</strong> de terme général <span class="math inline">u_n</span> la suite <span class="math inline">(S_n)_{n \geq n_0}</span> définie par : <span class="math display">S_n = \sum_{k=n_0}^n u_k</span> On note <span class="math inline">\sum u_n</span> ou <span class="math inline">\sum_{k \geq n_0} u_k</span> cette série.</p>
+</div>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 1.6 — (Convergence et divergence)</strong></p>
+<p>On dit que la série <span class="math inline">\sum u_n</span> <strong>converge</strong> si la suite <span class="math inline">(S_n)</span> converge vers une limite <span class="math inline">S \in E</span>. On note alors : <span class="math display">S = \sum_{k=n_0}^{+\infty} u_k</span> Si la suite <span class="math inline">(S_n)</span> diverge, on dit que la série <span class="math inline">\sum u_n</span> <strong>diverge</strong>.</p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 1.2 — (Divergence grossière)</strong></p>
+<p>Si la série <span class="math inline">\sum u_n</span> converge, alors <span class="math inline">u_n \xrightarrow[n \to +\infty]{} 0</span>.</p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 1.3 — (Linéarité)</strong></p>
+<p>Soient <span class="math inline">\sum u_n</span> et <span class="math inline">\sum v_n</span> deux séries convergentes de sommes respectives <span class="math inline">S</span> et <span class="math inline">T</span>, et soient <span class="math inline">\lambda, \mu \in \mathbb{K}</span>. Alors la série <span class="math inline">\sum (\lambda u_n + \mu v_n)</span> converge et : <span class="math display">\sum_{n=n_0}^{+\infty} (\lambda u_n + \mu v_n) = \lambda S + \mu T</span></p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 1.4 — (Reste d’une série convergente)</strong></p>
+<p>Si la série <span class="math inline">\sum u_n</span> converge et si <span class="math inline">S</span> est sa somme, on note : <span class="math display">R_n = \sum_{k=n+1}^{+\infty} u_k</span> le reste de la série <span class="math inline">\sum u_n</span> et on a <span class="math inline">R_n \xrightarrow[n \to +\infty]{} 0</span>.</p>
+</div>
+</section>
+<section id="séries-absolument-convergentes-dans-un-espace-normé" class="level2" data-number="1.3">
+<h2 data-number="1.3" class="anchored" data-anchor-id="séries-absolument-convergentes-dans-un-espace-normé"><span class="header-section-number">1.3</span> Séries absolument convergentes dans un espace normé</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 1.7 — (Convergence absolue)</strong></p>
+<p>On dit qu’une série <span class="math inline">\sum u_n</span> à valeurs dans <span class="math inline">E</span> est <strong>absolument convergente</strong> si la série numérique <span class="math inline">\sum \|u_n\|</span> est convergente.</p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 1.5 — (Convergence absolue implique convergence)</strong></p>
+<p>Une série <span class="math inline">\sum u_n</span> à valeurs dans <span class="math inline">E</span> absolument convergente est convergente. De plus, on a : <span class="math display">\left\|\sum_{n=n_0}^{+\infty} u_n\right\| \leq \sum_{n=n_0}^{+\infty} \|u_n\|</span></p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Preuve</em>. </span>Utilisons le critère de Cauchy. La série <span class="math inline">\sum \|u_n\|</span> converge, donc la suite des restes <span class="math inline">(R'_n)</span> avec <span class="math inline">R'_n = \sum_{k=n+1}^{+\infty} \|u_k\|</span> tend vers <span class="math inline">0</span>. Pour tout <span class="math inline">\varepsilon &gt; 0</span>, il existe <span class="math inline">N</span> tel que pour <span class="math inline">n \geq N</span> et <span class="math inline">p \geq 0</span> : <span class="math display">\sum_{k=n+1}^{n+p} \|u_k\| &lt; \varepsilon</span> Par l’inégalité triangulaire : <span class="math display">\left\|\sum_{k=n+1}^{n+p} u_k\right\| \leq \sum_{k=n+1}^{n+p} \|u_k\| &lt; \varepsilon</span> Donc <span class="math inline">(S_n)</span> est une suite de Cauchy dans <span class="math inline">E</span>, qui est complet (car de dimension finie), donc converge.</p>
+<p>Pour l’inégalité, on a pour tout <span class="math inline">n \geq n_0</span> : <span class="math display">\left\|\sum_{k=n_0}^n u_k\right\| \leq \sum_{k=n_0}^n \|u_k\| \leq \sum_{k=n_0}^{+\infty} \|u_k\|</span> En passant à la limite, on obtient le résultat.</p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 1.6 — (Critère de comparaison)</strong></p>
+<p>Soit <span class="math inline">(u_n)</span> une suite d’éléments de <span class="math inline">E</span> et <span class="math inline">(v_n)</span> une suite de réels positifs. Si <span class="math inline">\|u_n\| \leq v_n</span> à partir d’un certain rang et si <span class="math inline">\sum v_n</span> converge, alors <span class="math inline">\sum u_n</span> est absolument convergente (donc convergente).</p>
+</div>
+</section>
+</section>
+<section id="séries-à-termes-dans-une-mathbbk-algèbre" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> Séries à termes dans une <span class="math inline">\mathbb{K}</span>-algèbre</h1>
+<section id="définition-et-propriétés" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="définition-et-propriétés"><span class="header-section-number">2.1</span> Définition et propriétés</h2>
+<p><strong>Dans ce paragraphe, on suppose que <span class="math inline">E</span> est une <span class="math inline">\mathbb{K}</span>-algèbre de dimension finie d’élément unité <span class="math inline">e</span> et muni d’une norme <span class="math inline">\|\cdot\|</span> vérifiant :</strong> <span class="math display">\forall x, y \in E, \quad \|x \cdot y\| = \|x\| \cdot \|y\|</span></p>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 2.1 — (Série géométrique de Neumann)</strong></p>
+<p>Soit <span class="math inline">a \in E</span>.</p>
+<ol type="1">
+<li>La série <span class="math inline">\sum_{k=0}^{+\infty} a^k</span> converge si et seulement si <span class="math inline">\|a\| &lt; 1</span>.</li>
+<li>Dans ce cas : <span class="math display">\sum_{k=0}^{+\infty} a^k = (e - a)^{-1}</span></li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 2.1</strong></p>
+<p>Dans <span class="math inline">\mathcal{M}_n(\mathbb{K})</span> muni de la norme <span class="math inline">\|A\|_\infty = \sup_{1 \leq i \leq n} \sum_{j=1}^n |a_{i,j}|</span>, si <span class="math inline">\|A\|_\infty &lt; 1</span>, alors <span class="math inline">I_n - A</span> est inversible et : <span class="math display">(I_n - A)^{-1} = \sum_{k=0}^{+\infty} A^k</span></p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 2.2 — (Produit de Cauchy dans une algèbre)</strong></p>
+<p>Soient <span class="math inline">\sum a_n</span> et <span class="math inline">\sum b_n</span> deux séries absolument convergentes à valeurs dans une <span class="math inline">\mathbb{K}</span>-algèbre. Alors la série produit <span class="math inline">\sum c_n</span> où : <span class="math display">c_n = \sum_{k=0}^n a_k b_{n-k}</span> est absolument convergente et : <span class="math display">\sum_{n=0}^{+\infty} c_n = \left(\sum_{n=0}^{+\infty} a_n\right) \cdot \left(\sum_{n=0}^{+\infty} b_n\right)</span></p>
+</div>
+</section>
+</section>
+<section id="familles-sommables" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Familles sommables</h1>
+<section id="familles-sommables-de-nombres-réels-positifs" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="familles-sommables-de-nombres-réels-positifs"><span class="header-section-number">3.1</span> Familles sommables de nombres réels positifs</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 3.1 — (Famille sommable de réels positifs)</strong></p>
+<p>Soit <span class="math inline">(u_i)_{i \in I}</span> une famille d’éléments de <span class="math inline">[0, +\infty[</span>, où <span class="math inline">I</span> est un ensemble fini ou dénombrable. On définit la <strong>somme</strong> de cette famille par : <span class="math display">\sum_{i \in I} u_i = \sup \left\{\sum_{i \in F} u_i \mid F \subset I, \; F \text{ fini}\right\}</span></p>
+<p>La famille <span class="math inline">(u_i)_{i \in I}</span> est dite <strong>sommable</strong> si <span class="math inline">\sum_{i \in I} u_i &lt; +\infty</span>.</p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 3.1 — (Cas fini et cas dénombrable)</strong></p>
+<ol type="1">
+<li><p><strong>Cas où <span class="math inline">I</span> est fini</strong> : la définition est cohérente avec la somme usuelle.</p></li>
+<li><p><strong>Cas où <span class="math inline">I = \mathbb{N}</span></strong> : lien avec les séries. Si la série <span class="math inline">\sum_{n \geq 0} u_n</span> d’éléments de <span class="math inline">\mathbb{R}_+</span> diverge, il est pratique d’écrire <span class="math inline">\sum_{n=0}^{+\infty} u_n = +\infty</span>.</p></li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 3.2 — (Invariance par permutation)</strong></p>
+<p>Soit <span class="math inline">\sigma : I \to I</span> une bijection. Alors les familles <span class="math inline">(u_i)_{i \in I}</span> et <span class="math inline">(u_{\sigma(j)})_{j \in I}</span> ont la même somme : <span class="math display">\sum_{j \in I} u_{\sigma(j)} = \sum_{i \in I} u_i</span></p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 3.3 — (Caractérisation de la sommabilité)</strong></p>
+<p>La famille <span class="math inline">(u_i)_{i \in I}</span> d’éléments de <span class="math inline">\mathbb{R}_+</span> est sommable si et seulement s’il existe <span class="math inline">M &gt; 0</span> tel que pour toute partie finie <span class="math inline">F</span> de <span class="math inline">I</span> : <span class="math display">0 \leq \sum_{i \in F} u_i \leq M</span></p>
+</div>
+</section>
+<section id="critère-de-comparaison" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="critère-de-comparaison"><span class="header-section-number">3.2</span> Critère de comparaison</h2>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 3.4 — (Critère de comparaison)</strong></p>
+<p>Soient <span class="math inline">(u_i)_{i \in I}</span> et <span class="math inline">(v_i)_{i \in I}</span> deux familles de nombres réels positifs telles que pour tout <span class="math inline">i \in I</span>, <span class="math inline">0 \leq u_i \leq v_i</span>. Alors :</p>
+<ol type="1">
+<li><p>La sommabilité de <span class="math inline">(v_i)_{i \in I}</span> entraîne celle de <span class="math inline">(u_i)_{i \in I}</span> et on a : <span class="math display">0 \leq \sum_{i \in I} u_i \leq \sum_{i \in I} v_i</span></p></li>
+<li><p>La non-sommabilité de <span class="math inline">(u_i)_{i \in I}</span> entraîne la non-sommabilité de <span class="math inline">(v_i)_{i \in I}</span>.</p></li>
+</ol>
+</div>
+</section>
+<section id="opérations" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="opérations"><span class="header-section-number">3.3</span> Opérations</h2>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 3.5 — (Linéarité)</strong></p>
+<p>Soient <span class="math inline">(u_i)_{i \in I}</span> et <span class="math inline">(v_i)_{i \in I}</span> deux familles sommables de nombres réels positifs et <span class="math inline">\lambda, \mu \in \mathbb{R}_+</span>. Alors la famille <span class="math inline">(\lambda u_i + \mu v_i)_{i \in I}</span> est sommable et : <span class="math display">\sum_{i \in I} (\lambda u_i + \mu v_i) = \lambda \sum_{i \in I} u_i + \mu \sum_{i \in I} v_i</span></p>
+</div>
+</section>
+<section id="théorème-de-sommation-par-paquets" class="level2" data-number="3.4">
+<h2 data-number="3.4" class="anchored" data-anchor-id="théorème-de-sommation-par-paquets"><span class="header-section-number">3.4</span> Théorème de sommation par paquets</h2>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 3.1 — (Théorème de sommation par paquets)</strong></p>
+<p>Soit <span class="math inline">I</span> réunion disjointe des <span class="math inline">I_j</span> pour <span class="math inline">j \in J</span>, et soit <span class="math inline">(u_i)_{i \in I}</span> une famille de réels positifs. Alors : <span class="math display">\sum_{i \in I} u_i = \sum_{j \in J} \left(\sum_{i \in I_j} u_i\right)</span></p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 3.1 — (Cas des suites doubles)</strong></p>
+<p>Si <span class="math inline">(u_{m,n})_{(m,n) \in \mathbb{N}^2}</span> est une famille sommable de réels positifs, alors : <span class="math display">\sum_{(m,n) \in \mathbb{N}^2} u_{m,n} = \sum_{m=0}^{+\infty} \left(\sum_{n=0}^{+\infty} u_{m,n}\right) = \sum_{n=0}^{+\infty} \left(\sum_{m=0}^{+\infty} u_{m,n}\right)</span></p>
+</div>
+</section>
+<section id="familles-sommables-de-nombres-complexes" class="level2" data-number="3.5">
+<h2 data-number="3.5" class="anchored" data-anchor-id="familles-sommables-de-nombres-complexes"><span class="header-section-number">3.5</span> Familles sommables de nombres complexes</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 3.2 — (Famille sommable de nombres complexes)</strong></p>
+<p>Une famille <span class="math inline">(u_i)_{i \in I}</span> de nombres complexes est dite <strong>sommable</strong> si la famille <span class="math inline">(|u_i|)_{i \in I}</span> est sommable, c’est-à-dire si : <span class="math display">\sum_{i \in I} |u_i| &lt; +\infty</span></p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 3.6 — (Somme d’une famille sommable)</strong></p>
+<ol type="1">
+<li><p><strong>Cas réel</strong> : Si la famille <span class="math inline">(u_k)_{k \in I}</span> est réelle, sa somme est définie comme la différence des sommes des familles composées par ses parties positive et négative : <span class="math display">\sum_{k \in I} u_k = \sum_{k \in I} u_k^+ - \sum_{k \in I} u_k^-</span> où <span class="math inline">u_k^+ = \max(u_k, 0)</span> et <span class="math inline">u_k^- = \max(-u_k, 0)</span>.</p></li>
+<li><p><strong>Cas complexe</strong> : Dans le cas général, sa somme est définie par : <span class="math display">\sum_{k \in I} u_k = \sum_{k \in I} \mathrm{Re}(u_k) + i \sum_{k \in I} \mathrm{Im}(u_k)</span></p></li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 3.7 — (Lien avec la convergence absolue)</strong></p>
+<p>Lorsque <span class="math inline">I = \mathbb{N}</span>, la suite <span class="math inline">(u_n)_{n \in \mathbb{N}}</span> est sommable si et seulement si la série <span class="math inline">\sum_n u_n</span> est absolument convergente, auquel cas : <span class="math display">\sum_{n \in \mathbb{N}} u_n = \sum_{n=0}^{+\infty} u_n</span></p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 3.8 — (Invariance par permutation)</strong></p>
+<p>Soit <span class="math inline">\sigma : I \to I</span> une bijection. Alors la famille <span class="math inline">(v_i)_{i \in I}</span> est sommable si et seulement si la famille <span class="math inline">(v_{\sigma(j)})_{j \in I}</span> est sommable, auquel cas : <span class="math display">\sum_{j \in I} v_{\sigma(j)} = \sum_{i \in I} v_i</span></p>
+</div>
+</section>
+<section id="espace-vectoriel-des-familles-sommables" class="level2" data-number="3.6">
+<h2 data-number="3.6" class="anchored" data-anchor-id="espace-vectoriel-des-familles-sommables"><span class="header-section-number">3.6</span> Espace vectoriel des familles sommables</h2>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 3.9 — (Espace <span class="math inline">\boldsymbol{\ell^1(I)}</span>)</strong></p>
+<p>L’ensemble des familles sommables d’éléments de <span class="math inline">\mathbb{K}</span>, noté <span class="math inline">\ell^1(I)</span>, est un <span class="math inline">\mathbb{K}</span>-espace vectoriel. La somme est linéaire et on a l’<strong>inégalité triangulaire</strong> :</p>
+<p>Si la famille <span class="math inline">(u_i)_{i \in I}</span> est sommable, alors : <span class="math display">\left|\sum_{i \in I} u_i\right| \leq \sum_{i \in I} |u_i|</span></p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 3.10 — (Sous-famille d’une famille sommable)</strong></p>
+<p>Toute sous-famille d’une famille sommable est sommable.</p>
+</div>
+</section>
+<section id="théorème-de-sommation-par-paquets-pour-les-familles-complexes" class="level2" data-number="3.7">
+<h2 data-number="3.7" class="anchored" data-anchor-id="théorème-de-sommation-par-paquets-pour-les-familles-complexes"><span class="header-section-number">3.7</span> Théorème de sommation par paquets pour les familles complexes</h2>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 3.2 — (Sommation par paquets)</strong></p>
+<p>Si <span class="math inline">I</span> est réunion disjointe des <span class="math inline">I_j</span> pour <span class="math inline">j \in J</span>, et si <span class="math inline">(u_i)_{i \in I}</span> est une famille sommable de complexes, alors : <span class="math display">\sum_{i \in I} u_i = \sum_{j \in J} \left(\sum_{i \in I_j} u_i\right)</span></p>
+<p>En particulier, la famille <span class="math inline">\left(\sum_{i \in I_j} u_i\right)_{j \in J}</span> est sommable et elle a la même somme que <span class="math inline">(u_i)_{i \in I}</span>.</p>
+</div>
+</section>
+<section id="théorème-de-fubini-pour-les-familles" class="level2" data-number="3.8">
+<h2 data-number="3.8" class="anchored" data-anchor-id="théorème-de-fubini-pour-les-familles"><span class="header-section-number">3.8</span> Théorème de Fubini pour les familles</h2>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 3.3 — (Théorème de Fubini)</strong></p>
+<p>Si la famille <span class="math inline">(u_{m,n})_{(m,n) \in \mathbb{N}^2}</span> de complexes est sommable, alors : <span class="math display">\sum_{n=0}^{+\infty} \left(\sum_{m=0}^{+\infty} u_{m,n}\right) = \sum_{m=0}^{+\infty} \left(\sum_{n=0}^{+\infty} u_{m,n}\right) = \sum_{(m,n) \in \mathbb{N}^2} u_{m,n}</span></p>
+</div>
+</section>
+<section id="produit-de-familles-sommables" class="level2" data-number="3.9">
+<h2 data-number="3.9" class="anchored" data-anchor-id="produit-de-familles-sommables"><span class="header-section-number">3.9</span> Produit de familles sommables</h2>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 3.11</strong></p>
+<p>Si <span class="math inline">(u_i)_{i \in I}</span> et <span class="math inline">(v_j)_{j \in J}</span> sont sommables, alors la famille <span class="math inline">(u_i v_j)_{(i,j) \in I \times J}</span> est sommable et : <span class="math display">\sum_{(i,j) \in I \times J} u_i v_j = \left(\sum_{i \in I} u_i\right) \left(\sum_{j \in J} v_j\right)</span></p>
+</div>
+</section>
+</section>
+<section id="produit-de-cauchy" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> Produit de Cauchy</h1>
+<section id="définition" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="définition"><span class="header-section-number">4.1</span> Définition</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 4.1 — (Produit de Cauchy)</strong></p>
+<p>Soient <span class="math inline">\sum_{n \geq 0} a_n</span> et <span class="math inline">\sum_{n \geq 0} b_n</span> deux séries numériques. On appelle <strong>série produit de Cauchy</strong> des séries <span class="math inline">\sum_{n \geq 0} a_n</span> et <span class="math inline">\sum_{n \geq 0} b_n</span> la série <span class="math inline">\sum_{n \geq 0} c_n</span> où : <span class="math display">c_n = \sum_{k=0}^n a_k b_{n-k}</span></p>
+</div>
+</section>
+<section id="produit-de-cauchy-de-deux-séries-absolument-convergentes" class="level2" data-number="4.2">
+<h2 data-number="4.2" class="anchored" data-anchor-id="produit-de-cauchy-de-deux-séries-absolument-convergentes"><span class="header-section-number">4.2</span> Produit de Cauchy de deux séries absolument convergentes</h2>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 4.1</strong></p>
+<p>Si les séries <span class="math inline">\sum_{n \geq 0} a_n</span> et <span class="math inline">\sum_{n \geq 0} b_n</span> sont absolument convergentes, alors la série <span class="math inline">\sum_{n \geq 0} c_n</span> est absolument convergente et on a : <span class="math display">\sum_{n=0}^{+\infty} c_n = \left(\sum_{n=0}^{+\infty} a_n\right) \left(\sum_{n=0}^{+\infty} b_n\right)</span></p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 4.1 — (Application à la fonction exponentielle)</strong></p>
+<p>On admet que pour <span class="math inline">x \in \mathbb{R}</span>, la série <span class="math inline">\sum_{k=0}^{+\infty} \frac{x^k}{k!}</span> converge et vaut <span class="math inline">\exp(x)</span>.</p>
+<p>Que vaut la série produit associée à <span class="math inline">\exp(a) \times \exp(b)</span> ? En utilisant la formule du binôme de Newton : <span class="math display">c_n = \sum_{k=0}^n \frac{a^k}{k!} \cdot \frac{b^{n-k}}{(n-k)!} = \frac{1}{n!} \sum_{k=0}^n \binom{n}{k} a^k b^{n-k} = \frac{(a+b)^n}{n!}</span></p>
+<p>Donc : <span class="math display">\exp(a) \cdot \exp(b) = \sum_{n=0}^{+\infty} \frac{(a+b)^n}{n!} = \exp(a+b)</span></p>
+</div>
+</section>
+<section id="produit-de-cauchy-dans-une-mathbbk-algèbre" class="level2" data-number="4.3">
+<h2 data-number="4.3" class="anchored" data-anchor-id="produit-de-cauchy-dans-une-mathbbk-algèbre"><span class="header-section-number">4.3</span> Produit de Cauchy dans une <span class="math inline">\mathbb{K}</span>-algèbre</h2>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 4.1</strong></p>
+<p>Soient <span class="math inline">\sum a_n</span> et <span class="math inline">\sum b_n</span> deux séries absolument convergentes à valeurs dans une <span class="math inline">\mathbb{K}</span>-algèbre de dimension finie. Alors la série produit <span class="math inline">\sum c_n</span> est absolument convergente et : <span class="math display">\sum_{n=0}^{+\infty} c_n = \left(\sum_{n=0}^{+\infty} a_n\right) \cdot \left(\sum_{n=0}^{+\infty} b_n\right)</span></p>
+</div>
+</section>
+</section>
+<section id="exercices" class="level1" data-number="5">
+<h1 data-number="5"><span class="header-section-number">5</span> Exercices</h1>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 5.1</strong></p>
+<p>Soit <span class="math inline">A \in \mathcal{M}_n(\mathbb{R})</span> telle que <span class="math inline">\|A\|_\infty &lt; 1</span>. Montrer que <span class="math inline">I_n - A</span> est inversible et calculer <span class="math inline">(I_n - A)^{-1}</span>.</p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 5.2</strong></p>
+<p>Soit <span class="math inline">(u_n)</span> une suite d’éléments de <span class="math inline">E</span> telle que <span class="math inline">\sum \|u_n\|</span> converge. Montrer que <span class="math inline">\sum u_n</span> converge et que : <span class="math display">\left\|\sum_{n=0}^{+\infty} u_n\right\| \leq \sum_{n=0}^{+\infty} \|u_n\|</span></p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 5.3</strong></p>
+<p>Soit <span class="math inline">(u_{m,n})_{(m,n) \in \mathbb{N}^2}</span> définie par <span class="math inline">u_{m,n} = \frac{1}{(m+n+1)(m+n+2)}</span>. Montrer que la famille <span class="math inline">(u_{m,n})</span> est sommable et calculer sa somme.</p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 5.4</strong></p>
+<p>Soient <span class="math inline">a, b \in \mathbb{R}</span> tels que <span class="math inline">|a| &lt; 1</span> et <span class="math inline">|b| &lt; 1</span>. Calculer : <span class="math display">\sum_{n=0}^{+\infty} \sum_{m=0}^{+\infty} a^m b^n</span></p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 5.5</strong></p>
+<p>Soit <span class="math inline">f : \mathbb{N}^2 \to \mathbb{R}_+</span> définie par <span class="math inline">f(m,n) = \frac{1}{(m+1)(n+1)(m+n+2)}</span>. Montrer que la famille <span class="math inline">(f(m,n))</span> est sommable.</p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 5.6 — (Produit de Cauchy)</strong></p>
+<p>Soient <span class="math inline">\sum a_n</span> et <span class="math inline">\sum b_n</span> deux séries absolument convergentes. Montrer que la série produit <span class="math inline">\sum c_n</span> est absolument convergente.</p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 5.7</strong></p>
+<p>Soit <span class="math inline">(u_i)_{i \in I}</span> une famille sommable de complexes. Montrer que pour toute sous-famille <span class="math inline">J \subset I</span>, la famille <span class="math inline">(u_i)_{i \in J}</span> est sommable.</p>
+</div>
+</section>
+<section id="document-en-pdf" class="level1 unnumbered">
+<h1 class="unnumbered">Document en PDF</h1>
+<p><a href="PDF/mp-chap04.pdf">Chapitre 04 : Séries dans un espace vectoriel normé et familles sommables</a></p>
+<section id="navigation" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="navigation">Navigation</h2>
+<div class="chap-nav">
+<p><a href="../cours/mp-chap03.html" class="prev">Chapitre 03 : Réduction des endomorphismes et des matrices carrées</a> <a href="../cours/mp.html" class="home">Menu MP</a> <a href="../cours/mp-chap05.html" class="next">Chapitre 05 : Fonctions vectorielles d’une variable réelle, arcs paramétrés</a></p>
+</div>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -222,12 +585,12 @@ ul.task-list li input[type="checkbox"] {
       // flash "checked"
       button.classList.add('code-copy-button-checked');
       var currentTitle = button.getAttribute("title");
-      button.setAttribute("title", "Copied!");
+      button.setAttribute("title", "Copié");
       let tooltip;
       if (window.bootstrap) {
         button.setAttribute("data-bs-toggle", "tooltip");
         button.setAttribute("data-bs-placement", "left");
-        button.setAttribute("data-bs-title", "Copied!");
+        button.setAttribute("data-bs-title", "Copié");
         tooltip = new bootstrap.Tooltip(button, 
           { trigger: "manual", 
             customClass: "code-copy-button-tooltip",

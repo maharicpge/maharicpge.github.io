@@ -1,13 +1,14 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr"><head>
 
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.10.18">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Saîd MAHARI">
 
-<title>Réduction des endomorphismes - Mathématiques en CPGE – Mathématiques en CPGE</title>
+<title>Réduction des endomorphismes et des matrices carrées – Mathématiques en CPGE</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -45,7 +46,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-7a8c080b55ea27eb37b467515007f9ee.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-e0d9a45d84245cc5e3b300860d8fa645.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -60,22 +61,66 @@ ul.task-list li input[type="checkbox"] {
   ],
   "show-item-context": false,
   "language": {
-    "search-no-results-text": "No results",
-    "search-matching-documents-text": "matching documents",
-    "search-copy-link-title": "Copy link to search",
-    "search-hide-matches-text": "Hide additional matches",
-    "search-more-match-text": "more match in this document",
-    "search-more-matches-text": "more matches in this document",
-    "search-clear-button-title": "Clear",
+    "search-no-results-text": "Pas de résultats",
+    "search-matching-documents-text": "documents trouvés",
+    "search-copy-link-title": "Copier le lien vers la recherche",
+    "search-hide-matches-text": "Cacher les correspondances additionnelles",
+    "search-more-match-text": "correspondance de plus dans ce document",
+    "search-more-matches-text": "correspondances de plus dans ce document",
+    "search-clear-button-title": "Effacer",
     "search-text-placeholder": "",
-    "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit",
-    "search-label": "Search"
+    "search-detached-cancel-button-title": "Annuler",
+    "search-submit-button-title": "Envoyer",
+    "search-label": "Recherche"
   }
 }</script>
 
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="styles.css">
 </head>
 
 <body class="nav-fixed quarto-light">
@@ -89,8 +134,8 @@ ul.task-list li input[type="checkbox"] {
     <span class="navbar-title">Accueil</span>
     </a>
   </div>
-            <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+            <div id="quarto-search" class="" title="Recherche"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Basculer la navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
@@ -140,10 +185,44 @@ ul.task-list li input[type="checkbox"] {
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
+    <h2 id="toc-title">Sur cette page</h2>
    
   <ul>
-  <li><a href="#document" id="toc-document" class="nav-link active" data-scroll-target="#document">Document</a></li>
+  <li><a href="#éléments-propres-dun-endomorphisme-dune-matrice-carrée" id="toc-éléments-propres-dun-endomorphisme-dune-matrice-carrée" class="nav-link active" data-scroll-target="#éléments-propres-dun-endomorphisme-dune-matrice-carrée"><span class="header-section-number">1</span> Éléments propres d’un endomorphisme, d’une matrice carrée</a>
+  <ul class="collapse">
+  <li><a href="#définitions" id="toc-définitions" class="nav-link" data-scroll-target="#définitions"><span class="header-section-number">1.1</span> Définitions</a></li>
+  </ul></li>
+  <li><a href="#polynôme-caractéristique" id="toc-polynôme-caractéristique" class="nav-link" data-scroll-target="#polynôme-caractéristique"><span class="header-section-number">2</span> Polynôme caractéristique</a>
+  <ul class="collapse">
+  <li><a href="#définition" id="toc-définition" class="nav-link" data-scroll-target="#définition"><span class="header-section-number">2.1</span> Définition</a></li>
+  <li><a href="#multiplicité-et-lien-avec-tracedéterminant" id="toc-multiplicité-et-lien-avec-tracedéterminant" class="nav-link" data-scroll-target="#multiplicité-et-lien-avec-tracedéterminant"><span class="header-section-number">2.2</span> Multiplicité et lien avec trace/déterminant</a></li>
+  </ul></li>
+  <li><a href="#endomorphismes-et-matrices-carrées-diagonalisables" id="toc-endomorphismes-et-matrices-carrées-diagonalisables" class="nav-link" data-scroll-target="#endomorphismes-et-matrices-carrées-diagonalisables"><span class="header-section-number">3</span> Endomorphismes et matrices carrées diagonalisables</a>
+  <ul class="collapse">
+  <li><a href="#définition-et-caractérisation" id="toc-définition-et-caractérisation" class="nav-link" data-scroll-target="#définition-et-caractérisation"><span class="header-section-number">3.1</span> Définition et caractérisation</a></li>
+  </ul></li>
+  <li><a href="#endomorphismes-et-matrices-carrées-trigonalisables" id="toc-endomorphismes-et-matrices-carrées-trigonalisables" class="nav-link" data-scroll-target="#endomorphismes-et-matrices-carrées-trigonalisables"><span class="header-section-number">4</span> Endomorphismes et matrices carrées trigonalisables</a>
+  <ul class="collapse">
+  <li><a href="#définition-et-caractérisation-1" id="toc-définition-et-caractérisation-1" class="nav-link" data-scroll-target="#définition-et-caractérisation-1"><span class="header-section-number">4.1</span> Définition et caractérisation</a></li>
+  </ul></li>
+  <li><a href="#polynômes-dendomorphismes-et-de-matrices-carrées" id="toc-polynômes-dendomorphismes-et-de-matrices-carrées" class="nav-link" data-scroll-target="#polynômes-dendomorphismes-et-de-matrices-carrées"><span class="header-section-number">5</span> Polynômes d’endomorphismes et de matrices carrées</a>
+  <ul class="collapse">
+  <li><a href="#définition-et-propriétés" id="toc-définition-et-propriétés" class="nav-link" data-scroll-target="#définition-et-propriétés"><span class="header-section-number">5.1</span> Définition et propriétés</a></li>
+  <li><a href="#polynôme-minimal" id="toc-polynôme-minimal" class="nav-link" data-scroll-target="#polynôme-minimal"><span class="header-section-number">5.2</span> Polynôme minimal</a></li>
+  <li><a href="#endomorphismes-et-matrices-nilpotentes" id="toc-endomorphismes-et-matrices-nilpotentes" class="nav-link" data-scroll-target="#endomorphismes-et-matrices-nilpotentes"><span class="header-section-number">5.3</span> Endomorphismes et matrices nilpotentes</a></li>
+  </ul></li>
+  <li><a href="#application-de-la-notion-de-polynôme-annulateur-à-la-réduction" id="toc-application-de-la-notion-de-polynôme-annulateur-à-la-réduction" class="nav-link" data-scroll-target="#application-de-la-notion-de-polynôme-annulateur-à-la-réduction"><span class="header-section-number">6</span> Application de la notion de polynôme annulateur à la réduction</a>
+  <ul class="collapse">
+  <li><a href="#projecteurs-associés-à-une-décomposition-en-somme-directe" id="toc-projecteurs-associés-à-une-décomposition-en-somme-directe" class="nav-link" data-scroll-target="#projecteurs-associés-à-une-décomposition-en-somme-directe"><span class="header-section-number">6.1</span> Projecteurs associés à une décomposition en somme directe</a></li>
+  <li><a href="#décomposition-spectrale-dun-endomorphisme-diagonalisable" id="toc-décomposition-spectrale-dun-endomorphisme-diagonalisable" class="nav-link" data-scroll-target="#décomposition-spectrale-dun-endomorphisme-diagonalisable"><span class="header-section-number">6.2</span> Décomposition spectrale d’un endomorphisme diagonalisable</a></li>
+  <li><a href="#caractérisation-de-la-diagonalisabilité-par-le-polynôme-minimal" id="toc-caractérisation-de-la-diagonalisabilité-par-le-polynôme-minimal" class="nav-link" data-scroll-target="#caractérisation-de-la-diagonalisabilité-par-le-polynôme-minimal"><span class="header-section-number">6.3</span> Caractérisation de la diagonalisabilité par le polynôme minimal</a></li>
+  <li><a href="#décomposition-de-dunford" id="toc-décomposition-de-dunford" class="nav-link" data-scroll-target="#décomposition-de-dunford"><span class="header-section-number">6.4</span> Décomposition de Dunford</a></li>
+  </ul></li>
+  <li><a href="#exercices" id="toc-exercices" class="nav-link" data-scroll-target="#exercices"><span class="header-section-number">7</span> Exercices</a></li>
+  <li><a href="#document-en-pdf" id="toc-document-en-pdf" class="nav-link" data-scroll-target="#document-en-pdf">Document en PDF</a>
+  <ul class="collapse">
+  <li><a href="#navigation" id="toc-navigation" class="nav-link" data-scroll-target="#navigation">Navigation</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -152,14 +231,27 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Chapitre 03 : Réduction des endomorphismes</h1>
+<h1 class="title">Réduction des endomorphismes et des matrices carrées</h1>
+<p class="subtitle lead">Chapitre 03</p>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Auteur·rice</div>
+    <div class="quarto-title-meta-contents">
+             <p>Saîd MAHARI </p>
+          </div>
+  </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">Date de publication</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">22 août 2026</p>
+    </div>
+  </div>
   
     
   </div>
@@ -169,12 +261,345 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p><strong>MP (2e année) — Chapitre 03.</strong> Valeurs propres, diagonalisation, trigonalisation, Cayley-Hamilton.</p>
-<section id="document" class="level2">
-<h2 class="anchored" data-anchor-id="document">Document</h2>
-<p><em>PDF à venir : déposez le fichier <code>files/mp/chap03.pdf</code> puis régénérez la page.</em></p>
+<p><strong>MP (2e année) — Chapitre 03.</strong> Éléments propres, polynôme caractéristique, diagonalisation, trigonalisation, polynômes d’endomorphismes et de matrices carrées, application de la notion de polynôme annulateur à la réduction.</p>
+<p>Ce chapitre a été réalisé conformément au programme marocain de mathématiques de la filière MP.</p>
+<p>Dans tout ce chapitre, <span class="math inline">\mathbb{K}</span> désigne un sous-corps de <span class="math inline">\mathbb{C}</span> (souvent <span class="math inline">\mathbb{R}</span> ou <span class="math inline">\mathbb{C}</span>), <span class="math inline">E</span> un <span class="math inline">\mathbb{K}</span>-espace vectoriel de dimension finie <span class="math inline">n</span>, <span class="math inline">\mathscr{B} = (e_1, \ldots, e_n)</span> une base de <span class="math inline">E</span>, <span class="math inline">\mathcal{M}_n(\mathbb{K})</span> la <span class="math inline">\mathbb{K}</span>-algèbre des matrices carrées de taille <span class="math inline">n</span>, et <span class="math inline">\mathcal{L}(E)</span> la <span class="math inline">\mathbb{K}</span>-algèbre des endomorphismes de <span class="math inline">E</span>.</p>
+<section id="éléments-propres-dun-endomorphisme-dune-matrice-carrée" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Éléments propres d’un endomorphisme, d’une matrice carrée</h1>
+<section id="définitions" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="définitions"><span class="header-section-number">1.1</span> Définitions</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 1.1 — (Droite stable, valeur propre, vecteur propre, sous-espace propre)</strong></p>
+<p>Soient <span class="math inline">u \in \mathcal{L}(E)</span> et <span class="math inline">x_0 \in E \setminus \{0_E\}</span>. On suppose que la droite vectorielle <span class="math inline">D = \mathbb{K} \cdot x_0</span> est stable par <span class="math inline">u</span>, c’est-à-dire <span class="math inline">u(D) \subset D</span>. Alors il existe un scalaire <span class="math inline">\lambda \in \mathbb{K}</span> tel que : <span class="math display">\forall x \in D, \quad u(x) = \lambda x</span></p>
+<ol type="1">
+<li>Le scalaire <span class="math inline">\lambda</span> est appelé <strong>valeur propre</strong> de <span class="math inline">u</span>.</li>
+<li>Tout vecteur non nul de <span class="math inline">E</span> vérifiant <span class="math inline">u(x) = \lambda x</span> est appelé <strong>vecteur propre</strong> associé à la valeur propre <span class="math inline">\lambda</span>.</li>
+<li>L’ensemble <span class="math inline">E_\lambda = \{x \in E \mid u(x) = \lambda x\} \cup \{0_E\} = \ker(u - \lambda \mathrm{Id}_E)</span> est un sous-espace vectoriel de <span class="math inline">E</span> appelé <strong>sous-espace propre</strong> de <span class="math inline">u</span> associé à la valeur propre <span class="math inline">\lambda</span>.</li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 1.2 — (Spectre)</strong></p>
+<p>Le <strong>spectre</strong> d’un endomorphisme <span class="math inline">u</span> d’un espace de dimension finie est l’ensemble de ses valeurs propres. On le note <span class="math inline">\mathrm{Sp}(u)</span>.</p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 1.1</strong></p>
+<p>Soient <span class="math inline">u \in \mathcal{L}(E)</span> et <span class="math inline">\lambda_1, \ldots, \lambda_r</span> des valeurs propres de <span class="math inline">u</span> deux à deux distinctes. Alors :</p>
+<ol type="1">
+<li>La somme <span class="math inline">E_{\lambda_1} + \cdots + E_{\lambda_r}</span> est directe.</li>
+<li>Toute famille formée en regroupant des familles libres de vecteurs propres associés à des valeurs propres distinctes deux à deux est libre.</li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 1.2</strong></p>
+<p>Le spectre d’un endomorphisme d’un espace de dimension finie <span class="math inline">n</span> est fini de cardinal au plus <span class="math inline">n</span>.</p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 1.3</strong></p>
+<p>Si <span class="math inline">P \in \mathbb{K}[X]</span> est un polynôme annulateur de <span class="math inline">u</span> (c’est-à-dire <span class="math inline">P(u) = 0</span>), alors toute valeur propre de <span class="math inline">u</span> est racine de <span class="math inline">P</span>.</p>
+<p>Plus précisément, si <span class="math inline">u(x) = \lambda x</span>, alors <span class="math inline">P(u)(x) = P(\lambda) x</span> pour tout <span class="math inline">P \in \mathbb{K}[X]</span>.</p>
+</div>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 1.3 — (Éléments propres d’une matrice carrée)</strong></p>
+<p>Soit <span class="math inline">M \in \mathcal{M}_n(\mathbb{K})</span>. On définit de même :</p>
+<ol type="1">
+<li>Les <strong>valeurs propres</strong> de <span class="math inline">M</span> : <span class="math inline">\lambda \in \mathbb{K}</span> est valeur propre de <span class="math inline">M</span> s’il existe <span class="math inline">X \in \mathbb{K}^n \setminus \{0\}</span> tel que <span class="math inline">MX = \lambda X</span>.</li>
+<li>Les <strong>vecteurs propres</strong> de <span class="math inline">M</span>.</li>
+<li>Les <strong>sous-espaces propres</strong> de <span class="math inline">M</span> : <span class="math inline">E_\lambda(M) = \ker(M - \lambda I_n)</span>.</li>
+<li>Le <strong>spectre</strong> de <span class="math inline">M</span> : <span class="math inline">\mathrm{Sp}(M)</span>.</li>
+</ol>
+<p>L’équation aux éléments propres est : <span class="math display">MX = \lambda X</span></p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 1.4 — (Lien entre endomorphisme et matrice)</strong></p>
+<p>Si <span class="math inline">M = \mathrm{Mat}_{\mathscr{B}}(u)</span>, alors les valeurs propres, vecteurs propres et sous-espaces propres de <span class="math inline">M</span> correspondent aux valeurs propres, vecteurs propres et sous-espaces propres de <span class="math inline">u</span>.</p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 1.5</strong></p>
+<p>Deux matrices semblables ont même spectre.</p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 1.1</strong></p>
+<p>Cherchons les valeurs propres et les sous-espaces propres de la matrice : <span class="math display">A = \begin{pmatrix} -1 &amp; 3 &amp; 3 \\ 3 &amp; -1 &amp; -3 \\ -3 &amp; 3 &amp; 5 \end{pmatrix}</span></p>
+<p>On résout le système <span class="math inline">AX = \lambda X</span> avec <span class="math inline">X = \begin{pmatrix} x_1 \\ x_2 \\ x_3 \end{pmatrix} \neq 0</span> : <span class="math display">\begin{cases} -x_1 + 3x_2 + 3x_3 = \lambda x_1 \\ 3x_1 - x_2 - 3x_3 = \lambda x_2 \\ -3x_1 + 3x_2 + 5x_3 = \lambda x_3 \end{cases}</span></p>
+<p>Après résolution, on trouve : <span class="math inline">\mathrm{Sp}(A) = \{-1, 2\}</span> avec <span class="math inline">E_{-1} = \mathrm{Vect}((1, -1, 0))</span> et <span class="math inline">E_2 = \mathrm{Vect}((1, 0, -1), (0, 1, -1))</span>.</p>
+</div>
+</section>
+</section>
+<section id="polynôme-caractéristique" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> Polynôme caractéristique</h1>
+<section id="définition" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="définition"><span class="header-section-number">2.1</span> Définition</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 2.1 — (Polynôme caractéristique)</strong></p>
+<p>Soit <span class="math inline">A \in \mathcal{M}_n(\mathbb{K})</span>. Le <strong>polynôme caractéristique</strong> de <span class="math inline">A</span> est : <span class="math display">\chi_A(X) = \det(X I_n - A)</span></p>
+<p>Soit <span class="math inline">u \in \mathcal{L}(E)</span>. Le <strong>polynôme caractéristique</strong> de <span class="math inline">u</span>, noté <span class="math inline">\chi_u</span>, est le polynôme caractéristique de sa matrice <span class="math inline">\mathrm{Mat}_{\mathscr{B}}(u)</span> dans la base <span class="math inline">\mathscr{B}</span>.</p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 2.1</strong></p>
+<ol type="1">
+<li>Une matrice <span class="math inline">A</span> et sa transposée <span class="math inline">{}^tA</span> ont même polynôme caractéristique.</li>
+<li>Deux matrices semblables ont même polynôme caractéristique. Par conséquent, le polynôme caractéristique d’un endomorphisme ne dépend pas de la base choisie.</li>
+<li>Le polynôme caractéristique d’un endomorphisme ou d’une matrice carrée est un polynôme unitaire de degré <span class="math inline">n</span> : <span class="math display">\chi_A(X) = X^n - \mathrm{tr}(A) X^{n-1} + \cdots + (-1)^n \det(A)</span></li>
+</ol>
+</div>
+</section>
+<section id="multiplicité-et-lien-avec-tracedéterminant" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="multiplicité-et-lien-avec-tracedéterminant"><span class="header-section-number">2.2</span> Multiplicité et lien avec trace/déterminant</h2>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 2.2</strong></p>
+<p>Soit <span class="math inline">u \in \mathcal{L}(E)</span> et <span class="math inline">\lambda \in \mathbb{K}</span> une racine de <span class="math inline">\chi_u</span> de multiplicité <span class="math inline">\mu \in \mathbb{N}^*</span>. Alors :</p>
+<ol type="1">
+<li><span class="math inline">\lambda</span> est une valeur propre de <span class="math inline">u</span>. <span class="math inline">\mu</span> est la <strong>multiplicité</strong> de la valeur propre <span class="math inline">\lambda</span>.</li>
+<li>Le sous-espace propre <span class="math inline">E_\lambda</span> est de dimension au plus <span class="math inline">\mu</span> : <span class="math display">\dim(E_\lambda) \leq \mu</span></li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 2.3 — (Matrice triangulaire)</strong></p>
+<p>Soit <span class="math inline">A = (a_{ij}) \in \mathcal{M}_n(\mathbb{K})</span> une matrice triangulaire (supérieure ou inférieure). Alors : <span class="math display">\chi_A(X) = \prod_{k=1}^n (X - a_{kk})</span></p>
+</div>
+<div class="custom-numbered-block custom-corollary">
+<p><strong>Corollaire 2.1</strong></p>
+<p>Soit <span class="math inline">u \in \mathcal{L}(E)</span>. Si <span class="math inline">\chi_u = \prod_{k=1}^n (X - \lambda_k)</span> est scindé, alors : <span class="math display">\sum_{k=1}^n \lambda_k = \mathrm{tr}(u), \quad \prod_{k=1}^n \lambda_k = \det(u)</span></p>
+</div>
+</section>
+</section>
+<section id="endomorphismes-et-matrices-carrées-diagonalisables" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Endomorphismes et matrices carrées diagonalisables</h1>
+<section id="définition-et-caractérisation" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="définition-et-caractérisation"><span class="header-section-number">3.1</span> Définition et caractérisation</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 3.1 — (Endomorphisme diagonalisable)</strong></p>
+<p>Un endomorphisme <span class="math inline">u \in \mathcal{L}(E)</span> est dit <strong>diagonalisable</strong> s’il existe une base <span class="math inline">\mathscr{B}'</span> de <span class="math inline">E</span> dans laquelle la matrice de <span class="math inline">u</span> est diagonale : <span class="math display">\mathrm{Mat}_{\mathscr{B}'}(u) = \mathrm{Diag}(\lambda_1, \ldots, \lambda_n)</span> Une telle base est constituée de vecteurs propres de <span class="math inline">u</span>.</p>
+</div>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 3.2 — (Matrice diagonalisable)</strong></p>
+<p>Une matrice <span class="math inline">A \in \mathcal{M}_n(\mathbb{K})</span> est dite <strong>diagonalisable</strong> si elle est semblable à une matrice diagonale, c’est-à-dire s’il existe <span class="math inline">P \in \mathrm{GL}_n(\mathbb{K})</span> et <span class="math inline">D</span> diagonale telles que : <span class="math display">A = P D P^{-1}</span></p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 3.1</strong></p>
+<p>Pour qu’une matrice carrée soit diagonalisable, il faut et il suffit que l’endomorphisme canoniquement associé le soit.</p>
+</div>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 3.1 — (Caractérisation par les sous-espaces propres)</strong></p>
+<p>Soit <span class="math inline">u \in \mathcal{L}(E)</span>. Alors <span class="math inline">u</span> est diagonalisable si et seulement si : <span class="math display">E = E_{\lambda_1} \oplus E_{\lambda_2} \oplus \cdots \oplus E_{\lambda_r}</span> où <span class="math inline">\lambda_1, \ldots, \lambda_r</span> sont les valeurs propres distinctes de <span class="math inline">u</span>.</p>
+</div>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 3.2 — (Caractérisation par le polynôme caractéristique)</strong></p>
+<p>Un endomorphisme <span class="math inline">u \in \mathcal{L}(E)</span> est diagonalisable si et seulement si :</p>
+<ol type="1">
+<li><span class="math inline">\chi_u</span> est scindé sur <span class="math inline">\mathbb{K}</span> : <span class="math inline">\chi_u = \prod_{k=1}^r (X - \lambda_k)^{\mu_k}</span></li>
+<li>Pour toute valeur propre <span class="math inline">\lambda_k</span>, on a <span class="math inline">\dim(E_{\lambda_k}) = \mu_k</span>.</li>
+</ol>
+<p><strong>Traduction matricielle</strong> : Une matrice <span class="math inline">A \in \mathcal{M}_n(\mathbb{K})</span> est diagonalisable si et seulement si <span class="math inline">\chi_A</span> est scindé sur <span class="math inline">\mathbb{K}</span> et pour toute valeur propre <span class="math inline">\lambda_k</span>, on a <span class="math inline">\dim(E_{\lambda_k}(A)) = \mu_k</span>.</p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 3.2 — (Cas des valeurs propres distinctes)</strong></p>
+<p>Un endomorphisme <span class="math inline">u \in \mathcal{L}(E)</span> admettant <span class="math inline">n</span> valeurs propres distinctes deux à deux est diagonalisable.</p>
+<p><strong>Traduction matricielle</strong> : Une matrice <span class="math inline">A \in \mathcal{M}_n(\mathbb{K})</span> admettant <span class="math inline">n</span> valeurs propres distinctes deux à deux est diagonalisable.</p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 3.1</strong></p>
+<ol type="1">
+<li><p><strong>Projecteurs</strong> : Si <span class="math inline">p \in \mathcal{L}(E)</span> vérifie <span class="math inline">p^2 = p</span>, alors <span class="math inline">p</span> est diagonalisable. En effet, <span class="math inline">\mathrm{Sp}(p) \subset \{0, 1\}</span> et <span class="math inline">E = \ker(p) \oplus \mathrm{Im}(p)</span>.</p></li>
+<li><p><strong>Symétries</strong> : Si <span class="math inline">s \in \mathcal{L}(E)</span> vérifie <span class="math inline">s^2 = \mathrm{Id}_E</span>, alors <span class="math inline">s</span> est diagonalisable. En effet, <span class="math inline">\mathrm{Sp}(s) \subset \{-1, 1\}</span> et <span class="math inline">E = E_{-1} \oplus E_1</span>.</p></li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 3.2</strong></p>
+<p>La matrice <span class="math inline">C = \begin{pmatrix} 0 &amp; 1 &amp; 0 \\ 0 &amp; 0 &amp; 1 \\ 0 &amp; 0 &amp; 0 \end{pmatrix}</span> a pour polynôme caractéristique <span class="math inline">\chi_C = X^3</span>. Donc la seule valeur propre est <span class="math inline">0</span>. Si <span class="math inline">C</span> était diagonalisable, elle serait semblable à la matrice nulle, ce qui est impossible car <span class="math inline">C \neq 0</span>. Donc <span class="math inline">C</span> n’est pas diagonalisable.</p>
+</div>
+</section>
+</section>
+<section id="endomorphismes-et-matrices-carrées-trigonalisables" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> Endomorphismes et matrices carrées trigonalisables</h1>
+<section id="définition-et-caractérisation-1" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="définition-et-caractérisation-1"><span class="header-section-number">4.1</span> Définition et caractérisation</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 4.1 — (Endomorphisme trigonalisable)</strong></p>
+<p>Un endomorphisme <span class="math inline">u \in \mathcal{L}(E)</span> est dit <strong>trigonalisable</strong> s’il existe une base de <span class="math inline">E</span> dans laquelle sa matrice est triangulaire supérieure.</p>
+</div>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 4.2 — (Matrice trigonalisable)</strong></p>
+<p>Une matrice <span class="math inline">A \in \mathcal{M}_n(\mathbb{K})</span> est dite <strong>trigonalisable</strong> si elle est semblable à une matrice triangulaire supérieure.</p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 4.1</strong></p>
+<p>Pour qu’une matrice carrée soit trigonalisable, il faut et il suffit que l’endomorphisme canoniquement associé le soit.</p>
+</div>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 4.1 — (Caractérisation)</strong></p>
+<p>Un endomorphisme est trigonalisable si et seulement si son polynôme caractéristique est scindé sur le corps de base <span class="math inline">\mathbb{K}</span>.</p>
+<p><strong>Traduction matricielle</strong> : Une matrice <span class="math inline">A \in \mathcal{M}_n(\mathbb{K})</span> est trigonalisable si et seulement si <span class="math inline">\chi_A</span> est scindé sur <span class="math inline">\mathbb{K}</span>.</p>
+</div>
+<div class="custom-numbered-block custom-corollary">
+<p><strong>Corollaire 4.1</strong></p>
+<p>En particulier, tout endomorphisme d’un <span class="math inline">\mathbb{C}</span>-espace vectoriel et toute matrice de <span class="math inline">\mathcal{M}_n(\mathbb{C})</span> sont trigonalisables.</p>
+</div>
+<div class="custom-numbered-block custom-corollary">
+<p><strong>Corollaire 4.2 — (Expression du déterminant et de la trace)</strong></p>
+<p>Soit <span class="math inline">A \in \mathcal{M}_n(\mathbb{K})</span> trigonalisable. Alors <span class="math inline">\chi_A = \prod_{k=1}^n (X - \lambda_k)</span> et : <span class="math display">\sum_{k=1}^n \lambda_k = \mathrm{tr}(A), \quad \prod_{k=1}^n \lambda_k = \det(A)</span></p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 4.1</strong></p>
+<p>La matrice <span class="math inline">M = \begin{pmatrix} 1 &amp; -1 \\ 1 &amp; 3 \end{pmatrix}</span> est trigonalisable car : <span class="math display">M = P^{-1} \begin{pmatrix} 2 &amp; -1 \\ 0 &amp; 2 \end{pmatrix} P</span> où <span class="math inline">P = \begin{pmatrix} 1 &amp; 1 \\ -1 &amp; 0 \end{pmatrix}</span>.</p>
+</div>
+</section>
+</section>
+<section id="polynômes-dendomorphismes-et-de-matrices-carrées" class="level1" data-number="5">
+<h1 data-number="5"><span class="header-section-number">5</span> Polynômes d’endomorphismes et de matrices carrées</h1>
+<section id="définition-et-propriétés" class="level2" data-number="5.1">
+<h2 data-number="5.1" class="anchored" data-anchor-id="définition-et-propriétés"><span class="header-section-number">5.1</span> Définition et propriétés</h2>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 5.1 — (Morphisme de <span class="math inline">\boldsymbol{\mathbb{K}}</span>-algèbres)</strong></p>
+<p>Soit <span class="math inline">u \in \mathcal{L}(E)</span>. L’application : <span class="math display">\Phi : \mathbb{K}[X] \to \mathcal{L}(E), \quad P \mapsto P(u)</span> est un morphisme de <span class="math inline">\mathbb{K}</span>-algèbres et on a : <span class="math display">\ker \Phi = \{P \in \mathbb{K}[X] \mid P(u) = 0\}, \quad \mathrm{Im}(\Phi) = \mathbb{K}[u] = \{P(u) \mid P \in \mathbb{K}[X]\}</span> <span class="math inline">\ker \Phi</span> est l’<strong>idéal annulateur</strong> de <span class="math inline">u</span> et <span class="math inline">\mathbb{K}[u]</span> est une sous-algèbre de <span class="math inline">\mathcal{L}(E)</span> commutative.</p>
+<p>De même, pour <span class="math inline">A \in \mathcal{M}_n(\mathbb{K})</span>, l’application <span class="math inline">\Psi : P \mapsto P(A)</span> est un morphisme de <span class="math inline">\mathbb{K}</span>-algèbres.</p>
+</div>
+</section>
+<section id="polynôme-minimal" class="level2" data-number="5.2">
+<h2 data-number="5.2" class="anchored" data-anchor-id="polynôme-minimal"><span class="header-section-number">5.2</span> Polynôme minimal</h2>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 5.1 — (Existence du polynôme minimal)</strong></p>
+<p>Soit <span class="math inline">u \in \mathcal{L}(E)</span> un endomorphisme non nul. Alors l’idéal annulateur de <span class="math inline">u</span> est non réduit au polynôme nul.</p>
+<p>On appelle <strong>polynôme minimal</strong> de <span class="math inline">u</span>, noté <span class="math inline">P_u</span>, le polynôme non nul unitaire de plus petit degré annulant <span class="math inline">u</span>. On a : <span class="math display">\ker \Phi = P_u \cdot \mathbb{K}[X]</span></p>
+<p>De même pour une matrice <span class="math inline">A \in \mathcal{M}_n(\mathbb{K})</span> non nulle, on définit le polynôme minimal <span class="math inline">P_A</span>.</p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 5.2</strong></p>
+<p>Soient <span class="math inline">u \in \mathcal{L}(E)</span> un endomorphisme non nul et <span class="math inline">d = \deg(P_u)</span>. Alors :</p>
+<ol type="1">
+<li>La famille <span class="math inline">(u^k)_{0 \leq k \leq d-1}</span> est une base de <span class="math inline">\mathbb{K}[u]</span>.</li>
+<li>Si <span class="math inline">\lambda \in \mathrm{Sp}(u)</span> et <span class="math inline">x</span> un vecteur propre associé à <span class="math inline">\lambda</span>, alors pour tout <span class="math inline">P \in \mathbb{K}[X]</span> : <span class="math display">P(u)(x) = P(\lambda) \cdot x</span></li>
+</ol>
+</div>
+</section>
+<section id="endomorphismes-et-matrices-nilpotentes" class="level2" data-number="5.3">
+<h2 data-number="5.3" class="anchored" data-anchor-id="endomorphismes-et-matrices-nilpotentes"><span class="header-section-number">5.3</span> Endomorphismes et matrices nilpotentes</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 5.1 — (Endomorphisme et matrice nilpotentes)</strong></p>
+<ol type="1">
+<li>Un endomorphisme <span class="math inline">u \in \mathcal{L}(E)</span> est dit <strong>nilpotent</strong> s’il existe un entier <span class="math inline">p \in \mathbb{N}</span> tel que <span class="math inline">u^p = 0</span>.</li>
+<li>Une matrice <span class="math inline">A \in \mathcal{M}_n(\mathbb{K})</span> est dite <strong>nilpotente</strong> s’il existe un entier <span class="math inline">p \in \mathbb{N}</span> tel que <span class="math inline">A^p = 0</span>.</li>
+</ol>
+<p>Le plus petit entier <span class="math inline">p \in \mathbb{N}</span> vérifiant <span class="math inline">u^p = 0</span> (resp. <span class="math inline">A^p = 0</span>) est appelé <strong>indice de nilpotence</strong>.</p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 5.3</strong></p>
+<p>Soit <span class="math inline">u \in \mathcal{L}(E)</span> un endomorphisme nilpotent d’indice <span class="math inline">p \in \mathbb{N}</span>. Alors :</p>
+<ol type="1">
+<li><span class="math inline">\mathrm{Sp}(u) = \{0\}</span></li>
+<li><span class="math inline">p \leq n</span></li>
+</ol>
+</div>
+</section>
+</section>
+<section id="application-de-la-notion-de-polynôme-annulateur-à-la-réduction" class="level1" data-number="6">
+<h1 data-number="6"><span class="header-section-number">6</span> Application de la notion de polynôme annulateur à la réduction</h1>
+<section id="projecteurs-associés-à-une-décomposition-en-somme-directe" class="level2" data-number="6.1">
+<h2 data-number="6.1" class="anchored" data-anchor-id="projecteurs-associés-à-une-décomposition-en-somme-directe"><span class="header-section-number">6.1</span> Projecteurs associés à une décomposition en somme directe</h2>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 6.1 — (Projecteurs associés à une décomposition)</strong></p>
+<p>Soient <span class="math inline">(F_k)_{1 \leq k \leq r}</span> une famille de sous-espaces vectoriels de <span class="math inline">E</span> telle que <span class="math inline">E = F_1 \oplus \cdots \oplus F_r</span>.</p>
+<p>On appelle <strong>famille de projecteurs associée à cette décomposition</strong> une famille de projecteurs <span class="math inline">(p_k)_{1 \leq k \leq r}</span> où <span class="math inline">p_k</span> est le projecteur sur <span class="math inline">F_k</span> parallèlement à <span class="math inline">\bigoplus_{i \neq k} F_i</span>. On a : <span class="math display">\forall i \neq j \in \{1, \ldots, r\}, \quad p_i \circ p_j = 0</span></p>
+</div>
+</section>
+<section id="décomposition-spectrale-dun-endomorphisme-diagonalisable" class="level2" data-number="6.2">
+<h2 data-number="6.2" class="anchored" data-anchor-id="décomposition-spectrale-dun-endomorphisme-diagonalisable"><span class="header-section-number">6.2</span> Décomposition spectrale d’un endomorphisme diagonalisable</h2>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 6.1 — (Décomposition spectrale)</strong></p>
+<p>Soit <span class="math inline">u \in \mathcal{L}(E)</span> diagonalisable. Soient <span class="math inline">F_1, \ldots, F_r</span> les sous-espaces propres de <span class="math inline">u</span> associés aux valeurs propres <span class="math inline">\lambda_1, \ldots, \lambda_r</span>. Alors il existe une famille de projecteurs <span class="math inline">(p_k)_{1 \leq k \leq r}</span> associée à la décomposition <span class="math inline">E = \bigoplus_{k=1}^r F_k</span> vérifiant :</p>
+<ol type="1">
+<li><span class="math inline">u = \sum_{k=1}^r \lambda_k p_k</span></li>
+<li>Pour tout <span class="math inline">P \in \mathbb{K}[X]</span> : <span class="math inline">P(u) = \sum_{k=1}^r P(\lambda_k) p_k</span></li>
+</ol>
+</div>
+</section>
+<section id="caractérisation-de-la-diagonalisabilité-par-le-polynôme-minimal" class="level2" data-number="6.3">
+<h2 data-number="6.3" class="anchored" data-anchor-id="caractérisation-de-la-diagonalisabilité-par-le-polynôme-minimal"><span class="header-section-number">6.3</span> Caractérisation de la diagonalisabilité par le polynôme minimal</h2>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 6.2 — (Caractérisation)</strong></p>
+<p>Un endomorphisme <span class="math inline">u \in \mathcal{L}(E)</span> est diagonalisable si et seulement si son polynôme minimal <span class="math inline">P_u</span> est scindé à racines simples. Autrement dit, <span class="math inline">P_u</span> s’écrit : <span class="math display">P_u = \prod_{k=1}^r (X - \lambda_k) \quad \text{où les } \lambda_k \text{ sont deux à deux distincts}</span></p>
+<p><strong>Traduction matricielle</strong> : Une matrice <span class="math inline">A \in \mathcal{M}_n(\mathbb{K})</span> est diagonalisable si et seulement si son polynôme minimal <span class="math inline">P_A</span> est scindé à racines simples.</p>
+</div>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 6.3 — (Lemme de décomposition des noyaux)</strong></p>
+<p>Soit <span class="math inline">u \in \mathcal{L}(E)</span> et on suppose que <span class="math inline">P_u = \prod_{k=1}^r (X - \lambda_k)^{\mu_k}</span> où les <span class="math inline">\lambda_k</span> sont distincts deux à deux. Alors : <span class="math display">E = \ker\left((u - \lambda_1 \mathrm{Id}_E)^{\mu_1}\right) \oplus \cdots \oplus \ker\left((u - \lambda_r \mathrm{Id}_E)^{\mu_r}\right)</span></p>
+</div>
+</section>
+<section id="décomposition-de-dunford" class="level2" data-number="6.4">
+<h2 data-number="6.4" class="anchored" data-anchor-id="décomposition-de-dunford"><span class="header-section-number">6.4</span> Décomposition de Dunford</h2>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 6.4 — (Décomposition de Dunford)</strong></p>
+<p>Soit <span class="math inline">u \in \mathcal{L}(E)</span>. Il existe deux endomorphismes <span class="math inline">g, f \in \mathcal{L}(E)</span> uniques tels que : <span class="math display">u = g + f, \quad f \circ g = g \circ f</span> avec <span class="math inline">g</span> diagonalisable et <span class="math inline">f</span> nilpotent.</p>
+<p><strong>Traduction matricielle</strong> : Toute matrice <span class="math inline">A \in \mathcal{M}_n(\mathbb{K})</span> se décompose de manière unique en <span class="math inline">A = D + N</span> où <span class="math inline">D</span> est diagonalisable, <span class="math inline">N</span> est nilpotente et <span class="math inline">DN = ND</span>.</p>
+</div>
+</section>
+</section>
+<section id="exercices" class="level1" data-number="7">
+<h1 data-number="7"><span class="header-section-number">7</span> Exercices</h1>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 7.1</strong></p>
+<p>Soit <span class="math inline">A = \begin{pmatrix} 1 &amp; 4 &amp; -2 \\ 0 &amp; 6 &amp; -3 \\ -1 &amp; 4 &amp; 0 \end{pmatrix}</span>.</p>
+<ol type="1">
+<li>Calculer le polynôme caractéristique <span class="math inline">\chi_A</span>.</li>
+<li><span class="math inline">A</span> est-elle diagonalisable ?</li>
+<li>Si oui, trouver une matrice <span class="math inline">P</span> inversible et une matrice diagonale <span class="math inline">D</span> telles que <span class="math inline">A = P D P^{-1}</span>.</li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 7.2</strong></p>
+<p>Soit <span class="math inline">B = \begin{pmatrix} 1 &amp; 2 &amp; -2 \\ 2 &amp; 1 &amp; 2 \\ -2 &amp; 2 &amp; 1 \end{pmatrix}</span>.</p>
+<ol type="1">
+<li>Calculer le polynôme caractéristique <span class="math inline">\chi_B</span>.</li>
+<li>Déterminer les valeurs propres et les sous-espaces propres.</li>
+<li><span class="math inline">B</span> est-elle diagonalisable ? Si oui, diagonaliser <span class="math inline">B</span>.</li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 7.3</strong></p>
+<p>Soit <span class="math inline">C = \begin{pmatrix} 0 &amp; 1 &amp; 0 \\ 0 &amp; 0 &amp; 1 \\ 0 &amp; 0 &amp; 0 \end{pmatrix}</span>.</p>
+<ol type="1">
+<li>Calculer <span class="math inline">\chi_C</span>.</li>
+<li><span class="math inline">C</span> est-elle diagonalisable ? Trigonalisable ?</li>
+<li>Déterminer le polynôme minimal de <span class="math inline">C</span>.</li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 7.4</strong></p>
+<p>Soit <span class="math inline">u \in \mathcal{L}(E)</span> tel que <span class="math inline">u^3 = u</span>. Montrer que <span class="math inline">u</span> est diagonalisable.</p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 7.5</strong></p>
+<p>Soit <span class="math inline">A \in \mathcal{M}_n(\mathbb{K})</span> inversible et diagonalisable. Montrer que <span class="math inline">A^{-1}</span> est diagonalisable et exprimer <span class="math inline">A^{-1}</span> en fonction de la diagonalisation de <span class="math inline">A</span>.</p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 7.6</strong></p>
+<p>Soient <span class="math inline">A, B \in \mathcal{M}_n(\mathbb{K})</span> telles que <span class="math inline">AB = BA</span>. Montrer que si <span class="math inline">\lambda</span> est valeur propre de <span class="math inline">A</span>, alors le sous-espace propre <span class="math inline">E_\lambda(A)</span> est stable par <span class="math inline">B</span>.</p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 7.7</strong></p>
+<p>Soit <span class="math inline">A \in \mathcal{M}_2(\mathbb{K})</span>. Montrer que <span class="math inline">A</span> est diagonalisable si et seulement si l’une des conditions suivantes est vérifiée :</p>
+<ol type="1">
+<li><span class="math inline">A</span> est scalaire (c’est-à-dire <span class="math inline">A = \lambda I_2</span>).</li>
+<li><span class="math inline">\chi_A</span> est scindé à racines simples.</li>
+<li><span class="math inline">\chi_A</span> est scindé et <span class="math inline">A</span> n’est pas scalaire mais <span class="math inline">A</span> est diagonalisable.</li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 7.8 — (Décomposition de Dunford)</strong></p>
+<p>Soit <span class="math inline">A = \begin{pmatrix} 1 &amp; 1 \\ 0 &amp; 1 \end{pmatrix}</span>. Déterminer la décomposition de Dunford de <span class="math inline">A</span>.</p>
+</div>
+</section>
+<section id="document-en-pdf" class="level1 unnumbered">
+<h1 class="unnumbered">Document en PDF</h1>
+<p><a href="PDF/mp-chap03.pdf">Chapitre 03 : Réduction des endomorphismes et des matrices carrées</a></p>
+<section id="navigation" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="navigation">Navigation</h2>
+<div class="chap-nav">
+<p><a href="../cours/mp-chap02.html" class="prev">Chapitre 02 : Espaces vectoriels normés</a> <a href="../cours/mp.html" class="home">Menu MP</a> <a href="../cours/mp-chap04.html" class="next">Chapitre 04 : Séries dans un espace vectoriel normé et familles sommables</a></p>
+</div>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -222,12 +647,12 @@ ul.task-list li input[type="checkbox"] {
       // flash "checked"
       button.classList.add('code-copy-button-checked');
       var currentTitle = button.getAttribute("title");
-      button.setAttribute("title", "Copied!");
+      button.setAttribute("title", "Copié");
       let tooltip;
       if (window.bootstrap) {
         button.setAttribute("data-bs-toggle", "tooltip");
         button.setAttribute("data-bs-placement", "left");
-        button.setAttribute("data-bs-title", "Copied!");
+        button.setAttribute("data-bs-title", "Copié");
         tooltip = new bootstrap.Tooltip(button, 
           { trigger: "manual", 
             customClass: "code-copy-button-tooltip",

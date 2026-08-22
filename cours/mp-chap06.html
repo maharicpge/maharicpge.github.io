@@ -1,13 +1,14 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr"><head>
 
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.10.18">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Saîd MAHARI">
 
-<title>Suites et séries de fonctions - Mathématiques en CPGE – Mathématiques en CPGE</title>
+<title>Suites et séries de fonctions – Mathématiques en CPGE</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -45,7 +46,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-7a8c080b55ea27eb37b467515007f9ee.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-e0d9a45d84245cc5e3b300860d8fa645.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -60,22 +61,66 @@ ul.task-list li input[type="checkbox"] {
   ],
   "show-item-context": false,
   "language": {
-    "search-no-results-text": "No results",
-    "search-matching-documents-text": "matching documents",
-    "search-copy-link-title": "Copy link to search",
-    "search-hide-matches-text": "Hide additional matches",
-    "search-more-match-text": "more match in this document",
-    "search-more-matches-text": "more matches in this document",
-    "search-clear-button-title": "Clear",
+    "search-no-results-text": "Pas de résultats",
+    "search-matching-documents-text": "documents trouvés",
+    "search-copy-link-title": "Copier le lien vers la recherche",
+    "search-hide-matches-text": "Cacher les correspondances additionnelles",
+    "search-more-match-text": "correspondance de plus dans ce document",
+    "search-more-matches-text": "correspondances de plus dans ce document",
+    "search-clear-button-title": "Effacer",
     "search-text-placeholder": "",
-    "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit",
-    "search-label": "Search"
+    "search-detached-cancel-button-title": "Annuler",
+    "search-submit-button-title": "Envoyer",
+    "search-label": "Recherche"
   }
 }</script>
 
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="styles.css">
 </head>
 
 <body class="nav-fixed quarto-light">
@@ -89,8 +134,8 @@ ul.task-list li input[type="checkbox"] {
     <span class="navbar-title">Accueil</span>
     </a>
   </div>
-            <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+            <div id="quarto-search" class="" title="Recherche"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Basculer la navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
@@ -140,10 +185,42 @@ ul.task-list li input[type="checkbox"] {
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
+    <h2 id="toc-title">Sur cette page</h2>
    
   <ul>
-  <li><a href="#document" id="toc-document" class="nav-link active" data-scroll-target="#document">Document</a></li>
+  <li><a href="#norme-de-la-convergence-uniforme" id="toc-norme-de-la-convergence-uniforme" class="nav-link active" data-scroll-target="#norme-de-la-convergence-uniforme"><span class="header-section-number">1</span> Norme de la convergence uniforme</a>
+  <ul class="collapse">
+  <li><a href="#fonctions-bornées" id="toc-fonctions-bornées" class="nav-link" data-scroll-target="#fonctions-bornées"><span class="header-section-number">1.1</span> Fonctions bornées</a></li>
+  </ul></li>
+  <li><a href="#suites-de-fonctions" id="toc-suites-de-fonctions" class="nav-link" data-scroll-target="#suites-de-fonctions"><span class="header-section-number">2</span> Suites de fonctions</a>
+  <ul class="collapse">
+  <li><a href="#convergence-simple" id="toc-convergence-simple" class="nav-link" data-scroll-target="#convergence-simple"><span class="header-section-number">2.1</span> Convergence simple</a></li>
+  <li><a href="#convergence-uniforme" id="toc-convergence-uniforme" class="nav-link" data-scroll-target="#convergence-uniforme"><span class="header-section-number">2.2</span> Convergence uniforme</a></li>
+  <li><a href="#lien-entre-convergence-simple-et-convergence-uniforme" id="toc-lien-entre-convergence-simple-et-convergence-uniforme" class="nav-link" data-scroll-target="#lien-entre-convergence-simple-et-convergence-uniforme"><span class="header-section-number">2.3</span> Lien entre convergence simple et convergence uniforme</a></li>
+  </ul></li>
+  <li><a href="#séries-de-fonctions" id="toc-séries-de-fonctions" class="nav-link" data-scroll-target="#séries-de-fonctions"><span class="header-section-number">3</span> Séries de fonctions</a>
+  <ul class="collapse">
+  <li><a href="#convergence-simple-dune-série" id="toc-convergence-simple-dune-série" class="nav-link" data-scroll-target="#convergence-simple-dune-série"><span class="header-section-number">3.1</span> Convergence simple d’une série</a></li>
+  <li><a href="#convergence-uniforme-dune-série" id="toc-convergence-uniforme-dune-série" class="nav-link" data-scroll-target="#convergence-uniforme-dune-série"><span class="header-section-number">3.2</span> Convergence uniforme d’une série</a></li>
+  <li><a href="#convergence-normale" id="toc-convergence-normale" class="nav-link" data-scroll-target="#convergence-normale"><span class="header-section-number">3.3</span> Convergence normale</a></li>
+  </ul></li>
+  <li><a href="#stabilité-des-propriétés-par-passage-à-la-limite" id="toc-stabilité-des-propriétés-par-passage-à-la-limite" class="nav-link" data-scroll-target="#stabilité-des-propriétés-par-passage-à-la-limite"><span class="header-section-number">4</span> Stabilité des propriétés par passage à la limite</a>
+  <ul class="collapse">
+  <li><a href="#continuité-de-la-limite" id="toc-continuité-de-la-limite" class="nav-link" data-scroll-target="#continuité-de-la-limite"><span class="header-section-number">4.1</span> Continuité de la limite</a></li>
+  <li><a href="#continuité-de-la-somme-dune-série" id="toc-continuité-de-la-somme-dune-série" class="nav-link" data-scroll-target="#continuité-de-la-somme-dune-série"><span class="header-section-number">4.2</span> Continuité de la somme d’une série</a></li>
+  <li><a href="#intégration-de-la-limite" id="toc-intégration-de-la-limite" class="nav-link" data-scroll-target="#intégration-de-la-limite"><span class="header-section-number">4.3</span> Intégration de la limite</a></li>
+  <li><a href="#dérivation-de-la-limite" id="toc-dérivation-de-la-limite" class="nav-link" data-scroll-target="#dérivation-de-la-limite"><span class="header-section-number">4.4</span> Dérivation de la limite</a></li>
+  </ul></li>
+  <li><a href="#approximation-uniforme" id="toc-approximation-uniforme" class="nav-link" data-scroll-target="#approximation-uniforme"><span class="header-section-number">5</span> Approximation uniforme</a>
+  <ul class="collapse">
+  <li><a href="#théorème-de-weierstrass" id="toc-théorème-de-weierstrass" class="nav-link" data-scroll-target="#théorème-de-weierstrass"><span class="header-section-number">5.1</span> Théorème de Weierstrass</a></li>
+  <li><a href="#exemples-dapproximation" id="toc-exemples-dapproximation" class="nav-link" data-scroll-target="#exemples-dapproximation"><span class="header-section-number">5.2</span> Exemples d’approximation</a></li>
+  </ul></li>
+  <li><a href="#exercices" id="toc-exercices" class="nav-link" data-scroll-target="#exercices"><span class="header-section-number">6</span> Exercices</a></li>
+  <li><a href="#document-en-pdf" id="toc-document-en-pdf" class="nav-link" data-scroll-target="#document-en-pdf">Document en PDF</a>
+  <ul class="collapse">
+  <li><a href="#navigation" id="toc-navigation" class="nav-link" data-scroll-target="#navigation">Navigation</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -152,14 +229,27 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Chapitre 06 : Suites et séries de fonctions</h1>
+<h1 class="title">Suites et séries de fonctions</h1>
+<p class="subtitle lead">Chapitre 06</p>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Auteur·rice</div>
+    <div class="quarto-title-meta-contents">
+             <p>Saîd MAHARI </p>
+          </div>
+  </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">Date de publication</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">22 août 2026</p>
+    </div>
+  </div>
   
     
   </div>
@@ -169,12 +259,262 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p><strong>MP (2e année) — Chapitre 06.</strong> Convergence simple et uniforme, théorèmes d’échange.</p>
-<section id="document" class="level2">
-<h2 class="anchored" data-anchor-id="document">Document</h2>
-<p><em>PDF à venir : déposez le fichier <code>files/mp/chap06.pdf</code> puis régénérez la page.</em></p>
+<p><strong>MP (2e année) — Chapitre 06.</strong> Modes de convergence : simple, uniforme, normale ; stabilité des propriétés (continuité, dérivabilité, intégrabilité) par passage à la limite ; approximation uniforme.</p>
+<p>Ce chapitre a été réalisé conformément au programme marocain de mathématiques de la filière MP.</p>
+<p>Dans tout ce chapitre, <span class="math inline">X</span> désigne un ensemble non vide, <span class="math inline">I</span> un intervalle de <span class="math inline">\mathbb{R}</span>, <span class="math inline">E</span> un <span class="math inline">\mathbb{K}</span>-espace vectoriel normé de dimension finie (<span class="math inline">\mathbb{K} = \mathbb{R}</span> ou <span class="math inline">\mathbb{C}</span>), et <span class="math inline">\mathcal{F}(X, E)</span> l’ensemble des fonctions de <span class="math inline">X</span> dans <span class="math inline">E</span>.</p>
+<section id="norme-de-la-convergence-uniforme" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Norme de la convergence uniforme</h1>
+<section id="fonctions-bornées" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="fonctions-bornées"><span class="header-section-number">1.1</span> Fonctions bornées</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 1.1 — (Fonction bornée)</strong></p>
+<p>Une fonction <span class="math inline">f : X \to E</span> est dite <strong>bornée</strong> si l’ensemble <span class="math inline">\{f(x) \mid x \in X\}</span> est borné dans <span class="math inline">E</span>, c’est-à-dire s’il existe <span class="math inline">M &gt; 0</span> tel que : <span class="math display">\forall x \in X, \quad \|f(x)\| \leq M</span></p>
+<p>On note <span class="math inline">\mathcal{B}(X, E)</span> l’ensemble des fonctions bornées de <span class="math inline">X</span> dans <span class="math inline">E</span>.</p>
+</div>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 1.2 — (Norme de la convergence uniforme)</strong></p>
+<p>Pour <span class="math inline">f \in \mathcal{B}(X, E)</span>, on définit : <span class="math display">\|f\|_\infty = \sup_{x \in X} \|f(x)\|</span></p>
+<p>L’application <span class="math inline">f \mapsto \|f\|_\infty</span> est une norme sur <span class="math inline">\mathcal{B}(X, E)</span>, appelée <strong>norme de la convergence uniforme</strong> (ou <strong>norme infinie</strong>).</p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 1.1 — (Propriétés de la norme)</strong></p>
+<p>Pour <span class="math inline">f, g \in \mathcal{B}(X, E)</span> et <span class="math inline">\lambda \in \mathbb{K}</span> :</p>
+<ol type="1">
+<li><span class="math inline">\|f\|_\infty = 0 \iff f = 0</span></li>
+<li><span class="math inline">\|\lambda f\|_\infty = |\lambda| \cdot \|f\|_\infty</span></li>
+<li><span class="math inline">\|f + g\|_\infty \leq \|f\|_\infty + \|g\|_\infty</span> (inégalité triangulaire)</li>
+</ol>
+</div>
+</section>
+</section>
+<section id="suites-de-fonctions" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> Suites de fonctions</h1>
+<section id="convergence-simple" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="convergence-simple"><span class="header-section-number">2.1</span> Convergence simple</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 2.1 — (Convergence simple)</strong></p>
+<p>Soit <span class="math inline">(f_n)_{n \geq 0}</span> une suite de fonctions de <span class="math inline">X</span> dans <span class="math inline">E</span>. On dit que la suite <span class="math inline">(f_n)</span> <strong>converge simplement</strong> vers une fonction <span class="math inline">f : X \to E</span> si : <span class="math display">\forall x \in X, \quad f_n(x) \xrightarrow[n \to +\infty]{} f(x)</span></p>
+<p>Autrement dit, pour tout <span class="math inline">x \in X</span> et tout <span class="math inline">\varepsilon &gt; 0</span>, il existe <span class="math inline">N \in \mathbb{N}</span> (qui dépend de <span class="math inline">x</span> et de <span class="math inline">\varepsilon</span>) tel que : <span class="math display">n \geq N \implies \|f_n(x) - f(x)\| &lt; \varepsilon</span></p>
+</div>
+<div class="proof remark">
+<p><span class="proof-title"><em>Remarque</em>. </span>La convergence simple est une convergence <strong>point par point</strong>. Pour chaque <span class="math inline">x</span>, on a une suite numérique <span class="math inline">(f_n(x))</span> qui converge. Mais le rang à partir duquel la convergence a lieu peut dépendre de <span class="math inline">x</span>.</p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 2.1</strong></p>
+<p>La suite <span class="math inline">f_n(x) = x^n</span> sur <span class="math inline">[0, 1]</span> converge simplement vers la fonction : <span class="math display">f(x) = \begin{cases} 0 &amp; \text{si } 0 \leq x &lt; 1 \\ 1 &amp; \text{si } x = 1 \end{cases}</span></p>
+<p>En effet, pour <span class="math inline">0 \leq x &lt; 1</span>, <span class="math inline">x^n \to 0</span>, et pour <span class="math inline">x = 1</span>, <span class="math inline">1^n = 1</span>.</p>
+</div>
+</section>
+<section id="convergence-uniforme" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="convergence-uniforme"><span class="header-section-number">2.2</span> Convergence uniforme</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 2.2 — (Convergence uniforme)</strong></p>
+<p>Soit <span class="math inline">(f_n)_{n \geq 0}</span> une suite de fonctions de <span class="math inline">X</span> dans <span class="math inline">E</span>. On dit que la suite <span class="math inline">(f_n)</span> <strong>converge uniformément</strong> vers une fonction <span class="math inline">f : X \to E</span> si : <span class="math display">\forall \varepsilon &gt; 0, \quad \exists N \in \mathbb{N}, \quad \forall n \geq N, \quad \forall x \in X, \quad \|f_n(x) - f(x)\| &lt; \varepsilon</span></p>
+<p>Autrement dit, le rang <span class="math inline">N</span> ne dépend que de <span class="math inline">\varepsilon</span>, pas de <span class="math inline">x</span>.</p>
+</div>
+<div class="proof remark">
+<p><span class="proof-title"><em>Remarque</em>. </span>La convergence uniforme est plus forte que la convergence simple : on exige que la convergence ait lieu <strong>uniformément</strong> en <span class="math inline">x</span>, c’est-à-dire avec le même rang <span class="math inline">N</span> pour tous les <span class="math inline">x</span>.</p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 2.1 — (Convergence uniforme en termes de norme)</strong></p>
+<p>La suite <span class="math inline">(f_n)</span> converge uniformément vers <span class="math inline">f</span> si et seulement si : <span class="math display">f_n - f \in \mathcal{B}(X, E) \text{ à partir d'un certain rang} \quad \text{et} \quad \|f_n - f\|_\infty \xrightarrow[n \to +\infty]{} 0</span></p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 2.2</strong></p>
+<p>La suite <span class="math inline">f_n(x) = \frac{x}{n}</span> sur <span class="math inline">\mathbb{R}</span> converge uniformément vers <span class="math inline">0</span> sur tout intervalle borné <span class="math inline">[a,b]</span>, mais pas sur <span class="math inline">\mathbb{R}</span> tout entier.</p>
+<p>Sur <span class="math inline">\mathbb{R}</span> : <span class="math inline">\sup_{x \in \mathbb{R}} \left|\frac{x}{n}\right| = +\infty</span>, donc <span class="math inline">\|f_n\|_\infty = +\infty</span>.</p>
+</div>
+</section>
+<section id="lien-entre-convergence-simple-et-convergence-uniforme" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="lien-entre-convergence-simple-et-convergence-uniforme"><span class="header-section-number">2.3</span> Lien entre convergence simple et convergence uniforme</h2>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 2.2</strong></p>
+<p>La convergence uniforme implique la convergence simple.</p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Preuve</em>. </span>Si <span class="math inline">(f_n)</span> converge uniformément vers <span class="math inline">f</span>, alors pour tout <span class="math inline">\varepsilon &gt; 0</span>, il existe <span class="math inline">N</span> tel que pour tout <span class="math inline">n \geq N</span> et tout <span class="math inline">x \in X</span> : <span class="math display">\|f_n(x) - f(x)\| &lt; \varepsilon</span> En particulier, pour tout <span class="math inline">x</span> fixé, on a <span class="math inline">f_n(x) \to f(x)</span>.</p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 2.3 — (Contre-exemple : convergence simple non uniforme)</strong></p>
+<p>La suite <span class="math inline">f_n(x) = x^n</span> sur <span class="math inline">[0,1]</span> converge simplement vers : <span class="math display">f(x) = \begin{cases} 0 &amp; \text{si } 0 \leq x &lt; 1 \\ 1 &amp; \text{si } x = 1 \end{cases}</span></p>
+<p>Cette convergence n’est <strong>pas uniforme</strong>. En effet : <span class="math display">\|f_n - f\|_\infty = \sup_{x \in [0,1]} |f_n(x) - f(x)| \geq \sup_{x \in [0,1)} x^n = 1</span></p>
+</div>
+</section>
+</section>
+<section id="séries-de-fonctions" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Séries de fonctions</h1>
+<section id="convergence-simple-dune-série" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="convergence-simple-dune-série"><span class="header-section-number">3.1</span> Convergence simple d’une série</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 3.1 — (Convergence simple d’une série)</strong></p>
+<p>Soit <span class="math inline">(u_n)_{n \geq 0}</span> une suite de fonctions de <span class="math inline">X</span> dans <span class="math inline">E</span>. On appelle <strong>série de fonctions</strong> de terme général <span class="math inline">u_n</span> la suite <span class="math inline">(S_n)_{n \geq 0}</span> définie par : <span class="math display">S_n = \sum_{k=0}^n u_k</span></p>
+<p>La série <strong>converge simplement</strong> sur <span class="math inline">X</span> si pour tout <span class="math inline">x \in X</span>, la série numérique <span class="math inline">\sum u_n(x)</span> converge. La somme est : <span class="math display">S(x) = \sum_{n=0}^{+\infty} u_n(x)</span></p>
+</div>
+</section>
+<section id="convergence-uniforme-dune-série" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="convergence-uniforme-dune-série"><span class="header-section-number">3.2</span> Convergence uniforme d’une série</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 3.2 — (Convergence uniforme d’une série)</strong></p>
+<p>La série <span class="math inline">\sum u_n</span> <strong>converge uniformément</strong> sur <span class="math inline">X</span> vers <span class="math inline">S</span> si la suite <span class="math inline">(S_n)</span> des sommes partielles converge uniformément vers <span class="math inline">S</span> sur <span class="math inline">X</span>.</p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 3.1</strong></p>
+<p>La série <span class="math inline">\sum u_n</span> converge uniformément sur <span class="math inline">X</span> si et seulement si la suite des restes <span class="math inline">(R_n)</span> définie par : <span class="math display">R_n(x) = \sum_{k=n+1}^{+\infty} u_k(x)</span> converge uniformément vers <span class="math inline">0</span> sur <span class="math inline">X</span>, c’est-à-dire : <span class="math display">\|R_n\|_\infty \xrightarrow[n \to +\infty]{} 0</span></p>
+</div>
+</section>
+<section id="convergence-normale" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="convergence-normale"><span class="header-section-number">3.3</span> Convergence normale</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 3.3 — (Convergence normale)</strong></p>
+<p>On dit que la série <span class="math inline">\sum u_n</span> <strong>converge normalement</strong> sur <span class="math inline">X</span> si la série numérique <span class="math inline">\sum \|u_n\|_\infty</span> converge, c’est-à-dire si : <span class="math display">\sum_{n=0}^{+\infty} \sup_{x \in X} \|u_n(x)\| &lt; +\infty</span></p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 3.2 — (Convergence normale implique convergence uniforme)</strong></p>
+<p>La convergence normale implique la convergence uniforme (et donc la convergence simple).</p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Preuve</em>. </span>Supposons que <span class="math inline">\sum \|u_n\|_\infty</span> converge. Pour tout <span class="math inline">x \in X</span> : <span class="math display">\|u_n(x)\| \leq \|u_n\|_\infty</span> Par le critère de comparaison, <span class="math inline">\sum u_n(x)</span> converge absolument. De plus, pour les restes : <span class="math display">\|R_n(x)\| = \left\|\sum_{k=n+1}^{+\infty} u_k(x)\right\| \leq \sum_{k=n+1}^{+\infty} \|u_n(x)\| \leq \sum_{k=n+1}^{+\infty} \|u_k\|_\infty</span> Donc <span class="math inline">\|R_n\|_\infty \leq \sum_{k=n+1}^{+\infty} \|u_k\|_\infty \to 0</span>.</p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 3.3 — (Critère de convergence normale)</strong></p>
+<p>Pour établir la convergence normale d’une série de fonctions <span class="math inline">\sum u_n</span>, il suffit de trouver une série numérique convergente <span class="math inline">\sum \alpha_n</span> telle que : <span class="math display">\forall n \in \mathbb{N}, \quad \|u_n\|_\infty \leq \alpha_n</span></p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 3.1</strong></p>
+<p>La série <span class="math inline">\sum_{n=0}^{+\infty} \frac{x^n}{n!}</span> converge normalement sur tout segment <span class="math inline">[-A, A]</span> car : <span class="math display">\left\|\frac{x^n}{n!}\right\|_\infty \leq \frac{A^n}{n!}</span> et la série <span class="math inline">\sum \frac{A^n}{n!}</span> converge (série entière de rayon infini).</p>
+</div>
+</section>
+</section>
+<section id="stabilité-des-propriétés-par-passage-à-la-limite" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> Stabilité des propriétés par passage à la limite</h1>
+<section id="continuité-de-la-limite" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="continuité-de-la-limite"><span class="header-section-number">4.1</span> Continuité de la limite</h2>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 4.1 — (Théorème de continuité de la limite uniforme)</strong></p>
+<p>Soit <span class="math inline">(f_n)_{n \geq 0}</span> une suite de fonctions de <span class="math inline">X</span> dans <span class="math inline">E</span> qui converge uniformément vers <span class="math inline">f</span> sur <span class="math inline">X</span>. Si chaque <span class="math inline">f_n</span> est continue en un point <span class="math inline">x_0 \in X</span>, alors <span class="math inline">f</span> est continue en <span class="math inline">x_0</span>.</p>
+<p>En particulier, si chaque <span class="math inline">f_n</span> est continue sur <span class="math inline">X</span>, alors <span class="math inline">f</span> est continue sur <span class="math inline">X</span>.</p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Preuve</em>. </span>Soit <span class="math inline">\varepsilon &gt; 0</span>. Par convergence uniforme, il existe <span class="math inline">N \in \mathbb{N}</span> tel que pour tout <span class="math inline">n \geq N</span> et tout <span class="math inline">x \in X</span> : <span class="math display">\|f_n(x) - f(x)\| &lt; \frac{\varepsilon}{3}</span></p>
+<p>Par continuité de <span class="math inline">f_N</span> en <span class="math inline">x_0</span>, il existe <span class="math inline">\delta &gt; 0</span> tel que pour tout <span class="math inline">x \in X</span> avec <span class="math inline">\|x - x_0\| &lt; \delta</span> : <span class="math display">\|f_N(x) - f_N(x_0)\| &lt; \frac{\varepsilon}{3}</span></p>
+<p>Donc pour tout <span class="math inline">x \in X</span> avec <span class="math inline">\|x - x_0\| &lt; \delta</span> : <span class="math display">\|f(x) - f(x_0)\| \leq \|f(x) - f_N(x)\| + \|f_N(x) - f_N(x_0)\| + \|f_N(x_0) - f(x_0)\| &lt; \frac{\varepsilon}{3} + \frac{\varepsilon}{3} + \frac{\varepsilon}{3} = \varepsilon</span></p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 4.1 — (Contre-exemple : convergence simple ne préserve pas la continuité)</strong></p>
+<p>La suite <span class="math inline">f_n(x) = x^n</span> sur <span class="math inline">[0,1]</span> est composée de fonctions continues mais converge simplement vers : <span class="math display">f(x) = \begin{cases} 0 &amp; \text{si } 0 \leq x &lt; 1 \\ 1 &amp; \text{si } x = 1 \end{cases}</span> qui n’est pas continue en <span class="math inline">x = 1</span>.</p>
+</div>
+</section>
+<section id="continuité-de-la-somme-dune-série" class="level2" data-number="4.2">
+<h2 data-number="4.2" class="anchored" data-anchor-id="continuité-de-la-somme-dune-série"><span class="header-section-number">4.2</span> Continuité de la somme d’une série</h2>
+<div class="custom-numbered-block custom-corollary">
+<p><strong>Corollaire 4.1 — (Continuité de la somme)</strong></p>
+<p>Si la série <span class="math inline">\sum u_n</span> converge uniformément sur <span class="math inline">X</span> vers <span class="math inline">S</span> et si chaque <span class="math inline">u_n</span> est continue sur <span class="math inline">X</span>, alors <span class="math inline">S</span> est continue sur <span class="math inline">X</span>.</p>
+</div>
+</section>
+<section id="intégration-de-la-limite" class="level2" data-number="4.3">
+<h2 data-number="4.3" class="anchored" data-anchor-id="intégration-de-la-limite"><span class="header-section-number">4.3</span> Intégration de la limite</h2>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 4.2 — (Interversion limite-intégrale)</strong></p>
+<p>Soit <span class="math inline">(f_n)_{n \geq 0}</span> une suite de fonctions continues de <span class="math inline">[a,b]</span> dans <span class="math inline">\mathbb{K}</span> qui converge uniformément vers <span class="math inline">f</span> sur <span class="math inline">[a,b]</span>. Alors <span class="math inline">f</span> est continue sur <span class="math inline">[a,b]</span> et : <span class="math display">\int_a^b f(t)\, dt = \lim_{n \to +\infty} \int_a^b f_n(t)\, dt</span></p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Preuve</em>. </span>Par le théorème de continuité de la limite uniforme, <span class="math inline">f</span> est continue. Par l’inégalité triangulaire : <span class="math display">\left|\int_a^b f(t)\, dt - \int_a^b f_n(t)\, dt\right| = \left|\int_a^b (f(t) - f_n(t))\, dt\right| \leq \int_a^b |f(t) - f_n(t)|\, dt \leq (b-a)\|f - f_n\|_\infty</span> Comme <span class="math inline">\|f - f_n\|_\infty \to 0</span>, on conclut.</p>
+</div>
+<div class="custom-numbered-block custom-corollary">
+<p><strong>Corollaire 4.2 — (Intégration terme à terme)</strong></p>
+<p>Si la série <span class="math inline">\sum u_n</span> converge uniformément sur <span class="math inline">[a,b]</span> vers <span class="math inline">S</span> et si chaque <span class="math inline">u_n</span> est continue sur <span class="math inline">[a,b]</span>, alors : <span class="math display">\int_a^b S(t)\, dt = \sum_{n=0}^{+\infty} \int_a^b u_n(t)\, dt</span></p>
+</div>
+</section>
+<section id="dérivation-de-la-limite" class="level2" data-number="4.4">
+<h2 data-number="4.4" class="anchored" data-anchor-id="dérivation-de-la-limite"><span class="header-section-number">4.4</span> Dérivation de la limite</h2>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 4.3 — (Dérivation de la limite)</strong></p>
+<p>Soit <span class="math inline">(f_n)_{n \geq 0}</span> une suite de fonctions de classe <span class="math inline">\mathcal{C}^1</span> sur <span class="math inline">I</span> telles que :</p>
+<ol type="1">
+<li>La suite <span class="math inline">(f_n)</span> converge simplement sur <span class="math inline">I</span> vers une fonction <span class="math inline">f</span>.</li>
+<li>La suite <span class="math inline">(f_n')</span> converge uniformément sur tout segment contenu dans <span class="math inline">I</span> vers une fonction <span class="math inline">g</span>.</li>
+</ol>
+<p>Alors <span class="math inline">f</span> est de classe <span class="math inline">\mathcal{C}^1</span> sur <span class="math inline">I</span> et <span class="math inline">f' = g</span>.</p>
+</div>
+<div class="custom-numbered-block custom-corollary">
+<p><strong>Corollaire 4.3 — (Dérivation terme à terme)</strong></p>
+<p>Soit <span class="math inline">\sum u_n</span> une série de fonctions de classe <span class="math inline">\mathcal{C}^1</span> sur <span class="math inline">I</span> telle que :</p>
+<ol type="1">
+<li>La série <span class="math inline">\sum u_n(x_0)</span> converge en au moins un point <span class="math inline">x_0 \in I</span>.</li>
+<li>La série <span class="math inline">\sum u_n'</span> converge uniformément sur tout segment contenu dans <span class="math inline">I</span>.</li>
+</ol>
+<p>Alors la série <span class="math inline">\sum u_n</span> converge uniformément sur tout segment contenu dans <span class="math inline">I</span> vers une fonction <span class="math inline">S</span> de classe <span class="math inline">\mathcal{C}^1</span> sur <span class="math inline">I</span>, et : <span class="math display">S'(x) = \sum_{n=0}^{+\infty} u_n'(x)</span></p>
+</div>
+<div class="remarque" title="(Extension aux classes $\mathcal{C}^k$)">
+<p>Le théorème de dérivation s’étend aux fonctions de classe <span class="math inline">\mathcal{C}^k</span> : si les suites <span class="math inline">(f_n^{(p)})</span> convergent simplement pour <span class="math inline">p = 0, \ldots, k-1</span> et <span class="math inline">(f_n^{(k)})</span> converge uniformément sur tout segment, alors la limite est de classe <span class="math inline">\mathcal{C}^k</span> et <span class="math inline">f^{(k)} = \lim f_n^{(k)}</span>.</p>
+</div>
+</section>
+</section>
+<section id="approximation-uniforme" class="level1" data-number="5">
+<h1 data-number="5"><span class="header-section-number">5</span> Approximation uniforme</h1>
+<section id="théorème-de-weierstrass" class="level2" data-number="5.1">
+<h2 data-number="5.1" class="anchored" data-anchor-id="théorème-de-weierstrass"><span class="header-section-number">5.1</span> Théorème de Weierstrass</h2>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 5.1 — (Théorème de Weierstrass, admis)</strong></p>
+<p>Soit <span class="math inline">f : [a,b] \to \mathbb{K}</span> une fonction continue. Alors il existe une suite de polynômes <span class="math inline">(P_n)_{n \geq 0}</span> qui converge uniformément vers <span class="math inline">f</span> sur <span class="math inline">[a,b]</span>.</p>
+</div>
+<div class="proof remark">
+<p><span class="proof-title"><em>Remarque</em>. </span>Ce théorème montre que les polynômes sont denses dans l’espace <span class="math inline">\mathcal{C}([a,b], \mathbb{K})</span> muni de la norme de la convergence uniforme. En d’autres termes, toute fonction continue sur un segment peut être approchée uniformément par des polynômes à une précision arbitraire.</p>
+</div>
+<div class="remarque" title="(Généralisation)">
+<p>Plus généralement, toute fonction continue sur un segment <span class="math inline">[a,b]</span> peut être approchée uniformément par : - des fonctions polynômiales (théorème de Weierstrass), - des sommes trigonométriques (théorème de Fejér), - des fonctions en escalier (en particulier, les fonctions continues par morceaux sont limites uniformes de fonctions en escalier).</p>
+</div>
+</section>
+<section id="exemples-dapproximation" class="level2" data-number="5.2">
+<h2 data-number="5.2" class="anchored" data-anchor-id="exemples-dapproximation"><span class="header-section-number">5.2</span> Exemples d’approximation</h2>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 5.1</strong></p>
+<p>La suite des polynômes de Bernstein : <span class="math display">B_n(f)(x) = \sum_{k=0}^n f\left(\frac{k}{n}\right) \binom{n}{k} x^k (1-x)^{n-k}</span> converge uniformément vers <span class="math inline">f</span> sur <span class="math inline">[0,1]</span> pour toute fonction continue <span class="math inline">f</span>.</p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 5.2</strong></p>
+<p>La fonction <span class="math inline">f(x) = |x|</span> sur <span class="math inline">[-1,1]</span> peut être approchée uniformément par des polynômes, bien qu’elle ne soit pas dérivable en <span class="math inline">0</span>.</p>
+</div>
+</section>
+</section>
+<section id="exercices" class="level1" data-number="6">
+<h1 data-number="6"><span class="header-section-number">6</span> Exercices</h1>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 6.1</strong></p>
+<p>Étudier la convergence simple et uniforme de la suite <span class="math inline">(f_n)</span> définie sur <span class="math inline">[0,1]</span> par : <span class="math display">f_n(x) = \frac{nx}{1 + n^2 x^2}</span></p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 6.2</strong></p>
+<p>Étudier la convergence simple et uniforme de la suite <span class="math inline">(f_n)</span> définie sur <span class="math inline">\mathbb{R}^+</span> par : <span class="math display">f_n(x) = \frac{x}{1 + nx}</span></p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 6.3</strong></p>
+<p>Soit <span class="math inline">(f_n)</span> une suite de fonctions continues de <span class="math inline">[0,1]</span> dans <span class="math inline">\mathbb{R}</span> convergeant uniformément vers <span class="math inline">f</span>. Montrer que si chaque <span class="math inline">f_n</span> est positive, alors <span class="math inline">f</span> est positive.</p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 6.4</strong></p>
+<p>Étudier la convergence simple et uniforme de la série : <span class="math display">\sum_{n=1}^{+\infty} \frac{x^n}{n} \quad \text{sur } [0, r] \text{ avec } 0 &lt; r &lt; 1</span></p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 6.5</strong></p>
+<p>Montrer que la série <span class="math inline">\sum_{n=0}^{+\infty} \frac{x^n}{n!}</span> converge normalement sur tout segment de <span class="math inline">\mathbb{R}</span> et que sa somme est de classe <span class="math inline">\mathcal{C}^\infty</span>.</p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 6.6</strong></p>
+<p>Soit <span class="math inline">(f_n)</span> une suite de fonctions de classe <span class="math inline">\mathcal{C}^1</span> sur <span class="math inline">[0,1]</span> telle que <span class="math inline">(f_n(0))</span> converge et <span class="math inline">(f_n')</span> converge uniformément vers <span class="math inline">g</span> sur <span class="math inline">[0,1]</span>. Montrer que <span class="math inline">(f_n)</span> converge uniformément vers une fonction <span class="math inline">f</span> de classe <span class="math inline">\mathcal{C}^1</span> et que <span class="math inline">f' = g</span>.</p>
+</div>
+</section>
+<section id="document-en-pdf" class="level1 unnumbered">
+<h1 class="unnumbered">Document en PDF</h1>
+<p><a href="PDF/mp-chap06.pdf">Chapitre 06 : Suites et séries de fonctions</a></p>
+<section id="navigation" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="navigation">Navigation</h2>
+<div class="chap-nav">
+<p><a href="../cours/mp-chap05.html" class="prev">Chapitre 05 : Fonctions vectorielles d’une variable réelle, arcs paramétrés</a> <a href="../cours/mp.html" class="home">Menu MP</a> <a href="../cours/mp-chap07.html" class="next">Chapitre 07 : Séries entières</a></p>
+</div>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -222,12 +562,12 @@ ul.task-list li input[type="checkbox"] {
       // flash "checked"
       button.classList.add('code-copy-button-checked');
       var currentTitle = button.getAttribute("title");
-      button.setAttribute("title", "Copied!");
+      button.setAttribute("title", "Copié");
       let tooltip;
       if (window.bootstrap) {
         button.setAttribute("data-bs-toggle", "tooltip");
         button.setAttribute("data-bs-placement", "left");
-        button.setAttribute("data-bs-title", "Copied!");
+        button.setAttribute("data-bs-title", "Copié");
         tooltip = new bootstrap.Tooltip(button, 
           { trigger: "manual", 
             customClass: "code-copy-button-tooltip",
