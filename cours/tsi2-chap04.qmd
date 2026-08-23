@@ -1,10 +1,457 @@
 ---
-title: "Chapitre 04 : Suites et séries de fonctions"
-pagetitle: "Suites et séries de fonctions - Mathématiques en CPGE"
+title: "Fonctions vectorielles d'une variable réelle, arcs paramétrés"
+subtitle: "Chapitre 04"
+author: "Saîd MAHARI"
+date: last-modified
+date-format: "D MMMM YYYY"
+sidebar:
+  style: docked
+  contents:
+    - href: cours/index.qmd
+      text: "← Tous les cours"
+    - section: "TSI — 2e année"
+      contents:
+        - cours/tsi2-chap03.qmd
+        - cours/tsi2-chap04.qmd
+        # - cours/tsi2-chap05.qmd
+lang: fr
+format:
+  html:
+    theme: cosmo
+    toc: true
+    number-sections: true
+    html-math-method: katex
+    css: styles.css
+filters:
+  - custom-numbered-blocks.lua
 ---
 
-**TSI 2e année — Chapitre 04.** Convergence simple et uniforme.
+**TSI (2e année) — Chapitre 04.** Dérivation d'une fonction à valeurs dans $\mathbb{R}^2$ ou $\mathbb{R}^3$, interprétation cinématique, arcs paramétrés, tangentes, normales, longueur d'un arc.
 
-## Document
+Ce chapitre a été réalisé conformément au programme marocain de mathématiques de la filière TSI.
 
-*PDF à venir : déposez le fichier `files/tsi2/chap04.pdf` puis régénérez la page.*
+Dans tout ce chapitre, $I$ désigne un intervalle non trivial de $\mathbb{R}$ et $E = \mathbb{R}^m$ (avec $m = 2$ ou $m = 3$) est muni de la norme euclidienne $\|\cdot\| = \|\cdot\|_2$. On considère des fonctions $f : I \to E$. Une telle application est définie par ses applications composantes $f = (f_1, \ldots, f_m)$.
+
+# Fonctions vectorielles d'une variable réelle
+
+## Limite et continuité
+
+::: {.definition title="(Limite d'une fonction vectorielle)"}
+Soit $f : I \to E$ une fonction et $a$ un point adhérent à $I$. On dit que $f$ admet pour limite $l \in E$ en $a$ si :
+$$\forall \varepsilon > 0, \quad \exists \delta > 0, \quad (x \in I \text{ et } |x - a| < \delta) \implies \|f(x) - l\| < \varepsilon$$
+
+On note $\lim_{x \to a} f(x) = l$ ou $f(x) \xrightarrow[x \to a]{} l$.
+:::
+
+::: {.definition title="(Continuité d'une fonction vectorielle)"}
+Soit $f : I \to E$ une fonction et $a \in I$. On dit que $f$ est **continue en** $a$ si :
+$$\lim_{x \to a} f(x) = f(a)$$
+
+$f$ est **continue sur** $I$ si elle est continue en tout point de $I$.
+:::
+
+::: {.proposition title="(Caractérisation par les composantes)"}
+$f = (f_1, \ldots, f_m)$ est continue en $a$ si et seulement si toutes ses composantes $f_1, \ldots, f_m$ sont continues en $a$.
+:::
+
+::: {.example}
+La fonction $f : \mathbb{R} \to \mathbb{R}^2$ définie par $f(t) = (\cos t, \sin t)$ est continue sur $\mathbb{R}$ car $\cos$ et $\sin$ sont continues sur $\mathbb{R}$.
+:::
+
+## Dérivabilité
+
+::: {.definition title="(Dérivabilité)"}
+Une fonction $f : I \to E$ est dite **dérivable en** $a \in I$ si le taux d'accroissement :
+$$\Delta(x) = \frac{f(x) - f(a)}{x - a}$$
+admet une limite $l \in E$ quand $x \to a$. Cette limite est notée $f'(a)$ et appelée le **(vecteur) dérivé** de $f$ au point $a$.
+
+On note aussi :
+$$f'(a) = \lim_{h \to 0} \frac{f(a + h) - f(a)}{h}$$
+:::
+
+::: {.definition title="(Dérivabilité à droite et à gauche)"}
+La **dérivée à droite** de $f$ en $a$ est, si elle existe :
+$$f'_d(a) = \lim_{h \to 0^+} \frac{f(a + h) - f(a)}{h}$$
+
+La **dérivée à gauche** de $f$ en $a$ est, si elle existe :
+$$f'_g(a) = \lim_{h \to 0^-} \frac{f(a + h) - f(a)}{h}$$
+
+$f$ est dérivable en $a$ si et seulement si elle est dérivable à droite et à gauche en $a$ avec $f'_d(a) = f'_g(a)$.
+:::
+
+::: {.proposition title="(Caractérisation par les composantes)"}
+$f = (f_1, \ldots, f_m)$ est dérivable en $a$ si et seulement si toutes ses composantes $f_1, \ldots, f_m$ sont dérivables en $a$. Dans ce cas :
+$$f'(a) = (f_1'(a), f_2'(a), \ldots, f_m'(a))$$
+:::
+
+::: {.example}
+Pour $f(t) = (\cos t, \sin t)$, on a $f'(t) = (-\sin t, \cos t)$.
+
+Pour $g(t) = (t, t^2, t^3)$, on a $g'(t) = (1, 2t, 3t^2)$.
+:::
+
+::: {.definition title="(Dérivabilité sur un intervalle, application dérivée)"}
+$f : I \to E$ est **dérivable sur $I$** si elle est dérivable en tout point de $I$. L'application $f' : I \to E$ ainsi définie est appelée l'**application dérivée** de $f$.
+:::
+
+## Fonctions de classe $\mathcal{C}^k$
+
+::: {.definition title="(Fonction vectorielle de classe $\mathcal{C}^k$, de classe $\mathcal{C}^\infty$)"}
+Une fonction $f : I \to E$ est dite de **classe $\mathcal{C}^k$** sur $I$ si :
+
+1. $f$ est dérivable $k$ fois sur $I$.
+2. La dérivée $k$-ème de $f$ est continue sur $I$.
+
+On note $\mathcal{C}^k(I, E)$ l'ensemble des fonctions de classe $\mathcal{C}^k$ sur $I$.
+
+La fonction $f$ est dite de **classe $\mathcal{C}^\infty$** sur $I$ si $f$ est indéfiniment dérivable sur $I$.
+:::
+
+::: {.proposition title="($\mathcal{C}^k(I, E)$ est un sous-espace vectoriel)"}
+L'ensemble $\mathcal{C}^k(I, E)$ des fonctions de classe $\mathcal{C}^k$ sur $I$ est un sous-espace vectoriel de $\mathcal{F}(I, E)$.
+:::
+
+::: {.proposition title="(Caractérisation par les composantes)"}
+$f = (f_1, \ldots, f_m)$ est de classe $\mathcal{C}^k$ sur $I$ si et seulement si toutes ses composantes $f_1, \ldots, f_m$ sont de classe $\mathcal{C}^k$ sur $I$.
+:::
+
+## Opérations sur les fonctions dérivables
+
+::: {.proposition title="(Combinaison linéaire)"}
+Soient $f, g : I \to E$ dérivables en $a$ et $\lambda, \mu \in \mathbb{R}$. Alors $\lambda f + \mu g$ est dérivable en $a$ et :
+$$(\lambda f + \mu g)'(a) = \lambda f'(a) + \mu g'(a)$$
+:::
+
+::: {.proposition title="(Produit par une fonction scalaire)"}
+Soient $f : I \to E$ dérivable en $a$ et $\varphi : I \to \mathbb{R}$ dérivable en $a$. Alors $\varphi \cdot f$ est dérivable en $a$ et :
+$$(\varphi \cdot f)'(a) = \varphi'(a) \cdot f(a) + \varphi(a) \cdot f'(a)$$
+:::
+
+::: {.proposition title="(Dérivation de $f \circ \varphi$)"}
+Soient $f : I \to E$ dérivable en $u_0 \in I$ et $\varphi : J \to I$ dérivable en $t_0 \in J$ avec $\varphi(t_0) = u_0$. Alors $f \circ \varphi$ est dérivable en $t_0$ et :
+$$(f \circ \varphi)'(t_0) = \varphi'(t_0) \cdot f'(u_0)$$
+:::
+
+::: {.proposition title="(Dérivation d'un produit scalaire)"}
+Soient $f, g : I \to E$ dérivables en $a$, où $E$ est un espace préhilbertien réel. Alors la fonction $t \mapsto \langle f(t), g(t) \rangle$ est dérivable en $a$ et :
+$$\frac{d}{dt}\langle f(t), g(t) \rangle \bigg|_{t=a} = \langle f'(a), g(a) \rangle + \langle f(a), g'(a) \rangle$$
+:::
+
+::: {.corollary title="(Dérivation de la norme)"}
+Si $f : I \to E$ est dérivable en $a$ et $f(a) \neq 0_E$, alors $t \mapsto \|f(t)\|$ est dérivable en $a$ et :
+$$\frac{d}{dt}\|f(t)\| \bigg|_{t=a} = \frac{\langle f'(a), f(a) \rangle}{\|f(a)\|}$$
+:::
+
+# Interprétation cinématique
+
+## Vitesse et accélération
+
+::: {.remarque title="(Interprétation cinématique)"}
+Si $m = 2$ ou $3$, l'ensemble des points $f(t)$ décrit la **trajectoire** (ou le support) du mouvement d'un mobile dans le plan ou dans l'espace.
+
+- Le vecteur $f'(t)$ correspond au **vecteur vitesse** à l'instant $t$.
+- Le vecteur $f''(t)$ correspond au **vecteur accélération** à l'instant $t$.
+:::
+
+::: {.definition title="(Vitesse instantanée)"}
+Soit $f : I \to \mathbb{R}^m$ une fonction dérivable en $t_0$. Le vecteur $f'(t_0)$ est appelé la **vitesse instantanée** du mobile à l'instant $t_0$.
+:::
+
+::: {.example title="(Mouvement circulaire uniforme)"}
+Le mouvement circulaire uniforme de rayon $R$ et de vitesse angulaire $\omega$ est décrit par :
+$$f(t) = (R\cos(\omega t), R\sin(\omega t))$$
+
+La vitesse est :
+$$f'(t) = (-R\omega\sin(\omega t), R\omega\cos(\omega t))$$
+
+On vérifie que $\|f'(t)\| = R\omega$ (vitesse constante) et $\langle f(t), f'(t) \rangle = 0$ (la vitesse est perpendiculaire au rayon).
+
+L'accélération est :
+$$f''(t) = (-R\omega^2\cos(\omega t), -R\omega^2\sin(\omega t)) = -\omega^2 f(t)$$
+
+L'accélération est dirigée vers le centre (accélération centripète).
+:::
+
+# Intégration d'une fonction vectorielle sur un segment
+
+## Définition
+
+::: {.definition title="(Intégrale d'une fonction vectorielle continue par morceaux)"}
+Soit $f : [a,b] \to E$ une fonction continue par morceaux. On définit l'**intégrale** de $f$ sur $[a,b]$ par :
+$$\int_a^b f(t)\, dt = \left(\int_a^b f_1(t)\, dt, \int_a^b f_2(t)\, dt, \ldots, \int_a^b f_m(t)\, dt\right)$$
+où $f_1, \ldots, f_m$ sont les composantes de $f$ dans la base canonique de $E = \mathbb{R}^m$.
+:::
+
+## Propriétés
+
+::: {.proposition title="(Linéarité)"}
+Soient $f, g : [a,b] \to E$ continues par morceaux et $\lambda, \mu \in \mathbb{R}$. Alors :
+$$\int_a^b (\lambda f + \mu g)(t)\, dt = \lambda \int_a^b f(t)\, dt + \mu \int_a^b g(t)\, dt$$
+:::
+
+::: {.proposition title="(Relation de Chasles)"}
+Pour tout $c \in [a,b]$ :
+$$\int_a^b f(t)\, dt = \int_a^c f(t)\, dt + \int_c^b f(t)\, dt$$
+:::
+
+::: {.proposition title="(Inégalité triangulaire)"}
+$$\left\|\int_a^b f(t)\, dt\right\| \leq \int_a^b \|f(t)\|\, dt$$
+:::
+
+::: {.example}
+Calculons $\int_0^{\pi/2} (\cos t, \sin t)\, dt$.
+
+$$\int_0^{\pi/2} \cos t\, dt = [\sin t]_0^{\pi/2} = 1, \quad \int_0^{\pi/2} \sin t\, dt = [-\cos t]_0^{\pi/2} = 1$$
+
+Donc :
+$$\int_0^{\pi/2} (\cos t, \sin t)\, dt = (1, 1)$$
+:::
+
+## Théorème fondamental du calcul intégral
+
+::: {.theorem title="(Théorème fondamental du calcul intégral)"}
+Soit $f : [a,b] \to E$ une fonction continue. La fonction :
+$$F(x) = \int_a^x f(t)\, dt$$
+est de classe $\mathcal{C}^1$ sur $[a,b]$ et $F' = f$.
+:::
+
+## Intégration par parties
+
+::: {.theorem title="(Intégration par parties)"}
+Soient $u : [a,b] \to E$ et $v : [a,b] \to \mathbb{R}$ de classe $\mathcal{C}^1$. Alors :
+$$\int_a^b u'(t) v(t)\, dt = [u(t) v(t)]_a^b - \int_a^b u(t) v'(t)\, dt$$
+:::
+
+## Changement de variable
+
+::: {.theorem title="(Changement de variable)"}
+Soient $\varphi \in \mathcal{C}^1([c,d], \mathbb{R})$ à valeurs dans $[a,b]$, $f \in \mathcal{C}([a,b], E)$. Alors :
+$$\int_a^b f(x)\, dx = \int_c^d f(\varphi(t)) \varphi'(t)\, dt$$
+:::
+
+# Arcs paramétrés
+
+## Définitions
+
+::: {.definition title="(Arc paramétré)"}
+On appelle **arc paramétré** un couple $\gamma = (I, \vec{F})$ où $I \subset \mathbb{R}$ est un intervalle et $\vec{F} : I \to E$ une application de classe $\mathcal{C}^k(I, E)$.
+
+Le **support** de l'arc paramétré est la courbe $\Gamma = \vec{F}(I) \subset E$.
+:::
+
+::: {.remarque}
+
+- À tout $t \in I$, on associe le point $M \in E$ tel que $\overrightarrow{OM} = \vec{F}(t)$.
+- Si $E = \mathbb{R}^2$, on écrira $\vec{F}(t) = \begin{pmatrix} x(t) \\ y(t) \end{pmatrix}$ et les coordonnées de $M$ seront donc $\begin{pmatrix} x(t) \\ y(t) \end{pmatrix}$.
+- Si $E = \mathbb{R}^3$, on écrira $\vec{F}(t) = \begin{pmatrix} x(t) \\ y(t) \\ z(t) \end{pmatrix}$ et les coordonnées de $M$ seront donc $\begin{pmatrix} x(t) \\ y(t) \\ z(t) \end{pmatrix}$.
+:::
+
+::: {.remarque title="(Interprétation cinématique)"}
+L'étude d'un arc paramétré peut s'interpréter ainsi :
+
+- $I$ est un intervalle de temps.
+- $M(t)$ est un point mobile du plan dont la position à l'instant $t \in I$ est donnée par $\overrightarrow{OM}(t) = \vec{F}(t)$.
+- Le support de l'arc paramétré $(I, \vec{F})$ est appelé trajectoire du mouvement.
+:::
+
+## Points réguliers et stationnaires
+
+::: {.definition title="(Point régulier, stationnaire)"}
+Un point $M = M(t_0)$ d'un arc paramétré est dit **régulier** lorsque $\vec{F}'(t_0) \neq \vec{0}$. Sinon, on dit que c'est un **point stationnaire**.
+:::
+
+::: {.definition title="(Arc régulier)"}
+Un arc paramétré est dit **régulier** si tous ses points sont réguliers, c'est-à-dire si $\vec{F}'(t) \neq \vec{0}$ pour tout $t \in I$.
+:::
+
+## Tangente en un point régulier
+
+::: {.proposition title="(Tangente en un point régulier)"}
+Un arc paramétré possède une tangente en un point régulier $M(t_0)$, la droite passant par $M(t_0)$ dirigée par le vecteur $\vec{F}'(t_0)$.
+:::
+
+::: {.proof}
+Notons $\vec{u} : I \setminus \{t_0\} \to \mathbb{R}^2$ définie par $\vec{u}(t) = \frac{\vec{F}(t) - \vec{F}(t_0)}{t - t_0}$.
+
+Pour $t \neq t_0$, le vecteur $\vec{u}(t)$ dirige la droite $(M(t_0)M(t))$ et $\vec{u}(t) \xrightarrow[t \to t_0]{} \vec{F}'(t_0) \neq \vec{0}$. Donc la droite passant par $M(t_0)$ dirigée par $\vec{F}'(t_0)$ est la tangente en $M(t_0)$.
+:::
+
+## Normale à un arc paramétré plan
+
+::: {.definition title="(Normale)"}
+Si $\gamma : I \to \mathbb{R}^2$ est un arc paramétré plan et $t_0$ un paramètre régulier, la **normale** à l'arc au point $\gamma(t_0)$ est la droite perpendiculaire à la tangente en ce point.
+:::
+
+::: {.proposition}
+Si $\vec{F}'(t_0) = (x'(t_0), y'(t_0))$ est le vecteur tangent, alors un vecteur normal est $(-y'(t_0), x'(t_0))$.
+:::
+
+## Longueur d'un arc
+
+::: {.definition title="(Longueur d'un arc)"}
+Soit $\gamma : [a,b] \to \mathbb{R}^m$ un arc paramétré de classe $\mathcal{C}^1$. La **longueur** de l'arc est :
+$$L(\gamma) = \int_a^b \|\gamma'(t)\|\, dt$$
+:::
+
+::: {.example}
+Pour $\gamma(t) = (\cos t, \sin t)$ avec $t \in [0, 2\pi]$ :
+$$\|\gamma'(t)\| = \sqrt{(-\sin t)^2 + (\cos t)^2} = 1$$
+$$L(\gamma) = \int_0^{2\pi} 1\, dt = 2\pi$$
+C'est bien la circonférence du cercle unité.
+:::
+
+::: {.example}
+Pour $\gamma(t) = (t, t^2)$ avec $t \in [0, 1]$ :
+$$\|\gamma'(t)\| = \sqrt{1 + 4t^2}$$
+$$L(\gamma) = \int_0^1 \sqrt{1 + 4t^2}\, dt = \frac{\sqrt{5}}{2} + \frac{1}{4}\ln(2 + \sqrt{5})$$
+:::
+
+# Étude d'une courbe paramétrée plane
+
+## Méthode d'étude
+
+::: {.proposition title="(Méthode d'étude)"}
+Pour étudier une courbe paramétrée plane $\gamma(t) = (x(t), y(t))$ :
+
+1. Déterminer le domaine de définition.
+2. Étudier les symétries et la périodicité pour restreindre l'intervalle d'étude.
+3. Dresser le tableau de variations des fonctions $x$ et $y$ et repérer dans ce tableau les points stationnaires, les points à tangente horizontale ou verticale et les branches infinies.
+4. Étudier les points stationnaires.
+5. Étudier les branches infinies.
+6. Tracé sommaire de la courbe. Il est inutile d'utiliser la calculatrice pour reporter des points, il suffit de placer les asymptotes éventuelles, de mettre en évidence les points stationnaires et d'avoir l'allure globale de la courbe.
+:::
+
+::: {.remarque title="(Symétries)"}
+
+- Si $x(-t) = x(t)$ et $y(-t) = -y(t)$, les points $M(-t)$ et $M(t)$ sont symétriques par rapport à l'axe $(Ox)$.
+- Si $x(-t) = -x(t)$ et $y(-t) = y(t)$, les points $M(-t)$ et $M(t)$ sont symétriques par rapport à l'axe $(Oy)$.
+- Si $x(t + 2\pi) = x(t)$ et $y(t + 2\pi) = y(t)$, la courbe est $2\pi$-périodique.
+- Si $x(1/t) = -x(t)$ et $y(1/t) = y(t)$, les points $M(1/t)$ et $M(t)$ sont symétriques par rapport à $(Oy)$.
+:::
+
+## Exemple : la cycloïde
+
+::: {.example title="(Cycloïde)"}
+Une roue de rayon $R > 0$ roule sans glisser sur une route horizontale. Déterminons la trajectoire d'un point situé sur sa périphérie.
+
+Notons $C(t)$ le centre de la roue et $t$ l'angle entre la verticale et le vecteur $\overrightarrow{C(t)M(t)}$. La roue roule sans glisser donc si le centre à l'instant $t$ se trouve à l'abscisse $x_C$, on a $x_C = Rt$.
+
+On obtient l'équation paramétrique de la courbe qui s'appelle la **cycloïde** :
+$$\begin{cases} x(t) = R(t - \sin t) \\ y(t) = R(1 - \cos t) \end{cases}$$
+
+**Étude :**
+
+1. Les fonctions $x$ et $y$ sont définies sur $\mathbb{R}$.
+2. Symétries : puisque $x(t + 2\pi) = x(t) + 2R\pi$, $y(t + 2\pi) = y(t)$, le point $M(t + 2\pi)$ se déduit du point $M(t)$ par une translation de vecteur $\vec{V} = (2R\pi, 0)$. Il suffit donc de tracer la courbe pour $t \in [0, 2\pi]$ et on complète le tracé par une infinité de translations de vecteur $\vec{V}$. Puisque $x(-t) = -x(t)$ et $y(-t) = y(t)$, le point $M(-t)$ est le symétrique du point $M(t)$ par rapport à l'axe $(Oy)$. Il suffit donc d'étudier la courbe pour $t \in [0, \pi]$ et de compléter par une symétrie par rapport à $(Oy)$.
+3. Variations :
+$$\begin{cases} x'(t) = R(1 - \cos t) \geq 0 \\ y'(t) = R\sin t \end{cases}$$
+:::
+
+## Exemple : l'ellipse
+
+::: {.example title="(Ellipse)"}
+La courbe paramétrée :
+$$\begin{cases} x(t) = a\cos t \\ y(t) = b\sin t \end{cases}$$
+avec $a, b > 0$ décrit une ellipse d'équation cartésienne :
+$$\frac{x^2}{a^2} + \frac{y^2}{b^2} = 1$$
+
+- $x'(t) = -a\sin t$, $y'(t) = b\cos t$.
+- Tangente horizontale : $y'(t) = 0 \iff \cos t = 0 \iff t = \frac{\pi}{2} + k\pi$.
+- Tangente verticale : $x'(t) = 0 \iff \sin t = 0 \iff t = k\pi$.
+:::
+
+# Formules de Taylor
+
+## Formule de Taylor avec reste intégral
+
+::: {.theorem title="(Formule de Taylor avec reste intégral)"}
+Soit $f : I \to E$ une fonction de classe $\mathcal{C}^{n+1}$ sur $I$. Alors pour tous $a, x \in I$ :
+$$f(x) = f(a) + f'(a)(x-a) + \frac{f''(a)}{2!}(x-a)^2 + \cdots + \frac{f^{(n)}(a)}{n!}(x-a)^n + \frac{1}{n!}\int_a^x (x-t)^n f^{(n+1)}(t)\, dt$$
+:::
+
+## Inégalité de Taylor-Lagrange
+
+::: {.theorem title="(Inégalité de Taylor-Lagrange)"}
+Soit $f : I \to E$ une fonction de classe $\mathcal{C}^{n+1}$ sur $I$. Alors pour tous $a, x \in I$ :
+$$\left\|f(x) - \sum_{k=0}^n \frac{f^{(k)}(a)}{k!}(x-a)^k\right\| \leq \frac{|x-a|^{n+1}}{(n+1)!} \sup_{[a,x]} \|f^{(n+1)}\|$$
+:::
+
+## Formule de Taylor-Young
+
+::: {.theorem title="(Formule de Taylor-Young)"}
+Soit $f : I \to E$ une fonction $n$ fois dérivable en $a$. Alors :
+$$f(x) = f(a) + f'(a)(x-a) + \frac{f''(a)}{2!}(x-a)^2 + \cdots + \frac{f^{(n)}(a)}{n!}(x-a)^n + o((x-a)^n)$$
+:::
+
+::: {.remarque}
+Le résultat de Taylor-Young est local, contrairement aux autres résultats. Les hypothèses des résultats globaux sont plus fortes.
+:::
+
+# Méthode des rectangles et sommes de Riemann
+
+::: {.proposition title="(Méthode des rectangles)"}
+Soit $f : [a,b] \to E$ une fonction continue par morceaux. Alors :
+$$\frac{b-a}{n} \sum_{k=0}^{n-1} f\left(a + k\frac{b-a}{n}\right) \xrightarrow[n \to +\infty]{} \int_a^b f(t)\, dt$$
+:::
+
+::: {.proposition title="(Sommes de Riemann)"}
+Soit $f : [a,b] \to E$ une fonction continue par morceaux. Alors :
+$$\frac{b-a}{n} \sum_{k=1}^{n} f\left(a + k\frac{b-a}{n}\right) \xrightarrow[n \to +\infty]{} \int_a^b f(t)\, dt$$
+:::
+
+# Exercices
+
+::: {.exercise}
+Soit $f : \mathbb{R} \to \mathbb{R}^2$ définie par $f(t) = (e^t \cos t, e^t \sin t)$.
+
+1. Calculer $f'(t)$ et $\|f'(t)\|$.
+2. Déterminer la tangente à la courbe au point $f(0)$.
+3. Calculer la longueur de l'arc entre $t = 0$ et $t = \ln 2$.
+:::
+
+::: {.exercise}
+Soit $\gamma : [0, 2\pi] \to \mathbb{R}^2$ définie par $\gamma(t) = (\cos 2t, \sin 3t)$.
+
+1. Étudier la parité et la périodicité des composantes.
+2. Déterminer les points singuliers de l'arc.
+3. Calculer $\gamma'(t)$ et déterminer la tangente en un point régulier.
+:::
+
+::: {.exercise}
+Soit $f : [0, 1] \to \mathbb{R}^3$ définie par $f(t) = (t, t^2, t^3)$.
+
+1. Calculer $f'(t)$ et $f''(t)$.
+2. Montrer que l'arc est régulier.
+3. Calculer la longueur de l'arc entre $t = 0$ et $t = 1$ (on pourra donner une valeur approchée).
+:::
+
+::: {.exercise}
+Soient $f, g : I \to \mathbb{R}^3$ de classe $\mathcal{C}^1$. Montrer que :
+$$\frac{d}{dt}\langle f(t), g(t) \rangle = \langle f'(t), g(t) \rangle + \langle f(t), g'(t) \rangle$$
+:::
+
+::: {.exercise}
+Soit $\gamma : [0, +\infty[ \to \mathbb{R}^2$ définie par $\gamma(t) = (t \cos t, t \sin t)$.
+
+1. Calculer $\gamma'(t)$ et montrer que l'arc est régulier.
+2. Calculer la longueur de l'arc entre $t = 0$ et $t = 2\pi$.
+3. Interpréter géométriquement la courbe (spirale d'Archimède).
+:::
+
+::: {.exercise}
+Soit $\gamma : \mathbb{R} \to \mathbb{R}^2$ définie par $\gamma(t) = (3\cos t, 2\sin t)$.
+
+1. Montrer que l'arc décrit une ellipse.
+2. Calculer $\gamma'(t)$ et déterminer les points où la tangente est horizontale.
+3. Calculer la longueur de l'arc entre $t = 0$ et $t = \pi/2$.
+:::
+
+# Document en PDF {-}
+[Chapitre 04 : Fonctions vectorielles d'une variable réelle, arcs paramétrés](PDF/tsi2-chap04.pdf)
+
+## Navigation {-}
+::: {.chap-nav}
+[Chapitre 03 : Réduction des endomorphismes et des matrices carrées](tsi2-chap03.qmd){.prev}
+[Menu TSI](tsi2.qmd){.home}
+[Chapitre 05 : Intégration des fonctions continues sur un intervalle](tsi2-chap05.qmd){.next}
+:::

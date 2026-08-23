@@ -1,0 +1,468 @@
+---
+title: "Fonctions de plusieurs variables"
+subtitle: "Chapitre 12"
+author: "Saîd MAHARI"
+date: last-modified
+date-format: "D MMMM YYYY"
+sidebar:
+  style: docked
+  contents:
+    - href: cours/index.qmd
+      text: "← Tous les cours"
+    - section: "TSI — 2e année"
+      contents:
+        - cours/tsi2-chap11.qmd
+        - cours/tsi2-chap12.qmd
+lang: fr
+format:
+  html:
+    theme: cosmo
+    toc: true
+    number-sections: true
+    html-math-method: katex
+    css: styles.css
+filters:
+  - custom-numbered-blocks.lua
+---
+
+**TSI (2e année) — Chapitre 12.** Introduction à la topologie de $\mathbb{R}^n$, limite et continuité, dérivées partielles, applications de classe $\mathcal{C}^k$ ($k = 1$ ou $2$), gradient, règle de la chaîne, équations aux dérivées partielles, extremums d'une fonction de deux variables, applications géométriques (tangentes, plans tangents).
+
+Ce chapitre a été réalisé conformément au programme marocain de mathématiques de la filière TSI.
+
+Dans tout ce chapitre, $E = \mathbb{R}^m$ est muni de sa base canonique $\mathcal{B} = (e_1, \ldots, e_m)$ et de la norme euclidienne $\|\cdot\|$. On identifie un vecteur $x \in \mathbb{R}^m$ avec ses coordonnées $(x_1, \ldots, x_m)$ dans la base $\mathcal{B}$. Si $m = 2$ (resp. $m = 3$), on notera $(x, y)$ plutôt que $(x_1, x_2)$ (resp. $(x, y, z)$ plutôt que $(x_1, x_2, x_3)$).
+
+# Introduction à la topologie de $\mathbb{R}^n$
+
+## Boules et voisinages
+
+::: {.definition title="(Boule ouverte, boule fermée)"}
+Soient $a \in \mathbb{R}^m$ et $r > 0$.
+
+- La **boule ouverte** de centre $a$ et de rayon $r$ est :
+$$B(a, r) = \{x \in \mathbb{R}^m \mid \|x - a\| < r\}$$
+
+- La **boule fermée** de centre $a$ et de rayon $r$ est :
+$$\overline{B}(a, r) = \{x \in \mathbb{R}^m \mid \|x - a\| \leq r\}$$
+:::
+
+::: {.definition title="(Ouvert, fermé)"}
+Soit $U$ une partie de $\mathbb{R}^m$.
+
+- $U$ est un **ouvert** si pour tout $a \in U$, il existe $r > 0$ tel que $B(a, r) \subset U$.
+- $U$ est un **fermé** si son complémentaire $\mathbb{R}^m \setminus U$ est un ouvert.
+:::
+
+::: {.example}
+
+- $\mathbb{R}^m$ et $\varnothing$ sont des ouverts et des fermés.
+- $B(a, r)$ est un ouvert.
+- $\overline{B}(a, r)$ est un fermé.
+:::
+
+## Ensembles convexes
+
+::: {.definition title="(Ensemble convexe)"}
+Une partie $U$ de $\mathbb{R}^m$ est dite **convexe** si pour tous $x, y \in U$ et tout $t \in [0, 1]$ :
+$$(1 - t)x + ty \in U$$
+
+Autrement dit, le segment $[x, y]$ est entièrement contenu dans $U$.
+:::
+
+::: {.example}
+Les boules ouvertes et fermées sont convexes. Les hyperplans ne sont pas convexes (ce sont des variétés affines).
+:::
+
+## Connexité par arcs
+
+::: {.definition title="(Connexe par arcs)"}
+Une partie $U$ de $\mathbb{R}^m$ est dite **connexe par arcs** si pour tous $x, y \in U$, il existe une application continue $\gamma : [0, 1] \to U$ telle que $\gamma(0) = x$ et $\gamma(1) = y$.
+:::
+
+::: {.proposition}
+Tout ouvert convexe est connexe par arcs.
+:::
+
+# Limite et continuité
+
+## Limite
+
+::: {.definition title="(Limite d'une fonction de plusieurs variables)"}
+Soit $f : U \subset \mathbb{R}^m \to \mathbb{R}$ une fonction et $a \in U$. On dit que $f$ admet pour limite $l \in \mathbb{R}$ en $a$ si :
+$$\forall \varepsilon > 0, \quad \exists \delta > 0, \quad (x \in U \text{ et } \|x - a\| < \delta) \implies |f(x) - l| < \varepsilon$$
+
+On note $\lim_{x \to a} f(x) = l$.
+:::
+
+## Continuité
+
+::: {.definition title="(Continuité)"}
+Soit $f : U \subset \mathbb{R}^m \to \mathbb{R}$ une fonction. On dit que $f$ est **continue en** $a \in U$ si :
+$$\lim_{x \to a} f(x) = f(a)$$
+
+$f$ est **continue sur** $U$ si elle est continue en tout point de $U$.
+:::
+
+::: {.proposition title="(Opérations sur les fonctions continues)"}
+Soient $f, g : U \to \mathbb{R}$ deux fonctions continues en $a \in U$.
+
+1. $f + g$, $f - g$, $\lambda f$ sont continues en $a$.
+2. $fg$ est continue en $a$.
+3. Si $g(a) \neq 0$, $\frac{f}{g}$ est continue en $a$.
+:::
+
+::: {.proposition title="(Composition)"}
+Si $f : U \to \mathbb{R}$ est continue en $a$ et $\varphi : \mathbb{R} \to \mathbb{R}$ est continue en $f(a)$, alors $\varphi \circ f$ est continue en $a$.
+:::
+
+## Continuité des applications partielles
+
+::: {.proposition title="(Condition nécessaire)"}
+Si $f : U \subset \mathbb{R}^m \to \mathbb{R}$ est continue en $a$, alors toutes les applications partielles $f_i : t \mapsto f(a_1, \ldots, a_{i-1}, t, a_{i+1}, \ldots, a_m)$ sont continues en $a_i$.
+
+**Attention** : La réciproque est fausse ! Une fonction peut avoir toutes ses applications partielles continues sans être continue.
+:::
+
+# Dérivées partielles
+
+## Définition
+
+::: {.definition title="(Application partielle)"}
+Soit $f : U \subset \mathbb{R}^m \to \mathbb{R}$ et $a = (a_1, \ldots, a_m) \in U$. Pour $i \in \{1, \ldots, m\}$, on appelle **$i$-ème application partielle** de $f$ en $a$ la fonction :
+$$f_i : t \mapsto f(a_1, \ldots, a_{i-1}, t, a_{i+1}, \ldots, a_m)$$
+définie au voisinage de $a_i$.
+:::
+
+::: {.definition title="(Dérivée partielle)"}
+On dit que $f$ admet une **dérivée partielle selon $x_i$** en $a$ si l'application partielle $f_i$ est dérivable en $a_i$. On note :
+$$\frac{\partial f}{\partial x_i}(a) = f_i'(a_i) = \lim_{t \to 0} \frac{f(a + te_i) - f(a)}{t}$$
+:::
+
+::: {.remarque title="(Règle de calcul)"}
+Pour calculer $\frac{\partial f}{\partial x_i}(x, y)$, on « gèle » la variable $y$ (considérée comme constante) et on dérive l'expression par rapport à $x$. De même, pour calculer $\frac{\partial f}{\partial y}(x, y)$, on fixe $x$ et on dérive l'expression par rapport à $y$.
+:::
+
+::: {.example}
+Pour $f(x, y) = x^2 \cos(y)$ :
+$$\frac{\partial f}{\partial x}(x, y) = 2x \cos(y), \quad \frac{\partial f}{\partial y}(x, y) = -x^2 \sin(y)$$
+:::
+
+## Dérivée selon un vecteur
+
+::: {.definition title="(Dérivée selon un vecteur)"}
+Soit $f : U \to \mathbb{R}$ et $a \in U$. Soit $h = (h_1, \ldots, h_m) \in \mathbb{R}^m \setminus \{0\}$. On dit que $f$ admet une **dérivée en $a$ selon le vecteur $h$** si la fonction :
+$$\varphi(t) = f(a + th)$$
+est dérivable en $t = 0$. On note :
+$$D_h f(a) = \varphi'(0) = \lim_{t \to 0} \frac{f(a + th) - f(a)}{t}$$
+:::
+
+::: {.proposition title="(Dérivée selon tout vecteur pour une fonction $\mathcal{C}^1$)"}
+Si $f : U \to \mathbb{R}$ est de classe $\mathcal{C}^1$ sur l'ouvert $U$, alors pour tout point $a \in U$ et tout vecteur non nul $h = (h_1, \ldots, h_m) \in \mathbb{R}^m$, $f$ admet une dérivée selon le vecteur $h$ au point $a$ et :
+$$D_h f(a) = \sum_{k=1}^m h_k \frac{\partial f}{\partial x_k}(a)$$
+:::
+
+::: {.remarque}
+L'existence des dérivées partielles n'implique pas la continuité. Par exemple, la fonction :
+$$f(x, y) = \begin{cases} \frac{x^3 - y^3}{x^2 + y^2} & \text{si } (x, y) \neq (0, 0) \\ 0 & \text{si } (x, y) = (0, 0) \end{cases}$$
+admet des dérivées partielles en $(0,0)$ mais n'est pas continue en $(0,0)$.
+:::
+
+# Applications de classe $\mathcal{C}^1$ et $\mathcal{C}^2$
+
+## Définition
+
+::: {.definition title="(Fonction de classe $\mathcal{C}^1$)"}
+Soit $f : U \subset \mathbb{R}^m \to \mathbb{R}$ avec $U$ ouvert. On dit que $f$ est de **classe $\mathcal{C}^1$** sur $U$ si :
+
+1. Pour tout point $a \in U$, $f$ possède des dérivées partielles $\frac{\partial f}{\partial x_i}(a)$ pour tout $i \in \{1, \ldots, m\}$.
+2. Chacune des $m$ fonctions $\frac{\partial f}{\partial x_i} : U \to \mathbb{R}$ est continue sur $U$.
+
+On note $\mathcal{C}^1(U, \mathbb{R})$ l'ensemble des fonctions de classe $\mathcal{C}^1$ sur $U$.
+:::
+
+::: {.definition title="(Fonction de classe $\mathcal{C}^2$)"}
+$f : U \to \mathbb{R}$ est de **classe $\mathcal{C}^2$** si $f$ et ses $m$ dérivées partielles $\frac{\partial f}{\partial x_i}$ sont de classe $\mathcal{C}^1$. Autrement dit, les $m^2$ dérivées partielles d'ordre 2 existent et sont continues sur $U$.
+:::
+
+## Différentiabilité
+
+::: {.definition title="(Différentielle)"}
+On dit que $f : U \to \mathbb{R}$ est **différentiable en** $a \in U$ s'il existe une application linéaire $L : \mathbb{R}^m \to \mathbb{R}$ et une fonction $\varepsilon : \mathbb{R}^m \to \mathbb{R}$ avec $\varepsilon(h) \to 0$ quand $h \to 0$ tels que :
+$$f(a + h) = f(a) + L(h) + \|h\| \varepsilon(h)$$
+
+L'application linéaire $L$, si elle existe, est unique. On l'appelle la **différentielle** de $f$ en $a$ et on la note $df(a)$.
+:::
+
+::: {.proposition title="(Différentiabilité implique continuité)"}
+Si $f$ est différentiable en $a$, alors $f$ est continue en $a$.
+:::
+
+::: {.proposition title="(Différentiabilité et dérivées partielles)"}
+Si $f$ est différentiable en $a$, alors $f$ possède des dérivées partielles en $a$ selon toutes les variables et :
+$$df(a)(h) = \sum_{i=1}^m h_i \frac{\partial f}{\partial x_i}(a)$$
+:::
+
+::: {.remarque}
+La réciproque est fausse : l'existence des dérivées partielles n'implique pas la différentiabilité.
+:::
+
+## Théorème de Schwarz
+
+::: {.theorem title="(Théorème de Schwarz)"}
+Soit $f : U \to \mathbb{R}$ une fonction de classe $\mathcal{C}^2$ sur un ouvert $U$ de $\mathbb{R}^m$. Alors pour tout $(i, j) \in \{1, \ldots, m\}^2$ :
+$$\frac{\partial^2 f}{\partial x_i \partial x_j} = \frac{\partial^2 f}{\partial x_j \partial x_i}$$
+
+Autrement dit, les dérivées partielles d'ordre 2 commutent.
+:::
+
+# Gradient
+
+## Définition
+
+::: {.definition title="(Gradient)"}
+Soit $f : U \subset \mathbb{R}^m \to \mathbb{R}$ une fonction différentiable en $a$. Le **gradient** de $f$ en $a$ est le vecteur :
+$$\nabla f(a) = \left(\frac{\partial f}{\partial x_1}(a), \frac{\partial f}{\partial x_2}(a), \ldots, \frac{\partial f}{\partial x_m}(a)\right)$$
+:::
+
+::: {.proposition title="(Lien entre gradient et différentielle)"}
+Si $f$ est différentiable en $a$, alors pour tout $h \in \mathbb{R}^m$ :
+$$df(a)(h) = \langle \nabla f(a), h \rangle$$
+
+où $\langle \cdot, \cdot \rangle$ désigne le produit scalaire euclidien sur $\mathbb{R}^m$.
+:::
+
+::: {.proposition title="(Dérivée selon un vecteur et gradient)"}
+Si $f$ est de classe $\mathcal{C}^1$ sur $U$, alors pour tout vecteur non nul $h \in \mathbb{R}^m$ :
+$$D_h f(a) = \langle \nabla f(a), h \rangle$$
+:::
+
+## Interprétation géométrique
+
+::: {.proposition title="(Gradient et lignes de niveau)"}
+Le gradient $\nabla f(a)$ est orthogonal aux lignes de niveau de $f$ passant par $a$. Plus précisément, si $\gamma$ est une courbe de niveau de $f$ passant par $a$, alors :
+$$\langle \nabla f(a), \gamma'(0) \rangle = 0$$
+:::
+
+# Règle de la chaîne
+
+## Composition de fonctions
+
+::: {.theorem title="(Règle de la chaîne)"}
+Soient $f : U \subset \mathbb{R}^m \to \mathbb{R}$ de classe $\mathcal{C}^1$ et $\gamma : I \to U$ de classe $\mathcal{C}^1$, où $I$ est un intervalle de $\mathbb{R}$. Alors $f \circ \gamma : I \to \mathbb{R}$ est de classe $\mathcal{C}^1$ et :
+$$(f \circ \gamma)'(t) = df(\gamma(t))(\gamma'(t)) = \sum_{i=1}^m \frac{\partial f}{\partial x_i}(\gamma(t)) \cdot \gamma_i'(t) = \langle \nabla f(\gamma(t)), \gamma'(t) \rangle$$
+:::
+
+## Composition par une application de plusieurs variables
+
+::: {.theorem title="(Règle de la chaîne généralisée)"}
+Soient $f : U \subset \mathbb{R}^m \to \mathbb{R}$ de classe $\mathcal{C}^1$, $\varphi : V \subset \mathbb{R}^p \to U$ de classe $\mathcal{C}^1$, où $U$ et $V$ sont des ouverts. Alors $g = f \circ \varphi : V \to \mathbb{R}$ est de classe $\mathcal{C}^1$ et pour tout $j \in \{1, \ldots, p\}$ :
+$$\frac{\partial g}{\partial u_j}(u) = \sum_{i=1}^m \frac{\partial f}{\partial x_i}(\varphi(u)) \cdot \frac{\partial \varphi_i}{\partial u_j}(u)$$
+:::
+
+::: {.example title="(Cas particulier : $m = 1$)"}
+Si $f : I \to \Omega' \subset \mathbb{R}^m$ est de classe $\mathcal{C}^1$ sur un intervalle $I$ et $g : \Omega' \to \mathbb{R}$ est de classe $\mathcal{C}^1$, alors $h = g \circ f$ est de classe $\mathcal{C}^1$ sur $I$ et :
+$$h'(t) = \sum_{i=1}^m \frac{\partial g}{\partial x_i}(f(t)) \cdot f_i'(t)$$
+:::
+
+## Changement de variables classiques
+
+::: {.example title="(Changement de variable linéaire)"}
+Soit $\varphi : \mathbb{R}^2 \to \mathbb{R}^2$ définie par $\varphi(u, v) = (au + bv, cu + dv)$ avec $ad - bc \neq 0$. Alors $\varphi$ est un isomorphisme de classe $\mathcal{C}^\infty$.
+
+Si $f$ est de classe $\mathcal{C}^1$ et $g(u, v) = f(au + bv, cu + dv)$, alors :
+$$\frac{\partial g}{\partial u}(u, v) = a \frac{\partial f}{\partial x}(au + bv, cu + dv) + c \frac{\partial f}{\partial y}(au + bv, cu + dv)$$
+$$\frac{\partial g}{\partial v}(u, v) = b \frac{\partial f}{\partial x}(au + bv, cu + dv) + d \frac{\partial f}{\partial y}(au + bv, cu + dv)$$
+:::
+
+::: {.example title="(Coordonnées polaires)"}
+Soit $\varphi : \mathbb{R}^+ \times [0, 2\pi[ \to \mathbb{R}^2$ définie par $\varphi(r, \theta) = (r\cos\theta, r\sin\theta)$. Si $f$ est de classe $\mathcal{C}^1$ et $g(r, \theta) = f(r\cos\theta, r\sin\theta)$, alors :
+$$\frac{\partial g}{\partial r}(r, \theta) = \cos\theta \frac{\partial f}{\partial x}(r\cos\theta, r\sin\theta) + \sin\theta \frac{\partial f}{\partial y}(r\cos\theta, r\sin\theta)$$
+$$\frac{\partial g}{\partial \theta}(r, \theta) = -r\sin\theta \frac{\partial f}{\partial x}(r\cos\theta, r\sin\theta) + r\cos\theta \frac{\partial f}{\partial y}(r\cos\theta, r\sin\theta)$$
+:::
+
+# Équations aux dérivées partielles
+
+## Exemples du premier ordre
+
+::: {.example title="(Équation $\frac{\partial f}{\partial x} = 0$)"}
+Soit $f : \mathbb{R}^2 \to \mathbb{R}$ de classe $\mathcal{C}^1$. Alors :
+$$\frac{\partial f}{\partial x} = 0 \iff \exists h : \mathbb{R} \to \mathbb{R} \text{ de classe } \mathcal{C}^1 \text{ telle que } \forall (x, y) \in \mathbb{R}^2, \; f(x, y) = h(y)$$
+:::
+
+::: {.example title="(Équation de transport)"}
+Résoudre l'équation $\frac{\partial f}{\partial x} + 2\frac{\partial f}{\partial y} = 0$.
+
+En posant le changement de variables $u = x - y/2$, $v = y$, on obtient $\frac{\partial g}{\partial v} = 0$, donc $g(u, v) = H(u)$. En revenant aux variables initiales :
+$$f(x, y) = H(x - y/2)$$
+:::
+
+::: {.example title="(Équation en coordonnées polaires)"}
+Résoudre l'équation $x\frac{\partial f}{\partial x} + y\frac{\partial f}{\partial y} = 0$.
+
+En passant en coordonnées polaires $x = r\cos\theta$, $y = r\sin\theta$, on obtient :
+$$r\frac{\partial g}{\partial r} = 0 \implies \frac{\partial g}{\partial r} = 0 \implies g(r, \theta) = H(\theta)$$
+En revenant aux variables initiales :
+$$f(x, y) = H\left(\arctan\frac{y}{x}\right)$$
+:::
+
+## Exemple du second ordre
+
+::: {.example title="(Équation des ondes)"}
+Résoudre l'équation des ondes $\frac{\partial^2 f}{\partial x^2} - \frac{\partial^2 f}{\partial y^2} = 0$.
+
+En posant le changement de variables $u = x + y$, $v = x - y$, on obtient :
+$$\frac{\partial^2 g}{\partial u \partial v} = 0$$
+
+Les solutions sont de la forme $g(u, v) = H(u) + K(v)$, d'où :
+$$f(x, y) = H(x + y) + K(x - y)$$
+où $H$ et $K$ sont des fonctions de classe $\mathcal{C}^2$ d'une variable.
+:::
+
+# Extremums d'une fonction de deux variables
+
+## Extremum local
+
+::: {.definition title="(Extremum local)"}
+Soit $f : U \subset \mathbb{R}^2 \to \mathbb{R}$ et $a \in U$. On dit que $f$ admet un **maximum local** (resp. **minimum local**) en $a$ s'il existe un voisinage $V$ de $a$ dans $U$ tel que :
+$$\forall x \in V, \quad f(x) \leq f(a) \quad (\text{resp. } f(x) \geq f(a))$$
+:::
+
+## Théorème d'ordre 1
+
+::: {.theorem title="(Condition nécessaire d'ordre 1)"}
+Soit $f : U \subset \mathbb{R}^2 \to \mathbb{R}$ une fonction de classe $\mathcal{C}^1$ sur l'ouvert $U$. Si $f$ admet un extremum local en $a \in U$, alors :
+$$\nabla f(a) = 0 \quad \text{c'est-à-dire} \quad \frac{\partial f}{\partial x}(a) = 0 \text{ et } \frac{\partial f}{\partial y}(a) = 0$$
+:::
+
+::: {.definition title="(Point critique)"}
+On dit que $a \in U$ est un **point critique** de $f$ si $\nabla f(a) = 0$.
+:::
+
+## Étude au second ordre
+
+::: {.proposition title="(Condition suffisante d'ordre 2)"}
+Soit $f : U \subset \mathbb{R}^2 \to \mathbb{R}$ une fonction de classe $\mathcal{C}^2$ sur l'ouvert $U$. Soit $a \in U$ un point critique de $f$. On note :
+$$r = \frac{\partial^2 f}{\partial x^2}(a), \quad s = \frac{\partial^2 f}{\partial x \partial y}(a), \quad t = \frac{\partial^2 f}{\partial y^2}(a)$$
+
+1. Si $rt - s^2 > 0$ et $r > 0$ (donc $t > 0$), alors $f$ admet un **minimum local** en $a$.
+2. Si $rt - s^2 > 0$ et $r < 0$ (donc $t < 0$), alors $f$ admet un **maximum local** en $a$.
+3. Si $rt - s^2 < 0$, alors $a$ est un **point selle** (ni maximum ni minimum local).
+4. Si $rt - s^2 = 0$, on ne peut pas conclure.
+:::
+
+::: {.remarque title="(Matrice hessienne)"}
+La condition $rt - s^2$ est le déterminant de la **matrice hessienne** de $f$ en $a$ :
+$$H_f(a) = \begin{pmatrix} r & s \\ s & t \end{pmatrix}$$
+
+Le théorème spectral s'applique à cette matrice symétrique réelle : si les deux valeurs propres sont strictement positives, $f$ admet un minimum local ; si elles sont strictement négatives, $f$ admet un maximum local ; si elles sont de signes contraires, $a$ est un point selle.
+:::
+
+## Méthode d'étude des extremums globaux
+
+::: {.proposition title="(Méthode d'étude)"}
+Pour étudier les extremums globaux d'une fonction $f$ sur un domaine $K$ :
+
+1. **Étudier $f$ sur l'intérieur de $K$** : déterminer les points critiques de $f$ sur $\mathring{K}$ et leur nature (maximum, minimum local, ou point selle).
+2. **Étudier $f$ sur le bord de $K$** : restreindre $f$ au bord de $K$ et étudier les extremums de ces restrictions.
+3. **Comparer les valeurs** : comparer les valeurs de $f$ aux points critiques intérieurs et sur le bord.
+:::
+
+::: {.example}
+On considère le domaine $\Delta = \{(x, y) \in \mathbb{R}^2 \mid -1 \leq x \leq y \leq 1\}$ et la fonction $f$ définie sur $\Delta$ par $f(x, y) = (y - x)^3 + 6xy$. Déterminer son maximum et son minimum global.
+
+**Étape 1** : La fonction $f$ est de classe $\mathcal{C}^1$ sur l'intérieur $\mathring{\Delta} = \{(x, y) \in \mathbb{R}^2 \mid -1 < x < y < 1\}$ et on calcule :
+$$\frac{\partial f}{\partial x}(x, y) = 6y - 3(y - x)^2, \quad \frac{\partial f}{\partial y}(x, y) = 6x + 3(y - x)^2$$
+
+On trouve les points critiques intérieurs $(x, y)$ qui doivent vérifier $(y-x)^2 = 2y = -2x$, d'où $y = -x$ puis $y = -x = 1/2$. On calcule $f(-1/2, 1/2) = -1/2$.
+
+**Étape 2** : On étudie la restriction de $f$ sur les trois segments qui forment le bord du domaine.
+
+**Étape 3** : On compare les valeurs et on conclut.
+:::
+
+# Applications géométriques
+
+## Tangente à une courbe
+
+::: {.definition title="(Vecteur tangent)"}
+Soit $\gamma : I \to \mathbb{R}^2$ un arc paramétré de classe $\mathcal{C}^1$ et $a = \gamma(t_0)$. Le vecteur $\gamma'(t_0)$ est appelé **vecteur tangent** à la courbe $\gamma$ au point $a$.
+
+Si $\gamma'(t_0) \neq 0$, la droite passant par $a$ et dirigée par $\gamma'(t_0)$ est la **tangente** à la courbe au point $a$.
+:::
+
+## Plan tangent à une surface
+
+::: {.definition title="(Plan tangent)"}
+Soient $f : U \subset \mathbb{R}^2 \to \mathbb{R}$ de classe $\mathcal{C}^1$ et $\Sigma$ la surface d'équation $z = f(x, y)$. Le **plan tangent** à $\Sigma$ en le point $(a, b, c) = (a, b, f(a, b))$ est le plan d'équation :
+$$z - c = \frac{\partial f}{\partial x}(a, b)(x - a) + \frac{\partial f}{\partial y}(a, b)(y - b)$$
+:::
+
+::: {.definition title="(Plan tangent à une surface de niveau)"}
+Soient $f : U \subset \mathbb{R}^3 \to \mathbb{R}$ de classe $\mathcal{C}^1$ et $\Sigma$ la surface d'équation $f(M) = k$ (surface de niveau). Le **plan tangent** à $\Sigma$ en le point régulier $M_0 \in \Sigma$ est le plan passant par $M_0$ et orthogonal à $\nabla f(M_0)$.
+
+Une équation du plan tangent à $\Sigma$ en $M_0$ est :
+$$\langle \nabla f(M_0), M \rangle = \langle \nabla f(M_0), M_0 \rangle$$
+:::
+
+## Vecteurs tangents au graphe d'une fonction
+
+::: {.proposition}
+Soit $f : U \subset \mathbb{R}^2 \to \mathbb{R}$ différentiable et $X$ le graphe de $f$, c'est-à-dire la partie de $\mathbb{R}^3$ définie par :
+$$X = \{(x, y, z) \mid (x, y) \in U \text{ et } z = f(x, y)\}$$
+
+Les vecteurs tangents à $X$ en $(a, b, c) \in X$ constituent le plan d'équation :
+$$\frac{\partial f}{\partial x}(a, b) \cdot x + \frac{\partial f}{\partial y}(a, b) \cdot y - z = 0$$
+:::
+
+# Exercices
+
+::: {.exercise}
+Soit $f(x, y) = x^2 y + e^{xy}$. Calculer $\frac{\partial f}{\partial x}$, $\frac{\partial f}{\partial y}$ et $\nabla f$.
+:::
+
+::: {.exercise}
+Soit $f(x, y) = \sqrt{x^2 + y^2}$. Montrer que $f$ n'est pas différentiable en $(0,0)$.
+:::
+
+::: {.exercise}
+Soit $f(x, y, z) = x^2 + y^2 - z^2$. Déterminer les points critiques de $f$ et leur nature.
+:::
+
+::: {.exercise}
+Résoudre l'équation aux dérivées partielles :
+$$\frac{\partial f}{\partial x} + 2\frac{\partial f}{\partial y} = 0$$
+en utilisant un changement de variable linéaire.
+:::
+
+::: {.exercise}
+Soit $f(x, y) = x^2 y + \sin(xy)$. Calculer $\frac{\partial^2 f}{\partial x \partial y}$ et $\frac{\partial^2 f}{\partial y \partial x}$. Vérifier le théorème de Schwarz.
+:::
+
+::: {.exercise title="(Extremums)"}
+Soit $f(x, y) = x^2 + y^2 - 2x - 4y + 5$.
+
+1. Déterminer les points critiques de $f$.
+2. Déterminer la nature de chaque point critique.
+3. $f$ admet-elle un extremum global ? Si oui, lequel ?
+:::
+
+::: {.exercise title="(Plan tangent)"}
+Soit $f(x, y) = x^2 + y^2$. Déterminer l'équation du plan tangent au graphe de $f$ au point $(1, 1, 2)$.
+:::
+
+::: {.exercise title="(Équation des ondes)"}
+Résoudre l'équation des ondes $\frac{\partial^2 f}{\partial x^2} - \frac{\partial^2 f}{\partial y^2} = 0$ en utilisant le changement de variable $u = x + y$, $v = x - y$.
+:::
+
+::: {.exercise title="(Optimisation sous contrainte)"}
+Soit $f(x, y) = xy$ et la contrainte $g(x, y) = x^2 + y^2 - 1 = 0$. Déterminer les extremums de $f$ sur le cercle unité.
+:::
+
+# Document en PDF {-}
+[Chapitre 12 : Fonctions de plusieurs variables](PDF/tsi2-chap12.pdf)
+
+## Navigation {-}
+::: {.chap-nav}
+[Chapitre 11 : Équations différentielles linéaires](tsi2-chap11.qmd){.prev}
+[Menu TSI](tsi2.qmd){.home}
+[Chapitre 13 : Variables aléatoires à densité](tsi2-chap13.qmd){.next}
+:::

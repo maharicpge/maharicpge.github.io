@@ -1,0 +1,361 @@
+---
+title: "Séries de Fourier"
+subtitle: "Chapitre 10"
+author: "Saîd MAHARI"
+date: last-modified
+date-format: "D MMMM YYYY"
+sidebar:
+  style: docked
+  contents:
+    - href: cours/index.qmd
+      text: "← Tous les cours"
+    - section: "TSI — 2e année"
+      contents:
+        - cours/tsi2-chap09.qmd
+        - cours/tsi2-chap10.qmd
+        # - cours/tsi2-chap11.qmd
+lang: fr
+format:
+  html:
+    theme: cosmo
+    toc: true
+    number-sections: true
+    html-math-method: katex
+    css: styles.css
+filters:
+  - custom-numbered-blocks.lua
+---
+
+**TSI (2e année) — Chapitre 10.** Fonctions définies par morceaux, coefficients et séries de Fourier, théorème de Parseval, théorème de Dirichlet, interprétations en sciences physiques et industrielles.
+
+Ce chapitre a été réalisé conformément au programme marocain de mathématiques de la filière TSI.
+
+Dans tout ce chapitre, $T > 0$ désigne un réel fixé et $\omega = \frac{2\pi}{T}$ est la **pulsation fondamentale**. Les séries de Fourier sont des séries de fonctions périodiques. L'objet est de décomposer un signal périodique en somme de sinus et cosinus de fréquences égales à, et multiples de, la fréquence du signal de base.
+
+# Espace vectoriel $\mathcal{C}_T(\mathbb{R})$
+
+## Espace vectoriel des fonctions continues $T$-périodiques
+
+::: {.theorem title="($\mathcal{C}_T(\mathbb{R})$ est un espace vectoriel)"}
+$\mathcal{C}_T(\mathbb{R})$, l'ensemble des applications continues, $T$-périodiques, $\mathbb{R} \to \mathbb{R}$, est un espace vectoriel réel.
+:::
+
+::: {.proof}
+C'est clairement un sous-espace vectoriel de $\mathcal{C}^0(\mathbb{R}, \mathbb{R})$ puisque :
+
+- $\mathcal{C}_T(\mathbb{R})$ est non vide,
+- une combinaison linéaire d'applications $T$-périodiques est $T$-périodique.
+:::
+
+## Norme et produit scalaire sur $\mathcal{C}_T(\mathbb{R})$
+
+::: {.definition title="(Produit scalaire sur $\mathcal{C}_T(\mathbb{R})$)"}
+Pour $f, g \in \mathcal{C}_T(\mathbb{R})$, on définit :
+$$\langle f, g \rangle = \frac{1}{T} \int_{-T/2}^{T/2} f(t) g(t)\, dt = \frac{1}{T} \int_\alpha^{\alpha+T} f(t) g(t)\, dt$$
+pour tout $\alpha \in \mathbb{R}$.
+:::
+
+::: {.proposition title="(Propriétés du produit scalaire)"}
+L'application $\langle \cdot, \cdot \rangle$ est bilinéaire symétrique, définie positive. C'est donc un **produit scalaire** sur $\mathcal{C}_T(\mathbb{R})$.
+:::
+
+::: {.definition title="(Norme associée)"}
+La norme associée au produit scalaire est :
+$$\|f\| = \sqrt{\langle f, f \rangle} = \sqrt{\frac{1}{T} \int_{-T/2}^{T/2} f^2(t)\, dt}$$
+:::
+
+## Famille orthogonale
+
+::: {.theorem title="(Famille orthogonale)"}
+La famille :
+$$\{(t \mapsto \cos(n\omega t))_{n \in \mathbb{N}}, \; (t \mapsto \sin(n\omega t))_{n \in \mathbb{N}^*}\}$$
+est orthogonale pour ce produit scalaire.
+:::
+
+::: {.proof}
+Il faut vérifier que ces applications sont 2 à 2 orthogonales.
+
+1. $\frac{1}{T} \int_0^T \cos(n\omega t) \sin(m\omega t)\, dt = 0$ pour tous $n, m$ (produit d'une fonction paire par une fonction impaire).
+
+2. $\frac{1}{T} \int_0^T \cos(n\omega t) \cos(m\omega t)\, dt = 0$ pour $n \neq m$.
+
+3. $\frac{1}{T} \int_0^T \sin(n\omega t) \sin(m\omega t)\, dt = 0$ pour $n \neq m$.
+
+4. $\frac{1}{T} \int_0^T \cos^2(n\omega t)\, dt = \frac{1}{2}$ pour $n \geq 1$.
+
+5. $\frac{1}{T} \int_0^T \sin^2(n\omega t)\, dt = \frac{1}{2}$ pour $n \geq 1$.
+
+6. $\frac{1}{T} \int_0^T 1 \cdot \cos(n\omega t)\, dt = 0$ et $\frac{1}{T} \int_0^T 1 \cdot \sin(n\omega t)\, dt = 0$ pour $n \geq 1$.
+:::
+
+::: {.remarque title="(Normes des vecteurs de base)"}
+On remarque que :
+$$\|1\| = 1, \quad \|\cos(n\omega t)\| = \|\sin(n\omega t)\| = \frac{1}{\sqrt{2}} \quad \text{pour } n \geq 1$$
+
+Les cosinus et sinus ne sont donc pas de norme 1 mais de norme $\frac{1}{\sqrt{2}}$.
+:::
+
+## Projection orthogonale de $f$
+
+::: {.proposition title="(Projection orthogonale)"}
+Soit $f \in \mathcal{C}_T(\mathbb{R})$. La projection orthogonale de $f$ sur le sous-espace engendré par $\{1, \cos(k\omega t), \sin(k\omega t), 1 \leq k \leq n\}$ est :
+$$p_n(f)(t) = \langle f, 1 \rangle + \sum_{k=1}^n \langle f, \sqrt{2}\cos(k\omega t) \rangle \sqrt{2}\cos(k\omega t) + \sum_{k=1}^n \langle f, \sqrt{2}\sin(k\omega t) \rangle \sqrt{2}\sin(k\omega t)$$
+:::
+
+## Formule de Parseval
+
+::: {.theorem title="(Formule de Parseval)"}
+Soit $f : \mathbb{R} \to \mathbb{K}$ ($\mathbb{K} = \mathbb{R}$ ou $\mathbb{C}$) une fonction $T$-périodique, continue par morceaux sur $\mathbb{R}$. Alors $\sum a_n^2$ et $\sum b_n^2$ convergent, et on a :
+$$\frac{1}{T} \int_{-T/2}^{T/2} |f(t)|^2\, dt = \frac{1}{T} \int_\alpha^{\alpha+T} |f(t)|^2\, dt = |a_0|^2 + \frac{1}{2} \sum_{n=1}^{+\infty} (|a_n|^2 + |b_n|^2)$$
+
+Si la fonction est réelle :
+$$\frac{1}{T} \int_{-T/2}^{T/2} f^2(t)\, dt = \frac{1}{T} \int_\alpha^{\alpha+T} f^2(t)\, dt = a_0^2 + \frac{1}{2} \sum_{n=1}^{+\infty} (a_n^2 + b_n^2)$$
+:::
+
+::: {.remarque title="(Interprétation de Parseval)"}
+La formule de Parseval est la limite d'une égalité de normes. Les $\frac{1}{2}$ viennent du fait que les cosinus et sinus ne sont pas de norme 1 mais de norme $\frac{1}{\sqrt{2}}$.
+:::
+
+# Coefficients et séries de Fourier
+
+## Coefficients de Fourier
+
+::: {.definition title="(Coefficients de Fourier d'une fonction $T$-périodique)"}
+Soit $f : \mathbb{R} \to \mathbb{K}$ une fonction $T$-périodique, continue par morceaux sur $\mathbb{R}$. On pose, avec $\omega = \frac{2\pi}{T}$ :
+
+$$a_0 = \frac{1}{T} \int_{-T/2}^{T/2} f(t)\, dt$$
+
+$$\forall n \in \mathbb{N}^*, \quad a_n = \frac{2}{T} \int_{-T/2}^{T/2} f(t) \cos(n\omega t)\, dt = \frac{2}{T} \int_\alpha^{\alpha+T} f(t) \cos(n\omega t)\, dt$$
+
+$$\forall n \in \mathbb{N}^*, \quad b_n = \frac{2}{T} \int_{-T/2}^{T/2} f(t) \sin(n\omega t)\, dt = \frac{2}{T} \int_\alpha^{\alpha+T} f(t) \sin(n\omega t)\, dt$$
+
+Ce sont les **coefficients de Fourier** de $f$.
+:::
+
+::: {.remarque}
+Dans les séries de Fourier, assez souvent, on n'a de formule pour $f$ que dans un certain intervalle. On veillera donc à n'utiliser cette formule que sur cet intervalle.
+:::
+
+## Série de Fourier
+
+::: {.definition title="(Série de Fourier d'une fonction $T$-périodique)"}
+Soit $f : \mathbb{R} \to \mathbb{K}$ une fonction $T$-périodique, continue par morceaux sur $\mathbb{R}$. On appelle **série de Fourier** de $f$ la série :
+$$S(f)(t) = a_0 + \sum_{n=1}^{+\infty} (a_n \cos(n\omega t) + b_n \sin(n\omega t))$$
+avec $\omega = \frac{2\pi}{T}$.
+:::
+
+::: {.definition title="(Cas $2\pi$-périodique)"}
+Dans le cas où $f$ est $2\pi$-périodique :
+$$S(f)(t) = a_0 + \sum_{n=1}^{+\infty} (a_n \cos(nt) + b_n \sin(nt))$$
+:::
+
+::: {.proposition title="(Parité et série de Fourier)"}
+
+- Si $f$ est **paire**, alors $b_n = 0$ pour tout $n \geq 1$. Il n'y a pas de terme en sinus.
+- Si $f$ est **impaire**, alors $a_n = 0$ pour tout $n \geq 0$. Il n'y a pas de terme en cosinus.
+:::
+
+::: {.remarque title="(Symétrie glissée)"}
+Si $f(t + T/2) = -f(t)$ (symétrie glissée), alors $a_{2k} = 0$ et $b_{2k} = 0$ pour tout $k$. Seuls les termes d'indice impair subsistent.
+:::
+
+# Convergence d'une série de Fourier : théorèmes de Dirichlet
+
+::: {.remarque}
+Les théorèmes de convergence, délicats à montrer, seront admis. A priori :
+
+- rien n'assure que la série de Fourier converge en tous points ;
+- et, en un point où la série de Fourier converge, rien n'assure que $S(f)(t) = f(t)$.
+:::
+
+## $f$ de classe $\mathcal{C}^1$ par morceaux, $T$-périodique
+
+::: {.theorem title="(Théorème de Dirichlet : cas $\mathcal{C}^1$ par morceaux)"}
+Soit $f$ de classe $\mathcal{C}^1$ par morceaux sur $\mathbb{R}$, $T$-périodique. Alors la série de Fourier de $f$ converge en tous points, et est de somme :
+$$S(f)(t) = \frac{f(t^+) + f(t^-)}{2}$$
+où $f(t^+)$ et $f(t^-)$ sont les limites à droite et à gauche de $f$.
+
+En tous points où $f$ est continue, on a : $S(f)(t) = f(t)$.
+:::
+
+::: {.remarque}
+Il n'y a qu'aux points où $f$ est discontinue qu'il risque d'y avoir $S(f)(t) \neq f(t)$.
+
+On fera donc un graphe de la fonction sur un peu plus d'une période :
+
+- pour repérer les points de discontinuité,
+- voir si la valeur au point est la demi-somme des limites à droite et à gauche,
+- et vérifier de toutes façons le caractère $\mathcal{C}^1$ par morceaux sur $\mathbb{R}$ de $f$.
+:::
+
+## Régularisée de $f$
+
+::: {.definition title="(Régularisée)"}
+Pour une application $f$, $T$-périodique et de classe $\mathcal{C}^1$ par morceaux, l'application :
+$$\tilde{f} : t \mapsto \frac{f(t^+) + f(t^-)}{2}$$
+est appelée la **régularisée** de $f$.
+:::
+
+::: {.theorem title="(Série de Fourier et régularisée)"}
+Si, en un point de discontinuité, on n'a pas $f(t) = \frac{f(t^+) + f(t^-)}{2}$, alors on considère une application $\tilde{f}$ égale à $f$ partout où elle est continue et $\tilde{f}(t) = \frac{f(t^+) + f(t^-)}{2}$ là où $f$ est discontinue.
+
+Comme il n'y a qu'en quelques points que $f$ et $\tilde{f}$ sont différentes, elles ont la même série de Fourier.
+
+Par conséquent, la série de Fourier de $f$ a pour somme $\tilde{f}$.
+:::
+
+## $f$ continue, de classe $\mathcal{C}^1$ par morceaux, $T$-périodique
+
+::: {.theorem title="(Théorème de Dirichlet : cas continu)"}
+Soit $f$ continue et de classe $\mathcal{C}^1$ par morceaux sur $\mathbb{R}$, $T$-périodique. Alors la série de Fourier de $f$ converge en tous points, et :
+$$S(f)(t) = f(t)$$
+:::
+
+## Exemples
+
+::: {.example title="(Fonction continue : triangle)"}
+Soit $f$ paire, $2\pi$-périodique, valant $\frac{\pi}{2} - t$ sur $[0, \pi]$.
+
+Le calcul de la série de Fourier est simple. Les $b_n$ sont nuls (parité), les $a_{2k}$ aussi par symétrie glissée, et les $a_{2k+1}$ valent $\frac{4}{\pi(2k+1)^2}$.
+
+Ainsi la série de Fourier est :
+$$S(f)(x) = \frac{4}{\pi} \sum_{k=0}^{+\infty} \frac{1}{(2k+1)^2} \cos((2k+1)x)$$
+
+On observe que la convergence de la série de Fourier vers la fonction est rapide. Quelques harmoniques suffisent, un grand nombre n'apporte rien de plus.
+:::
+
+::: {.example title="(Fonction discontinue : créneau)"}
+Soit $g$ impaire, $2\pi$-périodique, valant $1$ sur $]0, \pi[$. Elle vaut donc $0$ en $0$ et en $\pi$.
+
+Le calcul de la série de Fourier est simple. Les $a_n$ sont nuls (imparité), les $b_{2k}$ aussi par symétrie glissée, et les $b_{2k+1}$ valent $\frac{4}{\pi(2k+1)}$.
+
+Ainsi la série de Fourier est :
+$$S(g)(x) = \frac{4}{\pi} \sum_{k=0}^{+\infty} \frac{1}{2k+1} \sin((2k+1)x)$$
+
+On observe que la discontinuité entraîne une convergence beaucoup plus lente et qu'il faut un grand nombre d'harmoniques pour « recopier » avec précision le signal.
+:::
+
+# Interprétations en sciences physiques et industrielles
+
+## Décomposition spectrale
+
+::: {.definition title="(Spectre d'un signal)"}
+Le **spectre** d'un signal périodique $f$ de période $T$ est l'ensemble des coefficients $(a_n, b_n)_{n \in \mathbb{N}}$ (ou de manière équivalente, les amplitudes $c_n = \sqrt{a_n^2 + b_n^2}$ et les phases $\varphi_n = \arctan(b_n/a_n)$).
+
+La fréquence fondamentale est $f_0 = \frac{1}{T}$ et les harmoniques sont aux fréquences $nf_0$ pour $n \geq 2$.
+:::
+
+::: {.remarque title="(Interprétation physique)"}
+La décomposition en série de Fourier d'un signal périodique permet de :
+
+1. **Identifier les fréquences présentes** dans le signal (analyse spectrale).
+2. **Filtrer le signal** en éliminant certaines harmoniques (traitement du signal).
+3. **Compresser le signal** en ne gardant que les harmoniques significatives.
+4. **Analyser les vibrations** en mécanique (fréquences de résonance).
+:::
+
+::: {.example title="(Applications industrielles)"}
+
+1. **Électrotechnique** : Analyse des courants et tensions non sinusoïdaux (harmoniques dans les réseaux électriques). Le taux de distorsion harmonique (THD) mesure la qualité d'un signal.
+
+2. **Acoustique** : Décomposition d'un son musical en ses harmoniques. Le timbre d'un instrument est caractérisé par le spectre de ses harmoniques.
+
+3. **Traitement d'images** : La transformée de Fourier discrète (DFT) est utilisée pour la compression d'images (JPEG) et le traitement du signal.
+
+4. **Mécanique vibratoire** : Analyse des vibrations des structures (ponts, bâtiments, machines) pour détecter les fréquences de résonance.
+
+5. **Thermique** : Résolution de l'équation de la chaleur par décomposition en série de Fourier.
+:::
+
+# Sommation de séries numériques
+
+::: {.proposition title="(Sommation à l'aide des séries de Fourier)"}
+Les séries de Fourier permettent de calculer facilement la somme de certaines séries numériques.
+
+On considère $f(t) = a_0 + \sum_{n=1}^{+\infty} (a_n \cos(nt) + b_n \sin(nt))$ d'un côté et $\sum_{n=0}^{+\infty} u_n$ d'un autre (cas de la période $2\pi$).
+
+1. Si les $u_n$ « ressemblent » aux $a_n$ ou aux $b_n$, alors on obtient la somme en prenant une valeur particulière de $t$. Le plus souvent, on essaye $0$, $\pi$, $\frac{\pi}{2}$...
+
+2. Si les $u_n$ « ressemblent » aux $a_n^2$ ou aux $b_n^2$ (avec en plus un module s'ils ne sont pas réels), alors on obtient la somme en utilisant la **formule de Parseval**.
+:::
+
+::: {.example title="(Calcul de $\sum \frac{1}{n^2}$)"}
+Soit $f$ la fonction $2\pi$-périodique définie par $f(t) = t^2$ sur $[-\pi, \pi]$.
+
+Les coefficients de Fourier sont : $a_0 = \frac{\pi^2}{3}$, $a_n = \frac{4(-1)^n}{n^2}$ pour $n \geq 1$, et $b_n = 0$.
+
+En appliquant la formule de Parseval :
+$$\frac{1}{2\pi} \int_{-\pi}^{\pi} t^4\, dt = \frac{\pi^4}{5} = \frac{\pi^4}{9} + \frac{1}{2} \sum_{n=1}^{+\infty} \frac{16}{n^4}$$
+
+On en déduit :
+$$\sum_{n=1}^{+\infty} \frac{1}{n^4} = \frac{\pi^4}{90}$$
+
+En évaluant la série de Fourier en $t = \pi$, on obtient :
+$$\pi^2 = \frac{\pi^2}{3} + \sum_{n=1}^{+\infty} \frac{4(-1)^n}{n^2} \cos(n\pi) = \frac{\pi^2}{3} + 4\sum_{n=1}^{+\infty} \frac{1}{n^2}$$
+
+D'où :
+$$\sum_{n=1}^{+\infty} \frac{1}{n^2} = \frac{\pi^2}{6}$$
+:::
+
+# Exercices
+
+::: {.exercise}
+Soit $f$ la fonction $2\pi$-périodique définie par $f(t) = |t|$ sur $[-\pi, \pi]$.
+
+1. $f$ est-elle paire ou impaire ?
+2. Calculer les coefficients de Fourier de $f$.
+3. Écrire la série de Fourier de $f$.
+4. En déduire la valeur de $\sum_{n=1}^{+\infty} \frac{1}{(2n-1)^2}$.
+:::
+
+::: {.exercise}
+Soit $f$ la fonction $2\pi$-périodique définie par $f(t) = t$ sur $]-\pi, \pi[$.
+
+1. $f$ est-elle paire ou impaire ?
+2. Calculer les coefficients de Fourier de $f$.
+3. Écrire la série de Fourier de $f$.
+4. En déduire la valeur de $\sum_{n=1}^{+\infty} \frac{(-1)^{n+1}}{n}$.
+:::
+
+::: {.exercise}
+Soit $f$ la fonction $2\pi$-périodique définie par $f(t) = 1$ sur $]0, \pi[$ et $f(t) = -1$ sur $]-\pi, 0[$.
+
+1. Montrer que $f$ est impaire.
+2. Calculer les coefficients de Fourier de $f$.
+3. Écrire la série de Fourier de $f$.
+4. En déduire la valeur de $\sum_{n=0}^{+\infty} \frac{(-1)^n}{2n+1}$.
+:::
+
+::: {.exercise title="(Formule de Parseval)"}
+Soit $f$ une fonction $2\pi$-périodique de classe $\mathcal{C}^1$ par morceaux. Montrer que si la série de Fourier de $f$ converge uniformément vers $f$, alors :
+$$\frac{1}{2\pi} \int_{-\pi}^{\pi} |f(t)|^2\, dt = |a_0|^2 + \frac{1}{2} \sum_{n=1}^{+\infty} (|a_n|^2 + |b_n|^2)$$
+:::
+
+::: {.exercise title="(Signal carré)"}
+Un signal carré de période $T$ et d'amplitude $A$ est défini par :
+$$f(t) = \begin{cases} A & \text{si } 0 < t < T/2 \\ -A & \text{si } T/2 < t < T \end{cases}$$
+
+1. Montrer que $f$ est impaire (en choisissant une origine appropriée).
+2. Calculer les coefficients de Fourier de $f$.
+3. Écrire la série de Fourier de $f$.
+4. Interpréter le résultat en termes d'harmoniques.
+:::
+
+::: {.exercise title="(Application à l'équation de la chaleur)"}
+On considère l'équation de la chaleur sur $[0, L]$ :
+$$\frac{\partial u}{\partial t} = k \frac{\partial^2 u}{\partial x^2}$$
+avec les conditions aux limites $u(0, t) = u(L, t) = 0$ et la condition initiale $u(x, 0) = f(x)$.
+
+1. Montrer que les solutions sont de la forme $u(x,t) = \sum_{n=1}^{+\infty} c_n e^{-k(n\pi/L)^2 t} \sin(n\pi x/L)$.
+2. Exprimer les $c_n$ en fonction des coefficients de Fourier de $f$.
+:::
+
+# Document en PDF {-}
+[Chapitre 10 : Séries de Fourier](PDF/tsi2-chap10.pdf)
+
+## Navigation {-}
+::: {.chap-nav}
+[Chapitre 09 : Espaces préhilbertiens réels. Endomorphismes des espaces euclidiens](tsi2-chap09.qmd){.prev}
+[Menu TSI](tsi2.qmd){.home}
+[Chapitre 11 : Équations différentielles linéaires](tsi2-chap11.qmd){.next}
+:::
