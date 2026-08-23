@@ -1,13 +1,14 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr"><head>
 
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.10.18">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Saîd MAHARI">
 
-<title>Intégration sur un intervalle quelconque - Mathématiques en CPGE – Mathématiques en CPGE</title>
+<title>Séries numériques – Mathématiques en CPGE</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -45,7 +46,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-7a8c080b55ea27eb37b467515007f9ee.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-e0d9a45d84245cc5e3b300860d8fa645.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -60,22 +61,66 @@ ul.task-list li input[type="checkbox"] {
   ],
   "show-item-context": false,
   "language": {
-    "search-no-results-text": "No results",
-    "search-matching-documents-text": "matching documents",
-    "search-copy-link-title": "Copy link to search",
-    "search-hide-matches-text": "Hide additional matches",
-    "search-more-match-text": "more match in this document",
-    "search-more-matches-text": "more matches in this document",
-    "search-clear-button-title": "Clear",
+    "search-no-results-text": "Pas de résultats",
+    "search-matching-documents-text": "documents trouvés",
+    "search-copy-link-title": "Copier le lien vers la recherche",
+    "search-hide-matches-text": "Cacher les correspondances additionnelles",
+    "search-more-match-text": "correspondance de plus dans ce document",
+    "search-more-matches-text": "correspondances de plus dans ce document",
+    "search-clear-button-title": "Effacer",
     "search-text-placeholder": "",
-    "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit",
-    "search-label": "Search"
+    "search-detached-cancel-button-title": "Annuler",
+    "search-submit-button-title": "Envoyer",
+    "search-label": "Recherche"
   }
 }</script>
 
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="styles.css">
 </head>
 
 <body class="nav-fixed quarto-light">
@@ -89,8 +134,8 @@ ul.task-list li input[type="checkbox"] {
     <span class="navbar-title">Accueil</span>
     </a>
   </div>
-            <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+            <div id="quarto-search" class="" title="Recherche"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Basculer la navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
@@ -140,10 +185,40 @@ ul.task-list li input[type="checkbox"] {
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
+    <h2 id="toc-title">Sur cette page</h2>
    
   <ul>
-  <li><a href="#document" id="toc-document" class="nav-link active" data-scroll-target="#document">Document</a></li>
+  <li><a href="#définitions-fondamentales" id="toc-définitions-fondamentales" class="nav-link active" data-scroll-target="#définitions-fondamentales"><span class="header-section-number">1</span> Définitions fondamentales</a>
+  <ul class="collapse">
+  <li><a href="#séries-numériques" id="toc-séries-numériques" class="nav-link" data-scroll-target="#séries-numériques"><span class="header-section-number">1.1</span> Séries numériques</a></li>
+  <li><a href="#divergence-grossière" id="toc-divergence-grossière" class="nav-link" data-scroll-target="#divergence-grossière"><span class="header-section-number">1.2</span> Divergence grossière</a></li>
+  <li><a href="#linéarité" id="toc-linéarité" class="nav-link" data-scroll-target="#linéarité"><span class="header-section-number">1.3</span> Linéarité</a></li>
+  </ul></li>
+  <li><a href="#séries-géométriques" id="toc-séries-géométriques" class="nav-link" data-scroll-target="#séries-géométriques"><span class="header-section-number">2</span> Séries géométriques</a></li>
+  <li><a href="#séries-à-termes-positifs" id="toc-séries-à-termes-positifs" class="nav-link" data-scroll-target="#séries-à-termes-positifs"><span class="header-section-number">3</span> Séries à termes positifs</a>
+  <ul class="collapse">
+  <li><a href="#convergence-par-les-sommes-partielles" id="toc-convergence-par-les-sommes-partielles" class="nav-link" data-scroll-target="#convergence-par-les-sommes-partielles"><span class="header-section-number">3.1</span> Convergence par les sommes partielles</a></li>
+  <li><a href="#séries-de-riemann" id="toc-séries-de-riemann" class="nav-link" data-scroll-target="#séries-de-riemann"><span class="header-section-number">3.2</span> Séries de Riemann</a></li>
+  <li><a href="#théorème-de-comparaison" id="toc-théorème-de-comparaison" class="nav-link" data-scroll-target="#théorème-de-comparaison"><span class="header-section-number">3.3</span> Théorème de comparaison</a></li>
+  <li><a href="#comparaison-par-équivalence" id="toc-comparaison-par-équivalence" class="nav-link" data-scroll-target="#comparaison-par-équivalence"><span class="header-section-number">3.4</span> Comparaison par équivalence</a></li>
+  <li><a href="#règle-de-dalembert" id="toc-règle-de-dalembert" class="nav-link" data-scroll-target="#règle-de-dalembert"><span class="header-section-number">3.5</span> Règle de d’Alembert</a></li>
+  </ul></li>
+  <li><a href="#comparaison-sérieintégrale" id="toc-comparaison-sérieintégrale" class="nav-link" data-scroll-target="#comparaison-sérieintégrale"><span class="header-section-number">4</span> Comparaison série/intégrale</a></li>
+  <li><a href="#séries-alternées" id="toc-séries-alternées" class="nav-link" data-scroll-target="#séries-alternées"><span class="header-section-number">5</span> Séries alternées</a>
+  <ul class="collapse">
+  <li><a href="#critère-de-leibniz" id="toc-critère-de-leibniz" class="nav-link" data-scroll-target="#critère-de-leibniz"><span class="header-section-number">5.1</span> Critère de Leibniz</a></li>
+  <li><a href="#contre-exemples" id="toc-contre-exemples" class="nav-link" data-scroll-target="#contre-exemples"><span class="header-section-number">5.2</span> Contre-exemples</a></li>
+  </ul></li>
+  <li><a href="#séries-absolument-convergentes" id="toc-séries-absolument-convergentes" class="nav-link" data-scroll-target="#séries-absolument-convergentes"><span class="header-section-number">6</span> Séries absolument convergentes</a>
+  <ul class="collapse">
+  <li><a href="#définition-et-propriétés" id="toc-définition-et-propriétés" class="nav-link" data-scroll-target="#définition-et-propriétés"><span class="header-section-number">6.1</span> Définition et propriétés</a></li>
+  <li><a href="#produit-de-cauchy" id="toc-produit-de-cauchy" class="nav-link" data-scroll-target="#produit-de-cauchy"><span class="header-section-number">6.2</span> Produit de Cauchy</a></li>
+  </ul></li>
+  <li><a href="#exercices" id="toc-exercices" class="nav-link" data-scroll-target="#exercices"><span class="header-section-number">7</span> Exercices</a></li>
+  <li><a href="#document-en-pdf" id="toc-document-en-pdf" class="nav-link" data-scroll-target="#document-en-pdf">Document en PDF</a>
+  <ul class="collapse">
+  <li><a href="#navigation" id="toc-navigation" class="nav-link" data-scroll-target="#navigation">Navigation</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -152,14 +227,27 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Chapitre 06 : Intégration sur un intervalle quelconque</h1>
+<h1 class="title">Séries numériques</h1>
+<p class="subtitle lead">Chapitre 06</p>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Auteur·rice</div>
+    <div class="quarto-title-meta-contents">
+             <p>Saîd MAHARI </p>
+          </div>
+  </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">Date de publication</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">23 août 2026</p>
+    </div>
+  </div>
   
     
   </div>
@@ -169,12 +257,328 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p><strong>TSI 2e année — Chapitre 06.</strong> Intégrales généralisées, théorèmes de convergence.</p>
-<section id="document" class="level2">
-<h2 class="anchored" data-anchor-id="document">Document</h2>
-<p><em>PDF à venir : déposez le fichier <code>files/tsi2/chap06.pdf</code> puis régénérez la page.</em></p>
+<p><strong>TSI (2e année) — Chapitre 06.</strong> Convergence et divergence, séries géométriques, séries à termes positifs, théorèmes de comparaison, règle de d’Alembert, séries de Riemann, séries alternées (Leibniz), convergence absolue.</p>
+<p>Ce chapitre a été réalisé conformément au programme marocain de mathématiques de la filière TSI.</p>
+<p>Dans tout ce chapitre, <span class="math inline">\mathbb{K}</span> désigne <span class="math inline">\mathbb{R}</span> ou <span class="math inline">\mathbb{C}</span>.</p>
+<section id="définitions-fondamentales" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Définitions fondamentales</h1>
+<section id="séries-numériques" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="séries-numériques"><span class="header-section-number">1.1</span> Séries numériques</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 1.1 — (Série numérique)</strong></p>
+<p>Soit <span class="math inline">(u_n)_{n \geq n_0}</span> une suite d’éléments de <span class="math inline">\mathbb{K}</span>. On appelle <strong>série numérique</strong> de terme général <span class="math inline">u_n</span> la suite <span class="math inline">(S_n)_{n \geq n_0}</span> définie par : <span class="math display">S_n = \sum_{k=n_0}^n u_k</span></p>
+<p>On la note <span class="math inline">\sum u_n</span> ou <span class="math inline">\sum_{n \geq n_0} u_n</span>. <span class="math inline">S_n</span> est appelé la <strong>somme partielle</strong> de rang <span class="math inline">n</span> de la série.</p>
+</div>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 1.2 — (Convergence et divergence)</strong></p>
+<ol type="1">
+<li><p>On dit que la série <span class="math inline">\sum u_n</span> <strong>converge</strong> si la suite <span class="math inline">(S_n)_{n \geq n_0}</span> converge vers une limite finie <span class="math inline">S \in \mathbb{K}</span>. On note alors : <span class="math display">S = \sum_{k=n_0}^{+\infty} u_k = \lim_{n \to +\infty} S_n</span> et <span class="math inline">S</span> est appelée la <strong>somme</strong> de la série.</p></li>
+<li><p>Sinon, on dit que la série <strong>diverge</strong>.</p></li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 1.3 — (Reste d’une série convergente)</strong></p>
+<p>Si la série <span class="math inline">\sum u_n</span> converge et si <span class="math inline">S</span> est sa somme, on note : <span class="math display">R_n = \sum_{k=n+1}^{+\infty} u_k = S - S_n</span> le <strong>reste</strong> de la série <span class="math inline">\sum u_n</span>. On a <span class="math inline">R_n \xrightarrow[n \to +\infty]{} 0</span>.</p>
+</div>
+</section>
+<section id="divergence-grossière" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="divergence-grossière"><span class="header-section-number">1.2</span> Divergence grossière</h2>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 1.1 — (Condition nécessaire de convergence)</strong></p>
+<p>Si la série <span class="math inline">\sum u_n</span> converge, alors : <span class="math display">\lim_{n \to +\infty} u_n = 0</span></p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Preuve</em>. </span>Pour tout <span class="math inline">n \geq 1</span>, on a <span class="math inline">u_n = S_n - S_{n-1}</span>. Si <span class="math inline">(S_n)</span> converge vers <span class="math inline">S</span>, alors <span class="math inline">(S_{n-1})</span> converge aussi vers <span class="math inline">S</span>. Par linéarité de la limite : <span class="math display">\lim_{n \to +\infty} u_n = \lim_{n \to +\infty} (S_n - S_{n-1}) = S - S = 0</span></p>
+</div>
+<div class="remarque" title="(Divergence grossière)">
+<p>La contraposée de ce résultat est souvent utilisée :</p>
+<p><strong>Une série dont le terme général ne tend pas vers <span class="math inline">0</span> ne peut pas converger.</strong></p>
+<p>Par exemple les séries <span class="math inline">\sum_{k \geq 1} \left(1 + \frac{1}{k}\right)</span> et <span class="math inline">\sum_{k \geq 1} k^2</span> sont divergentes.</p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 1.1</strong></p>
+<p>La série <span class="math inline">\sum u_k</span> de terme général : <span class="math display">u_k = \begin{cases} 1 &amp; \text{si } k = 2^\ell \text{ pour un certain } \ell \geq 0 \\ 0 &amp; \text{sinon} \end{cases}</span> diverge. En effet, même si les termes valant <span class="math inline">1</span> sont très rares, il y en a quand même une infinité !</p>
+</div>
+</section>
+<section id="linéarité" class="level2" data-number="1.3">
+<h2 data-number="1.3" class="anchored" data-anchor-id="linéarité"><span class="header-section-number">1.3</span> Linéarité</h2>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 1.2 — (Linéarité)</strong></p>
+<p>Soient <span class="math inline">\sum u_n</span> et <span class="math inline">\sum v_n</span> deux séries convergentes de sommes respectives <span class="math inline">U</span> et <span class="math inline">V</span>. Alors pour tous <span class="math inline">\lambda, \mu \in \mathbb{K}</span>, la série <span class="math inline">\sum (\lambda u_n + \mu v_n)</span> converge et : <span class="math display">\sum_{n=0}^{+\infty} (\lambda u_n + \mu v_n) = \lambda U + \mu V</span></p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 1.2</strong></p>
+<p><span class="math display">\sum_{k=0}^{+\infty} \left(\frac{1}{2^k} + \frac{5}{3^k}\right) = \sum_{k=0}^{+\infty} \frac{1}{2^k} + 5\sum_{k=0}^{+\infty} \frac{1}{3^k} = \frac{1}{1-\frac{1}{2}} + 5 \cdot \frac{1}{1-\frac{1}{3}} = 2 + 5 \cdot \frac{3}{2} = \frac{19}{2}</span></p>
+</div>
+</section>
+</section>
+<section id="séries-géométriques" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> Séries géométriques</h1>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 2.1 — (Série géométrique)</strong></p>
+<p>Soit <span class="math inline">q \in \mathbb{C}</span>. La série géométrique <span class="math inline">\sum_{k \geq 0} q^k</span> est convergente si et seulement si <span class="math inline">|q| &lt; 1</span>. On a alors : <span class="math display">\sum_{k=0}^{+\infty} q^k = 1 + q + q^2 + q^3 + \cdots = \frac{1}{1-q}</span></p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Preuve</em>. </span>Considérons <span class="math inline">S_n = 1 + q + q^2 + \cdots + q^n</span>.</p>
+<ul>
+<li>Si <span class="math inline">q = 1</span> : <span class="math inline">S_n = n + 1 \to +\infty</span>, la série diverge.</li>
+<li>Si <span class="math inline">q \neq 1</span> : <span class="math inline">S_n = \frac{1 - q^{n+1}}{1 - q}</span>.
+<ul>
+<li>Si <span class="math inline">|q| &lt; 1</span> : <span class="math inline">q^{n+1} \to 0</span>, donc <span class="math inline">S_n \to \frac{1}{1-q}</span>.</li>
+<li>Si <span class="math inline">|q| \geq 1</span> : <span class="math inline">q^{n+1}</span> ne tend pas vers <span class="math inline">0</span>, donc la série diverge.</li>
+</ul></li>
+</ul>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 2.1</strong></p>
+<ol type="1">
+<li><span class="math inline">\sum_{k=0}^{+\infty} \left(\frac{1}{3}\right)^k = \frac{1}{1 - \frac{1}{3}} = \frac{3}{2}</span></li>
+<li><span class="math inline">\sum_{n=0}^{+\infty} \frac{1}{3^{n+3}} = \frac{1}{27} \cdot \frac{1}{1 - \frac{1}{3}} = \frac{1}{18}</span></li>
+<li><span class="math inline">\sum_{k=0}^{+\infty} (-1)^k \left(\frac{1}{2}\right)^{2k} = \sum_{k=0}^{+\infty} \left(-\frac{1}{4}\right)^k = \frac{1}{1 + \frac{1}{4}} = \frac{4}{5}</span></li>
+</ol>
+</div>
+</section>
+<section id="séries-à-termes-positifs" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Séries à termes positifs</h1>
+<section id="convergence-par-les-sommes-partielles" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="convergence-par-les-sommes-partielles"><span class="header-section-number">3.1</span> Convergence par les sommes partielles</h2>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 3.1 — (Convergence d’une série à termes positifs)</strong></p>
+<p>Une série <span class="math inline">\sum u_n</span> à termes positifs (c’est-à-dire <span class="math inline">u_n \geq 0</span> pour tout <span class="math inline">n</span>) est convergente si et seulement si la suite <span class="math inline">(S_n)</span> des sommes partielles est majorée.</p>
+</div>
+<div class="remarque">
+<p>Les deux situations convergence/divergence sont possibles : <span class="math inline">\sum_{k \geq 0} q^k</span> converge si <span class="math inline">0 &lt; q &lt; 1</span>, et diverge si <span class="math inline">q \geq 1</span>.</p>
+</div>
+</section>
+<section id="séries-de-riemann" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="séries-de-riemann"><span class="header-section-number">3.2</span> Séries de Riemann</h2>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 3.2 — (Séries de Riemann)</strong></p>
+<p>Soit <span class="math inline">\alpha &gt; 0</span>. La série <span class="math inline">\sum_{k \geq 1} \frac{1}{k^\alpha}</span> converge si et seulement si <span class="math inline">\alpha &gt; 1</span>.</p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 3.1</strong></p>
+<ol type="1">
+<li><span class="math inline">\sum_{k \geq 1} \frac{1}{k^2}</span> converge (car <span class="math inline">\alpha = 2 &gt; 1</span>).</li>
+<li><span class="math inline">\sum_{k \geq 1} \frac{1}{k}</span> diverge (série harmonique, <span class="math inline">\alpha = 1</span>).</li>
+<li><span class="math inline">\sum_{k \geq 1} \frac{1}{\sqrt{k}}</span> diverge (car <span class="math inline">\alpha = \frac{1}{2} &lt; 1</span>).</li>
+</ol>
+</div>
+</section>
+<section id="théorème-de-comparaison" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="théorème-de-comparaison"><span class="header-section-number">3.3</span> Théorème de comparaison</h2>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 3.1 — (Théorème de comparaison)</strong></p>
+<p>Soient <span class="math inline">\sum u_n</span> et <span class="math inline">\sum v_n</span> deux séries à termes positifs ou nuls. On suppose qu’il existe <span class="math inline">n_0 \geq 0</span> tel que, pour tout <span class="math inline">n \geq n_0</span>, <span class="math inline">u_n \leq v_n</span>.</p>
+<ul>
+<li>Si <span class="math inline">\sum v_n</span> converge alors <span class="math inline">\sum u_n</span> converge.</li>
+<li>Si <span class="math inline">\sum u_n</span> diverge alors <span class="math inline">\sum v_n</span> diverge.</li>
+</ul>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Preuve</em>. </span>Comme la convergence ne dépend pas des premiers termes, on peut supposer <span class="math inline">n_0 = 0</span>. Notons <span class="math inline">S_n = u_0 + \cdots + u_n</span> et <span class="math inline">S'_n = v_0 + \cdots + v_n</span>. Les suites <span class="math inline">(S_n)</span> et <span class="math inline">(S'_n)</span> sont croissantes, et <span class="math inline">S_n \leq S'_n</span>. Si <span class="math inline">\sum v_n</span> converge, alors <span class="math inline">(S'_n)</span> converge vers <span class="math inline">S'</span>. La suite <span class="math inline">(S_n)</span> est croissante et majorée par <span class="math inline">S'</span>, donc elle converge. Inversement, si <span class="math inline">\sum u_n</span> diverge, alors <span class="math inline">(S_n) \to +\infty</span>, et comme <span class="math inline">S'_n \geq S_n</span>, <span class="math inline">(S'_n) \to +\infty</span>.</p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 3.2</strong></p>
+<p>La série <span class="math inline">\sum_{n=1}^{+\infty} \frac{1}{n^2 + 1}</span> converge car <span class="math inline">\frac{1}{n^2 + 1} \leq \frac{1}{n^2}</span> et <span class="math inline">\sum \frac{1}{n^2}</span> converge.</p>
+</div>
+</section>
+<section id="comparaison-par-équivalence" class="level2" data-number="3.4">
+<h2 data-number="3.4" class="anchored" data-anchor-id="comparaison-par-équivalence"><span class="header-section-number">3.4</span> Comparaison par équivalence</h2>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 3.2 — (Théorème des équivalents)</strong></p>
+<p>Soient <span class="math inline">\sum u_n</span> et <span class="math inline">\sum v_n</span> deux séries à termes positifs ou nuls. Si <span class="math inline">u_n \sim v_n</span> (c’est-à-dire <span class="math inline">\frac{u_n}{v_n} \to 1</span>), alors les deux séries sont de même nature.</p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 3.3</strong></p>
+<p>La série <span class="math inline">\sum_{k \geq 1} \ln\left(1 + \frac{1}{\sqrt{k^3}}\right)</span> converge car : <span class="math display">\ln\left(1 + \frac{1}{\sqrt{k^3}}\right) \sim \frac{1}{\sqrt{k^3}} = \frac{1}{k^{3/2}}</span> et la série de Riemann <span class="math inline">\sum \frac{1}{k^{3/2}}</span> converge (car <span class="math inline">\frac{3}{2} &gt; 1</span>).</p>
+</div>
+</section>
+<section id="règle-de-dalembert" class="level2" data-number="3.5">
+<h2 data-number="3.5" class="anchored" data-anchor-id="règle-de-dalembert"><span class="header-section-number">3.5</span> Règle de d’Alembert</h2>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 3.3 — (Règle du quotient de d’Alembert)</strong></p>
+<p>Soit <span class="math inline">\sum u_n</span> une série à termes positifs non nuls.</p>
+<ol type="1">
+<li><p>S’il existe une constante <span class="math inline">0 &lt; q &lt; 1</span> et un entier <span class="math inline">n_0</span> tels que, pour tout <span class="math inline">n \geq n_0</span> : <span class="math display">\left|\frac{u_{n+1}}{u_n}\right| \leq q &lt; 1</span> alors la série <span class="math inline">\sum u_n</span> converge (elle est même absolument convergente).</p></li>
+<li><p>S’il existe un entier <span class="math inline">n_0</span> tel que, pour tout <span class="math inline">n \geq n_0</span> : <span class="math display">\left|\frac{u_{n+1}}{u_n}\right| \geq 1</span> alors la série <span class="math inline">\sum u_n</span> diverge.</p></li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 3.3 — (Règle de d’Alembert avec limite)</strong></p>
+<p>Soit <span class="math inline">\sum u_n</span> une série à termes positifs non nuls telle que la suite <span class="math inline">\left(\frac{u_{n+1}}{u_n}\right)</span> admette une limite <span class="math inline">\ell \in [0, +\infty]</span>.</p>
+<ul>
+<li>Si <span class="math inline">\ell &lt; 1</span> : la série converge.</li>
+<li>Si <span class="math inline">\ell &gt; 1</span> : la série diverge.</li>
+<li>Si <span class="math inline">\ell = 1</span> : on ne peut pas conclure.</li>
+</ul>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 3.4</strong></p>
+<p>Pour <span class="math inline">\sum_{n=0}^{+\infty} \frac{x^n}{n!}</span> : <span class="math display">\frac{u_{n+1}}{u_n} = \frac{x^{n+1}}{(n+1)!} \cdot \frac{n!}{x^n} = \frac{x}{n+1} \to 0</span> Donc la série converge pour tout <span class="math inline">x \in \mathbb{R}</span>.</p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 3.5 — (Règle des racines de Cauchy)</strong></p>
+<p>Soit <span class="math inline">\sum u_n</span> une série à termes positifs telle que <span class="math inline">\sqrt[n]{u_n} \to \ell</span>.</p>
+<ul>
+<li>Si <span class="math inline">\ell &lt; 1</span> : la série converge.</li>
+<li>Si <span class="math inline">\ell &gt; 1</span> : la série diverge.</li>
+<li>Si <span class="math inline">\ell = 1</span> : on ne peut pas conclure.</li>
+</ul>
+</div>
+</section>
+</section>
+<section id="comparaison-sérieintégrale" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> Comparaison série/intégrale</h1>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 4.1 — (Théorème de comparaison série/intégrale)</strong></p>
+<p>Soit <span class="math inline">f : [0, +\infty[ \to \mathbb{R}^+</span> une fonction continue, positive et décroissante. Alors : <span class="math display">\int_0^{n+1} f(t)\, dt \leq \sum_{k=0}^n f(k) \leq f(0) + \int_0^n f(t)\, dt</span></p>
+<p>En particulier, la série <span class="math inline">\sum f(k)</span> et l’intégrale <span class="math inline">\int_0^{+\infty} f(t)\, dt</span> sont de même nature.</p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 4.1</strong></p>
+<p>La série harmonique <span class="math inline">\sum_{n=1}^{+\infty} \frac{1}{n}</span> diverge car <span class="math inline">\int_1^{+\infty} \frac{dt}{t} = +\infty</span>.</p>
+<p>La série <span class="math inline">\sum_{n=1}^{+\infty} \frac{1}{n^2}</span> converge car <span class="math inline">\int_1^{+\infty} \frac{dt}{t^2} = 1</span>.</p>
+</div>
+</section>
+<section id="séries-alternées" class="level1" data-number="5">
+<h1 data-number="5"><span class="header-section-number">5</span> Séries alternées</h1>
+<section id="critère-de-leibniz" class="level2" data-number="5.1">
+<h2 data-number="5.1" class="anchored" data-anchor-id="critère-de-leibniz"><span class="header-section-number">5.1</span> Critère de Leibniz</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 5.1 — (Série alternée)</strong></p>
+<p>Soit <span class="math inline">(u_n)_{n \geq 0}</span> une suite qui vérifie <span class="math inline">u_n \geq 0</span>. La série <span class="math inline">\sum_{n \geq 0} (-1)^n u_n</span> s’appelle une <strong>série alternée</strong>.</p>
+</div>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 5.1 — (Critère de Leibniz)</strong></p>
+<p>Soit <span class="math inline">(u_n)_{n \geq 0}</span> une suite qui vérifie :</p>
+<ol type="1">
+<li><span class="math inline">u_n \geq 0</span> pour tout <span class="math inline">n \geq 0</span>,</li>
+<li>La suite <span class="math inline">(u_n)</span> est décroissante,</li>
+<li><span class="math inline">\lim_{n \to +\infty} u_n = 0</span>.</li>
+</ol>
+<p>Alors la série alternée <span class="math inline">\sum_{n=0}^{+\infty} (-1)^n u_n</span> converge.</p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Preuve</em>. </span>Nous allons nous ramener à deux suites adjacentes.</p>
+<ul>
+<li>La suite <span class="math inline">(S_{2n+1})</span> est croissante car <span class="math inline">S_{2n+1} - S_{2n-1} = u_{2n} - u_{2n+1} \geq 0</span>.</li>
+<li>La suite <span class="math inline">(S_{2n})</span> est décroissante car <span class="math inline">S_{2n} - S_{2n-2} = -u_{2n-1} + u_{2n} \leq 0</span>.</li>
+<li><span class="math inline">S_{2n+1} - S_{2n} = -u_{2n+1} \leq 0</span>, donc <span class="math inline">S_{2n+1} \leq S_{2n}</span>.</li>
+<li><span class="math inline">S_{2n+1} - S_{2n} = -u_{2n+1} \to 0</span>.</li>
+</ul>
+<p>En conséquence <span class="math inline">(S_{2n+1})</span> et <span class="math inline">(S_{2n})</span> convergent vers la même limite <span class="math inline">S</span>.</p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 5.1 — (Série harmonique alternée)</strong></p>
+<p>La série <span class="math inline">\sum_{k=0}^{+\infty} \frac{(-1)^k}{k+1} = 1 - \frac{1}{2} + \frac{1}{3} - \frac{1}{4} + \cdots</span> converge par le critère de Leibniz. On admet que sa somme est <span class="math inline">\ln 2</span>.</p>
+</div>
+<div class="custom-numbered-block custom-corollary">
+<p><strong>Corollaire 5.1 — (Encadrement de la somme et majoration du reste)</strong></p>
+<p>Si la série alternée <span class="math inline">\sum_{k=0}^{+\infty} (-1)^k u_k</span> converge vers <span class="math inline">S</span>, alors :</p>
+<ol type="1">
+<li><span class="math inline">S</span> est comprise entre deux sommes partielles consécutives : <span class="math inline">S_{2n} \leq S \leq S_{2n+1}</span>.</li>
+<li>Le reste vérifie : <span class="math inline">|R_n| = |S - S_n| \leq u_{n+1}</span>.</li>
+</ol>
+</div>
+</section>
+<section id="contre-exemples" class="level2" data-number="5.2">
+<h2 data-number="5.2" class="anchored" data-anchor-id="contre-exemples"><span class="header-section-number">5.2</span> Contre-exemples</h2>
+<div class="remarque">
+<p>On ne peut pas laisser tomber la condition de décroissance de la suite <span class="math inline">(u_k)</span> dans le critère de Leibniz. Il n’est pas non plus possible de remplacer <span class="math inline">u_k</span> par un équivalent à l’infini, car la décroissance n’est pas conservée par équivalence.</p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 5.2 — (Séries alternées convergentes et divergentes)</strong></p>
+<p>Voici deux séries alternées : <span class="math display">\sum_{k \geq 2} \frac{(-1)^k}{\sqrt{k}} \quad \text{converge}</span> <span class="math display">\sum_{k \geq 2} \frac{(-1)^k}{\sqrt{k} + (-1)^k} \quad \text{diverge}</span></p>
+</div>
+</section>
+</section>
+<section id="séries-absolument-convergentes" class="level1" data-number="6">
+<h1 data-number="6"><span class="header-section-number">6</span> Séries absolument convergentes</h1>
+<section id="définition-et-propriétés" class="level2" data-number="6.1">
+<h2 data-number="6.1" class="anchored" data-anchor-id="définition-et-propriétés"><span class="header-section-number">6.1</span> Définition et propriétés</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 6.1 — (Convergence absolue)</strong></p>
+<p>On dit qu’une série <span class="math inline">\sum u_n</span> de nombres réels (ou complexes) est <strong>absolument convergente</strong> si la série <span class="math inline">\sum |u_n|</span> est convergente.</p>
+<p>On dit que la série <span class="math inline">\sum u_n</span> est <strong>semi-convergente</strong> si elle converge mais pas absolument.</p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 6.1</strong></p>
+<ol type="1">
+<li><p>La série <span class="math inline">\sum_{k \geq 1} \frac{\cos k}{k^2}</span> est absolument convergente car <span class="math inline">|\cos k / k^2| \leq 1/k^2</span> et <span class="math inline">\sum 1/k^2</span> converge.</p></li>
+<li><p>La série harmonique alternée <span class="math inline">\sum_{k=0}^{+\infty} \frac{(-1)^k}{k+1}</span> est convergente mais pas absolument convergente, car <span class="math inline">\sum \frac{1}{k+1}</span> diverge.</p></li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 6.1 — (Convergence absolue implique convergence)</strong></p>
+<p>Toute série absolument convergente est convergente. De plus : <span class="math display">\left|\sum_{n=n_0}^{+\infty} u_n\right| \leq \sum_{n=n_0}^{+\infty} |u_n|</span></p>
+</div>
+</section>
+<section id="produit-de-cauchy" class="level2" data-number="6.2">
+<h2 data-number="6.2" class="anchored" data-anchor-id="produit-de-cauchy"><span class="header-section-number">6.2</span> Produit de Cauchy</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 6.2 — (Produit de Cauchy)</strong></p>
+<p>Soient <span class="math inline">\sum_{n \geq 0} a_n</span> et <span class="math inline">\sum_{n \geq 0} b_n</span> deux séries numériques. On appelle <strong>produit de Cauchy</strong> de ces deux séries la série <span class="math inline">\sum_{n \geq 0} c_n</span> où : <span class="math display">c_n = \sum_{k=0}^n a_k b_{n-k}</span></p>
+<p>Une autre façon d’écrire <span class="math inline">c_n</span> est : <span class="math inline">c_n = \sum_{i+j=n} a_i b_j</span>.</p>
+</div>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 6.2 — (Produit de Cauchy de deux séries absolument convergentes)</strong></p>
+<p>Si les séries <span class="math inline">\sum_{i=0}^{+\infty} a_i</span> et <span class="math inline">\sum_{j=0}^{+\infty} b_j</span> sont absolument convergentes, alors la série produit <span class="math inline">\sum_{k=0}^{+\infty} c_k</span> est absolument convergente et : <span class="math display">\sum_{k=0}^{+\infty} c_k = \left(\sum_{i=0}^{+\infty} a_i\right) \cdot \left(\sum_{j=0}^{+\infty} b_j\right)</span></p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 6.2 — (Application à la fonction exponentielle)</strong></p>
+<p>On admet que pour <span class="math inline">x \in \mathbb{R}</span>, la série <span class="math inline">\sum_{k=0}^{+\infty} \frac{x^k}{k!}</span> converge et vaut <span class="math inline">e^x</span>.</p>
+<p>Le produit de Cauchy de <span class="math inline">\exp(a) \times \exp(b)</span> donne : <span class="math display">c_n = \sum_{k=0}^n \frac{a^k}{k!} \cdot \frac{b^{n-k}}{(n-k)!} = \frac{1}{n!} \sum_{k=0}^n \binom{n}{k} a^k b^{n-k} = \frac{(a+b)^n}{n!}</span></p>
+<p>Donc : <span class="math display">e^a \cdot e^b = \sum_{n=0}^{+\infty} \frac{(a+b)^n}{n!} = e^{a+b}</span></p>
+</div>
+</section>
+</section>
+<section id="exercices" class="level1" data-number="7">
+<h1 data-number="7"><span class="header-section-number">7</span> Exercices</h1>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 7.1</strong></p>
+<p>Calculer les sommes partielles <span class="math inline">S_n</span> de la série dont le terme général est <span class="math inline">\frac{1}{4^k}</span>, commençant à <span class="math inline">k=1</span>. Cette série est-elle convergente ? Si c’est possible, calculer la somme <span class="math inline">S</span> et les restes <span class="math inline">R_n</span>.</p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 7.2</strong></p>
+<p>Mêmes questions avec <span class="math inline">\sum_{k \geq 0} (-1)^k</span>, <span class="math inline">\sum_{k \geq 0} 3^k</span>, <span class="math inline">\sum_{k \geq 1} \frac{1}{10^k}</span>, <span class="math inline">\sum_{k \geq 2} e^{-k}</span>.</p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 7.3</strong></p>
+<p>Pourquoi les séries suivantes sont-elles divergentes ? <span class="math display">\sum_{k \geq 1} \left(\frac{1}{k} + (-1)^k\right), \quad \sum_{k \geq 0} \frac{k}{k+1}, \quad \sum_{k \geq 1} \frac{1}{2k}, \quad \sum_{k \geq 1} k\cos(k), \quad \sum_{k \geq 1} e^{1/k}</span></p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 7.4</strong></p>
+<p>Étudier les séries dont voici le terme général, par la règle du quotient de d’Alembert ou des racines de Cauchy : <span class="math display">\frac{k^{100}}{k!}, \quad \frac{k!}{(2k)!}, \quad \frac{2 \cdot 4 \cdot 6 \cdots (2k)}{3 \cdot 5 \cdot 7 \cdots (2k+1)}</span></p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 7.5</strong></p>
+<p>Est-ce que les séries suivantes sont convergentes ? Absolument convergentes ? <span class="math display">\sum_{k \geq 2} \frac{(-1)^{k^3} e^{ik}}{k^2+k}, \quad \sum_{k \geq 1} \frac{(-1)^k}{\sqrt{k(k+1)}}, \quad \sum_{k \geq 1} \frac{\sqrt{k}}{(-1)^k \ln k}</span></p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 7.6</strong></p>
+<p>Montrer que <span class="math inline">\sum_{k=0}^{+\infty} k^2 q^k = \frac{q^2 + q}{(1-q)^3}</span> pour <span class="math inline">|q| &lt; 1</span>.</p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 7.7</strong></p>
+<p>Écrire la série associée au développement décimal <span class="math inline">0{,}99999\ldots</span> Notons <span class="math inline">S</span> la somme de cette série. Calculer la série correspondant à <span class="math inline">10 \cdot S</span>. Simplifier <span class="math inline">10 \cdot S - S</span>. En déduire <span class="math inline">S</span>. Retrouver cette valeur <span class="math inline">S</span> à l’aide d’une série géométrique.</p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 7.8</strong></p>
+<p>Justifier que la série <span class="math inline">\sum_{k=2}^{+\infty} \frac{1}{k^2 - 1}</span> est convergente. Décomposer <span class="math inline">\frac{1}{k^2 - 1}</span> en éléments simples. En déduire la somme de la série.</p>
+</div>
+</section>
+<section id="document-en-pdf" class="level1 unnumbered">
+<h1 class="unnumbered">Document en PDF</h1>
+<p><a href="PDF/tsi2-chap06.pdf">Chapitre 06 : Séries numériques</a></p>
+<section id="navigation" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="navigation">Navigation</h2>
+<div class="chap-nav">
+<p><a href="../cours/tsi2-chap05.html" class="prev">Chapitre 05 : Intégration des fonctions continues sur un intervalle</a> <a href="../cours/tsi2.html" class="home">Menu TSI</a> <a href="../cours/tsi2-chap07.html" class="next">Chapitre 07 : Séries entières</a></p>
+</div>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -222,12 +626,12 @@ ul.task-list li input[type="checkbox"] {
       // flash "checked"
       button.classList.add('code-copy-button-checked');
       var currentTitle = button.getAttribute("title");
-      button.setAttribute("title", "Copied!");
+      button.setAttribute("title", "Copié");
       let tooltip;
       if (window.bootstrap) {
         button.setAttribute("data-bs-toggle", "tooltip");
         button.setAttribute("data-bs-placement", "left");
-        button.setAttribute("data-bs-title", "Copied!");
+        button.setAttribute("data-bs-title", "Copié");
         tooltip = new bootstrap.Tooltip(button, 
           { trigger: "manual", 
             customClass: "code-copy-button-tooltip",

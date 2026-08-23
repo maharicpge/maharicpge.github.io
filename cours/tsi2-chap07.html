@@ -1,13 +1,14 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr"><head>
 
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.10.18">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Saîd MAHARI">
 
-<title>Calcul différentiel - Mathématiques en CPGE – Mathématiques en CPGE</title>
+<title>Séries entières – Mathématiques en CPGE</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -45,7 +46,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-7a8c080b55ea27eb37b467515007f9ee.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-e0d9a45d84245cc5e3b300860d8fa645.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -60,22 +61,66 @@ ul.task-list li input[type="checkbox"] {
   ],
   "show-item-context": false,
   "language": {
-    "search-no-results-text": "No results",
-    "search-matching-documents-text": "matching documents",
-    "search-copy-link-title": "Copy link to search",
-    "search-hide-matches-text": "Hide additional matches",
-    "search-more-match-text": "more match in this document",
-    "search-more-matches-text": "more matches in this document",
-    "search-clear-button-title": "Clear",
+    "search-no-results-text": "Pas de résultats",
+    "search-matching-documents-text": "documents trouvés",
+    "search-copy-link-title": "Copier le lien vers la recherche",
+    "search-hide-matches-text": "Cacher les correspondances additionnelles",
+    "search-more-match-text": "correspondance de plus dans ce document",
+    "search-more-matches-text": "correspondances de plus dans ce document",
+    "search-clear-button-title": "Effacer",
     "search-text-placeholder": "",
-    "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit",
-    "search-label": "Search"
+    "search-detached-cancel-button-title": "Annuler",
+    "search-submit-button-title": "Envoyer",
+    "search-label": "Recherche"
   }
 }</script>
 
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="styles.css">
 </head>
 
 <body class="nav-fixed quarto-light">
@@ -89,8 +134,8 @@ ul.task-list li input[type="checkbox"] {
     <span class="navbar-title">Accueil</span>
     </a>
   </div>
-            <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+            <div id="quarto-search" class="" title="Recherche"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Basculer la navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
@@ -140,10 +185,46 @@ ul.task-list li input[type="checkbox"] {
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
+    <h2 id="toc-title">Sur cette page</h2>
    
   <ul>
-  <li><a href="#document" id="toc-document" class="nav-link active" data-scroll-target="#document">Document</a></li>
+  <li><a href="#rayon-de-convergence" id="toc-rayon-de-convergence" class="nav-link active" data-scroll-target="#rayon-de-convergence"><span class="header-section-number">1</span> Rayon de convergence</a>
+  <ul class="collapse">
+  <li><a href="#notion-de-série-entière" id="toc-notion-de-série-entière" class="nav-link" data-scroll-target="#notion-de-série-entière"><span class="header-section-number">1.1</span> Notion de série entière</a></li>
+  <li><a href="#lemme-dabel" id="toc-lemme-dabel" class="nav-link" data-scroll-target="#lemme-dabel"><span class="header-section-number">1.2</span> Lemme d’Abel</a></li>
+  <li><a href="#rayon-de-convergence-1" id="toc-rayon-de-convergence-1" class="nav-link" data-scroll-target="#rayon-de-convergence-1"><span class="header-section-number">1.3</span> Rayon de convergence</a></li>
+  <li><a href="#modes-de-convergence" id="toc-modes-de-convergence" class="nav-link" data-scroll-target="#modes-de-convergence"><span class="header-section-number">1.4</span> Modes de convergence</a></li>
+  </ul></li>
+  <li><a href="#calcul-du-rayon-de-convergence" id="toc-calcul-du-rayon-de-convergence" class="nav-link" data-scroll-target="#calcul-du-rayon-de-convergence"><span class="header-section-number">2</span> Calcul du rayon de convergence</a>
+  <ul class="collapse">
+  <li><a href="#comparaison-des-rayons" id="toc-comparaison-des-rayons" class="nav-link" data-scroll-target="#comparaison-des-rayons"><span class="header-section-number">2.1</span> Comparaison des rayons</a></li>
+  <li><a href="#règle-de-dalembert" id="toc-règle-de-dalembert" class="nav-link" data-scroll-target="#règle-de-dalembert"><span class="header-section-number">2.2</span> Règle de d’Alembert</a></li>
+  </ul></li>
+  <li><a href="#opérations-sur-les-séries-entières" id="toc-opérations-sur-les-séries-entières" class="nav-link" data-scroll-target="#opérations-sur-les-séries-entières"><span class="header-section-number">3</span> Opérations sur les séries entières</a>
+  <ul class="collapse">
+  <li><a href="#somme-de-deux-séries-entières" id="toc-somme-de-deux-séries-entières" class="nav-link" data-scroll-target="#somme-de-deux-séries-entières"><span class="header-section-number">3.1</span> Somme de deux séries entières</a></li>
+  <li><a href="#produit-de-cauchy" id="toc-produit-de-cauchy" class="nav-link" data-scroll-target="#produit-de-cauchy"><span class="header-section-number">3.2</span> Produit de Cauchy</a></li>
+  <li><a href="#série-entière-dérivée-et-primitive" id="toc-série-entière-dérivée-et-primitive" class="nav-link" data-scroll-target="#série-entière-dérivée-et-primitive"><span class="header-section-number">3.3</span> Série entière dérivée et primitive</a></li>
+  </ul></li>
+  <li><a href="#somme-dune-série-entière-dune-variable-réelle" id="toc-somme-dune-série-entière-dune-variable-réelle" class="nav-link" data-scroll-target="#somme-dune-série-entière-dune-variable-réelle"><span class="header-section-number">4</span> Somme d’une série entière d’une variable réelle</a>
+  <ul class="collapse">
+  <li><a href="#définition" id="toc-définition" class="nav-link" data-scroll-target="#définition"><span class="header-section-number">4.1</span> Définition</a></li>
+  <li><a href="#convergence-normale-sur-tout-segment" id="toc-convergence-normale-sur-tout-segment" class="nav-link" data-scroll-target="#convergence-normale-sur-tout-segment"><span class="header-section-number">4.2</span> Convergence normale sur tout segment</a></li>
+  <li><a href="#continuité-de-la-somme" id="toc-continuité-de-la-somme" class="nav-link" data-scroll-target="#continuité-de-la-somme"><span class="header-section-number">4.3</span> Continuité de la somme</a></li>
+  <li><a href="#régularité-de-la-somme" id="toc-régularité-de-la-somme" class="nav-link" data-scroll-target="#régularité-de-la-somme"><span class="header-section-number">4.4</span> Régularité de la somme</a></li>
+  <li><a href="#intégration-terme-à-terme" id="toc-intégration-terme-à-terme" class="nav-link" data-scroll-target="#intégration-terme-à-terme"><span class="header-section-number">4.5</span> Intégration terme à terme</a></li>
+  </ul></li>
+  <li><a href="#fonctions-développables-en-série-entière" id="toc-fonctions-développables-en-série-entière" class="nav-link" data-scroll-target="#fonctions-développables-en-série-entière"><span class="header-section-number">5</span> Fonctions développables en série entière</a>
+  <ul class="collapse">
+  <li><a href="#définitions" id="toc-définitions" class="nav-link" data-scroll-target="#définitions"><span class="header-section-number">5.1</span> Définitions</a></li>
+  <li><a href="#série-de-taylor" id="toc-série-de-taylor" class="nav-link" data-scroll-target="#série-de-taylor"><span class="header-section-number">5.2</span> Série de Taylor</a></li>
+  <li><a href="#développements-usuels" id="toc-développements-usuels" class="nav-link" data-scroll-target="#développements-usuels"><span class="header-section-number">5.3</span> Développements usuels</a></li>
+  </ul></li>
+  <li><a href="#exercices" id="toc-exercices" class="nav-link" data-scroll-target="#exercices"><span class="header-section-number">6</span> Exercices</a></li>
+  <li><a href="#document-en-pdf" id="toc-document-en-pdf" class="nav-link" data-scroll-target="#document-en-pdf">Document en PDF</a>
+  <ul class="collapse">
+  <li><a href="#navigation" id="toc-navigation" class="nav-link" data-scroll-target="#navigation">Navigation</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -152,14 +233,27 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Chapitre 07 : Calcul différentiel</h1>
+<h1 class="title">Séries entières</h1>
+<p class="subtitle lead">Chapitre 07</p>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Auteur·rice</div>
+    <div class="quarto-title-meta-contents">
+             <p>Saîd MAHARI </p>
+          </div>
+  </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">Date de publication</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">23 août 2026</p>
+    </div>
+  </div>
   
     
   </div>
@@ -169,12 +263,354 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p><strong>TSI 2e année — Chapitre 07.</strong> Dérivées partielles, gradient, plans tangents, optimisation locale.</p>
-<section id="document" class="level2">
-<h2 class="anchored" data-anchor-id="document">Document</h2>
-<p><em>PDF à venir : déposez le fichier <code>files/tsi2/chap07.pdf</code> puis régénérez la page.</em></p>
+<p><strong>TSI (2e année) — Chapitre 07.</strong> Rayon de convergence (lemme d’Abel), somme d’une série entière d’une variable réelle, propriétés de la somme (continuité, dérivation, intégration terme à terme), fonctions développables en série entière, développements usuels.</p>
+<p>Ce chapitre a été réalisé conformément au programme marocain de mathématiques de la filière TSI.</p>
+<p>Dans tout ce chapitre, <span class="math inline">\mathbb{K}</span> désigne <span class="math inline">\mathbb{R}</span> ou <span class="math inline">\mathbb{C}</span>. Pour tout <span class="math inline">r \in \mathbb{R}^+ \cup \{+\infty\}</span>, on pose <span class="math inline">D(0, r) = \{z \in \mathbb{C} \mid |z| &lt; r\}</span>. Si <span class="math inline">0 &lt; r &lt; +\infty</span>, <span class="math inline">D(0,r)</span> est le disque ouvert de centre <span class="math inline">0</span> et de rayon <span class="math inline">r</span>. Par abus de langage, on dira que <span class="math inline">\mathbb{C}</span> est le disque ouvert de rayon <span class="math inline">+\infty</span>.</p>
+<section id="rayon-de-convergence" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Rayon de convergence</h1>
+<section id="notion-de-série-entière" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="notion-de-série-entière"><span class="header-section-number">1.1</span> Notion de série entière</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 1.1 — (Série entière)</strong></p>
+<p>Soit <span class="math inline">(a_n)_{n \geq 0}</span> une suite de nombres complexes (ou réels). On appelle <strong>série entière</strong> associée à <span class="math inline">(a_n)</span> la série de fonctions : <span class="math display">\sum_{n \geq 0} a_n z^n</span> où <span class="math inline">z</span> est une variable complexe (ou réelle).</p>
+<p>Les coefficients <span class="math inline">a_n</span> sont appelés les <strong>coefficients</strong> de la série entière.</p>
+</div>
+<div class="remarque">
+<ol type="1">
+<li>La suite <span class="math inline">(a_n)</span> peut n’être définie qu’à partir du rang <span class="math inline">n_0</span>. On note alors <span class="math inline">\sum_{n \geq n_0} a_n z^n</span> la série entière correspondante.</li>
+<li>Si <span class="math inline">z</span> est fixé, on a affaire à une série numérique.</li>
+<li>Un exemple déjà rencontré est la somme géométrique.</li>
+</ol>
+</div>
+<div class="remarque" title="(Sommes partielles)">
+<p>Les sommes partielles de cette série de fonctions sont des fonctions polynomiales : <span class="math display">S_n : \begin{cases} \mathbb{C} \to \mathbb{C} \\ z \mapsto \sum_{k=0}^n a_k z^k \end{cases}</span></p>
+<p>Les fonctions polynomiales sont des cas particuliers de séries entières.</p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 1.1</strong></p>
+<ol type="1">
+<li><p><span class="math inline">\sum_{n \geq 0} z^n</span> est une série géométrique qui converge pour <span class="math inline">|z| &lt; 1</span>, et sa somme est : <span class="math display">S : \begin{cases} D(0,1) \to \mathbb{C} \\ z \mapsto \frac{1}{1-z} \end{cases}</span></p></li>
+<li><p><span class="math inline">\sum_{n \geq 0} \frac{z^n}{n!}</span> converge pour tout <span class="math inline">z \in \mathbb{C}</span>, et sa somme est la fonction exponentielle : <span class="math display">S : \begin{cases} \mathbb{C} \to \mathbb{C} \\ z \mapsto \exp(z) \end{cases}</span></p></li>
+</ol>
+</div>
+</section>
+<section id="lemme-dabel" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="lemme-dabel"><span class="header-section-number">1.2</span> Lemme d’Abel</h2>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 1.1 — (Lemme d’Abel)</strong></p>
+<p>Soit <span class="math inline">\sum_{n \geq 0} a_n z^n</span> une série entière et <span class="math inline">\rho \geq 0</span>. On suppose que la suite <span class="math inline">(a_n \rho^n)_{n \geq 0}</span> est bornée. Alors pour tout <span class="math inline">z \in \mathbb{C}</span> tel que <span class="math inline">|z| &lt; \rho</span>, la série numérique <span class="math inline">\sum_{n \geq 0} a_n z^n</span> converge absolument.</p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Preuve</em>. </span>Supposons que <span class="math inline">|a_n \rho^n| \leq M</span> pour tout <span class="math inline">n \geq 0</span>. Pour <span class="math inline">z \in D(0, \rho)</span> avec <span class="math inline">\rho \neq 0</span> : <span class="math display">|a_n z^n| = |a_n \rho^n| \cdot \left|\frac{z}{\rho}\right|^n \leq M \left|\frac{z}{\rho}\right|^n</span> Comme <span class="math inline">\left|\frac{z}{\rho}\right| &lt; 1</span>, la série géométrique <span class="math inline">\sum \left|\frac{z}{\rho}\right|^n</span> converge. Par le critère de comparaison, <span class="math inline">\sum |a_n z^n|</span> converge.</p>
+</div>
+</section>
+<section id="rayon-de-convergence-1" class="level2" data-number="1.3">
+<h2 data-number="1.3" class="anchored" data-anchor-id="rayon-de-convergence-1"><span class="header-section-number">1.3</span> Rayon de convergence</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 1.2 — (Rayon de convergence)</strong></p>
+<p>On appelle <strong>rayon de convergence</strong> de la série entière <span class="math inline">\sum_{n \geq 0} a_n z^n</span> la borne supérieure (dans <span class="math inline">\mathbb{R}</span>) des réels positifs <span class="math inline">\rho \geq 0</span> tels que la suite <span class="math inline">(a_n \rho^n)_{n \geq 0}</span> soit bornée : <span class="math display">R = \sup\{\rho \geq 0 \mid (a_n \rho^n) \text{ est bornée}\}</span></p>
+<p>Le disque <span class="math inline">D(0, R)</span> est appelé <strong>disque de convergence</strong>.</p>
+</div>
+<div class="remarque">
+<ol type="1">
+<li>Le rayon de convergence est bien défini. En effet, si <span class="math inline">A = \{\rho \geq 0 \mid (a_n \rho^n) \text{ est bornée}\}</span>, alors <span class="math inline">0 \in A</span> donc <span class="math inline">A</span> est non vide. Si <span class="math inline">A</span> est majoré, il possède une borne supérieure dans <span class="math inline">\mathbb{R}</span>. Si <span class="math inline">A</span> n’est pas majoré, sa borne supérieure dans <span class="math inline">\mathbb{R}</span> est <span class="math inline">+\infty</span>.</li>
+<li>Si <span class="math inline">R &gt; 0</span> est le rayon de convergence, alors pour tout <span class="math inline">\rho &lt; R</span>, <span class="math inline">a_n \rho^n \xrightarrow[n \to +\infty]{} 0</span>.</li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 1.2 — (Existence du rayon de convergence)</strong></p>
+<p>Soit <span class="math inline">\sum_{n \geq 0} a_n z^n</span> une série entière de rayon de convergence <span class="math inline">R</span>. Alors :</p>
+<ol type="1">
+<li>Si <span class="math inline">|z| &lt; R</span>, la série <span class="math inline">\sum a_n z^n</span> converge absolument.</li>
+<li>Si <span class="math inline">|z| &gt; R</span>, la série <span class="math inline">\sum a_n z^n</span> diverge.</li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 1.2</strong></p>
+<ol type="1">
+<li>La série entière <span class="math inline">\sum z^n</span> a pour rayon de convergence <span class="math inline">R = 1</span>.</li>
+<li>La série entière <span class="math inline">\sum \frac{z^n}{n!}</span> a pour rayon de convergence <span class="math inline">R = +\infty</span>.</li>
+<li>La série entière <span class="math inline">\sum n! \, z^n</span> a pour rayon de convergence <span class="math inline">R = 0</span>.</li>
+<li>La série entière <span class="math inline">\sum n^\alpha z^n</span> (avec <span class="math inline">\alpha \in \mathbb{R}</span>) a pour rayon de convergence <span class="math inline">R = 1</span>.</li>
+</ol>
+</div>
+</section>
+<section id="modes-de-convergence" class="level2" data-number="1.4">
+<h2 data-number="1.4" class="anchored" data-anchor-id="modes-de-convergence"><span class="header-section-number">1.4</span> Modes de convergence</h2>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 1.3 — (Modes de convergence d’une série entière)</strong></p>
+<p>Soit <span class="math inline">\sum_{n \geq 0} a_n z^n</span> une série entière de rayon de convergence <span class="math inline">R</span>. Alors la série de fonctions <span class="math inline">\sum f_n</span> (où <span class="math inline">f_n(z) = a_n z^n</span>) :</p>
+<ol type="1">
+<li>Converge absolument sur le disque de convergence <span class="math inline">D(0, R)</span>.</li>
+<li>Converge normalement sur tout compact <span class="math inline">K</span> inclus dans le disque de convergence (en pratique, sur tout disque fermé <span class="math inline">\overline{D}(0, r)</span> avec <span class="math inline">r &lt; R</span>).</li>
+</ol>
+</div>
+<div class="proof" title="(Convergence normale sur un compact)">
+<p><span class="proof-title"><em>Preuve</em>. </span>Soit un compact <span class="math inline">K \subset D(0, R)</span>. Puisque <span class="math inline">z \mapsto |z|</span> est continue sur le compact <span class="math inline">K</span>, elle est bornée et atteint ses bornes. Il existe donc <span class="math inline">r \in [0, R[</span> tel que <span class="math inline">K \subset \overline{B}(0, r) \subset D(0, R)</span>.</p>
+<p>Comme <span class="math inline">r &lt; R</span>, la série numérique <span class="math inline">\sum |a_n| r^n</span> converge. Mais alors : <span class="math display">\forall n \in \mathbb{N}, \quad \sup_{z \in K} |a_n z^n| \leq |a_n| r^n</span> Donc la série numérique <span class="math inline">\sum \|f_n\|_{\infty, K}</span> converge.</p>
+</div>
+</section>
+</section>
+<section id="calcul-du-rayon-de-convergence" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> Calcul du rayon de convergence</h1>
+<section id="comparaison-des-rayons" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="comparaison-des-rayons"><span class="header-section-number">2.1</span> Comparaison des rayons</h2>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 2.1 — (Comparaison des rayons)</strong></p>
+<p>Soient <span class="math inline">\sum a_n z^n</span> et <span class="math inline">\sum b_n z^n</span> deux séries entières de rayons de convergence <span class="math inline">R_a</span> et <span class="math inline">R_b</span>. Si, à partir d’un certain rang : <span class="math display">|a_n| \leq |b_n|</span> alors <span class="math inline">R_a \geq R_b</span>.</p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 2.1 — (Équivalence)</strong></p>
+<p>Si <span class="math inline">|a_n| \sim_{n \to +\infty} |b_n|</span>, alors les deux séries entières ont même rayon de convergence : <span class="math display">R_a = R_b</span></p>
+</div>
+</section>
+<section id="règle-de-dalembert" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="règle-de-dalembert"><span class="header-section-number">2.2</span> Règle de d’Alembert</h2>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 2.2 — (Règle de d’Alembert)</strong></p>
+<p>Soit <span class="math inline">\sum a_n z^n</span> une série entière telle que, à partir d’un certain rang <span class="math inline">N</span>, <span class="math inline">a_n \neq 0</span> et la suite <span class="math inline">\left(\frac{|a_{n+1}|}{|a_n|}\right)</span> admet une limite <span class="math inline">\ell \in [0, +\infty]</span>. Alors le rayon de convergence vaut : <span class="math display">R = \frac{1}{\ell}</span> avec les conventions <span class="math inline">\frac{1}{0} = +\infty</span> et <span class="math inline">\frac{1}{+\infty} = 0</span>.</p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 2.1</strong></p>
+<p>Pour <span class="math inline">\sum_{n \geq 0} \frac{z^n}{n!}</span> : <span class="math display">\frac{|a_{n+1}|}{|a_n|} = \frac{n!}{(n+1)!} = \frac{1}{n+1} \to 0</span> Donc <span class="math inline">R = +\infty</span>.</p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 2.2</strong></p>
+<p>Pour <span class="math inline">\sum_{n \geq 1} \frac{z^n}{n}</span> : <span class="math display">\frac{|a_{n+1}|}{|a_n|} = \frac{n}{n+1} \to 1</span> Donc <span class="math inline">R = 1</span>.</p>
+</div>
+<div class="remarque" title="(Méthode pour déterminer le rayon de convergence)">
+<p>Pour déterminer le rayon de convergence d’une série entière <span class="math inline">\sum a_n z^n</span> :</p>
+<ol type="1">
+<li>Chercher un équivalent plus simple de <span class="math inline">|a_n|</span>. Si <span class="math inline">|a_n| \sim_{n \to +\infty} |b_n|</span>, les séries entières <span class="math inline">\sum a_n z^n</span> et <span class="math inline">\sum b_n z^n</span> ont même rayon de convergence.</li>
+<li>Si la suite <span class="math inline">(a_n)</span> ne s’annule pas et si <span class="math inline">a_n</span> est formé de produits, exponentielles, factorielles, essayer la règle de d’Alembert. Si elle ne s’applique pas, on ne peut rien conclure encore !</li>
+<li>Utiliser des majorations-minorations simples de <span class="math inline">|a_n|</span>.</li>
+</ol>
+</div>
+</section>
+</section>
+<section id="opérations-sur-les-séries-entières" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Opérations sur les séries entières</h1>
+<section id="somme-de-deux-séries-entières" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="somme-de-deux-séries-entières"><span class="header-section-number">3.1</span> Somme de deux séries entières</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 3.1 — (Somme de deux séries entières)</strong></p>
+<p>Soient deux séries entières <span class="math inline">\sum a_n z^n</span> et <span class="math inline">\sum b_n z^n</span>. On appelle <strong>somme</strong> de ces deux séries entières, la série entière <span class="math inline">\sum (a_n + b_n) z^n</span>.</p>
+</div>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 3.1 — (Rayon de convergence d’une somme)</strong></p>
+<p>On note <span class="math inline">R_a</span> et <span class="math inline">R_b</span> les rayons de convergence des séries entières <span class="math inline">\sum a_n z^n</span> et <span class="math inline">\sum b_n z^n</span> et <span class="math inline">R_{a+b}</span> le rayon de convergence de la série entière <span class="math inline">\sum (a_n + b_n) z^n</span>. Alors :</p>
+<ol type="1">
+<li><span class="math inline">R_{a+b} \geq \min(R_a, R_b)</span>.</li>
+<li>Si <span class="math inline">R_a \neq R_b</span>, alors <span class="math inline">R_{a+b} = \min(R_a, R_b)</span>.</li>
+<li>Pour <span class="math inline">|z| &lt; \min(R_a, R_b)</span> : <span class="math display">S_{a+b}(z) = S_a(z) + S_b(z)</span></li>
+</ol>
+</div>
+</section>
+<section id="produit-de-cauchy" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="produit-de-cauchy"><span class="header-section-number">3.2</span> Produit de Cauchy</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 3.2 — (Produit de Cauchy)</strong></p>
+<p>Soient deux séries entières <span class="math inline">\sum a_n z^n</span> et <span class="math inline">\sum b_n z^n</span>. On appelle <strong>produit de Cauchy</strong> de ces deux séries entières la série entière <span class="math inline">\sum c_n z^n</span> où : <span class="math display">c_n = \sum_{k=0}^n a_k b_{n-k}</span></p>
+</div>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 3.2 — (Rayon de convergence du produit de Cauchy)</strong></p>
+<p>En notant <span class="math inline">R_a</span>, <span class="math inline">R_b</span> et <span class="math inline">R_{ab}</span> les rayons de convergence des deux séries entières et de leur produit de Cauchy, et <span class="math inline">S_a</span>, <span class="math inline">S_b</span> et <span class="math inline">S_{ab}</span> les fonctions sommes :</p>
+<ol type="1">
+<li><span class="math inline">R_{ab} \geq \min(R_a, R_b)</span>.</li>
+<li>Pour tout <span class="math inline">z \in \mathbb{C}</span> avec <span class="math inline">|z| &lt; \min(R_a, R_b)</span> : <span class="math display">S_{ab}(z) = S_a(z) \times S_b(z)</span></li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-corollary">
+<p><strong>Corollaire 3.1 — (Propriété de l’exponentielle complexe)</strong></p>
+<p>Pour <span class="math inline">(z, z') \in \mathbb{C}^2</span> : <span class="math display">\exp(z + z') = \exp(z) \times \exp(z')</span></p>
+</div>
+</section>
+<section id="série-entière-dérivée-et-primitive" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="série-entière-dérivée-et-primitive"><span class="header-section-number">3.3</span> Série entière dérivée et primitive</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 3.3 — (Série entière dérivée)</strong></p>
+<p>Soit une série entière <span class="math inline">\sum a_n z^n</span>. On appelle <strong>série entière dérivée</strong> la série entière <span class="math inline">\sum_{n \geq 1} n a_n z^{n-1}</span> ou encore <span class="math inline">\sum_{n \geq 0} (n+1) a_{n+1} z^n</span>.</p>
+</div>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 3.3 — (Rayon de convergence de la série dérivée)</strong></p>
+<p>Les séries entières <span class="math inline">\sum a_n z^n</span> et <span class="math inline">\sum_{n \geq 1} n a_n z^{n-1}</span> ont même rayon de convergence : <span class="math display">R = R'</span></p>
+</div>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 3.4 — (Série entière primitive)</strong></p>
+<p>Soit une série entière <span class="math inline">\sum a_n z^n</span>. On appelle <strong>série entière primitive</strong> la série entière <span class="math inline">\sum_{n \geq 0} \frac{a_n}{n+1} z^{n+1}</span> ou encore <span class="math inline">\sum_{n \geq 1} \frac{a_{n-1}}{n} z^n</span>.</p>
+</div>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 3.4 — (Rayon de convergence d’une série primitive)</strong></p>
+<p>Les séries entières <span class="math inline">\sum a_n z^n</span> et <span class="math inline">\sum_{n \geq 0} \frac{a_n}{n+1} z^{n+1}</span> ont même rayon de convergence : <span class="math display">R = \tilde{R}</span></p>
+</div>
+</section>
+</section>
+<section id="somme-dune-série-entière-dune-variable-réelle" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> Somme d’une série entière d’une variable réelle</h1>
+<section id="définition" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="définition"><span class="header-section-number">4.1</span> Définition</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 4.1 — (Série entière d’une variable réelle)</strong></p>
+<p>Soit une série entière <span class="math inline">\sum a_n z^n</span> où <span class="math inline">(a_n) \in \mathbb{C}^\mathbb{N}</span>. On note <span class="math inline">R</span> son rayon de convergence et on suppose <span class="math inline">R &gt; 0</span>. Pour <span class="math inline">x \in ]-R, R[</span>, la série numérique <span class="math inline">\sum_{n=0}^{+\infty} a_n x^n</span> converge absolument. On définit alors la fonction d’une variable réelle : <span class="math display">f : \begin{cases} ]-R, R[ \to \mathbb{C} \\ x \mapsto \sum_{n=0}^{+\infty} a_n x^n \end{cases}</span></p>
+</div>
+</section>
+<section id="convergence-normale-sur-tout-segment" class="level2" data-number="4.2">
+<h2 data-number="4.2" class="anchored" data-anchor-id="convergence-normale-sur-tout-segment"><span class="header-section-number">4.2</span> Convergence normale sur tout segment</h2>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 4.1 — (Convergence normale sur tout segment)</strong></p>
+<p>Soit <span class="math inline">\sum a_n x^n</span> une série entière d’une variable réelle de rayon de convergence <span class="math inline">R &gt; 0</span>. Alors <span class="math inline">\sum a_n x^n</span> converge normalement sur tout segment inclus dans <span class="math inline">]-R, R[</span>.</p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Preuve</em>. </span>Soient <span class="math inline">[a, b] \subset ]-R, R[</span> et <span class="math inline">x \in [a, b]</span>. Alors : <span class="math display">\|a_n x^n\|_{\infty, [a,b]} = |a_n| r^n \leq |a_n| r^n</span> où <span class="math inline">r = \max\{|a|, |b|\} &lt; R</span>. Donc <span class="math inline">\sum a_n r^n</span> est absolument convergente (car <span class="math inline">r \in D(0, R)</span>) et <span class="math inline">\sum a_n z^n</span> est bien normalement convergente sur <span class="math inline">[a, b]</span>.</p>
+</div>
+</section>
+<section id="continuité-de-la-somme" class="level2" data-number="4.3">
+<h2 data-number="4.3" class="anchored" data-anchor-id="continuité-de-la-somme"><span class="header-section-number">4.3</span> Continuité de la somme</h2>
+<div class="custom-numbered-block custom-corollary">
+<p><strong>Corollaire 4.1 — (Continuité de la somme)</strong></p>
+<p>La somme d’une série entière d’une variable réelle <span class="math inline">f(x) = \sum a_n x^n</span> est continue sur <span class="math inline">]-R, R[</span>.</p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Preuve</em>. </span>C’est une conséquence directe de la convergence uniforme de <span class="math inline">\sum f_n</span> sur tout segment de <span class="math inline">]-R, R[</span>.</p>
+</div>
+</section>
+<section id="régularité-de-la-somme" class="level2" data-number="4.4">
+<h2 data-number="4.4" class="anchored" data-anchor-id="régularité-de-la-somme"><span class="header-section-number">4.4</span> Régularité de la somme</h2>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 4.2 — (Régularité de la somme)</strong></p>
+<p>Soit <span class="math inline">\sum a_n x^n</span> une série entière réelle de rayon de convergence <span class="math inline">R &gt; 0</span> et soit <span class="math inline">f : ]-R, R[ \to \mathbb{R}</span> sa somme. Alors :</p>
+<ol type="1">
+<li>La fonction <span class="math inline">f</span> est de classe <span class="math inline">\mathcal{C}^\infty</span> sur l’intervalle ouvert <span class="math inline">]-R, R[</span>.</li>
+<li>Pour tout <span class="math inline">p \in \mathbb{N}</span>, la dérivée <span class="math inline">p</span>-ième de <span class="math inline">f</span> est : <span class="math display">f^{(p)}(x) = \sum_{n=p}^{+\infty} n(n-1)\cdots(n-p+1) a_n x^{n-p} = \sum_{n=0}^{+\infty} \frac{(n+p)!}{n!} a_{n+p} x^n</span></li>
+</ol>
+</div>
+</section>
+<section id="intégration-terme-à-terme" class="level2" data-number="4.5">
+<h2 data-number="4.5" class="anchored" data-anchor-id="intégration-terme-à-terme"><span class="header-section-number">4.5</span> Intégration terme à terme</h2>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 4.1 — (Primitivation terme à terme)</strong></p>
+<p>Soit <span class="math inline">\sum a_n z^n</span> une série entière de rayon de convergence <span class="math inline">R &gt; 0</span>. Alors pour tout <span class="math inline">x \in ]-R, R[</span> : <span class="math display">\int_0^x f(t)\, dt = \sum_{n=0}^{+\infty} \frac{a_n}{n+1} x^{n+1}</span></p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Preuve</em>. </span>Soit <span class="math inline">x \in ]-R, R[</span>. Notons <span class="math inline">f_n(t) = a_n t^n</span>.</p>
+<ol type="1">
+<li>Pour tout <span class="math inline">n \in \mathbb{N}</span>, <span class="math inline">f_n</span> est continue sur <span class="math inline">[0, x]</span>.</li>
+<li>D’après le théorème précédent, <span class="math inline">\sum f_n</span> converge uniformément sur <span class="math inline">[0, x]</span>.</li>
+</ol>
+<p>Donc d’après le théorème d’intégration terme à terme, <span class="math inline">f</span> est continue et intégrable sur <span class="math inline">[0, x]</span>. De plus : <span class="math display">F(x) = \int_0^x f(t)\, dt = \sum_{n=0}^{+\infty} \int_0^x f_n(t)\, dt = \sum_{n=0}^{+\infty} \frac{a_n}{n+1} x^{n+1}</span></p>
+</div>
+</section>
+</section>
+<section id="fonctions-développables-en-série-entière" class="level1" data-number="5">
+<h1 data-number="5"><span class="header-section-number">5</span> Fonctions développables en série entière</h1>
+<section id="définitions" class="level2" data-number="5.1">
+<h2 data-number="5.1" class="anchored" data-anchor-id="définitions"><span class="header-section-number">5.1</span> Définitions</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 5.1 — (Fonction développable en série entière)</strong></p>
+<p>Une fonction <span class="math inline">f</span> définie au voisinage de <span class="math inline">0</span> est dite <strong>développable en série entière</strong> en <span class="math inline">0</span> s’il existe une série entière <span class="math inline">\sum a_n z^n</span> de rayon de convergence <span class="math inline">R &gt; 0</span> et un voisinage <span class="math inline">V</span> de <span class="math inline">0</span> tels que : <span class="math display">\forall x \in V, \quad f(x) = \sum_{n=0}^{+\infty} a_n x^n</span></p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 5.1 — (Unicité)</strong></p>
+<p>Le développement en série entière d’une fonction, s’il existe, est unique.</p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 5.2 — (Parité et développement en série entière)</strong></p>
+<p>Soit <span class="math inline">f(x) = \sum_{n=0}^{+\infty} a_n x^n</span> une fonction développable en série entière.</p>
+<ol type="1">
+<li>Si <span class="math inline">f</span> est paire, alors pour tout <span class="math inline">p \in \mathbb{N}</span>, <span class="math inline">a_{2p+1} = 0</span>.</li>
+<li>Si <span class="math inline">f</span> est impaire, alors pour tout <span class="math inline">p \in \mathbb{N}</span>, <span class="math inline">a_{2p} = 0</span>.</li>
+</ol>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Preuve</em>. </span>Il suffit de comparer <span class="math inline">f(-x)</span> et <span class="math inline">f(x)</span> puis d’utiliser l’unicité du développement en série entière.</p>
+</div>
+</section>
+<section id="série-de-taylor" class="level2" data-number="5.2">
+<h2 data-number="5.2" class="anchored" data-anchor-id="série-de-taylor"><span class="header-section-number">5.2</span> Série de Taylor</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 5.2 — (Série de Taylor d’une fonction)</strong></p>
+<p>Soit <span class="math inline">f : ]-r, r[ \to \mathbb{C}</span> une fonction définie sur un voisinage de <span class="math inline">0</span>. On suppose que <span class="math inline">f</span> est de classe <span class="math inline">\mathcal{C}^\infty</span>. On appelle <strong>série de Taylor</strong> de <span class="math inline">f</span> la série entière : <span class="math display">\sum_{n=0}^{+\infty} \frac{f^{(n)}(0)}{n!} z^n</span></p>
+</div>
+<div class="remarque">
+<p>Si <span class="math inline">f</span> est développable en série entière, alors sa série de Taylor a un rayon de convergence <span class="math inline">R &gt; 0</span> et le développement de <span class="math inline">f</span> est donné par cette série.</p>
+</div>
+</section>
+<section id="développements-usuels" class="level2" data-number="5.3">
+<h2 data-number="5.3" class="anchored" data-anchor-id="développements-usuels"><span class="header-section-number">5.3</span> Développements usuels</h2>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 5.3 — (Développements en série entière usuels)</strong></p>
+<p>Les développements en série entière en <span class="math inline">0</span> des fonctions usuelles sont :</p>
+<ol type="1">
+<li><p><strong>Exponentielle</strong> : <span class="math inline">e^z = \sum_{n=0}^{+\infty} \frac{z^n}{n!}</span>, <span class="math inline">\quad R = +\infty</span></p></li>
+<li><p><strong>Sinus hyperbolique</strong> : <span class="math inline">\sinh t = \sum_{n=0}^{+\infty} \frac{t^{2n+1}}{(2n+1)!}</span>, <span class="math inline">\quad R = +\infty</span></p></li>
+<li><p><strong>Cosinus hyperbolique</strong> : <span class="math inline">\cosh t = \sum_{n=0}^{+\infty} \frac{t^{2n}}{(2n)!}</span>, <span class="math inline">\quad R = +\infty</span></p></li>
+<li><p><strong>Sinus</strong> : <span class="math inline">\sin t = \sum_{n=0}^{+\infty} (-1)^n \frac{t^{2n+1}}{(2n+1)!}</span>, <span class="math inline">\quad R = +\infty</span></p></li>
+<li><p><strong>Cosinus</strong> : <span class="math inline">\cos t = \sum_{n=0}^{+\infty} (-1)^n \frac{t^{2n}}{(2n)!}</span>, <span class="math inline">\quad R = +\infty</span></p></li>
+<li><p><strong>Arctangente</strong> : <span class="math inline">\arctan t = \sum_{n=0}^{+\infty} (-1)^n \frac{t^{2n+1}}{2n+1}</span>, <span class="math inline">\quad R = 1</span></p></li>
+<li><p><strong>Logarithme</strong> : <span class="math inline">\ln(1+t) = \sum_{n=1}^{+\infty} (-1)^{n-1} \frac{t^n}{n}</span>, <span class="math inline">\quad R = 1</span></p></li>
+<li><p><strong>Puissance</strong> : <span class="math inline">(1+t)^\alpha = \sum_{n=0}^{+\infty} \binom{\alpha}{n} t^n</span>, <span class="math inline">\quad R = 1</span> (pour <span class="math inline">\alpha \in \mathbb{R} \setminus \mathbb{N}</span>)</p></li>
+<li><p><strong>Géométrique</strong> : <span class="math inline">\frac{1}{1-z} = \sum_{n=0}^{+\infty} z^n</span>, <span class="math inline">\quad R = 1</span></p></li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 5.1 — (Développement de <span class="math inline">\boldsymbol{\frac{1}{(1-x)^2}}</span>)</strong></p>
+<p>En dérivant terme à terme <span class="math inline">\frac{1}{1-x} = \sum_{n=0}^{+\infty} x^n</span>, on obtient : <span class="math display">\frac{1}{(1-x)^2} = \sum_{n=0}^{+\infty} (n+1) x^n = \sum_{n=1}^{+\infty} n x^{n-1}</span></p>
+</div>
+</section>
+</section>
+<section id="exercices" class="level1" data-number="6">
+<h1 data-number="6"><span class="header-section-number">6</span> Exercices</h1>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 6.1</strong></p>
+<p>Déterminer le rayon de convergence des séries entières suivantes :</p>
+<ol type="1">
+<li><span class="math inline">\sum_{n \geq 1} \frac{z^n}{n^2}</span></li>
+<li><span class="math inline">\sum_{n \geq 0} \frac{z^n}{2^n}</span></li>
+<li><span class="math inline">\sum_{n \geq 1} n^3 z^n</span></li>
+<li><span class="math inline">\sum_{n \geq 0} \frac{z^{2n}}{(2n)!}</span></li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 6.2</strong></p>
+<p>Calculer la somme des séries entières suivantes sur leur intervalle de convergence :</p>
+<ol type="1">
+<li><span class="math inline">\sum_{n=0}^{+\infty} (n+1) x^n</span></li>
+<li><span class="math inline">\sum_{n=1}^{+\infty} n x^n</span></li>
+<li><span class="math inline">\sum_{n=0}^{+\infty} \frac{x^{2n+1}}{2n+1}</span></li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 6.3</strong></p>
+<p>Montrer que la série entière <span class="math inline">\sum_{n=0}^{+\infty} \frac{x^n}{n!}</span> a un rayon de convergence infini et que sa somme est <span class="math inline">e^x</span>.</p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 6.4</strong></p>
+<p>Déterminer le développement en série entière de <span class="math inline">\frac{1}{(1-x)^2}</span> en utilisant le produit de Cauchy.</p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 6.5</strong></p>
+<p>Déterminer le développement en série entière de <span class="math inline">\ln\left(\frac{1+x}{1-x}\right)</span> pour <span class="math inline">|x| &lt; 1</span>.</p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 6.6</strong></p>
+<p>Soit <span class="math inline">f(x) = \sum_{n=0}^{+\infty} a_n x^n</span> une série entière de rayon <span class="math inline">R &gt; 0</span>. Montrer que : <span class="math display">\int_0^x f(t)\, dt = \sum_{n=0}^{+\infty} \frac{a_n}{n+1} x^{n+1}</span></p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 6.7</strong></p>
+<p>En utilisant le développement en série entière de <span class="math inline">\arctan x</span>, montrer que : <span class="math display">\sum_{n=0}^{+\infty} \frac{(-1)^n}{2n+1} = \frac{\pi}{4}</span></p>
+</div>
+</section>
+<section id="document-en-pdf" class="level1 unnumbered">
+<h1 class="unnumbered">Document en PDF</h1>
+<p><a href="PDF/tsi2-chap07.pdf">Chapitre 07 : Séries entières</a></p>
+<section id="navigation" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="navigation">Navigation</h2>
+<div class="chap-nav">
+<p><a href="../cours/tsi2-chap06.html" class="prev">Chapitre 06 : Séries numériques</a> <a href="../cours/tsi2.html" class="home">Menu TSI</a> <a href="../cours/tsi2-chap08.html" class="next">Chapitre 08 : Espaces probabilisés ; variables aléatoires réelles ; cas discret</a></p>
+</div>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -222,12 +658,12 @@ ul.task-list li input[type="checkbox"] {
       // flash "checked"
       button.classList.add('code-copy-button-checked');
       var currentTitle = button.getAttribute("title");
-      button.setAttribute("title", "Copied!");
+      button.setAttribute("title", "Copié");
       let tooltip;
       if (window.bootstrap) {
         button.setAttribute("data-bs-toggle", "tooltip");
         button.setAttribute("data-bs-placement", "left");
-        button.setAttribute("data-bs-title", "Copied!");
+        button.setAttribute("data-bs-title", "Copié");
         tooltip = new bootstrap.Tooltip(button, 
           { trigger: "manual", 
             customClass: "code-copy-button-tooltip",

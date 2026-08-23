@@ -1,13 +1,14 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr"><head>
 
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.10.18">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Saîd MAHARI">
 
-<title>Probabilités - Mathématiques en CPGE – Mathématiques en CPGE</title>
+<title>Espaces probabilisés ; variables aléatoires réelles ; cas discret – Mathématiques en CPGE</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -45,7 +46,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-7a8c080b55ea27eb37b467515007f9ee.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-e0d9a45d84245cc5e3b300860d8fa645.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -60,22 +61,66 @@ ul.task-list li input[type="checkbox"] {
   ],
   "show-item-context": false,
   "language": {
-    "search-no-results-text": "No results",
-    "search-matching-documents-text": "matching documents",
-    "search-copy-link-title": "Copy link to search",
-    "search-hide-matches-text": "Hide additional matches",
-    "search-more-match-text": "more match in this document",
-    "search-more-matches-text": "more matches in this document",
-    "search-clear-button-title": "Clear",
+    "search-no-results-text": "Pas de résultats",
+    "search-matching-documents-text": "documents trouvés",
+    "search-copy-link-title": "Copier le lien vers la recherche",
+    "search-hide-matches-text": "Cacher les correspondances additionnelles",
+    "search-more-match-text": "correspondance de plus dans ce document",
+    "search-more-matches-text": "correspondances de plus dans ce document",
+    "search-clear-button-title": "Effacer",
     "search-text-placeholder": "",
-    "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit",
-    "search-label": "Search"
+    "search-detached-cancel-button-title": "Annuler",
+    "search-submit-button-title": "Envoyer",
+    "search-label": "Recherche"
   }
 }</script>
 
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="styles.css">
 </head>
 
 <body class="nav-fixed quarto-light">
@@ -89,8 +134,8 @@ ul.task-list li input[type="checkbox"] {
     <span class="navbar-title">Accueil</span>
     </a>
   </div>
-            <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+            <div id="quarto-search" class="" title="Recherche"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Basculer la navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
@@ -140,10 +185,56 @@ ul.task-list li input[type="checkbox"] {
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
+    <h2 id="toc-title">Sur cette page</h2>
    
   <ul>
-  <li><a href="#document" id="toc-document" class="nav-link active" data-scroll-target="#document">Document</a></li>
+  <li><a href="#espaces-probabilisés" id="toc-espaces-probabilisés" class="nav-link active" data-scroll-target="#espaces-probabilisés"><span class="header-section-number">1</span> Espaces probabilisés</a>
+  <ul class="collapse">
+  <li><a href="#expérience-aléatoire-univers-événements" id="toc-expérience-aléatoire-univers-événements" class="nav-link" data-scroll-target="#expérience-aléatoire-univers-événements"><span class="header-section-number">1.1</span> Expérience aléatoire, univers, événements</a></li>
+  <li><a href="#tribu" id="toc-tribu" class="nav-link" data-scroll-target="#tribu"><span class="header-section-number">1.2</span> Tribu</a></li>
+  <li><a href="#probabilité-et-espace-probabilisé" id="toc-probabilité-et-espace-probabilisé" class="nav-link" data-scroll-target="#probabilité-et-espace-probabilisé"><span class="header-section-number">1.3</span> Probabilité et espace probabilisé</a></li>
+  <li><a href="#probabilités-conditionnelles" id="toc-probabilités-conditionnelles" class="nav-link" data-scroll-target="#probabilités-conditionnelles"><span class="header-section-number">1.4</span> Probabilités conditionnelles</a></li>
+  <li><a href="#indépendance" id="toc-indépendance" class="nav-link" data-scroll-target="#indépendance"><span class="header-section-number">1.5</span> Indépendance</a></li>
+  </ul></li>
+  <li><a href="#variables-aléatoires-réelles" id="toc-variables-aléatoires-réelles" class="nav-link" data-scroll-target="#variables-aléatoires-réelles"><span class="header-section-number">2</span> Variables aléatoires réelles</a>
+  <ul class="collapse">
+  <li><a href="#définition" id="toc-définition" class="nav-link" data-scroll-target="#définition"><span class="header-section-number">2.1</span> Définition</a></li>
+  <li><a href="#loi-de-probabilité" id="toc-loi-de-probabilité" class="nav-link" data-scroll-target="#loi-de-probabilité"><span class="header-section-number">2.2</span> Loi de probabilité</a></li>
+  <li><a href="#fonction-de-répartition" id="toc-fonction-de-répartition" class="nav-link" data-scroll-target="#fonction-de-répartition"><span class="header-section-number">2.3</span> Fonction de répartition</a></li>
+  </ul></li>
+  <li><a href="#variables-aléatoires-discrètes" id="toc-variables-aléatoires-discrètes" class="nav-link" data-scroll-target="#variables-aléatoires-discrètes"><span class="header-section-number">3</span> Variables aléatoires discrètes</a>
+  <ul class="collapse">
+  <li><a href="#définition-1" id="toc-définition-1" class="nav-link" data-scroll-target="#définition-1"><span class="header-section-number">3.1</span> Définition</a></li>
+  <li><a href="#lois-usuelles-discrètes" id="toc-lois-usuelles-discrètes" class="nav-link" data-scroll-target="#lois-usuelles-discrètes"><span class="header-section-number">3.2</span> Lois usuelles discrètes</a></li>
+  </ul></li>
+  <li><a href="#espérance-et-moments" id="toc-espérance-et-moments" class="nav-link" data-scroll-target="#espérance-et-moments"><span class="header-section-number">4</span> Espérance et moments</a>
+  <ul class="collapse">
+  <li><a href="#espérance" id="toc-espérance" class="nav-link" data-scroll-target="#espérance"><span class="header-section-number">4.1</span> Espérance</a></li>
+  <li><a href="#moments" id="toc-moments" class="nav-link" data-scroll-target="#moments"><span class="header-section-number">4.2</span> Moments</a></li>
+  <li><a href="#variance-et-écart-type" id="toc-variance-et-écart-type" class="nav-link" data-scroll-target="#variance-et-écart-type"><span class="header-section-number">4.3</span> Variance et écart-type</a></li>
+  </ul></li>
+  <li><a href="#fonctions-génératrices" id="toc-fonctions-génératrices" class="nav-link" data-scroll-target="#fonctions-génératrices"><span class="header-section-number">5</span> Fonctions génératrices</a>
+  <ul class="collapse">
+  <li><a href="#définition-2" id="toc-définition-2" class="nav-link" data-scroll-target="#définition-2"><span class="header-section-number">5.1</span> Définition</a></li>
+  <li><a href="#propriétés" id="toc-propriétés" class="nav-link" data-scroll-target="#propriétés"><span class="header-section-number">5.2</span> Propriétés</a></li>
+  </ul></li>
+  <li><a href="#inégalités" id="toc-inégalités" class="nav-link" data-scroll-target="#inégalités"><span class="header-section-number">6</span> Inégalités</a>
+  <ul class="collapse">
+  <li><a href="#inégalité-de-markov" id="toc-inégalité-de-markov" class="nav-link" data-scroll-target="#inégalité-de-markov"><span class="header-section-number">6.1</span> Inégalité de Markov</a></li>
+  <li><a href="#inégalité-de-bienaymé-tchebychev" id="toc-inégalité-de-bienaymé-tchebychev" class="nav-link" data-scroll-target="#inégalité-de-bienaymé-tchebychev"><span class="header-section-number">6.2</span> Inégalité de Bienaymé-Tchebychev</a></li>
+  <li><a href="#inégalité-de-jensen" id="toc-inégalité-de-jensen" class="nav-link" data-scroll-target="#inégalité-de-jensen"><span class="header-section-number">6.3</span> Inégalité de Jensen</a></li>
+  </ul></li>
+  <li><a href="#convergence-en-probabilité-et-en-loi" id="toc-convergence-en-probabilité-et-en-loi" class="nav-link" data-scroll-target="#convergence-en-probabilité-et-en-loi"><span class="header-section-number">7</span> Convergence en probabilité et en loi</a>
+  <ul class="collapse">
+  <li><a href="#convergence-en-probabilité" id="toc-convergence-en-probabilité" class="nav-link" data-scroll-target="#convergence-en-probabilité"><span class="header-section-number">7.1</span> Convergence en probabilité</a></li>
+  <li><a href="#convergence-en-loi" id="toc-convergence-en-loi" class="nav-link" data-scroll-target="#convergence-en-loi"><span class="header-section-number">7.2</span> Convergence en loi</a></li>
+  </ul></li>
+  <li><a href="#loi-faible-des-grands-nombres" id="toc-loi-faible-des-grands-nombres" class="nav-link" data-scroll-target="#loi-faible-des-grands-nombres"><span class="header-section-number">8</span> Loi faible des grands nombres</a></li>
+  <li><a href="#exercices" id="toc-exercices" class="nav-link" data-scroll-target="#exercices"><span class="header-section-number">9</span> Exercices</a></li>
+  <li><a href="#document-en-pdf" id="toc-document-en-pdf" class="nav-link" data-scroll-target="#document-en-pdf">Document en PDF</a>
+  <ul class="collapse">
+  <li><a href="#navigation" id="toc-navigation" class="nav-link" data-scroll-target="#navigation">Navigation</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -152,14 +243,27 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Chapitre 08 : Probabilités</h1>
+<h1 class="title">Espaces probabilisés ; variables aléatoires réelles ; cas discret</h1>
+<p class="subtitle lead">Chapitre 08</p>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Auteur·rice</div>
+    <div class="quarto-title-meta-contents">
+             <p>Saîd MAHARI </p>
+          </div>
+  </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">Date de publication</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">23 août 2026</p>
+    </div>
+  </div>
   
     
   </div>
@@ -169,12 +273,498 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p><strong>TSI 2e année — Chapitre 08.</strong> Lois de Poisson, exponentielle, normale.</p>
-<section id="document" class="level2">
-<h2 class="anchored" data-anchor-id="document">Document</h2>
-<p><em>PDF à venir : déposez le fichier <code>files/tsi2/chap08.pdf</code> puis régénérez la page.</em></p>
+<p><strong>TSI (2e année) — Chapitre 08.</strong> Tribus, espaces probabilisés, variables aléatoires et lois, variables aléatoires discrètes, espérance et moments, fonctions génératrices, inégalités (Markov, Bienaymé-Tchebychev, Jensen), convergence en probabilité et en loi, loi faible des grands nombres.</p>
+<p>Ce chapitre a été réalisé conformément au programme marocain de mathématiques de la filière TSI.</p>
+<p>Dans tout ce chapitre, <span class="math inline">(\Omega, \mathcal{T}, P)</span> désigne un espace probabilisé.</p>
+<section id="espaces-probabilisés" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Espaces probabilisés</h1>
+<section id="expérience-aléatoire-univers-événements" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="expérience-aléatoire-univers-événements"><span class="header-section-number">1.1</span> Expérience aléatoire, univers, événements</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 1.1 — (Expérience aléatoire)</strong></p>
+<p>La théorie des probabilités permet l’étude de phénomènes ayant un aspect hasardeux, ou <strong>aléatoire</strong>. On appelle <strong>expérience aléatoire</strong> une expérience dont le résultat dépend du hasard. L’ensemble des issues (ou résultats observables) est appelé <strong>univers</strong> et noté <span class="math inline">\Omega</span>.</p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 1.1</strong></p>
+<p>Parmi les cas les plus simples et usuels :</p>
+<ol type="1">
+<li>Lancer une pièce de monnaie : <span class="math inline">\Omega = \{\text{pile}, \text{face}\}</span>.</li>
+<li>Lancer un dé à 6 faces : <span class="math inline">\Omega = \{1, 2, 3, 4, 5, 6\}</span>.</li>
+<li>Tirer une boule d’une urne contenant <span class="math inline">r</span> boules rouges et <span class="math inline">v</span> boules vertes : <span class="math inline">\Omega = \{\text{rouge}, \text{vert}\}</span>.</li>
+</ol>
+</div>
+</section>
+<section id="tribu" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="tribu"><span class="header-section-number">1.2</span> Tribu</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 1.2 — (Événement, tribu)</strong></p>
+<p>Un <strong>événement</strong> est une partie de <span class="math inline">\Omega</span>. Une <strong>tribu</strong> (ou <span class="math inline">\sigma</span>-algèbre) <span class="math inline">\mathcal{T}</span> sur <span class="math inline">\Omega</span> est une partie de <span class="math inline">\mathcal{P}(\Omega)</span> vérifiant :</p>
+<ol type="1">
+<li><span class="math inline">\Omega \in \mathcal{T}</span></li>
+<li>Si <span class="math inline">A \in \mathcal{T}</span>, alors <span class="math inline">\overline{A} = \Omega \setminus A \in \mathcal{T}</span></li>
+<li>Pour toute suite <span class="math inline">(A_n)_{n \in \mathbb{N}}</span> d’éléments de <span class="math inline">\mathcal{T}</span> : <span class="math inline">\bigcup_{n=0}^{+\infty} A_n \in \mathcal{T}</span></li>
+</ol>
+<p>Le couple <span class="math inline">(\Omega, \mathcal{T})</span> est appelé <strong>espace probabilisable</strong>.</p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 1.1 — (Propriétés d’une tribu)</strong></p>
+<p>Soit <span class="math inline">\mathcal{T}</span> une tribu sur <span class="math inline">\Omega</span>. Alors :</p>
+<ol type="1">
+<li><span class="math inline">\varnothing \in \mathcal{T}</span></li>
+<li>Pour toute suite finie <span class="math inline">(A_i)_{1 \leq i \leq n}</span> d’éléments de <span class="math inline">\mathcal{T}</span> : <span class="math inline">\bigcup_{i=1}^n A_i \in \mathcal{T}</span> et <span class="math inline">\bigcap_{i=1}^n A_i \in \mathcal{T}</span></li>
+<li>Pour tout couple <span class="math inline">(A, B) \in \mathcal{T}^2</span> : <span class="math inline">A \setminus B \in \mathcal{T}</span></li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 1.2</strong></p>
+<p>Si <span class="math inline">\Omega = \{\text{pile}, \text{face}\}</span>, alors :</p>
+<ol type="1">
+<li><span class="math inline">\mathcal{T}_1 = \{\varnothing, \Omega\}</span> est une tribu sur <span class="math inline">\Omega</span> (tribu grossière).</li>
+<li><span class="math inline">\mathcal{T}_2 = \{\varnothing, \Omega, \{\text{pile}\}, \{\text{face}\}\}</span> est une tribu sur <span class="math inline">\Omega</span>.</li>
+<li><span class="math inline">\mathcal{T}_3 = \mathcal{P}(\Omega)</span> est une tribu sur <span class="math inline">\Omega</span> (tribu pleine).</li>
+</ol>
+</div>
+</section>
+<section id="probabilité-et-espace-probabilisé" class="level2" data-number="1.3">
+<h2 data-number="1.3" class="anchored" data-anchor-id="probabilité-et-espace-probabilisé"><span class="header-section-number">1.3</span> Probabilité et espace probabilisé</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 1.3 — (Probabilité)</strong></p>
+<p>Soit <span class="math inline">(\Omega, \mathcal{T})</span> un espace probabilisable. Une <strong>probabilité</strong> sur <span class="math inline">(\Omega, \mathcal{T})</span> est une application <span class="math inline">P : \mathcal{T} \to [0,1]</span> vérifiant :</p>
+<ol type="1">
+<li><span class="math inline">P(\Omega) = 1</span></li>
+<li>Pour toute suite <span class="math inline">(A_n)_{n \in \mathbb{N}}</span> d’événements deux à deux incompatibles : <span class="math display">P\left(\bigcup_{n=0}^{+\infty} A_n\right) = \sum_{n=0}^{+\infty} P(A_n)</span></li>
+</ol>
+<p>Le triplet <span class="math inline">(\Omega, \mathcal{T}, P)</span> est appelé <strong>espace probabilisé</strong>.</p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 1.2 — (Propriétés des probabilités)</strong></p>
+<p>Soit <span class="math inline">(\Omega, \mathcal{T}, P)</span> un espace probabilisé. Alors :</p>
+<ol type="1">
+<li><span class="math inline">P(\varnothing) = 0</span></li>
+<li><span class="math inline">P(\overline{A}) = 1 - P(A)</span></li>
+<li>Si <span class="math inline">A \subset B</span>, alors <span class="math inline">P(A) \leq P(B)</span> (croissance)</li>
+<li><span class="math inline">P(A \cup B) = P(A) + P(B) - P(A \cap B)</span></li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 1.3 — (Formule de Poincaré)</strong></p>
+<p>Pour toute famille finie <span class="math inline">(A_k)_{1 \leq k \leq n}</span> d’événements : <span class="math display">P\left(\bigcup_{k=1}^n A_k\right) = \sum_{k=1}^n \left((-1)^{k+1} \sum_{1 \leq i_1 &lt; i_2 &lt; \cdots &lt; i_k \leq n} P(A_{i_1} \cap A_{i_2} \cap \cdots \cap A_{i_k})\right)</span></p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 1.4 — (Inégalité de Boole)</strong></p>
+<p><span class="math display">P\left(\bigcup_{k=1}^n A_k\right) \leq \sum_{k=1}^n P(A_k)</span> avec égalité si et seulement si les événements <span class="math inline">A_k</span> sont incompatibles deux à deux.</p>
+</div>
+</section>
+<section id="probabilités-conditionnelles" class="level2" data-number="1.4">
+<h2 data-number="1.4" class="anchored" data-anchor-id="probabilités-conditionnelles"><span class="header-section-number">1.4</span> Probabilités conditionnelles</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 1.4 — (Probabilité conditionnelle)</strong></p>
+<p>Soit <span class="math inline">(\Omega, \mathcal{T}, P)</span> un espace probabilisé et <span class="math inline">B</span> un événement avec <span class="math inline">P(B) &gt; 0</span>. La <strong>probabilité de <span class="math inline">A</span> sachant <span class="math inline">B</span></strong> est : <span class="math display">P(A \mid B) = P_B(A) = \frac{P(A \cap B)}{P(B)}</span></p>
+</div>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 1.1 — (Formule des probabilités composées)</strong></p>
+<p>Soit <span class="math inline">(A_k)_{1 \leq k \leq n}</span> une famille d’événements telle que <span class="math inline">P\left(\bigcap_{k=1}^{n-1} A_k\right) \neq 0</span>. Alors : <span class="math display">P\left(\bigcap_{k=1}^n A_k\right) = P(A_1) \cdot P_{A_1}(A_2) \cdot P_{A_1 \cap A_2}(A_3) \cdots P_{A_1 \cap \cdots \cap A_{n-1}}(A_n)</span></p>
+</div>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 1.2 — (Formule des probabilités totales)</strong></p>
+<p>Soit <span class="math inline">(A_k)_{k \in I}</span> un <strong>système complet d’événements</strong> de probabilités non nulles et <span class="math inline">B</span> un événement. Alors : <span class="math display">P(B) = \sum_{k \in I} P(B \mid A_k) \cdot P(A_k)</span></p>
+</div>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 1.3 — (Formule de Bayes)</strong></p>
+<p>Soit <span class="math inline">(A_k)_{k \in I}</span> un système complet d’événements de probabilités non nulles et <span class="math inline">B</span> un événement avec <span class="math inline">P(B) &gt; 0</span>. Alors pour tout <span class="math inline">j \in I</span> : <span class="math display">P(A_j \mid B) = \frac{P(B \mid A_j) \cdot P(A_j)}{\sum_{k \in I} P(B \mid A_k) \cdot P(A_k)}</span></p>
+</div>
+</section>
+<section id="indépendance" class="level2" data-number="1.5">
+<h2 data-number="1.5" class="anchored" data-anchor-id="indépendance"><span class="header-section-number">1.5</span> Indépendance</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 1.5 — (Indépendance de deux événements)</strong></p>
+<p>Deux événements <span class="math inline">A</span> et <span class="math inline">B</span> sont <strong>indépendants</strong> si : <span class="math display">P(A \cap B) = P(A) \cdot P(B)</span></p>
+</div>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 1.6 — (Indépendance mutuelle)</strong></p>
+<p>Une famille <span class="math inline">(A_i)_{i \in I}</span> d’événements est <strong>mutuellement indépendante</strong> si pour toute partie finie <span class="math inline">J \subset I</span> : <span class="math display">P\left(\bigcap_{i \in J} A_i\right) = \prod_{i \in J} P(A_i)</span></p>
+</div>
+<div class="remarque">
+<p>L’indépendance deux à deux n’implique pas l’indépendance mutuelle si <span class="math inline">n &gt; 2</span>.</p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 1.5</strong></p>
+<p>Si <span class="math inline">A</span> et <span class="math inline">B</span> sont indépendants, alors <span class="math inline">A</span> et <span class="math inline">\overline{B}</span> sont indépendants, <span class="math inline">\overline{A}</span> et <span class="math inline">B</span> sont indépendants, <span class="math inline">\overline{A}</span> et <span class="math inline">\overline{B}</span> sont indépendants.</p>
+</div>
+</section>
+</section>
+<section id="variables-aléatoires-réelles" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> Variables aléatoires réelles</h1>
+<section id="définition" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="définition"><span class="header-section-number">2.1</span> Définition</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 2.1 — (Variable aléatoire réelle)</strong></p>
+<p>Soit <span class="math inline">(\Omega, \mathcal{T}, P)</span> un espace probabilisé. Une <strong>variable aléatoire réelle</strong> est une application <span class="math inline">X : \Omega \to \mathbb{R}</span> telle que pour tout <span class="math inline">x \in \mathbb{R}</span> : <span class="math display">X^{-1}(]-\infty, x]) \in \mathcal{T}</span></p>
+</div>
+<div class="remarque">
+<p>On utilise les notations suivantes :</p>
+<ul>
+<li><span class="math inline">(X \in A)</span> ou <span class="math inline">\{X \in A\}</span> à la place de <span class="math inline">X^{-1}(A)</span></li>
+<li><span class="math inline">(X \leq x)</span> à la place de <span class="math inline">X^{-1}(]-\infty, x])</span></li>
+<li><span class="math inline">P(X \in A)</span>, <span class="math inline">P(X = x)</span>, <span class="math inline">P(X \leq x)</span></li>
+</ul>
+</div>
+</section>
+<section id="loi-de-probabilité" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="loi-de-probabilité"><span class="header-section-number">2.2</span> Loi de probabilité</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 2.2 — (Loi d’une variable aléatoire)</strong></p>
+<p>Soit <span class="math inline">X : \Omega \to \mathbb{R}</span> une variable aléatoire. La <strong>loi de <span class="math inline">X</span></strong> est la probabilité <span class="math inline">P_X</span> sur <span class="math inline">(\mathbb{R}, \mathcal{B}(\mathbb{R}))</span> définie par : <span class="math display">P_X(B) = P(X \in B) = P(X^{-1}(B))</span> pour tout borélien <span class="math inline">B</span> de <span class="math inline">\mathbb{R}</span>.</p>
+</div>
+</section>
+<section id="fonction-de-répartition" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="fonction-de-répartition"><span class="header-section-number">2.3</span> Fonction de répartition</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 2.3 — (Fonction de répartition)</strong></p>
+<p>La <strong>fonction de répartition</strong> d’une variable aléatoire réelle <span class="math inline">X</span> est la fonction <span class="math inline">F_X : \mathbb{R} \to [0,1]</span> définie par : <span class="math display">F_X(x) = P(X \leq x)</span></p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 2.1 — (Propriétés de la fonction de répartition)</strong></p>
+<p>Soit <span class="math inline">X</span> une variable aléatoire réelle. Alors :</p>
+<ol type="1">
+<li><span class="math inline">F_X</span> est croissante.</li>
+<li><span class="math inline">F_X</span> est continue à droite.</li>
+<li><span class="math inline">\lim_{x \to -\infty} F_X(x) = 0</span> et <span class="math inline">\lim_{x \to +\infty} F_X(x) = 1</span>.</li>
+</ol>
+</div>
+</section>
+</section>
+<section id="variables-aléatoires-discrètes" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Variables aléatoires discrètes</h1>
+<section id="définition-1" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="définition-1"><span class="header-section-number">3.1</span> Définition</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 3.1 — (Variable aléatoire discrète)</strong></p>
+<p>Soit <span class="math inline">X</span> une variable aléatoire sur <span class="math inline">(\Omega, \mathcal{T}, P)</span>. Si <span class="math inline">D = X(\Omega)</span> est une partie de <span class="math inline">\mathbb{R}</span> au plus dénombrable, on parle d’une <strong>variable aléatoire discrète</strong>.</p>
+</div>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 3.2 — (Loi de probabilité d’une variable discrète)</strong></p>
+<p>Soit <span class="math inline">X</span> une variable aléatoire discrète sur <span class="math inline">\Omega</span>. On appelle <strong>loi de probabilité</strong> de <span class="math inline">X</span>, l’application <span class="math inline">P_X</span> définie par : <span class="math display">P_X : \mathcal{P}(D) \to \mathbb{R}^+, \quad A \mapsto P_X(A) = P(X \in A)</span></p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 3.1</strong></p>
+<p>Soit <span class="math inline">X</span> une variable aléatoire discrète d’ensemble de valeurs possibles <span class="math inline">D</span>. Alors : <span class="math display">\sum_{x \in D} P(X = x) = 1</span></p>
+</div>
+</section>
+<section id="lois-usuelles-discrètes" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="lois-usuelles-discrètes"><span class="header-section-number">3.2</span> Lois usuelles discrètes</h2>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 3.2 — (Lois usuelles discrètes)</strong></p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Loi</th>
+<th>Espérance</th>
+<th>Variance</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\mathcal{B}(p)</span> (Bernoulli)</td>
+<td><span class="math inline">p</span></td>
+<td><span class="math inline">p(1-p)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\mathcal{B}(n, p)</span> (Binomiale)</td>
+<td><span class="math inline">np</span></td>
+<td><span class="math inline">np(1-p)</span></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\mathcal{G}(p)</span> (Géométrique)</td>
+<td><span class="math inline">\frac{1}{p}</span></td>
+<td><span class="math inline">\frac{1-p}{p^2}</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\mathcal{P}(\lambda)</span> (Poisson)</td>
+<td><span class="math inline">\lambda</span></td>
+<td><span class="math inline">\lambda</span></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\mathcal{U}(\llbracket 1, n \rrbracket)</span> (Uniforme discrète)</td>
+<td><span class="math inline">\frac{n+1}{2}</span></td>
+<td><span class="math inline">\frac{n^2 - 1}{12}</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 3.3 — (Loi de Bernoulli)</strong></p>
+<p>Soit <span class="math inline">p \in [0, 1]</span>. Une variable aléatoire <span class="math inline">X</span> suit la <strong>loi de Bernoulli</strong> de paramètre <span class="math inline">p</span>, notée <span class="math inline">X \hookrightarrow \mathcal{B}(p)</span>, si : <span class="math display">P(X = 1) = p, \quad P(X = 0) = 1 - p = q</span></p>
+</div>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 3.4 — (Loi binomiale)</strong></p>
+<p>Soient <span class="math inline">n \in \mathbb{N}^*</span> et <span class="math inline">p \in [0, 1]</span>. Une variable aléatoire <span class="math inline">X</span> suit la <strong>loi binomiale</strong> de paramètres <span class="math inline">n</span> et <span class="math inline">p</span>, notée <span class="math inline">X \hookrightarrow \mathcal{B}(n, p)</span>, si : <span class="math display">P(X = k) = \binom{n}{k} p^k (1-p)^{n-k}, \quad k \in \{0, 1, \ldots, n\}</span></p>
+</div>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 3.5 — (Loi géométrique)</strong></p>
+<p>Soit <span class="math inline">p \in ]0, 1]</span>. Une variable aléatoire <span class="math inline">X</span> suit la <strong>loi géométrique</strong> de paramètre <span class="math inline">p</span>, notée <span class="math inline">X \hookrightarrow \mathcal{G}(p)</span>, si : <span class="math display">P(X = k) = p(1-p)^{k-1}, \quad k \in \mathbb{N}^*</span></p>
+</div>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 3.6 — (Loi de Poisson)</strong></p>
+<p>Soit <span class="math inline">\lambda &gt; 0</span>. Une variable aléatoire <span class="math inline">X</span> suit la <strong>loi de Poisson</strong> de paramètre <span class="math inline">\lambda</span>, notée <span class="math inline">X \hookrightarrow \mathcal{P}(\lambda)</span>, si : <span class="math display">P(X = k) = \frac{\lambda^k}{k!} e^{-\lambda}, \quad k \in \mathbb{N}</span></p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 3.3 — (Somme de Bernoulli indépendantes)</strong></p>
+<p>Soient <span class="math inline">X_1, \ldots, X_n</span> des variables aléatoires mutuellement indépendantes suivant toutes la même loi de Bernoulli <span class="math inline">\mathcal{B}(p)</span>. Alors : <span class="math display">Z = X_1 + X_2 + \cdots + X_n \hookrightarrow \mathcal{B}(n, p)</span></p>
+</div>
+</section>
+</section>
+<section id="espérance-et-moments" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> Espérance et moments</h1>
+<section id="espérance" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="espérance"><span class="header-section-number">4.1</span> Espérance</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 4.1 — (Espérance d’une variable aléatoire discrète)</strong></p>
+<p>Soit <span class="math inline">X</span> une variable aléatoire discrète d’ensemble de valeurs possibles <span class="math inline">D</span>. On dit que <span class="math inline">X</span> admet une <strong>espérance</strong> si la famille <span class="math inline">(x \cdot P(X = x))_{x \in D}</span> est sommable. On définit alors : <span class="math display">E(X) = \sum_{x \in D} x \cdot P(X = x)</span></p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 4.1 — (Formule de transfert)</strong></p>
+<p>Soit <span class="math inline">X</span> une variable aléatoire discrète admettant une espérance et <span class="math inline">f : D \to \mathbb{R}</span> une application. Alors <span class="math inline">f(X)</span> admet une espérance si et seulement si la famille <span class="math inline">(f(x) \cdot P(X = x))_{x \in D}</span> est sommable, et : <span class="math display">E(f(X)) = \sum_{x \in D} f(x) \cdot P(X = x)</span></p>
+</div>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 4.1 — (Propriétés de l’espérance)</strong></p>
+<p>Soient <span class="math inline">X</span> et <span class="math inline">Y</span> deux variables aléatoires discrètes admettant une espérance. Alors :</p>
+<ol type="1">
+<li><strong>Linéarité</strong> : Pour tout <span class="math inline">(a, b) \in \mathbb{R}^2</span> : <span class="math inline">E(aX + bY) = aE(X) + bE(Y)</span></li>
+<li><strong>Positivité</strong> : Si <span class="math inline">X \geq 0</span>, alors <span class="math inline">E(X) \geq 0</span></li>
+<li><strong>Croissance</strong> : Si <span class="math inline">X \leq Y</span>, alors <span class="math inline">E(X) \leq E(Y)</span></li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 4.2 — (Espérance et indépendance)</strong></p>
+<p>Si <span class="math inline">X</span> et <span class="math inline">Y</span> sont deux variables aléatoires discrètes indépendantes admettant chacune une espérance, alors <span class="math inline">XY</span> admet une espérance et : <span class="math display">E(XY) = E(X) \cdot E(Y)</span></p>
+</div>
+</section>
+<section id="moments" class="level2" data-number="4.2">
+<h2 data-number="4.2" class="anchored" data-anchor-id="moments"><span class="header-section-number">4.2</span> Moments</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 4.2 — (Moments)</strong></p>
+<p>Soit <span class="math inline">k \in \mathbb{N}^*</span>. Le <strong>moment d’ordre <span class="math inline">k</span></strong> de <span class="math inline">X</span> est, sous réserve d’existence : <span class="math display">E(X^k) = \sum_{x \in D} x^k \cdot P(X = x)</span></p>
+</div>
+</section>
+<section id="variance-et-écart-type" class="level2" data-number="4.3">
+<h2 data-number="4.3" class="anchored" data-anchor-id="variance-et-écart-type"><span class="header-section-number">4.3</span> Variance et écart-type</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 4.3 — (Variance et écart-type)</strong></p>
+<p>Si <span class="math inline">X</span> admet un moment d’ordre 2, la <strong>variance</strong> de <span class="math inline">X</span> est : <span class="math display">V(X) = E((X - E(X))^2) = E(X^2) - (E(X))^2</span></p>
+<p>L’<strong>écart-type</strong> de <span class="math inline">X</span> est <span class="math inline">\sigma(X) = \sqrt{V(X)}</span>.</p>
+</div>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 4.4 — (Variable centrée réduite)</strong></p>
+<p>Soit <span class="math inline">X</span> une variable aléatoire réelle discrète admettant un moment d’ordre 2.</p>
+<ul>
+<li>On dit que <span class="math inline">X</span> est <strong>centrée</strong> si <span class="math inline">E(X) = 0</span>.</li>
+<li>On dit que <span class="math inline">X</span> est <strong>réduite</strong> si <span class="math inline">V(X) = 1</span>.</li>
+</ul>
+<p>Si <span class="math inline">\sigma(X) &gt; 0</span>, la variable <span class="math inline">X^* = \frac{X - E(X)}{\sigma(X)}</span> est <strong>centrée réduite</strong>.</p>
+</div>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 4.2 — (Propriétés de la variance)</strong></p>
+<p>Soit <span class="math inline">X</span> une variable aléatoire discrète admettant un moment d’ordre 2.</p>
+<ol type="1">
+<li><span class="math inline">V(X) = E(X^2) - (E(X))^2</span></li>
+<li>Pour tout <span class="math inline">(a, b) \in \mathbb{R}^2</span> : <span class="math inline">V(aX + b) = a^2 V(X)</span></li>
+<li><span class="math inline">V(X) \geq 0</span></li>
+<li><span class="math inline">V(X) = 0</span> si et seulement si <span class="math inline">X</span> est constante (presque sûrement).</li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 4.5 — (Covariance)</strong></p>
+<p>Si <span class="math inline">X</span> et <span class="math inline">Y</span> admettent un moment d’ordre 2, la <strong>covariance</strong> de <span class="math inline">X</span> et <span class="math inline">Y</span> est : <span class="math display">\mathrm{cov}(X, Y) = E((X - E(X))(Y - E(Y))) = E(XY) - E(X)E(Y)</span></p>
+</div>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 4.3 — (Variance d’une somme)</strong></p>
+<p><span class="math display">V(X + Y) = V(X) + V(Y) + 2\mathrm{cov}(X, Y)</span></p>
+<p>Si <span class="math inline">X</span> et <span class="math inline">Y</span> sont indépendantes : <span class="math inline">V(X + Y) = V(X) + V(Y)</span>.</p>
+</div>
+</section>
+</section>
+<section id="fonctions-génératrices" class="level1" data-number="5">
+<h1 data-number="5"><span class="header-section-number">5</span> Fonctions génératrices</h1>
+<section id="définition-2" class="level2" data-number="5.1">
+<h2 data-number="5.1" class="anchored" data-anchor-id="définition-2"><span class="header-section-number">5.1</span> Définition</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 5.1 — (Fonction génératrice)</strong></p>
+<p>Soit <span class="math inline">X</span> une variable aléatoire discrète à valeurs dans <span class="math inline">\mathbb{N}</span>. La <strong>fonction génératrice</strong> de <span class="math inline">X</span> est la fonction <span class="math inline">G_X : [-1, 1] \to \mathbb{R}</span> définie par : <span class="math display">G_X(s) = E(s^X) = \sum_{k=0}^{+\infty} P(X = k) s^k</span></p>
+</div>
+</section>
+<section id="propriétés" class="level2" data-number="5.2">
+<h2 data-number="5.2" class="anchored" data-anchor-id="propriétés"><span class="header-section-number">5.2</span> Propriétés</h2>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 5.1 — (Propriétés de la fonction génératrice)</strong></p>
+<p>Soit <span class="math inline">X</span> une variable aléatoire discrète à valeurs dans <span class="math inline">\mathbb{N}</span>.</p>
+<ol type="1">
+<li><span class="math inline">G_X(1) = 1</span>.</li>
+<li><span class="math inline">X</span> admet une espérance si et seulement si <span class="math inline">G_X</span> est dérivable en <span class="math inline">1</span>, et dans ce cas : <span class="math display">E(X) = G_X'(1)</span></li>
+<li><span class="math inline">X</span> admet un moment d’ordre 2 si et seulement si <span class="math inline">G_X</span> est deux fois dérivable en <span class="math inline">1</span>, et dans ce cas : <span class="math display">V(X) = G_X''(1) - (G_X'(1))^2 + G_X'(1)</span></li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 5.1 — (Fonction génératrice d’une somme)</strong></p>
+<p>Si <span class="math inline">X</span> et <span class="math inline">Y</span> sont des variables aléatoires discrètes à valeurs dans <span class="math inline">\mathbb{N}</span> indépendantes, alors : <span class="math display">G_{X+Y}(s) = G_X(s) \cdot G_Y(s)</span></p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 5.1 — (Fonctions génératrices usuelles)</strong></p>
+<ol type="1">
+<li>Si <span class="math inline">X \hookrightarrow \mathcal{B}(p)</span> : <span class="math inline">G_X(s) = q + ps</span></li>
+<li>Si <span class="math inline">X \hookrightarrow \mathcal{B}(n, p)</span> : <span class="math inline">G_X(s) = (q + ps)^n</span></li>
+<li>Si <span class="math inline">X \hookrightarrow \mathcal{P}(\lambda)</span> : <span class="math inline">G_X(s) = e^{\lambda(s-1)}</span></li>
+<li>Si <span class="math inline">X \hookrightarrow \mathcal{G}(p)</span> : <span class="math inline">G_X(s) = \frac{ps}{1 - qs}</span> pour <span class="math inline">|s| &lt; \frac{1}{q}</span></li>
+</ol>
+</div>
+</section>
+</section>
+<section id="inégalités" class="level1" data-number="6">
+<h1 data-number="6"><span class="header-section-number">6</span> Inégalités</h1>
+<section id="inégalité-de-markov" class="level2" data-number="6.1">
+<h2 data-number="6.1" class="anchored" data-anchor-id="inégalité-de-markov"><span class="header-section-number">6.1</span> Inégalité de Markov</h2>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 6.1 — (Inégalité de Markov)</strong></p>
+<p>Soit <span class="math inline">X</span> une variable aléatoire réelle discrète admettant une espérance. Alors pour tout <span class="math inline">x &gt; 0</span> : <span class="math display">P(|X| \geq x) \leq \frac{E(|X|)}{x}</span></p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 6.1</strong></p>
+<p>Dans une entreprise marocaine, le salaire brut mensuel moyen est 24420 Dhs. On choisit un salarié au hasard et on note <span class="math inline">X</span> la variable aléatoire donnant son salaire. Alors : <span class="math display">P(X \geq 73260) \leq \frac{24420}{73260} = \frac{1}{3}</span></p>
+</div>
+</section>
+<section id="inégalité-de-bienaymé-tchebychev" class="level2" data-number="6.2">
+<h2 data-number="6.2" class="anchored" data-anchor-id="inégalité-de-bienaymé-tchebychev"><span class="header-section-number">6.2</span> Inégalité de Bienaymé-Tchebychev</h2>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 6.1 — (Inégalité de Bienaymé-Tchebychev)</strong></p>
+<p>Soit <span class="math inline">X</span> une variable aléatoire réelle discrète admettant une espérance et une variance. Alors pour tout <span class="math inline">\varepsilon &gt; 0</span> : <span class="math display">P(|X - E(X)| \geq \varepsilon) \leq \frac{V(X)}{\varepsilon^2}</span></p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Preuve</em>. </span>On applique l’inégalité de Markov à la variable aléatoire positive <span class="math inline">(X - E(X))^2</span> : <span class="math display">P(|X - E(X)| \geq \varepsilon) = P((X - E(X))^2 \geq \varepsilon^2) \leq \frac{E((X - E(X))^2)}{\varepsilon^2} = \frac{V(X)}{\varepsilon^2}</span></p>
+</div>
+</section>
+<section id="inégalité-de-jensen" class="level2" data-number="6.3">
+<h2 data-number="6.3" class="anchored" data-anchor-id="inégalité-de-jensen"><span class="header-section-number">6.3</span> Inégalité de Jensen</h2>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 6.2 — (Inégalité de Jensen)</strong></p>
+<p>Soit <span class="math inline">X</span> une variable aléatoire réelle admettant une espérance, <span class="math inline">f : \mathbb{R} \to \mathbb{R}</span> une fonction convexe sur <span class="math inline">\mathbb{R}</span>, et <span class="math inline">Y = f(X)</span> admettant une espérance. Alors : <span class="math display">f(E(X)) \leq E(f(X))</span></p>
+</div>
+</section>
+</section>
+<section id="convergence-en-probabilité-et-en-loi" class="level1" data-number="7">
+<h1 data-number="7"><span class="header-section-number">7</span> Convergence en probabilité et en loi</h1>
+<section id="convergence-en-probabilité" class="level2" data-number="7.1">
+<h2 data-number="7.1" class="anchored" data-anchor-id="convergence-en-probabilité"><span class="header-section-number">7.1</span> Convergence en probabilité</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 7.1 — (Convergence en probabilité)</strong></p>
+<p>Soit <span class="math inline">(X_n)_{n \in \mathbb{N}}</span> une suite de variables aléatoires réelles et <span class="math inline">X</span> une variable aléatoire. On dit que <span class="math inline">(X_n)</span> <strong>converge en probabilité</strong> vers <span class="math inline">X</span> si : <span class="math display">\forall \varepsilon &gt; 0, \quad \lim_{n \to +\infty} P(|X_n - X| \geq \varepsilon) = 0</span></p>
+</div>
+</section>
+<section id="convergence-en-loi" class="level2" data-number="7.2">
+<h2 data-number="7.2" class="anchored" data-anchor-id="convergence-en-loi"><span class="header-section-number">7.2</span> Convergence en loi</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 7.2 — (Convergence en loi)</strong></p>
+<p>Soit <span class="math inline">(X_n)_{n \in \mathbb{N}}</span> une suite de variables aléatoires réelles et <span class="math inline">X</span> une variable aléatoire. On dit que <span class="math inline">(X_n)</span> <strong>converge en loi</strong> vers <span class="math inline">X</span> si : <span class="math display">\forall t \in \mathbb{R} \setminus D_X, \quad \lim_{n \to +\infty} F_{X_n}(t) = F_X(t)</span> où <span class="math inline">D_X</span> désigne l’ensemble des points de discontinuité de <span class="math inline">F_X</span>.</p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 7.1</strong></p>
+<p>La convergence en probabilité implique la convergence en loi. La réciproque est fausse.</p>
+</div>
+</section>
+</section>
+<section id="loi-faible-des-grands-nombres" class="level1" data-number="8">
+<h1 data-number="8"><span class="header-section-number">8</span> Loi faible des grands nombres</h1>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 8.1 — (Loi faible des grands nombres)</strong></p>
+<p>Soit <span class="math inline">(X_n)_{n \geq 1}</span> une suite de variables aléatoires mutuellement indépendantes, de même loi, admettant un moment d’ordre 2. Notons <span class="math inline">m = E(X_1)</span> et <span class="math inline">S_n = \sum_{k=1}^n X_k</span>. Alors : <span class="math display">\forall \varepsilon &gt; 0, \quad \lim_{n \to +\infty} P\left(\left|\frac{S_n}{n} - m\right| \geq \varepsilon\right) = 0</span></p>
+<p>Autrement dit, la suite <span class="math inline">\left(\frac{S_n}{n}\right)_{n \geq 1}</span> converge en probabilité vers la variable constante <span class="math inline">m</span>.</p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Preuve</em>. </span>Par indépendance et même loi : <span class="math display">E\left(\frac{S_n}{n}\right) = \frac{1}{n} \sum_{k=1}^n E(X_k) = m</span> <span class="math display">V\left(\frac{S_n}{n}\right) = \frac{1}{n^2} \sum_{k=1}^n V(X_k) = \frac{V(X_1)}{n}</span></p>
+<p>Par l’inégalité de Bienaymé-Tchebychev : <span class="math display">P\left(\left|\frac{S_n}{n} - m\right| \geq \varepsilon\right) \leq \frac{V(S_n/n)}{\varepsilon^2} = \frac{V(X_1)}{n\varepsilon^2} \xrightarrow[n \to +\infty]{} 0</span></p>
+</div>
+<div class="remarque" title="(Interprétation fréquentiste)">
+<p>La loi faible des grands nombres justifie l’approche fréquentiste de la probabilité : si l’on répète <span class="math inline">n</span> fois une expérience aléatoire, la fréquence d’apparition d’un événement <span class="math inline">A</span> converge en probabilité vers <span class="math inline">P(A)</span>.</p>
+</div>
+</section>
+<section id="exercices" class="level1" data-number="9">
+<h1 data-number="9"><span class="header-section-number">9</span> Exercices</h1>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 9.1</strong></p>
+<p>Soient <span class="math inline">A</span> et <span class="math inline">B</span> deux événements tels que <span class="math inline">P(A) = \frac{1}{3}</span>, <span class="math inline">P(B) = \frac{1}{4}</span> et <span class="math inline">P(A \cup B) = \frac{1}{2}</span>.</p>
+<ol type="1">
+<li>Calculer <span class="math inline">P(A \cap B)</span>.</li>
+<li><span class="math inline">A</span> et <span class="math inline">B</span> sont-ils indépendants ?</li>
+<li>Calculer <span class="math inline">P_A(B)</span> et <span class="math inline">P_B(A)</span>.</li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 9.2</strong></p>
+<p>Une urne contient 5 boules rouges et 3 boules vertes. On tire successivement et sans remise 3 boules. Notons <span class="math inline">X</span> le nombre de boules rouges obtenues.</p>
+<ol type="1">
+<li>Déterminer la loi de <span class="math inline">X</span>.</li>
+<li>Calculer <span class="math inline">E(X)</span> et <span class="math inline">V(X)</span>.</li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 9.3</strong></p>
+<p>Soit <span class="math inline">X \hookrightarrow \mathcal{P}(\lambda)</span>.</p>
+<ol type="1">
+<li>Déterminer la fonction génératrice <span class="math inline">G_X</span>.</li>
+<li>En déduire <span class="math inline">E(X)</span> et <span class="math inline">V(X)</span>.</li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 9.4 — (Inégalité de Bienaymé-Tchebychev)</strong></p>
+<p>Soit <span class="math inline">X</span> une variable aléatoire avec <span class="math inline">E(X) = 3</span> et <span class="math inline">V(X) = 4</span>.</p>
+<ol type="1">
+<li>Majorer <span class="math inline">P(|X - 3| \geq 2)</span>.</li>
+<li>Majorer <span class="math inline">P(|X - 3| \geq 6)</span>.</li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 9.5 — (Loi faible des grands nombres)</strong></p>
+<p>On lance <span class="math inline">n</span> fois un dé équilibré. Notons <span class="math inline">S_n</span> la somme des résultats obtenus.</p>
+<ol type="1">
+<li>Calculer <span class="math inline">E(S_n)</span> et <span class="math inline">V(S_n)</span>.</li>
+<li>En déduire que <span class="math inline">\frac{S_n}{n}</span> converge en probabilité vers <span class="math inline">\frac{7}{2}</span>.</li>
+<li>Majorer <span class="math inline">P\left(\left|\frac{S_n}{n} - \frac{7}{2}\right| \geq 1\right)</span> en fonction de <span class="math inline">n</span>.</li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 9.6 — (Convergence de Poisson)</strong></p>
+<p>Soit <span class="math inline">(X_n)</span> une suite de variables aléatoires avec <span class="math inline">X_n \hookrightarrow \mathcal{B}(n, \frac{\lambda}{n})</span>.</p>
+<ol type="1">
+<li>Déterminer la fonction génératrice <span class="math inline">G_{X_n}</span>.</li>
+<li>Montrer que <span class="math inline">G_{X_n}(s) \to e^{\lambda(s-1)}</span> pour tout <span class="math inline">s \in [-1, 1]</span>.</li>
+<li>Conclure que <span class="math inline">X_n \xrightarrow{\mathcal{L}} \mathcal{P}(\lambda)</span>.</li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 9.7 — (Formule de Wald)</strong></p>
+<p>Soient <span class="math inline">(X_k)_{k \geq 1}</span> et <span class="math inline">N</span> des variables aléatoires sur un même espace probabilisé, mutuellement indépendantes, à valeurs dans <span class="math inline">\mathbb{N}</span>, les <span class="math inline">X_i</span> ayant toutes même loi. On considère <span class="math inline">S = X_1 + \cdots + X_N</span> (avec la convention <span class="math inline">S = 0</span> si <span class="math inline">N = 0</span>).</p>
+<ol type="1">
+<li>Montrer que <span class="math inline">S</span> est une variable aléatoire.</li>
+<li>Déterminer la fonction génératrice de <span class="math inline">S</span> en fonction des fonctions génératrices de <span class="math inline">N</span> et <span class="math inline">X_1</span>.</li>
+<li>En déduire <span class="math inline">E(S) = E(N) E(X_1)</span>.</li>
+</ol>
+</div>
+</section>
+<section id="document-en-pdf" class="level1 unnumbered">
+<h1 class="unnumbered">Document en PDF</h1>
+<p><a href="PDF/tsi2-chap08.pdf">Chapitre 08 : Espaces probabilisés ; variables aléatoires réelles ; cas discret</a></p>
+<section id="navigation" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="navigation">Navigation</h2>
+<div class="chap-nav">
+<p><a href="../cours/tsi2-chap07.html" class="prev">Chapitre 07 : Séries entières</a> <a href="../cours/tsi2.html" class="home">Menu TSI</a> <a href="../cours/tsi2-chap09.html" class="next">Chapitre 09 : Espaces préhilbertiens réels. Endomorphismes des espaces euclidiens</a></p>
+</div>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -222,12 +812,12 @@ ul.task-list li input[type="checkbox"] {
       // flash "checked"
       button.classList.add('code-copy-button-checked');
       var currentTitle = button.getAttribute("title");
-      button.setAttribute("title", "Copied!");
+      button.setAttribute("title", "Copié");
       let tooltip;
       if (window.bootstrap) {
         button.setAttribute("data-bs-toggle", "tooltip");
         button.setAttribute("data-bs-placement", "left");
-        button.setAttribute("data-bs-title", "Copied!");
+        button.setAttribute("data-bs-title", "Copié");
         tooltip = new bootstrap.Tooltip(button, 
           { trigger: "manual", 
             customClass: "code-copy-button-tooltip",

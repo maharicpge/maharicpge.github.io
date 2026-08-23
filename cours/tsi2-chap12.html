@@ -1,0 +1,1135 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.18">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Saîd MAHARI">
+
+<title>Fonctions de plusieurs variables – Mathématiques en CPGE</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-e0d9a45d84245cc5e3b300860d8fa645.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "Pas de résultats",
+    "search-matching-documents-text": "documents trouvés",
+    "search-copy-link-title": "Copier le lien vers la recherche",
+    "search-hide-matches-text": "Cacher les correspondances additionnelles",
+    "search-more-match-text": "correspondance de plus dans ce document",
+    "search-more-matches-text": "correspondances de plus dans ce document",
+    "search-clear-button-title": "Effacer",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Annuler",
+    "search-submit-button-title": "Envoyer",
+    "search-label": "Recherche"
+  }
+}</script>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">Accueil</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Recherche"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Basculer la navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../cours/index.html"> 
+<span class="menu-text">Cours</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../td/index.html"> 
+<span class="menu-text">TD</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../annales/index.html"> 
+<span class="menu-text">Annales</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../tipe/index.html"> 
+<span class="menu-text">TIPE</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../conseils.html"> 
+<span class="menu-text">Conseils et méthode</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../professeurs.html"> 
+<span class="menu-text">Aux professeurs</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../contact.html"> 
+<span class="menu-text">Contact</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../apropos.html"> 
+<span class="menu-text">À propos de l’auteur</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Sur cette page</h2>
+   
+  <ul>
+  <li><a href="#introduction-à-la-topologie-de-mathbbrn" id="toc-introduction-à-la-topologie-de-mathbbrn" class="nav-link active" data-scroll-target="#introduction-à-la-topologie-de-mathbbrn"><span class="header-section-number">1</span> Introduction à la topologie de <span class="math inline">\mathbb{R}^n</span></a>
+  <ul class="collapse">
+  <li><a href="#boules-et-voisinages" id="toc-boules-et-voisinages" class="nav-link" data-scroll-target="#boules-et-voisinages"><span class="header-section-number">1.1</span> Boules et voisinages</a></li>
+  <li><a href="#ensembles-convexes" id="toc-ensembles-convexes" class="nav-link" data-scroll-target="#ensembles-convexes"><span class="header-section-number">1.2</span> Ensembles convexes</a></li>
+  <li><a href="#connexité-par-arcs" id="toc-connexité-par-arcs" class="nav-link" data-scroll-target="#connexité-par-arcs"><span class="header-section-number">1.3</span> Connexité par arcs</a></li>
+  </ul></li>
+  <li><a href="#limite-et-continuité" id="toc-limite-et-continuité" class="nav-link" data-scroll-target="#limite-et-continuité"><span class="header-section-number">2</span> Limite et continuité</a>
+  <ul class="collapse">
+  <li><a href="#limite" id="toc-limite" class="nav-link" data-scroll-target="#limite"><span class="header-section-number">2.1</span> Limite</a></li>
+  <li><a href="#continuité" id="toc-continuité" class="nav-link" data-scroll-target="#continuité"><span class="header-section-number">2.2</span> Continuité</a></li>
+  <li><a href="#continuité-des-applications-partielles" id="toc-continuité-des-applications-partielles" class="nav-link" data-scroll-target="#continuité-des-applications-partielles"><span class="header-section-number">2.3</span> Continuité des applications partielles</a></li>
+  </ul></li>
+  <li><a href="#dérivées-partielles" id="toc-dérivées-partielles" class="nav-link" data-scroll-target="#dérivées-partielles"><span class="header-section-number">3</span> Dérivées partielles</a>
+  <ul class="collapse">
+  <li><a href="#définition" id="toc-définition" class="nav-link" data-scroll-target="#définition"><span class="header-section-number">3.1</span> Définition</a></li>
+  <li><a href="#dérivée-selon-un-vecteur" id="toc-dérivée-selon-un-vecteur" class="nav-link" data-scroll-target="#dérivée-selon-un-vecteur"><span class="header-section-number">3.2</span> Dérivée selon un vecteur</a></li>
+  </ul></li>
+  <li><a href="#applications-de-classe-mathcalc1-et-mathcalc2" id="toc-applications-de-classe-mathcalc1-et-mathcalc2" class="nav-link" data-scroll-target="#applications-de-classe-mathcalc1-et-mathcalc2"><span class="header-section-number">4</span> Applications de classe <span class="math inline">\mathcal{C}^1</span> et <span class="math inline">\mathcal{C}^2</span></a>
+  <ul class="collapse">
+  <li><a href="#définition-1" id="toc-définition-1" class="nav-link" data-scroll-target="#définition-1"><span class="header-section-number">4.1</span> Définition</a></li>
+  <li><a href="#différentiabilité" id="toc-différentiabilité" class="nav-link" data-scroll-target="#différentiabilité"><span class="header-section-number">4.2</span> Différentiabilité</a></li>
+  <li><a href="#théorème-de-schwarz" id="toc-théorème-de-schwarz" class="nav-link" data-scroll-target="#théorème-de-schwarz"><span class="header-section-number">4.3</span> Théorème de Schwarz</a></li>
+  </ul></li>
+  <li><a href="#gradient" id="toc-gradient" class="nav-link" data-scroll-target="#gradient"><span class="header-section-number">5</span> Gradient</a>
+  <ul class="collapse">
+  <li><a href="#définition-2" id="toc-définition-2" class="nav-link" data-scroll-target="#définition-2"><span class="header-section-number">5.1</span> Définition</a></li>
+  <li><a href="#interprétation-géométrique" id="toc-interprétation-géométrique" class="nav-link" data-scroll-target="#interprétation-géométrique"><span class="header-section-number">5.2</span> Interprétation géométrique</a></li>
+  </ul></li>
+  <li><a href="#règle-de-la-chaîne" id="toc-règle-de-la-chaîne" class="nav-link" data-scroll-target="#règle-de-la-chaîne"><span class="header-section-number">6</span> Règle de la chaîne</a>
+  <ul class="collapse">
+  <li><a href="#composition-de-fonctions" id="toc-composition-de-fonctions" class="nav-link" data-scroll-target="#composition-de-fonctions"><span class="header-section-number">6.1</span> Composition de fonctions</a></li>
+  <li><a href="#composition-par-une-application-de-plusieurs-variables" id="toc-composition-par-une-application-de-plusieurs-variables" class="nav-link" data-scroll-target="#composition-par-une-application-de-plusieurs-variables"><span class="header-section-number">6.2</span> Composition par une application de plusieurs variables</a></li>
+  <li><a href="#changement-de-variables-classiques" id="toc-changement-de-variables-classiques" class="nav-link" data-scroll-target="#changement-de-variables-classiques"><span class="header-section-number">6.3</span> Changement de variables classiques</a></li>
+  </ul></li>
+  <li><a href="#équations-aux-dérivées-partielles" id="toc-équations-aux-dérivées-partielles" class="nav-link" data-scroll-target="#équations-aux-dérivées-partielles"><span class="header-section-number">7</span> Équations aux dérivées partielles</a>
+  <ul class="collapse">
+  <li><a href="#exemples-du-premier-ordre" id="toc-exemples-du-premier-ordre" class="nav-link" data-scroll-target="#exemples-du-premier-ordre"><span class="header-section-number">7.1</span> Exemples du premier ordre</a></li>
+  <li><a href="#exemple-du-second-ordre" id="toc-exemple-du-second-ordre" class="nav-link" data-scroll-target="#exemple-du-second-ordre"><span class="header-section-number">7.2</span> Exemple du second ordre</a></li>
+  </ul></li>
+  <li><a href="#extremums-dune-fonction-de-deux-variables" id="toc-extremums-dune-fonction-de-deux-variables" class="nav-link" data-scroll-target="#extremums-dune-fonction-de-deux-variables"><span class="header-section-number">8</span> Extremums d’une fonction de deux variables</a>
+  <ul class="collapse">
+  <li><a href="#extremum-local" id="toc-extremum-local" class="nav-link" data-scroll-target="#extremum-local"><span class="header-section-number">8.1</span> Extremum local</a></li>
+  <li><a href="#théorème-dordre-1" id="toc-théorème-dordre-1" class="nav-link" data-scroll-target="#théorème-dordre-1"><span class="header-section-number">8.2</span> Théorème d’ordre 1</a></li>
+  <li><a href="#étude-au-second-ordre" id="toc-étude-au-second-ordre" class="nav-link" data-scroll-target="#étude-au-second-ordre"><span class="header-section-number">8.3</span> Étude au second ordre</a></li>
+  <li><a href="#méthode-détude-des-extremums-globaux" id="toc-méthode-détude-des-extremums-globaux" class="nav-link" data-scroll-target="#méthode-détude-des-extremums-globaux"><span class="header-section-number">8.4</span> Méthode d’étude des extremums globaux</a></li>
+  </ul></li>
+  <li><a href="#applications-géométriques" id="toc-applications-géométriques" class="nav-link" data-scroll-target="#applications-géométriques"><span class="header-section-number">9</span> Applications géométriques</a>
+  <ul class="collapse">
+  <li><a href="#tangente-à-une-courbe" id="toc-tangente-à-une-courbe" class="nav-link" data-scroll-target="#tangente-à-une-courbe"><span class="header-section-number">9.1</span> Tangente à une courbe</a></li>
+  <li><a href="#plan-tangent-à-une-surface" id="toc-plan-tangent-à-une-surface" class="nav-link" data-scroll-target="#plan-tangent-à-une-surface"><span class="header-section-number">9.2</span> Plan tangent à une surface</a></li>
+  <li><a href="#vecteurs-tangents-au-graphe-dune-fonction" id="toc-vecteurs-tangents-au-graphe-dune-fonction" class="nav-link" data-scroll-target="#vecteurs-tangents-au-graphe-dune-fonction"><span class="header-section-number">9.3</span> Vecteurs tangents au graphe d’une fonction</a></li>
+  </ul></li>
+  <li><a href="#exercices" id="toc-exercices" class="nav-link" data-scroll-target="#exercices"><span class="header-section-number">10</span> Exercices</a></li>
+  <li><a href="#document-en-pdf" id="toc-document-en-pdf" class="nav-link" data-scroll-target="#document-en-pdf">Document en PDF</a>
+  <ul class="collapse">
+  <li><a href="#navigation" id="toc-navigation" class="nav-link" data-scroll-target="#navigation">Navigation</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Fonctions de plusieurs variables</h1>
+<p class="subtitle lead">Chapitre 12</p>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Auteur·rice</div>
+    <div class="quarto-title-meta-contents">
+             <p>Saîd MAHARI </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Date de publication</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">23 août 2026</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p><strong>TSI (2e année) — Chapitre 12.</strong> Introduction à la topologie de <span class="math inline">\mathbb{R}^n</span>, limite et continuité, dérivées partielles, applications de classe <span class="math inline">\mathcal{C}^k</span> (<span class="math inline">k = 1</span> ou <span class="math inline">2</span>), gradient, règle de la chaîne, équations aux dérivées partielles, extremums d’une fonction de deux variables, applications géométriques (tangentes, plans tangents).</p>
+<p>Ce chapitre a été réalisé conformément au programme marocain de mathématiques de la filière TSI.</p>
+<p>Dans tout ce chapitre, <span class="math inline">E = \mathbb{R}^m</span> est muni de sa base canonique <span class="math inline">\mathcal{B} = (e_1, \ldots, e_m)</span> et de la norme euclidienne <span class="math inline">\|\cdot\|</span>. On identifie un vecteur <span class="math inline">x \in \mathbb{R}^m</span> avec ses coordonnées <span class="math inline">(x_1, \ldots, x_m)</span> dans la base <span class="math inline">\mathcal{B}</span>. Si <span class="math inline">m = 2</span> (resp. <span class="math inline">m = 3</span>), on notera <span class="math inline">(x, y)</span> plutôt que <span class="math inline">(x_1, x_2)</span> (resp. <span class="math inline">(x, y, z)</span> plutôt que <span class="math inline">(x_1, x_2, x_3)</span>).</p>
+<section id="introduction-à-la-topologie-de-mathbbrn" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Introduction à la topologie de <span class="math inline">\mathbb{R}^n</span></h1>
+<section id="boules-et-voisinages" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="boules-et-voisinages"><span class="header-section-number">1.1</span> Boules et voisinages</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 1.1 — (Boule ouverte, boule fermée)</strong></p>
+<p>Soient <span class="math inline">a \in \mathbb{R}^m</span> et <span class="math inline">r &gt; 0</span>.</p>
+<ul>
+<li><p>La <strong>boule ouverte</strong> de centre <span class="math inline">a</span> et de rayon <span class="math inline">r</span> est : <span class="math display">B(a, r) = \{x \in \mathbb{R}^m \mid \|x - a\| &lt; r\}</span></p></li>
+<li><p>La <strong>boule fermée</strong> de centre <span class="math inline">a</span> et de rayon <span class="math inline">r</span> est : <span class="math display">\overline{B}(a, r) = \{x \in \mathbb{R}^m \mid \|x - a\| \leq r\}</span></p></li>
+</ul>
+</div>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 1.2 — (Ouvert, fermé)</strong></p>
+<p>Soit <span class="math inline">U</span> une partie de <span class="math inline">\mathbb{R}^m</span>.</p>
+<ul>
+<li><span class="math inline">U</span> est un <strong>ouvert</strong> si pour tout <span class="math inline">a \in U</span>, il existe <span class="math inline">r &gt; 0</span> tel que <span class="math inline">B(a, r) \subset U</span>.</li>
+<li><span class="math inline">U</span> est un <strong>fermé</strong> si son complémentaire <span class="math inline">\mathbb{R}^m \setminus U</span> est un ouvert.</li>
+</ul>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 1.1</strong></p>
+<ul>
+<li><span class="math inline">\mathbb{R}^m</span> et <span class="math inline">\varnothing</span> sont des ouverts et des fermés.</li>
+<li><span class="math inline">B(a, r)</span> est un ouvert.</li>
+<li><span class="math inline">\overline{B}(a, r)</span> est un fermé.</li>
+</ul>
+</div>
+</section>
+<section id="ensembles-convexes" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="ensembles-convexes"><span class="header-section-number">1.2</span> Ensembles convexes</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 1.3 — (Ensemble convexe)</strong></p>
+<p>Une partie <span class="math inline">U</span> de <span class="math inline">\mathbb{R}^m</span> est dite <strong>convexe</strong> si pour tous <span class="math inline">x, y \in U</span> et tout <span class="math inline">t \in [0, 1]</span> : <span class="math display">(1 - t)x + ty \in U</span></p>
+<p>Autrement dit, le segment <span class="math inline">[x, y]</span> est entièrement contenu dans <span class="math inline">U</span>.</p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 1.2</strong></p>
+<p>Les boules ouvertes et fermées sont convexes. Les hyperplans ne sont pas convexes (ce sont des variétés affines).</p>
+</div>
+</section>
+<section id="connexité-par-arcs" class="level2" data-number="1.3">
+<h2 data-number="1.3" class="anchored" data-anchor-id="connexité-par-arcs"><span class="header-section-number">1.3</span> Connexité par arcs</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 1.4 — (Connexe par arcs)</strong></p>
+<p>Une partie <span class="math inline">U</span> de <span class="math inline">\mathbb{R}^m</span> est dite <strong>connexe par arcs</strong> si pour tous <span class="math inline">x, y \in U</span>, il existe une application continue <span class="math inline">\gamma : [0, 1] \to U</span> telle que <span class="math inline">\gamma(0) = x</span> et <span class="math inline">\gamma(1) = y</span>.</p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 1.1</strong></p>
+<p>Tout ouvert convexe est connexe par arcs.</p>
+</div>
+</section>
+</section>
+<section id="limite-et-continuité" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> Limite et continuité</h1>
+<section id="limite" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="limite"><span class="header-section-number">2.1</span> Limite</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 2.1 — (Limite d’une fonction de plusieurs variables)</strong></p>
+<p>Soit <span class="math inline">f : U \subset \mathbb{R}^m \to \mathbb{R}</span> une fonction et <span class="math inline">a \in U</span>. On dit que <span class="math inline">f</span> admet pour limite <span class="math inline">l \in \mathbb{R}</span> en <span class="math inline">a</span> si : <span class="math display">\forall \varepsilon &gt; 0, \quad \exists \delta &gt; 0, \quad (x \in U \text{ et } \|x - a\| &lt; \delta) \implies |f(x) - l| &lt; \varepsilon</span></p>
+<p>On note <span class="math inline">\lim_{x \to a} f(x) = l</span>.</p>
+</div>
+</section>
+<section id="continuité" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="continuité"><span class="header-section-number">2.2</span> Continuité</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 2.2 — (Continuité)</strong></p>
+<p>Soit <span class="math inline">f : U \subset \mathbb{R}^m \to \mathbb{R}</span> une fonction. On dit que <span class="math inline">f</span> est <strong>continue en</strong> <span class="math inline">a \in U</span> si : <span class="math display">\lim_{x \to a} f(x) = f(a)</span></p>
+<p><span class="math inline">f</span> est <strong>continue sur</strong> <span class="math inline">U</span> si elle est continue en tout point de <span class="math inline">U</span>.</p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 2.1 — (Opérations sur les fonctions continues)</strong></p>
+<p>Soient <span class="math inline">f, g : U \to \mathbb{R}</span> deux fonctions continues en <span class="math inline">a \in U</span>.</p>
+<ol type="1">
+<li><span class="math inline">f + g</span>, <span class="math inline">f - g</span>, <span class="math inline">\lambda f</span> sont continues en <span class="math inline">a</span>.</li>
+<li><span class="math inline">fg</span> est continue en <span class="math inline">a</span>.</li>
+<li>Si <span class="math inline">g(a) \neq 0</span>, <span class="math inline">\frac{f}{g}</span> est continue en <span class="math inline">a</span>.</li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 2.2 — (Composition)</strong></p>
+<p>Si <span class="math inline">f : U \to \mathbb{R}</span> est continue en <span class="math inline">a</span> et <span class="math inline">\varphi : \mathbb{R} \to \mathbb{R}</span> est continue en <span class="math inline">f(a)</span>, alors <span class="math inline">\varphi \circ f</span> est continue en <span class="math inline">a</span>.</p>
+</div>
+</section>
+<section id="continuité-des-applications-partielles" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="continuité-des-applications-partielles"><span class="header-section-number">2.3</span> Continuité des applications partielles</h2>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 2.3 — (Condition nécessaire)</strong></p>
+<p>Si <span class="math inline">f : U \subset \mathbb{R}^m \to \mathbb{R}</span> est continue en <span class="math inline">a</span>, alors toutes les applications partielles <span class="math inline">f_i : t \mapsto f(a_1, \ldots, a_{i-1}, t, a_{i+1}, \ldots, a_m)</span> sont continues en <span class="math inline">a_i</span>.</p>
+<p><strong>Attention</strong> : La réciproque est fausse ! Une fonction peut avoir toutes ses applications partielles continues sans être continue.</p>
+</div>
+</section>
+</section>
+<section id="dérivées-partielles" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Dérivées partielles</h1>
+<section id="définition" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="définition"><span class="header-section-number">3.1</span> Définition</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 3.1 — (Application partielle)</strong></p>
+<p>Soit <span class="math inline">f : U \subset \mathbb{R}^m \to \mathbb{R}</span> et <span class="math inline">a = (a_1, \ldots, a_m) \in U</span>. Pour <span class="math inline">i \in \{1, \ldots, m\}</span>, on appelle <strong><span class="math inline">i</span>-ème application partielle</strong> de <span class="math inline">f</span> en <span class="math inline">a</span> la fonction : <span class="math display">f_i : t \mapsto f(a_1, \ldots, a_{i-1}, t, a_{i+1}, \ldots, a_m)</span> définie au voisinage de <span class="math inline">a_i</span>.</p>
+</div>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 3.2 — (Dérivée partielle)</strong></p>
+<p>On dit que <span class="math inline">f</span> admet une <strong>dérivée partielle selon <span class="math inline">x_i</span></strong> en <span class="math inline">a</span> si l’application partielle <span class="math inline">f_i</span> est dérivable en <span class="math inline">a_i</span>. On note : <span class="math display">\frac{\partial f}{\partial x_i}(a) = f_i'(a_i) = \lim_{t \to 0} \frac{f(a + te_i) - f(a)}{t}</span></p>
+</div>
+<div class="remarque" title="(Règle de calcul)">
+<p>Pour calculer <span class="math inline">\frac{\partial f}{\partial x_i}(x, y)</span>, on « gèle » la variable <span class="math inline">y</span> (considérée comme constante) et on dérive l’expression par rapport à <span class="math inline">x</span>. De même, pour calculer <span class="math inline">\frac{\partial f}{\partial y}(x, y)</span>, on fixe <span class="math inline">x</span> et on dérive l’expression par rapport à <span class="math inline">y</span>.</p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 3.1</strong></p>
+<p>Pour <span class="math inline">f(x, y) = x^2 \cos(y)</span> : <span class="math display">\frac{\partial f}{\partial x}(x, y) = 2x \cos(y), \quad \frac{\partial f}{\partial y}(x, y) = -x^2 \sin(y)</span></p>
+</div>
+</section>
+<section id="dérivée-selon-un-vecteur" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="dérivée-selon-un-vecteur"><span class="header-section-number">3.2</span> Dérivée selon un vecteur</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 3.3 — (Dérivée selon un vecteur)</strong></p>
+<p>Soit <span class="math inline">f : U \to \mathbb{R}</span> et <span class="math inline">a \in U</span>. Soit <span class="math inline">h = (h_1, \ldots, h_m) \in \mathbb{R}^m \setminus \{0\}</span>. On dit que <span class="math inline">f</span> admet une <strong>dérivée en <span class="math inline">a</span> selon le vecteur <span class="math inline">h</span></strong> si la fonction : <span class="math display">\varphi(t) = f(a + th)</span> est dérivable en <span class="math inline">t = 0</span>. On note : <span class="math display">D_h f(a) = \varphi'(0) = \lim_{t \to 0} \frac{f(a + th) - f(a)}{t}</span></p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 3.1 — (Dérivée selon tout vecteur pour une fonction <span class="math inline">\boldsymbol{\mathcal{C}^1}</span>)</strong></p>
+<p>Si <span class="math inline">f : U \to \mathbb{R}</span> est de classe <span class="math inline">\mathcal{C}^1</span> sur l’ouvert <span class="math inline">U</span>, alors pour tout point <span class="math inline">a \in U</span> et tout vecteur non nul <span class="math inline">h = (h_1, \ldots, h_m) \in \mathbb{R}^m</span>, <span class="math inline">f</span> admet une dérivée selon le vecteur <span class="math inline">h</span> au point <span class="math inline">a</span> et : <span class="math display">D_h f(a) = \sum_{k=1}^m h_k \frac{\partial f}{\partial x_k}(a)</span></p>
+</div>
+<div class="remarque">
+<p>L’existence des dérivées partielles n’implique pas la continuité. Par exemple, la fonction : <span class="math display">f(x, y) = \begin{cases} \frac{x^3 - y^3}{x^2 + y^2} &amp; \text{si } (x, y) \neq (0, 0) \\ 0 &amp; \text{si } (x, y) = (0, 0) \end{cases}</span> admet des dérivées partielles en <span class="math inline">(0,0)</span> mais n’est pas continue en <span class="math inline">(0,0)</span>.</p>
+</div>
+</section>
+</section>
+<section id="applications-de-classe-mathcalc1-et-mathcalc2" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> Applications de classe <span class="math inline">\mathcal{C}^1</span> et <span class="math inline">\mathcal{C}^2</span></h1>
+<section id="définition-1" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="définition-1"><span class="header-section-number">4.1</span> Définition</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 4.1 — (Fonction de classe <span class="math inline">\boldsymbol{\mathcal{C}^1}</span>)</strong></p>
+<p>Soit <span class="math inline">f : U \subset \mathbb{R}^m \to \mathbb{R}</span> avec <span class="math inline">U</span> ouvert. On dit que <span class="math inline">f</span> est de <strong>classe <span class="math inline">\mathcal{C}^1</span></strong> sur <span class="math inline">U</span> si :</p>
+<ol type="1">
+<li>Pour tout point <span class="math inline">a \in U</span>, <span class="math inline">f</span> possède des dérivées partielles <span class="math inline">\frac{\partial f}{\partial x_i}(a)</span> pour tout <span class="math inline">i \in \{1, \ldots, m\}</span>.</li>
+<li>Chacune des <span class="math inline">m</span> fonctions <span class="math inline">\frac{\partial f}{\partial x_i} : U \to \mathbb{R}</span> est continue sur <span class="math inline">U</span>.</li>
+</ol>
+<p>On note <span class="math inline">\mathcal{C}^1(U, \mathbb{R})</span> l’ensemble des fonctions de classe <span class="math inline">\mathcal{C}^1</span> sur <span class="math inline">U</span>.</p>
+</div>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 4.2 — (Fonction de classe <span class="math inline">\boldsymbol{\mathcal{C}^2}</span>)</strong></p>
+<p><span class="math inline">f : U \to \mathbb{R}</span> est de <strong>classe <span class="math inline">\mathcal{C}^2</span></strong> si <span class="math inline">f</span> et ses <span class="math inline">m</span> dérivées partielles <span class="math inline">\frac{\partial f}{\partial x_i}</span> sont de classe <span class="math inline">\mathcal{C}^1</span>. Autrement dit, les <span class="math inline">m^2</span> dérivées partielles d’ordre 2 existent et sont continues sur <span class="math inline">U</span>.</p>
+</div>
+</section>
+<section id="différentiabilité" class="level2" data-number="4.2">
+<h2 data-number="4.2" class="anchored" data-anchor-id="différentiabilité"><span class="header-section-number">4.2</span> Différentiabilité</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 4.3 — (Différentielle)</strong></p>
+<p>On dit que <span class="math inline">f : U \to \mathbb{R}</span> est <strong>différentiable en</strong> <span class="math inline">a \in U</span> s’il existe une application linéaire <span class="math inline">L : \mathbb{R}^m \to \mathbb{R}</span> et une fonction <span class="math inline">\varepsilon : \mathbb{R}^m \to \mathbb{R}</span> avec <span class="math inline">\varepsilon(h) \to 0</span> quand <span class="math inline">h \to 0</span> tels que : <span class="math display">f(a + h) = f(a) + L(h) + \|h\| \varepsilon(h)</span></p>
+<p>L’application linéaire <span class="math inline">L</span>, si elle existe, est unique. On l’appelle la <strong>différentielle</strong> de <span class="math inline">f</span> en <span class="math inline">a</span> et on la note <span class="math inline">df(a)</span>.</p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 4.1 — (Différentiabilité implique continuité)</strong></p>
+<p>Si <span class="math inline">f</span> est différentiable en <span class="math inline">a</span>, alors <span class="math inline">f</span> est continue en <span class="math inline">a</span>.</p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 4.2 — (Différentiabilité et dérivées partielles)</strong></p>
+<p>Si <span class="math inline">f</span> est différentiable en <span class="math inline">a</span>, alors <span class="math inline">f</span> possède des dérivées partielles en <span class="math inline">a</span> selon toutes les variables et : <span class="math display">df(a)(h) = \sum_{i=1}^m h_i \frac{\partial f}{\partial x_i}(a)</span></p>
+</div>
+<div class="remarque">
+<p>La réciproque est fausse : l’existence des dérivées partielles n’implique pas la différentiabilité.</p>
+</div>
+</section>
+<section id="théorème-de-schwarz" class="level2" data-number="4.3">
+<h2 data-number="4.3" class="anchored" data-anchor-id="théorème-de-schwarz"><span class="header-section-number">4.3</span> Théorème de Schwarz</h2>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 4.1 — (Théorème de Schwarz)</strong></p>
+<p>Soit <span class="math inline">f : U \to \mathbb{R}</span> une fonction de classe <span class="math inline">\mathcal{C}^2</span> sur un ouvert <span class="math inline">U</span> de <span class="math inline">\mathbb{R}^m</span>. Alors pour tout <span class="math inline">(i, j) \in \{1, \ldots, m\}^2</span> : <span class="math display">\frac{\partial^2 f}{\partial x_i \partial x_j} = \frac{\partial^2 f}{\partial x_j \partial x_i}</span></p>
+<p>Autrement dit, les dérivées partielles d’ordre 2 commutent.</p>
+</div>
+</section>
+</section>
+<section id="gradient" class="level1" data-number="5">
+<h1 data-number="5"><span class="header-section-number">5</span> Gradient</h1>
+<section id="définition-2" class="level2" data-number="5.1">
+<h2 data-number="5.1" class="anchored" data-anchor-id="définition-2"><span class="header-section-number">5.1</span> Définition</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 5.1 — (Gradient)</strong></p>
+<p>Soit <span class="math inline">f : U \subset \mathbb{R}^m \to \mathbb{R}</span> une fonction différentiable en <span class="math inline">a</span>. Le <strong>gradient</strong> de <span class="math inline">f</span> en <span class="math inline">a</span> est le vecteur : <span class="math display">\nabla f(a) = \left(\frac{\partial f}{\partial x_1}(a), \frac{\partial f}{\partial x_2}(a), \ldots, \frac{\partial f}{\partial x_m}(a)\right)</span></p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 5.1 — (Lien entre gradient et différentielle)</strong></p>
+<p>Si <span class="math inline">f</span> est différentiable en <span class="math inline">a</span>, alors pour tout <span class="math inline">h \in \mathbb{R}^m</span> : <span class="math display">df(a)(h) = \langle \nabla f(a), h \rangle</span></p>
+<p>où <span class="math inline">\langle \cdot, \cdot \rangle</span> désigne le produit scalaire euclidien sur <span class="math inline">\mathbb{R}^m</span>.</p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 5.2 — (Dérivée selon un vecteur et gradient)</strong></p>
+<p>Si <span class="math inline">f</span> est de classe <span class="math inline">\mathcal{C}^1</span> sur <span class="math inline">U</span>, alors pour tout vecteur non nul <span class="math inline">h \in \mathbb{R}^m</span> : <span class="math display">D_h f(a) = \langle \nabla f(a), h \rangle</span></p>
+</div>
+</section>
+<section id="interprétation-géométrique" class="level2" data-number="5.2">
+<h2 data-number="5.2" class="anchored" data-anchor-id="interprétation-géométrique"><span class="header-section-number">5.2</span> Interprétation géométrique</h2>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 5.3 — (Gradient et lignes de niveau)</strong></p>
+<p>Le gradient <span class="math inline">\nabla f(a)</span> est orthogonal aux lignes de niveau de <span class="math inline">f</span> passant par <span class="math inline">a</span>. Plus précisément, si <span class="math inline">\gamma</span> est une courbe de niveau de <span class="math inline">f</span> passant par <span class="math inline">a</span>, alors : <span class="math display">\langle \nabla f(a), \gamma'(0) \rangle = 0</span></p>
+</div>
+</section>
+</section>
+<section id="règle-de-la-chaîne" class="level1" data-number="6">
+<h1 data-number="6"><span class="header-section-number">6</span> Règle de la chaîne</h1>
+<section id="composition-de-fonctions" class="level2" data-number="6.1">
+<h2 data-number="6.1" class="anchored" data-anchor-id="composition-de-fonctions"><span class="header-section-number">6.1</span> Composition de fonctions</h2>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 6.1 — (Règle de la chaîne)</strong></p>
+<p>Soient <span class="math inline">f : U \subset \mathbb{R}^m \to \mathbb{R}</span> de classe <span class="math inline">\mathcal{C}^1</span> et <span class="math inline">\gamma : I \to U</span> de classe <span class="math inline">\mathcal{C}^1</span>, où <span class="math inline">I</span> est un intervalle de <span class="math inline">\mathbb{R}</span>. Alors <span class="math inline">f \circ \gamma : I \to \mathbb{R}</span> est de classe <span class="math inline">\mathcal{C}^1</span> et : <span class="math display">(f \circ \gamma)'(t) = df(\gamma(t))(\gamma'(t)) = \sum_{i=1}^m \frac{\partial f}{\partial x_i}(\gamma(t)) \cdot \gamma_i'(t) = \langle \nabla f(\gamma(t)), \gamma'(t) \rangle</span></p>
+</div>
+</section>
+<section id="composition-par-une-application-de-plusieurs-variables" class="level2" data-number="6.2">
+<h2 data-number="6.2" class="anchored" data-anchor-id="composition-par-une-application-de-plusieurs-variables"><span class="header-section-number">6.2</span> Composition par une application de plusieurs variables</h2>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 6.2 — (Règle de la chaîne généralisée)</strong></p>
+<p>Soient <span class="math inline">f : U \subset \mathbb{R}^m \to \mathbb{R}</span> de classe <span class="math inline">\mathcal{C}^1</span>, <span class="math inline">\varphi : V \subset \mathbb{R}^p \to U</span> de classe <span class="math inline">\mathcal{C}^1</span>, où <span class="math inline">U</span> et <span class="math inline">V</span> sont des ouverts. Alors <span class="math inline">g = f \circ \varphi : V \to \mathbb{R}</span> est de classe <span class="math inline">\mathcal{C}^1</span> et pour tout <span class="math inline">j \in \{1, \ldots, p\}</span> : <span class="math display">\frac{\partial g}{\partial u_j}(u) = \sum_{i=1}^m \frac{\partial f}{\partial x_i}(\varphi(u)) \cdot \frac{\partial \varphi_i}{\partial u_j}(u)</span></p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 6.1 — (Cas particulier : <span class="math inline">\boldsymbol{m = 1}</span>)</strong></p>
+<p>Si <span class="math inline">f : I \to \Omega' \subset \mathbb{R}^m</span> est de classe <span class="math inline">\mathcal{C}^1</span> sur un intervalle <span class="math inline">I</span> et <span class="math inline">g : \Omega' \to \mathbb{R}</span> est de classe <span class="math inline">\mathcal{C}^1</span>, alors <span class="math inline">h = g \circ f</span> est de classe <span class="math inline">\mathcal{C}^1</span> sur <span class="math inline">I</span> et : <span class="math display">h'(t) = \sum_{i=1}^m \frac{\partial g}{\partial x_i}(f(t)) \cdot f_i'(t)</span></p>
+</div>
+</section>
+<section id="changement-de-variables-classiques" class="level2" data-number="6.3">
+<h2 data-number="6.3" class="anchored" data-anchor-id="changement-de-variables-classiques"><span class="header-section-number">6.3</span> Changement de variables classiques</h2>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 6.2 — (Changement de variable linéaire)</strong></p>
+<p>Soit <span class="math inline">\varphi : \mathbb{R}^2 \to \mathbb{R}^2</span> définie par <span class="math inline">\varphi(u, v) = (au + bv, cu + dv)</span> avec <span class="math inline">ad - bc \neq 0</span>. Alors <span class="math inline">\varphi</span> est un isomorphisme de classe <span class="math inline">\mathcal{C}^\infty</span>.</p>
+<p>Si <span class="math inline">f</span> est de classe <span class="math inline">\mathcal{C}^1</span> et <span class="math inline">g(u, v) = f(au + bv, cu + dv)</span>, alors : <span class="math display">\frac{\partial g}{\partial u}(u, v) = a \frac{\partial f}{\partial x}(au + bv, cu + dv) + c \frac{\partial f}{\partial y}(au + bv, cu + dv)</span> <span class="math display">\frac{\partial g}{\partial v}(u, v) = b \frac{\partial f}{\partial x}(au + bv, cu + dv) + d \frac{\partial f}{\partial y}(au + bv, cu + dv)</span></p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 6.3 — (Coordonnées polaires)</strong></p>
+<p>Soit <span class="math inline">\varphi : \mathbb{R}^+ \times [0, 2\pi[ \to \mathbb{R}^2</span> définie par <span class="math inline">\varphi(r, \theta) = (r\cos\theta, r\sin\theta)</span>. Si <span class="math inline">f</span> est de classe <span class="math inline">\mathcal{C}^1</span> et <span class="math inline">g(r, \theta) = f(r\cos\theta, r\sin\theta)</span>, alors : <span class="math display">\frac{\partial g}{\partial r}(r, \theta) = \cos\theta \frac{\partial f}{\partial x}(r\cos\theta, r\sin\theta) + \sin\theta \frac{\partial f}{\partial y}(r\cos\theta, r\sin\theta)</span> <span class="math display">\frac{\partial g}{\partial \theta}(r, \theta) = -r\sin\theta \frac{\partial f}{\partial x}(r\cos\theta, r\sin\theta) + r\cos\theta \frac{\partial f}{\partial y}(r\cos\theta, r\sin\theta)</span></p>
+</div>
+</section>
+</section>
+<section id="équations-aux-dérivées-partielles" class="level1" data-number="7">
+<h1 data-number="7"><span class="header-section-number">7</span> Équations aux dérivées partielles</h1>
+<section id="exemples-du-premier-ordre" class="level2" data-number="7.1">
+<h2 data-number="7.1" class="anchored" data-anchor-id="exemples-du-premier-ordre"><span class="header-section-number">7.1</span> Exemples du premier ordre</h2>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 7.1 — (Équation <span class="math inline">\boldsymbol{\frac{\partial f}{\partial x} = 0}</span>)</strong></p>
+<p>Soit <span class="math inline">f : \mathbb{R}^2 \to \mathbb{R}</span> de classe <span class="math inline">\mathcal{C}^1</span>. Alors : <span class="math display">\frac{\partial f}{\partial x} = 0 \iff \exists h : \mathbb{R} \to \mathbb{R} \text{ de classe } \mathcal{C}^1 \text{ telle que } \forall (x, y) \in \mathbb{R}^2, \; f(x, y) = h(y)</span></p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 7.2 — (Équation de transport)</strong></p>
+<p>Résoudre l’équation <span class="math inline">\frac{\partial f}{\partial x} + 2\frac{\partial f}{\partial y} = 0</span>.</p>
+<p>En posant le changement de variables <span class="math inline">u = x - y/2</span>, <span class="math inline">v = y</span>, on obtient <span class="math inline">\frac{\partial g}{\partial v} = 0</span>, donc <span class="math inline">g(u, v) = H(u)</span>. En revenant aux variables initiales : <span class="math display">f(x, y) = H(x - y/2)</span></p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 7.3 — (Équation en coordonnées polaires)</strong></p>
+<p>Résoudre l’équation <span class="math inline">x\frac{\partial f}{\partial x} + y\frac{\partial f}{\partial y} = 0</span>.</p>
+<p>En passant en coordonnées polaires <span class="math inline">x = r\cos\theta</span>, <span class="math inline">y = r\sin\theta</span>, on obtient : <span class="math display">r\frac{\partial g}{\partial r} = 0 \implies \frac{\partial g}{\partial r} = 0 \implies g(r, \theta) = H(\theta)</span> En revenant aux variables initiales : <span class="math display">f(x, y) = H\left(\arctan\frac{y}{x}\right)</span></p>
+</div>
+</section>
+<section id="exemple-du-second-ordre" class="level2" data-number="7.2">
+<h2 data-number="7.2" class="anchored" data-anchor-id="exemple-du-second-ordre"><span class="header-section-number">7.2</span> Exemple du second ordre</h2>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 7.4 — (Équation des ondes)</strong></p>
+<p>Résoudre l’équation des ondes <span class="math inline">\frac{\partial^2 f}{\partial x^2} - \frac{\partial^2 f}{\partial y^2} = 0</span>.</p>
+<p>En posant le changement de variables <span class="math inline">u = x + y</span>, <span class="math inline">v = x - y</span>, on obtient : <span class="math display">\frac{\partial^2 g}{\partial u \partial v} = 0</span></p>
+<p>Les solutions sont de la forme <span class="math inline">g(u, v) = H(u) + K(v)</span>, d’où : <span class="math display">f(x, y) = H(x + y) + K(x - y)</span> où <span class="math inline">H</span> et <span class="math inline">K</span> sont des fonctions de classe <span class="math inline">\mathcal{C}^2</span> d’une variable.</p>
+</div>
+</section>
+</section>
+<section id="extremums-dune-fonction-de-deux-variables" class="level1" data-number="8">
+<h1 data-number="8"><span class="header-section-number">8</span> Extremums d’une fonction de deux variables</h1>
+<section id="extremum-local" class="level2" data-number="8.1">
+<h2 data-number="8.1" class="anchored" data-anchor-id="extremum-local"><span class="header-section-number">8.1</span> Extremum local</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 8.1 — (Extremum local)</strong></p>
+<p>Soit <span class="math inline">f : U \subset \mathbb{R}^2 \to \mathbb{R}</span> et <span class="math inline">a \in U</span>. On dit que <span class="math inline">f</span> admet un <strong>maximum local</strong> (resp. <strong>minimum local</strong>) en <span class="math inline">a</span> s’il existe un voisinage <span class="math inline">V</span> de <span class="math inline">a</span> dans <span class="math inline">U</span> tel que : <span class="math display">\forall x \in V, \quad f(x) \leq f(a) \quad (\text{resp. } f(x) \geq f(a))</span></p>
+</div>
+</section>
+<section id="théorème-dordre-1" class="level2" data-number="8.2">
+<h2 data-number="8.2" class="anchored" data-anchor-id="théorème-dordre-1"><span class="header-section-number">8.2</span> Théorème d’ordre 1</h2>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 8.1 — (Condition nécessaire d’ordre 1)</strong></p>
+<p>Soit <span class="math inline">f : U \subset \mathbb{R}^2 \to \mathbb{R}</span> une fonction de classe <span class="math inline">\mathcal{C}^1</span> sur l’ouvert <span class="math inline">U</span>. Si <span class="math inline">f</span> admet un extremum local en <span class="math inline">a \in U</span>, alors : <span class="math display">\nabla f(a) = 0 \quad \text{c'est-à-dire} \quad \frac{\partial f}{\partial x}(a) = 0 \text{ et } \frac{\partial f}{\partial y}(a) = 0</span></p>
+</div>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 8.2 — (Point critique)</strong></p>
+<p>On dit que <span class="math inline">a \in U</span> est un <strong>point critique</strong> de <span class="math inline">f</span> si <span class="math inline">\nabla f(a) = 0</span>.</p>
+</div>
+</section>
+<section id="étude-au-second-ordre" class="level2" data-number="8.3">
+<h2 data-number="8.3" class="anchored" data-anchor-id="étude-au-second-ordre"><span class="header-section-number">8.3</span> Étude au second ordre</h2>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 8.1 — (Condition suffisante d’ordre 2)</strong></p>
+<p>Soit <span class="math inline">f : U \subset \mathbb{R}^2 \to \mathbb{R}</span> une fonction de classe <span class="math inline">\mathcal{C}^2</span> sur l’ouvert <span class="math inline">U</span>. Soit <span class="math inline">a \in U</span> un point critique de <span class="math inline">f</span>. On note : <span class="math display">r = \frac{\partial^2 f}{\partial x^2}(a), \quad s = \frac{\partial^2 f}{\partial x \partial y}(a), \quad t = \frac{\partial^2 f}{\partial y^2}(a)</span></p>
+<ol type="1">
+<li>Si <span class="math inline">rt - s^2 &gt; 0</span> et <span class="math inline">r &gt; 0</span> (donc <span class="math inline">t &gt; 0</span>), alors <span class="math inline">f</span> admet un <strong>minimum local</strong> en <span class="math inline">a</span>.</li>
+<li>Si <span class="math inline">rt - s^2 &gt; 0</span> et <span class="math inline">r &lt; 0</span> (donc <span class="math inline">t &lt; 0</span>), alors <span class="math inline">f</span> admet un <strong>maximum local</strong> en <span class="math inline">a</span>.</li>
+<li>Si <span class="math inline">rt - s^2 &lt; 0</span>, alors <span class="math inline">a</span> est un <strong>point selle</strong> (ni maximum ni minimum local).</li>
+<li>Si <span class="math inline">rt - s^2 = 0</span>, on ne peut pas conclure.</li>
+</ol>
+</div>
+<div class="remarque" title="(Matrice hessienne)">
+<p>La condition <span class="math inline">rt - s^2</span> est le déterminant de la <strong>matrice hessienne</strong> de <span class="math inline">f</span> en <span class="math inline">a</span> : <span class="math display">H_f(a) = \begin{pmatrix} r &amp; s \\ s &amp; t \end{pmatrix}</span></p>
+<p>Le théorème spectral s’applique à cette matrice symétrique réelle : si les deux valeurs propres sont strictement positives, <span class="math inline">f</span> admet un minimum local ; si elles sont strictement négatives, <span class="math inline">f</span> admet un maximum local ; si elles sont de signes contraires, <span class="math inline">a</span> est un point selle.</p>
+</div>
+</section>
+<section id="méthode-détude-des-extremums-globaux" class="level2" data-number="8.4">
+<h2 data-number="8.4" class="anchored" data-anchor-id="méthode-détude-des-extremums-globaux"><span class="header-section-number">8.4</span> Méthode d’étude des extremums globaux</h2>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 8.2 — (Méthode d’étude)</strong></p>
+<p>Pour étudier les extremums globaux d’une fonction <span class="math inline">f</span> sur un domaine <span class="math inline">K</span> :</p>
+<ol type="1">
+<li><strong>Étudier <span class="math inline">f</span> sur l’intérieur de <span class="math inline">K</span></strong> : déterminer les points critiques de <span class="math inline">f</span> sur <span class="math inline">\mathring{K}</span> et leur nature (maximum, minimum local, ou point selle).</li>
+<li><strong>Étudier <span class="math inline">f</span> sur le bord de <span class="math inline">K</span></strong> : restreindre <span class="math inline">f</span> au bord de <span class="math inline">K</span> et étudier les extremums de ces restrictions.</li>
+<li><strong>Comparer les valeurs</strong> : comparer les valeurs de <span class="math inline">f</span> aux points critiques intérieurs et sur le bord.</li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 8.1</strong></p>
+<p>On considère le domaine <span class="math inline">\Delta = \{(x, y) \in \mathbb{R}^2 \mid -1 \leq x \leq y \leq 1\}</span> et la fonction <span class="math inline">f</span> définie sur <span class="math inline">\Delta</span> par <span class="math inline">f(x, y) = (y - x)^3 + 6xy</span>. Déterminer son maximum et son minimum global.</p>
+<p><strong>Étape 1</strong> : La fonction <span class="math inline">f</span> est de classe <span class="math inline">\mathcal{C}^1</span> sur l’intérieur <span class="math inline">\mathring{\Delta} = \{(x, y) \in \mathbb{R}^2 \mid -1 &lt; x &lt; y &lt; 1\}</span> et on calcule : <span class="math display">\frac{\partial f}{\partial x}(x, y) = 6y - 3(y - x)^2, \quad \frac{\partial f}{\partial y}(x, y) = 6x + 3(y - x)^2</span></p>
+<p>On trouve les points critiques intérieurs <span class="math inline">(x, y)</span> qui doivent vérifier <span class="math inline">(y-x)^2 = 2y = -2x</span>, d’où <span class="math inline">y = -x</span> puis <span class="math inline">y = -x = 1/2</span>. On calcule <span class="math inline">f(-1/2, 1/2) = -1/2</span>.</p>
+<p><strong>Étape 2</strong> : On étudie la restriction de <span class="math inline">f</span> sur les trois segments qui forment le bord du domaine.</p>
+<p><strong>Étape 3</strong> : On compare les valeurs et on conclut.</p>
+</div>
+</section>
+</section>
+<section id="applications-géométriques" class="level1" data-number="9">
+<h1 data-number="9"><span class="header-section-number">9</span> Applications géométriques</h1>
+<section id="tangente-à-une-courbe" class="level2" data-number="9.1">
+<h2 data-number="9.1" class="anchored" data-anchor-id="tangente-à-une-courbe"><span class="header-section-number">9.1</span> Tangente à une courbe</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 9.1 — (Vecteur tangent)</strong></p>
+<p>Soit <span class="math inline">\gamma : I \to \mathbb{R}^2</span> un arc paramétré de classe <span class="math inline">\mathcal{C}^1</span> et <span class="math inline">a = \gamma(t_0)</span>. Le vecteur <span class="math inline">\gamma'(t_0)</span> est appelé <strong>vecteur tangent</strong> à la courbe <span class="math inline">\gamma</span> au point <span class="math inline">a</span>.</p>
+<p>Si <span class="math inline">\gamma'(t_0) \neq 0</span>, la droite passant par <span class="math inline">a</span> et dirigée par <span class="math inline">\gamma'(t_0)</span> est la <strong>tangente</strong> à la courbe au point <span class="math inline">a</span>.</p>
+</div>
+</section>
+<section id="plan-tangent-à-une-surface" class="level2" data-number="9.2">
+<h2 data-number="9.2" class="anchored" data-anchor-id="plan-tangent-à-une-surface"><span class="header-section-number">9.2</span> Plan tangent à une surface</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 9.2 — (Plan tangent)</strong></p>
+<p>Soient <span class="math inline">f : U \subset \mathbb{R}^2 \to \mathbb{R}</span> de classe <span class="math inline">\mathcal{C}^1</span> et <span class="math inline">\Sigma</span> la surface d’équation <span class="math inline">z = f(x, y)</span>. Le <strong>plan tangent</strong> à <span class="math inline">\Sigma</span> en le point <span class="math inline">(a, b, c) = (a, b, f(a, b))</span> est le plan d’équation : <span class="math display">z - c = \frac{\partial f}{\partial x}(a, b)(x - a) + \frac{\partial f}{\partial y}(a, b)(y - b)</span></p>
+</div>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 9.3 — (Plan tangent à une surface de niveau)</strong></p>
+<p>Soient <span class="math inline">f : U \subset \mathbb{R}^3 \to \mathbb{R}</span> de classe <span class="math inline">\mathcal{C}^1</span> et <span class="math inline">\Sigma</span> la surface d’équation <span class="math inline">f(M) = k</span> (surface de niveau). Le <strong>plan tangent</strong> à <span class="math inline">\Sigma</span> en le point régulier <span class="math inline">M_0 \in \Sigma</span> est le plan passant par <span class="math inline">M_0</span> et orthogonal à <span class="math inline">\nabla f(M_0)</span>.</p>
+<p>Une équation du plan tangent à <span class="math inline">\Sigma</span> en <span class="math inline">M_0</span> est : <span class="math display">\langle \nabla f(M_0), M \rangle = \langle \nabla f(M_0), M_0 \rangle</span></p>
+</div>
+</section>
+<section id="vecteurs-tangents-au-graphe-dune-fonction" class="level2" data-number="9.3">
+<h2 data-number="9.3" class="anchored" data-anchor-id="vecteurs-tangents-au-graphe-dune-fonction"><span class="header-section-number">9.3</span> Vecteurs tangents au graphe d’une fonction</h2>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 9.1</strong></p>
+<p>Soit <span class="math inline">f : U \subset \mathbb{R}^2 \to \mathbb{R}</span> différentiable et <span class="math inline">X</span> le graphe de <span class="math inline">f</span>, c’est-à-dire la partie de <span class="math inline">\mathbb{R}^3</span> définie par : <span class="math display">X = \{(x, y, z) \mid (x, y) \in U \text{ et } z = f(x, y)\}</span></p>
+<p>Les vecteurs tangents à <span class="math inline">X</span> en <span class="math inline">(a, b, c) \in X</span> constituent le plan d’équation : <span class="math display">\frac{\partial f}{\partial x}(a, b) \cdot x + \frac{\partial f}{\partial y}(a, b) \cdot y - z = 0</span></p>
+</div>
+</section>
+</section>
+<section id="exercices" class="level1" data-number="10">
+<h1 data-number="10"><span class="header-section-number">10</span> Exercices</h1>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 10.1</strong></p>
+<p>Soit <span class="math inline">f(x, y) = x^2 y + e^{xy}</span>. Calculer <span class="math inline">\frac{\partial f}{\partial x}</span>, <span class="math inline">\frac{\partial f}{\partial y}</span> et <span class="math inline">\nabla f</span>.</p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 10.2</strong></p>
+<p>Soit <span class="math inline">f(x, y) = \sqrt{x^2 + y^2}</span>. Montrer que <span class="math inline">f</span> n’est pas différentiable en <span class="math inline">(0,0)</span>.</p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 10.3</strong></p>
+<p>Soit <span class="math inline">f(x, y, z) = x^2 + y^2 - z^2</span>. Déterminer les points critiques de <span class="math inline">f</span> et leur nature.</p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 10.4</strong></p>
+<p>Résoudre l’équation aux dérivées partielles : <span class="math display">\frac{\partial f}{\partial x} + 2\frac{\partial f}{\partial y} = 0</span> en utilisant un changement de variable linéaire.</p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 10.5</strong></p>
+<p>Soit <span class="math inline">f(x, y) = x^2 y + \sin(xy)</span>. Calculer <span class="math inline">\frac{\partial^2 f}{\partial x \partial y}</span> et <span class="math inline">\frac{\partial^2 f}{\partial y \partial x}</span>. Vérifier le théorème de Schwarz.</p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 10.6 — (Extremums)</strong></p>
+<p>Soit <span class="math inline">f(x, y) = x^2 + y^2 - 2x - 4y + 5</span>.</p>
+<ol type="1">
+<li>Déterminer les points critiques de <span class="math inline">f</span>.</li>
+<li>Déterminer la nature de chaque point critique.</li>
+<li><span class="math inline">f</span> admet-elle un extremum global ? Si oui, lequel ?</li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 10.7 — (Plan tangent)</strong></p>
+<p>Soit <span class="math inline">f(x, y) = x^2 + y^2</span>. Déterminer l’équation du plan tangent au graphe de <span class="math inline">f</span> au point <span class="math inline">(1, 1, 2)</span>.</p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 10.8 — (Équation des ondes)</strong></p>
+<p>Résoudre l’équation des ondes <span class="math inline">\frac{\partial^2 f}{\partial x^2} - \frac{\partial^2 f}{\partial y^2} = 0</span> en utilisant le changement de variable <span class="math inline">u = x + y</span>, <span class="math inline">v = x - y</span>.</p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 10.9 — (Optimisation sous contrainte)</strong></p>
+<p>Soit <span class="math inline">f(x, y) = xy</span> et la contrainte <span class="math inline">g(x, y) = x^2 + y^2 - 1 = 0</span>. Déterminer les extremums de <span class="math inline">f</span> sur le cercle unité.</p>
+</div>
+</section>
+<section id="document-en-pdf" class="level1 unnumbered">
+<h1 class="unnumbered">Document en PDF</h1>
+<p><a href="PDF/tsi2-chap12.pdf">Chapitre 12 : Fonctions de plusieurs variables</a></p>
+<section id="navigation" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="navigation">Navigation</h2>
+<div class="chap-nav">
+<p><a href="../cours/tsi2-chap11.html" class="prev">Chapitre 11 : Équations différentielles linéaires</a> <a href="../cours/tsi2.html" class="home">Menu TSI</a> <a href="../cours/tsi2-chap13.html" class="next">Chapitre 13 : Variables aléatoires à densité</a></p>
+</div>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<!-- Compteur de visites GoatCounter -->
+<script data-goatcounter="https://maharicpge.goatcounter.com/count" async="" src="//gc.zgo.at/count.js"></script>
+
+<!-- Compteur de téléchargements : compte chaque clic sur un lien PDF -->
+<script>
+  window.addEventListener('load', function () {
+    document.querySelectorAll('a[href$=".pdf"]').forEach(function (lien) {
+      lien.addEventListener('click', function () {
+        if (window.goatcounter) {
+          window.goatcounter.count({
+            path:  'download: ' + lien.getAttribute('href'),
+            title: lien.textContent.trim(),
+            event: true
+          });
+        }
+      });
+    });
+  });
+</script>
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copié");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copié");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/maharicpge\.github\.io\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">
+<p>© 2026 - Mathématiques en CPGE ————- Créateur : Saîd MAHARI (GSM: 0670050667)</p>
+</div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
+
+
+
+
+</body></html>

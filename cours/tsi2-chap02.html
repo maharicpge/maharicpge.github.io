@@ -1,13 +1,14 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr"><head>
 
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.10.18">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Saîd MAHARI">
 
-<title>Espaces euclidiens - Mathématiques en CPGE – Mathématiques en CPGE</title>
+<title>Déterminants – Mathématiques en CPGE</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -45,7 +46,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-7a8c080b55ea27eb37b467515007f9ee.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-e0d9a45d84245cc5e3b300860d8fa645.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -60,22 +61,66 @@ ul.task-list li input[type="checkbox"] {
   ],
   "show-item-context": false,
   "language": {
-    "search-no-results-text": "No results",
-    "search-matching-documents-text": "matching documents",
-    "search-copy-link-title": "Copy link to search",
-    "search-hide-matches-text": "Hide additional matches",
-    "search-more-match-text": "more match in this document",
-    "search-more-matches-text": "more matches in this document",
-    "search-clear-button-title": "Clear",
+    "search-no-results-text": "Pas de résultats",
+    "search-matching-documents-text": "documents trouvés",
+    "search-copy-link-title": "Copier le lien vers la recherche",
+    "search-hide-matches-text": "Cacher les correspondances additionnelles",
+    "search-more-match-text": "correspondance de plus dans ce document",
+    "search-more-matches-text": "correspondances de plus dans ce document",
+    "search-clear-button-title": "Effacer",
     "search-text-placeholder": "",
-    "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit",
-    "search-label": "Search"
+    "search-detached-cancel-button-title": "Annuler",
+    "search-submit-button-title": "Envoyer",
+    "search-label": "Recherche"
   }
 }</script>
 
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="styles.css">
 </head>
 
 <body class="nav-fixed quarto-light">
@@ -89,8 +134,8 @@ ul.task-list li input[type="checkbox"] {
     <span class="navbar-title">Accueil</span>
     </a>
   </div>
-            <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+            <div id="quarto-search" class="" title="Recherche"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Basculer la navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
@@ -140,10 +185,60 @@ ul.task-list li input[type="checkbox"] {
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
+    <h2 id="toc-title">Sur cette page</h2>
    
   <ul>
-  <li><a href="#document" id="toc-document" class="nav-link active" data-scroll-target="#document">Document</a></li>
+  <li><a href="#déterminant-dune-matrice-carrée" id="toc-déterminant-dune-matrice-carrée" class="nav-link active" data-scroll-target="#déterminant-dune-matrice-carrée"><span class="header-section-number">1</span> Déterminant d’une matrice carrée</a>
+  <ul class="collapse">
+  <li><a href="#définition-et-premières-propriétés" id="toc-définition-et-premières-propriétés" class="nav-link" data-scroll-target="#définition-et-premières-propriétés"><span class="header-section-number">1.1</span> Définition et premières propriétés</a></li>
+  <li><a href="#déterminant-en-dimension-2" id="toc-déterminant-en-dimension-2" class="nav-link" data-scroll-target="#déterminant-en-dimension-2"><span class="header-section-number">1.2</span> Déterminant en dimension 2</a></li>
+  <li><a href="#déterminant-en-dimension-3-règle-de-sarrus" id="toc-déterminant-en-dimension-3-règle-de-sarrus" class="nav-link" data-scroll-target="#déterminant-en-dimension-3-règle-de-sarrus"><span class="header-section-number">1.3</span> Déterminant en dimension 3 : règle de Sarrus</a></li>
+  </ul></li>
+  <li><a href="#premières-propriétés-du-déterminant" id="toc-premières-propriétés-du-déterminant" class="nav-link" data-scroll-target="#premières-propriétés-du-déterminant"><span class="header-section-number">2</span> Premières propriétés du déterminant</a>
+  <ul class="collapse">
+  <li><a href="#conséquences-de-la-définition" id="toc-conséquences-de-la-définition" class="nav-link" data-scroll-target="#conséquences-de-la-définition"><span class="header-section-number">2.1</span> Conséquences de la définition</a></li>
+  <li><a href="#effet-des-opérations-élémentaires-sur-les-colonnes" id="toc-effet-des-opérations-élémentaires-sur-les-colonnes" class="nav-link" data-scroll-target="#effet-des-opérations-élémentaires-sur-les-colonnes"><span class="header-section-number">2.2</span> Effet des opérations élémentaires sur les colonnes</a></li>
+  <li><a href="#déterminant-dune-matrice-triangulaire" id="toc-déterminant-dune-matrice-triangulaire" class="nav-link" data-scroll-target="#déterminant-dune-matrice-triangulaire"><span class="header-section-number">2.3</span> Déterminant d’une matrice triangulaire</a></li>
+  </ul></li>
+  <li><a href="#développement-de-laplace" id="toc-développement-de-laplace" class="nav-link" data-scroll-target="#développement-de-laplace"><span class="header-section-number">3</span> Développement de Laplace</a>
+  <ul class="collapse">
+  <li><a href="#mineurs-et-cofacteurs" id="toc-mineurs-et-cofacteurs" class="nav-link" data-scroll-target="#mineurs-et-cofacteurs"><span class="header-section-number">3.1</span> Mineurs et cofacteurs</a></li>
+  <li><a href="#formule-de-développement-suivant-une-ligne-ou-une-colonne" id="toc-formule-de-développement-suivant-une-ligne-ou-une-colonne" class="nav-link" data-scroll-target="#formule-de-développement-suivant-une-ligne-ou-une-colonne"><span class="header-section-number">3.2</span> Formule de développement suivant une ligne ou une colonne</a></li>
+  </ul></li>
+  <li><a href="#propriétés-du-déterminant" id="toc-propriétés-du-déterminant" class="nav-link" data-scroll-target="#propriétés-du-déterminant"><span class="header-section-number">4</span> Propriétés du déterminant</a>
+  <ul class="collapse">
+  <li><a href="#multiplicativité" id="toc-multiplicativité" class="nav-link" data-scroll-target="#multiplicativité"><span class="header-section-number">4.1</span> Multiplicativité</a></li>
+  <li><a href="#déterminant-de-linverse" id="toc-déterminant-de-linverse" class="nav-link" data-scroll-target="#déterminant-de-linverse"><span class="header-section-number">4.2</span> Déterminant de l’inverse</a></li>
+  <li><a href="#déterminant-de-la-transposée" id="toc-déterminant-de-la-transposée" class="nav-link" data-scroll-target="#déterminant-de-la-transposée"><span class="header-section-number">4.3</span> Déterminant de la transposée</a></li>
+  <li><a href="#déterminant-et-scalaires" id="toc-déterminant-et-scalaires" class="nav-link" data-scroll-target="#déterminant-et-scalaires"><span class="header-section-number">4.4</span> Déterminant et scalaires</a></li>
+  <li><a href="#comatrice-et-inverse-dune-matrice" id="toc-comatrice-et-inverse-dune-matrice" class="nav-link" data-scroll-target="#comatrice-et-inverse-dune-matrice"><span class="header-section-number">4.5</span> Comatrice et inverse d’une matrice</a></li>
+  </ul></li>
+  <li><a href="#déterminant-dune-famille-de-vecteurs" id="toc-déterminant-dune-famille-de-vecteurs" class="nav-link" data-scroll-target="#déterminant-dune-famille-de-vecteurs"><span class="header-section-number">5</span> Déterminant d’une famille de vecteurs</a>
+  <ul class="collapse">
+  <li><a href="#définition" id="toc-définition" class="nav-link" data-scroll-target="#définition"><span class="header-section-number">5.1</span> Définition</a></li>
+  <li><a href="#formule-de-changement-de-base" id="toc-formule-de-changement-de-base" class="nav-link" data-scroll-target="#formule-de-changement-de-base"><span class="header-section-number">5.2</span> Formule de changement de base</a></li>
+  <li><a href="#caractérisation-des-bases" id="toc-caractérisation-des-bases" class="nav-link" data-scroll-target="#caractérisation-des-bases"><span class="header-section-number">5.3</span> Caractérisation des bases</a></li>
+  </ul></li>
+  <li><a href="#déterminant-dun-endomorphisme" id="toc-déterminant-dun-endomorphisme" class="nav-link" data-scroll-target="#déterminant-dun-endomorphisme"><span class="header-section-number">6</span> Déterminant d’un endomorphisme</a>
+  <ul class="collapse">
+  <li><a href="#définition-1" id="toc-définition-1" class="nav-link" data-scroll-target="#définition-1"><span class="header-section-number">6.1</span> Définition</a></li>
+  <li><a href="#propriétés" id="toc-propriétés" class="nav-link" data-scroll-target="#propriétés"><span class="header-section-number">6.2</span> Propriétés</a></li>
+  </ul></li>
+  <li><a href="#formules-de-cramer" id="toc-formules-de-cramer" class="nav-link" data-scroll-target="#formules-de-cramer"><span class="header-section-number">7</span> Formules de Cramer</a>
+  <ul class="collapse">
+  <li><a href="#énoncé" id="toc-énoncé" class="nav-link" data-scroll-target="#énoncé"><span class="header-section-number">7.1</span> Énoncé</a></li>
+  </ul></li>
+  <li><a href="#déterminants-remarquables" id="toc-déterminants-remarquables" class="nav-link" data-scroll-target="#déterminants-remarquables"><span class="header-section-number">8</span> Déterminants remarquables</a>
+  <ul class="collapse">
+  <li><a href="#déterminant-de-vandermonde" id="toc-déterminant-de-vandermonde" class="nav-link" data-scroll-target="#déterminant-de-vandermonde"><span class="header-section-number">8.1</span> Déterminant de Vandermonde</a></li>
+  <li><a href="#déterminant-circulant" id="toc-déterminant-circulant" class="nav-link" data-scroll-target="#déterminant-circulant"><span class="header-section-number">8.2</span> Déterminant circulant</a></li>
+  <li><a href="#déterminant-de-cauchy" id="toc-déterminant-de-cauchy" class="nav-link" data-scroll-target="#déterminant-de-cauchy"><span class="header-section-number">8.3</span> Déterminant de Cauchy</a></li>
+  </ul></li>
+  <li><a href="#exercices" id="toc-exercices" class="nav-link" data-scroll-target="#exercices"><span class="header-section-number">9</span> Exercices</a></li>
+  <li><a href="#document-en-pdf" id="toc-document-en-pdf" class="nav-link" data-scroll-target="#document-en-pdf">Document en PDF</a>
+  <ul class="collapse">
+  <li><a href="#navigation" id="toc-navigation" class="nav-link" data-scroll-target="#navigation">Navigation</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -152,14 +247,27 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Chapitre 02 : Espaces euclidiens</h1>
+<h1 class="title">Déterminants</h1>
+<p class="subtitle lead">Chapitre 02</p>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Auteur·rice</div>
+    <div class="quarto-title-meta-contents">
+             <p>Saîd MAHARI </p>
+          </div>
+  </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">Date de publication</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">23 août 2026</p>
+    </div>
+  </div>
   
     
   </div>
@@ -169,12 +277,364 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p><strong>TSI 2e année — Chapitre 02.</strong> Produit scalaire, projection orthogonale, matrices symétriques.</p>
-<section id="document" class="level2">
-<h2 class="anchored" data-anchor-id="document">Document</h2>
-<p><em>PDF à venir : déposez le fichier <code>files/tsi2/chap02.pdf</code> puis régénérez la page.</em></p>
+<p><strong>TSI (2e année) — Chapitre 02.</strong> Déterminants d’une matrice carrée, déterminants d’une famille de vecteurs, déterminant d’un endomorphisme, opérations élémentaires, développement de Laplace, formules de Cramer.</p>
+<p>Ce chapitre a été réalisé conformément au programme marocain de mathématiques de la filière TSI.</p>
+<p>Dans tout ce chapitre, <span class="math inline">\mathbb{K}</span> désigne un corps (<span class="math inline">\mathbb{Q}</span>, <span class="math inline">\mathbb{R}</span> ou <span class="math inline">\mathbb{C}</span>).</p>
+<section id="déterminant-dune-matrice-carrée" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Déterminant d’une matrice carrée</h1>
+<section id="définition-et-premières-propriétés" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="définition-et-premières-propriétés"><span class="header-section-number">1.1</span> Définition et premières propriétés</h2>
+<div class="theorem-definition" title="(Existence et unicité du déterminant)">
+<p>Il existe une unique application de <span class="math inline">\mathcal{M}_n(\mathbb{K})</span> dans <span class="math inline">\mathbb{K}</span>, appelée <strong>déterminant</strong>, telle que :</p>
+<ol type="1">
+<li>Le déterminant est <strong>linéaire par rapport à chaque vecteur colonne</strong>, les autres étant fixés (multilinéarité).</li>
+<li>Si une matrice <span class="math inline">A</span> a <strong>deux colonnes identiques</strong>, alors son déterminant est nul.</li>
+<li>Le déterminant de la matrice identité <span class="math inline">I_n</span> vaut <span class="math inline">1</span>.</li>
+</ol>
+</div>
+<div class="remarque">
+<p>Le déterminant est donc la seule <strong>forme <span class="math inline">n</span>-linéaire alternée</strong> telle que <span class="math inline">\det(I_n) = 1</span>. Les autres formes multilinéaires alternées sont les multiples scalaires du déterminant.</p>
+</div>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 1.1 — (Notation)</strong></p>
+<p>On note le déterminant d’une matrice <span class="math inline">A = (a_{ij})</span> par : <span class="math display">\det A \qquad \text{ou} \qquad \left|\begin{array}{cccc}a_{11} &amp; a_{12} &amp; \cdots &amp; a_{1n} \\ a_{21} &amp; a_{22} &amp; \cdots &amp; a_{2n} \\ \vdots &amp; \vdots &amp; &amp; \vdots \\ a_{n1} &amp; a_{n2} &amp; \cdots &amp; a_{nn}\end{array}\right|</span></p>
+<p>Si on note <span class="math inline">C_i</span> la <span class="math inline">i</span>-ème colonne de <span class="math inline">A</span>, alors : <span class="math display">\det A = \left|\begin{matrix}C_1 &amp; C_2 &amp; \cdots &amp; C_n\end{matrix}\right| = \det(C_1, C_2, \ldots, C_n)</span></p>
+</div>
+</section>
+<section id="déterminant-en-dimension-2" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="déterminant-en-dimension-2"><span class="header-section-number">1.2</span> Déterminant en dimension 2</h2>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 1.1 — (Déterminant <span class="math inline">\boldsymbol{2 \times 2}</span>)</strong></p>
+<p>En dimension 2, le déterminant est très simple à calculer : <span class="math display">\det \begin{pmatrix}a &amp; b \\ c &amp; d\end{pmatrix} = ad - bc</span></p>
+<p>C’est donc le produit des éléments sur la diagonale principale moins le produit des éléments sur l’autre diagonale.</p>
+</div>
+</section>
+<section id="déterminant-en-dimension-3-règle-de-sarrus" class="level2" data-number="1.3">
+<h2 data-number="1.3" class="anchored" data-anchor-id="déterminant-en-dimension-3-règle-de-sarrus"><span class="header-section-number">1.3</span> Déterminant en dimension 3 : règle de Sarrus</h2>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 1.2 — (Déterminant <span class="math inline">\boldsymbol{3 \times 3}</span> et règle de Sarrus)</strong></p>
+<p>En dimension 3, pour <span class="math inline">A = \begin{pmatrix} a_{11} &amp; a_{12} &amp; a_{13} \\ a_{21} &amp; a_{22} &amp; a_{23} \\ a_{31} &amp; a_{32} &amp; a_{33}\end{pmatrix}</span> : <span class="math display">\det A = a_{11} a_{22} a_{33} + a_{12} a_{23} a_{31} + a_{13} a_{21} a_{32} - a_{31} a_{22} a_{13} - a_{32} a_{23} a_{11} - a_{33} a_{21} a_{12}</span></p>
+<p>Il existe un moyen facile de retenir cette formule, c’est la <strong>règle de Sarrus</strong> : on recopie les deux premières colonnes à droite de la matrice, puis on additionne les produits de trois termes en les regroupant selon la direction de la diagonale descendante, et on soustrait ensuite les produits de trois termes selon la diagonale montante.</p>
+</div>
+</section>
+</section>
+<section id="premières-propriétés-du-déterminant" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> Premières propriétés du déterminant</h1>
+<section id="conséquences-de-la-définition" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="conséquences-de-la-définition"><span class="header-section-number">2.1</span> Conséquences de la définition</h2>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 2.1 — (Conséquences immédiates)</strong></p>
+<ol type="1">
+<li>Le déterminant d’une matrice comportant une <strong>colonne nulle</strong> est nul.</li>
+<li>Le déterminant de la matrice nulle <span class="math inline">0_n</span> vaut <span class="math inline">0</span>.</li>
+<li>Le déterminant de la matrice identité <span class="math inline">I_n</span> vaut <span class="math inline">1</span>.</li>
+</ol>
+</div>
+</section>
+<section id="effet-des-opérations-élémentaires-sur-les-colonnes" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="effet-des-opérations-élémentaires-sur-les-colonnes"><span class="header-section-number">2.2</span> Effet des opérations élémentaires sur les colonnes</h2>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 2.2 — (Opérations élémentaires sur les colonnes)</strong></p>
+<p>Soit <span class="math inline">A \in \mathcal{M}_n(\mathbb{K})</span> une matrice ayant les colonnes <span class="math inline">C_1, C_2, \ldots, C_n</span>. On note <span class="math inline">A'</span> la matrice obtenue par une des opérations élémentaires sur les colonnes :</p>
+<ol type="1">
+<li><span class="math inline">C_i \leftarrow \lambda C_i</span> avec <span class="math inline">\lambda \neq 0</span> : le déterminant est multiplié par <span class="math inline">\lambda</span>.</li>
+<li><span class="math inline">C_i \leftarrow C_i + \lambda C_j</span> avec <span class="math inline">\lambda \in \mathbb{K}</span> (et <span class="math inline">j \neq i</span>) : le déterminant ne change pas.</li>
+<li><span class="math inline">C_i \leftrightarrow C_j</span> : le déterminant change de signe.</li>
+</ol>
+</div>
+<div class="remarque">
+<p>Les mêmes propriétés sont valables pour les opérations élémentaires sur les <strong>lignes</strong> :</p>
+<ol type="1">
+<li><span class="math inline">L_i \leftarrow \lambda L_i</span> avec <span class="math inline">\lambda \neq 0</span> : le déterminant est multiplié par <span class="math inline">\lambda</span>.</li>
+<li><span class="math inline">L_i \leftarrow L_i + \lambda L_j</span> avec <span class="math inline">\lambda \in \mathbb{K}</span> (et <span class="math inline">j \neq i</span>) : le déterminant ne change pas.</li>
+<li><span class="math inline">L_i \leftrightarrow L_j</span> : le déterminant change de signe.</li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 2.1 — (Calcul par opérations élémentaires)</strong></p>
+<p>Calculons <span class="math inline">\det A</span> où <span class="math inline">A = \begin{pmatrix}0 &amp; 3 &amp; 2 \\ 1 &amp; -6 &amp; 6 \\ 5 &amp; 9 &amp; 1\end{pmatrix}</span>.</p>
+<p>On effectue <span class="math inline">C_1 \leftrightarrow C_2</span> pour avoir un pivot en haut à gauche, puis on utilise des opérations élémentaires pour obtenir une matrice triangulaire. Le déterminant de la matrice triangulaire est le produit des termes diagonaux.</p>
+</div>
+</section>
+<section id="déterminant-dune-matrice-triangulaire" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="déterminant-dune-matrice-triangulaire"><span class="header-section-number">2.3</span> Déterminant d’une matrice triangulaire</h2>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 2.3 — (Déterminant triangulaire)</strong></p>
+<p>Le déterminant d’une matrice triangulaire supérieure (ou inférieure) est égal au <strong>produit des termes diagonaux</strong> : <span class="math display">\det \begin{pmatrix}a_{11} &amp; * &amp; \cdots &amp; * \\ 0 &amp; a_{22} &amp; \cdots &amp; * \\ \vdots &amp; &amp; \ddots &amp; \vdots \\ 0 &amp; 0 &amp; \cdots &amp; a_{nn}\end{pmatrix} = a_{11} \cdot a_{22} \cdots a_{nn}</span></p>
+</div>
+<div class="custom-numbered-block custom-corollary">
+<p><strong>Corollaire 2.1</strong></p>
+<p>Le déterminant d’une matrice diagonale est égal au produit des termes diagonaux.</p>
+</div>
+</section>
+</section>
+<section id="développement-de-laplace" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Développement de Laplace</h1>
+<section id="mineurs-et-cofacteurs" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="mineurs-et-cofacteurs"><span class="header-section-number">3.1</span> Mineurs et cofacteurs</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 3.1 — (Matrice extraite et mineur)</strong></p>
+<p>Soit <span class="math inline">A = (a_{ij}) \in \mathcal{M}_n(\mathbb{K})</span>. Pour <span class="math inline">(i,j) \in \{1, \ldots, n\}^2</span>, on note <span class="math inline">A_{i,j}</span> la matrice obtenue à partir de <span class="math inline">A</span> en supprimant la ligne <span class="math inline">i</span> et la colonne <span class="math inline">j</span>.</p>
+<p>Le <strong>mineur d’ordre <span class="math inline">n-1</span></strong> associé à <span class="math inline">(i,j)</span> est <span class="math inline">\det(A_{i,j})</span>.</p>
+</div>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 3.2 — (Cofacteur)</strong></p>
+<p>Le <strong>cofacteur</strong> de <span class="math inline">a_{ij}</span> dans <span class="math inline">A</span> est le scalaire : <span class="math display">\Delta_{i,j}(A) = (-1)^{i+j} \det(A_{i,j})</span></p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 3.1</strong></p>
+<p>Soit <span class="math inline">A = \begin{pmatrix} 1 &amp; 2 &amp; 3 \\ 4 &amp; 5 &amp; 6 \\ 7 &amp; 8 &amp; 9 \end{pmatrix}</span>.</p>
+<p>Le cofacteur de <span class="math inline">a_{11} = 1</span> est : <span class="math display">\Delta_{1,1}(A) = (-1)^{1+1} \det\begin{pmatrix} 5 &amp; 6 \\ 8 &amp; 9 \end{pmatrix} = 1 \cdot (45 - 48) = -3</span></p>
+</div>
+</section>
+<section id="formule-de-développement-suivant-une-ligne-ou-une-colonne" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="formule-de-développement-suivant-une-ligne-ou-une-colonne"><span class="header-section-number">3.2</span> Formule de développement suivant une ligne ou une colonne</h2>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 3.1 — (Développement de Laplace)</strong></p>
+<p>Soit <span class="math inline">A \in \mathcal{M}_n(\mathbb{K})</span>. Alors pour toute ligne <span class="math inline">i</span> : <span class="math display">\det(A) = \sum_{j=1}^n a_{ij} \Delta_{i,j}(A)</span></p>
+<p>Et pour toute colonne <span class="math inline">j</span> : <span class="math display">\det(A) = \sum_{i=1}^n a_{ij} \Delta_{i,j}(A)</span></p>
+</div>
+<div class="remarque">
+<p>En pratique, on choisit de développer suivant la ligne ou la colonne qui contient le plus de zéros.</p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 3.2 — (Développement par rapport à une colonne)</strong></p>
+<p>Soit <span class="math inline">A = \begin{pmatrix} 4 &amp; 3 &amp; 1 &amp; 0 \\ 0 &amp; 1 &amp; -1 &amp; 2 \\ 4 &amp; 1 &amp; 0 &amp; 3 \\ 1 &amp; 2 &amp; 3 &amp; 0 \end{pmatrix}</span>.</p>
+<p>On choisit de développer par rapport à la seconde colonne (car c’est là qu’il y a le plus de zéros) : <span class="math display">\det A = 0 \cdot C_{12} + 2 \cdot C_{22} + 3 \cdot C_{32} + 0 \cdot C_{42}</span> où les <span class="math inline">C_{ij}</span> sont les cofacteurs. On développe ensuite chacun des deux déterminants <span class="math inline">3 \times 3</span> restants.</p>
+</div>
+</section>
+</section>
+<section id="propriétés-du-déterminant" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> Propriétés du déterminant</h1>
+<section id="multiplicativité" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="multiplicativité"><span class="header-section-number">4.1</span> Multiplicativité</h2>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 4.1 — (Déterminant d’un produit)</strong></p>
+<p>Soient <span class="math inline">A, B \in \mathcal{M}_n(\mathbb{K})</span>. Alors : <span class="math display">\det(AB) = \det(A) \cdot \det(B)</span></p>
+</div>
+</section>
+<section id="déterminant-de-linverse" class="level2" data-number="4.2">
+<h2 data-number="4.2" class="anchored" data-anchor-id="déterminant-de-linverse"><span class="header-section-number">4.2</span> Déterminant de l’inverse</h2>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 4.1 — (Déterminant de l’inverse)</strong></p>
+<p>Soit <span class="math inline">A \in \mathrm{GL}_n(\mathbb{K})</span>. Alors : <span class="math display">\det(A^{-1}) = \frac{1}{\det(A)}</span></p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Preuve</em>. </span>Comme <span class="math inline">A A^{-1} = I_n</span>, on a : <span class="math display">\det(A) \cdot \det(A^{-1}) = \det(I_n) = 1</span> Donc <span class="math inline">\det(A^{-1}) = \frac{1}{\det(A)}</span>.</p>
+</div>
+</section>
+<section id="déterminant-de-la-transposée" class="level2" data-number="4.3">
+<h2 data-number="4.3" class="anchored" data-anchor-id="déterminant-de-la-transposée"><span class="header-section-number">4.3</span> Déterminant de la transposée</h2>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 4.2 — (Déterminant de la transposée)</strong></p>
+<p>Soit <span class="math inline">A \in \mathcal{M}_n(\mathbb{K})</span>. Alors : <span class="math display">\det({}^tA) = \det(A)</span></p>
+</div>
+</section>
+<section id="déterminant-et-scalaires" class="level2" data-number="4.4">
+<h2 data-number="4.4" class="anchored" data-anchor-id="déterminant-et-scalaires"><span class="header-section-number">4.4</span> Déterminant et scalaires</h2>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 4.3</strong></p>
+<p>Soit <span class="math inline">A \in \mathcal{M}_n(\mathbb{K})</span> et <span class="math inline">\lambda \in \mathbb{K}</span>. Alors : <span class="math display">\det(\lambda A) = \lambda^n \det(A)</span></p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Preuve</em>. </span>La matrice <span class="math inline">\lambda A</span> est obtenue en multipliant chaque colonne de <span class="math inline">A</span> par <span class="math inline">\lambda</span>. Comme le déterminant est multilinéaire par rapport aux colonnes : <span class="math display">\det(\lambda A) = \lambda^n \det(A)</span></p>
+</div>
+</section>
+<section id="comatrice-et-inverse-dune-matrice" class="level2" data-number="4.5">
+<h2 data-number="4.5" class="anchored" data-anchor-id="comatrice-et-inverse-dune-matrice"><span class="header-section-number">4.5</span> Comatrice et inverse d’une matrice</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 4.1 — (Comatrice)</strong></p>
+<p>Soit <span class="math inline">A \in \mathcal{M}_n(\mathbb{K})</span>. La <strong>comatrice</strong> de <span class="math inline">A</span>, notée <span class="math inline">\mathrm{Com}(A)</span>, est la matrice des cofacteurs : <span class="math display">\mathrm{Com}(A) = (\Delta_{i,j}(A))_{1 \leq i,j \leq n}</span></p>
+</div>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 4.2 — (Formule de la comatrice)</strong></p>
+<p>Soit <span class="math inline">A \in \mathcal{M}_n(\mathbb{K})</span>. Alors : <span class="math display">A \cdot {}^t\mathrm{Com}(A) = {}^t\mathrm{Com}(A) \cdot A = \det(A) \cdot I_n</span></p>
+<p>En particulier, si <span class="math inline">A</span> est inversible : <span class="math display">A^{-1} = \frac{1}{\det(A)} \cdot {}^t\mathrm{Com}(A)</span></p>
+</div>
+</section>
+</section>
+<section id="déterminant-dune-famille-de-vecteurs" class="level1" data-number="5">
+<h1 data-number="5"><span class="header-section-number">5</span> Déterminant d’une famille de vecteurs</h1>
+<section id="définition" class="level2" data-number="5.1">
+<h2 data-number="5.1" class="anchored" data-anchor-id="définition"><span class="header-section-number">5.1</span> Définition</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 5.1 — (Déterminant d’une famille de vecteurs)</strong></p>
+<p>Soit <span class="math inline">E</span> un <span class="math inline">\mathbb{K}</span>-espace vectoriel de dimension <span class="math inline">n</span> muni d’une base <span class="math inline">\mathcal{B}</span>. Soit <span class="math inline">(x_1, \ldots, x_n)</span> une famille de <span class="math inline">n</span> vecteurs de <span class="math inline">E</span>.</p>
+<p>Le <strong>déterminant de la famille <span class="math inline">(x_1, \ldots, x_n)</span></strong> relativement à la base <span class="math inline">\mathcal{B}</span> est : <span class="math display">\det_{\mathcal{B}}(x_1, \ldots, x_n) = \det(\mathrm{Mat}_{\mathcal{B}}(x_1, \ldots, x_n))</span> où <span class="math inline">\mathrm{Mat}_{\mathcal{B}}(x_1, \ldots, x_n)</span> est la matrice dont les colonnes sont les coordonnées des <span class="math inline">x_i</span> dans la base <span class="math inline">\mathcal{B}</span>.</p>
+</div>
+<div class="remarque">
+<p>Le déterminant d’une famille de vecteurs dépend de la base choisie.</p>
+</div>
+</section>
+<section id="formule-de-changement-de-base" class="level2" data-number="5.2">
+<h2 data-number="5.2" class="anchored" data-anchor-id="formule-de-changement-de-base"><span class="header-section-number">5.2</span> Formule de changement de base</h2>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 5.1 — (Changement de base pour le déterminant)</strong></p>
+<p>Soient <span class="math inline">\mathcal{B}</span> et <span class="math inline">\mathcal{B}'</span> deux bases de <span class="math inline">E</span> et <span class="math inline">(x_1, \ldots, x_n)</span> une famille de vecteurs de <span class="math inline">E</span>. Alors : <span class="math display">\det_{\mathcal{B}'}(x_1, \ldots, x_n) = \det(P_{\mathcal{B}' \leftarrow \mathcal{B}}) \cdot \det_{\mathcal{B}}(x_1, \ldots, x_n)</span> où <span class="math inline">P_{\mathcal{B}' \leftarrow \mathcal{B}}</span> est la matrice de passage de la base <span class="math inline">\mathcal{B}</span> à la base <span class="math inline">\mathcal{B}'</span>.</p>
+</div>
+</section>
+<section id="caractérisation-des-bases" class="level2" data-number="5.3">
+<h2 data-number="5.3" class="anchored" data-anchor-id="caractérisation-des-bases"><span class="header-section-number">5.3</span> Caractérisation des bases</h2>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 5.2 — (Déterminant et base)</strong></p>
+<p>Soit <span class="math inline">E</span> un <span class="math inline">\mathbb{K}</span>-espace vectoriel de dimension <span class="math inline">n</span> et <span class="math inline">(v_1, \ldots, v_n)</span> une famille de <span class="math inline">n</span> vecteurs de <span class="math inline">E</span>. Soit <span class="math inline">A</span> la matrice de cette famille dans une base <span class="math inline">\mathcal{B}</span> de <span class="math inline">E</span>.</p>
+<p>Les vecteurs <span class="math inline">(v_1, \ldots, v_n)</span> forment une base de <span class="math inline">E</span> si et seulement si : <span class="math display">\det A \neq 0</span></p>
+</div>
+<div class="custom-numbered-block custom-corollary">
+<p><strong>Corollaire 5.1</strong></p>
+<p>Une famille de <span class="math inline">n</span> vecteurs de <span class="math inline">\mathbb{K}^n</span> forme une base si et seulement si le déterminant de la matrice formée par ces vecteurs (en colonnes) est non nul.</p>
+</div>
+</section>
+</section>
+<section id="déterminant-dun-endomorphisme" class="level1" data-number="6">
+<h1 data-number="6"><span class="header-section-number">6</span> Déterminant d’un endomorphisme</h1>
+<section id="définition-1" class="level2" data-number="6.1">
+<h2 data-number="6.1" class="anchored" data-anchor-id="définition-1"><span class="header-section-number">6.1</span> Définition</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 6.1 — (Déterminant d’un endomorphisme)</strong></p>
+<p>Soit <span class="math inline">E</span> un <span class="math inline">\mathbb{K}</span>-espace vectoriel de dimension <span class="math inline">n</span> et <span class="math inline">f \in \mathcal{L}(E)</span>. À chaque choix de base <span class="math inline">\mathcal{B}</span> de <span class="math inline">E</span> correspond une matrice <span class="math inline">A = \mathrm{Mat}_{\mathcal{B}}(f)</span>. Cette matrice varie avec le choix de la base, mais pas son déterminant, ce qui permet de définir le <strong>déterminant de l’endomorphisme <span class="math inline">f</span></strong> par : <span class="math display">\det(f) = \det(\mathrm{Mat}_{\mathcal{B}}(f))</span></p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 6.1 — (Indépendance de la base)</strong></p>
+<p>Le déterminant d’un endomorphisme ne dépend pas du choix de la base.</p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Preuve</em>. </span>Si <span class="math inline">\mathcal{B}</span> et <span class="math inline">\mathcal{B}'</span> sont deux bases de <span class="math inline">E</span> et <span class="math inline">P = \mathrm{Pass}_{\mathcal{B}, \mathcal{B}'}</span>, alors : <span class="math display">\mathrm{Mat}_{\mathcal{B}'}(f) = P^{-1} \cdot \mathrm{Mat}_{\mathcal{B}}(f) \cdot P</span> Donc : <span class="math display">\det(\mathrm{Mat}_{\mathcal{B}'}(f)) = \det(P^{-1}) \cdot \det(\mathrm{Mat}_{\mathcal{B}}(f)) \cdot \det(P) = \det(\mathrm{Mat}_{\mathcal{B}}(f))</span></p>
+</div>
+</section>
+<section id="propriétés" class="level2" data-number="6.2">
+<h2 data-number="6.2" class="anchored" data-anchor-id="propriétés"><span class="header-section-number">6.2</span> Propriétés</h2>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 6.2</strong></p>
+<p>Soient <span class="math inline">f, g \in \mathcal{L}(E)</span>. Alors :</p>
+<ol type="1">
+<li><span class="math inline">\det(f \circ g) = \det(f) \cdot \det(g)</span></li>
+<li>Si <span class="math inline">f</span> est un automorphisme : <span class="math inline">\det(f^{-1}) = \frac{1}{\det(f)}</span></li>
+<li><span class="math inline">f</span> est un automorphisme si et seulement si <span class="math inline">\det(f) \neq 0</span></li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 6.1</strong></p>
+<p>On considère l’application <span class="math inline">f : \mathbb{R}_2[X] \to \mathbb{R}_2[X]</span> définie par <span class="math inline">P \mapsto P(0)X^2 + P'(0)X + \frac{1}{2}P''(0)</span>. Sa matrice dans la base canonique est : <span class="math display">A = \begin{pmatrix}0 &amp; 0 &amp; 1 \\ 0 &amp; 1 &amp; 0 \\ 1 &amp; 0 &amp; 0\end{pmatrix}</span> Donc <span class="math inline">\det f = \det A = -1 \neq 0</span>, on en déduit que <span class="math inline">f</span> est un automorphisme de <span class="math inline">\mathbb{R}_2[X]</span>.</p>
+</div>
+</section>
+</section>
+<section id="formules-de-cramer" class="level1" data-number="7">
+<h1 data-number="7"><span class="header-section-number">7</span> Formules de Cramer</h1>
+<section id="énoncé" class="level2" data-number="7.1">
+<h2 data-number="7.1" class="anchored" data-anchor-id="énoncé"><span class="header-section-number">7.1</span> Énoncé</h2>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 7.1 — (Règle de Cramer)</strong></p>
+<p>Soit <span class="math inline">AX = B</span> un système de <span class="math inline">n</span> équations à <span class="math inline">n</span> inconnues. Supposons que <span class="math inline">\det A \neq 0</span>.</p>
+<p>Pour <span class="math inline">j \in \{1, \ldots, n\}</span>, on note <span class="math inline">A_j</span> la matrice obtenue en remplaçant la <span class="math inline">j</span>-ème colonne de <span class="math inline">A</span> par le second membre <span class="math inline">B</span>. Alors la solution du système est : <span class="math display">\boxed{x_j = \frac{\det A_j}{\det A}}</span></p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 7.1</strong></p>
+<p>Résolvons le système : <span class="math display">\begin{cases} 2x + 3y - z = 1 \\ x - y + 2z = 4 \\ 3x + y + z = 5 \end{cases}</span></p>
+<p>On a <span class="math inline">A = \begin{pmatrix} 2 &amp; 3 &amp; -1 \\ 1 &amp; -1 &amp; 2 \\ 3 &amp; 1 &amp; 1 \end{pmatrix}</span> et <span class="math inline">B = \begin{pmatrix} 1 \\ 4 \\ 5 \end{pmatrix}</span>.</p>
+<p>On calcule : <span class="math display">\det A = 44, \quad \det A_1 = -40, \quad \det A_2 = 72, \quad \det A_3 = 152</span></p>
+<p>La solution est : <span class="math display">x_1 = \frac{-40}{44} = -\frac{10}{11}, \quad x_2 = \frac{72}{44} = \frac{18}{11}, \quad x_3 = \frac{152}{44} = \frac{38}{11}</span></p>
+</div>
+<div class="remarque">
+<p>La méthode de Cramer n’est pas la méthode la plus efficace pour résoudre un système, mais est utile si le système contient des paramètres.</p>
+</div>
+</section>
+</section>
+<section id="déterminants-remarquables" class="level1" data-number="8">
+<h1 data-number="8"><span class="header-section-number">8</span> Déterminants remarquables</h1>
+<section id="déterminant-de-vandermonde" class="level2" data-number="8.1">
+<h2 data-number="8.1" class="anchored" data-anchor-id="déterminant-de-vandermonde"><span class="header-section-number">8.1</span> Déterminant de Vandermonde</h2>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 8.1 — (Déterminant de Vandermonde)</strong></p>
+<p>Soient <span class="math inline">a_1, a_2, \ldots, a_n \in \mathbb{K}</span>. Le déterminant de Vandermonde est : <span class="math display">V(a_1, \ldots, a_n) = \det\begin{pmatrix} 1 &amp; 1 &amp; \cdots &amp; 1 \\ a_1 &amp; a_2 &amp; \cdots &amp; a_n \\ a_1^2 &amp; a_2^2 &amp; \cdots &amp; a_n^2 \\ \vdots &amp; \vdots &amp; &amp; \vdots \\ a_1^{n-1} &amp; a_2^{n-1} &amp; \cdots &amp; a_n^{n-1} \end{pmatrix} = \prod_{1 \leq i &lt; j \leq n} (a_j - a_i)</span></p>
+</div>
+<div class="proof" title="(Démonstration)">
+<p><span class="proof-title"><em>Preuve</em>. </span>On procède par récurrence sur <span class="math inline">n</span>.</p>
+<p><strong>Initialisation</strong> : Pour <span class="math inline">n = 2</span>, <span class="math inline">V(a_1, a_2) = a_2 - a_1 = \prod_{1 \leq i &lt; j \leq 2} (a_j - a_i)</span>.</p>
+<p><strong>Hérédité</strong> : Supposons le résultat vrai au rang <span class="math inline">n-1</span>. On considère <span class="math inline">V(a_1, \ldots, a_n)</span> comme un polynôme en <span class="math inline">a_n</span> de degré <span class="math inline">n-1</span>. Ce polynôme s’annule en <span class="math inline">a_n = a_1, a_2, \ldots, a_{n-1}</span> (car deux colonnes deviennent identiques). Donc : <span class="math display">V(a_1, \ldots, a_n) = C \prod_{i=1}^{n-1} (a_n - a_i)</span> où <span class="math inline">C</span> est le coefficient de <span class="math inline">a_n^{n-1}</span>, qui est <span class="math inline">V(a_1, \ldots, a_{n-1})</span>. Par hypothèse de récurrence : <span class="math display">V(a_1, \ldots, a_n) = V(a_1, \ldots, a_{n-1}) \prod_{i=1}^{n-1} (a_n - a_i) = \prod_{1 \leq i &lt; j \leq n} (a_j - a_i)</span></p>
+</div>
+</section>
+<section id="déterminant-circulant" class="level2" data-number="8.2">
+<h2 data-number="8.2" class="anchored" data-anchor-id="déterminant-circulant"><span class="header-section-number">8.2</span> Déterminant circulant</h2>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 8.1 — (Déterminant circulant)</strong></p>
+<p>Soit <span class="math inline">\Delta = \left|\begin{array}{cccccc}a_1 &amp; a_2 &amp; \ldots &amp; &amp; \ldots &amp; a_n \\ a_n &amp; a_1 &amp; a_2 &amp; &amp; &amp; a_{n-1} \\ a_{n-1} &amp; a_n &amp; a_1 &amp; &amp; &amp; a_{n-2} \\ \vdots &amp; &amp; \ddots &amp; \ddots &amp; &amp; \vdots \\ &amp; &amp; &amp; \ddots &amp; \ddots &amp; \vdots \\ a_2 &amp; a_3 &amp; \ldots &amp; &amp; a_n &amp; a_1\end{array}\right|</span> où <span class="math inline">a_1, \ldots, a_n \in \mathbb{K}</span>.</p>
+<p>Ce déterminant vaut : <span class="math display">\Delta = \prod_{k=1}^{n}\left(\sum_{v=1}^{n}\omega^{(k-1)(1-v)}a_v\right)</span> où <span class="math inline">\omega = e^{2i\pi/n}</span>.</p>
+</div>
+</section>
+<section id="déterminant-de-cauchy" class="level2" data-number="8.3">
+<h2 data-number="8.3" class="anchored" data-anchor-id="déterminant-de-cauchy"><span class="header-section-number">8.3</span> Déterminant de Cauchy</h2>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 8.2 — (Déterminant de Cauchy)</strong></p>
+<p>Soient <span class="math inline">\alpha_1, \ldots, \alpha_n</span> et <span class="math inline">\beta_1, \ldots, \beta_n</span> des éléments de <span class="math inline">\mathbb{K}</span> tels que <span class="math inline">\alpha_i + \beta_j \neq 0</span> pour tout <span class="math inline">(i,j)</span>. Alors : <span class="math display">\det\begin{pmatrix} \frac{1}{\alpha_1 + \beta_1} &amp; \cdots &amp; \frac{1}{\alpha_1 + \beta_n} \\ \vdots &amp; &amp; \vdots \\ \frac{1}{\alpha_n + \beta_1} &amp; \cdots &amp; \frac{1}{\alpha_n + \beta_n} \end{pmatrix} = \frac{\prod_{1 \leq i &lt; j \leq n}(\alpha_j - \alpha_i)(\beta_j - \beta_i)}{\prod_{1 \leq i, j \leq n}(\alpha_i + \beta_j)}</span></p>
+</div>
+</section>
+</section>
+<section id="exercices" class="level1" data-number="9">
+<h1 data-number="9"><span class="header-section-number">9</span> Exercices</h1>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 9.1</strong></p>
+<p>Calculer les déterminants suivants :</p>
+<ol type="1">
+<li><span class="math inline">\det\begin{pmatrix} 1 &amp; 2 \\ 5 &amp; 3 \end{pmatrix}</span></li>
+<li><span class="math inline">\det\begin{pmatrix} a &amp; b \\ c &amp; d \end{pmatrix}</span></li>
+<li><span class="math inline">\det\begin{pmatrix} 1 &amp; 0 &amp; 6 \\ 3 &amp; 4 &amp; 15 \\ 5 &amp; 6 &amp; 21 \end{pmatrix}</span></li>
+<li><span class="math inline">\det\begin{pmatrix} 1 &amp; 2 &amp; 4 &amp; 8 \\ 1 &amp; 3 &amp; 9 &amp; 27 \\ 1 &amp; 4 &amp; 16 &amp; 64 \\ 1 &amp; 5 &amp; 25 &amp; 125 \end{pmatrix}</span></li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 9.2</strong></p>
+<p>Soient <span class="math inline">A = \begin{pmatrix} a &amp; 1 &amp; 3 \\ 0 &amp; b &amp; 2 \\ 0 &amp; 0 &amp; c \end{pmatrix}</span> et <span class="math inline">B = \begin{pmatrix} 1 &amp; 0 &amp; 2 \\ 0 &amp; d &amp; 0 \\ -2 &amp; 0 &amp; 1 \end{pmatrix}</span>.</p>
+<p>Calculer, lorsque c’est possible, les déterminants des matrices <span class="math inline">A</span>, <span class="math inline">B</span>, <span class="math inline">A^{-1}</span>, <span class="math inline">B^{-1}</span>, <span class="math inline">A^T</span>, <span class="math inline">B^T</span>, <span class="math inline">AB</span>, <span class="math inline">BA</span>.</p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 9.3</strong></p>
+<p>Par développement suivant une ligne (ou une colonne) bien choisie, calculer les déterminants :</p>
+<ol type="1">
+<li><span class="math inline">\det\begin{pmatrix} 1 &amp; 0 &amp; 1 &amp; 2 \\ 0 &amp; 0 &amp; 0 &amp; 1 \\ 1 &amp; 1 &amp; 1 &amp; 0 \\ 0 &amp; 0 &amp; 0 &amp; -1 \end{pmatrix}</span></li>
+<li><span class="math inline">\det\begin{pmatrix} t &amp; 0 &amp; 1 &amp; 0 \\ 1 &amp; t &amp; 0 &amp; 0 \\ 0 &amp; 1 &amp; t &amp; 0 \\ 0 &amp; 0 &amp; 0 &amp; t \end{pmatrix}</span></li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 9.4</strong></p>
+<p>En utilisant la multilinéarité du déterminant, calculer <span class="math inline">\det(-I_n)</span>.</p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 9.5</strong></p>
+<p>Pour <span class="math inline">A \in \mathcal{M}_n(\mathbb{K})</span>, calculer <span class="math inline">\det(\lambda A)</span> en fonction de <span class="math inline">\det A</span>.</p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 9.6</strong></p>
+<p>Montrer que le déterminant reste invariant par l’opération <span class="math inline">C_i \leftarrow C_i + \sum_{\substack{j=1 \\ j \neq i}}^n \lambda_j C_j</span> (on ajoute à une colonne de <span class="math inline">A</span> une combinaison linéaire des autres colonnes de <span class="math inline">A</span>).</p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 9.7 — (Déterminant et base)</strong></p>
+<p>Pour quelles valeurs de <span class="math inline">a, b \in \mathbb{R}</span> les vecteurs <span class="math inline">\begin{pmatrix} 0 \\ a \\ b \end{pmatrix}</span>, <span class="math inline">\begin{pmatrix} 1 \\ 2 \\ 3 \end{pmatrix}</span>, <span class="math inline">\begin{pmatrix} 1 \\ 3 \\ 1 \end{pmatrix}</span> forment-ils une base de <span class="math inline">\mathbb{R}^3</span> ?</p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 9.8 — (Formules de Cramer)</strong></p>
+<p>Résoudre le système suivant par la méthode de Cramer : <span class="math display">\begin{cases} x + 2y + 3z = 1 \\ 2x + 3y + z = 2 \\ 3x + y + 2z = 3 \end{cases}</span></p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 9.9 — (Déterminant de Vandermonde)</strong></p>
+<p>Calculer <span class="math inline">\det\begin{pmatrix} 1 &amp; 1 &amp; 1 &amp; 1 \\ a &amp; b &amp; c &amp; d \\ a^2 &amp; b^2 &amp; c^2 &amp; d^2 \\ a^3 &amp; b^3 &amp; c^3 &amp; d^3 \end{pmatrix}</span>.</p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 9.10</strong></p>
+<p>Soient <span class="math inline">A \in \mathcal{M}_p(\mathbb{R})</span> et <span class="math inline">B \in \mathcal{M}_q(\mathbb{R})</span>. Calculer (en fonction de <span class="math inline">\det(A)</span> et <span class="math inline">\det(B)</span>) le déterminant de la matrice <span class="math inline">M = \begin{pmatrix} A &amp; 0 \\ 0 &amp; B \end{pmatrix} \in \mathcal{M}_{p+q}(\mathbb{R})</span>.</p>
+</div>
+</section>
+<section id="document-en-pdf" class="level1 unnumbered">
+<h1 class="unnumbered">Document en PDF</h1>
+<p><a href="PDF/tsi2-chap02.pdf">Chapitre 02 : Déterminants</a></p>
+<section id="navigation" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="navigation">Navigation</h2>
+<div class="chap-nav">
+<p><a href="../cours/tsi2-chap01.html" class="prev">Chapitre 01 : Rappels et compléments sur les espaces vectoriels, les endomorphismes et les matrices</a> <a href="../cours/tsi2.html" class="home">Menu TSI</a> <a href="../cours/tsi2-chap03.html" class="next">Chapitre 03 : Réduction des endomorphismes et des matrices carrées</a></p>
+</div>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -222,12 +682,12 @@ ul.task-list li input[type="checkbox"] {
       // flash "checked"
       button.classList.add('code-copy-button-checked');
       var currentTitle = button.getAttribute("title");
-      button.setAttribute("title", "Copied!");
+      button.setAttribute("title", "Copié");
       let tooltip;
       if (window.bootstrap) {
         button.setAttribute("data-bs-toggle", "tooltip");
         button.setAttribute("data-bs-placement", "left");
-        button.setAttribute("data-bs-title", "Copied!");
+        button.setAttribute("data-bs-title", "Copié");
         tooltip = new bootstrap.Tooltip(button, 
           { trigger: "manual", 
             customClass: "code-copy-button-tooltip",
