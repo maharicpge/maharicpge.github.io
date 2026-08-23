@@ -1,13 +1,14 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr"><head>
 
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.10.18">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Saîd MAHARI">
 
-<title>Fonctions usuelles - Mathématiques en CPGE – Mathématiques en CPGE</title>
+<title>TD — Fonctions usuelles – Mathématiques en CPGE</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -45,7 +46,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-7a8c080b55ea27eb37b467515007f9ee.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-e0d9a45d84245cc5e3b300860d8fa645.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -60,22 +61,66 @@ ul.task-list li input[type="checkbox"] {
   ],
   "show-item-context": false,
   "language": {
-    "search-no-results-text": "No results",
-    "search-matching-documents-text": "matching documents",
-    "search-copy-link-title": "Copy link to search",
-    "search-hide-matches-text": "Hide additional matches",
-    "search-more-match-text": "more match in this document",
-    "search-more-matches-text": "more matches in this document",
-    "search-clear-button-title": "Clear",
+    "search-no-results-text": "Pas de résultats",
+    "search-matching-documents-text": "documents trouvés",
+    "search-copy-link-title": "Copier le lien vers la recherche",
+    "search-hide-matches-text": "Cacher les correspondances additionnelles",
+    "search-more-match-text": "correspondance de plus dans ce document",
+    "search-more-matches-text": "correspondances de plus dans ce document",
+    "search-clear-button-title": "Effacer",
     "search-text-placeholder": "",
-    "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit",
-    "search-label": "Search"
+    "search-detached-cancel-button-title": "Annuler",
+    "search-submit-button-title": "Envoyer",
+    "search-label": "Recherche"
   }
 }</script>
 
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="styles.css">
 </head>
 
 <body class="nav-fixed quarto-light">
@@ -89,8 +134,8 @@ ul.task-list li input[type="checkbox"] {
     <span class="navbar-title">Accueil</span>
     </a>
   </div>
-            <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+            <div id="quarto-search" class="" title="Recherche"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Basculer la navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
@@ -140,10 +185,11 @@ ul.task-list li input[type="checkbox"] {
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
+    <h2 id="toc-title">Sur cette page</h2>
    
   <ul>
-  <li><a href="#document" id="toc-document" class="nav-link active" data-scroll-target="#document">Document</a></li>
+  <li><a href="#cours" id="toc-cours" class="nav-link active" data-scroll-target="#cours">Cours</a></li>
+  <li><a href="#navigation" id="toc-navigation" class="nav-link" data-scroll-target="#navigation">Navigation</a></li>
   </ul>
 </nav>
     </div>
@@ -152,14 +198,27 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Chapitre 05 : Fonctions usuelles</h1>
+<h1 class="title">TD — Fonctions usuelles</h1>
+<p class="subtitle lead">Chapitre 05</p>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Auteur·rice</div>
+    <div class="quarto-title-meta-contents">
+             <p>Saîd MAHARI </p>
+          </div>
+  </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">Date de publication</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">23 août 2026</p>
+    </div>
+  </div>
   
     
   </div>
@@ -169,10 +228,104 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p><strong>MPSI (1re année) — Chapitre 05.</strong> exp, ln, ch, sh, th, arcsin, arccos, arctan.</p>
-<section id="document" class="level2">
-<h2 class="anchored" data-anchor-id="document">Document</h2>
-<p><em>PDF à venir : déposez le fichier <code>files/mpsi/chap05.pdf</code> puis régénérez la page.</em></p>
+<p><strong>MPSI (1re année) — TD du Chapitre 05.</strong> <span class="math inline">\exp</span>, <span class="math inline">\ln</span>, <span class="math inline">\cosh</span>, <span class="math inline">\sinh</span>, <span class="math inline">\tanh</span>, <span class="math inline">\arcsin</span>, <span class="math inline">\arccos</span>, <span class="math inline">\arctan</span>.</p>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 1</strong></p>
+<p>Montrer que pour tout <span class="math inline">x \in \mathbb{R}</span> :</p>
+<ol type="1">
+<li><span class="math inline">e^x &gt; 0</span> et <span class="math inline">e^{x+y} = e^x \cdot e^y</span>.</li>
+<li><span class="math inline">e^x \geq 1 + x</span> (étudier <span class="math inline">f(x) = e^x - 1 - x</span>).</li>
+<li>Pour <span class="math inline">x &gt; 0</span> : <span class="math inline">\ln x \leq x - 1</span>.</li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 2</strong></p>
+<p>Résoudre dans <span class="math inline">\mathbb{R}</span> les équations et inéquations :</p>
+<ol type="1">
+<li><span class="math inline">e^x = 3</span></li>
+<li><span class="math inline">\ln(x) + \ln(x-1) = \ln 2</span></li>
+<li><span class="math inline">e^{2x} - 3e^x + 2 = 0</span></li>
+<li><span class="math inline">\ln(x^2 - 1) &lt; \ln(x + 1)</span></li>
+</ol>
+</div>
+<p><strong>Indications :</strong> - (3) Poser <span class="math inline">X = e^x</span> et résoudre <span class="math inline">X^2 - 3X + 2 = 0</span>. - (4) Attention au domaine de définition : <span class="math inline">x^2 - 1 &gt; 0</span> et <span class="math inline">x + 1 &gt; 0</span>.</p>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 3</strong></p>
+<p>Montrer que pour tout <span class="math inline">x \in \mathbb{R}</span> :</p>
+<ol type="1">
+<li><span class="math inline">\cosh^2 x - \sinh^2 x = 1</span>.</li>
+<li><span class="math inline">\cosh x = \dfrac{e^x + e^{-x}}{2}</span> et <span class="math inline">\sinh x = \dfrac{e^x - e^{-x}}{2}</span>.</li>
+<li><span class="math inline">\cosh(x+y) = \cosh x \cosh y + \sinh x \sinh y</span>.</li>
+<li><span class="math inline">\sinh(x+y) = \sinh x \cosh y + \cosh x \sinh y</span>.</li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 4</strong></p>
+<p>Étudier les fonctions suivantes (domaine, dérivée, variations, limites, parité) :</p>
+<ol type="1">
+<li><span class="math inline">f(x) = x e^{-x}</span></li>
+<li><span class="math inline">f(x) = \dfrac{\ln x}{x}</span></li>
+<li><span class="math inline">f(x) = x - \ln x</span> sur <span class="math inline">]0, +\infty[</span></li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 5</strong></p>
+<p>Montrer que pour tout <span class="math inline">x \in ]-1, 1[</span> :</p>
+<ol type="1">
+<li><span class="math inline">\arcsin x + \arccos x = \dfrac{\pi}{2}</span>.</li>
+<li><span class="math inline">\dfrac{d}{dx}\arcsin x = \dfrac{1}{\sqrt{1-x^2}}</span>.</li>
+<li><span class="math inline">\dfrac{d}{dx}\arccos x = -\dfrac{1}{\sqrt{1-x^2}}</span>.</li>
+</ol>
+</div>
+<p><strong>Indications :</strong> - (1) Poser <span class="math inline">g(x) = \arcsin x + \arccos x</span> et montrer que <span class="math inline">g'(x) = 0</span>, puis calculer <span class="math inline">g(0)</span>. - (2) Utiliser la dérivée de la bijection réciproque.</p>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 6</strong></p>
+<p>Montrer que pour tout <span class="math inline">x \in \mathbb{R}</span> :</p>
+<ol type="1">
+<li><span class="math inline">\arctan x + \arctan\left(\dfrac{1}{x}\right) = \dfrac{\pi}{2}</span> pour <span class="math inline">x &gt; 0</span>.</li>
+<li><span class="math inline">\arctan x + \arctan(-x) = 0</span> (imparité).</li>
+<li><span class="math inline">\dfrac{d}{dx}\arctan x = \dfrac{1}{1+x^2}</span>.</li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 7</strong></p>
+<p>Montrer que pour tout <span class="math inline">n \in \mathbb{N}^*</span> : <span class="math display">\left(1 + \frac{1}{n}\right)^n &lt; e &lt; \left(1 + \frac{1}{n}\right)^{n+1}</span></p>
+</div>
+<p><strong>Indication :</strong> Prendre le logarithme et utiliser <span class="math inline">\frac{x}{1+x} &lt; \ln(1+x) &lt; x</span> pour <span class="math inline">x &gt; 0</span>.</p>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 8</strong></p>
+<p>Résoudre dans <span class="math inline">\mathbb{R}</span> :</p>
+<ol type="1">
+<li><span class="math inline">\arctan x + \arctan(2x) = \dfrac{\pi}{4}</span></li>
+<li><span class="math inline">\arcsin(2x) = \arcsin x + \arcsin\left(\dfrac{\pi}{6}\right)</span> (simplifier si possible)</li>
+</ol>
+</div>
+<p><strong>Indications :</strong> - (1) Prendre la tangente des deux membres et utiliser <span class="math inline">\tan(a+b) = \frac{\tan a + \tan b}{1 - \tan a \tan b}</span>.</p>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 9</strong></p>
+<p>Montrer que <span class="math inline">\ln</span> est concave sur <span class="math inline">]0, +\infty[</span> et en déduire que pour tout <span class="math inline">(a, b) \in (\mathbb{R}_+^*)^2</span> : <span class="math display">\ln\left(\frac{a+b}{2}\right) \geq \frac{\ln a + \ln b}{2}</span></p>
+</div>
+<p><strong>Indication :</strong> <span class="math inline">(\ln x)'' = -\frac{1}{x^2} &lt; 0</span>. Utiliser la définition de la concavité.</p>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 10</strong></p>
+<p>Soit <span class="math inline">f : \mathbb{R} \to \mathbb{R}</span> définie par <span class="math inline">f(x) = \arctan x</span>.</p>
+<ol type="1">
+<li>Montrer que <span class="math inline">f</span> est une bijection de <span class="math inline">\mathbb{R}</span> sur <span class="math inline">]-\pi/2, \pi/2[</span>.</li>
+<li>Déterminer la bijection réciproque <span class="math inline">\tan : ]-\pi/2, \pi/2[ \to \mathbb{R}</span>.</li>
+<li>Montrer que <span class="math inline">\tan</span> est dérivable et calculer sa dérivée.</li>
+<li>En déduire <span class="math inline">\sum_{k=1}^n \arctan\left(\dfrac{1}{k^2+k+1}\right)</span> en utilisant une télescopage.</li>
+</ol>
+</div>
+<p><strong>Indications :</strong> - (4) Utiliser <span class="math inline">\arctan a - \arctan b = \arctan\left(\frac{a-b}{1+ab}\right)</span> avec <span class="math inline">a = k+1</span> et <span class="math inline">b = k</span>.</p>
+<section id="cours" class="level1 unnumbered">
+<h1 class="unnumbered">Cours</h1>
+<p><a href="../cours/mpsi-chap05.html"><strong>Chapitre 05 : Fonctions usuelles</strong></a></p>
+</section>
+<section id="navigation" class="level1 unnumbered">
+<h1 class="unnumbered">Navigation</h1>
+<div class="chap-nav">
+<p><a href="../td/mpsi-chap04.html" class="prev">TD 04 : Nombres complexes et trigonométrie</a> <a href="../td/mpsi.html" class="home">Menu MPSI</a> <a href="../td/mpsi-chap06.html" class="next">TD 06 : Équations différentielles linéaires</a></p>
+</div>
 
 
 </section>
@@ -222,12 +375,12 @@ ul.task-list li input[type="checkbox"] {
       // flash "checked"
       button.classList.add('code-copy-button-checked');
       var currentTitle = button.getAttribute("title");
-      button.setAttribute("title", "Copied!");
+      button.setAttribute("title", "Copié");
       let tooltip;
       if (window.bootstrap) {
         button.setAttribute("data-bs-toggle", "tooltip");
         button.setAttribute("data-bs-placement", "left");
-        button.setAttribute("data-bs-title", "Copied!");
+        button.setAttribute("data-bs-title", "Copié");
         tooltip = new bootstrap.Tooltip(button, 
           { trigger: "manual", 
             customClass: "code-copy-button-tooltip",

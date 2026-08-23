@@ -1,13 +1,14 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr"><head>
 
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.10.18">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Saîd MAHARI">
 
-<title>Suites numériques - Mathématiques en CPGE – Mathématiques en CPGE</title>
+<title>TD — Suites numériques – Mathématiques en CPGE</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -45,7 +46,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-7a8c080b55ea27eb37b467515007f9ee.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-e0d9a45d84245cc5e3b300860d8fa645.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -60,22 +61,66 @@ ul.task-list li input[type="checkbox"] {
   ],
   "show-item-context": false,
   "language": {
-    "search-no-results-text": "No results",
-    "search-matching-documents-text": "matching documents",
-    "search-copy-link-title": "Copy link to search",
-    "search-hide-matches-text": "Hide additional matches",
-    "search-more-match-text": "more match in this document",
-    "search-more-matches-text": "more matches in this document",
-    "search-clear-button-title": "Clear",
+    "search-no-results-text": "Pas de résultats",
+    "search-matching-documents-text": "documents trouvés",
+    "search-copy-link-title": "Copier le lien vers la recherche",
+    "search-hide-matches-text": "Cacher les correspondances additionnelles",
+    "search-more-match-text": "correspondance de plus dans ce document",
+    "search-more-matches-text": "correspondances de plus dans ce document",
+    "search-clear-button-title": "Effacer",
     "search-text-placeholder": "",
-    "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit",
-    "search-label": "Search"
+    "search-detached-cancel-button-title": "Annuler",
+    "search-submit-button-title": "Envoyer",
+    "search-label": "Recherche"
   }
 }</script>
 
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="styles.css">
 </head>
 
 <body class="nav-fixed quarto-light">
@@ -89,8 +134,8 @@ ul.task-list li input[type="checkbox"] {
     <span class="navbar-title">Accueil</span>
     </a>
   </div>
-            <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+            <div id="quarto-search" class="" title="Recherche"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Basculer la navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
@@ -140,10 +185,11 @@ ul.task-list li input[type="checkbox"] {
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
+    <h2 id="toc-title">Sur cette page</h2>
    
   <ul>
-  <li><a href="#document" id="toc-document" class="nav-link active" data-scroll-target="#document">Document</a></li>
+  <li><a href="#cours" id="toc-cours" class="nav-link active" data-scroll-target="#cours">Cours</a></li>
+  <li><a href="#navigation" id="toc-navigation" class="nav-link" data-scroll-target="#navigation">Navigation</a></li>
   </ul>
 </nav>
     </div>
@@ -152,14 +198,27 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Chapitre 17 : Suites numériques</h1>
+<h1 class="title">TD — Suites numériques</h1>
+<p class="subtitle lead">Chapitre 17</p>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Auteur·rice</div>
+    <div class="quarto-title-meta-contents">
+             <p>Saîd MAHARI </p>
+          </div>
+  </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">Date de publication</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">23 août 2026</p>
+    </div>
+  </div>
   
     
   </div>
@@ -169,10 +228,111 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p><strong>MPSI (1re année) — Chapitre 17.</strong> Limites, convergence, suites adjacentes, suites récurrentes.</p>
-<section id="document" class="level2">
-<h2 class="anchored" data-anchor-id="document">Document</h2>
-<p><em>PDF à venir : déposez le fichier <code>files/mpsi/chap17.pdf</code> puis régénérez la page.</em></p>
+<p><strong>MPSI (1re année) — TD du Chapitre 17.</strong> Limites, convergence, suites adjacentes, suites récurrentes.</p>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 1</strong></p>
+<p>Étudier la convergence des suites suivantes et déterminer leur limite éventuelle :</p>
+<ol type="1">
+<li><span class="math inline">u_n = \dfrac{2n^2 + 3n - 1}{n^2 + n + 1}</span></li>
+<li><span class="math inline">u_n = \sqrt{n+1} - \sqrt{n}</span></li>
+<li><span class="math inline">u_n = \dfrac{(-1)^n}{n+1}</span></li>
+<li><span class="math inline">u_n = \left(1 + \dfrac{1}{n}\right)^n</span></li>
+</ol>
+</div>
+<p><strong>Indications :</strong> - (1) Diviser numérateur et dénominateur par <span class="math inline">n^2</span>. Limite : 2. - (2) Multiplier par <span class="math inline">\frac{\sqrt{n+1} + \sqrt{n}}{\sqrt{n+1} + \sqrt{n}}</span>. Limite : 0. - (4) Suite croissante majorée par <span class="math inline">e</span>. Limite : <span class="math inline">e</span>.</p>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 2</strong></p>
+<p>Soient <span class="math inline">(u_n)</span> et <span class="math inline">(v_n)</span> définies par <span class="math inline">u_n = \sum_{k=1}^n \frac{1}{k}</span> et <span class="math inline">v_n = u_n + \frac{1}{n}</span>.</p>
+<ol type="1">
+<li>Montrer que <span class="math inline">(u_n)</span> est croissante et <span class="math inline">(v_n)</span> est décroissante.</li>
+<li>Montrer que <span class="math inline">(u_n)</span> et <span class="math inline">(v_n)</span> sont adjacentes.</li>
+<li>En déduire qu’elles convergent vers la même limite.</li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 3</strong></p>
+<p>Soit <span class="math inline">(u_n)</span> définie par <span class="math inline">u_0 = 1</span> et <span class="math inline">u_{n+1} = \sqrt{2 + u_n}</span>.</p>
+<ol type="1">
+<li>Montrer que <span class="math inline">(u_n)</span> est bien définie, croissante et majorée par 2.</li>
+<li>En déduire que <span class="math inline">(u_n)</span> converge.</li>
+<li>Déterminer <span class="math inline">\lim u_n</span>.</li>
+</ol>
+</div>
+<p><strong>Indications :</strong> - (1) Par récurrence : <span class="math inline">u_n \in [0, 2]</span> et <span class="math inline">u_{n+1} - u_n = \sqrt{2 + u_n} - u_n</span>. - (3) Si <span class="math inline">\ell = \lim u_n</span>, alors <span class="math inline">\ell = \sqrt{2 + \ell}</span>, donc <span class="math inline">\ell^2 = 2 + \ell</span>, <span class="math inline">\ell = 2</span>.</p>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 4</strong></p>
+<p>Soit <span class="math inline">(u_n)</span> définie par <span class="math inline">u_0 = 0</span> et <span class="math inline">u_{n+1} = \dfrac{1}{2} u_n + 1</span>.</p>
+<ol type="1">
+<li>Calculer <span class="math inline">u_1, u_2, u_3</span>.</li>
+<li>Montrer que <span class="math inline">v_n = u_n - 2</span> est géométrique.</li>
+<li>En déduire <span class="math inline">u_n</span> en fonction de <span class="math inline">n</span> et <span class="math inline">\lim u_n</span>.</li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 5</strong></p>
+<p>Soit <span class="math inline">f : [0, 1] \to [0, 1]</span> définie par <span class="math inline">f(x) = x^2</span>. On définit <span class="math inline">u_{n+1} = f(u_n)</span> avec <span class="math inline">u_0 \in [0, 1]</span>.</p>
+<ol type="1">
+<li>Montrer que <span class="math inline">(u_n)</span> est bien définie et à valeurs dans <span class="math inline">[0, 1]</span>.</li>
+<li>Étudier la convergence selon la valeur de <span class="math inline">u_0</span>.</li>
+</ol>
+</div>
+<p><strong>Indications :</strong> - Si <span class="math inline">u_0 = 1</span>, <span class="math inline">u_n = 1</span> pour tout <span class="math inline">n</span>. - Si <span class="math inline">u_0 \in [0, 1[</span>, <span class="math inline">u_n = u_0^{2^n} \to 0</span>.</p>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 6</strong></p>
+<p>Soient <span class="math inline">(u_n)</span> et <span class="math inline">(v_n)</span> définies par <span class="math inline">u_0 = a &gt; 0</span>, <span class="math inline">v_0 = b &gt; 0</span> et : <span class="math display">u_{n+1} = \frac{u_n + v_n}{2}, \quad v_{n+1} = \sqrt{u_n v_n}</span></p>
+<ol type="1">
+<li>Montrer que <span class="math inline">u_n \geq v_n \geq 0</span> pour tout <span class="math inline">n \geq 1</span> (inégalité arithmético-géométrique).</li>
+<li>Montrer que <span class="math inline">(u_n)</span> est décroissante et <span class="math inline">(v_n)</span> est croissante à partir du rang 1.</li>
+<li>Montrer que <span class="math inline">(u_n)</span> et <span class="math inline">(v_n)</span> sont adjacentes.</li>
+<li>Leur limite commune est appelée <strong>moyenne arithmético-géométrique</strong> de <span class="math inline">a</span> et <span class="math inline">b</span>.</li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 7</strong></p>
+<p>Soit <span class="math inline">(u_n)</span> définie par <span class="math inline">u_0 &gt; 0</span> et <span class="math inline">u_{n+1} = u_n + \dfrac{1}{u_n}</span>.</p>
+<ol type="1">
+<li>Montrer que <span class="math inline">(u_n)</span> est strictement croissante.</li>
+<li>Montrer que <span class="math inline">(u_n)</span> diverge vers <span class="math inline">+\infty</span>.</li>
+</ol>
+</div>
+<p><strong>Indications :</strong> - (2) Par l’absurde : si <span class="math inline">u_n \to \ell</span> fini, alors <span class="math inline">\ell = \ell + \frac{1}{\ell}</span>, donc <span class="math inline">\frac{1}{\ell} = 0</span>, contradiction.</p>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 8</strong></p>
+<p>Soit <span class="math inline">(u_n)</span> définie par <span class="math inline">u_0 = 1</span> et <span class="math inline">u_{n+1} = 1 + \dfrac{1}{u_n}</span>.</p>
+<ol type="1">
+<li>Calculer les premiers termes.</li>
+<li>Montrer que <span class="math inline">u_{2n}</span> et <span class="math inline">u_{2n+1}</span> sont adjacentes.</li>
+<li>Montrer que <span class="math inline">(u_n)</span> converge vers <span class="math inline">\varphi = \dfrac{1 + \sqrt{5}}{2}</span> (nombre d’or).</li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 9</strong></p>
+<p>Soit <span class="math inline">(u_n)</span> une suite réelle vérifiant <span class="math inline">u_{n+1} - u_n \to 0</span>.</p>
+<ol type="1">
+<li>La suite <span class="math inline">(u_n)</span> converge-t-elle nécessairement ?</li>
+<li>Donner un contre-exemple.</li>
+<li>Montrer que si <span class="math inline">(u_n)</span> est monotone, alors elle converge ou tend vers <span class="math inline">\pm \infty</span>.</li>
+</ol>
+</div>
+<p><strong>Indication pour (2) :</strong> <span class="math inline">u_n = \sum_{k=1}^n \frac{1}{k}</span> (série harmonique). <span class="math inline">u_{n+1} - u_n = \frac{1}{n+1} \to 0</span> mais <span class="math inline">u_n \to +\infty</span>.</p>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 10</strong></p>
+<p>Soient <span class="math inline">(u_n)</span> une suite croissante et <span class="math inline">(v_n)</span> une suite décroissante telles que <span class="math inline">u_n \leq v_n</span> pour tout <span class="math inline">n</span>.</p>
+<ol type="1">
+<li>Montrer que <span class="math inline">(u_n)</span> et <span class="math inline">(v_n)</span> convergent.</li>
+<li>Montrer que <span class="math inline">\lim u_n \leq \lim v_n</span>.</li>
+<li>Si <span class="math inline">v_n - u_n \to 0</span>, montrer que les deux suites convergent vers la même limite (suites adjacentes).</li>
+</ol>
+</div>
+<section id="cours" class="level1 unnumbered">
+<h1 class="unnumbered">Cours</h1>
+<p><a href="../td/mpsi-chap17.html"><strong>Chapitre 17 : Suites numériques</strong></a></p>
+</section>
+<section id="navigation" class="level1 unnumbered">
+<h1 class="unnumbered">Navigation</h1>
+<div class="chap-nav">
+<p><a href="../td/mpsi-chap16.html" class="prev">Chapitre 16 : Nombres réels</a> <a href="../td/mpsi.html" class="home">Menu MPSI</a> <a href="../td/mpsi-chap18.html" class="next">Chapitre 18 : Limites et continuité</a></p>
+</div>
 
 
 </section>
@@ -222,12 +382,12 @@ ul.task-list li input[type="checkbox"] {
       // flash "checked"
       button.classList.add('code-copy-button-checked');
       var currentTitle = button.getAttribute("title");
-      button.setAttribute("title", "Copied!");
+      button.setAttribute("title", "Copié");
       let tooltip;
       if (window.bootstrap) {
         button.setAttribute("data-bs-toggle", "tooltip");
         button.setAttribute("data-bs-placement", "left");
-        button.setAttribute("data-bs-title", "Copied!");
+        button.setAttribute("data-bs-title", "Copié");
         tooltip = new bootstrap.Tooltip(button, 
           { trigger: "manual", 
             customClass: "code-copy-button-tooltip",

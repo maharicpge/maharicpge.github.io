@@ -1,13 +1,14 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr"><head>
 
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.10.18">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Saîd MAHARI">
 
-<title>Calcul matriciel - Mathématiques en CPGE – Mathématiques en CPGE</title>
+<title>TD — Calcul matriciel – Mathématiques en CPGE</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -45,7 +46,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-7a8c080b55ea27eb37b467515007f9ee.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-e0d9a45d84245cc5e3b300860d8fa645.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -60,22 +61,66 @@ ul.task-list li input[type="checkbox"] {
   ],
   "show-item-context": false,
   "language": {
-    "search-no-results-text": "No results",
-    "search-matching-documents-text": "matching documents",
-    "search-copy-link-title": "Copy link to search",
-    "search-hide-matches-text": "Hide additional matches",
-    "search-more-match-text": "more match in this document",
-    "search-more-matches-text": "more matches in this document",
-    "search-clear-button-title": "Clear",
+    "search-no-results-text": "Pas de résultats",
+    "search-matching-documents-text": "documents trouvés",
+    "search-copy-link-title": "Copier le lien vers la recherche",
+    "search-hide-matches-text": "Cacher les correspondances additionnelles",
+    "search-more-match-text": "correspondance de plus dans ce document",
+    "search-more-matches-text": "correspondances de plus dans ce document",
+    "search-clear-button-title": "Effacer",
     "search-text-placeholder": "",
-    "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit",
-    "search-label": "Search"
+    "search-detached-cancel-button-title": "Annuler",
+    "search-submit-button-title": "Envoyer",
+    "search-label": "Recherche"
   }
 }</script>
 
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="styles.css">
 </head>
 
 <body class="nav-fixed quarto-light">
@@ -89,8 +134,8 @@ ul.task-list li input[type="checkbox"] {
     <span class="navbar-title">Accueil</span>
     </a>
   </div>
-            <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+            <div id="quarto-search" class="" title="Recherche"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Basculer la navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
@@ -140,10 +185,11 @@ ul.task-list li input[type="checkbox"] {
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
+    <h2 id="toc-title">Sur cette page</h2>
    
   <ul>
-  <li><a href="#document" id="toc-document" class="nav-link active" data-scroll-target="#document">Document</a></li>
+  <li><a href="#cours" id="toc-cours" class="nav-link active" data-scroll-target="#cours">Cours</a></li>
+  <li><a href="#navigation" id="toc-navigation" class="nav-link" data-scroll-target="#navigation">Navigation</a></li>
   </ul>
 </nav>
     </div>
@@ -152,14 +198,27 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Chapitre 14 : Calcul matriciel</h1>
+<h1 class="title">TD — Calcul matriciel</h1>
+<p class="subtitle lead">Chapitre 14</p>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Auteur·rice</div>
+    <div class="quarto-title-meta-contents">
+             <p>Saîd MAHARI </p>
+          </div>
+  </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">Date de publication</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">23 août 2026</p>
+    </div>
+  </div>
   
     
   </div>
@@ -169,10 +228,100 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p><strong>MPSI (1re année) — Chapitre 14.</strong> Matrices inversibles, matrices par blocs, changement de base.</p>
-<section id="document" class="level2">
-<h2 class="anchored" data-anchor-id="document">Document</h2>
-<p><em>PDF à venir : déposez le fichier <code>files/mpsi/chap14.pdf</code> puis régénérez la page.</em></p>
+<p><strong>MPSI (1re année) — TD du Chapitre 14.</strong> Matrices inversibles, matrices par blocs, changement de base.</p>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 1</strong></p>
+<p>Soient <span class="math inline">A = \begin{pmatrix} 1 &amp; 2 \\ 3 &amp; 4 \end{pmatrix}</span> et <span class="math inline">B = \begin{pmatrix} 2 &amp; -1 \\ 0 &amp; 3 \end{pmatrix}</span>.</p>
+<ol type="1">
+<li>Calculer <span class="math inline">AB</span>, <span class="math inline">BA</span>, <span class="math inline">A^2</span>, <span class="math inline">B^2</span>.</li>
+<li><span class="math inline">A</span> et <span class="math inline">B</span> sont-elles inversibles ? Si oui, calculer leurs inverses.</li>
+<li><span class="math inline">A</span> et <span class="math inline">B</span> commutent-elles ?</li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 2</strong></p>
+<p>Soit <span class="math inline">A = \begin{pmatrix} 1 &amp; 1 &amp; 1 \\ 0 &amp; 1 &amp; 1 \\ 0 &amp; 0 &amp; 1 \end{pmatrix}</span>.</p>
+<ol type="1">
+<li>Calculer <span class="math inline">A^n</span> pour tout <span class="math inline">n \in \mathbb{N}</span>.</li>
+<li>Montrer que <span class="math inline">A</span> est inversible et calculer <span class="math inline">A^{-1}</span>.</li>
+</ol>
+</div>
+<p><strong>Indications :</strong> - (1) Écrire <span class="math inline">A = I_3 + N</span> avec <span class="math inline">N = \begin{pmatrix} 0 &amp; 1 &amp; 1 \\ 0 &amp; 0 &amp; 1 \\ 0 &amp; 0 &amp; 0 \end{pmatrix}</span>. On a <span class="math inline">N^3 = 0</span>, utiliser le binôme de Newton. - (2) <span class="math inline">A^{-1} = (I_3 + N)^{-1} = I_3 - N + N^2</span>.</p>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 3</strong></p>
+<p>Soit <span class="math inline">A = \begin{pmatrix} 1 &amp; 2 &amp; -1 \\ 2 &amp; 4 &amp; 1 \\ -1 &amp; 1 &amp; 2 \end{pmatrix}</span>. Calculer <span class="math inline">A^{-1}</span> par la méthode de Gauss-Jordan (en échelonnant <span class="math inline">(A | I_3)</span> pour obtenir <span class="math inline">(I_3 | A^{-1})</span>).</p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 4</strong></p>
+<p>Soient <span class="math inline">A \in \mathcal{M}_p(\mathbb{K})</span>, <span class="math inline">B \in \mathcal{M}_{p,q}(\mathbb{K})</span>, <span class="math inline">C \in \mathcal{M}_{q,p}(\mathbb{K})</span>, <span class="math inline">D \in \mathcal{M}_q(\mathbb{K})</span>. On considère la matrice par blocs <span class="math inline">M = \begin{pmatrix} A &amp; B \\ C &amp; D \end{pmatrix}</span>.</p>
+<ol type="1">
+<li>Si <span class="math inline">A</span> est inversible, montrer que <span class="math inline">\det M = \det A \cdot \det(D - CA^{-1}B)</span> (formule du complément de Schur).</li>
+<li>Si <span class="math inline">D</span> est inversible, montrer que <span class="math inline">M</span> est inversible si et seulement si <span class="math inline">A - BD^{-1}C</span> est inversible.</li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 5</strong></p>
+<p>Soient <span class="math inline">A = \begin{pmatrix} 2 &amp; 1 \\ -1 &amp; 1 \end{pmatrix}</span> et <span class="math inline">\mathcal{B}</span> la base canonique de <span class="math inline">\mathbb{R}^2</span>. Soit <span class="math inline">\mathcal{B}' = (e_1', e_2')</span> avec <span class="math inline">e_1' = (1, 1)</span> et <span class="math inline">e_2' = (1, -1)</span>.</p>
+<ol type="1">
+<li>Déterminer la matrice de passage <span class="math inline">P</span> de <span class="math inline">\mathcal{B}</span> à <span class="math inline">\mathcal{B}'</span>.</li>
+<li>Calculer <span class="math inline">P^{-1}</span>.</li>
+<li>Si <span class="math inline">u</span> est l’endomorphisme de matrice <span class="math inline">A</span> dans <span class="math inline">\mathcal{B}</span>, déterminer la matrice de <span class="math inline">u</span> dans <span class="math inline">\mathcal{B}'</span>.</li>
+</ol>
+</div>
+<p><strong>Indications :</strong> - (1) <span class="math inline">P = \begin{pmatrix} 1 &amp; 1 \\ 1 &amp; -1 \end{pmatrix}</span>. - (3) <span class="math inline">A' = P^{-1} A P</span>.</p>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 6</strong></p>
+<p>Soit <span class="math inline">A \in \mathcal{M}_n(\mathbb{K})</span> une matrice nilpotente (il existe <span class="math inline">k</span> tel que <span class="math inline">A^k = 0</span>).</p>
+<ol type="1">
+<li>Montrer que <span class="math inline">I_n - A</span> est inversible et <span class="math inline">(I_n - A)^{-1} = I_n + A + A^2 + \cdots + A^{k-1}</span>.</li>
+<li>Application : <span class="math inline">A = \begin{pmatrix} 0 &amp; 1 &amp; 0 \\ 0 &amp; 0 &amp; 1 \\ 0 &amp; 0 &amp; 0 \end{pmatrix}</span>. Calculer <span class="math inline">(I_3 - A)^{-1}</span>.</li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 7</strong></p>
+<p>Soit <span class="math inline">A \in \mathcal{M}_n(\mathbb{K})</span> telle que <span class="math inline">A^2 - 3A + 2I_n = 0</span>.</p>
+<ol type="1">
+<li>Montrer que <span class="math inline">A</span> est inversible et exprimer <span class="math inline">A^{-1}</span> en fonction de <span class="math inline">A</span>.</li>
+<li>Montrer que <span class="math inline">A - I_n</span> est inversible.</li>
+</ol>
+</div>
+<p><strong>Indications :</strong> - (1) <span class="math inline">A(A - 3I_n) = -2I_n</span>, donc <span class="math inline">A^{-1} = \frac{1}{2}(3I_n - A)</span>. - (2) <span class="math inline">(A - I_n)(A - 2I_n) = A^2 - 3A + 2I_n = 0</span>. Non, il faut <span class="math inline">A^2 - 3A + 2I_n = (A-I_n)(A-2I_n) = 0</span>. Donc <span class="math inline">A-I_n</span> n’est pas nécessairement inversible. Contre-exemple : <span class="math inline">A = I_n</span>.</p>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 8</strong></p>
+<p>Soient <span class="math inline">A, B \in \mathcal{M}_n(\mathbb{K})</span> telles que <span class="math inline">AB = I_n</span>.</p>
+<ol type="1">
+<li>Montrer que <span class="math inline">A</span> est surjective (considérée comme endomorphisme de <span class="math inline">\mathbb{K}^n</span>).</li>
+<li>En déduire que <span class="math inline">A</span> est bijective et <span class="math inline">A^{-1} = B</span>.</li>
+<li>Montrer alors que <span class="math inline">BA = I_n</span>.</li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 9</strong></p>
+<p>Soit <span class="math inline">A \in \mathcal{M}_n(\mathbb{R})</span> définie par <span class="math inline">a_{ij} = \min(i, j)</span>.</p>
+<ol type="1">
+<li>Calculer <span class="math inline">A</span> pour <span class="math inline">n = 3</span> et <span class="math inline">n = 4</span>.</li>
+<li>Montrer que <span class="math inline">A</span> est inversible et calculer <span class="math inline">A^{-1}</span> (qui est tridiagonale).</li>
+</ol>
+</div>
+<p><strong>Indication :</strong> Pour <span class="math inline">n = 3</span> : <span class="math inline">A = \begin{pmatrix} 1 &amp; 1 &amp; 1 \\ 1 &amp; 2 &amp; 2 \\ 1 &amp; 2 &amp; 3 \end{pmatrix}</span>. <span class="math inline">A^{-1} = \begin{pmatrix} 2 &amp; -1 &amp; 0 \\ -1 &amp; 2 &amp; -1 \\ 0 &amp; -1 &amp; 1 \end{pmatrix}</span>.</p>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 10</strong></p>
+<p>Soient <span class="math inline">A, B \in \mathcal{M}_n(\mathbb{K})</span> telles que <span class="math inline">A + B</span> et <span class="math inline">A - B</span> soient inversibles.</p>
+<ol type="1">
+<li>Montrer que la matrice par blocs <span class="math inline">M = \begin{pmatrix} A &amp; B \\ B &amp; A \end{pmatrix}</span> est inversible.</li>
+<li>Exprimer <span class="math inline">M^{-1}</span> en fonction de <span class="math inline">(A+B)^{-1}</span> et <span class="math inline">(A-B)^{-1}</span>.</li>
+</ol>
+</div>
+<p><strong>Indication :</strong> Poser <span class="math inline">P = \begin{pmatrix} I_n &amp; I_n \\ I_n &amp; -I_n \end{pmatrix}</span>. Calculer <span class="math inline">P^{-1}MP = \begin{pmatrix} A+B &amp; 0 \\ 0 &amp; A-B \end{pmatrix}</span>.</p>
+<section id="cours" class="level1 unnumbered">
+<h1 class="unnumbered">Cours</h1>
+<p><a href="../td/mpsi-chap14.html"><strong>Chapitre 14 : Calcul matriciel</strong></a></p>
+</section>
+<section id="navigation" class="level1 unnumbered">
+<h1 class="unnumbered">Navigation</h1>
+<div class="chap-nav">
+<p><a href="../td/mpsi-chap13.html" class="prev">Chapitre 13 : Dimension finie</a> <a href="../td/mpsi.html" class="home">Menu MPSI</a> <a href="../td/mpsi-chap15.html" class="next">Chapitre 15 : Groupe symétrique et déterminant</a></p>
+</div>
 
 
 </section>
@@ -222,12 +371,12 @@ ul.task-list li input[type="checkbox"] {
       // flash "checked"
       button.classList.add('code-copy-button-checked');
       var currentTitle = button.getAttribute("title");
-      button.setAttribute("title", "Copied!");
+      button.setAttribute("title", "Copié");
       let tooltip;
       if (window.bootstrap) {
         button.setAttribute("data-bs-toggle", "tooltip");
         button.setAttribute("data-bs-placement", "left");
-        button.setAttribute("data-bs-title", "Copied!");
+        button.setAttribute("data-bs-title", "Copié");
         tooltip = new bootstrap.Tooltip(button, 
           { trigger: "manual", 
             customClass: "code-copy-button-tooltip",

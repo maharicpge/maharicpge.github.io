@@ -1,13 +1,14 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr"><head>
 
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.10.18">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Saîd MAHARI">
 
-<title>Équations différentielles linéaires - Mathématiques en CPGE – Mathématiques en CPGE</title>
+<title>TD — Compléments de calcul algébrique – Mathématiques en CPGE</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -45,7 +46,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-7a8c080b55ea27eb37b467515007f9ee.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-e0d9a45d84245cc5e3b300860d8fa645.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -60,22 +61,66 @@ ul.task-list li input[type="checkbox"] {
   ],
   "show-item-context": false,
   "language": {
-    "search-no-results-text": "No results",
-    "search-matching-documents-text": "matching documents",
-    "search-copy-link-title": "Copy link to search",
-    "search-hide-matches-text": "Hide additional matches",
-    "search-more-match-text": "more match in this document",
-    "search-more-matches-text": "more matches in this document",
-    "search-clear-button-title": "Clear",
+    "search-no-results-text": "Pas de résultats",
+    "search-matching-documents-text": "documents trouvés",
+    "search-copy-link-title": "Copier le lien vers la recherche",
+    "search-hide-matches-text": "Cacher les correspondances additionnelles",
+    "search-more-match-text": "correspondance de plus dans ce document",
+    "search-more-matches-text": "correspondances de plus dans ce document",
+    "search-clear-button-title": "Effacer",
     "search-text-placeholder": "",
-    "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit",
-    "search-label": "Search"
+    "search-detached-cancel-button-title": "Annuler",
+    "search-submit-button-title": "Envoyer",
+    "search-label": "Recherche"
   }
 }</script>
 
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="styles.css">
 </head>
 
 <body class="nav-fixed quarto-light">
@@ -89,8 +134,8 @@ ul.task-list li input[type="checkbox"] {
     <span class="navbar-title">Accueil</span>
     </a>
   </div>
-            <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+            <div id="quarto-search" class="" title="Recherche"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Basculer la navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
@@ -140,10 +185,11 @@ ul.task-list li input[type="checkbox"] {
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
+    <h2 id="toc-title">Sur cette page</h2>
    
   <ul>
-  <li><a href="#document" id="toc-document" class="nav-link active" data-scroll-target="#document">Document</a></li>
+  <li><a href="#cours" id="toc-cours" class="nav-link active" data-scroll-target="#cours">Cours</a></li>
+  <li><a href="#navigation" id="toc-navigation" class="nav-link" data-scroll-target="#navigation">Navigation</a></li>
   </ul>
 </nav>
     </div>
@@ -152,14 +198,27 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Chapitre 03 : Équations différentielles linéaires</h1>
+<h1 class="title">TD — Compléments de calcul algébrique</h1>
+<p class="subtitle lead">Chapitre 03</p>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Auteur·rice</div>
+    <div class="quarto-title-meta-contents">
+             <p>Saîd MAHARI </p>
+          </div>
+  </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">Date de publication</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">23 août 2026</p>
+    </div>
+  </div>
   
     
   </div>
@@ -169,10 +228,82 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p><strong>PCSI (1re année) — Chapitre 03.</strong> Ordres 1 et 2, recherche de solutions particulières.</p>
-<section id="document" class="level2">
-<h2 class="anchored" data-anchor-id="document">Document</h2>
-<p><em>PDF à venir : déposez le fichier <code>files/pcsi/chap03.pdf</code> puis régénérez la page.</em></p>
+<p><strong>PCSI (1re année) — TD du Chapitre 03.</strong> Sommes et produits finis, factorielles, coefficients binomiaux, binôme de Newton, systèmes linéaires en petite dimension, pivot de Gauss.</p>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 1</strong></p>
+<p>Calculer les sommes suivantes :</p>
+<ol type="1">
+<li><span class="math inline">\sum_{k=1}^n k</span></li>
+<li><span class="math inline">\sum_{k=1}^n k^2</span></li>
+<li><span class="math inline">\sum_{k=0}^n 2^k</span></li>
+<li><span class="math inline">\sum_{k=1}^n \dfrac{1}{k(k+1)}</span></li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 2</strong></p>
+<p>Calculer les produits suivants :</p>
+<ol type="1">
+<li><span class="math inline">\prod_{k=1}^n \left(1 + \dfrac{1}{k}\right)</span></li>
+<li><span class="math inline">\prod_{k=2}^n \left(1 - \dfrac{1}{k^2}\right)</span></li>
+</ol>
+</div>
+<p><strong>Indications :</strong> - (1) Produit télescopique : <span class="math inline">\prod_{k=1}^n \frac{k+1}{k} = n+1</span>. - (2) <span class="math inline">\frac{k^2-1}{k^2} = \frac{(k-1)(k+1)}{k^2}</span>. Résultat : <span class="math inline">\frac{n+1}{2n}</span>.</p>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 3</strong></p>
+<p>Montrer par récurrence le binôme de Newton : <span class="math display">(a+b)^n = \sum_{k=0}^n \binom{n}{k} a^k b^{n-k}</span></p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 4</strong></p>
+<p>Montrer que :</p>
+<ol type="1">
+<li><span class="math inline">\sum_{k=0}^n \binom{n}{k} = 2^n</span></li>
+<li><span class="math inline">\sum_{k=0}^n (-1)^k \binom{n}{k} = 0</span> pour <span class="math inline">n \geq 1</span></li>
+<li><span class="math inline">\sum_{k=0}^n k\binom{n}{k} = n \cdot 2^{n-1}</span></li>
+</ol>
+</div>
+<p><strong>Indications :</strong> - (1) Binôme avec <span class="math inline">a=b=1</span>. - (2) Binôme avec <span class="math inline">a=1, b=-1</span>. - (3) Dériver <span class="math inline">(1+x)^n</span> et prendre <span class="math inline">x=1</span>.</p>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 5</strong></p>
+<p>Résoudre les systèmes linéaires suivants :</p>
+<ol type="1">
+<li><p><span class="math inline">\begin{cases} 2x + y = 5 \\ x - y = 1 \end{cases}</span></p></li>
+<li><p><span class="math inline">\begin{cases} x + y + z = 6 \\ 2x - y + z = 3 \\ x + y - 2z = -1 \end{cases}</span></p></li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 6</strong></p>
+<p>Résoudre par le pivot de Gauss : <span class="math display">\begin{cases} x + 2y + 3z = 6 \\ 2x + 4y + 6z = 12 \\ 3x + 6y + 9z = 18 \end{cases}</span></p>
+</div>
+<p><strong>Indication :</strong> Les trois équations sont proportionnelles. Infinité de solutions.</p>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 7</strong></p>
+<p>Résoudre selon les valeurs de <span class="math inline">m \in \mathbb{R}</span> : <span class="math display">\begin{cases} x + y = 1 \\ x + m^2 y = m \end{cases}</span></p>
+</div>
+<p><strong>Indication :</strong> Discuter selon <span class="math inline">m = 1</span>, <span class="math inline">m = -1</span> et <span class="math inline">m \neq \pm 1</span>.</p>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 8</strong></p>
+<p>Montrer la formule de Pascal : <span class="math inline">\binom{n+1}{k} = \binom{n}{k} + \binom{n}{k-1}</span>.</p>
+</div>
+<p><strong>Indication :</strong> Utiliser <span class="math inline">\binom{n}{k} = \frac{n!}{k!(n-k)!}</span> et mettre au même dénominateur.</p>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 9</strong></p>
+<p>Calculer <span class="math inline">\sum_{k=0}^n \binom{n}{k}^2</span>.</p>
+</div>
+<p><strong>Indication :</strong> <span class="math inline">\binom{n}{k}^2 = \binom{n}{k}\binom{n}{n-k}</span>. Par Vandermonde : <span class="math inline">\binom{2n}{n}</span>.</p>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 10</strong></p>
+<p>Montrer que <span class="math inline">n! \leq n^n</span> pour tout <span class="math inline">n \in \mathbb{N}^*</span>.</p>
+</div>
+<p><strong>Indication :</strong> Récurrence immédiate ou observation directe : <span class="math inline">k \leq n</span> pour tout <span class="math inline">k \leq n</span>.</p>
+<section id="cours" class="level1 unnumbered">
+<h1 class="unnumbered">Cours</h1>
+<p><a href="../td/pcsi-chap03.html"><strong>Chapitre 03 : Compléments de calcul algébrique</strong></a></p>
+</section>
+<section id="navigation" class="level1 unnumbered">
+<h1 class="unnumbered">Navigation</h1>
+<div class="chap-nav">
+<p><a href="../td/pcsi-chap02.html" class="prev">TD 02 : Nombres complexes</a> <a href="../td/pcsi.html" class="home">Menu PCSI</a> <a href="../td/pcsi-chap04.html" class="next">TD 04 : Nombres entiers, rationnels et réels</a></p>
+</div>
 
 
 </section>
@@ -222,12 +353,12 @@ ul.task-list li input[type="checkbox"] {
       // flash "checked"
       button.classList.add('code-copy-button-checked');
       var currentTitle = button.getAttribute("title");
-      button.setAttribute("title", "Copied!");
+      button.setAttribute("title", "Copié");
       let tooltip;
       if (window.bootstrap) {
         button.setAttribute("data-bs-toggle", "tooltip");
         button.setAttribute("data-bs-placement", "left");
-        button.setAttribute("data-bs-title", "Copied!");
+        button.setAttribute("data-bs-title", "Copié");
         tooltip = new bootstrap.Tooltip(button, 
           { trigger: "manual", 
             customClass: "code-copy-button-tooltip",

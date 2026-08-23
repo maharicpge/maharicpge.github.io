@@ -1,13 +1,14 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr"><head>
 
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.10.18">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Saîd MAHARI">
 
-<title>Arithmétique dans ℤ - Mathématiques en CPGE – Mathématiques en CPGE</title>
+<title>TD — Arithmétique dans ℤ – Mathématiques en CPGE</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -45,7 +46,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-7a8c080b55ea27eb37b467515007f9ee.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-e0d9a45d84245cc5e3b300860d8fa645.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -60,22 +61,66 @@ ul.task-list li input[type="checkbox"] {
   ],
   "show-item-context": false,
   "language": {
-    "search-no-results-text": "No results",
-    "search-matching-documents-text": "matching documents",
-    "search-copy-link-title": "Copy link to search",
-    "search-hide-matches-text": "Hide additional matches",
-    "search-more-match-text": "more match in this document",
-    "search-more-matches-text": "more matches in this document",
-    "search-clear-button-title": "Clear",
+    "search-no-results-text": "Pas de résultats",
+    "search-matching-documents-text": "documents trouvés",
+    "search-copy-link-title": "Copier le lien vers la recherche",
+    "search-hide-matches-text": "Cacher les correspondances additionnelles",
+    "search-more-match-text": "correspondance de plus dans ce document",
+    "search-more-matches-text": "correspondances de plus dans ce document",
+    "search-clear-button-title": "Effacer",
     "search-text-placeholder": "",
-    "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit",
-    "search-label": "Search"
+    "search-detached-cancel-button-title": "Annuler",
+    "search-submit-button-title": "Envoyer",
+    "search-label": "Recherche"
   }
 }</script>
 
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="styles.css">
 </head>
 
 <body class="nav-fixed quarto-light">
@@ -89,8 +134,8 @@ ul.task-list li input[type="checkbox"] {
     <span class="navbar-title">Accueil</span>
     </a>
   </div>
-            <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+            <div id="quarto-search" class="" title="Recherche"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Basculer la navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
@@ -140,10 +185,11 @@ ul.task-list li input[type="checkbox"] {
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
+    <h2 id="toc-title">Sur cette page</h2>
    
   <ul>
-  <li><a href="#document" id="toc-document" class="nav-link active" data-scroll-target="#document">Document</a></li>
+  <li><a href="#cours" id="toc-cours" class="nav-link active" data-scroll-target="#cours">Cours</a></li>
+  <li><a href="#navigation" id="toc-navigation" class="nav-link" data-scroll-target="#navigation">Navigation</a></li>
   </ul>
 </nav>
     </div>
@@ -152,14 +198,27 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Chapitre 09 : Arithmétique dans ℤ</h1>
+<h1 class="title">TD — Arithmétique dans ℤ</h1>
+<p class="subtitle lead">Chapitre 09</p>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Auteur·rice</div>
+    <div class="quarto-title-meta-contents">
+             <p>Saîd MAHARI </p>
+          </div>
+  </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">Date de publication</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">23 août 2026</p>
+    </div>
+  </div>
   
     
   </div>
@@ -169,10 +228,81 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p><strong>MPSI (1re année) — Chapitre 09.</strong> Division euclidienne, PGCD, PPCM, Bézout, Gauss, nombres premiers.</p>
-<section id="document" class="level2">
-<h2 class="anchored" data-anchor-id="document">Document</h2>
-<p><em>PDF à venir : déposez le fichier <code>files/mpsi/chap09.pdf</code> puis régénérez la page.</em></p>
+<p><strong>MPSI (1re année) — TD du Chapitre 09.</strong> Divisibilité, division euclidienne, PGCD, PPCM, théorèmes de Bézout et de Gauss, nombres premiers, valuation <span class="math inline">p</span>-adique, congruences.</p>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 1</strong></p>
+<p>Calculer <span class="math inline">1234 \wedge 567</span> par l’algorithme d’Euclide. En déduire des entiers <span class="math inline">u, v</span> tels que <span class="math inline">1234u + 567v = 1234 \wedge 567</span>. Calculer <span class="math inline">1234 \vee 567</span>.</p>
+</div>
+<p><strong>Indications :</strong> - <span class="math inline">1234 = 2 \times 567 + 100</span> - <span class="math inline">567 = 5 \times 100 + 67</span> - <span class="math inline">100 = 1 \times 67 + 33</span> - <span class="math inline">67 = 2 \times 33 + 1</span> - Remonter les divisions pour trouver <span class="math inline">u</span> et <span class="math inline">v</span>.</p>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 2</strong></p>
+<p>Soient <span class="math inline">a, b \in \mathbb{Z}^2 \setminus \{(0,0)\}</span>. Montrer que : <span class="math display">a\mathbb{Z} + b\mathbb{Z} = (a \wedge b)\mathbb{Z} \quad \text{et} \quad a\mathbb{Z} \cap b\mathbb{Z} = (a \vee b)\mathbb{Z}</span></p>
+</div>
+<p><strong>Indication :</strong> Utiliser le théorème de Bézout pour la première égalité. Pour la seconde, montrer que <span class="math inline">a\mathbb{Z} \cap b\mathbb{Z}</span> est un sous-groupe de <span class="math inline">\mathbb{Z}</span> contenant <span class="math inline">ab</span>.</p>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 3</strong></p>
+<p>Résoudre dans <span class="math inline">\mathbb{Z}</span> les congruences suivantes :</p>
+<ol type="1">
+<li><span class="math inline">3x \equiv 7 \pmod{11}</span></li>
+<li><span class="math inline">6x \equiv 4 \pmod{10}</span></li>
+<li><span class="math inline">x^2 \equiv 1 \pmod{8}</span></li>
+</ol>
+</div>
+<p><strong>Indications :</strong> - (1) Chercher l’inverse de <span class="math inline">3</span> modulo <span class="math inline">11</span>. - (2) Simplifier en divisant par <span class="math inline">\gcd(6, 10) = 2</span>. - (3) Tester <span class="math inline">x = 0, 1, \ldots, 7</span>.</p>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 4</strong></p>
+<p>Résoudre le système de congruences (théorème des restes chinois) : <span class="math display">\begin{cases} x \equiv 2 \pmod{3} \\ x \equiv 3 \pmod{5} \\ x \equiv 2 \pmod{7} \end{cases}</span></p>
+</div>
+<p><strong>Indication :</strong> Chercher <span class="math inline">x = 2 + 3k</span>, puis imposer <span class="math inline">2 + 3k \equiv 3 \pmod{5}</span>, etc.</p>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 5</strong></p>
+<p>Montrer que <span class="math inline">2^{11} - 1 = 2047</span> n’est pas premier.</p>
+</div>
+<p><strong>Indication :</strong> Vérifier que <span class="math inline">2047 = 23 \times 89</span>.</p>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 6</strong></p>
+<p>Montrer qu’il existe une infinité de nombres premiers (raisonnement d’Euclide).</p>
+</div>
+<p><strong>Indication :</strong> Supposer <span class="math inline">p_1, \ldots, p_n</span> premiers. Poser <span class="math inline">N = p_1 \cdots p_n + 1</span>. Montrer qu’aucun <span class="math inline">p_i</span> ne divise <span class="math inline">N</span>.</p>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 7</strong></p>
+<p>Soit <span class="math inline">p</span> un nombre premier. Montrer que si <span class="math inline">p \mid ab</span> avec <span class="math inline">a, b \in \mathbb{Z}</span>, alors <span class="math inline">p \mid a</span> ou <span class="math inline">p \mid b</span> (lemme de Gauss).</p>
+</div>
+<p><strong>Indication :</strong> Si <span class="math inline">p \nmid a</span>, alors <span class="math inline">p \wedge a = 1</span> (car <span class="math inline">p</span> premier). Par le théorème de Gauss, <span class="math inline">p \mid b</span>.</p>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 8</strong></p>
+<p>Déterminer <span class="math inline">v_2(1000!)</span> et <span class="math inline">v_5(100!)</span>. En déduire le nombre de zéros terminaux de <span class="math inline">100!</span>.</p>
+</div>
+<p><strong>Indications :</strong> - Formule de Legendre : <span class="math inline">v_p(n!) = \sum_{k \geq 1} \lfloor n/p^k \rfloor</span>. - Le nombre de zéros terminaux de <span class="math inline">n!</span> est <span class="math inline">v_5(n!)</span>.</p>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 9</strong></p>
+<p>Montrer que pour tout premier <span class="math inline">p</span> et tout <span class="math inline">a \in \mathbb{Z}</span> : <span class="math inline">a^p \equiv a \pmod{p}</span> (petit théorème de Fermat).</p>
+</div>
+<p><strong>Indications :</strong> - Si <span class="math inline">p \mid a</span>, c’est trivial. - Sinon, utiliser le fait que <span class="math inline">\{a, 2a, \ldots, (p-1)a\} \equiv \{1, 2, \ldots, p-1\} \pmod{p}</span>.</p>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 10</strong></p>
+<p>Montrer que <span class="math inline">n^5 - n</span> est divisible par <span class="math inline">30</span> pour tout <span class="math inline">n \in \mathbb{Z}</span>.</p>
+</div>
+<p><strong>Indication :</strong> <span class="math inline">30 = 2 \times 3 \times 5</span>. Utiliser le petit théorème de Fermat pour <span class="math inline">p = 2, 3, 5</span>.</p>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 11</strong></p>
+<p>Soit <span class="math inline">n \in \mathbb{N}^*</span>. Montrer que <span class="math inline">n^7 - n</span> est divisible par <span class="math inline">42</span>.</p>
+</div>
+<p><strong>Indication :</strong> <span class="math inline">42 = 2 \times 3 \times 7</span>. Utiliser le petit théorème de Fermat.</p>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 12</strong></p>
+<p>Calculer <span class="math inline">2^{1000} \pmod{11}</span>.</p>
+</div>
+<p><strong>Indication :</strong> <span class="math inline">2^{10} \equiv 1 \pmod{11}</span> par le petit théorème de Fermat. Donc <span class="math inline">2^{1000} = (2^{10})^{100} \equiv 1 \pmod{11}</span>.</p>
+<section id="cours" class="level1 unnumbered">
+<h1 class="unnumbered">Cours</h1>
+<p><a href="../cours/mpsi-chap09.html">Chapitre 09 : Arithmétique dans ℤ</a></p>
+</section>
+<section id="navigation" class="level1 unnumbered">
+<h1 class="unnumbered">Navigation</h1>
+<div class="chap-nav">
+<p><a href="../td/mpsi-chap08.html" class="prev">Chapitre 08 : Structures algébriques</a> <a href="../td/mpsi.html" class="home">Menu MPSI</a> <a href="../td/mpsi-chap10.html" class="next">Chapitre 10 : Polynômes</a></p>
+</div>
 
 
 </section>
@@ -222,12 +352,12 @@ ul.task-list li input[type="checkbox"] {
       // flash "checked"
       button.classList.add('code-copy-button-checked');
       var currentTitle = button.getAttribute("title");
-      button.setAttribute("title", "Copied!");
+      button.setAttribute("title", "Copié");
       let tooltip;
       if (window.bootstrap) {
         button.setAttribute("data-bs-toggle", "tooltip");
         button.setAttribute("data-bs-placement", "left");
-        button.setAttribute("data-bs-title", "Copied!");
+        button.setAttribute("data-bs-title", "Copié");
         tooltip = new bootstrap.Tooltip(button, 
           { trigger: "manual", 
             customClass: "code-copy-button-tooltip",

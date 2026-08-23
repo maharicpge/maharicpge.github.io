@@ -1,13 +1,14 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr"><head>
 
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.10.18">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Saîd MAHARI">
 
-<title>Ensembles et applications - Mathématiques en CPGE – Mathématiques en CPGE</title>
+<title>TD — Ensembles et applications – Mathématiques en CPGE</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -45,7 +46,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-7a8c080b55ea27eb37b467515007f9ee.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-e0d9a45d84245cc5e3b300860d8fa645.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -60,22 +61,66 @@ ul.task-list li input[type="checkbox"] {
   ],
   "show-item-context": false,
   "language": {
-    "search-no-results-text": "No results",
-    "search-matching-documents-text": "matching documents",
-    "search-copy-link-title": "Copy link to search",
-    "search-hide-matches-text": "Hide additional matches",
-    "search-more-match-text": "more match in this document",
-    "search-more-matches-text": "more matches in this document",
-    "search-clear-button-title": "Clear",
+    "search-no-results-text": "Pas de résultats",
+    "search-matching-documents-text": "documents trouvés",
+    "search-copy-link-title": "Copier le lien vers la recherche",
+    "search-hide-matches-text": "Cacher les correspondances additionnelles",
+    "search-more-match-text": "correspondance de plus dans ce document",
+    "search-more-matches-text": "correspondances de plus dans ce document",
+    "search-clear-button-title": "Effacer",
     "search-text-placeholder": "",
-    "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit",
-    "search-label": "Search"
+    "search-detached-cancel-button-title": "Annuler",
+    "search-submit-button-title": "Envoyer",
+    "search-label": "Recherche"
   }
 }</script>
 
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="styles.css">
 </head>
 
 <body class="nav-fixed quarto-light">
@@ -89,8 +134,8 @@ ul.task-list li input[type="checkbox"] {
     <span class="navbar-title">Accueil</span>
     </a>
   </div>
-            <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+            <div id="quarto-search" class="" title="Recherche"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Basculer la navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
@@ -140,10 +185,11 @@ ul.task-list li input[type="checkbox"] {
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
+    <h2 id="toc-title">Sur cette page</h2>
    
   <ul>
-  <li><a href="#document" id="toc-document" class="nav-link active" data-scroll-target="#document">Document</a></li>
+  <li><a href="#cours" id="toc-cours" class="nav-link active" data-scroll-target="#cours">Cours</a></li>
+  <li><a href="#navigation" id="toc-navigation" class="nav-link" data-scroll-target="#navigation">Navigation</a></li>
   </ul>
 </nav>
     </div>
@@ -152,14 +198,27 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Chapitre 02 : Ensembles et applications</h1>
+<h1 class="title">TD — Ensembles et applications</h1>
+<p class="subtitle lead">Chapitre 02</p>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Auteur·rice</div>
+    <div class="quarto-title-meta-contents">
+             <p>Saîd MAHARI </p>
+          </div>
+  </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">Date de publication</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">23 août 2026</p>
+    </div>
+  </div>
   
     
   </div>
@@ -169,10 +228,109 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p><strong>MPSI (1re année) — Chapitre 02.</strong> Inclusion, produit cartésien, ensemble des parties, injections, surjections, bijections, relations d’équivalence.</p>
-<section id="document" class="level2">
-<h2 class="anchored" data-anchor-id="document">Document</h2>
-<p><em>PDF à venir : déposez le fichier <code>files/mpsi/chap02.pdf</code> puis régénérez la page.</em></p>
+<p><strong>MPSI (1re année) — TD du Chapitre 02.</strong> Inclusion, produit cartésien, ensemble des parties, injections, surjections, bijections, relations d’équivalence.</p>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 1</strong></p>
+<p>Soient <span class="math inline">A</span>, <span class="math inline">B</span>, <span class="math inline">C</span> trois ensembles. Montrer que :</p>
+<ol type="1">
+<li><span class="math inline">A \subset B</span> et <span class="math inline">B \subset C</span> impliquent <span class="math inline">A \subset C</span>.</li>
+<li><span class="math inline">A \cap (B \cup C) = (A \cap B) \cup (A \cap C)</span>.</li>
+<li><span class="math inline">A \setminus (B \cap C) = (A \setminus B) \cup (A \setminus C)</span>.</li>
+<li><span class="math inline">A \setminus (B \cup C) = (A \setminus B) \cap (A \setminus C)</span>.</li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 2</strong></p>
+<p>Soit <span class="math inline">E</span> un ensemble et <span class="math inline">A, B \in \mathcal{P}(E)</span>. Montrer que :</p>
+<ol type="1">
+<li><span class="math inline">\mathcal{P}(A \cap B) = \mathcal{P}(A) \cap \mathcal{P}(B)</span>.</li>
+<li><span class="math inline">\mathcal{P}(A) \cup \mathcal{P}(B) \subset \mathcal{P}(A \cup B)</span>.</li>
+<li>L’inclusion en (2) est stricte en général. Donner un contre-exemple.</li>
+</ol>
+</div>
+<p><strong>Indication :</strong> - (3) <span class="math inline">E = \{1, 2\}</span>, <span class="math inline">A = \{1\}</span>, <span class="math inline">B = \{2\}</span>. Alors <span class="math inline">\{1, 2\} \in \mathcal{P}(A \cup B)</span> mais <span class="math inline">\{1, 2\} \notin \mathcal{P}(A) \cup \mathcal{P}(B)</span>.</p>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 3</strong></p>
+<p>Soient <span class="math inline">E</span> et <span class="math inline">F</span> deux ensembles finis avec <span class="math inline">|E| = n</span> et <span class="math inline">|F| = p</span>. Déterminer le nombre :</p>
+<ol type="1">
+<li>d’applications de <span class="math inline">E</span> dans <span class="math inline">F</span> ;</li>
+<li>d’injections de <span class="math inline">E</span> dans <span class="math inline">F</span> (si <span class="math inline">n \leq p</span>) ;</li>
+<li>de bijections de <span class="math inline">E</span> dans <span class="math inline">F</span> (si <span class="math inline">n = p</span>) ;</li>
+<li>de surjections de <span class="math inline">E</span> dans <span class="math inline">F</span> (si <span class="math inline">n \geq p</span>).</li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 4</strong></p>
+<p>Soit <span class="math inline">f : E \to F</span> une application. Montrer que :</p>
+<ol type="1">
+<li><span class="math inline">f</span> est injective <span class="math inline">\iff \forall A, B \in \mathcal{P}(E),\; f(A \cap B) = f(A) \cap f(B)</span>.</li>
+<li><span class="math inline">f</span> est surjective <span class="math inline">\iff \forall B \in \mathcal{P}(F),\; f(f^{-1}(B)) = B</span>.</li>
+<li><span class="math inline">f</span> est injective <span class="math inline">\iff \forall A \in \mathcal{P}(E),\; f^{-1}(f(A)) = A</span>.</li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 5</strong></p>
+<p>Soient <span class="math inline">f : E \to F</span> et <span class="math inline">g : F \to G</span> deux applications. Montrer que :</p>
+<ol type="1">
+<li>Si <span class="math inline">f</span> et <span class="math inline">g</span> sont injectives, alors <span class="math inline">g \circ f</span> est injective.</li>
+<li>Si <span class="math inline">f</span> et <span class="math inline">g</span> sont surjectives, alors <span class="math inline">g \circ f</span> est surjective.</li>
+<li>Si <span class="math inline">g \circ f</span> est injective, alors <span class="math inline">f</span> est injective.</li>
+<li>Si <span class="math inline">g \circ f</span> est surjective, alors <span class="math inline">g</span> est surjective.</li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 6</strong></p>
+<p>Soient <span class="math inline">f : E \to F</span> et <span class="math inline">g : F \to E</span> deux applications telles que <span class="math inline">g \circ f = \mathrm{Id}_E</span>. Montrer que :</p>
+<ol type="1">
+<li><span class="math inline">f</span> est injective.</li>
+<li><span class="math inline">g</span> est surjective.</li>
+<li>Si de plus <span class="math inline">f \circ g = \mathrm{Id}_F</span>, alors <span class="math inline">f</span> est bijective et <span class="math inline">f^{-1} = g</span>.</li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 7</strong></p>
+<p>Soit <span class="math inline">f : \mathbb{R} \to \mathbb{R}</span> définie par <span class="math inline">f(x) = \frac{x}{1 + |x|}</span>.</p>
+<ol type="1">
+<li>Montrer que <span class="math inline">f</span> est injective.</li>
+<li>Montrer que <span class="math inline">f</span> n’est pas surjective.</li>
+<li>Montrer que <span class="math inline">f</span> réalise une bijection de <span class="math inline">\mathbb{R}</span> sur <span class="math inline">]-1, 1[</span> et déterminer sa réciproque.</li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 8</strong></p>
+<p>Soit <span class="math inline">E</span> un ensemble et <span class="math inline">\mathcal{R}</span> une relation binaire sur <span class="math inline">E</span>. Montrer que <span class="math inline">\mathcal{R}</span> est une relation d’équivalence si et seulement si :</p>
+<ol type="1">
+<li><span class="math inline">\mathcal{R}</span> est réflexive : <span class="math inline">\forall x \in E,\; x \mathcal{R} x</span>.</li>
+<li><span class="math inline">\mathcal{R}</span> est symétrique : <span class="math inline">\forall x, y \in E,\; x \mathcal{R} y \implies y \mathcal{R} x</span>.</li>
+<li><span class="math inline">\mathcal{R}</span> est transitive : <span class="math inline">\forall x, y, z \in E,\; x \mathcal{R} y</span> et <span class="math inline">y \mathcal{R} z \implies x \mathcal{R} z</span>.</li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 9</strong></p>
+<p>Soit <span class="math inline">n \in \mathbb{N}^*</span>. Sur <span class="math inline">\mathbb{Z}</span>, on définit la relation <span class="math inline">a \equiv b \pmod{n}</span> par <span class="math inline">n \mid (a - b)</span>.</p>
+<ol type="1">
+<li>Montrer que <span class="math inline">\equiv</span> est une relation d’équivalence.</li>
+<li>Déterminer les classes d’équivalence.</li>
+<li>Combien y a-t-il de classes d’équivalence ?</li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 10</strong></p>
+<p>Soit <span class="math inline">f : E \to F</span> une application. On définit sur <span class="math inline">E</span> la relation <span class="math inline">x \sim y \iff f(x) = f(y)</span>.</p>
+<ol type="1">
+<li>Montrer que <span class="math inline">\sim</span> est une relation d’équivalence.</li>
+<li>Montrer que les classes d’équivalence sont les fibres <span class="math inline">f^{-1}(\{y\})</span> pour <span class="math inline">y \in \mathrm{Im}(f)</span>.</li>
+</ol>
+</div>
+<section id="cours" class="level1 unnumbered">
+<h1 class="unnumbered">Cours</h1>
+<p><a href="../cours/mpsi-chap02.html"><strong>Chapitre 02 : Ensembles et applications</strong></a></p>
+</section>
+<section id="navigation" class="level1 unnumbered">
+<h1 class="unnumbered">Navigation</h1>
+<div class="chap-nav">
+<p><a href="../td/mpsi-chap01.html" class="prev">TD 01 : Logique et raisonnement</a> <a href="../td/mpsi.html" class="home">Menu MPSI</a> <a href="../td/mpsi-chap03.html" class="next">TD 03 : Calcul algébrique</a></p>
+</div>
 
 
 </section>
@@ -222,12 +380,12 @@ ul.task-list li input[type="checkbox"] {
       // flash "checked"
       button.classList.add('code-copy-button-checked');
       var currentTitle = button.getAttribute("title");
-      button.setAttribute("title", "Copied!");
+      button.setAttribute("title", "Copié");
       let tooltip;
       if (window.bootstrap) {
         button.setAttribute("data-bs-toggle", "tooltip");
         button.setAttribute("data-bs-placement", "left");
-        button.setAttribute("data-bs-title", "Copied!");
+        button.setAttribute("data-bs-title", "Copié");
         tooltip = new bootstrap.Tooltip(button, 
           { trigger: "manual", 
             customClass: "code-copy-button-tooltip",

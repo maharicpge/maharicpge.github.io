@@ -1,13 +1,14 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr"><head>
 
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.10.18">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Saîd MAHARI">
 
-<title>Dénombrement - Mathématiques en CPGE – Mathématiques en CPGE</title>
+<title>TD — Séries numériques – Mathématiques en CPGE</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -45,7 +46,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-7a8c080b55ea27eb37b467515007f9ee.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-e0d9a45d84245cc5e3b300860d8fa645.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -60,22 +61,66 @@ ul.task-list li input[type="checkbox"] {
   ],
   "show-item-context": false,
   "language": {
-    "search-no-results-text": "No results",
-    "search-matching-documents-text": "matching documents",
-    "search-copy-link-title": "Copy link to search",
-    "search-hide-matches-text": "Hide additional matches",
-    "search-more-match-text": "more match in this document",
-    "search-more-matches-text": "more matches in this document",
-    "search-clear-button-title": "Clear",
+    "search-no-results-text": "Pas de résultats",
+    "search-matching-documents-text": "documents trouvés",
+    "search-copy-link-title": "Copier le lien vers la recherche",
+    "search-hide-matches-text": "Cacher les correspondances additionnelles",
+    "search-more-match-text": "correspondance de plus dans ce document",
+    "search-more-matches-text": "correspondances de plus dans ce document",
+    "search-clear-button-title": "Effacer",
     "search-text-placeholder": "",
-    "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit",
-    "search-label": "Search"
+    "search-detached-cancel-button-title": "Annuler",
+    "search-submit-button-title": "Envoyer",
+    "search-label": "Recherche"
   }
 }</script>
 
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="styles.css">
 </head>
 
 <body class="nav-fixed quarto-light">
@@ -89,8 +134,8 @@ ul.task-list li input[type="checkbox"] {
     <span class="navbar-title">Accueil</span>
     </a>
   </div>
-            <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+            <div id="quarto-search" class="" title="Recherche"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Basculer la navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
@@ -140,10 +185,11 @@ ul.task-list li input[type="checkbox"] {
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
+    <h2 id="toc-title">Sur cette page</h2>
    
   <ul>
-  <li><a href="#document" id="toc-document" class="nav-link active" data-scroll-target="#document">Document</a></li>
+  <li><a href="#cours" id="toc-cours" class="nav-link active" data-scroll-target="#cours">Cours</a></li>
+  <li><a href="#navigation" id="toc-navigation" class="nav-link" data-scroll-target="#navigation">Navigation</a></li>
   </ul>
 </nav>
     </div>
@@ -152,14 +198,27 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Chapitre 23 : Dénombrement</h1>
+<h1 class="title">TD — Séries numériques</h1>
+<p class="subtitle lead">Chapitre 23</p>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Auteur·rice</div>
+    <div class="quarto-title-meta-contents">
+             <p>Saîd MAHARI </p>
+          </div>
+  </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">Date de publication</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">23 août 2026</p>
+    </div>
+  </div>
   
     
   </div>
@@ -169,10 +228,84 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p><strong>MPSI (1re année) — Chapitre 23.</strong> Cardinal, listes, arrangements, combinaisons.</p>
-<section id="document" class="level2">
-<h2 class="anchored" data-anchor-id="document">Document</h2>
-<p><em>PDF à venir : déposez le fichier <code>files/mpsi/chap23.pdf</code> puis régénérez la page.</em></p>
+<p><strong>MPSI (1re année) — TD du Chapitre 23.</strong> Séries à termes positifs, séries géométriques et de Riemann.</p>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 1</strong></p>
+<p>Étudier la convergence des séries suivantes :</p>
+<ol type="1">
+<li><span class="math inline">\displaystyle\sum_{n=0}^{+\infty} \frac{1}{2^n}</span></li>
+<li><span class="math inline">\displaystyle\sum_{n=1}^{+\infty} \frac{1}{n^2}</span></li>
+<li><span class="math inline">\displaystyle\sum_{n=1}^{+\infty} \frac{1}{n}</span></li>
+<li><span class="math inline">\displaystyle\sum_{n=1}^{+\infty} \frac{1}{n^\alpha}</span> selon <span class="math inline">\alpha</span></li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 2</strong></p>
+<p>Étudier la convergence des séries suivantes par comparaison :</p>
+<ol type="1">
+<li><span class="math inline">\displaystyle\sum_{n=1}^{+\infty} \frac{1}{n^2 + 1}</span></li>
+<li><span class="math inline">\displaystyle\sum_{n=1}^{+\infty} \frac{n}{n^3 + 1}</span></li>
+<li><span class="math inline">\displaystyle\sum_{n=1}^{+\infty} \frac{\ln n}{n^2}</span></li>
+</ol>
+</div>
+<p><strong>Indications :</strong> - (1) Comparer avec <span class="math inline">\sum 1/n^2</span>. - (3) <span class="math inline">\ln n = o(n^\varepsilon)</span> pour tout <span class="math inline">\varepsilon &gt; 0</span>.</p>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 3</strong></p>
+<p>Étudier la convergence des séries suivantes par le critère de d’Alembert :</p>
+<ol type="1">
+<li><span class="math inline">\displaystyle\sum_{n=0}^{+\infty} \frac{n!}{n^n}</span></li>
+<li><span class="math inline">\displaystyle\sum_{n=0}^{+\infty} \frac{x^n}{n!}</span> selon <span class="math inline">x \in \mathbb{R}</span></li>
+<li><span class="math inline">\displaystyle\sum_{n=1}^{+\infty} \frac{n^n}{n! \, x^n}</span> selon <span class="math inline">x &gt; 0</span></li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 4</strong></p>
+<p>Montrer que la série harmonique <span class="math inline">\displaystyle\sum_{n=1}^{+\infty} \frac{1}{n}</span> diverge.</p>
+</div>
+<p><strong>Indications :</strong> - Méthode 1 : Comparaison série/intégrale avec <span class="math inline">\int_1^{+\infty} dt/t</span>. - Méthode 2 : Regrouper les termes : <span class="math inline">\frac{1}{2} + (\frac{1}{3}+\frac{1}{4}) + (\frac{1}{5}+\cdots+\frac{1}{8}) + \cdots</span></p>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 5</strong></p>
+<p>Étudier la convergence des séries suivantes :</p>
+<ol type="1">
+<li><span class="math inline">\displaystyle\sum_{n=2}^{+\infty} \frac{1}{n \ln n}</span></li>
+<li><span class="math inline">\displaystyle\sum_{n=2}^{+\infty} \frac{1}{n (\ln n)^2}</span></li>
+</ol>
+</div>
+<p><strong>Indications :</strong> - (1) Comparaison série/intégrale avec <span class="math inline">\int_2^{+\infty} \frac{dt}{t \ln t} = [\ln(\ln t)]_2^{+\infty} = +\infty</span>. Divergence. - (2) <span class="math inline">\int_2^{+\infty} \frac{dt}{t(\ln t)^2} = [-1/\ln t]_2^{+\infty} = 1/\ln 2</span>. Convergence.</p>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 6</strong></p>
+<p>Soit <span class="math inline">\displaystyle\sum u_n</span> une série à termes positifs. Montrer que si <span class="math inline">\displaystyle\sum u_n</span> converge, alors <span class="math inline">\displaystyle\sum u_n^2</span> converge.</p>
+</div>
+<p><strong>Indication :</strong> <span class="math inline">u_n \to 0</span>, donc à partir d’un certain rang <span class="math inline">u_n \leq 1</span> et <span class="math inline">u_n^2 \leq u_n</span>.</p>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 7</strong></p>
+<p>Étudier la convergence de <span class="math inline">\displaystyle\sum_{n=1}^{+\infty} \left(1 - \cos\frac{1}{n}\right)</span>.</p>
+</div>
+<p><strong>Indication :</strong> <span class="math inline">1 - \cos(1/n) \sim \frac{1}{2n^2}</span>. Convergence par équivalence avec <span class="math inline">\sum 1/n^2</span>.</p>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 8</strong></p>
+<p>Soit <span class="math inline">(u_n)</span> une suite décroissante positive. Montrer que : <span class="math display">\sum u_n \text{ converge} \iff \sum 2^n u_{2^n} \text{ converge}</span></p>
+</div>
+<p><strong>Indication :</strong> Critère de condensation de Cauchy. Encadrer <span class="math inline">\sum_{k=2^n}^{2^{n+1}-1} u_k</span> entre <span class="math inline">2^n u_{2^{n+1}}</span> et <span class="math inline">2^n u_{2^n}</span>.</p>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 9</strong></p>
+<p>Étudier la convergence de <span class="math inline">\displaystyle\sum_{n=0}^{+\infty} \frac{(-1)^n}{n+1}</span>. Cette série est-elle absolument convergente ?</p>
+</div>
+<p><strong>Indication :</strong> Convergence par le critère spécial des séries alternées (Leibniz). Pas absolument convergente car <span class="math inline">\sum 1/(n+1)</span> diverge.</p>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 10</strong></p>
+<p>Soit <span class="math inline">x \in ]0, 1[</span>. Calculer <span class="math inline">\displaystyle\sum_{n=0}^{+\infty} x^n</span> et <span class="math inline">\displaystyle\sum_{n=1}^{+\infty} n x^n</span>.</p>
+</div>
+<p><strong>Indications :</strong> - <span class="math inline">\sum x^n = \frac{1}{1-x}</span>. - Dériver : <span class="math inline">\sum nx^n = \frac{x}{(1-x)^2}</span>.</p>
+<section id="cours" class="level1 unnumbered">
+<h1 class="unnumbered">Cours</h1>
+<p><a href="../td/mpsi-chap23.html"><strong>Chapitre 23 : Séries numériques</strong></a></p>
+</section>
+<section id="navigation" class="level1 unnumbered">
+<h1 class="unnumbered">Navigation</h1>
+<div class="chap-nav">
+<p><a href="../td/mpsi-chap22.html" class="prev">Chapitre 22 : Intégration sur un intervalle quelconque</a> <a href="../td/mpsi.html" class="home">Menu MPSI</a> <a href="../td/mpsi-chap24.html" class="next">Chapitre 24 : Dénombrement</a></p>
+</div>
 
 
 </section>
@@ -222,12 +355,12 @@ ul.task-list li input[type="checkbox"] {
       // flash "checked"
       button.classList.add('code-copy-button-checked');
       var currentTitle = button.getAttribute("title");
-      button.setAttribute("title", "Copied!");
+      button.setAttribute("title", "Copié");
       let tooltip;
       if (window.bootstrap) {
         button.setAttribute("data-bs-toggle", "tooltip");
         button.setAttribute("data-bs-placement", "left");
-        button.setAttribute("data-bs-title", "Copied!");
+        button.setAttribute("data-bs-title", "Copié");
         tooltip = new bootstrap.Tooltip(button, 
           { trigger: "manual", 
             customClass: "code-copy-button-tooltip",

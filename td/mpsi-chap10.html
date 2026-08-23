@@ -1,13 +1,14 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr"><head>
 
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.10.18">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Saîd MAHARI">
 
-<title>Polynômes - Mathématiques en CPGE – Mathématiques en CPGE</title>
+<title>TD — Polynômes – Mathématiques en CPGE</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -45,7 +46,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-7a8c080b55ea27eb37b467515007f9ee.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-e0d9a45d84245cc5e3b300860d8fa645.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -60,22 +61,36 @@ ul.task-list li input[type="checkbox"] {
   ],
   "show-item-context": false,
   "language": {
-    "search-no-results-text": "No results",
-    "search-matching-documents-text": "matching documents",
-    "search-copy-link-title": "Copy link to search",
-    "search-hide-matches-text": "Hide additional matches",
-    "search-more-match-text": "more match in this document",
-    "search-more-matches-text": "more matches in this document",
-    "search-clear-button-title": "Clear",
+    "search-no-results-text": "Pas de résultats",
+    "search-matching-documents-text": "documents trouvés",
+    "search-copy-link-title": "Copier le lien vers la recherche",
+    "search-hide-matches-text": "Cacher les correspondances additionnelles",
+    "search-more-match-text": "correspondance de plus dans ce document",
+    "search-more-matches-text": "correspondances de plus dans ce document",
+    "search-clear-button-title": "Effacer",
     "search-text-placeholder": "",
-    "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit",
-    "search-label": "Search"
+    "search-detached-cancel-button-title": "Annuler",
+    "search-submit-button-title": "Envoyer",
+    "search-label": "Recherche"
   }
 }</script>
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
 
 <script type="text/javascript">
 const typesetMath = (el) => {
@@ -105,6 +120,7 @@ window.Quarto = {
 </script>
 
 <link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="styles.css">
 </head>
 
 <body class="nav-fixed quarto-light">
@@ -118,8 +134,8 @@ window.Quarto = {
     <span class="navbar-title">Accueil</span>
     </a>
   </div>
-            <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+            <div id="quarto-search" class="" title="Recherche"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Basculer la navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
@@ -169,10 +185,11 @@ window.Quarto = {
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
+    <h2 id="toc-title">Sur cette page</h2>
    
   <ul>
-  <li><a href="#document" id="toc-document" class="nav-link active" data-scroll-target="#document">Document</a></li>
+  <li><a href="#cours" id="toc-cours" class="nav-link active" data-scroll-target="#cours">Cours</a></li>
+  <li><a href="#navigation" id="toc-navigation" class="nav-link" data-scroll-target="#navigation">Navigation</a></li>
   </ul>
 </nav>
     </div>
@@ -181,14 +198,27 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Chapitre 10 : Polynômes</h1>
+<h1 class="title">TD — Polynômes</h1>
+<p class="subtitle lead">Chapitre 10</p>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Auteur·rice</div>
+    <div class="quarto-title-meta-contents">
+             <p>Saîd MAHARI </p>
+          </div>
+  </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">Date de publication</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">23 août 2026</p>
+    </div>
+  </div>
   
     
   </div>
@@ -198,10 +228,102 @@ window.Quarto = {
 </header>
 
 
-<p><strong>MPSI (1re année) — Chapitre 10.</strong> Anneau <span class="math inline">\(\mathbb{K}[X]\)</span>, division euclidienne, racines, multiplicité, d’Alembert-Gauss, factorisation.</p>
-<section id="document" class="level2">
-<h2 class="anchored" data-anchor-id="document">Document</h2>
-<p><em>PDF à venir : déposez le fichier <code>files/mpsi/chap10.pdf</code> puis régénérez la page.</em></p>
+<p><strong>MPSI (1re année) — TD du Chapitre 10.</strong> Anneau <span class="math inline">\mathbb{K}[X]</span>, opérations et degré, division euclidienne, pgcd et Bézout, racines et multiplicité, théorème de d’Alembert-Gauss, factorisation dans <span class="math inline">\mathbb{C}[X]</span> et <span class="math inline">\mathbb{R}[X]</span>.</p>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 1</strong></p>
+<p>Soit <span class="math inline">P(X) = 3X^3 - 2</span>, <span class="math inline">Q(X) = X^2 + X - 1</span>, <span class="math inline">R(X) = aX + b</span>.</p>
+<ol type="1">
+<li>Calculer <span class="math inline">P + Q</span>, <span class="math inline">P \times Q</span>, <span class="math inline">(P+Q) \times R</span> et <span class="math inline">P \times Q \times R</span>.</li>
+<li>Trouver <span class="math inline">a</span> et <span class="math inline">b</span> afin que le degré de <span class="math inline">P - QR</span> soit le plus petit possible.</li>
+</ol>
+</div>
+<p><strong>Indication :</strong> Développer <span class="math inline">QR</span> et identifier les coefficients dominants pour annuler les termes de plus haut degré.</p>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 2</strong></p>
+<p>Soient <span class="math inline">P, Q \in \mathbb{K}[X]</span>.</p>
+<ol type="1">
+<li>Montrer que si <span class="math inline">\deg P \neq \deg Q</span> alors <span class="math inline">\deg(P + Q) = \max(\deg P, \deg Q)</span>.</li>
+<li>Donner un contre-exemple dans le cas où <span class="math inline">\deg P = \deg Q</span>.</li>
+<li>Montrer que <span class="math inline">\deg(PQ) = \deg P + \deg Q</span>.</li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 3</strong></p>
+<p>Effectuer la division euclidienne de <span class="math inline">A = X^4 + 2X^3 - X + 3</span> par <span class="math inline">B = X^2 + X - 1</span>.</p>
+</div>
+<p><strong>Indication :</strong> Diviser les termes de plus haut degré successivement.</p>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 4</strong></p>
+<p>Calculer <span class="math inline">A \wedge B</span> par l’algorithme d’Euclide, où <span class="math inline">A = X^4 - 1</span> et <span class="math inline">B = X^3 + X^2 + X + 1</span>. En déduire <span class="math inline">U, V</span> tels que <span class="math inline">AU + BV = A \wedge B</span>.</p>
+</div>
+<p><strong>Indications :</strong> - <span class="math inline">A = X^4 - 1 = (X-1)(X+1)(X^2+1)</span>. - <span class="math inline">B = X^3 + X^2 + X + 1 = (X+1)(X^2+1)</span>. - Donc <span class="math inline">A \wedge B = (X+1)(X^2+1) = B</span>.</p>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 5</strong></p>
+<p>Soit <span class="math inline">P(X) = X^4 - 4X^3 + 5X^2 - 2X</span>.</p>
+<ol type="1">
+<li>Montrer que <span class="math inline">1</span> est racine de <span class="math inline">P</span>. Quelle est sa multiplicité ?</li>
+<li>Factoriser <span class="math inline">P</span> dans <span class="math inline">\mathbb{R}[X]</span> puis dans <span class="math inline">\mathbb{C}[X]</span>.</li>
+</ol>
+</div>
+<p><strong>Indications :</strong> - Calculer <span class="math inline">P(1)</span>, <span class="math inline">P'(1)</span>, <span class="math inline">P''(1)</span> pour déterminer la multiplicité. - Factoriser par <span class="math inline">X(X-1)^2</span> puis chercher la dernière racine.</p>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 6</strong></p>
+<p>Factoriser dans <span class="math inline">\mathbb{C}[X]</span> puis dans <span class="math inline">\mathbb{R}[X]</span> :</p>
+<ol type="1">
+<li><span class="math inline">X^4 + 1</span></li>
+<li><span class="math inline">X^6 - 1</span></li>
+<li><span class="math inline">X^4 - 2X^2 + 4</span></li>
+</ol>
+</div>
+<p><strong>Indications :</strong> - (1) Les racines sont les solutions de <span class="math inline">X^4 = -1 = e^{i\pi}</span>. - (2) <span class="math inline">X^6 - 1 = (X^3-1)(X^3+1)</span>. - (3) Poser <span class="math inline">Y = X^2</span> et résoudre <span class="math inline">Y^2 - 2Y + 4 = 0</span> dans <span class="math inline">\mathbb{C}</span>.</p>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 7</strong></p>
+<p>Décomposer en éléments simples sur <span class="math inline">\mathbb{R}</span> puis sur <span class="math inline">\mathbb{C}</span> :</p>
+<ol type="1">
+<li><span class="math inline">\frac{1}{X^2 - 1}</span></li>
+<li><span class="math inline">\frac{X}{(X^2+1)^2}</span></li>
+<li><span class="math inline">\frac{X^3 + 1}{X^2(X-1)}</span></li>
+</ol>
+</div>
+<p><strong>Indications :</strong> - (1) <span class="math inline">X^2 - 1 = (X-1)(X+1)</span>. - (2) Sur <span class="math inline">\mathbb{R}</span> : <span class="math inline">\frac{aX+b}{X^2+1} + \frac{cX+d}{(X^2+1)^2}</span>. - (3) D’abord effectuer la division euclidienne (partie entière).</p>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 8</strong></p>
+<p>Soit <span class="math inline">P(X) = X^3 - 6X^2 + 11X - 6</span>.</p>
+<ol type="1">
+<li>Vérifier que <span class="math inline">1</span> est racine. Factoriser <span class="math inline">P</span>.</li>
+<li>Vérifier les relations de Viète.</li>
+<li>Calculer <span class="math inline">r_1^2 + r_2^2 + r_3^2</span> où <span class="math inline">r_1, r_2, r_3</span> sont les racines.</li>
+</ol>
+</div>
+<p><strong>Indications :</strong> - (1) <span class="math inline">P(1) = 0</span>. Diviser par <span class="math inline">(X-1)</span>. - (3) <span class="math inline">r_1^2 + r_2^2 + r_3^2 = (r_1+r_2+r_3)^2 - 2(r_1r_2 + r_1r_3 + r_2r_3)</span>.</p>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 9</strong></p>
+<p>Soit <span class="math inline">P \in \mathbb{R}[X]</span> tel que <span class="math inline">P(x) \geq 0</span> pour tout <span class="math inline">x \in \mathbb{R}</span>. Montrer que <span class="math inline">P</span> est une somme de deux carrés de polynômes de <span class="math inline">\mathbb{R}[X]</span>.</p>
+</div>
+<p><strong>Indications :</strong> - Factoriser <span class="math inline">P</span> dans <span class="math inline">\mathbb{C}[X]</span>. - Les racines non réelles apparaissent par paires conjuguées. - Les racines réelles ont une multiplicité paire. - Regrouper les facteurs pour obtenir <span class="math inline">P = A^2 + B^2</span>.</p>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 10</strong></p>
+<p>Soit <span class="math inline">n \in \mathbb{N}^*</span>. Montrer que le polynôme <span class="math inline">P_n(X) = \sum_{k=0}^n \frac{X^k}{k!}</span> n’a pas de racine multiple.</p>
+</div>
+<p><strong>Indication :</strong> Calculer <span class="math inline">P_n'(X) = P_{n-1}(X)</span> et montrer que <span class="math inline">P_n</span> et <span class="math inline">P_n'</span> n’ont pas de racine commune.</p>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 11</strong></p>
+<p>Soit <span class="math inline">F(X) = \frac{2X^2 + 7X - 20}{X + 2}</span>.</p>
+<ol type="1">
+<li>Déterminer l’équation de l’asymptote oblique en <span class="math inline">\pm\infty</span>.</li>
+<li>Étudier la position du graphe de <span class="math inline">F</span> par rapport à cette droite.</li>
+</ol>
+</div>
+<p><strong>Indication :</strong> Effectuer la division euclidienne de <span class="math inline">2X^2 + 7X - 20</span> par <span class="math inline">X + 2</span>.</p>
+<section id="cours" class="level1 unnumbered">
+<h1 class="unnumbered">Cours</h1>
+<p><a href="../cours/mpsi-chap10.html">Chapitre 10 : Polynômes</a></p>
+</section>
+<section id="navigation" class="level1 unnumbered">
+<h1 class="unnumbered">Navigation</h1>
+<div class="chap-nav">
+<p><a href="../td/mpsi-chap09.html" class="prev">Chapitre 09 : Arithmétique dans ℤ</a> <a href="../td/mpsi.html" class="home">Menu MPSI</a> <a href="../td/mpsi-chap11.html" class="next">Chapitre 11 : Fractions rationnelles</a></p>
+</div>
 
 
 </section>
@@ -251,12 +373,12 @@ window.Quarto = {
       // flash "checked"
       button.classList.add('code-copy-button-checked');
       var currentTitle = button.getAttribute("title");
-      button.setAttribute("title", "Copied!");
+      button.setAttribute("title", "Copié");
       let tooltip;
       if (window.bootstrap) {
         button.setAttribute("data-bs-toggle", "tooltip");
         button.setAttribute("data-bs-placement", "left");
-        button.setAttribute("data-bs-title", "Copied!");
+        button.setAttribute("data-bs-title", "Copié");
         tooltip = new bootstrap.Tooltip(button, 
           { trigger: "manual", 
             customClass: "code-copy-button-tooltip",

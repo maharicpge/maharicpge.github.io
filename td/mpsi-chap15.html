@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Groupe symétrique et déterminant - Mathématiques en CPGE – Mathématiques en CPGE</title>
+<title>mpsi-chap15 – Mathématiques en CPGE</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -74,6 +74,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../styles.css">
 </head>
@@ -143,36 +172,96 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#document" id="toc-document" class="nav-link active" data-scroll-target="#document">Document</a></li>
+  <li><a href="#cours" id="toc-cours" class="nav-link active" data-scroll-target="#cours">Cours</a></li>
+  <li><a href="#navigation" id="toc-navigation" class="nav-link" data-scroll-target="#navigation">Navigation</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
 
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">Chapitre 15 : Groupe symétrique et déterminant</h1>
+
+
+
+<p>title: “TD — Groupe symétrique et déterminant” subtitle: “Chapitre 15” author: “Saîd MAHARI” date: last-modified date-format: “D MMMM YYYY” lang: fr format: html: theme: cosmo toc: true number-sections: true html-math-method: katex css: styles.css filters: - custom-numbered-blocks.lua —</p>
+<p><strong>MPSI (1re année) — TD du Chapitre 15.</strong> Permutations, signatures, déterminants d’une famille, d’un endomorphisme, d’une matrice.</p>
+<div class="exercise">
+<p>Dans <span class="math inline">\(\mathcal{S}_4\)</span>, considérer <span class="math inline">\(\sigma = \begin{pmatrix} 1 &amp; 2 &amp; 3 &amp; 4 \\ 3 &amp; 4 &amp; 2 &amp; 1 \end{pmatrix}\)</span>.</p>
+<ol type="1">
+<li>Décomposer <span class="math inline">\(\sigma\)</span> en produit de cycles à supports disjoints.</li>
+<li>Décomposer <span class="math inline">\(\sigma\)</span> en produit de transpositions.</li>
+<li>Calculer la signature <span class="math inline">\(\varepsilon(\sigma)\)</span>.</li>
+<li>Calculer <span class="math inline">\(\sigma^2\)</span>, <span class="math inline">\(\sigma^3\)</span>, <span class="math inline">\(\sigma^4\)</span>.</li>
+</ol>
 </div>
-
-
-
-<div class="quarto-title-meta">
-
-    
-  
-    
-  </div>
-  
-
-
-</header>
-
-
-<p><strong>MPSI (1re année) — Chapitre 15.</strong> Permutations, signatures, déterminants d’une famille, d’un endomorphisme, d’une matrice.</p>
-<section id="document" class="level2">
-<h2 class="anchored" data-anchor-id="document">Document</h2>
-<p><em>PDF à venir : déposez le fichier <code>files/mpsi/chap15.pdf</code> puis régénérez la page.</em></p>
+<p><strong>Indications :</strong> - (1) <span class="math inline">\(\sigma = (1\;3\;2\;4)\)</span>. - (2) <span class="math inline">\((1\;3\;2\;4) = (1\;4)(1\;2)(1\;3)\)</span>. - (3) 3 transpositions, donc <span class="math inline">\(\varepsilon(\sigma) = (-1)^3 = -1\)</span>.</p>
+<div class="exercise">
+<p>Montrer que toute permutation de <span class="math inline">\(\mathcal{S}_n\)</span> peut s’écrire comme produit de transpositions de la forme <span class="math inline">\((k \;\; k+1)\)</span> pour <span class="math inline">\(k \in \{1, \ldots, n-1\}\)</span>.</p>
+</div>
+<p><strong>Indication :</strong> Pour échanger <span class="math inline">\(i\)</span> et <span class="math inline">\(j\)</span> avec <span class="math inline">\(i &lt; j\)</span>, utiliser <span class="math inline">\((i \;\; i+1)(i+1 \;\; i+2)\cdots(j-1 \;\; j)\cdots(i \;\; i+1)\)</span>.</p>
+<div class="exercise">
+<p>Calculer les déterminants suivants :</p>
+<ol type="1">
+<li><span class="math inline">\(\begin{vmatrix} 1 &amp; 2 &amp; 3 \\ 4 &amp; 5 &amp; 6 \\ 7 &amp; 8 &amp; 9 \end{vmatrix}\)</span></li>
+<li><span class="math inline">\(\begin{vmatrix} a &amp; b &amp; c \\ b &amp; c &amp; a \\ c &amp; a &amp; b \end{vmatrix}\)</span></li>
+<li><span class="math inline">\(\begin{vmatrix} 1 &amp; 1 &amp; 1 &amp; 1 \\ 1 &amp; 2 &amp; 3 &amp; 4 \\ 1 &amp; 3 &amp; 6 &amp; 10 \\ 1 &amp; 4 &amp; 10 &amp; 20 \end{vmatrix}\)</span> (matrice de Pascal)</li>
+</ol>
+</div>
+<p><strong>Indications :</strong> - (1) <span class="math inline">\(L_3 - L_2 = L_2 - L_1\)</span>, donc <span class="math inline">\(\det = 0\)</span>. - (2) <span class="math inline">\(L_1 + L_2 + L_3 = (a+b+c)(1,1,1)\)</span>. Factoriser <span class="math inline">\((a+b+c)\)</span>. - (3) Réduire par opérations élémentaires.</p>
+<div class="exercise">
+<p>Soit <span class="math inline">\(A = \begin{pmatrix} 0 &amp; 1 &amp; 1 &amp; 1 \\ 1 &amp; 0 &amp; 1 &amp; 1 \\ 1 &amp; 1 &amp; 0 &amp; 1 \\ 1 &amp; 1 &amp; 1 &amp; 0 \end{pmatrix}\)</span>.</p>
+<ol type="1">
+<li>Calculer <span class="math inline">\(\det A\)</span>.</li>
+<li><span class="math inline">\(A\)</span> est-elle inversible ? Si oui, calculer <span class="math inline">\(A^{-1}\)</span>.</li>
+</ol>
+</div>
+<p><strong>Indication :</strong> <span class="math inline">\(A = J - I_4\)</span> où <span class="math inline">\(J\)</span> est la matrice de 1. Les valeurs propres de <span class="math inline">\(J\)</span> sont 4 et 0 (multiplicité 3). Donc <span class="math inline">\(\det(J - I_4) = (4-1)(0-1)^3 = -3\)</span>.</p>
+<div class="exercise">
+<p>Soient <span class="math inline">\(a_1, \ldots, a_n \in \mathbb{K}\)</span> deux à deux distincts. Calculer le déterminant de Vandermonde : <span class="math display">\[V(a_1, \ldots, a_n) = \begin{vmatrix} 1 &amp; 1 &amp; \cdots &amp; 1 \\ a_1 &amp; a_2 &amp; \cdots &amp; a_n \\ a_1^2 &amp; a_2^2 &amp; \cdots &amp; a_n^2 \\ \vdots &amp; \vdots &amp; &amp; \vdots \\ a_1^{n-1} &amp; a_2^{n-1} &amp; \cdots &amp; a_n^{n-1} \end{vmatrix}\]</span></p>
+</div>
+<p><strong>Indication :</strong> Par récurrence. Pour <span class="math inline">\(n = 2\)</span> : <span class="math inline">\(V(a_1, a_2) = a_2 - a_1\)</span>. Pour l’hérédité, <span class="math inline">\(L_k \leftarrow L_k - a_1 L_{k-1}\)</span> pour <span class="math inline">\(k = n, n-1, \ldots, 2\)</span>. On obtient <span class="math inline">\(V(a_1, \ldots, a_n) = \prod_{k=2}^n (a_k - a_1) \cdot V(a_2, \ldots, a_n)\)</span>.</p>
+<div class="exercise">
+<p>Soit <span class="math inline">\(A \in \mathcal{M}_n(\mathbb{K})\)</span>.</p>
+<ol type="1">
+<li>Montrer que <span class="math inline">\(\det(^t\!A) = \det(A)\)</span>.</li>
+<li>Montrer que <span class="math inline">\(\det(AB) = \det(A) \det(B)\)</span>.</li>
+<li>Montrer que <span class="math inline">\(A\)</span> est inversible <span class="math inline">\(\iff \det(A) \neq 0\)</span>.</li>
+<li>Si <span class="math inline">\(A\)</span> est inversible, montrer que <span class="math inline">\(\det(A^{-1}) = \dfrac{1}{\det(A)}\)</span>.</li>
+</ol>
+</div>
+<div class="exercise">
+<p>Soit <span class="math inline">\(E\)</span> un <span class="math inline">\(\mathbb{K}\)</span>-espace vectoriel de dimension <span class="math inline">\(n\)</span> et <span class="math inline">\((e_1, \ldots, e_n)\)</span> une base. Soient <span class="math inline">\(v_1, \ldots, v_n \in E\)</span>.</p>
+<ol type="1">
+<li>Montrer que <span class="math inline">\((v_1, \ldots, v_n)\)</span> est une base de <span class="math inline">\(E\)</span> <span class="math inline">\(\iff \det_{\mathcal{B}}(v_1, \ldots, v_n) \neq 0\)</span>.</li>
+<li>Montrer que le déterminant d’une famille de vecteurs change de signe si on échange deux vecteurs.</li>
+</ol>
+</div>
+<div class="exercise">
+<p>Soit <span class="math inline">\(u \in \mathcal{L}(E)\)</span> avec <span class="math inline">\(\dim E = n\)</span>.</p>
+<ol type="1">
+<li>Montrer que <span class="math inline">\(\det(u)\)</span> est bien défini (ne dépend pas de la base choisie).</li>
+<li>Montrer que <span class="math inline">\(u\)</span> est un automorphisme <span class="math inline">\(\iff \det(u) \neq 0\)</span>.</li>
+<li>Si <span class="math inline">\(u = \lambda \mathrm{Id}_E\)</span>, calculer <span class="math inline">\(\det(u)\)</span>.</li>
+</ol>
+</div>
+<p><strong>Indications :</strong> - (1) Si <span class="math inline">\(A\)</span> et <span class="math inline">\(A'\)</span> sont les matrices de <span class="math inline">\(u\)</span> dans deux bases, <span class="math inline">\(A' = P^{-1} A P\)</span>, donc <span class="math inline">\(\det A' = \det A\)</span>. - (3) <span class="math inline">\(\det(\lambda \mathrm{Id}_E) = \lambda^n\)</span>.</p>
+<div class="exercise">
+<p>Soit <span class="math inline">\(A \in \mathcal{M}_n(\mathbb{K})\)</span> triangulaire (supérieure ou inférieure). Montrer que <span class="math inline">\(\det A\)</span> est le produit des coefficients diagonaux.</p>
+</div>
+<p><strong>Indication :</strong> Par récurrence sur <span class="math inline">\(n\)</span>, développer par rapport à la première colonne (ou dernière ligne).</p>
+<div class="exercise">
+<p>Calculer le déterminant de la matrice tridiagonale : <span class="math display">\[\Delta_n = \begin{vmatrix} 2 &amp; -1 &amp; &amp; 0 \\ -1 &amp; 2 &amp; \ddots &amp; \\ &amp; \ddots &amp; \ddots &amp; -1 \\ 0 &amp; &amp; -1 &amp; 2 \end{vmatrix} \in \mathcal{M}_n(\mathbb{R})\]</span></p>
+</div>
+<p><strong>Indications :</strong> - Développer par rapport à la première ligne : <span class="math inline">\(\Delta_n = 2\Delta_{n-1} - \Delta_{n-2}\)</span>. - C’est une suite récurrente linéaire d’ordre 2. Solution : <span class="math inline">\(\Delta_n = n + 1\)</span>.</p>
+<section id="cours" class="level1 unnumbered">
+<h1 class="unnumbered">Cours</h1>
+<p><a href="../td/mpsi-chap15.html"><strong>Chapitre 15 : Groupe symétrique et déterminant</strong></a></p>
+</section>
+<section id="navigation" class="level1 unnumbered">
+<h1 class="unnumbered">Navigation</h1>
+<div class="chap-nav">
+<p><a href="../td/mpsi-chap14.html" class="prev">Chapitre 14 : Calcul matriciel</a> <a href="../td/mpsi.html" class="home">Menu MPSI</a> <a href="../td/mpsi-chap16.html" class="next">Chapitre 16 : Nombres réels</a></p>
+</div>
 
 
 </section>

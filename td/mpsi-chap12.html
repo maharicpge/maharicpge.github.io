@@ -1,13 +1,14 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr"><head>
 
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.10.18">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Saîd MAHARI">
 
-<title>Espaces vectoriels et applications linéaires - Mathématiques en CPGE – Mathématiques en CPGE</title>
+<title>TD — Espaces vectoriels et applications linéaires – Mathématiques en CPGE</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -45,7 +46,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-7a8c080b55ea27eb37b467515007f9ee.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-e0d9a45d84245cc5e3b300860d8fa645.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -60,22 +61,66 @@ ul.task-list li input[type="checkbox"] {
   ],
   "show-item-context": false,
   "language": {
-    "search-no-results-text": "No results",
-    "search-matching-documents-text": "matching documents",
-    "search-copy-link-title": "Copy link to search",
-    "search-hide-matches-text": "Hide additional matches",
-    "search-more-match-text": "more match in this document",
-    "search-more-matches-text": "more matches in this document",
-    "search-clear-button-title": "Clear",
+    "search-no-results-text": "Pas de résultats",
+    "search-matching-documents-text": "documents trouvés",
+    "search-copy-link-title": "Copier le lien vers la recherche",
+    "search-hide-matches-text": "Cacher les correspondances additionnelles",
+    "search-more-match-text": "correspondance de plus dans ce document",
+    "search-more-matches-text": "correspondances de plus dans ce document",
+    "search-clear-button-title": "Effacer",
     "search-text-placeholder": "",
-    "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit",
-    "search-label": "Search"
+    "search-detached-cancel-button-title": "Annuler",
+    "search-submit-button-title": "Envoyer",
+    "search-label": "Recherche"
   }
 }</script>
 
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="styles.css">
 </head>
 
 <body class="nav-fixed quarto-light">
@@ -89,8 +134,8 @@ ul.task-list li input[type="checkbox"] {
     <span class="navbar-title">Accueil</span>
     </a>
   </div>
-            <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+            <div id="quarto-search" class="" title="Recherche"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Basculer la navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
@@ -140,10 +185,11 @@ ul.task-list li input[type="checkbox"] {
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
+    <h2 id="toc-title">Sur cette page</h2>
    
   <ul>
-  <li><a href="#document" id="toc-document" class="nav-link active" data-scroll-target="#document">Document</a></li>
+  <li><a href="#cours" id="toc-cours" class="nav-link active" data-scroll-target="#cours">Cours</a></li>
+  <li><a href="#navigation" id="toc-navigation" class="nav-link" data-scroll-target="#navigation">Navigation</a></li>
   </ul>
 </nav>
     </div>
@@ -152,14 +198,27 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Chapitre 12 : Espaces vectoriels et applications linéaires</h1>
+<h1 class="title">TD — Espaces vectoriels et applications linéaires</h1>
+<p class="subtitle lead">Chapitre 12</p>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Auteur·rice</div>
+    <div class="quarto-title-meta-contents">
+             <p>Saîd MAHARI </p>
+          </div>
+  </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">Date de publication</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">23 août 2026</p>
+    </div>
+  </div>
   
     
   </div>
@@ -169,10 +228,112 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p><strong>MPSI (1re année) — Chapitre 12.</strong> Sous-espaces, sommes directes, familles libres et génératrices, bases, noyau, image, isomorphismes.</p>
-<section id="document" class="level2">
-<h2 class="anchored" data-anchor-id="document">Document</h2>
-<p><em>PDF à venir : déposez le fichier <code>files/mpsi/chap12.pdf</code> puis régénérez la page.</em></p>
+<p><strong>MPSI (1re année) — TD du Chapitre 12.</strong> Structure d’espace vectoriel, sous-espaces vectoriels, sommes directes, familles libres et génératrices, bases, applications linéaires, noyau, image, isomorphismes, projecteurs et symétries.</p>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 1</strong></p>
+<p>Montrer que les ensembles suivants sont des <span class="math inline">\mathbb{R}</span>-espaces vectoriels :</p>
+<ol type="1">
+<li>L’ensemble des suites réelles <span class="math inline">(u_n)_{n \in \mathbb{N}}</span>.</li>
+<li>L’ensemble <span class="math inline">\mathcal{F}(\mathbb{R}, \mathbb{R})</span> des fonctions de <span class="math inline">\mathbb{R}</span> dans <span class="math inline">\mathbb{R}</span>.</li>
+<li>L’ensemble des fonctions paires (resp. impaires) de <span class="math inline">\mathbb{R}</span> dans <span class="math inline">\mathbb{R}</span>.</li>
+<li>L’ensemble des solutions de l’équation différentielle <span class="math inline">y'' + y = 0</span>.</li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 2</strong></p>
+<p>Parmi les ensembles suivants, lesquels sont des sous-espaces vectoriels de <span class="math inline">\mathbb{R}^3</span> ?</p>
+<ol type="1">
+<li><span class="math inline">F_1 = \{(x, y, z) \mid x + y + z = 0\}</span></li>
+<li><span class="math inline">F_2 = \{(x, y, z) \mid x + y + z = 1\}</span></li>
+<li><span class="math inline">F_3 = \{(x, y, z) \mid x^2 + y^2 = z^2\}</span></li>
+<li><span class="math inline">F_4 = \{(x, y, z) \mid x = 2y = 3z\}</span></li>
+</ol>
+</div>
+<p><strong>Indication :</strong> Vérifier : <span class="math inline">0 \in F</span>, stabilité par addition et par multiplication scalaire. <span class="math inline">F_2</span> ne contient pas <span class="math inline">0</span> ; <span class="math inline">F_3</span> n’est pas stable par addition.</p>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 3</strong></p>
+<p>Soient <span class="math inline">F = \mathrm{Vect}((1, 2, 3), (2, 4, 6))</span> et <span class="math inline">G = \mathrm{Vect}((1, 0, -1), (0, 1, 1))</span> dans <span class="math inline">\mathbb{R}^3</span>.</p>
+<ol type="1">
+<li>Déterminer <span class="math inline">\dim F</span> et <span class="math inline">\dim G</span>.</li>
+<li>Déterminer <span class="math inline">F \cap G</span> et <span class="math inline">F + G</span>.</li>
+<li>La somme <span class="math inline">F + G</span> est-elle directe ?</li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 4</strong></p>
+<p>Dans <span class="math inline">\mathbb{R}^4</span>, on considère <span class="math inline">F = \{(x_1, x_2, x_3, x_4) \mid x_1 + x_2 = x_3 + x_4\}</span> et <span class="math inline">G = \{(x_1, x_2, x_3, x_4) \mid x_1 - x_2 = x_3 - x_4\}</span>.</p>
+<ol type="1">
+<li>Déterminer une base de <span class="math inline">F</span> et une base de <span class="math inline">G</span>.</li>
+<li>Déterminer <span class="math inline">F \cap G</span> et <span class="math inline">F + G</span>.</li>
+<li><span class="math inline">\mathbb{R}^4 = F \oplus G</span> ?</li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 5</strong></p>
+<p>Les familles suivantes sont-elles libres ? Sont-elles génératrices ?</p>
+<ol type="1">
+<li>Dans <span class="math inline">\mathbb{R}^3</span> : <span class="math inline">((1, 1, 0), (0, 1, 1), (1, 0, 1))</span>.</li>
+<li>Dans <span class="math inline">\mathbb{R}^3</span> : <span class="math inline">((1, 2, 3), (4, 5, 6), (7, 8, 9))</span>.</li>
+<li>Dans <span class="math inline">\mathbb{R}_2[X]</span> : <span class="math inline">(1, X, X^2, X^3)</span>.</li>
+</ol>
+</div>
+<p><strong>Indications :</strong> - (1) Calculer le déterminant : <span class="math inline">1(1) - 1(-1) = 2 \neq 0</span>. Famille libre et génératrice (base). - (2) <span class="math inline">L_3 = 2L_2 - L_1</span>, famille liée.</p>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 6</strong></p>
+<p>Soient <span class="math inline">f : E \to F</span> une application linéaire et <span class="math inline">A \subset E</span>.</p>
+<ol type="1">
+<li>Montrer que <span class="math inline">f(A)</span> est un sous-espace vectoriel de <span class="math inline">F</span> si <span class="math inline">A</span> est un sev de <span class="math inline">E</span>.</li>
+<li>Montrer que <span class="math inline">f^{-1}(B)</span> est un sev de <span class="math inline">E</span> si <span class="math inline">B</span> est un sev de <span class="math inline">F</span>.</li>
+<li>Montrer que <span class="math inline">f(\mathrm{Vect}(A)) = \mathrm{Vect}(f(A))</span>.</li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 7</strong></p>
+<p>Soit <span class="math inline">f : \mathbb{R}^3 \to \mathbb{R}^3</span> définie par <span class="math inline">f(x, y, z) = (x + y, y + z, z + x)</span>.</p>
+<ol type="1">
+<li>Montrer que <span class="math inline">f</span> est linéaire.</li>
+<li>Déterminer <span class="math inline">\ker f</span> et <span class="math inline">\mathrm{Im}\, f</span>.</li>
+<li><span class="math inline">f</span> est-elle injective ? Surjective ? Bijective ?</li>
+</ol>
+</div>
+<p><strong>Indications :</strong> - (2) <span class="math inline">f(x,y,z) = 0 \iff x + y = y + z = z + x = 0 \iff x = y = z = 0</span>. Donc <span class="math inline">\ker f = \{0\}</span>, <span class="math inline">f</span> injective. - En dimension finie, injective <span class="math inline">\Rightarrow</span> bijective (même dimension).</p>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 8</strong></p>
+<p>Soit <span class="math inline">D : \mathbb{R}_n[X] \to \mathbb{R}_{n-1}[X]</span> définie par <span class="math inline">D(P) = P'</span> (dérivation).</p>
+<ol type="1">
+<li>Montrer que <span class="math inline">D</span> est linéaire.</li>
+<li>Déterminer <span class="math inline">\ker D</span> et <span class="math inline">\mathrm{Im}\, D</span>.</li>
+<li>Vérifier le théorème du rang.</li>
+</ol>
+</div>
+<p><strong>Indications :</strong> - (2) <span class="math inline">\ker D = \mathbb{R}_0[X]</span> (polynômes constants), <span class="math inline">\dim \ker D = 1</span>. - <span class="math inline">\mathrm{Im}\, D = \mathbb{R}_{n-1}[X]</span>, <span class="math inline">\dim \mathrm{Im}\, D = n</span>. - (3) <span class="math inline">\dim \mathbb{R}_n[X] = n + 1 = 1 + n = \dim \ker D + \dim \mathrm{Im}\, D</span>. ✓</p>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 9</strong></p>
+<p>Soient <span class="math inline">p, q \in \mathcal{L}(E)</span> tels que <span class="math inline">p^2 = p</span>, <span class="math inline">q^2 = q</span> et <span class="math inline">p + q = \mathrm{Id}_E</span>.</p>
+<ol type="1">
+<li>Montrer que <span class="math inline">p \circ q = q \circ p = 0</span>.</li>
+<li>Montrer que <span class="math inline">E = \mathrm{Im}(p) \oplus \mathrm{Im}(q)</span>.</li>
+</ol>
+</div>
+<p><strong>Indication :</strong> <span class="math inline">(p+q)^2 = p^2 + pq + qp + q^2 = p + pq + qp + q = \mathrm{Id}_E = p + q</span>, donc <span class="math inline">pq + qp = 0</span>. Multiplier à gauche par <span class="math inline">p</span> : <span class="math inline">p^2 q + pqp = 0 \Rightarrow pq + pqp = 0</span>, etc.</p>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 10</strong></p>
+<p>Soit <span class="math inline">s \in \mathcal{L}(E)</span> tel que <span class="math inline">s^2 = \mathrm{Id}_E</span> (symétrie).</p>
+<ol type="1">
+<li>Montrer que <span class="math inline">p = \frac{1}{2}(s + \mathrm{Id}_E)</span> est un projecteur.</li>
+<li>En déduire que <span class="math inline">E = \ker(s - \mathrm{Id}_E) \oplus \ker(s + \mathrm{Id}_E)</span>.</li>
+</ol>
+</div>
+<p><strong>Indication :</strong> <span class="math inline">p^2 = \frac{1}{4}(s^2 + 2s + \mathrm{Id}_E) = \frac{1}{4}(\mathrm{Id}_E + 2s + \mathrm{Id}_E) = \frac{1}{2}(s + \mathrm{Id}_E) = p</span>.</p>
+<section id="cours" class="level1 unnumbered">
+<h1 class="unnumbered">Cours</h1>
+<p><a href="../td/mpsi-chap12.html"><strong>Chapitre 12 : Espaces vectoriels et applications linéaires</strong></a></p>
+</section>
+<section id="navigation" class="level1 unnumbered">
+<h1 class="unnumbered">Navigation</h1>
+<div class="chap-nav">
+<p><a href="../td/mpsi-chap11.html" class="prev">Chapitre 11 : Fractions rationnelles</a> <a href="../td/mpsi.html" class="home">Menu MPSI</a> <a href="../td/mpsi-chap13.html" class="next">Chapitre 13 : Dimension finie</a></p>
+</div>
 
 
 </section>
@@ -222,12 +383,12 @@ ul.task-list li input[type="checkbox"] {
       // flash "checked"
       button.classList.add('code-copy-button-checked');
       var currentTitle = button.getAttribute("title");
-      button.setAttribute("title", "Copied!");
+      button.setAttribute("title", "Copié");
       let tooltip;
       if (window.bootstrap) {
         button.setAttribute("data-bs-toggle", "tooltip");
         button.setAttribute("data-bs-placement", "left");
-        button.setAttribute("data-bs-title", "Copied!");
+        button.setAttribute("data-bs-title", "Copié");
         tooltip = new bootstrap.Tooltip(button, 
           { trigger: "manual", 
             customClass: "code-copy-button-tooltip",
