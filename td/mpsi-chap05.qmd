@@ -1,10 +1,123 @@
 ---
-title: "Chapitre 05 : Fonctions usuelles"
-pagetitle: "Fonctions usuelles - Mathématiques en CPGE"
+title: "TD — Fonctions usuelles"
+subtitle: "Chapitre 05"
+author: "Saîd MAHARI"
+date: last-modified
+date-format: "D MMMM YYYY"
+lang: fr
+format:
+  html:
+    theme: cosmo
+    toc: true
+    number-sections: true
+    html-math-method: katex
+    css: styles.css
+filters:
+  - custom-numbered-blocks.lua
 ---
 
-**MPSI (1re année) — Chapitre 05.** exp, ln, ch, sh, th, arcsin, arccos, arctan.
+**MPSI (1re année) — TD du Chapitre 05.** $\exp$, $\ln$, $\cosh$, $\sinh$, $\tanh$, $\arcsin$, $\arccos$, $\arctan$.
 
-## Document
+::: {.exercise}
+Montrer que pour tout $x \in \mathbb{R}$ :
 
-*PDF à venir : déposez le fichier `files/mpsi/chap05.pdf` puis régénérez la page.*
+1. $e^x > 0$ et $e^{x+y} = e^x \cdot e^y$.
+2. $e^x \geq 1 + x$ (étudier $f(x) = e^x - 1 - x$).
+3. Pour $x > 0$ : $\ln x \leq x - 1$.
+:::
+
+::: {.exercise}
+Résoudre dans $\mathbb{R}$ les équations et inéquations :
+
+1. $e^x = 3$
+2. $\ln(x) + \ln(x-1) = \ln 2$
+3. $e^{2x} - 3e^x + 2 = 0$
+4. $\ln(x^2 - 1) < \ln(x + 1)$
+:::
+
+**Indications :**
+- (3) Poser $X = e^x$ et résoudre $X^2 - 3X + 2 = 0$.
+- (4) Attention au domaine de définition : $x^2 - 1 > 0$ et $x + 1 > 0$.
+
+::: {.exercise}
+Montrer que pour tout $x \in \mathbb{R}$ :
+
+1. $\cosh^2 x - \sinh^2 x = 1$.
+2. $\cosh x = \dfrac{e^x + e^{-x}}{2}$ et $\sinh x = \dfrac{e^x - e^{-x}}{2}$.
+3. $\cosh(x+y) = \cosh x \cosh y + \sinh x \sinh y$.
+4. $\sinh(x+y) = \sinh x \cosh y + \cosh x \sinh y$.
+:::
+
+::: {.exercise}
+Étudier les fonctions suivantes (domaine, dérivée, variations, limites, parité) :
+
+1. $f(x) = x e^{-x}$
+2. $f(x) = \dfrac{\ln x}{x}$
+3. $f(x) = x - \ln x$ sur $]0, +\infty[$
+:::
+
+::: {.exercise}
+Montrer que pour tout $x \in ]-1, 1[$ :
+
+1. $\arcsin x + \arccos x = \dfrac{\pi}{2}$.
+2. $\dfrac{d}{dx}\arcsin x = \dfrac{1}{\sqrt{1-x^2}}$.
+3. $\dfrac{d}{dx}\arccos x = -\dfrac{1}{\sqrt{1-x^2}}$.
+:::
+
+**Indications :**
+- (1) Poser $g(x) = \arcsin x + \arccos x$ et montrer que $g'(x) = 0$, puis calculer $g(0)$.
+- (2) Utiliser la dérivée de la bijection réciproque.
+
+::: {.exercise}
+Montrer que pour tout $x \in \mathbb{R}$ :
+
+1. $\arctan x + \arctan\left(\dfrac{1}{x}\right) = \dfrac{\pi}{2}$ pour $x > 0$.
+2. $\arctan x + \arctan(-x) = 0$ (imparité).
+3. $\dfrac{d}{dx}\arctan x = \dfrac{1}{1+x^2}$.
+:::
+
+::: {.exercise}
+Montrer que pour tout $n \in \mathbb{N}^*$ :
+$$\left(1 + \frac{1}{n}\right)^n < e < \left(1 + \frac{1}{n}\right)^{n+1}$$
+:::
+
+**Indication :** Prendre le logarithme et utiliser $\frac{x}{1+x} < \ln(1+x) < x$ pour $x > 0$.
+
+::: {.exercise}
+Résoudre dans $\mathbb{R}$ :
+
+1. $\arctan x + \arctan(2x) = \dfrac{\pi}{4}$
+2. $\arcsin(2x) = \arcsin x + \arcsin\left(\dfrac{\pi}{6}\right)$ (simplifier si possible)
+:::
+
+**Indications :**
+- (1) Prendre la tangente des deux membres et utiliser $\tan(a+b) = \frac{\tan a + \tan b}{1 - \tan a \tan b}$.
+
+::: {.exercise}
+Montrer que $\ln$ est concave sur $]0, +\infty[$ et en déduire que pour tout $(a, b) \in (\mathbb{R}_+^*)^2$ :
+$$\ln\left(\frac{a+b}{2}\right) \geq \frac{\ln a + \ln b}{2}$$
+:::
+
+**Indication :** $(\ln x)'' = -\frac{1}{x^2} < 0$. Utiliser la définition de la concavité.
+
+::: {.exercise}
+Soit $f : \mathbb{R} \to \mathbb{R}$ définie par $f(x) = \arctan x$.
+
+1. Montrer que $f$ est une bijection de $\mathbb{R}$ sur $]-\pi/2, \pi/2[$.
+2. Déterminer la bijection réciproque $\tan : ]-\pi/2, \pi/2[ \to \mathbb{R}$.
+3. Montrer que $\tan$ est dérivable et calculer sa dérivée.
+4. En déduire $\sum_{k=1}^n \arctan\left(\dfrac{1}{k^2+k+1}\right)$ en utilisant une télescopage.
+:::
+
+**Indications :**
+- (4) Utiliser $\arctan a - \arctan b = \arctan\left(\frac{a-b}{1+ab}\right)$ avec $a = k+1$ et $b = k$.
+
+# Cours {-}
+[**Chapitre 05 : Fonctions usuelles**](../cours/mpsi-chap05.qmd)
+
+# Navigation {-}
+::: {.chap-nav}
+[TD 04 : Nombres complexes et trigonométrie](mpsi-chap04.qmd){.prev}
+[Menu MPSI](mpsi.qmd){.home}
+[TD 06 : Équations différentielles linéaires](mpsi-chap06.qmd){.next}
+:::

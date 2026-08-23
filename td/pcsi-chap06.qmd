@@ -1,10 +1,91 @@
 ---
-title: "Chapitre 06 : Intégration sur un segment"
-pagetitle: "Intégration sur un segment - Mathématiques en CPGE"
+title: "TD — Fonctions de la variable réelle, limites et continuité"
+subtitle: "Chapitre 06"
+author: "Saîd MAHARI"
+date: last-modified
+date-format: "D MMMM YYYY"
+lang: fr
+format:
+  html:
+    theme: cosmo
+    toc: true
+    number-sections: true
+    html-math-method: katex
+    css: styles.css
+filters:
+  - custom-numbered-blocks.lua
 ---
 
-**PCSI (1re année) — Chapitre 06.** Primitives, IPP, changement de variable.
+**PCSI (1re année) — TD du Chapitre 06.** Limites, continuité, théorème des valeurs intermédiaires, théorème des bornes atteintes, continuité et monotonie stricte, fonctions réciproques.
 
-## Document
+::: {.exercise}
+Déterminer les limites suivantes :
 
-*PDF à venir : déposez le fichier `files/pcsi/chap06.pdf` puis régénérez la page.*
+1. $\lim_{x \to 0} \dfrac{\sin x}{x}$
+2. $\lim_{x \to 0} \dfrac{1-\cos x}{x^2}$
+3. $\lim_{x \to +\infty} \dfrac{\ln x}{x}$
+4. $\lim_{x \to 0^+} x \ln x$
+:::
+
+::: {.exercise}
+Soit $f : [a,b] \to \mathbb{R}$ continue. Montrer que $f$ est bornée et atteint ses bornes (théorème des bornes atteintes).
+:::
+
+::: {.exercise}
+Soit $f : [0,1] \to [0,1]$ continue. Montrer que $f$ admet un point fixe.
+:::
+
+**Indication :** Appliquer le TVI à $g(x) = f(x) - x$.
+
+::: {.exercise}
+Montrer que l'équation $x^3 + x - 1 = 0$ admet une unique solution réelle.
+:::
+
+**Indications :**
+- Existence : TVI sur $[0,1]$.
+- Unicité : $x^3 + x$ est strictement croissante.
+
+::: {.exercise}
+Soit $f : \mathbb{R} \to \mathbb{R}$ continue et $T$-périodique. Montrer que $f$ est bornée sur $\mathbb{R}$.
+:::
+
+::: {.exercise}
+Soit $f : [0,1] \to \mathbb{R}$ continue. Montrer que pour tout $n \in \mathbb{N}^*$, il existe $x_n \in [0,1]$ tel que :
+$$f(x_n) = \dfrac{1}{n}\sum_{k=1}^n f\!\left(\dfrac{k}{n}\right)$$
+:::
+
+**Indication :** La moyenne est comprise entre $\min f$ et $\max f$. Appliquer le TVI.
+
+::: {.exercise}
+Soit $f : I \to \mathbb{R}$ continue et strictement monotone. Montrer que $f$ réalise une bijection de $I$ sur $f(I)$ et que $f^{-1}$ est continue.
+:::
+
+::: {.exercise}
+Soit $f : \mathbb{R} \to \mathbb{R}$ continue avec $f \circ f = \mathrm{Id}$. Montrer que $f$ est une bijection.
+:::
+
+**Indications :**
+- Injectivité : $f(x) = f(y) \Rightarrow x = f(f(x)) = f(f(y)) = y$.
+- Surjectivité : pour tout $y$, $f(f(y)) = y$ donc $y = f(f(y))$.
+
+::: {.exercise}
+Soit $f : [a,b] \to \mathbb{R}$ continue. Montrer que $f([a,b])$ est un intervalle.
+:::
+
+**Indication :** TVI : si $y_1, y_2 \in f([a,b])$ avec $y_1 < y_2$, tout $y \in ]y_1, y_2[$ est atteint.
+
+::: {.exercise}
+Soit $f : [0,1] \to \mathbb{R}$ continue avec $f(0) = f(1)$. Montrer qu'il existe $c \in [0, 1/2]$ tel que $f(c) = f(c + 1/2)$.
+:::
+
+**Indication :** Appliquer le TVI à $g(x) = f(x) - f(x + 1/2)$ sur $[0, 1/2]$.
+
+# Cours {-}
+[**Chapitre 06 : Fonctions de la variable réelle, limites et continuité**](pcsi-chap06.qmd)
+
+# Navigation {-}
+::: {.chap-nav}
+[TD 05 : Suites numériques](pcsi-chap05.qmd){.prev}
+[Menu PCSI](pcsi.qmd){.home}
+[TD 07 : Fonctions de la variable réelle, dérivation](pcsi-chap07.qmd){.next}
+:::

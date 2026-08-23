@@ -1,10 +1,102 @@
 ---
-title: "Chapitre 20 : Développements limités"
-pagetitle: "Développements limités - Mathématiques en CPGE"
+title: "TD — Développements limités"
+subtitle: "Chapitre 20"
+author: "Saîd MAHARI"
+date: last-modified
+date-format: "D MMMM YYYY"
+lang: fr
+format:
+  html:
+    theme: cosmo
+    toc: true
+    number-sections: true
+    html-math-method: katex
+    css: styles.css
+filters:
+  - custom-numbered-blocks.lua
 ---
 
-**MPSI (1re année) — Chapitre 20.** Taylor-Young, équivalents, applications géométriques et analytiques.
+**MPSI (1re année) — TD du Chapitre 20.** Taylor-Young, équivalents, applications géométriques et analytiques.
 
-## Document
+::: {.exercise}
+Donner les développements limités à l'ordre indiqué en $0$ :
 
-*PDF à venir : déposez le fichier `files/mpsi/chap20.pdf` puis régénérez la page.*
+1. $e^x$ à l'ordre 4
+2. $\ln(1+x)$ à l'ordre 3
+3. $\sin x$ à l'ordre 5
+4. $\cos x$ à l'ordre 4
+5. $\frac{1}{1-x}$ à l'ordre 3
+6. $\arctan x$ à l'ordre 3
+:::
+
+::: {.exercise}
+Donner les développements limités en $0$ à l'ordre 3 de :
+
+1. $\frac{\sin x}{x}$
+2. $e^x \cos x$
+3. $\frac{1}{1+x^2}$
+4. $\ln(1 + x + x^2)$
+:::
+
+::: {.exercise}
+Donner les équivalents simples en $0$ :
+
+1. $\sin x - x$
+2. $1 - \cos x$
+3. $\ln(1+x) - x$
+4. $e^x - 1 - x$
+5. $\tan x - x$
+:::
+
+::: {.exercise}
+Soit $f(x) = e^x$. Calculer $f^{(n)}(0)$ pour tout $n$ et en déduire le DL de $e^x$ à l'ordre $n$ en $0$.
+:::
+
+::: {.exercise}
+Montrer que si $f(x) \sim g(x)$ en $0$ et $g(x) \neq 0$ au voisinage de $0$, alors :
+$$\frac{f(x)}{g(x)} \to 1 \quad (x \to 0)$$
+:::
+
+::: {.exercise}
+Déterminer les limites suivantes :
+
+1. $\lim_{x \to 0} \frac{e^x - 1 - x}{x^2}$
+2. $\lim_{x \to 0} \frac{\sin x - x}{x^3}$
+3. $\lim_{x \to 0} \frac{\ln(1+x) - x + x^2/2}{x^3}$
+4. $\lim_{x \to 0} \frac{\tan x - \sin x}{x^3}$
+:::
+
+::: {.exercise}
+Soit $f : \mathbb{R} \to \mathbb{R}$ de classe $\mathcal{C}^2$. Montrer que :
+$$f(x) = f(0) + f'(0)x + \frac{f''(0)}{2}x^2 + o(x^2) \quad (x \to 0)$$
+:::
+
+**Indication :** Utiliser la formule de Taylor-Young à l'ordre 2.
+
+::: {.exercise}
+Soit $f(x) = \frac{1}{1+x}$. Déterminer le DL de $f$ à l'ordre 3 en $0$ et en déduire la position de la courbe par rapport à sa tangente en $0$.
+:::
+
+::: {.exercise}
+Déterminer le DL de $\sqrt{1+x}$ à l'ordre 3 en $0$. En déduire une valeur approchée de $\sqrt{1{,}01}$.
+:::
+
+**Indication :** $(1+x)^\alpha = 1 + \alpha x + \frac{\alpha(\alpha-1)}{2}x^2 + \frac{\alpha(\alpha-1)(\alpha-2)}{6}x^3 + o(x^3)$ avec $\alpha = 1/2$.
+
+::: {.exercise}
+Soit $f(x) = \frac{x - \sin x}{x - \tan x}$. Déterminer la limite de $f$ en $0$ et la position de la courbe par rapport à cette limite.
+:::
+
+**Indications :**
+- $x - \sin x = \frac{x^3}{6} + o(x^3)$
+- $x - \tan x = -\frac{x^3}{3} + o(x^3)$
+- Donc $f(x) \to -1/2$ en $0$.
+
+# Cours {-}
+[**Chapitre 20 : Développements limités**](../cours/mpsi-chap20.qmd)
+
+# Navigation {-}
+::: {.chap-nav}
+[Chapitre 19 : Dérivation](mpsi-chap19.qmd){.prev}
+[Menu MPSI](mpsi.qmd){.home}
+:::

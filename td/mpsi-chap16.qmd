@@ -1,10 +1,109 @@
 ---
-title: "Chapitre 16 : Nombres réels"
-pagetitle: "Nombres réels - Mathématiques en CPGE"
+title: "TD — Nombres réels"
+subtitle: "Chapitre 16"
+author: "Saîd MAHARI"
+date: last-modified
+date-format: "D MMMM YYYY"
+lang: fr
+format:
+  html:
+    theme: cosmo
+    toc: true
+    number-sections: true
+    html-math-method: katex
+    css: styles.css
+filters:
+  - custom-numbered-blocks.lua
 ---
 
-**MPSI (1re année) — Chapitre 16.** Borne supérieure, densité de $\mathbb{Q}$ et de $\mathbb{R}\setminus\mathbb{Q}$, intervalles.
+**MPSI (1re année) — TD du Chapitre 16.** Borne supérieure, densité de $\mathbb{Q}$ et de $\mathbb{R} \setminus \mathbb{Q}$, intervalles.
 
-## Document
+::: {.exercise}
+Déterminer, lorsqu'elles existent, la borne supérieure et la borne inférieure des ensembles suivants :
 
-*PDF à venir : déposez le fichier `files/mpsi/chap16.pdf` puis régénérez la page.*
+1. $A = \left\{\dfrac{1}{n} \;\middle|\; n \in \mathbb{N}^*\right\}$
+2. $B = \left\{\dfrac{n}{n+1} \;\middle|\; n \in \mathbb{N}\right\}$
+3. $C = \{x \in \mathbb{R} \mid x^2 < 2\}$
+4. $D = \left\{(-1)^n + \dfrac{1}{n} \;\middle|\; n \in \mathbb{N}^*\right\}$
+:::
+
+**Indications :**
+- (1) $\sup A = 1$, $\inf A = 0$ (non atteint).
+- (2) $\sup B = 1$ (non atteint), $\inf B = 0$ (atteint).
+- (3) $C = ]-\sqrt{2}, \sqrt{2}[$, $\sup C = \sqrt{2}$, $\inf C = -\sqrt{2}$.
+
+::: {.exercise}
+Soit $A \subset \mathbb{R}$ non vide et majoré. Montrer que $\sup A$ est l'unique réel $M$ tel que :
+
+1. $\forall a \in A, \; a \leq M$ ;
+2. $\forall \varepsilon > 0, \; \exists a \in A, \; a > M - \varepsilon$.
+:::
+
+::: {.exercise}
+Soient $A, B \subset \mathbb{R}$ non vides et bornés avec $A \subset B$.
+
+1. Montrer que $\sup A \leq \sup B$ et $\inf A \geq \inf B$.
+2. Soit $A + B = \{a + b \mid a \in A, b \in B\}$. Montrer que $\sup(A + B) = \sup A + \sup B$.
+:::
+
+**Indication pour (2) :**
+- Majorant : $a + b \leq \sup A + \sup B$ pour tout $a \in A$, $b \in B$.
+- Plus petit : pour $\varepsilon > 0$, $\exists a \in A$, $b \in B$ avec $a > \sup A - \varepsilon/2$ et $b > \sup B - \varepsilon/2$, donc $a + b > \sup A + \sup B - \varepsilon$.
+
+::: {.exercise}
+Montrer que $\mathbb{Q}$ est dense dans $\mathbb{R}$ : pour tous $a < b$ dans $\mathbb{R}$, il existe $q \in \mathbb{Q}$ tel que $a < q < b$.
+:::
+
+**Indication :** Choisir $n \in \mathbb{N}^*$ tel que $\frac{1}{n} < b - a$ (propriété d'Archimède). Il existe alors $m \in \mathbb{Z}$ tel que $m \leq na < m + 1$. Poser $q = \frac{m+1}{n}$.
+
+::: {.exercise}
+Montrer que $\mathbb{R} \setminus \mathbb{Q}$ est dense dans $\mathbb{R}$.
+:::
+
+**Indication :** Si $a < b$, alors $a - \sqrt{2} < b - \sqrt{2}$. Par densité de $\mathbb{Q}$, il existe $q \in \mathbb{Q}$ tel que $a - \sqrt{2} < q < b - \sqrt{2}$. Alors $\alpha = q + \sqrt{2} \in \mathbb{R} \setminus \mathbb{Q}$ et $a < \alpha < b$.
+
+::: {.exercise}
+Montrer que $\sqrt{2} \notin \mathbb{Q}$.
+:::
+
+**Indication :** Par l'absurde. Si $\sqrt{2} = \frac{p}{q}$ avec $p \wedge q = 1$, alors $2q^2 = p^2$, donc $2 \mid p^2 \Rightarrow 2 \mid p$. Poser $p = 2k$ : $q^2 = 2k^2$, donc $2 \mid q$. Contradiction.
+
+::: {.exercise}
+Soit $f : [a, b] \to \mathbb{R}$ continue. Montrer que $f([a, b])$ est un intervalle fermé borné (image d'un segment par une application continue).
+:::
+
+**Indication :** Utiliser le TVI pour montrer que c'est un intervalle, et le théorème des bornes atteintes pour montrer qu'il est fermé borné.
+
+::: {.exercise}
+Soient $A, B$ deux parties non vides de $\mathbb{R}$ telles que $\forall a \in A, \forall b \in B, \; a \leq b$.
+
+1. Montrer que $\sup A \leq \inf B$.
+2. Si $\sup A = \inf B$, montrer qu'il existe un unique réel $c$ séparant $A$ et $B$ ($\forall a \in A, \forall b \in B, a \leq c \leq b$).
+:::
+
+::: {.exercise}
+Soit $x \in \mathbb{R}$. On note $\lfloor x \rfloor$ la partie entière de $x$. Montrer que :
+
+1. $\lfloor x \rfloor \leq x < \lfloor x \rfloor + 1$.
+2. Pour tout $n \in \mathbb{N}^*$, $\left|\dfrac{\lfloor nx \rfloor}{n} - x\right| < \dfrac{1}{n}$.
+3. En déduire une autre preuve de la densité de $\mathbb{Q}$ dans $\mathbb{R}$.
+:::
+
+::: {.exercise}
+Montrer que tout ouvert non vide de $\mathbb{R}$ est réunion dénombrable d'intervalles ouverts disjoints.
+:::
+
+**Indications :**
+- Pour chaque $x \in U$ ouvert, il existe un plus grand intervalle ouvert $I_x \subset U$ contenant $x$.
+- Deux tels intervalles sont égaux ou disjoints.
+- Chacun contient un rationnel distinct, donc il y en a au plus une infinité dénombrable.
+
+# Cours {-}
+[**Chapitre 16 : Nombres réels**](mpsi-chap16.qmd)
+
+# Navigation {-}
+::: {.chap-nav}
+[Chapitre 15 : Groupe symétrique et déterminant](mpsi-chap15.qmd){.prev}
+[Menu MPSI](mpsi.qmd){.home}
+[Chapitre 17 : Suites numériques](mpsi-chap17.qmd){.next}
+:::

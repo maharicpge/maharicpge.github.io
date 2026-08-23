@@ -1,10 +1,113 @@
 ---
-title: "Chapitre 13 : Dimension finie"
-pagetitle: "Dimension finie - Mathématiques en CPGE"
+title: "TD — Dimension finie"
+subtitle: "Chapitre 13"
+author: "Saîd MAHARI"
+date: last-modified
+date-format: "D MMMM YYYY"
+lang: fr
+format:
+  html:
+    theme: cosmo
+    toc: true
+    number-sections: true
+    html-math-method: katex
+    css: styles.css
+filters:
+  - custom-numbered-blocks.lua
 ---
 
-**MPSI (1re année) — Chapitre 13.** Base incomplète, dimension d'un espace et d'un sous-espace, théorème du rang.
+**MPSI (1re année) — TD du Chapitre 13.** Espaces de dimension finie, théorème de la base incomplète, dimension d'un espace et d'un sous-espace, dimension d'une somme, rang d'une application linéaire, théorème du rang, hyperplans et formes linéaires.
 
-## Document
+::: {.exercise}
+Soit $E$ un $\mathbb{K}$-espace vectoriel de dimension $n$.
 
-*PDF à venir : déposez le fichier `files/mpsi/chap13.pdf` puis régénérez la page.*
+1. Montrer que toute famille de $n+1$ vecteurs est liée.
+2. Montrer que toute famille de $n-1$ vecteurs n'est pas génératrice.
+3. Montrer qu'une famille de $n$ vecteurs est une base si et seulement si elle est libre si et seulement si elle est génératrice.
+:::
+
+::: {.exercise}
+Dans $\mathbb{R}^4$, on considère $F = \mathrm{Vect}((1, 2, 0, 1), (2, 1, 1, 0))$ et $G = \mathrm{Vect}((1, 0, 1, 1), (0, 1, 1, 2))$.
+
+1. Déterminer $\dim F$ et $\dim G$.
+2. Déterminer une base de $F \cap G$.
+3. En déduire $\dim(F + G)$ et une base de $F + G$.
+:::
+
+**Indication :** Pour $F \cap G$, résoudre $\alpha u_1 + \beta u_2 = \gamma v_1 + \delta v_2$.
+
+::: {.exercise}
+Soit $E$ un $\mathbb{K}$-espace vectoriel de dimension finie et $F, G$ deux sous-espaces de $E$.
+
+1. Montrer que $\dim(F + G) = \dim F + \dim G - \dim(F \cap G)$ (formule de Grassmann).
+2. Montrer que $F + G = F \oplus G \iff \dim(F + G) = \dim F + \dim G$.
+:::
+
+::: {.exercise}
+Soit $f : E \to F$ une application linéaire entre deux espaces de dimension finie.
+
+1. Montrer que $\dim E = \dim \ker f + \dim \mathrm{Im}\, f$ (théorème du rang).
+2. En déduire que si $\dim E = \dim F$, alors $f$ injective $\iff f$ surjective $\iff f$ bijective.
+:::
+
+::: {.exercise}
+Soient $f, g \in \mathcal{L}(E)$ où $\dim E = n$. Montrer que :
+
+1. $\mathrm{rg}(f + g) \leq \mathrm{rg}(f) + \mathrm{rg}(g)$.
+2. $\mathrm{rg}(f \circ g) \leq \min(\mathrm{rg}(f), \mathrm{rg}(g))$.
+3. $\dim \ker(f \circ g) \leq \dim \ker f + \dim \ker g$.
+:::
+
+**Indication pour (3) :** $\ker(f \circ g) = g^{-1}(\ker f)$. La restriction de $g$ à $\ker(f \circ g)$ a pour image $\mathrm{Im}(g) \cap \ker f$.
+
+::: {.exercise}
+Soit $\varphi : \mathbb{R}^3 \to \mathbb{R}$ définie par $\varphi(x, y, z) = 2x - y + 3z$.
+
+1. Montrer que $\varphi$ est une forme linéaire.
+2. Déterminer $\ker \varphi$. Quelle est sa dimension ?
+3. Donner une base de $\ker \varphi$ et compléter en une base de $\mathbb{R}^3$.
+:::
+
+**Indication :** $\ker \varphi$ est un hyperplan de $\mathbb{R}^3$ (dimension 2). Une base : $((1, 2, 0), (0, 3, 1))$.
+
+::: {.exercise}
+Soit $E$ un espace de dimension $n$ et $\varphi : E \to \mathbb{K}$ une forme linéaire non nulle.
+
+1. Montrer que $\ker \varphi$ est un hyperplan de $E$.
+2. Réciproquement, montrer que tout hyperplan $H$ de $E$ est le noyau d'une forme linéaire non nulle.
+3. Montrer que deux formes linéaires $\varphi, \psi$ ont même noyau si et seulement si elles sont proportionnelles.
+:::
+
+::: {.exercise}
+Soient $f, g \in \mathcal{L}(E)$ avec $\dim E = n$ telles que $f \circ g = 0$ et $f + g$ bijective.
+
+1. Montrer que $\mathrm{Im}\, g \subset \ker f$.
+2. Montrer que $\dim \mathrm{Im}\, g + \dim \mathrm{Im}\, f = n$.
+3. En déduire que $\mathrm{Im}\, g = \ker f$.
+:::
+
+**Indication :** $\mathrm{rg}(f + g) = n \leq \mathrm{rg}(f) + \mathrm{rg}(g)$. Or $\mathrm{Im}\, g \subset \ker f \Rightarrow \mathrm{rg}(g) \leq \dim \ker f = n - \mathrm{rg}(f)$, donc $\mathrm{rg}(f) + \mathrm{rg}(g) \leq n$. Égalité partout.
+
+::: {.exercise}
+Soient $F_1, \ldots, F_p$ des sous-espaces vectoriels d'un espace $E$ de dimension finie. Montrer par récurrence que :
+$$\dim(F_1 + \cdots + F_p) \leq \sum_{k=1}^p \dim F_k$$
+avec égalité si et seulement si la somme est directe.
+:::
+
+::: {.exercise}
+Soit $E$ un espace de dimension finie $n \geq 2$ et $H_1, H_2$ deux hyperplans distincts de $E$.
+
+1. Montrer que $\dim(H_1 \cap H_2) = n - 2$.
+2. Montrer que $H_1 + H_2 = E$.
+3. Généraliser : si $H_1, \ldots, H_k$ sont des hyperplans tels que $\bigcap_{i=1}^k H_i \neq \{0\}$, alors $\dim\left(\bigcap_{i=1}^k H_i\right) \geq n - k$.
+:::
+
+# Cours {-}
+[**Chapitre 13 : Dimension finie**](mpsi-chap13.qmd)
+
+# Navigation {-}
+::: {.chap-nav}
+[Chapitre 12 : Espaces vectoriels et applications linéaires](mpsi-chap12.qmd){.prev}
+[Menu MPSI](mpsi.qmd){.home}
+[Chapitre 14 : Calcul matriciel](mpsi-chap14.qmd){.next}
+:::

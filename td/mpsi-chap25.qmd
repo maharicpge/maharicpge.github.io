@@ -1,10 +1,102 @@
 ---
-title: "Chapitre 25 : Variables aléatoires finies"
-pagetitle: "Variables aléatoires finies - Mathématiques en CPGE"
+title: "TD — Espaces probabilisés finis"
+subtitle: "Chapitre 25"
+author: "Saîd MAHARI"
+date: last-modified
+date-format: "D MMMM YYYY"
+lang: fr
+format:
+  html:
+    theme: cosmo
+    toc: true
+    number-sections: true
+    html-math-method: katex
+    css: styles.css
+filters:
+  - custom-numbered-blocks.lua
 ---
 
-**MPSI (1re année) — Chapitre 25.** Loi, espérance, variance, lois uniforme, de Bernoulli, binomiale.
+**MPSI (1re année) — TD du Chapitre 25.** Probabilité conditionnelle, Bayes, indépendance.
 
-## Document
+::: {.exercise}
+On lance deux dés équilibrés. Calculer la probabilité des événements suivants :
 
-*PDF à venir : déposez le fichier `files/mpsi/chap25.pdf` puis régénérez la page.*
+1. Obtenir une somme de 7.
+2. Obtenir deux 6.
+3. Obtenir au moins un 6.
+:::
+
+::: {.exercise}
+Une urne contient 5 boules rouges et 3 boules noires. On tire successivement et sans remise 2 boules.
+
+1. Calculer la probabilité de tirer 2 boules rouges.
+2. Calculer la probabilité de tirer une rouge puis une noire.
+3. Calculer la probabilité de tirer au moins une rouge.
+:::
+
+::: {.exercise}
+Une maladie touche 1\% de la population. Un test détecte la maladie avec une probabilité de 0,95 si la personne est malade, et donne un résultat positif à tort avec une probabilité de 0,05 si elle est saine.
+
+1. Quelle est la probabilité qu'une personne testée positive soit réellement malade ?
+2. Que devient cette probabilité si la prévalence est de 0,1\% ?
+:::
+
+**Indication :** Utiliser la formule de Bayes.
+
+::: {.exercise}
+Soient $A$ et $B$ deux événements avec $P(A) = 1/3$, $P(B) = 1/4$ et $P(A \cup B) = 1/2$.
+
+1. Calculer $P(A \cap B)$.
+2. Calculer $P_A(B)$.
+3. $A$ et $B$ sont-ils indépendants ?
+:::
+
+::: {.exercise}
+Trois machines $M_1$, $M_2$, $M_3$ produisent respectivement 50\%, 30\% et 20\% des pièces d'une usine. Les taux de défauts sont respectivement 2\%, 3\% et 5\%.
+
+1. Quelle est la probabilité qu'une pièce choisie au hasard soit défectueuse ?
+2. Sachant qu'une pièce est défectueuse, quelle est la probabilité qu'elle provienne de $M_1$ ?
+:::
+
+::: {.exercise}
+On lance une pièce équilibrée jusqu'à obtenir pile. Soit $X$ le nombre de lancers nécessaires.
+
+1. Déterminer la loi de $X$.
+2. Calculer $E(X)$ et $V(X)$.
+:::
+
+::: {.exercise}
+Soient $A$, $B$, $C$ trois événements mutuellement indépendants. Montrer que :
+
+1. $A$ et $B \cap C$ sont indépendants.
+2. $A$ et $B \cup C$ sont indépendants.
+:::
+
+::: {.exercise}
+Deux joueurs lancent chacun un dé. Le joueur $A$ lance en premier. Quelle est la probabilité que $A$ obtienne un résultat strictement supérieur à $B$ ?
+:::
+
+**Indication :** Par symétrie, $P(A > B) = P(B > A)$. Et $P(A = B) = 1/6$.
+
+::: {.exercise}
+Une urne contient $n$ boules blanches et $m$ boules noires. On tire successivement et sans remise $k$ boules ($k \leq n + m$). Quelle est la probabilité de tirer exactement $r$ boules blanches ?
+:::
+
+**Indication :** Loi hypergéométrique : $P = \frac{\binom{n}{r}\binom{m}{k-r}}{\binom{n+m}{k}}$.
+
+::: {.exercise}
+Soit $(A_n)_{n \in \mathbb{N}^*}$ une suite d'événements mutuellement indépendants. Montrer que si $\sum P(A_n)$ converge, alors :
+$$P\left(\bigcap_{n=1}^{+\infty} A_n\right) = \prod_{n=1}^{+\infty} P(A_n)$$
+:::
+
+**Indication :** Passer à la limite dans $P(\bigcap_{k=1}^n A_k) = \prod_{k=1}^n P(A_k)$.
+
+# Cours {-}
+[**Chapitre 25 : Espaces probabilisés finis**](mpsi-chap25.qmd)
+
+# Navigation {-}
+::: {.chap-nav}
+[Chapitre 24 : Dénombrement](mpsi-chap24.qmd){.prev}
+[Menu MPSI](mpsi.qmd){.home}
+[Chapitre 26 : Variables aléatoires finies](mpsi-chap26.qmd){.next}
+:::

@@ -1,0 +1,82 @@
+---
+title: "TD — Séries numériques"
+subtitle: "Chapitre 17"
+author: "Saîd MAHARI"
+date: last-modified
+date-format: "D MMMM YYYY"
+lang: fr
+format:
+  html:
+    theme: cosmo
+    toc: true
+    number-sections: true
+    html-math-method: katex
+    css: styles.css
+filters:
+  - custom-numbered-blocks.lua
+---
+
+**PCSI (1re année) — TD du Chapitre 17.** Convergence, divergence grossière, séries géométriques, séries à termes positifs, comparaisons, d'Alembert, séries de Riemann, séries alternées (Leibniz), convergence absolue, suites sommables.
+
+::: {.exercise}
+Étudier la convergence des séries suivantes :
+
+1. $\sum_{n=0}^{+\infty} \dfrac{1}{2^n}$
+2. $\sum_{n=1}^{+\infty} \dfrac{1}{n^2}$
+3. $\sum_{n=1}^{+\infty} \dfrac{1}{n}$
+:::
+
+::: {.exercise}
+Étudier par comparaison :
+
+1. $\sum_{n=1}^{+\infty} \dfrac{1}{n^2+1}$
+2. $\sum_{n=1}^{+\infty} \dfrac{\ln n}{n^2}$
+:::
+
+::: {.exercise}
+Étudier par le critère de d'Alembert :
+
+1. $\sum_{n=0}^{+\infty} \dfrac{n!}{n^n}$
+2. $\sum_{n=0}^{+\infty} \dfrac{x^n}{n!}$ selon $x$
+:::
+
+::: {.exercise}
+Montrer que la série harmonique diverge.
+:::
+
+::: {.exercise}
+Étudier la convergence de :
+
+1. $\sum_{n=2}^{+\infty} \dfrac{1}{n \ln n}$
+2. $\sum_{n=2}^{+\infty} \dfrac{1}{n(\ln n)^2}$
+:::
+
+::: {.exercise}
+Étudier $\sum_{n=1}^{+\infty} \left(1 - \cos\dfrac{1}{n}\right)$.
+:::
+
+::: {.exercise}
+Étudier la convergence et la convergence absolue de $\sum_{n=0}^{+\infty} \dfrac{(-1)^n}{n+1}$.
+:::
+
+::: {.exercise}
+Soit $x \in ]0,1[$. Calculer $\sum_{n=0}^{+\infty} x^n$ et $\sum_{n=1}^{+\infty} n x^n$.
+:::
+
+::: {.exercise}
+Montrer que si $\sum u_n$ converge à termes positifs, alors $\sum u_n^2$ converge.
+:::
+
+::: {.exercise}
+Soit $(u_n)$ décroissante positive. Montrer que $\sum u_n$ converge $\iff$ $\sum 2^n u_{2^n}$ converge (critère de Cauchy).
+:::
+
+# Cours {-}
+[**Chapitre 17 : Séries numériques**](pcsi-chap17.qmd)
+
+# Navigation {-}
+::: {.chap-nav}
+[TD 16 : Intégration sur un segment](pcsi-chap16.qmd){.prev}
+[Menu PCSI](pcsi.qmd){.home}
+[TD 18 : Fonctions de deux variables](pcsi-chap18.qmd){.next}
+:::

@@ -1,10 +1,128 @@
 ---
-title: "Chapitre 03 : Calcul algébrique"
-pagetitle: "Calcul algébrique - Mathématiques en CPGE"
+title: "TD — Calcul algébrique"
+subtitle: "Chapitre 03"
+author: "Saîd MAHARI"
+date: last-modified
+date-format: "D MMMM YYYY"
+lang: fr
+format:
+  html:
+    theme: cosmo
+    toc: true
+    number-sections: true
+    html-math-method: katex
+    css: styles.css
+filters:
+  - custom-numbered-blocks.lua
 ---
 
-**MPSI (1re année) — Chapitre 03.** Sommes simples et doubles, produits, factorielles, coefficients binomiaux, binôme de Newton.
+**MPSI (1re année) — TD du Chapitre 03.** Sommes simples et doubles, produits, factorielles, coefficients binomiaux, binôme de Newton.
 
-## Document
+::: {.exercise}
+Calculer les sommes suivantes :
 
-*PDF à venir : déposez le fichier `files/mpsi/chap03.pdf` puis régénérez la page.*
+1. $\sum_{k=1}^n k = \frac{n(n+1)}{2}$
+2. $\sum_{k=1}^n k^2 = \frac{n(n+1)(2n+1)}{6}$
+3. $\sum_{k=0}^n 2^k = 2^{n+1} - 1$
+4. $\sum_{k=1}^n \frac{1}{k(k+1)}$
+:::
+
+**Indications :**
+- (1) et (2) : par récurrence.
+- (3) : somme géométrique.
+- (4) : décomposer $\frac{1}{k(k+1)} = \frac{1}{k} - \frac{1}{k+1}$.
+
+::: {.exercise}
+Calculer les sommes doubles suivantes :
+
+1. $\sum_{1 \leq i \leq j \leq n} 1$
+2. $\sum_{1 \leq i < j \leq n} ij$
+3. $\sum_{i=1}^n \sum_{j=1}^n \min(i, j)$
+:::
+
+**Indications :**
+- (1) $\sum_{j=1}^n j = \frac{n(n+1)}{2}$.
+- (2) Utiliser $\sum_{1 \leq i < j \leq n} ij = \frac{1}{2}\left[\left(\sum_{i=1}^n i\right)^2 - \sum_{i=1}^n i^2\right]$.
+
+::: {.exercise}
+Montrer par récurrence que pour tout $n \in \mathbb{N}$ :
+
+1. $(a + b)^n = \sum_{k=0}^n \binom{n}{k} a^k b^{n-k}$ (binôme de Newton).
+2. $\sum_{k=0}^n \binom{n}{k} = 2^n$.
+3. $\sum_{k=0}^n (-1)^k \binom{n}{k} = 0$ pour $n \geq 1$.
+:::
+
+**Indications :**
+- (2) Prendre $a = b = 1$ dans le binôme de Newton.
+- (3) Prendre $a = 1$, $b = -1$ dans le binôme de Newton.
+
+::: {.exercise}
+Montrer que pour tout $n \in \mathbb{N}$ et tout $k \in \{0, \ldots, n\}$ :
+
+1. $\binom{n}{k} = \binom{n}{n-k}$ (symétrie).
+2. $\binom{n+1}{k} = \binom{n}{k} + \binom{n}{k-1}$ (formule de Pascal).
+3. $\sum_{k=0}^n \binom{n}{k}^2 = \binom{2n}{n}$ (identité de Vandermonde).
+:::
+
+**Indications :**
+- (3) Utiliser le coefficient de $x^n$ dans $(1+x)^n (1+x)^n = (1+x)^{2n}$.
+
+::: {.exercise}
+Calculer les produits suivants :
+
+1. $\prod_{k=1}^n k = n!$
+2. $\prod_{k=1}^n \left(1 + \frac{1}{k}\right)$
+3. $\prod_{k=1}^n \left(1 - \frac{1}{k^2}\right)$
+:::
+
+**Indications :**
+- (2) $\prod_{k=1}^n \frac{k+1}{k} = n+1$ (produit télescopique).
+- (3) $\prod_{k=2}^n \frac{(k-1)(k+1)}{k^2} = \frac{1 \cdot 3}{2 \cdot 2} \cdot \frac{2 \cdot 4}{3 \cdot 3} \cdots \frac{(n-1)(n+1)}{n \cdot n} = \frac{n+1}{2n}$.
+
+::: {.exercise}
+Montrer que pour tout $n \in \mathbb{N}^*$ :
+
+1. $\binom{n}{k} = \frac{n}{k}\binom{n-1}{k-1}$ pour $k \geq 1$.
+2. $\sum_{k=0}^n k\binom{n}{k} = n \cdot 2^{n-1}$.
+3. $\sum_{k=0}^n k^2\binom{n}{k} = n(n+1) \cdot 2^{n-2}$ pour $n \geq 2$.
+:::
+
+**Indications :**
+- (2) Dériver $(1+x)^n = \sum \binom{n}{k} x^k$ et prendre $x = 1$.
+- (3) Dériver deux fois et prendre $x = 1$.
+
+::: {.exercise}
+Calculer $\sum_{k=0}^n \binom{n}{k} \frac{1}{k+1}$.
+:::
+
+**Indication :** $\frac{1}{k+1}\binom{n}{k} = \frac{1}{n+1}\binom{n+1}{k+1}$. La somme vaut $\frac{2^{n+1} - 1}{n+1}$.
+
+::: {.exercise}
+Montrer que pour tout $n \in \mathbb{N}^*$ :
+$$\sum_{k=0}^n (-1)^k \binom{n}{k} \frac{1}{k+1} = \frac{1}{n+1}$$
+:::
+
+**Indication :** Intégrer $(1-x)^n = \sum_{k=0}^n (-1)^k \binom{n}{k} x^k$ entre $0$ et $1$.
+
+::: {.exercise}
+Soient $n, p \in \mathbb{N}$ avec $p \leq n$. Montrer que :
+$$\sum_{k=p}^n \binom{k}{p} = \binom{n+1}{p+1}$$
+:::
+
+**Indication :** Utiliser la formule de Pascal $\binom{k}{p} = \binom{k+1}{p+1} - \binom{k}{p+1}$ et sommer (télescopage).
+
+::: {.exercise}
+Calculer $\sum_{k=0}^n \binom{n}{k} \binom{n}{n-k}$.
+:::
+
+**Indication :** Par symétrie $\binom{n}{n-k} = \binom{n}{k}$, donc la somme est $\sum_{k=0}^n \binom{n}{k}^2 = \binom{2n}{n}$ (identité de Vandermonde).
+
+# Cours {-}
+[**Chapitre 03 : Calcul algébrique**](../cours/mpsi-chap03.qmd)
+
+# Navigation {-}
+::: {.chap-nav}
+[TD 02 : Ensembles et applications](mpsi-chap02.qmd){.prev}
+[Menu MPSI](mpsi.qmd){.home}
+[TD 04 : Nombres complexes et trigonométrie](mpsi-chap04.qmd){.next}
+:::

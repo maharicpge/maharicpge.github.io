@@ -1,0 +1,84 @@
+---
+title: "TD — Dénombrement"
+subtitle: "Chapitre 19"
+author: "Saîd MAHARI"
+date: last-modified
+date-format: "D MMMM YYYY"
+lang: fr
+format:
+  html:
+    theme: cosmo
+    toc: true
+    number-sections: true
+    html-math-method: katex
+    css: styles.css
+filters:
+  - custom-numbered-blocks.lua
+---
+
+**PCSI (1re année) — TD du Chapitre 19.** Cardinaux, parties, $p$-listes, arrangements, permutations, combinaisons, formules de Pascal et du binôme.
+
+::: {.exercise}
+Déterminer le cardinal :
+
+1. Des listes de longueur $p$ à valeurs dans un ensemble de cardinal $n$.
+2. Des arrangements de $p$ éléments parmi $n$.
+3. Des combinaisons de $p$ éléments parmi $n$.
+:::
+
+::: {.exercise}
+Combien de nombres de 4 chiffres distincts peut-on former ?
+:::
+
+::: {.exercise}
+De combien de façons peut-on choisir un comité de 3 personnes parmi 10 ?
+:::
+
+::: {.exercise}
+Montrer que :
+
+1. $\sum_{k=0}^n \binom{n}{k} = 2^n$
+2. $\sum_{k=0}^n (-1)^k \binom{n}{k} = 0$ pour $n \geq 1$
+3. $\sum_{k=0}^n k\binom{n}{k} = n \cdot 2^{n-1}$
+:::
+
+::: {.exercise}
+Montrer la formule de Pascal : $\binom{n+1}{k} = \binom{n}{k} + \binom{n}{k-1}$.
+:::
+
+::: {.exercise}
+Un sac contient 3 boules rouges et 5 boules noires. On tire 3 boules.
+
+1. Combien de tirages possibles ?
+2. Combien avec exactement 2 rouges ?
+:::
+
+::: {.exercise}
+Montrer l'identité de Vandermonde : $\sum_{k=0}^r \binom{n}{k}\binom{m}{r-k} = \binom{n+m}{r}$.
+:::
+
+::: {.exercise}
+Soit $E$ fini de cardinal $n$. Déterminer le nombre de couples $(A,B)$ avec $A \subset B \subset E$.
+:::
+
+**Indication :** Chaque élément a 3 choix. Résultat : $3^n$.
+
+::: {.exercise}
+Un code est formé de 3 lettres distinctes suivies de 2 chiffres distincts. Combien de codes avec 26 lettres et 10 chiffres ?
+:::
+
+::: {.exercise}
+Calculer $\sum_{k=0}^n \binom{n}{k}^2$.
+:::
+
+**Indication :** Vandermonde avec $m = n$ et $r = n$.
+
+# Cours {-}
+[**Chapitre 19 : Dénombrement**](pcsi-chap19.qmd)
+
+# Navigation {-}
+::: {.chap-nav}
+[TD 18 : Fonctions de deux variables](pcsi-chap18.qmd){.prev}
+[Menu PCSI](pcsi.qmd){.home}
+[TD 20 : Probabilités sur un univers fini](pcsi-chap20.qmd){.next}
+:::

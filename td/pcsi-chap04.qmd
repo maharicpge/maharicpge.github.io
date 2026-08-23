@@ -1,10 +1,83 @@
 ---
-title: "Chapitre 04 : Suites numériques"
-pagetitle: "Suites numériques - Mathématiques en CPGE"
+title: "TD — Nombres entiers, rationnels et réels"
+subtitle: "Chapitre 04"
+author: "Saîd MAHARI"
+date: last-modified
+date-format: "D MMMM YYYY"
+lang: fr
+format:
+  html:
+    theme: cosmo
+    toc: true
+    number-sections: true
+    html-math-method: katex
+    css: styles.css
+filters:
+  - custom-numbered-blocks.lua
 ---
 
-**PCSI (1re année) — Chapitre 04.** Convergence, suites récurrentes simples.
+**PCSI (1re année) — TD du Chapitre 04.** Divisibilité dans $\mathbb{Z}$, division euclidienne, algorithme d'Euclide, nombres premiers, valuation $p$-adique, rationnels, réels, borne supérieure et inférieure, densité.
 
-## Document
+::: {.exercise}
+Calculer $1234 \wedge 567$ par l'algorithme d'Euclide. En déduire $u, v$ tels que $1234u + 567v = 1234 \wedge 567$. Calculer $1234 \vee 567$.
+:::
 
-*PDF à venir : déposez le fichier `files/pcsi/chap04.pdf` puis régénérez la page.*
+::: {.exercise}
+Montrer que $\sqrt{2} \notin \mathbb{Q}$. Généraliser : pour $p$ premier, $\sqrt{p} \notin \mathbb{Q}$.
+:::
+
+::: {.exercise}
+Montrer qu'il existe une infinité de nombres premiers (raisonnement d'Euclide).
+:::
+
+**Indication :** Supposer $p_1, \ldots, p_n$ premiers. Poser $N = p_1 \cdots p_n + 1$.
+
+::: {.exercise}
+Déterminer $v_2(1000!)$ et $v_5(100!)$. En déduire le nombre de zéros terminaux de $100!$.
+:::
+
+**Indication :** Formule de Legendre : $v_p(n!) = \sum_{k \geq 1} \lfloor n/p^k \rfloor$.
+
+::: {.exercise}
+Montrer que $\mathbb{Q}$ est dense dans $\mathbb{R}$ : pour tout intervalle $]a,b[$ non vide, $]a,b[ \cap \mathbb{Q} \neq \varnothing$.
+:::
+
+**Indication :** Archimède : choisir $n$ tel que $1/n < b-a$, puis $m$ tel que $m/n \in ]a,b[$.
+
+::: {.exercise}
+Montrer que $\mathbb{R} \setminus \mathbb{Q}$ est dense dans $\mathbb{R}$.
+:::
+
+**Indication :** Si $]a,b[ \cap \mathbb{Q} \neq \varnothing$, prendre $q + \frac{\sqrt{2}}{n}$ pour $n$ assez grand.
+
+::: {.exercise}
+Soit $A \subset \mathbb{R}$ non vide et majorée. Montrer que $\sup A$ existe (propriété de la borne supérieure).
+:::
+
+::: {.exercise}
+Soient $A, B \subset \mathbb{R}$ non vides et bornées. Montrer que :
+
+1. $\sup(A \cup B) = \max(\sup A, \sup B)$
+2. $\inf(A \cup B) = \min(\inf A, \inf B)$
+3. $\sup(A+B) = \sup A + \sup B$ où $A+B = \{a+b \mid a \in A, b \in B\}$
+:::
+
+::: {.exercise}
+Soit $A = \left\{1 + \dfrac{1}{n} \mid n \in \mathbb{N}^*\right\}$. Déterminer $\sup A$, $\inf A$, $\max A$, $\min A$.
+:::
+
+::: {.exercise}
+Montrer que $\mathbb{R}$ n'est pas dénombrable (argument de Cantor).
+:::
+
+**Indication :** Raisonner par l'absurde. Supposer $\mathbb{R} = \{r_1, r_2, \ldots\}$ et construire un réel absent de la liste.
+
+# Cours {-}
+[**Chapitre 04 : Nombres entiers, rationnels et réels**](pcsi-chap04.qmd)
+
+# Navigation {-}
+::: {.chap-nav}
+[TD 03 : Compléments de calcul algébrique](pcsi-chap03.qmd){.prev}
+[Menu PCSI](pcsi.qmd){.home}
+[TD 05 : Suites numériques](pcsi-chap05.qmd){.next}
+:::

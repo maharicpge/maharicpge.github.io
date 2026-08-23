@@ -1,10 +1,118 @@
 ---
-title: "Chapitre 08 : Structures algébriques"
-pagetitle: "Structures algébriques - Mathématiques en CPGE"
+title: "TD — Structures algébriques"
+subtitle: "Chapitre 08"
+author: "Saîd MAHARI"
+date: last-modified
+date-format: "D MMMM YYYY"
+lang: fr
+format:
+  html:
+    theme: cosmo
+    toc: true
+    number-sections: true
+    html-math-method: katex
+    css: styles.css
+filters:
+  - custom-numbered-blocks.lua
 ---
 
-**MPSI (1re année) — Chapitre 08.** Groupes, sous-groupes, morphismes, anneaux, corps, $\mathbb{Z}/n\mathbb{Z}$.
+**MPSI (1re année) — TD du Chapitre 08.** Lois de composition interne, monoïdes, groupes, sous-groupes, morphismes de groupes, anneaux, corps, anneaux $\mathbb{Z}/n\mathbb{Z}$.
 
-## Document
+::: {.exercise}
+Soit $E$ un ensemble non vide muni d'une loi de composition interne $\top$ associative, possédant un élément neutre $e$.
 
-*PDF à venir : déposez le fichier `files/mpsi/chap08.pdf` puis régénérez la page.*
+1. Montrer que si $x$ est inversible à gauche et à droite, alors ses inverses sont égaux.
+2. Montrer que si $x$ et $y$ sont inversibles, alors $x \top y$ est inversible et $(x \top y)^{-1} = y^{-1} \top x^{-1}$.
+:::
+
+**Indications :**
+- (1) Si $y \top x = e$ et $x \top z = e$, alors $y = y \top e = y \top (x \top z) = (y \top x) \top z = e \top z = z$.
+- (2) Vérifier directement que $(y^{-1} \top x^{-1}) \top (x \top y) = e$.
+
+::: {.exercise}
+Soit $(G, \cdot)$ un groupe. Montrer que :
+
+1. L'élément neutre est unique.
+2. Tout élément a un unique inverse.
+3. Pour tout $x \in G$, $(x^{-1})^{-1} = x$.
+:::
+
+**Indication :** Utiliser les axiomes de groupe et l'associativité.
+
+::: {.exercise}
+Soit $(G, \cdot)$ un groupe et $H \subset G$. Montrer que $H$ est un sous-groupe de $G$ si et seulement si :
+
+1. $H \neq \varnothing$ ;
+2. $\forall x, y \in H, \quad x \cdot y^{-1} \in H$.
+:::
+
+**Indication :** Prendre $x = y$ pour obtenir $e \in H$, puis prendre $x = e$ pour obtenir la stabilité par inverse.
+
+::: {.exercise}
+Montrer que les ensembles suivants sont des sous-groupes :
+
+1. $\mathbb{Z}$ dans $(\mathbb{Q}, +)$ ;
+2. $\mathbb{Q}$ dans $(\mathbb{R}, +)$ ;
+3. $\mathbb{U}_n = \{z \in \mathbb{C}^* \mid z^n = 1\}$ dans $(\mathbb{C}^*, \times)$ ;
+4. $n\mathbb{Z}$ dans $(\mathbb{Z}, +)$ pour tout $n \in \mathbb{N}$.
+:::
+
+::: {.exercise}
+Soit $f : (G, \cdot) \to (H, \star)$ un morphisme de groupes. Montrer que :
+
+1. $f(e_G) = e_H$ ;
+2. $\forall x \in G, \quad f(x^{-1}) = (f(x))^{-1}$ ;
+3. $\ker f = \{x \in G \mid f(x) = e_H\}$ est un sous-groupe de $G$ ;
+4. $\mathrm{Im}(f) = f(G)$ est un sous-groupe de $H$.
+:::
+
+::: {.exercise}
+Montrer que :
+
+1. $\exp : (\mathbb{R}, +) \to (\mathbb{R}_+^*, \times)$ est un isomorphisme de groupes ;
+2. $z \mapsto |z|$ est un morphisme de $(\mathbb{C}^*, \times)$ dans $(\mathbb{R}_+^*, \times)$. Déterminer son noyau ;
+3. $t \mapsto e^{it}$ est un morphisme de $(\mathbb{R}, +)$ dans $(\mathbb{U}, \times)$.
+:::
+
+::: {.exercise}
+Soit $G$ un groupe fini. Montrer que tout élément de $G$ est d'ordre fini.
+:::
+
+**Indication :** Considérer la suite $x, x^2, x^3, \ldots$ dans $G$ fini. Par le principe des tiroirs, il existe $i < j$ tels que $x^i = x^j$.
+
+::: {.exercise}
+Soit $G$ un groupe monogène, c'est-à-dire $G = \langle a \rangle$ pour un certain $a \in G$.
+
+1. Montrer que $G$ est commutatif.
+2. Si $G$ est fini de cardinal $n$, montrer que $a^n = e$.
+:::
+
+::: {.exercise}
+Dresser la table de multiplication de $\mathbb{Z}/4\mathbb{Z}$. Quels sont les éléments inversibles ? $\mathbb{Z}/4\mathbb{Z}$ est-il un corps ? Est-il intègre ?
+:::
+
+**Indications :**
+- Les inversibles sont les $\overline{k}$ avec $k \wedge 4 = 1$, c'est-à-dire $\overline{1}$ et $\overline{3}$.
+- $\overline{2} \times \overline{2} = \overline{0}$ avec $\overline{2} \neq \overline{0}$ : diviseurs de zéro.
+
+::: {.exercise}
+Montrer que $(\mathbb{Z}[i], +, \times)$ est un anneau, où $\mathbb{Z}[i] = \{a + bi \mid (a,b) \in \mathbb{Z}^2\}$ (entiers de Gauss).
+:::
+
+**Indication :** Vérifier la stabilité par addition, soustraction et multiplication.
+
+::: {.exercise}
+Montrer que $\mathbb{Q}(\sqrt{2}) = \{a + b\sqrt{2} \mid (a,b) \in \mathbb{Q}^2\}$ est un corps.
+:::
+
+**Indication :** Pour $a + b\sqrt{2} \neq 0$, montrer que l'inverse est $\frac{a - b\sqrt{2}}{a^2 - 2b^2}$ et vérifier que $a^2 - 2b^2 \neq 0$.
+
+# Cours {-}
+[Chapitre 08 : Structures algébriques](../cours/mpsi-chap08.qmd)
+
+# Navigation {-}
+::: {.chap-nav}
+[Chapitre 07 : Systèmes linéaires](mpsi-chap07.qmd){.prev}
+[Menu MPSI](mpsi.qmd){.home}
+[Chapitre 09 : Arithmétique dans ℤ](mpsi-chap09.qmd){.next}
+:::

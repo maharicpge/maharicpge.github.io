@@ -1,10 +1,117 @@
 ---
-title: "Chapitre 21 : Intégration sur un segment"
-pagetitle: "Intégration sur un segment - Mathématiques en CPGE"
+title: "TD — Intégration sur un segment"
+subtitle: "Chapitre 21"
+author: "Saîd MAHARI"
+date: last-modified
+date-format: "D MMMM YYYY"
+lang: fr
+format:
+  html:
+    theme: cosmo
+    toc: true
+    number-sections: true
+    html-math-method: katex
+    css: styles.css
+filters:
+  - custom-numbered-blocks.lua
 ---
 
-**MPSI (1re année) — Chapitre 21.** Sommes de Riemann, primitives, IPP, changement de variable.
+**MPSI (1re année) — TD du Chapitre 21.** Sommes de Riemann, primitives, IPP, changement de variable.
 
-## Document
+::: {.exercise}
+Calculer les intégrales suivantes :
 
-*PDF à venir : déposez le fichier `files/mpsi/chap21.pdf` puis régénérez la page.*
+1. $\displaystyle\int_0^1 t^2\, dt$
+2. $\displaystyle\int_0^{\pi} \sin t\, dt$
+3. $\displaystyle\int_1^e \frac{dt}{t}$
+4. $\displaystyle\int_0^1 t e^t\, dt$
+:::
+
+::: {.exercise}
+Calculer par intégration par parties :
+
+1. $\displaystyle\int_0^1 t^2 e^{-t}\, dt$
+2. $\displaystyle\int_0^{\pi/2} t \cos t\, dt$
+3. $\displaystyle\int_0^1 t \ln t\, dt$
+:::
+
+**Indications :**
+- (1) Double IPP avec $u = t^2$, $dv = e^{-t}dt$.
+- (3) $u = \ln t$, $dv = t\, dt$. Attention en $t = 0$ : $\lim_{t \to 0^+} t^2 \ln t = 0$.
+
+::: {.exercise}
+Calculer par changement de variable :
+
+1. $\displaystyle\int_0^1 \frac{dt}{\sqrt{1-t^2}}$
+2. $\displaystyle\int_0^1 \frac{dt}{1+t^2}$
+3. $\displaystyle\int_0^1 t\sqrt{1-t^2}\, dt$
+:::
+
+**Indications :**
+- (1) Poser $t = \sin \theta$.
+- (2) Poser $t = \tan \theta$.
+- (3) Poser $u = 1 - t^2$.
+
+::: {.exercise}
+Soit $f : [0, 1] \to \mathbb{R}$ continue. Calculer la limite :
+$$\lim_{n \to +\infty} \frac{1}{n}\sum_{k=0}^{n-1} f\left(\frac{k}{n}\right)$$
+:::
+
+**Indication :** Reconnaître une somme de Riemann associée à $f$ sur $[0,1]$.
+
+::: {.exercise}
+Calculer les limites suivantes en utilisant les sommes de Riemann :
+
+1. $\displaystyle\lim_{n \to +\infty} \sum_{k=1}^n \frac{1}{n+k}$
+2. $\displaystyle\lim_{n \to +\infty} \frac{1}{n}\sum_{k=1}^n \frac{1}{1 + (k/n)^2}$
+:::
+
+**Indications :**
+- (1) Écrire $\sum_{k=1}^n \frac{1}{n+k} = \frac{1}{n}\sum_{k=1}^n \frac{1}{1+k/n} \to \int_0^1 \frac{dx}{1+x} = \ln 2$.
+- (2) La limite est $\int_0^1 \frac{dx}{1+x^2} = \frac{\pi}{4}$.
+
+::: {.exercise}
+Montrer que pour tout $n \in \mathbb{N}^*$ :
+$$\int_0^1 t^n(1-t)^n\, dt = \frac{(n!)^2}{(2n+1)!}$$
+:::
+
+**Indication :** Poser $I_n = \int_0^1 t^n(1-t)^n\, dt$. Par le changement de variable $u = 1-t$, montrer $I_n = \int_0^1 t^n(1-t)^n\, dt$. Utiliser une IPP ou une récurrence.
+
+::: {.exercise}
+Soit $f : [a,b] \to \mathbb{R}$ continue. Montrer que :
+$$\left|\int_a^b f(t)\, dt\right| \leq \int_a^b |f(t)|\, dt \leq (b-a)\|f\|_\infty$$
+:::
+
+::: {.exercise}
+Calculer $\displaystyle\int_0^{\pi} \cos^{2n} t\, dt$ pour $n \in \mathbb{N}$ en utilisant la formule de linéarisation ou une relation de récurrence.
+:::
+
+**Indication :** Poser $I_n = \int_0^\pi \cos^{2n} t\, dt$. Établir $I_n = \frac{2n-1}{2n}I_{n-1}$ par IPP.
+
+::: {.exercise}
+Soit $f : [0,1] \to \mathbb{R}$ continue. Montrer que :
+$$\lim_{n \to +\infty} \int_0^1 t^n f(t)\, dt = 0$$
+:::
+
+**Indications :**
+- $f$ est bornée : $|f(t)| \leq M$.
+- $\left|\int_0^1 t^n f(t)\, dt\right| \leq M \int_0^1 t^n\, dt = \frac{M}{n+1} \to 0$.
+
+::: {.exercise}
+Soit $f : [0, 1] \to \mathbb{R}$ continue avec $f(0) = 0$. Montrer que :
+$$\lim_{n \to +\infty} n \int_0^1 t^n f(t)\, dt = f(1)$$
+:::
+
+**Indications :**
+- Écrire $n\int_0^1 t^n f(t)\, dt = n\int_0^1 t^n(f(t) - f(1))\, dt + \frac{n}{n+1}f(1)$.
+- Montrer que le premier terme tend vers $0$ par continuité de $f$ en $1$.
+
+# Cours {-}
+[**Chapitre 21 : Intégration sur un segment**](mpsi-chap21.qmd)
+
+# Navigation {-}
+::: {.chap-nav}
+[Chapitre 20 : Développements limités](mpsi-chap20.qmd){.prev}
+[Menu MPSI](mpsi.qmd){.home}
+[Chapitre 22 : Intégration sur un intervalle quelconque](mpsi-chap22.qmd){.next}
+:::

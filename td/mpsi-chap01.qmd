@@ -1,10 +1,106 @@
 ---
-title: "Chapitre 01 : Logique et raisonnement"
-pagetitle: "Logique et raisonnement - Mathématiques en CPGE"
+title: "TD — Logique et raisonnement"
+subtitle: "Chapitre 01"
+author: "Saîd MAHARI"
+date: last-modified
+date-format: "D MMMM YYYY"
+lang: fr
+format:
+  html:
+    theme: cosmo
+    toc: true
+    number-sections: true
+    html-math-method: katex
+    css: styles.css
+filters:
+  - custom-numbered-blocks.lua
 ---
 
-**MPSI (1re année) — Chapitre 01.** Quantificateurs, implication, équivalence, raisonnement par récurrence, par l'absurde, par contraposition.
+**MPSI (1re année) — TD du Chapitre 01.** Quantificateurs, implication, équivalence, raisonnement par récurrence, par l'absurde, par contraposition.
 
-## Document
+::: {.exercise}
+Soient $P$, $Q$, $R$ trois propositions. Montrer que :
 
-*PDF à venir : déposez le fichier `files/mpsi/chap01.pdf` puis régénérez la page.*
+1. $P \Rightarrow (Q \Rightarrow R)$ est équivalente à $(P \wedge Q) \Rightarrow R$.
+2. $\neg(P \wedge Q)$ est équivalente à $(\neg P) \vee (\neg Q)$ (lois de De Morgan).
+3. $\neg(P \vee Q)$ est équivalente à $(\neg P) \wedge (\neg Q)$.
+4. $P \Rightarrow Q$ est équivalente à $(\neg P) \vee Q$.
+:::
+
+::: {.exercise}
+Soient $P(x)$ et $Q(x)$ deux propositions dépendant de $x \in E$.
+
+1. Montrer que $\forall x \in E,\; P(x) \wedge Q(x)$ est équivalente à $(\forall x \in E,\; P(x)) \wedge (\forall x \in E,\; Q(x))$.
+2. Montrer que $\exists x \in E,\; P(x) \vee Q(x)$ est équivalente à $(\exists x \in E,\; P(x)) \vee (\exists x \in E,\; Q(x))$.
+3. Montrer que $\forall x \in E,\; P(x)$ est équivalente à $\neg(\exists x \in E,\; \neg P(x))$.
+:::
+
+::: {.exercise}
+Soit $E$ un ensemble non vide. Montrer que :
+
+1. $\forall x \in E,\; P(x) \implies \exists x \in E,\; P(x)$.
+2. $\exists x \in E,\; \forall y \in E,\; R(x,y) \implies \forall y \in E,\; \exists x \in E,\; R(x,y)$.
+3. La réciproque de (2) est fausse. Donner un contre-exemple.
+:::
+
+**Indication :**
+- (3) Prendre $E = \mathbb{N}$ et $R(x,y) = (x \geq y)$. On a $\forall y,\; \exists x \geq y$ mais $\not\exists x,\; \forall y,\; x \geq y$.
+
+::: {.exercise}
+Montrer par récurrence que pour tout $n \in \mathbb{N}^*$ :
+
+1. $\sum_{k=1}^n k = \dfrac{n(n+1)}{2}$
+2. $\sum_{k=1}^n k^2 = \dfrac{n(n+1)(2n+1)}{6}$
+3. $\sum_{k=1}^n k^3 = \left(\dfrac{n(n+1)}{2}\right)^2$
+:::
+
+::: {.exercise}
+Montrer par récurrence que pour tout $n \in \mathbb{N}^*$ :
+
+1. $2^n > n$
+2. $n! \geq 2^{n-1}$
+3. $\sum_{k=1}^n \frac{1}{k(k+1)} = 1 - \frac{1}{n+1}$
+:::
+
+::: {.exercise}
+Montrer par l'absurde que $\sqrt{2} \notin \mathbb{Q}$.
+:::
+
+**Indication :** Supposer $\sqrt{2} = \frac{p}{q}$ avec $p, q$ premiers entre eux. Montrer que $2 \mid p$ puis $2 \mid q$, contradiction.
+
+::: {.exercise}
+Montrer par contraposée que si $n^2$ est pair, alors $n$ est pair.
+:::
+
+**Indication :** La contraposée est : si $n$ est impair, alors $n^2$ est impair.
+
+::: {.exercise}
+Montrer par l'absurde qu'il existe une infinité de nombres premiers.
+:::
+
+**Indication :** Supposer que $p_1, \ldots, p_n$ sont tous les nombres premiers. Poser $N = p_1 p_2 \cdots p_n + 1$. Montrer qu'aucun $p_i$ ne divise $N$.
+
+::: {.exercise}
+Soit $a \in \mathbb{R}$. Montrer par contraposée que :
+$$\forall \varepsilon > 0,\; |a| \leq \varepsilon \implies a = 0$$
+:::
+
+**Indication :** La contraposée est : si $a \neq 0$, alors $\exists \varepsilon > 0$ tel que $|a| > \varepsilon$. Prendre $\varepsilon = \frac{|a|}{2}$.
+
+::: {.exercise}
+Soient $a, b \in \mathbb{R}$. Montrer que :
+$$ab = 0 \iff (a = 0 \text{ ou } b = 0)$$
+:::
+
+**Indications :**
+- ($\Leftarrow$) : immédiat.
+- ($\Rightarrow$) : par contraposée. Si $a \neq 0$ et $b \neq 0$, alors $ab \neq 0$ (utiliser $b = \frac{ab}{a}$).
+
+# Cours {-}
+[**Chapitre 01 : Logique et raisonnement**](../cours/mpsi-chap01.qmd)
+
+# Navigation {-}
+::: {.chap-nav}
+[Menu MPSI](mpsi.qmd){.home}
+[TD 02 : Ensembles et applications](mpsi-chap02.qmd){.next}
+:::

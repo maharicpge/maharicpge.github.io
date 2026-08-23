@@ -1,10 +1,114 @@
 ---
-title: "Chapitre 02 : Ensembles et applications"
-pagetitle: "Ensembles et applications - Mathématiques en CPGE"
+title: "TD — Ensembles et applications"
+subtitle: "Chapitre 02"
+author: "Saîd MAHARI"
+date: last-modified
+date-format: "D MMMM YYYY"
+lang: fr
+format:
+  html:
+    theme: cosmo
+    toc: true
+    number-sections: true
+    html-math-method: katex
+    css: styles.css
+filters:
+  - custom-numbered-blocks.lua
 ---
 
-**MPSI (1re année) — Chapitre 02.** Inclusion, produit cartésien, ensemble des parties, injections, surjections, bijections, relations d'équivalence.
+**MPSI (1re année) — TD du Chapitre 02.** Inclusion, produit cartésien, ensemble des parties, injections, surjections, bijections, relations d'équivalence.
 
-## Document
+::: {.exercise}
+Soient $A$, $B$, $C$ trois ensembles. Montrer que :
 
-*PDF à venir : déposez le fichier `files/mpsi/chap02.pdf` puis régénérez la page.*
+1. $A \subset B$ et $B \subset C$ impliquent $A \subset C$.
+2. $A \cap (B \cup C) = (A \cap B) \cup (A \cap C)$.
+3. $A \setminus (B \cap C) = (A \setminus B) \cup (A \setminus C)$.
+4. $A \setminus (B \cup C) = (A \setminus B) \cap (A \setminus C)$.
+:::
+
+::: {.exercise}
+Soit $E$ un ensemble et $A, B \in \mathcal{P}(E)$. Montrer que :
+
+1. $\mathcal{P}(A \cap B) = \mathcal{P}(A) \cap \mathcal{P}(B)$.
+2. $\mathcal{P}(A) \cup \mathcal{P}(B) \subset \mathcal{P}(A \cup B)$.
+3. L'inclusion en (2) est stricte en général. Donner un contre-exemple.
+:::
+
+**Indication :**
+- (3) $E = \{1, 2\}$, $A = \{1\}$, $B = \{2\}$. Alors $\{1, 2\} \in \mathcal{P}(A \cup B)$ mais $\{1, 2\} \notin \mathcal{P}(A) \cup \mathcal{P}(B)$.
+
+::: {.exercise}
+Soient $E$ et $F$ deux ensembles finis avec $|E| = n$ et $|F| = p$. Déterminer le nombre :
+
+1. d'applications de $E$ dans $F$ ;
+2. d'injections de $E$ dans $F$ (si $n \leq p$) ;
+3. de bijections de $E$ dans $F$ (si $n = p$) ;
+4. de surjections de $E$ dans $F$ (si $n \geq p$).
+:::
+
+::: {.exercise}
+Soit $f : E \to F$ une application. Montrer que :
+
+1. $f$ est injective $\iff \forall A, B \in \mathcal{P}(E),\; f(A \cap B) = f(A) \cap f(B)$.
+2. $f$ est surjective $\iff \forall B \in \mathcal{P}(F),\; f(f^{-1}(B)) = B$.
+3. $f$ est injective $\iff \forall A \in \mathcal{P}(E),\; f^{-1}(f(A)) = A$.
+:::
+
+::: {.exercise}
+Soient $f : E \to F$ et $g : F \to G$ deux applications. Montrer que :
+
+1. Si $f$ et $g$ sont injectives, alors $g \circ f$ est injective.
+2. Si $f$ et $g$ sont surjectives, alors $g \circ f$ est surjective.
+3. Si $g \circ f$ est injective, alors $f$ est injective.
+4. Si $g \circ f$ est surjective, alors $g$ est surjective.
+:::
+
+::: {.exercise}
+Soient $f : E \to F$ et $g : F \to E$ deux applications telles que $g \circ f = \mathrm{Id}_E$. Montrer que :
+
+1. $f$ est injective.
+2. $g$ est surjective.
+3. Si de plus $f \circ g = \mathrm{Id}_F$, alors $f$ est bijective et $f^{-1} = g$.
+:::
+
+::: {.exercise}
+Soit $f : \mathbb{R} \to \mathbb{R}$ définie par $f(x) = \frac{x}{1 + |x|}$.
+
+1. Montrer que $f$ est injective.
+2. Montrer que $f$ n'est pas surjective.
+3. Montrer que $f$ réalise une bijection de $\mathbb{R}$ sur $]-1, 1[$ et déterminer sa réciproque.
+:::
+
+::: {.exercise}
+Soit $E$ un ensemble et $\mathcal{R}$ une relation binaire sur $E$. Montrer que $\mathcal{R}$ est une relation d'équivalence si et seulement si :
+
+1. $\mathcal{R}$ est réflexive : $\forall x \in E,\; x \mathcal{R} x$.
+2. $\mathcal{R}$ est symétrique : $\forall x, y \in E,\; x \mathcal{R} y \implies y \mathcal{R} x$.
+3. $\mathcal{R}$ est transitive : $\forall x, y, z \in E,\; x \mathcal{R} y$ et $y \mathcal{R} z \implies x \mathcal{R} z$.
+:::
+
+::: {.exercise}
+Soit $n \in \mathbb{N}^*$. Sur $\mathbb{Z}$, on définit la relation $a \equiv b \pmod{n}$ par $n \mid (a - b)$.
+
+1. Montrer que $\equiv$ est une relation d'équivalence.
+2. Déterminer les classes d'équivalence.
+3. Combien y a-t-il de classes d'équivalence ?
+:::
+
+::: {.exercise}
+Soit $f : E \to F$ une application. On définit sur $E$ la relation $x \sim y \iff f(x) = f(y)$.
+
+1. Montrer que $\sim$ est une relation d'équivalence.
+2. Montrer que les classes d'équivalence sont les fibres $f^{-1}(\{y\})$ pour $y \in \mathrm{Im}(f)$.
+:::
+
+# Cours {-}
+[**Chapitre 02 : Ensembles et applications**](../cours/mpsi-chap02.qmd)
+
+# Navigation {-}
+::: {.chap-nav}
+[TD 01 : Logique et raisonnement](mpsi-chap01.qmd){.prev}
+[Menu MPSI](mpsi.qmd){.home}
+[TD 03 : Calcul algébrique](mpsi-chap03.qmd){.next}
+:::

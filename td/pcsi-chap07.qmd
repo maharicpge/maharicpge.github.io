@@ -1,10 +1,86 @@
 ---
-title: "Chapitre 07 : Algèbre linéaire et matrices"
-pagetitle: "Algèbre linéaire et matrices - Mathématiques en CPGE"
+title: "TD — Fonctions de la variable réelle, dérivation"
+subtitle: "Chapitre 07"
+author: "Saîd MAHARI"
+date: last-modified
+date-format: "D MMMM YYYY"
+lang: fr
+format:
+  html:
+    theme: cosmo
+    toc: true
+    number-sections: true
+    html-math-method: katex
+    css: styles.css
+filters:
+  - custom-numbered-blocks.lua
 ---
 
-**PCSI (1re année) — Chapitre 07.** Espaces vectoriels, dimension finie, déterminants en dimension 2 et 3.
+**PCSI (1re année) — TD du Chapitre 07.** Dérivabilité, théorème de Rolle, accroissements finis, dérivées d'ordre supérieur, classes $\mathcal{C}^k$, suites récurrentes.
 
-## Document
+::: {.exercise}
+Montrer le théorème de Rolle : soit $f : [a,b] \to \mathbb{R}$ continue sur $[a,b]$, dérivable sur $]a,b[$ avec $f(a) = f(b)$. Alors il existe $c \in ]a,b[$ tel que $f'(c) = 0$.
+:::
 
-*PDF à venir : déposez le fichier `files/pcsi/chap07.pdf` puis régénérez la page.*
+::: {.exercise}
+Montrer le théorème des accroissements finis : soit $f : [a,b] \to \mathbb{R}$ continue sur $[a,b]$, dérivable sur $]a,b[$. Alors il existe $c \in ]a,b[$ tel que :
+$$f(b) - f(a) = (b-a)f'(c)$$
+:::
+
+**Indication :** Appliquer Rolle à $g(x) = f(x) - f(a) - \frac{f(b)-f(a)}{b-a}(x-a)$.
+
+::: {.exercise}
+Soit $f : \mathbb{R} \to \mathbb{R}$ dérivable avec $f'(x) \geq 0$ pour tout $x$. Montrer que $f$ est croissante.
+:::
+
+::: {.exercise}
+Soit $f : ]a,b[ \to \mathbb{R}$ dérivable avec $f'(x) = 0$ pour tout $x$. Montrer que $f$ est constante.
+:::
+
+::: {.exercise}
+Soit $f : [0,1] \to \mathbb{R}$ continue, dérivable sur $]0,1[$ avec $f(0) = 0$ et $f(1) = 1$. Montrer qu'il existe $c_1, c_2 \in ]0,1[$ distincts tels que :
+$$\dfrac{1}{f'(c_1)} + \dfrac{1}{f'(c_2)} = 2$$
+:::
+
+**Indications :**
+- TVI : il existe $a \in ]0,1[$ avec $f(a) = 1/2$.
+- TAF sur $[0,a]$ et $[a,1]$.
+
+::: {.exercise}
+Soit $f : \mathbb{R} \to \mathbb{R}$ de classe $\mathcal{C}^2$ avec $f''(x) \geq 0$ pour tout $x$. Montrer que $f$ est convexe.
+:::
+
+::: {.exercise}
+Montrer par récurrence la formule de Leibniz :
+$$(fg)^{(n)} = \sum_{k=0}^n \binom{n}{k} f^{(k)} g^{(n-k)}$$
+:::
+
+::: {.exercise}
+Soit $f : [0,+\infty[ \to \mathbb{R}$ continue, dérivable sur $]0,+\infty[$ avec $f(0) = 0$ et $f'$ croissante. Montrer que $g(x) = \dfrac{f(x)}{x}$ est croissante sur $]0,+\infty[$.
+:::
+
+**Indication :** $g'(x) = \frac{xf'(x) - f(x)}{x^2}$. Montrer $xf'(x) \geq f(x)$.
+
+::: {.exercise}
+Soit $f : \mathbb{R} \to \mathbb{R}$ de classe $\mathcal{C}^1$ avec $f'$ bornée. Montrer que $f$ est lipschitzienne.
+:::
+
+**Indication :** TAF : $|f(x)-f(y)| \leq M|x-y|$ où $M = \sup |f'|$.
+
+::: {.exercise}
+Soit $(u_n)$ définie par $u_0 = 1$ et $u_{n+1} = \sqrt{u_n + 1}$. Utiliser le théorème des accroissements finis pour majorer $|u_n - \ell|$ où $\ell$ est la limite.
+:::
+
+**Indications :**
+- Montrer que $(u_n)$ converge vers $\ell = \frac{1+\sqrt{5}}{2}$.
+- TAF : $|u_{n+1} - \ell| = |f(u_n) - f(\ell)| \leq \sup |f'| \cdot |u_n - \ell|$.
+
+# Cours {-}
+[**Chapitre 07 : Fonctions de la variable réelle, dérivation**](pcsi-chap07.qmd)
+
+# Navigation {-}
+::: {.chap-nav}
+[TD 06 : Limites et continuité](pcsi-chap06.qmd){.prev}
+[Menu PCSI](pcsi.qmd){.home}
+[TD 08 : Fonctions usuelles, fonctions convexes](pcsi-chap08.qmd){.next}
+:::

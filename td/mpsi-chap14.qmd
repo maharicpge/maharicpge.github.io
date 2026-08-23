@@ -1,10 +1,115 @@
 ---
-title: "Chapitre 14 : Calcul matriciel"
-pagetitle: "Calcul matriciel - Mathématiques en CPGE"
+title: "TD — Calcul matriciel"
+subtitle: "Chapitre 14"
+author: "Saîd MAHARI"
+date: last-modified
+date-format: "D MMMM YYYY"
+lang: fr
+format:
+  html:
+    theme: cosmo
+    toc: true
+    number-sections: true
+    html-math-method: katex
+    css: styles.css
+filters:
+  - custom-numbered-blocks.lua
 ---
 
-**MPSI (1re année) — Chapitre 14.** Matrices inversibles, matrices par blocs, changement de base.
+**MPSI (1re année) — TD du Chapitre 14.** Matrices inversibles, matrices par blocs, changement de base.
 
-## Document
+::: {.exercise}
+Soient $A = \begin{pmatrix} 1 & 2 \\ 3 & 4 \end{pmatrix}$ et $B = \begin{pmatrix} 2 & -1 \\ 0 & 3 \end{pmatrix}$.
 
-*PDF à venir : déposez le fichier `files/mpsi/chap14.pdf` puis régénérez la page.*
+1. Calculer $AB$, $BA$, $A^2$, $B^2$.
+2. $A$ et $B$ sont-elles inversibles ? Si oui, calculer leurs inverses.
+3. $A$ et $B$ commutent-elles ?
+:::
+
+::: {.exercise}
+Soit $A = \begin{pmatrix} 1 & 1 & 1 \\ 0 & 1 & 1 \\ 0 & 0 & 1 \end{pmatrix}$.
+
+1. Calculer $A^n$ pour tout $n \in \mathbb{N}$.
+2. Montrer que $A$ est inversible et calculer $A^{-1}$.
+:::
+
+**Indications :**
+- (1) Écrire $A = I_3 + N$ avec $N = \begin{pmatrix} 0 & 1 & 1 \\ 0 & 0 & 1 \\ 0 & 0 & 0 \end{pmatrix}$. On a $N^3 = 0$, utiliser le binôme de Newton.
+- (2) $A^{-1} = (I_3 + N)^{-1} = I_3 - N + N^2$.
+
+::: {.exercise}
+Soit $A = \begin{pmatrix} 1 & 2 & -1 \\ 2 & 4 & 1 \\ -1 & 1 & 2 \end{pmatrix}$. Calculer $A^{-1}$ par la méthode de Gauss-Jordan (en échelonnant $(A | I_3)$ pour obtenir $(I_3 | A^{-1})$).
+:::
+
+::: {.exercise}
+Soient $A \in \mathcal{M}_p(\mathbb{K})$, $B \in \mathcal{M}_{p,q}(\mathbb{K})$, $C \in \mathcal{M}_{q,p}(\mathbb{K})$, $D \in \mathcal{M}_q(\mathbb{K})$. On considère la matrice par blocs $M = \begin{pmatrix} A & B \\ C & D \end{pmatrix}$.
+
+1. Si $A$ est inversible, montrer que $\det M = \det A \cdot \det(D - CA^{-1}B)$ (formule du complément de Schur).
+2. Si $D$ est inversible, montrer que $M$ est inversible si et seulement si $A - BD^{-1}C$ est inversible.
+:::
+
+::: {.exercise}
+Soient $A = \begin{pmatrix} 2 & 1 \\ -1 & 1 \end{pmatrix}$ et $\mathcal{B}$ la base canonique de $\mathbb{R}^2$. Soit $\mathcal{B}' = (e_1', e_2')$ avec $e_1' = (1, 1)$ et $e_2' = (1, -1)$.
+
+1. Déterminer la matrice de passage $P$ de $\mathcal{B}$ à $\mathcal{B}'$.
+2. Calculer $P^{-1}$.
+3. Si $u$ est l'endomorphisme de matrice $A$ dans $\mathcal{B}$, déterminer la matrice de $u$ dans $\mathcal{B}'$.
+:::
+
+**Indications :**
+- (1) $P = \begin{pmatrix} 1 & 1 \\ 1 & -1 \end{pmatrix}$.
+- (3) $A' = P^{-1} A P$.
+
+::: {.exercise}
+Soit $A \in \mathcal{M}_n(\mathbb{K})$ une matrice nilpotente (il existe $k$ tel que $A^k = 0$).
+
+1. Montrer que $I_n - A$ est inversible et $(I_n - A)^{-1} = I_n + A + A^2 + \cdots + A^{k-1}$.
+2. Application : $A = \begin{pmatrix} 0 & 1 & 0 \\ 0 & 0 & 1 \\ 0 & 0 & 0 \end{pmatrix}$. Calculer $(I_3 - A)^{-1}$.
+:::
+
+::: {.exercise}
+Soit $A \in \mathcal{M}_n(\mathbb{K})$ telle que $A^2 - 3A + 2I_n = 0$.
+
+1. Montrer que $A$ est inversible et exprimer $A^{-1}$ en fonction de $A$.
+2. Montrer que $A - I_n$ est inversible.
+:::
+
+**Indications :**
+- (1) $A(A - 3I_n) = -2I_n$, donc $A^{-1} = \frac{1}{2}(3I_n - A)$.
+- (2) $(A - I_n)(A - 2I_n) = A^2 - 3A + 2I_n = 0$. Non, il faut $A^2 - 3A + 2I_n = (A-I_n)(A-2I_n) = 0$. Donc $A-I_n$ n'est pas nécessairement inversible. Contre-exemple : $A = I_n$.
+
+::: {.exercise}
+Soient $A, B \in \mathcal{M}_n(\mathbb{K})$ telles que $AB = I_n$.
+
+1. Montrer que $A$ est surjective (considérée comme endomorphisme de $\mathbb{K}^n$).
+2. En déduire que $A$ est bijective et $A^{-1} = B$.
+3. Montrer alors que $BA = I_n$.
+:::
+
+::: {.exercise}
+Soit $A \in \mathcal{M}_n(\mathbb{R})$ définie par $a_{ij} = \min(i, j)$.
+
+1. Calculer $A$ pour $n = 3$ et $n = 4$.
+2. Montrer que $A$ est inversible et calculer $A^{-1}$ (qui est tridiagonale).
+:::
+
+**Indication :** Pour $n = 3$ : $A = \begin{pmatrix} 1 & 1 & 1 \\ 1 & 2 & 2 \\ 1 & 2 & 3 \end{pmatrix}$. $A^{-1} = \begin{pmatrix} 2 & -1 & 0 \\ -1 & 2 & -1 \\ 0 & -1 & 1 \end{pmatrix}$.
+
+::: {.exercise}
+Soient $A, B \in \mathcal{M}_n(\mathbb{K})$ telles que $A + B$ et $A - B$ soient inversibles.
+
+1. Montrer que la matrice par blocs $M = \begin{pmatrix} A & B \\ B & A \end{pmatrix}$ est inversible.
+2. Exprimer $M^{-1}$ en fonction de $(A+B)^{-1}$ et $(A-B)^{-1}$.
+:::
+
+**Indication :** Poser $P = \begin{pmatrix} I_n & I_n \\ I_n & -I_n \end{pmatrix}$. Calculer $P^{-1}MP = \begin{pmatrix} A+B & 0 \\ 0 & A-B \end{pmatrix}$.
+
+# Cours {-}
+[**Chapitre 14 : Calcul matriciel**](mpsi-chap14.qmd)
+
+# Navigation {-}
+::: {.chap-nav}
+[Chapitre 13 : Dimension finie](mpsi-chap13.qmd){.prev}
+[Menu MPSI](mpsi.qmd){.home}
+[Chapitre 15 : Groupe symétrique et déterminant](mpsi-chap15.qmd){.next}
+:::

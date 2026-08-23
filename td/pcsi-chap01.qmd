@@ -1,10 +1,99 @@
 ---
-title: "Chapitre 01 : Outils de calcul fondamentaux"
-pagetitle: "Outils de calcul fondamentaux - Mathématiques en CPGE"
+title: "TD — Vocabulaire ensembliste et éléments de logique"
+subtitle: "Chapitre 01"
+author: "Saîd MAHARI"
+date: last-modified
+date-format: "D MMMM YYYY"
+lang: fr
+format:
+  html:
+    theme: cosmo
+    toc: true
+    number-sections: true
+    html-math-method: katex
+    css: styles.css
+filters:
+  - custom-numbered-blocks.lua
 ---
 
-**PCSI (1re année) — Chapitre 01.** Logique, sommes et produits, binôme, trigonométrie, nombres complexes.
+**PCSI (1re année) — TD du Chapitre 01.** Connecteurs logiques, quantificateurs, raisonnements (récurrence, absurde, contraposition, analyse-synthèse), ensembles, applications, injections, surjections, bijections.
 
-## Document
+::: {.exercise}
+Montrer que pour toutes propositions $P$, $Q$, $R$ :
 
-*PDF à venir : déposez le fichier `files/pcsi/chap01.pdf` puis régénérez la page.*
+1. $P \Rightarrow (Q \Rightarrow R)$ est équivalente à $(P \wedge Q) \Rightarrow R$.
+2. $\neg(P \wedge Q)$ est équivalente à $(\neg P) \vee (\neg Q)$ (loi de De Morgan).
+3. $P \Rightarrow Q$ est équivalente à $(\neg P) \vee Q$.
+:::
+
+::: {.exercise}
+Soient $P(x)$ et $Q(x)$ deux propositions dépendant de $x \in E$. Montrer que :
+
+1. $\forall x \in E,\; P(x) \wedge Q(x)$ est équivalente à $(\forall x,\; P(x)) \wedge (\forall x,\; Q(x))$.
+2. $\exists x \in E,\; P(x) \vee Q(x)$ est équivalente à $(\exists x,\; P(x)) \vee (\exists x,\; Q(x))$.
+3. $\neg(\forall x,\; P(x))$ est équivalente à $\exists x,\; \neg P(x)$.
+:::
+
+::: {.exercise}
+Montrer par récurrence que pour tout $n \in \mathbb{N}^*$ :
+
+1. $\sum_{k=1}^n k = \dfrac{n(n+1)}{2}$
+2. $\sum_{k=1}^n k^2 = \dfrac{n(n+1)(2n+1)}{6}$
+3. $2^n > n$
+:::
+
+::: {.exercise}
+Montrer par l'absurde que $\sqrt{2} \notin \mathbb{Q}$.
+:::
+
+**Indication :** Supposer $\sqrt{2} = p/q$ avec $p \wedge q = 1$. Montrer $2 \mid p$ puis $2 \mid q$.
+
+::: {.exercise}
+Montrer par contraposée que si $n^2$ est pair, alors $n$ est pair.
+:::
+
+**Indication :** Contraposée : si $n$ est impair, alors $n^2$ est impair.
+
+::: {.exercise}
+Soient $A$, $B$, $C$ trois ensembles. Montrer que :
+
+1. $A \cap (B \cup C) = (A \cap B) \cup (A \cap C)$
+2. $A \setminus (B \cup C) = (A \setminus B) \cap (A \setminus C)$
+3. $\mathcal{P}(A \cap B) = \mathcal{P}(A) \cap \mathcal{P}(B)$
+:::
+
+::: {.exercise}
+Soit $f : E \to F$ une application. Montrer que :
+
+1. $f$ est injective $\iff \forall A \in \mathcal{P}(E),\; f^{-1}(f(A)) = A$.
+2. $f$ est surjective $\iff \forall B \in \mathcal{P}(F),\; f(f^{-1}(B)) = B$.
+:::
+
+::: {.exercise}
+Soient $f : E \to F$ et $g : F \to G$ deux applications. Montrer que :
+
+1. Si $f$ et $g$ sont injectives, alors $g \circ f$ est injective.
+2. Si $f$ et $g$ sont surjectives, alors $g \circ f$ est surjective.
+3. Si $g \circ f$ est injective, alors $f$ est injective.
+:::
+
+::: {.exercise}
+Soit $f : \mathbb{R} \to \mathbb{R}$ définie par $f(x) = \dfrac{x}{1+|x|}$.
+
+1. Montrer que $f$ est injective.
+2. Montrer que $f$ n'est pas surjective sur $\mathbb{R}$.
+3. Montrer que $f$ réalise une bijection de $\mathbb{R}$ sur $]-1, 1[$ et déterminer sa réciproque.
+:::
+
+::: {.exercise}
+Soient $f : E \to F$ et $g : F \to E$ telles que $g \circ f = \mathrm{Id}_E$ et $f \circ g = \mathrm{Id}_F$. Montrer que $f$ est bijective et $f^{-1} = g$.
+:::
+
+# Cours {-}
+[**Chapitre 01 : Vocabulaire ensembliste et éléments de logique**](pcsi-chap01.qmd)
+
+# Navigation {-}
+::: {.chap-nav}
+[Menu PCSI](pcsi.qmd){.home}
+[TD 02 : Nombres complexes](pcsi-chap02.qmd){.next}
+:::

@@ -1,10 +1,96 @@
 ---
-title: "Chapitre 26 : Espaces préhilbertiens finis"
-pagetitle: "Espaces préhilbertiens finis - Mathématiques en CPGE"
+title: "TD — Variables aléatoires finies"
+subtitle: "Chapitre 26"
+author: "Saîd MAHARI"
+date: last-modified
+date-format: "D MMMM YYYY"
+lang: fr
+format:
+  html:
+    theme: cosmo
+    toc: true
+    number-sections: true
+    html-math-method: katex
+    css: styles.css
+filters:
+  - custom-numbered-blocks.lua
 ---
 
-**MPSI (1re année) — Chapitre 26.** Produit scalaire, orthogonalité, Gram-Schmidt.
+**MPSI (1re année) — TD du Chapitre 26.** Loi, espérance, variance, lois uniforme, de Bernoulli, binomiale.
 
-## Document
+::: {.exercise}
+On lance un dé équilibré. Soit $X$ le résultat obtenu.
 
-*PDF à venir : déposez le fichier `files/mpsi/chap26.pdf` puis régénérez la page.*
+1. Déterminer la loi de $X$.
+2. Calculer $E(X)$ et $V(X)$.
+:::
+
+::: {.exercise}
+On lance 3 fois une pièce équilibrée. Soit $X$ le nombre de piles obtenus.
+
+1. Déterminer la loi de $X$.
+2. Calculer $E(X)$ et $V(X)$.
+:::
+
+::: {.exercise}
+Soit $X \hookrightarrow \mathcal{B}(n, p)$. Montrer que :
+
+1. $E(X) = np$.
+2. $V(X) = np(1-p)$.
+:::
+
+**Indication :** Écrire $X = X_1 + \cdots + X_n$ avec les $X_i$ indépendantes de loi $\mathcal{B}(p)$.
+
+::: {.exercise}
+Une urne contient 4 boules rouges et 6 boules noires. On tire avec remise 5 boules. Soit $X$ le nombre de boules rouges tirées.
+
+1. Déterminer la loi de $X$.
+2. Calculer $E(X)$ et $V(X)$.
+:::
+
+::: {.exercise}
+Soit $X$ une variable aléatoire à valeurs dans $\{1, 2, \ldots, n\}$ avec $P(X = k) = \frac{1}{n}$ pour tout $k$.
+
+1. Vérifier que $P$ est bien une loi de probabilité.
+2. Calculer $E(X)$ et $V(X)$.
+:::
+
+::: {.exercise}
+Soit $X \hookrightarrow \mathcal{B}(p)$. Calculer $E(X)$, $V(X)$ et $E(X^2)$.
+:::
+
+::: {.exercise}
+Deux variables aléatoires $X$ et $Y$ sont indépendantes avec $X \hookrightarrow \mathcal{B}(n, p)$ et $Y \hookrightarrow \mathcal{B}(m, p)$. Montrer que $X + Y \hookrightarrow \mathcal{B}(n+m, p)$.
+:::
+
+**Indication :** Utiliser les fonctions génératrices ou la convolution.
+
+::: {.exercise}
+Soit $X$ une variable aléatoire à valeurs dans $\{0, 1, 2\}$ avec $E(X) = 1$ et $V(X) = 1/2$. Déterminer la loi de $X$.
+:::
+
+**Indications :**
+- Poser $p_k = P(X = k)$ pour $k = 0, 1, 2$.
+- $p_0 + p_1 + p_2 = 1$, $p_1 + 2p_2 = 1$, $E(X^2) - (E(X))^2 = 1/2$ donc $E(X^2) = 3/2$.
+- $p_1 + 4p_2 = 3/2$. Résoudre.
+
+::: {.exercise}
+Soit $X$ une variable aléatoire finie. Montrer que $V(X) = 0$ si et seulement si $X$ est constante presque sûrement.
+:::
+
+::: {.exercise}
+On lance un dé équilibré. Si le résultat est pair, on gagne 2€, sinon on perd 1€. Soit $G$ le gain algébrique.
+
+1. Déterminer la loi de $G$.
+2. Calculer $E(G)$. Le jeu est-il équitable ?
+:::
+
+# Cours {-}
+[**Chapitre 26 : Variables aléatoires finies**](mpsi-chap26.qmd)
+
+# Navigation {-}
+::: {.chap-nav}
+[Chapitre 25 : Espaces probabilisés finis](mpsi-chap25.qmd){.prev}
+[Menu MPSI](mpsi.qmd){.home}
+[Chapitre 27 : Espaces préhilbertiens finis](mpsi-chap27.qmd){.next}
+:::

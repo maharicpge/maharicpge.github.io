@@ -1,10 +1,110 @@
 ---
-title: "Chapitre 23 : Dénombrement"
-pagetitle: "Dénombrement - Mathématiques en CPGE"
+title: "TD — Séries numériques"
+subtitle: "Chapitre 23"
+author: "Saîd MAHARI"
+date: last-modified
+date-format: "D MMMM YYYY"
+lang: fr
+format:
+  html:
+    theme: cosmo
+    toc: true
+    number-sections: true
+    html-math-method: katex
+    css: styles.css
+filters:
+  - custom-numbered-blocks.lua
 ---
 
-**MPSI (1re année) — Chapitre 23.** Cardinal, listes, arrangements, combinaisons.
+**MPSI (1re année) — TD du Chapitre 23.** Séries à termes positifs, séries géométriques et de Riemann.
 
-## Document
+::: {.exercise}
+Étudier la convergence des séries suivantes :
 
-*PDF à venir : déposez le fichier `files/mpsi/chap23.pdf` puis régénérez la page.*
+1. $\displaystyle\sum_{n=0}^{+\infty} \frac{1}{2^n}$
+2. $\displaystyle\sum_{n=1}^{+\infty} \frac{1}{n^2}$
+3. $\displaystyle\sum_{n=1}^{+\infty} \frac{1}{n}$
+4. $\displaystyle\sum_{n=1}^{+\infty} \frac{1}{n^\alpha}$ selon $\alpha$
+:::
+
+::: {.exercise}
+Étudier la convergence des séries suivantes par comparaison :
+
+1. $\displaystyle\sum_{n=1}^{+\infty} \frac{1}{n^2 + 1}$
+2. $\displaystyle\sum_{n=1}^{+\infty} \frac{n}{n^3 + 1}$
+3. $\displaystyle\sum_{n=1}^{+\infty} \frac{\ln n}{n^2}$
+:::
+
+**Indications :**
+- (1) Comparer avec $\sum 1/n^2$.
+- (3) $\ln n = o(n^\varepsilon)$ pour tout $\varepsilon > 0$.
+
+::: {.exercise}
+Étudier la convergence des séries suivantes par le critère de d'Alembert :
+
+1. $\displaystyle\sum_{n=0}^{+\infty} \frac{n!}{n^n}$
+2. $\displaystyle\sum_{n=0}^{+\infty} \frac{x^n}{n!}$ selon $x \in \mathbb{R}$
+3. $\displaystyle\sum_{n=1}^{+\infty} \frac{n^n}{n! \, x^n}$ selon $x > 0$
+:::
+
+::: {.exercise}
+Montrer que la série harmonique $\displaystyle\sum_{n=1}^{+\infty} \frac{1}{n}$ diverge.
+:::
+
+**Indications :**
+- Méthode 1 : Comparaison série/intégrale avec $\int_1^{+\infty} dt/t$.
+- Méthode 2 : Regrouper les termes : $\frac{1}{2} + (\frac{1}{3}+\frac{1}{4}) + (\frac{1}{5}+\cdots+\frac{1}{8}) + \cdots$
+
+::: {.exercise}
+Étudier la convergence des séries suivantes :
+
+1. $\displaystyle\sum_{n=2}^{+\infty} \frac{1}{n \ln n}$
+2. $\displaystyle\sum_{n=2}^{+\infty} \frac{1}{n (\ln n)^2}$
+:::
+
+**Indications :**
+- (1) Comparaison série/intégrale avec $\int_2^{+\infty} \frac{dt}{t \ln t} = [\ln(\ln t)]_2^{+\infty} = +\infty$. Divergence.
+- (2) $\int_2^{+\infty} \frac{dt}{t(\ln t)^2} = [-1/\ln t]_2^{+\infty} = 1/\ln 2$. Convergence.
+
+::: {.exercise}
+Soit $\displaystyle\sum u_n$ une série à termes positifs. Montrer que si $\displaystyle\sum u_n$ converge, alors $\displaystyle\sum u_n^2$ converge.
+:::
+
+**Indication :** $u_n \to 0$, donc à partir d'un certain rang $u_n \leq 1$ et $u_n^2 \leq u_n$.
+
+::: {.exercise}
+Étudier la convergence de $\displaystyle\sum_{n=1}^{+\infty} \left(1 - \cos\frac{1}{n}\right)$.
+:::
+
+**Indication :** $1 - \cos(1/n) \sim \frac{1}{2n^2}$. Convergence par équivalence avec $\sum 1/n^2$.
+
+::: {.exercise}
+Soit $(u_n)$ une suite décroissante positive. Montrer que :
+$$\sum u_n \text{ converge} \iff \sum 2^n u_{2^n} \text{ converge}$$
+:::
+
+**Indication :** Critère de condensation de Cauchy. Encadrer $\sum_{k=2^n}^{2^{n+1}-1} u_k$ entre $2^n u_{2^{n+1}}$ et $2^n u_{2^n}$.
+
+::: {.exercise}
+Étudier la convergence de $\displaystyle\sum_{n=0}^{+\infty} \frac{(-1)^n}{n+1}$. Cette série est-elle absolument convergente ?
+:::
+
+**Indication :** Convergence par le critère spécial des séries alternées (Leibniz). Pas absolument convergente car $\sum 1/(n+1)$ diverge.
+
+::: {.exercise}
+Soit $x \in ]0, 1[$. Calculer $\displaystyle\sum_{n=0}^{+\infty} x^n$ et $\displaystyle\sum_{n=1}^{+\infty} n x^n$.
+:::
+
+**Indications :**
+- $\sum x^n = \frac{1}{1-x}$.
+- Dériver : $\sum nx^n = \frac{x}{(1-x)^2}$.
+
+# Cours {-}
+[**Chapitre 23 : Séries numériques**](mpsi-chap23.qmd)
+
+# Navigation {-}
+::: {.chap-nav}
+[Chapitre 22 : Intégration sur un intervalle quelconque](mpsi-chap22.qmd){.prev}
+[Menu MPSI](mpsi.qmd){.home}
+[Chapitre 24 : Dénombrement](mpsi-chap24.qmd){.next}
+:::

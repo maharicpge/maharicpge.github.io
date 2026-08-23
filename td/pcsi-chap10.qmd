@@ -1,10 +1,80 @@
 ---
-title: "Chapitre 10 : Géométrie euclidienne"
-pagetitle: "Géométrie euclidienne - Mathématiques en CPGE"
+title: "TD — Calcul matriciel et systèmes d'équations linéaires"
+subtitle: "Chapitre 10"
+author: "Saîd MAHARI"
+date: last-modified
+date-format: "D MMMM YYYY"
+lang: fr
+format:
+  html:
+    theme: cosmo
+    toc: true
+    number-sections: true
+    html-math-method: katex
+    css: styles.css
+filters:
+  - custom-numbered-blocks.lua
 ---
 
-**PCSI (1re année) — Chapitre 10.** Produit scalaire et vectoriel dans $\mathbb{R}^2$ et $\mathbb{R}^3$, droites et plans.
+**PCSI (1re année) — TD du Chapitre 10.** Matrices, opérations, transposée, matrices inversibles, systèmes linéaires, pivot de Gauss.
 
-## Document
+::: {.exercise}
+Calculer l'inverse des matrices suivantes :
 
-*PDF à venir : déposez le fichier `files/pcsi/chap10.pdf` puis régénérez la page.*
+1. $A = \begin{pmatrix} 1 & 2 \\ 3 & 4 \end{pmatrix}$
+2. $B = \begin{pmatrix} 1 & 1 & 0 \\ 0 & 1 & 1 \\ 0 & 0 & 1 \end{pmatrix}$
+:::
+
+::: {.exercise}
+Soit $A = \begin{pmatrix} 2 & 1 \\ 0 & 2 \end{pmatrix}$. Calculer $A^n$ pour tout $n \in \mathbb{N}$.
+:::
+
+**Indication :** $A = 2I_2 + N$ avec $N^2 = 0$. Binôme de Newton.
+
+::: {.exercise}
+Résoudre par le pivot de Gauss :
+
+1. $\begin{cases} 2x + y + z = 3 \\ x - y + 3z = 8 \\ x + 2y - z = -3 \end{cases}$
+
+2. $\begin{cases} x + y + z = 1 \\ 2x + 2y + 2z = 3 \\ 3x + 3y + 3z = 4 \end{cases}$
+:::
+
+::: {.exercise}
+Résoudre selon les valeurs de $a, b \in \mathbb{R}$ :
+$$\begin{cases} x + y - z = a \\ -x + 2z = b \\ 2y + 2z = 4 \end{cases}$$
+:::
+
+::: {.exercise}
+Montrer que si $A$ et $B$ sont inversibles, alors $AB$ est inversible et $(AB)^{-1} = B^{-1}A^{-1}$.
+:::
+
+::: {.exercise}
+Soit $A \in \mathcal{M}_n(\mathbb{R})$ antisymétrique ($A^T = -A$). Montrer que si $n$ est impair, $\det(A) = 0$.
+:::
+
+::: {.exercise}
+Résoudre le système homogène :
+$$\begin{cases} x_1 + x_2 + x_3 + x_4 = 0 \\ 2x_1 + x_2 + x_3 = 0 \\ 3x_1 + 2x_2 + x_4 = 0 \end{cases}$$
+:::
+
+::: {.exercise}
+Soit $A \in \mathcal{M}_n(\mathbb{R})$ idempotente ($A^2 = A$). Montrer que $A$ est inversible si et seulement si $A = I_n$.
+:::
+
+::: {.exercise}
+Soient $A \in \mathcal{M}_{n,p}(\mathbb{R})$ et $B \in \mathcal{M}_{p,n}(\mathbb{R})$. Montrer que $\mathrm{rg}(AB) \leq \min(\mathrm{rg}(A), \mathrm{rg}(B))$.
+:::
+
+::: {.exercise}
+Soit $A = \begin{pmatrix} 1 & 2 & 3 \\ 2 & 5 & 3 \\ 1 & 0 & 8 \end{pmatrix}$. Calculer $A^{-1}$ par Gauss-Jordan.
+:::
+
+# Cours {-}
+[**Chapitre 10 : Calcul matriciel et systèmes d'équations linéaires**](pcsi-chap10.qmd)
+
+# Navigation {-}
+::: {.chap-nav}
+[TD 09 : Primitives et équations différentielles](pcsi-chap09.qmd){.prev}
+[Menu PCSI](pcsi.qmd){.home}
+[TD 11 : Polynômes et fractions rationnelles](pcsi-chap11.qmd){.next}
+:::
