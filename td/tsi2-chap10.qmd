@@ -1,0 +1,79 @@
+---
+title: "TD — Séries de Fourier"
+subtitle: "Chapitre 10"
+author: "Saîd MAHARI"
+date: last-modified
+date-format: "D MMMM YYYY"
+lang: fr
+format:
+  html:
+    theme: cosmo
+    toc: true
+    number-sections: true
+    html-math-method: katex
+    css: styles.css
+filters:
+  - custom-numbered-blocks.lua
+---
+
+**TSI (2e année) — TD du Chapitre 10.** Fonctions définies par morceaux, coefficients et séries de Fourier, théorème de Parseval, théorème de Dirichlet, interprétations en sciences physiques et industrielles.
+
+::: {.exercise}
+Soit $f : \mathbb{R} \to \mathbb{R}$ une fonction $T$-périodique continue par morceaux. Montrer que l'ensemble des fonctions $T$-périodiques continues par morceaux forme un espace vectoriel.
+:::
+
+::: {.exercise}
+Soit $f$ une fonction $T$-périodique. Montrer que :
+$$\frac{1}{T}\int_{-T/2}^{T/2} f(t)\, dt = \frac{1}{T}\int_{\alpha}^{\alpha+T} f(t)\, dt$$
+pour tout $\alpha \in \mathbb{R}$.
+:::
+
+::: {.exercise}
+Calculer les coefficients de Fourier de la fonction $f(t) = t$ sur $[-\pi, \pi]$ (prolongée par $2\pi$-périodicité).
+:::
+
+**Indication :** $f$ est impaire, donc $a_n = 0$. Calculer $b_n = \frac{2}{\pi}\int_0^\pi t \sin(nt)\, dt$.
+
+::: {.exercise}
+Calculer les coefficients de Fourier de la fonction créneau :
+$$f(t) = \begin{cases} 1 & \text{si } 0 < t < \pi \\ -1 & \text{si } -\pi < t < 0 \end{cases}$$
+:::
+
+::: {.exercise}
+Énoncer le théorème de Dirichlet : si $f$ est $T$-périodique, continue par morceaux et de classe $\mathcal{C}^1$ par morceaux, alors la série de Fourier de $f$ converge en tout point $t$ vers $\frac{f(t^+) + f(t^-)}{2}$.
+:::
+
+::: {.exercise}
+Énoncer et démontrer le théorème de Parseval :
+$$\frac{1}{T}\int_{-T/2}^{T/2} |f(t)|^2\, dt = |a_0|^2 + \frac{1}{2}\sum_{n=1}^{+\infty}(|a_n|^2 + |b_n|^2)$$
+:::
+
+::: {.exercise}
+En utilisant le théorème de Parseval pour $f(t) = t$ sur $[-\pi, \pi]$, calculer $\sum_{n=1}^{+\infty} \frac{1}{n^2}$.
+:::
+
+**Indication :** On doit trouver $\sum_{n=1}^{+\infty} \frac{1}{n^2} = \frac{\pi^2}{6}$.
+
+::: {.exercise}
+En utilisant la série de Fourier de la fonction créneau, calculer $\sum_{n=0}^{+\infty} \frac{(-1)^n}{2n+1}$.
+:::
+
+**Indication :** On doit trouver $\frac{\pi}{4}$.
+
+::: {.exercise}
+Soit $f$ une fonction $T$-périodique de classe $\mathcal{C}^1$ par morceaux. Montrer que la série de Fourier de $f$ converge uniformément vers $f$ si $f$ est continue.
+:::
+
+::: {.exercise}
+Interpréter le théorème de Parseval en termes de puissance moyenne d'un signal périodique en physique.
+:::
+
+# Cours {-}
+[**Chapitre 10 : Séries de Fourier**](../cours/tsi2-chap10.qmd)
+
+# Navigation {-}
+::: {.chap-nav}
+[TD 09 : Espaces préhilbertiens réels](tsi2-chap09.qmd){.prev}
+[Menu TSI](tsi2.qmd){.home}
+[TD 11 : Équations différentielles linéaires](tsi2-chap11.qmd){.next}
+:::

@@ -1,0 +1,81 @@
+---
+title: "TD — Espaces vectoriels"
+subtitle: "Chapitre 13"
+author: "Saîd MAHARI"
+date: last-modified
+date-format: "D MMMM YYYY"
+lang: fr
+format:
+  html:
+    theme: cosmo
+    toc: true
+    number-sections: true
+    html-math-method: katex
+    css: styles.css
+filters:
+  - custom-numbered-blocks.lua
+---
+
+**TSI (1re année) — TD du Chapitre 13.** EV, sous-espaces vectoriels, familles libres et génératrices, bases, dimension finie, théorème de la base incomplète, dimension d'un sous-espace.
+
+::: {.exercise}
+Montrer que les ensembles suivants sont des sous-espaces vectoriels :
+
+1. $F = \{(x,y,z) \in \mathbb{R}^3 \mid x + 2y - z = 0\}$
+2. $G = \{P \in \mathbb{R}[X] \mid P(0) = P(1)\}$
+3. $H = \{f \in \mathcal{F}(\mathbb{R}, \mathbb{R}) \mid f(0) = f(1)\}$
+:::
+
+::: {.exercise}
+Soient $F = \mathrm{Vect}(e_1, e_2)$ et $G = \mathrm{Vect}(e_2, e_3)$ dans $\mathbb{R}^3$.
+
+1. Déterminer $F \cap G$ et $F + G$.
+2. La somme est-elle directe ?
+:::
+
+::: {.exercise}
+Montrer que $(e_1, e_2, e_3)$ avec $e_1 = (1,1,0)$, $e_2 = (0,1,1)$, $e_3 = (1,0,1)$ est une base de $\mathbb{R}^3$.
+:::
+
+::: {.exercise}
+Énoncer et démontrer le théorème de la base incomplète : toute famille libre peut être complétée en une base.
+:::
+
+::: {.exercise}
+Déterminer une base et la dimension des sous-espaces suivants :
+
+1. $\{P \in \mathbb{R}_3[X] \mid P(1) = 0\}$
+2. $\{(x,y,z,t) \in \mathbb{R}^4 \mid x + y = z + t = 0\}$
+:::
+
+::: {.exercise}
+Soient $F_1, F_2, F_3$ trois sous-espaces de $E$ tels que $E = F_1 \oplus F_2 \oplus F_3$. Montrer que :
+$$\dim E = \dim F_1 + \dim F_2 + \dim F_3$$
+:::
+
+::: {.exercise}
+Montrer que la famille $(1, X, X^2, \ldots, X^n)$ est une base de $\mathbb{R}_n[X]$.
+:::
+
+::: {.exercise}
+Soit $E$ un $\mathbb{K}$-espace vectoriel de dimension $n$. Montrer que toute famille libre de $E$ a au plus $n$ éléments.
+:::
+
+::: {.exercise}
+Montrer que $\mathcal{M}_n(\mathbb{R})$ est un espace vectoriel de dimension $n^2$.
+:::
+
+::: {.exercise}
+Soit $E$ un $\mathbb{K}$-espace vectoriel et $F, G$ deux sous-espaces. Montrer que :
+$$\dim(F + G) = \dim F + \dim G - \dim(F \cap G)$$
+:::
+
+# Cours {-}
+[**Chapitre 13 : Espaces vectoriels**](../cours/tsi1-chap13.qmd)
+
+# Navigation {-}
+::: {.chap-nav}
+[TD 12 : Développements limités](tsi1-chap12.qmd){.prev}
+[Menu TSI1](tsi1.qmd){.home}
+[TD 14 : Applications linéaires](tsi1-chap14.qmd){.next}
+:::

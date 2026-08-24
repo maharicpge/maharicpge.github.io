@@ -1,10 +1,73 @@
 ---
-title: "Chapitre 08 : Intégration sur un intervalle quelconque"
-pagetitle: "Intégration sur un intervalle quelconque - Mathématiques en CPGE"
+title: "TD — Calcul différentiel"
+subtitle: "Chapitre 08"
+author: "Saîd MAHARI"
+date: last-modified
+date-format: "D MMMM YYYY"
+lang: fr
+format:
+  html:
+    theme: cosmo
+    toc: true
+    number-sections: true
+    html-math-method: katex
+    css: styles.css
+filters:
+  - custom-numbered-blocks.lua
 ---
 
-**MP (2e année) — Chapitre 08.** Convergence dominée, intégrales dépendant d'un paramètre.
+**MP (2e année) — TD du Chapitre 08.** Dérivée selon un vecteur, dérivées partielles, différentielle, opérations sur les applications différentiables, cas des fonctions numériques, vecteurs tangents à une partie d'un EVN de dimension finie, applications de classe $\mathcal{C}^k$.
 
-## Document
+::: {.exercise}
+Soit $f(x,y) = x^2 y + e^{xy}$. Calculer $\dfrac{\partial f}{\partial x}$, $\dfrac{\partial f}{\partial y}$ et $\nabla f$.
+:::
 
-*PDF à venir : déposez le fichier `files/mp/chap08.pdf` puis régénérez la page.*
+::: {.exercise}
+Soit $f(x,y) = \sqrt{x^2+y^2}$. Montrer que $f$ n'est pas différentiable en $(0,0)$.
+:::
+
+::: {.exercise}
+Soit $f : \mathbb{R}^2 \to \mathbb{R}$ différentiable. Montrer que $D_h f(a) = df(a)(h) = \langle \nabla f(a), h \rangle$ pour tout vecteur $h$.
+:::
+
+::: {.exercise}
+Soit $f(x,y,z) = x^2 + y^2 - z^2$. Déterminer les points critiques de $f$ et leur nature.
+:::
+
+::: {.exercise}
+Montrer le théorème de Schwarz : si $f$ est de classe $\mathcal{C}^2$, alors $\dfrac{\partial^2 f}{\partial x \partial y} = \dfrac{\partial^2 f}{\partial y \partial x}$.
+:::
+
+::: {.exercise}
+Résoudre l'équation aux dérivées partielles $\dfrac{\partial f}{\partial x} + 2\dfrac{\partial f}{\partial y} = 0$ en utilisant un changement de variable linéaire.
+:::
+
+::: {.exercise}
+Résoudre l'équation des ondes $\dfrac{\partial^2 f}{\partial x^2} - \dfrac{\partial^2 f}{\partial y^2} = 0$ en posant $u = x+y$, $v = x-y$.
+:::
+
+::: {.exercise}
+Déterminer le plan tangent au graphe de $f(x,y) = x^2 + y^2$ au point $(1,1,2)$.
+:::
+
+::: {.exercise}
+Soit $f : \mathbb{R}^2 \to \mathbb{R}$ de classe $\mathcal{C}^1$ et $\gamma : I \to \mathbb{R}^2$ de classe $\mathcal{C}^1$. Montrer que $(f \circ \gamma)'(t) = df(\gamma(t))(\gamma'(t))$ (règle de la chaîne).
+:::
+
+::: {.exercise}
+Soit $f(x,y) = x^2 + y^2 - 2x - 4y + 5$.
+
+1. Déterminer les points critiques.
+2. Déterminer la nature de chaque point critique.
+3. $f$ admet-elle un extremum global ?
+:::
+
+# Cours {-}
+[**Chapitre 08 : Calcul différentiel**](mp-chap08.qmd)
+
+# Navigation {-}
+::: {.chap-nav}
+[TD 07 : Séries entières](mp-chap07.qmd){.prev}
+[Menu MP](mp.qmd){.home}
+[TD 09 : Espaces préhilbertiens réels](mp-chap09.qmd){.next}
+:::

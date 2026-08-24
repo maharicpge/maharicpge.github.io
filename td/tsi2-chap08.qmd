@@ -1,10 +1,84 @@
 ---
-title: "Chapitre 08 : Probabilités"
-pagetitle: "Probabilités - Mathématiques en CPGE"
+title: "TD — Espaces probabilisés ; variables aléatoires réelles ; cas discret"
+subtitle: "Chapitre 08"
+author: "Saîd MAHARI"
+date: last-modified
+date-format: "D MMMM YYYY"
+lang: fr
+format:
+  html:
+    theme: cosmo
+    toc: true
+    number-sections: true
+    html-math-method: katex
+    css: styles.css
+filters:
+  - custom-numbered-blocks.lua
 ---
 
-**TSI 2e année — Chapitre 08.** Lois de Poisson, exponentielle, normale.
+**TSI (2e année) — TD du Chapitre 08.** Tribus, espaces probabilisés, variables aléatoires et lois, variables aléatoires discrètes, espérance et moments, fonctions génératrices, inégalités (Markov, Bienaymé-Tchebychev, Jensen), convergence en probabilité et en loi, loi faible des grands nombres.
 
-## Document
+::: {.exercise}
+Soit $\Omega$ un ensemble fini. Montrer que $\mathcal{P}(\Omega)$ est une tribu sur $\Omega$.
+:::
 
-*PDF à venir : déposez le fichier `files/tsi2/chap08.pdf` puis régénérez la page.*
+::: {.exercise}
+On lance deux dés équilibrés. Calculer :
+
+1. $P(\text{somme} = 7)$
+2. $P(\text{deux } 6)$
+3. $P(\text{au moins un } 6)$
+:::
+
+::: {.exercise}
+Une urne contient 5 boules rouges et 3 noires. On tire 2 boules sans remise.
+
+1. $P(\text{2 rouges})$
+2. $P(\text{rouge puis noire})$
+3. $P(\text{au moins une rouge})$
+:::
+
+::: {.exercise}
+Une maladie touche 1\% de la population. Un test a une sensibilité de 0,95 et une spécificité de 0,95. Calculer $P(\text{malade} \mid \text{test positif})$.
+:::
+
+**Indication :** Bayes.
+
+::: {.exercise}
+Soit $X \hookrightarrow \mathcal{B}(n,p)$. Montrer que $E(X) = np$ et $V(X) = np(1-p)$.
+:::
+
+::: {.exercise}
+Soit $X \hookrightarrow \mathcal{P}(\lambda)$.
+
+1. Déterminer la fonction génératrice $G_X(s)$.
+2. En déduire $E(X)$ et $V(X)$.
+:::
+
+::: {.exercise}
+Soit $X$ une variable aléatoire positive admettant une espérance. Montrer l'inégalité de Markov : $P(X \geq a) \leq \frac{E(X)}{a}$ pour tout $a > 0$.
+:::
+
+::: {.exercise}
+Soit $X$ une variable aléatoire admettant une variance. Montrer l'inégalité de Bienaymé-Tchebychev :
+$$P(|X - E(X)| \geq \varepsilon) \leq \frac{V(X)}{\varepsilon^2}$$
+:::
+
+::: {.exercise}
+Soit $(X_n)$ une suite de variables aléatoires mutuellement indépendantes de même loi admettant un moment d'ordre 2. Montrer la loi faible des grands nombres :
+$$\frac{1}{n}\sum_{k=1}^n X_k \xrightarrow{P} E(X_1)$$
+:::
+
+::: {.exercise}
+Soient $X$ et $Y$ indépendantes avec $X \hookrightarrow \mathcal{P}(\lambda_1)$ et $Y \hookrightarrow \mathcal{P}(\lambda_2)$. Montrer que $X+Y \hookrightarrow \mathcal{P}(\lambda_1 + \lambda_2)$.
+:::
+
+# Cours {-}
+[**Chapitre 08 : Espaces probabilisés ; variables aléatoires réelles ; cas discret**](../cours/tsi2-chap08.qmd)
+
+# Navigation {-}
+::: {.chap-nav}
+[TD 07 : Séries entières](tsi2-chap07.qmd){.prev}
+[Menu TSI](tsi2.qmd){.home}
+[TD 09 : Espaces préhilbertiens réels](tsi2-chap09.qmd){.next}
+:::

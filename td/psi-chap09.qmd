@@ -1,10 +1,71 @@
 ---
-title: "Chapitre 09 : Probabilités discrètes"
-pagetitle: "Probabilités discrètes - Mathématiques en CPGE"
+title: "TD — Intégrales dépendant d'un paramètre"
+subtitle: "Chapitre 09"
+author: "Saîd MAHARI"
+date: last-modified
+date-format: "D MMMM YYYY"
+lang: fr
+format:
+  html:
+    theme: cosmo
+    toc: true
+    number-sections: true
+    html-math-method: katex
+    css: styles.css
+filters:
+  - custom-numbered-blocks.lua
 ---
 
-**PSI (2e année) — Chapitre 09.** Lois géométrique et de Poisson, inégalités probabilistes.
+**PSI (2e année) — TD du Chapitre 09.** Passage à la limite sous l'intégrale (convergence dominée, intégration terme à terme), continuité et dérivation d'une intégrale dépendant d'un paramètre, exemples d'applications.
 
-## Document
+::: {.exercise}
+Soit $(f_n)$ une suite de fonctions continues sur $[a,b]$ convergeant uniformément vers $f$. Montrer que :
+$$\lim_{n \to +\infty} \int_a^b f_n(t)\, dt = \int_a^b f(t)\, dt$$
+:::
 
-*PDF à venir : déposez le fichier `files/psi/chap09.pdf` puis régénérez la page.*
+::: {.exercise}
+Soit $f : I \times [a,b] \to \mathbb{K}$ continue. Montrer que $F(x) = \int_a^b f(x,t)\, dt$ est continue sur $I$.
+:::
+
+::: {.exercise}
+Soit $f : I \times [a,b] \to \mathbb{K}$ avec $f$ et $\dfrac{\partial f}{\partial x}$ continues. Montrer que :
+$$F'(x) = \int_a^b \frac{\partial f}{\partial x}(x,t)\, dt$$
+:::
+
+::: {.exercise}
+Soit $F(x) = \int_0^{+\infty} \dfrac{\sin(xt)}{t}\, dt$ pour $x > 0$. Montrer que $F$ est continue sur $]0,+\infty[$.
+:::
+
+::: {.exercise}
+Soit $F(x) = \int_0^{+\infty} e^{-xt}\, dt$ pour $x > 0$. Calculer $F(x)$ et $F'(x)$.
+:::
+
+::: {.exercise}
+Soit $f(x,t) = t^x e^{-t}$ sur $[1,10] \times [1,+\infty[$. Montrer que $F(x) = \int_1^{+\infty} f(x,t)\, dt$ est continue et dérivable.
+:::
+
+::: {.exercise}
+Montrer que la fonction Gamma $\Gamma(x) = \int_0^{+\infty} t^{x-1} e^{-t}\, dt$ est définie pour $x > 0$ et que $\Gamma(x+1) = x\Gamma(x)$.
+:::
+
+::: {.exercise}
+Soit $F(x) = \int_0^1 \dfrac{dt}{x + \sqrt{t}}$. Montrer que $F$ est continue sur $[0,+\infty[$ et calculer $\lim_{x \to 0^+} F(x)$.
+:::
+
+::: {.exercise}
+Soit $f : I \times [0,+\infty[ \to \mathbb{K}$ continue avec convergence dominée. Montrer que $F(x) = \int_0^{+\infty} f(x,t)\, dt$ est continue sur $I$.
+:::
+
+::: {.exercise}
+Soit $F(x) = \int_0^{+\infty} \dfrac{e^{-xt}}{1+t^2}\, dt$ pour $x > 0$. Montrer que $F$ est de classe $\mathcal{C}^1$ sur $]0,+\infty[$.
+:::
+
+# Cours {-}
+[**Chapitre 09 : Intégrales dépendant d'un paramètre**](../cours/psi-chap09.qmd)
+
+# Navigation {-}
+::: {.chap-nav}
+[TD 08 : Espaces préhilbertiens réels](psi-chap08.qmd){.prev}
+[Menu PSI](psi.qmd){.home}
+[TD 10 : Probabilités](psi-chap10.qmd){.next}
+:::

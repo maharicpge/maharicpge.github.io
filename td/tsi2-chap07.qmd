@@ -1,10 +1,83 @@
 ---
-title: "Chapitre 07 : Calcul différentiel"
-pagetitle: "Calcul différentiel - Mathématiques en CPGE"
+title: "TD — Séries entières"
+subtitle: "Chapitre 07"
+author: "Saîd MAHARI"
+date: last-modified
+date-format: "D MMMM YYYY"
+lang: fr
+format:
+  html:
+    theme: cosmo
+    toc: true
+    number-sections: true
+    html-math-method: katex
+    css: styles.css
+filters:
+  - custom-numbered-blocks.lua
 ---
 
-**TSI 2e année — Chapitre 07.** Dérivées partielles, gradient, plans tangents, optimisation locale.
+**TSI (2e année) — TD du Chapitre 07.** Rayon de convergence (lemme d'Abel), somme d'une série entière d'une variable réelle, propriétés de la somme (continuité, dérivation, intégration terme à terme), fonctions développables en série entière, développements usuels.
 
-## Document
+::: {.exercise}
+Déterminer le rayon de convergence des séries entières suivantes :
 
-*PDF à venir : déposez le fichier `files/tsi2/chap07.pdf` puis régénérez la page.*
+1. $\sum_{n \geq 1} \frac{x^n}{n^2}$
+2. $\sum_{n \geq 0} \frac{x^n}{2^n}$
+3. $\sum_{n \geq 1} n^3 x^n$
+4. $\sum_{n \geq 0} \frac{x^{2n}}{(2n)!}$
+:::
+
+::: {.exercise}
+Montrer le lemme d'Abel : si $(a_n \rho^n)$ est bornée, alors pour tout $x$ avec $|x| < \rho$, $\sum a_n x^n$ converge absolument.
+:::
+
+::: {.exercise}
+Soit $\sum a_n x^n$ une série entière de rayon $R$. Montrer que la série dérivée $\sum (n+1)a_{n+1} x^n$ a le même rayon de convergence.
+:::
+
+::: {.exercise}
+Calculer la somme des séries entières suivantes sur leur intervalle de convergence :
+
+1. $\sum_{n=0}^{+\infty} (n+1) x^n$
+2. $\sum_{n=1}^{+\infty} n x^n$
+3. $\sum_{n=0}^{+\infty} \frac{x^{2n+1}}{2n+1}$
+:::
+
+::: {.exercise}
+Soit $\sum a_n x^n$ de rayon $R > 0$ et de somme $f$. Montrer que $f$ est continue sur $]-R, R[$.
+:::
+
+::: {.exercise}
+Montrer que $f(x) = \sum_{n=0}^{+\infty} \frac{x^n}{n!}$ est de classe $\mathcal{C}^\infty$ sur $\mathbb{R}$ et $f' = f$.
+:::
+
+::: {.exercise}
+Déterminer le développement en série entière de :
+
+1. $e^x$
+2. $\sin x$, $\cos x$
+3. $\ln(1+x)$
+4. $(1+x)^\alpha$
+:::
+
+::: {.exercise}
+Montrer que si $f$ est développable en série entière, alors $f$ est indéfiniment dérivable et $a_n = \frac{f^{(n)}(0)}{n!}$.
+:::
+
+::: {.exercise}
+Déterminer le développement en série entière de $\arctan x$ et en déduire $\sum_{n=0}^{+\infty} \frac{(-1)^n}{2n+1} = \frac{\pi}{4}$.
+:::
+
+::: {.exercise}
+Résoudre l'équation différentielle $y' = y$ avec $y(0) = 1$ en cherchant une solution développable en série entière.
+:::
+
+# Cours {-}
+[**Chapitre 07 : Séries entières**](../cours/tsi2-chap07.qmd)
+
+# Navigation {-}
+::: {.chap-nav}
+[TD 06 : Séries numériques](tsi2-chap06.qmd){.prev}
+[Menu TSI](tsi2.qmd){.home}
+[TD 08 : Espaces probabilisés ; variables aléatoires réelles ; cas discret](tsi2-chap08.qmd){.next}
+:::

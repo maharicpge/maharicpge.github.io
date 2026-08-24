@@ -1,6 +1,6 @@
 ---
-title: "TD — Espaces préhilbertiens réels. Endomorphismes d'un espace euclidien"
-subtitle: "Chapitre 08"
+title: "TD — Espaces préhilbertiens réels. Endomorphismes des espaces euclidiens"
+subtitle: "Chapitre 09"
 author: "Saîd MAHARI"
 date: last-modified
 date-format: "D MMMM YYYY"
@@ -16,7 +16,7 @@ filters:
   - custom-numbered-blocks.lua
 ---
 
-**PSI (2e année) — TD du Chapitre 08.** Produits scalaires, orthogonalité, projection orthogonale, formes linéaires, matrices orthogonales, isométries vectorielles (plan et espace), réduction des endomorphismes autoadjoints et des matrices symétriques réelles.
+**TSI (2e année) — TD du Chapitre 09.** Produits scalaires, orthogonalité, projection orthogonale, matrices orthogonales, isométries vectorielles (plan et espace), matrices symétriques réelles, théorème spectral.
 
 ::: {.exercise}
 Montrer l'inégalité de Cauchy-Schwarz : $|\langle x, y \rangle| \leq \|x\| \cdot \|y\|$ et préciser le cas d'égalité.
@@ -29,12 +29,12 @@ Soit $F$ un sous-espace vectoriel de dimension finie d'un espace préhilbertien 
 ::: {.exercise}
 Soit $E$ un espace euclidien et $u$ un vecteur non nul. Soient $p$ la projection orthogonale sur $H = u^\perp$ et $s$ la symétrie orthogonale par rapport à $H$.
 
-1. Montrer que $\forall x \in E, \quad p(x) = x - \dfrac{\langle x, u \rangle}{\|u\|^2} u$.
-2. Montrer que $\forall x \in E, \quad s(x) = x - 2\dfrac{\langle x, u \rangle}{\|u\|^2} u$.
+1. Montrer que $\forall x \in E, \quad p(x) = x - \frac{\langle x, u \rangle}{\|u\|^2} u$.
+2. Montrer que $\forall x \in E, \quad s(x) = x - 2\frac{\langle x, u \rangle}{\|u\|^2} u$.
 :::
 
 ::: {.exercise}
-Soit $E$ un espace euclidien. Montrer que toute forme linéaire $\varphi$ sur $E$ s'écrit $\varphi(x) = \langle a, x \rangle$ pour un unique $a \in E$ (théorème de représentation).
+Appliquer Gram-Schmidt à $(1, X, X^2)$ dans $\mathbb{R}_2[X]$ muni de $\langle P, Q \rangle = \int_{-1}^1 P(t)Q(t)\, dt$.
 :::
 
 ::: {.exercise}
@@ -66,11 +66,11 @@ Soit $A \in \mathcal{S}_n(\mathbb{R})$ une matrice symétrique réelle. Montrer 
 :::
 
 # Cours {-}
-[**Chapitre 08 : Espaces préhilbertiens réels. Endomorphismes d'un espace euclidien**](../cours/psi-chap08.qmd)
+[**Chapitre 09 : Espaces préhilbertiens réels. Endomorphismes des espaces euclidiens**](../cours/tsi2-chap09.qmd)
 
 # Navigation {-}
 ::: {.chap-nav}
-[TD 07 : Séries entières](psi-chap07.qmd){.prev}
-[Menu PSI](psi.qmd){.home}
-[TD 09 : Intégrales dépendant d'un paramètre](psi-chap09.qmd){.next}
+[TD 08 : Espaces probabilisés](tsi2-chap08.qmd){.prev}
+[Menu TSI](tsi2.qmd){.home}
+[TD 10 : Séries de Fourier](tsi2-chap10.qmd){.next}
 :::

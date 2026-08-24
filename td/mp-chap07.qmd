@@ -1,10 +1,83 @@
 ---
-title: "Chapitre 07 : Séries entières"
-pagetitle: "Séries entières - Mathématiques en CPGE"
+title: "TD — Séries entières"
+subtitle: "Chapitre 07"
+author: "Saîd MAHARI"
+date: last-modified
+date-format: "D MMMM YYYY"
+lang: fr
+format:
+  html:
+    theme: cosmo
+    toc: true
+    number-sections: true
+    html-math-method: katex
+    css: styles.css
+filters:
+  - custom-numbered-blocks.lua
 ---
 
-**MP (2e année) — Chapitre 07.** Rayon de convergence, développement en série entière.
+**MP (2e année) — TD du Chapitre 07.** Lemme d'Abel, rayon de convergence, règle d'Alembert, somme et produit de Cauchy, propriétés de la somme, développement d'une fonction en série entière.
 
-## Document
+::: {.exercise}
+Déterminer le rayon de convergence des séries entières suivantes :
 
-*PDF à venir : déposez le fichier `files/mp/chap07.pdf` puis régénérez la page.*
+1. $\sum_{n \geq 1} \dfrac{z^n}{n^2}$
+2. $\sum_{n \geq 0} \dfrac{z^n}{2^n}$
+3. $\sum_{n \geq 1} n^3 z^n$
+4. $\sum_{n \geq 0} \dfrac{z^{2n}}{(2n)!}$
+:::
+
+::: {.exercise}
+Montrer le lemme d'Abel : si $(a_n \rho^n)$ est bornée, alors pour tout $z$ avec $|z| < \rho$, $\sum a_n z^n$ converge absolument.
+:::
+
+::: {.exercise}
+Soit $\sum a_n z^n$ une série entière de rayon $R$. Montrer que la série dérivée $\sum (n+1)a_{n+1} z^n$ a le même rayon de convergence.
+:::
+
+::: {.exercise}
+Calculer la somme des séries entières suivantes sur leur intervalle de convergence :
+
+1. $\sum_{n=0}^{+\infty} (n+1) x^n$
+2. $\sum_{n=1}^{+\infty} n x^n$
+3. $\sum_{n=0}^{+\infty} \dfrac{x^{2n+1}}{2n+1}$
+:::
+
+::: {.exercise}
+Soit $\sum a_n z^n$ de rayon $R > 0$ et de somme $f$. Montrer que $f$ est continue sur $D(0,R)$.
+:::
+
+::: {.exercise}
+Montrer que $f(x) = \sum_{n=0}^{+\infty} \dfrac{x^n}{n!}$ est de classe $\mathcal{C}^\infty$ sur $\mathbb{R}$ et $f' = f$.
+:::
+
+::: {.exercise}
+Déterminer le développement en série entière de :
+
+1. $e^z$
+2. $\sin z$, $\cos z$
+3. $\ln(1+z)$
+4. $(1+z)^\alpha$
+:::
+
+::: {.exercise}
+Soit $\sum a_n z^n$ et $\sum b_n z^n$ deux séries entières de rayons $R_a$ et $R_b$. Montrer que leur produit de Cauchy a un rayon $\geq \min(R_a, R_b)$.
+:::
+
+::: {.exercise}
+Déterminer le développement en série entière de $\arctan x$ et en déduire $\sum_{n=0}^{+\infty} \dfrac{(-1)^n}{2n+1} = \dfrac{\pi}{4}$.
+:::
+
+::: {.exercise}
+Résoudre l'équation différentielle $y' = y$ avec $y(0) = 1$ en cherchant une solution développable en série entière.
+:::
+
+# Cours {-}
+[**Chapitre 07 : Séries entières**](mp-chap07.qmd)
+
+# Navigation {-}
+::: {.chap-nav}
+[TD 06 : Suites et séries de fonctions](mp-chap06.qmd){.prev}
+[Menu MP](mp.qmd){.home}
+[TD 08 : Calcul différentiel](mp-chap08.qmd){.next}
+:::

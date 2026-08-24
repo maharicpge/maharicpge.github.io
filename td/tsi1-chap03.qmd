@@ -1,10 +1,118 @@
 ---
-title: "Chapitre 03 : Calcul intégral"
-pagetitle: "Calcul intégral - Mathématiques en CPGE"
+title: "TD — Compléments de calcul algébrique"
+subtitle: "Chapitre 03"
+author: "Saîd MAHARI"
+date: last-modified
+date-format: "D MMMM YYYY"
+lang: fr
+format:
+  html:
+    theme: cosmo
+    toc: true
+    number-sections: true
+    html-math-method: katex
+    css: styles.css
+filters:
+  - custom-numbered-blocks.lua
 ---
 
-**TSI 1re année — Chapitre 03.** Primitives, intégration sur un segment, IPP, changement de variable.
+**TSI (1re année) — TD du Chapitre 03.** Sommes et produits finis, factorielles, coefficients binomiaux, binôme de Newton, systèmes linéaires en petite dimension, pivot de Gauss.
 
-## Document
+::: {.exercise}
+Calculer les sommes suivantes :
 
-*PDF à venir : déposez le fichier `files/tsi1/chap03.pdf` puis régénérez la page.*
+1. $\sum_{k=1}^n k$
+2. $\sum_{k=1}^n k^2$
+3. $\sum_{k=0}^n 2^k$
+4. $\sum_{k=1}^n \dfrac{1}{k(k+1)}$
+:::
+
+**Indications :**
+- (3) Somme géométrique : $2^{n+1} - 1$.
+- (4) Décomposer $\frac{1}{k(k+1)} = \frac{1}{k} - \frac{1}{k+1}$ (télescopage).
+
+::: {.exercise}
+Calculer les produits suivants :
+
+1. $\prod_{k=1}^n \left(1 + \dfrac{1}{k}\right)$
+2. $\prod_{k=2}^n \left(1 - \dfrac{1}{k^2}\right)$
+:::
+
+**Indications :**
+- (1) Produit télescopique : $\prod_{k=1}^n \frac{k+1}{k} = n+1$.
+- (2) $\frac{k^2-1}{k^2} = \frac{(k-1)(k+1)}{k^2}$. Résultat : $\frac{n+1}{2n}$.
+
+::: {.exercise}
+Montrer par récurrence le binôme de Newton :
+$$(a+b)^n = \sum_{k=0}^n \binom{n}{k} a^k b^{n-k}$$
+:::
+
+::: {.exercise}
+Montrer que :
+
+1. $\sum_{k=0}^n \binom{n}{k} = 2^n$
+2. $\sum_{k=0}^n (-1)^k \binom{n}{k} = 0$ pour $n \geq 1$
+3. $\sum_{k=0}^n k\binom{n}{k} = n \cdot 2^{n-1}$
+:::
+
+**Indications :**
+- (1) Binôme avec $a=b=1$.
+- (2) Binôme avec $a=1, b=-1$.
+- (3) Dériver $(1+x)^n$ et prendre $x=1$.
+
+::: {.exercise}
+Résoudre les systèmes linéaires suivants :
+
+1. $\begin{cases} 2x + y = 5 \\ x - y = 1 \end{cases}$
+
+2. $\begin{cases} x + y + z = 6 \\ 2x - y + z = 3 \\ x + y - 2z = -1 \end{cases}$
+:::
+
+::: {.exercise}
+Résoudre par le pivot de Gauss :
+
+1. $\begin{cases} x + 2y + 3z = 6 \\ 2x + 4y + 6z = 12 \\ 3x + 6y + 9z = 18 \end{cases}$
+
+2. $\begin{cases} x + y - z = 1 \\ -x + 2z = 2 \\ 2y + 2z = 4 \end{cases}$
+:::
+
+**Indications :**
+- (1) Les trois équations sont proportionnelles : infinité de solutions.
+- (2) Échelonner et résoudre par remontée.
+
+::: {.exercise}
+Résoudre selon les valeurs de $m \in \mathbb{R}$ :
+$$\begin{cases} x + y = 1 \\ x + m^2 y = m \end{cases}$$
+:::
+
+**Indication :** Discuter selon $m = 1$, $m = -1$ et $m \neq \pm 1$.
+
+::: {.exercise}
+Montrer la formule de Pascal : $\binom{n+1}{k} = \binom{n}{k} + \binom{n}{k-1}$.
+:::
+
+**Indication :** Utiliser $\binom{n}{k} = \frac{n!}{k!(n-k)!}$ et mettre au même dénominateur.
+
+::: {.exercise}
+Calculer $\sum_{k=0}^n \binom{n}{k}^2$.
+:::
+
+**Indication :** $\binom{n}{k}^2 = \binom{n}{k}\binom{n}{n-k}$. Par Vandermonde : $\binom{2n}{n}$.
+
+::: {.exercise}
+Montrer que $n! \leq n^n$ pour tout $n \in \mathbb{N}^*$. En déduire que $\dfrac{n!}{n^n} \to 0$ (utiliser un encadrement).
+:::
+
+**Indications :**
+- $k \leq n$ pour tout $k \leq n$.
+- Pour la convergence : $\frac{n!}{n^n} = \frac{1}{n} \cdot \frac{2}{n} \cdots \frac{n}{n} \leq \frac{1}{n} \to 0$.
+
+# Cours {-}
+[**Chapitre 03 : Compléments de calcul algébrique**](../cours/tsi1-chap03.qmd)
+
+# Navigation {-}
+::: {.chap-nav}
+[TD 02 : Nombres complexes](tsi1-chap02.qmd){.prev}
+[Menu TSI1](tsi1.qmd){.home}
+[TD 04 : Géométrie élémentaire du plan et de l'espace](tsi1-chap04.qmd){.next}
+:::

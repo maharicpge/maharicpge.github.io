@@ -1,0 +1,73 @@
+---
+title: "TD — Fonctions de plusieurs variables"
+subtitle: "Chapitre 12"
+author: "Saîd MAHARI"
+date: last-modified
+date-format: "D MMMM YYYY"
+lang: fr
+format:
+  html:
+    theme: cosmo
+    toc: true
+    number-sections: true
+    html-math-method: katex
+    css: styles.css
+filters:
+  - custom-numbered-blocks.lua
+---
+
+**TSI (2e année) — TD du Chapitre 12.** Introduction à la topologie de $\mathbb{R}^n$, limite et continuité, dérivées partielles, applications de classe $\mathcal{C}^k$ ($k = 1$ ou $2$), gradient, règle de la chaîne, équations aux dérivées partielles, extremums d'une fonction de deux variables, applications géométriques (tangentes, plans tangents).
+
+::: {.exercise}
+Soit $f(x,y) = x^2 y + e^{xy}$. Calculer $\frac{\partial f}{\partial x}$, $\frac{\partial f}{\partial y}$ et $\nabla f$.
+:::
+
+::: {.exercise}
+Soit $f(x,y) = \sqrt{x^2+y^2}$. Montrer que $f$ n'est pas différentiable en $(0,0)$.
+:::
+
+::: {.exercise}
+Soit $f : \mathbb{R}^2 \to \mathbb{R}$ différentiable. Montrer que $D_h f(a) = df(a)(h) = \langle \nabla f(a), h \rangle$ pour tout vecteur $h$.
+:::
+
+::: {.exercise}
+Soit $f : \mathbb{R}^2 \to \mathbb{R}$ de classe $\mathcal{C}^1$ et $\gamma : I \to \mathbb{R}^2$ de classe $\mathcal{C}^1$. Montrer que $(f \circ \gamma)'(t) = df(\gamma(t))(\gamma'(t))$ (règle de la chaîne).
+:::
+
+::: {.exercise}
+Déterminer le plan tangent au graphe de $f(x,y) = x^2 + y^2$ au point $(1,1,2)$.
+:::
+
+::: {.exercise}
+Montrer le théorème de Schwarz : si $f$ est de classe $\mathcal{C}^2$, alors $\frac{\partial^2 f}{\partial x \partial y} = \frac{\partial^2 f}{\partial y \partial x}$.
+:::
+
+::: {.exercise}
+Résoudre l'équation aux dérivées partielles $\frac{\partial f}{\partial x} + 2\frac{\partial f}{\partial y} = 0$ en utilisant un changement de variable linéaire.
+:::
+
+::: {.exercise}
+Résoudre l'équation des ondes $\frac{\partial^2 f}{\partial x^2} - \frac{\partial^2 f}{\partial y^2} = 0$ en posant $u = x+y$, $v = x-y$.
+:::
+
+::: {.exercise}
+Soit $f(x,y) = x^2 + y^2 - 2x - 4y + 5$.
+
+1. Déterminer les points critiques.
+2. Déterminer la nature de chaque point critique.
+3. $f$ admet-elle un extremum global ?
+:::
+
+::: {.exercise}
+Soit $f : \mathbb{R}^2 \to \mathbb{R}$ de classe $\mathcal{C}^2$. Montrer que si $\nabla f(a) = 0$ et la matrice hessienne est définie positive, alors $f$ admet un minimum local en $a$.
+:::
+
+# Cours {-}
+[**Chapitre 12 : Fonctions de plusieurs variables**](../cours/tsi2-chap12.qmd)
+
+# Navigation {-}
+::: {.chap-nav}
+[TD 11 : Équations différentielles linéaires](tsi2-chap11.qmd){.prev}
+[Menu TSI](tsi2.qmd){.home}
+[TD 13 : Variables aléatoires à densité](tsi2-chap13.qmd){.next}
+:::

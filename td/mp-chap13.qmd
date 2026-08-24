@@ -1,0 +1,73 @@
+---
+title: "TD — Fonctions holomorphes"
+subtitle: "Chapitre 13"
+author: "Saîd MAHARI"
+date: last-modified
+date-format: "D MMMM YYYY"
+lang: fr
+format:
+  html:
+    theme: cosmo
+    toc: true
+    number-sections: true
+    html-math-method: katex
+    css: styles.css
+filters:
+  - custom-numbered-blocks.lua
+---
+
+**MP (2e année) — TD du Chapitre 13.** Dérivation complexe, équations de Cauchy-Riemann, $\mathbb{C}$-algèbre des fonctions holomorphes, fonctions analytiques, principe du prolongement analytique, principe des zéros isolés.
+
+::: {.exercise}
+Soit $f(z) = z^2$. Montrer que $f$ est $\mathbb{C}$-dérivable en tout point et calculer $f'(z)$.
+:::
+
+::: {.exercise}
+Soit $f(z) = \bar{z}$. Montrer que $f$ n'est pas $\mathbb{C}$-dérivable en $0$.
+:::
+
+::: {.exercise}
+Soit $f(z) = u(x,y) + iv(x,y)$ avec $z = x + iy$. Montrer que si $f$ est $\mathbb{C}$-dérivable, alors :
+$$\frac{\partial u}{\partial x} = \frac{\partial v}{\partial y} \quad \text{et} \quad \frac{\partial u}{\partial y} = -\frac{\partial v}{\partial x}$$
+(équations de Cauchy-Riemann)
+:::
+
+::: {.exercise}
+Montrer que la fonction $f(z) = e^z$ est holomorphe sur $\mathbb{C}$ et $f'(z) = e^z$.
+:::
+
+::: {.exercise}
+Soit $\mathcal{H}(\Omega)$ l'ensemble des fonctions holomorphes sur un ouvert $\Omega$. Montrer que $\mathcal{H}(\Omega)$ est une $\mathbb{C}$-algèbre.
+:::
+
+::: {.exercise}
+Soit $f$ holomorphe sur $\Omega$ et $g$ holomorphe sur $g(\Omega)$. Montrer que $g \circ f$ est holomorphe et $(g \circ f)' = (g' \circ f) \cdot f'$.
+:::
+
+::: {.exercise}
+Soit $f$ analytique sur $\Omega$. Montrer que pour tout $z_0 \in \Omega$, il existe $r > 0$ et $(a_n)$ tels que :
+$$f(z) = \sum_{n=0}^{+\infty} a_n (z - z_0)^n \quad \text{pour } |z - z_0| < r$$
+:::
+
+::: {.exercise}
+Montrer le principe du prolongement analytique : si $f$ et $g$ sont holomorphes sur un ouvert connexe $\Omega$ et coïncident sur un sous-ensemble ayant un point d'accumulation dans $\Omega$, alors $f = g$ sur $\Omega$.
+:::
+
+::: {.exercise}
+Montrer le principe des zéros isolés : si $f$ est holomorphe non nulle sur un ouvert connexe $\Omega$, alors les zéros de $f$ sont isolés.
+:::
+
+::: {.exercise}
+Soit $f$ holomorphe sur $\mathbb{C}$ avec $f(n) = 0$ pour tout $n \in \mathbb{N}$. Montrer que $f = 0$ sur $\mathbb{C}$.
+:::
+
+**Indication :** Les zéros de $f$ ne sont pas isolés car $\mathbb{N}$ a un point d'accumulation en $+\infty$ (mais pas dans $\mathbb{C}$). Utiliser le principe du prolongement analytique ou le principe des zéros isolés.
+
+# Cours {-}
+[**Chapitre 13 : Fonctions holomorphes**](mp-chap13.qmd)
+
+# Navigation {-}
+::: {.chap-nav}
+[TD 12 : Équations différentielles linéaires](mp-chap12.qmd){.prev}
+[Menu MP](mp.qmd){.home}
+:::

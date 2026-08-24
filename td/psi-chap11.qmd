@@ -1,0 +1,85 @@
+---
+title: "TD — Équations différentielles linéaires"
+subtitle: "Chapitre 11"
+author: "Saîd MAHARI"
+date: last-modified
+date-format: "D MMMM YYYY"
+lang: fr
+format:
+  html:
+    theme: cosmo
+    toc: true
+    number-sections: true
+    html-math-method: katex
+    css: styles.css
+filters:
+  - custom-numbered-blocks.lua
+---
+
+**PSI (2e année) — TD du Chapitre 11.** Équations différentielles linéaires scalaires d'ordre 1 ou 2, problème de Cauchy, systèmes différentiels linéaires homogènes à coefficients constants.
+
+::: {.exercise}
+Résoudre le problème de Cauchy :
+$$\begin{cases} y' + y = e^x \\ y(0) = 1 \end{cases}$$
+:::
+
+::: {.exercise}
+Résoudre les équations du second ordre à coefficients constants :
+
+1. $y'' - 3y' + 2y = 0$
+2. $y'' + 2y' + y = 0$
+3. $y'' + 4y = 0$
+4. $y'' - 5y' + 6y = e^x$
+:::
+
+::: {.exercise}
+Résoudre le problème de Cauchy :
+$$\begin{cases} y'' + 4y = \sin(2x) \\ y(0) = 1, \quad y'(0) = 0 \end{cases}$$
+:::
+
+**Indication :** Le second membre est solution de l'homogène. Chercher $y_p = x(A\cos 2x + B\sin 2x)$.
+
+::: {.exercise}
+Montrer que l'équation $y' = f(t, y)$ avec $f$ continue admet une unique solution locale (théorème de Cauchy-Lipschitz, admis).
+:::
+
+::: {.exercise}
+Soit $x' = a(t)x + b(t)$ une équation différentielle linéaire du premier ordre. Montrer que l'ensemble des solutions est un espace affine de dimension 1.
+:::
+
+::: {.exercise}
+Résoudre le système :
+$$\begin{cases} x' = x + 2y \\ y' = 2x + y \end{cases}$$
+:::
+
+**Indication :** Poser $u = x+y$, $v = x-y$.
+
+::: {.exercise}
+Résoudre le système $X' = AX$ avec $A = \begin{pmatrix} 1 & 1 \\ 0 & 1 \end{pmatrix}$.
+:::
+
+**Indication :** $A$ n'est pas diagonalisable. Utiliser $e^{tA} = e^t(I_2 + tN)$ où $N = A - I_2$.
+
+::: {.exercise}
+Résoudre $y' + y = \dfrac{1}{1+e^x}$ sur $\mathbb{R}$ par variation de la constante.
+:::
+
+::: {.exercise}
+Résoudre $y'' - 4y' + 4y = e^{2x}$ sur $\mathbb{R}$.
+:::
+
+**Indication :** Racine double $r=2$. Chercher $y_p = Ax^2 e^{2x}$.
+
+::: {.exercise}
+Soit $A \in \mathcal{M}_n(\mathbb{R})$ diagonalisable avec $A = PDP^{-1}$. Résoudre $X' = AX$ en diagonalisant $A$.
+:::
+
+# Cours {-}
+[**Chapitre 11 : Équations différentielles linéaires**](../cours/psi-chap11.qmd)
+
+# Navigation {-}
+::: {.chap-nav}
+[TD 10 : Probabilités](psi-chap10.qmd){.prev}
+[Menu PSI](psi.qmd){.home}
+[TD 12 : Calcul différentiel](psi-chap12.qmd){.next}
+:::

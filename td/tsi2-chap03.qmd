@@ -1,10 +1,108 @@
 ---
-title: "Chapitre 03 : Séries numériques"
-pagetitle: "Séries numériques - Mathématiques en CPGE"
+title: "TD — Réduction des endomorphismes et des matrices carrées"
+subtitle: "Chapitre 03"
+author: "Saîd MAHARI"
+date: last-modified
+date-format: "D MMMM YYYY"
+lang: fr
+format:
+  html:
+    theme: cosmo
+    toc: true
+    number-sections: true
+    html-math-method: katex
+    css: styles.css
+filters:
+  - custom-numbered-blocks.lua
 ---
 
-**TSI 2e année — Chapitre 03.** Critères de convergence (Riemann, d'Alembert).
+**TSI (2e année) — TD du Chapitre 03.** Éléments propres, polynôme caractéristique, endomorphismes et matrices diagonalisables, endomorphismes et matrices trigonalisables, application de la réduction.
 
-## Document
+::: {.exercise}
+Soit $A = \begin{pmatrix} 3 & 1 \\ 0 & 2 \end{pmatrix}$.
 
-*PDF à venir : déposez le fichier `files/tsi2/chap03.pdf` puis régénérez la page.*
+1. Déterminer $\chi_A$.
+2. Déterminer les valeurs propres et les sous-espaces propres.
+3. $A$ est-elle diagonalisable ? Si oui, trouver $P$ et $D$ telles que $A = PDP^{-1}$.
+:::
+
+::: {.exercise}
+Soit $A = \begin{pmatrix} 1 & 1 \\ -1 & 3 \end{pmatrix}$.
+
+1. Calculer $\chi_A$.
+2. Déterminer les valeurs propres et les sous-espaces propres.
+3. $A$ est-elle diagonalisable ? Trigonalisable ?
+4. Calculer $A^n$ pour tout $n \in \mathbb{N}$.
+:::
+
+**Indications :**
+- $\chi_A(X) = (X-2)^2$. La seule valeur propre est $2$.
+- $A - 2I_2 \neq 0$ donc $A$ n'est pas diagonalisable.
+- Pour $A^n$, trigonaliser : $A = PTP^{-1}$ avec $T = \begin{pmatrix} 2 & 1 \\ 0 & 2 \end{pmatrix}$.
+
+::: {.exercise}
+Soit $A = \begin{pmatrix} 2 & 1 & 1 \\ 1 & 2 & 1 \\ 1 & 1 & 2 \end{pmatrix}$.
+
+1. Calculer $\chi_A$.
+2. Déterminer les valeurs propres et les sous-espaces propres.
+3. Montrer que $A$ est diagonalisable et trouver $P, D$ telles que $A = PDP^{-1}$.
+4. En déduire $A^n$.
+:::
+
+**Indication :** Observer que $A = I_3 + J$ où $J$ est la matrice dont tous les coefficients valent 1.
+
+::: {.exercise}
+Soit $u \in \mathcal{L}(E)$ avec $u^2 = u$ (projecteur). Montrer que :
+
+1. Les valeurs propres de $u$ sont dans $\{0, 1\}$.
+2. $u$ est diagonalisable.
+3. $\mathrm{tr}(u) = \mathrm{rg}(u)$.
+:::
+
+::: {.exercise}
+Soit $A \in \mathcal{M}_n(\mathbb{K})$ diagonalisable avec $A = PDP^{-1}$. Montrer que :
+
+1. $A^k = PD^kP^{-1}$ pour tout $k \in \mathbb{N}$.
+2. Si $A$ est inversible, $A^{-1} = PD^{-1}P^{-1}$.
+3. Pour tout polynôme $Q$, $Q(A) = PQ(D)P^{-1}$.
+:::
+
+::: {.exercise}
+Soit $A \in \mathcal{M}_n(\mathbb{C})$. Montrer que $A$ est trigonalisable si et seulement si $\chi_A$ est scindé sur $\mathbb{C}$.
+:::
+
+::: {.exercise}
+Soit $A \in \mathcal{M}_n(\mathbb{K})$ nilpotente ($A^p = 0$ pour un certain $p$). Montrer que :
+
+1. $\chi_A(X) = X^n$.
+2. $A$ est trigonalisable.
+3. $A$ est diagonalisable si et seulement si $A = 0$.
+:::
+
+::: {.exercise}
+Soient $A, B \in \mathcal{M}_n(\mathbb{K})$ avec $AB = BA$. Montrer que si $\lambda$ est valeur propre de $A$, alors $E_\lambda(A)$ est stable par $B$.
+:::
+
+::: {.exercise}
+Résoudre la suite récurrente $u_{n+2} = 5u_{n+1} - 6u_n$ avec $u_0 = 1$, $u_1 = 2$ en diagonalisant la matrice compagnon.
+:::
+
+**Indication :** La matrice compagnon est $A = \begin{pmatrix} 0 & 1 \\ -6 & 5 \end{pmatrix}$. Ses valeurs propres sont $2$ et $3$.
+
+::: {.exercise}
+Soit $A = \begin{pmatrix} 1 & 1 & 0 \\ 0 & 1 & 1 \\ 0 & 0 & 1 \end{pmatrix}$.
+
+1. Déterminer le polynôme caractéristique et le polynôme minimal de $A$.
+2. $A$ est-elle diagonalisable ? Trigonalisable ?
+3. Calculer $A^n$ pour tout $n \in \mathbb{N}$.
+:::
+
+# Cours {-}
+[**Chapitre 03 : Réduction des endomorphismes et des matrices carrées**](../cours/tsi2-chap03.qmd)
+
+# Navigation {-}
+::: {.chap-nav}
+[TD 02 : Déterminants](tsi2-chap02.qmd){.prev}
+[Menu TSI](tsi2.qmd){.home}
+[TD 04 : Fonctions vectorielles et arcs paramétrés](tsi2-chap04.qmd){.next}
+:::

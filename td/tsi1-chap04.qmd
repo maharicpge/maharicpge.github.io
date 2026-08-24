@@ -1,10 +1,108 @@
 ---
-title: "Chapitre 04 : Équations différentielles"
-pagetitle: "Équations différentielles - Mathématiques en CPGE"
+title: "TD — Géométrie élémentaire du plan et de l'espace"
+subtitle: "Chapitre 04"
+author: "Saîd MAHARI"
+date: last-modified
+date-format: "D MMMM YYYY"
+lang: fr
+format:
+  html:
+    theme: cosmo
+    toc: true
+    number-sections: true
+    html-math-method: katex
+    css: styles.css
+filters:
+  - custom-numbered-blocks.lua
 ---
 
-**TSI 1re année — Chapitre 04.** Linéaires d'ordres 1 et 2 à coefficients constants.
+**TSI (1re année) — TD du Chapitre 04.** Repères, coordonnées cartésiennes et polaires, produit scalaire, produit vectoriel, produit mixte, droites, plans, cercles, sphères, transformations affines.
 
-## Document
+::: {.exercise}
+Dans le plan muni d'un repère orthonormé, on considère les points $A(1, 2)$, $B(4, 6)$ et $C(-2, 3)$.
 
-*PDF à venir : déposez le fichier `files/tsi1/chap04.pdf` puis régénérez la page.*
+1. Calculer $\overrightarrow{AB} \cdot \overrightarrow{AC}$ (produit scalaire).
+2. Le triangle $ABC$ est-il rectangle ?
+3. Calculer l'aire du triangle $ABC$.
+:::
+
+::: {.exercise}
+Passer des coordonnées cartésiennes aux coordonnées polaires et réciproquement :
+
+1. $M(3, 4)$ en polaires.
+2. $N(r=2, \theta = \pi/3)$ en cartésiennes.
+3. L'équation $x^2 + y^2 = 4$ en polaires.
+4. L'équation $r = 2\cos\theta$ en cartésiennes.
+:::
+
+::: {.exercise}
+Soient $\vec{u} = (1, 2, 3)$ et $\vec{v} = (4, 5, 6)$ dans $\mathbb{R}^3$.
+
+1. Calculer $\vec{u} \cdot \vec{v}$ (produit scalaire).
+2. Calculer $\vec{u} \wedge \vec{v}$ (produit vectoriel).
+3. Vérifier que $\vec{u} \wedge \vec{v}$ est orthogonal à $\vec{u}$ et $\vec{v}$.
+:::
+
+::: {.exercise}
+Soient $\vec{u} = (1, 0, 0)$, $\vec{v} = (0, 1, 0)$, $\vec{w} = (1, 1, 1)$.
+
+1. Calculer le produit mixte $[\vec{u}, \vec{v}, \vec{w}]$.
+2. Interpréter géométriquement.
+:::
+
+::: {.exercise}
+Déterminer une équation cartésienne :
+
+1. De la droite passant par $A(1, 2)$ et $B(3, 5)$ dans $\mathbb{R}^2$.
+2. Du plan passant par $A(1, 0, 0)$, $B(0, 1, 0)$, $C(0, 0, 1)$ dans $\mathbb{R}^3$.
+3. De la sphère de centre $\Omega(1, 2, 3)$ et de rayon $2$.
+:::
+
+::: {.exercise}
+Déterminer une représentation paramétrique :
+
+1. De la droite passant par $A(1, 2, 3)$ et dirigée par $\vec{u} = (1, -1, 2)$.
+2. Du plan passant par $A(1, 0, 0)$ et dirigé par $\vec{u} = (1, 1, 0)$ et $\vec{v} = (0, 1, 1)$.
+:::
+
+::: {.exercise}
+Déterminer l'équation du cercle :
+
+1. De centre $\Omega(2, 3)$ et de rayon $5$.
+2. Passant par $A(0, 0)$, $B(4, 0)$, $C(0, 3)$.
+:::
+
+**Indication :** Pour (2), chercher le centre comme intersection des médiatrices.
+
+::: {.exercise}
+Soit la droite $D : x + 2y - 3 = 0$ et le point $A(1, 1)$.
+
+1. Déterminer la distance de $A$ à $D$.
+2. Déterminer le projeté orthogonal de $A$ sur $D$.
+:::
+
+::: {.exercise}
+Soient $A(1, 0, 0)$, $B(0, 1, 0)$, $C(0, 0, 1)$.
+
+1. Déterminer une équation du plan $(ABC)$.
+2. Calculer la distance de l'origine $O$ au plan $(ABC)$.
+3. Déterminer le projeté orthogonal de $O$ sur $(ABC)$.
+:::
+
+::: {.exercise}
+Soit $f$ la transformation affine du plan définie par :
+$$f(x, y) = (2x + y - 1, x - y + 2)$$
+
+1. Déterminer la partie linéaire de $f$.
+2. $f$ est-elle une bijection ? Si oui, déterminer $f^{-1}$.
+:::
+
+# Cours {-}
+[**Chapitre 04 : Géométrie élémentaire du plan et de l'espace**](../cours/tsi1-chap04.qmd)
+
+# Navigation {-}
+::: {.chap-nav}
+[TD 03 : Compléments de calcul algébrique](tsi1-chap03.qmd){.prev}
+[Menu TSI1](tsi1.qmd){.home}
+[TD 05 : Nombres réels et suites numériques](tsi1-chap05.qmd){.next}
+:::

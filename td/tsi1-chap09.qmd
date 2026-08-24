@@ -1,0 +1,94 @@
+---
+title: "TD — Primitives et équations différentielles linéaires"
+subtitle: "Chapitre 09"
+author: "Saîd MAHARI"
+date: last-modified
+date-format: "D MMMM YYYY"
+lang: fr
+format:
+  html:
+    theme: cosmo
+    toc: true
+    number-sections: true
+    html-math-method: katex
+    css: styles.css
+filters:
+  - custom-numbered-blocks.lua
+---
+
+**TSI (1re année) — TD du Chapitre 09.** Primitives, IPP, changement de variable, équations différentielles linéaires d'ordre 1 et d'ordre 2 à coefficients constants, problème de Cauchy.
+
+::: {.exercise}
+Calculer les primitives suivantes :
+
+1. $\int t^2 e^{-t}\, dt$
+2. $\int t \ln t\, dt$
+3. $\int \dfrac{dt}{1+t^2}$
+4. $\int \dfrac{dt}{\sqrt{1-t^2}}$
+:::
+
+::: {.exercise}
+Calculer par changement de variable :
+
+1. $\int_0^1 \dfrac{dt}{\sqrt{1-t^2}}$ (poser $t = \sin\theta$)
+2. $\int_0^1 t\sqrt{1-t^2}\, dt$ (poser $u = 1-t^2$)
+:::
+
+::: {.exercise}
+Résoudre les équations différentielles du premier ordre :
+
+1. $y' + y = e^x$
+2. $y' - 2y = 3x + 1$
+3. $y' + \dfrac{1}{x}y = x^2$ sur $]0,+\infty[$
+:::
+
+::: {.exercise}
+Résoudre les équations du second ordre à coefficients constants :
+
+1. $y'' - 3y' + 2y = 0$
+2. $y'' + 2y' + y = 0$
+3. $y'' + 4y = 0$
+4. $y'' - 5y' + 6y = e^x$
+:::
+
+::: {.exercise}
+Résoudre le problème de Cauchy :
+$$\begin{cases} y'' + 4y = \sin(2x) \\ y(0) = 1, \quad y'(0) = 0 \end{cases}$$
+:::
+
+**Indication :** Le second membre est solution de l'homogène. Chercher $y_p = x(A\cos 2x + B\sin 2x)$.
+
+::: {.exercise}
+Résoudre $y' + y = \dfrac{1}{1+e^x}$ sur $\mathbb{R}$ par variation de la constante.
+:::
+
+::: {.exercise}
+Résoudre $y'' - 4y' + 4y = e^{2x}$ sur $\mathbb{R}$.
+:::
+
+**Indication :** Racine double $r=2$. Chercher $y_p = Ax^2 e^{2x}$.
+
+::: {.exercise}
+Soit $f : \mathbb{R} \to \mathbb{R}$ continue. Montrer que $y' + y = f$ admet une unique solution bornée si $f$ est bornée.
+:::
+
+::: {.exercise}
+Calculer $\int_0^{\pi/2} t \cos t\, dt$ par IPP.
+:::
+
+::: {.exercise}
+Résoudre le système différentiel :
+$$\begin{cases} x' = x + y \\ y' = x - y \end{cases}$$
+:::
+
+**Indication :** Poser $u = x+y$, $v = x-y$. On obtient $u' = 2u$, $v' = 0$.
+
+# Cours {-}
+[**Chapitre 09 : Primitives et équations différentielles linéaires**](../cours/tsi1-chap09.qmd)
+
+# Navigation {-}
+::: {.chap-nav}
+[TD 08 : Fonctions usuelles, fonctions convexes](tsi1-chap08.qmd){.prev}
+[Menu TSI1](tsi1.qmd){.home}
+[TD 10 : Calcul matriciel et systèmes d'équations linéaires](tsi1-chap10.qmd){.next}
+:::

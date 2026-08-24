@@ -1,10 +1,117 @@
 ---
-title: "Chapitre 04 : Séries numériques"
-pagetitle: "Séries numériques - Mathématiques en CPGE"
+title: "TD — Intégration des fonctions continues par morceaux sur un intervalle"
+subtitle: "Chapitre 04"
+author: "Saîd MAHARI"
+date: last-modified
+date-format: "D MMMM YYYY"
+lang: fr
+format:
+  html:
+    theme: cosmo
+    toc: true
+    number-sections: true
+    html-math-method: katex
+    css: styles.css
+filters:
+  - custom-numbered-blocks.lua
 ---
 
-**PSI (2e année) — Chapitre 04.** Convergence absolue, séries de Riemann, séries alternées.
+**PSI (2e année) — TD du Chapitre 04.** Fonctions continues par morceaux, intégrales généralisées sur $[a,+\infty[$, intégrabilité, intégrales généralisées sur un intervalle quelconque, intégrales absolument convergentes et fonctions intégrables.
 
-## Document
+::: {.exercise}
+Étudier la convergence des intégrales suivantes :
 
-*PDF à venir : déposez le fichier `files/psi/chap04.pdf` puis régénérez la page.*
+1. $\int_1^{+\infty} \frac{dt}{t^\alpha}$ selon $\alpha \in \mathbb{R}$
+2. $\int_0^1 \frac{dt}{t^\alpha}$ selon $\alpha \in \mathbb{R}$
+3. $\int_0^{+\infty} e^{-\alpha t}\, dt$ selon $\alpha \in \mathbb{R}$
+:::
+
+::: {.exercise}
+Étudier la nature des intégrales suivantes :
+
+1. $\int_1^{+\infty} \frac{\sin t}{t}\, dt$
+2. $\int_1^{+\infty} \frac{dt}{1+t^2}$
+3. $\int_0^1 \ln t\, dt$
+4. $\int_0^{+\infty} \frac{dt}{(1+t)^2}$
+:::
+
+**Indications :**
+- (1) Semi-convergence : IPP avec $u = 1/t$.
+- (3) $\int_0^1 \ln t\, dt = [t\ln t - t]_0^1 = -1$.
+
+::: {.exercise}
+Montrer que $\int_0^{+\infty} \frac{\sin t}{t}\, dt$ converge mais pas absolument.
+:::
+
+**Indications :**
+- Convergence : IPP sur $[\varepsilon, A]$ puis passage à la limite.
+- Non-convergence absolue : minorer $\int_1^{+\infty} \frac{|\sin t|}{t}\, dt$ en découpant en intervalles $[k\pi, (k+1)\pi]$.
+
+::: {.exercise}
+Étudier la convergence de $\int_0^{+\infty} \frac{1 - \cos t}{t^\alpha}\, dt$ selon $\alpha \in \mathbb{R}$.
+:::
+
+**Indications :**
+- En $0^+$ : $1 - \cos t \sim t^2/2$, convergence si $\alpha < 3$.
+- En $+\infty$ : $0 \leq 1 - \cos t \leq 2$, convergence si $\alpha > 1$.
+- Conclusion : convergence ssi $1 < \alpha < 3$.
+
+::: {.exercise}
+Calculer les intégrales suivantes :
+
+1. $\int_0^{+\infty} \frac{dt}{(1+t^2)^2}$
+2. $\int_0^{+\infty} t e^{-t}\, dt$
+3. $\int_0^{+\infty} t^2 e^{-t}\, dt$
+:::
+
+**Indications :**
+- (1) Poser $t = \tan\theta$. Résultat : $\pi/4$.
+- (2) IPP. Résultat : $1$.
+- (3) Double IPP. Résultat : $2$.
+
+::: {.exercise}
+Soit $f : [0, +\infty[ \to \mathbb{R}$ continue, positive et décroissante. Montrer que :
+$$\int_0^{+\infty} f(t)\, dt \text{ converge} \iff \sum_{n=0}^{+\infty} f(n) \text{ converge}$$
+:::
+
+**Indication :** Encadrer $f(k)$ par $\int_k^{k+1} f$ et $\int_{k-1}^k f$ grâce à la décroissance.
+
+::: {.exercise}
+Montrer que $\int_0^{+\infty} e^{-t^2}\, dt = \frac{\sqrt{\pi}}{2}$.
+:::
+
+**Indications :**
+- Poser $I = \int_0^{+\infty} e^{-t^2}\, dt$.
+- Calculer $I^2$ comme intégrale double sur $\mathbb{R}^+ \times \mathbb{R}^+$.
+- Passer en coordonnées polaires.
+
+::: {.exercise}
+Étudier la convergence de $\int_0^{+\infty} \frac{e^{-t}}{t^\alpha}\, dt$ selon $\alpha \in \mathbb{R}$.
+:::
+
+**Indication :** En $0^+$ : $e^{-t} \sim 1$, convergence ssi $\alpha < 1$. En $+\infty$ : convergence pour tout $\alpha$.
+
+::: {.exercise}
+Soit $f : [1, +\infty[ \to \mathbb{R}$ de classe $\mathcal{C}^1$ avec $\int_1^{+\infty} |f'(t)|\, dt$ convergente. Montrer que $f$ admet une limite finie en $+\infty$.
+:::
+
+**Indication :** Écrire $f(x) - f(1) = \int_1^x f'(t)\, dt$ et montrer que cette intégrale converge absolument.
+
+::: {.exercise}
+Étudier la convergence absolue et la convergence simple de $\int_0^{+\infty} \frac{\sin t}{t^\alpha}\, dt$ selon $\alpha \in \mathbb{R}$.
+:::
+
+**Indications :**
+- En $0^+$ : $\sin t \sim t$, convergence ssi $\alpha < 2$.
+- En $+\infty$ : convergence simple par IPP si $\alpha > 0$ ; convergence absolue si $\alpha > 1$.
+- Bilan : convergence absolue ssi $0 < \alpha < 2$ ; semi-convergence ssi $\alpha \in ]0,1]$.
+
+# Cours {-}
+[**Chapitre 04 : Intégration des fonctions continues par morceaux sur un intervalle**](../cours/psi-chap04.qmd)
+
+# Navigation {-}
+::: {.chap-nav}
+[TD 03 : Topologie des espaces normés](psi-chap03.qmd){.prev}
+[Menu PSI](psi.qmd){.home}
+[TD 05 : Fonctions vectorielles et arcs paramétrés](psi-chap05.qmd){.next}
+:::

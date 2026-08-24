@@ -1,10 +1,123 @@
 ---
-title: "Chapitre 02 : Fonctions d'une variable réelle"
-pagetitle: "Fonctions d'une variable réelle - Mathématiques en CPGE"
+title: "TD — Nombres complexes : calculs algébriques et applications géométriques"
+subtitle: "Chapitre 02"
+author: "Saîd MAHARI"
+date: last-modified
+date-format: "D MMMM YYYY"
+lang: fr
+format:
+  html:
+    theme: cosmo
+    toc: true
+    number-sections: true
+    html-math-method: katex
+    css: styles.css
+filters:
+  - custom-numbered-blocks.lua
 ---
 
-**TSI 1re année — Chapitre 02.** Limites, continuité, dérivation, étude de fonctions.
+**TSI (1re année) — TD du Chapitre 02.** Forme algébrique, conjugaison, module, arguments, forme trigonométrique, exponentielle complexe, trigonométrie, équations du second degré, racines $n$-ièmes, interprétation géométrique.
 
-## Document
+::: {.exercise}
+Mettre sous forme algébrique $a + ib$ :
 
-*PDF à venir : déposez le fichier `files/tsi1/chap02.pdf` puis régénérez la page.*
+1. $(2+3i)(1-i)$
+2. $\dfrac{1+i}{1-i}$
+3. $(1+i)^{10}$
+4. $\left(\dfrac{1+i\sqrt{3}}{1-i}\right)^6$
+:::
+
+**Indications :**
+- (3) $(1+i)^2 = 2i$, donc $(1+i)^{10} = (2i)^5 = 32i$.
+- (4) Mettre numérateur et dénominateur sous forme exponentielle.
+
+::: {.exercise}
+Déterminer le module et un argument de :
+
+1. $z_1 = 1+i$
+2. $z_2 = -1+i\sqrt{3}$
+3. $z_3 = \dfrac{1+i}{1-i}$
+4. $z_4 = (1+i)^n$ pour $n \in \mathbb{N}$
+:::
+
+::: {.exercise}
+Résoudre dans $\mathbb{C}$ les équations :
+
+1. $z^2 + 1 = 0$
+2. $z^2 - 4z + 5 = 0$
+3. $z^2 + (2-3i)z + 5 - i = 0$
+:::
+
+**Indications :**
+- (2) $\Delta = 16 - 20 = -4$, donc $z = 2 \pm i$.
+- (3) Chercher une racine évidente (essayer $z = i$, $z = 1+i$, etc.).
+
+::: {.exercise}
+Résoudre dans $\mathbb{C}$ :
+
+1. $z^4 + z^2 + 1 = 0$
+2. $z^3 = 1$
+3. $z^4 = -1$
+4. $z^5 = 1 + i$
+:::
+
+**Indications :**
+- (1) Poser $Z = z^2$ et résoudre $Z^2 + Z + 1 = 0$.
+- (3) $-1 = e^{i\pi}$, solutions $e^{i(\pi+2k\pi)/4}$.
+
+::: {.exercise}
+Déterminer les racines $n$-ièmes de l'unité pour $n = 3$, $n = 4$ et $n = 6$. Les placer dans le plan complexe.
+:::
+
+**Indication :** Les racines $n$-ièmes de l'unité sont $e^{2ik\pi/n}$ pour $k = 0, 1, \ldots, n-1$.
+
+::: {.exercise}
+Montrer les formules d'Euler et de Moivre :
+
+1. $\cos\theta = \dfrac{e^{i\theta}+e^{-i\theta}}{2}$, $\quad \sin\theta = \dfrac{e^{i\theta}-e^{-i\theta}}{2i}$
+2. $\cos^2\theta = \dfrac{1+\cos 2\theta}{2}$, $\quad \sin^2\theta = \dfrac{1-\cos 2\theta}{2}$
+3. $\cos 3\theta = 4\cos^3\theta - 3\cos\theta$
+:::
+
+::: {.exercise}
+Soit $z \in \mathbb{C}$ avec $|z| = 1$. Montrer que $z + \dfrac{1}{z} \in \mathbb{R}$.
+:::
+
+**Indication :** $|z|=1$ implique $\frac{1}{z} = \bar{z}$, donc $z + \frac{1}{z} = z + \bar{z} = 2\operatorname{Re}(z)$.
+
+::: {.exercise}
+Montrer que la somme des racines $n$-ièmes de l'unité est nulle :
+$$1 + e^{2i\pi/n} + e^{4i\pi/n} + \cdots + e^{2i(n-1)\pi/n} = 0$$
+:::
+
+**Indication :** Somme géométrique de raison $e^{2i\pi/n} \neq 1$.
+
+::: {.exercise}
+Interpréter géométriquement les ensembles suivants :
+
+1. $\{z \in \mathbb{C} \mid |z-1| = |z+1|\}$
+2. $\{z \in \mathbb{C} \mid |z-i| \leq 2\}$
+3. $\{z \in \mathbb{C} \mid \operatorname{Re}(z) > 0\}$
+4. $\{z \in \mathbb{C} \mid |z-1| + |z+1| = 4\}$
+:::
+
+**Indications :**
+- (1) Médiatrice du segment joignant $1$ et $-1$ : l'axe imaginaire.
+- (2) Disque fermé de centre $i$ et de rayon $2$.
+- (4) Ellipse de foyers $1$ et $-1$.
+
+::: {.exercise}
+Soit $ABC$ un triangle équilatéral dans le plan complexe avec $A$ d'affixe $0$ et $B$ d'affixe $1$. Déterminer les affixes possibles de $C$.
+:::
+
+**Indication :** $C$ est l'image de $B$ par la rotation de centre $A$ et d'angle $\pm \pi/3$. Donc $C = e^{\pm i\pi/3}$.
+
+# Cours {-}
+[**Chapitre 02 : Nombres complexes : calculs algébriques et applications géométriques**](tsi1-chap02.qmd)
+
+# Navigation {-}
+::: {.chap-nav}
+[TD 01 : Vocabulaire ensembliste](../cours/tsi1-chap01.qmd){.prev}
+[Menu TSI1](tsi1.qmd){.home}
+[TD 03 : Compléments de calcul algébrique](tsi1-chap03.qmd){.next}
+:::

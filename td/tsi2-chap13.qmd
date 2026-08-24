@@ -1,0 +1,80 @@
+---
+title: "TD — Variables aléatoires à densité"
+subtitle: "Chapitre 13"
+author: "Saîd MAHARI"
+date: last-modified
+date-format: "D MMMM YYYY"
+lang: fr
+format:
+  html:
+    theme: cosmo
+    toc: true
+    number-sections: true
+    html-math-method: katex
+    css: styles.css
+filters:
+  - custom-numbered-blocks.lua
+---
+
+**TSI (2e année) — TD du Chapitre 13.** Variables aléatoires à densité, lois usuelles (uniforme, exponentielle, gamma, gaussienne), espérance et moments, produit de convolution, inégalités, convergence en loi, théorème de la limite centrée.
+
+::: {.exercise}
+Soit $f : \mathbb{R} \to \mathbb{R}$ une fonction. Montrer que $f$ est une densité de probabilité si et seulement si :
+
+1. $f \geq 0$ sur $\mathbb{R}$.
+2. $f$ est continue par morceaux.
+3. $\int_{-\infty}^{+\infty} f(t)\, dt = 1$.
+:::
+
+::: {.exercise}
+Soit $X \hookrightarrow \mathcal{U}([a,b])$. Montrer que $E(X) = \frac{a+b}{2}$ et $V(X) = \frac{(b-a)^2}{12}$.
+:::
+
+::: {.exercise}
+Soit $X \hookrightarrow \mathcal{E}(\lambda)$. Montrer que :
+
+1. $E(X) = \frac{1}{\lambda}$ et $V(X) = \frac{1}{\lambda^2}$.
+2. $P(X > s + t \mid X > s) = P(X > t)$ (absence de mémoire).
+:::
+
+::: {.exercise}
+Soit $X \hookrightarrow \mathcal{N}(\mu, \sigma^2)$. Montrer que $X^* = \frac{X - \mu}{\sigma} \hookrightarrow \mathcal{N}(0, 1)$.
+:::
+
+::: {.exercise}
+Soient $X \hookrightarrow \mathcal{N}(\mu_1, \sigma_1^2)$ et $Y \hookrightarrow \mathcal{N}(\mu_2, \sigma_2^2)$ indépendantes. Montrer que $X + Y \hookrightarrow \mathcal{N}(\mu_1 + \mu_2, \sigma_1^2 + \sigma_2^2)$.
+:::
+
+**Indication :** Utiliser le produit de convolution des densités.
+
+::: {.exercise}
+Soient $X$ et $Y$ deux variables aléatoires à densité indépendantes. Montrer que la densité de $X + Y$ est le produit de convolution $f_X * f_Y$ :
+$$(f_X * f_Y)(t) = \int_{-\infty}^{+\infty} f_X(u) f_Y(t-u)\, du$$
+:::
+
+::: {.exercise}
+Soit $X$ une variable aléatoire positive admettant une espérance. Montrer l'inégalité de Markov : $P(X \geq a) \leq \frac{E(X)}{a}$ pour tout $a > 0$.
+:::
+
+::: {.exercise}
+Soit $X$ une variable aléatoire admettant une variance. Montrer l'inégalité de Bienaymé-Tchebychev :
+$$P(|X - E(X)| \geq \varepsilon) \leq \frac{V(X)}{\varepsilon^2}$$
+:::
+
+::: {.exercise}
+Soit $(X_n)$ une suite de variables aléatoires avec $X_n \hookrightarrow \mathcal{B}(n, \lambda/n)$. Montrer que $X_n \xrightarrow{\mathcal{L}} \mathcal{P}(\lambda)$.
+:::
+
+::: {.exercise}
+Énoncer le théorème de la limite centrée : soit $(X_n)$ une suite de variables aléatoires mutuellement indépendantes de même loi admettant un moment d'ordre 2. Alors :
+$$\frac{1}{\sigma\sqrt{n}}\left(\sum_{k=1}^n X_k - nm\right) \xrightarrow{\mathcal{L}} \mathcal{N}(0, 1)$$
+:::
+
+# Cours {-}
+[**Chapitre 13 : Variables aléatoires à densité**](../cours/tsi2-chap13.qmd)
+
+# Navigation {-}
+::: {.chap-nav}
+[TD 12 : Fonctions de plusieurs variables](tsi2-chap12.qmd){.prev}
+[Menu TSI](tsi2.qmd){.home}
+:::

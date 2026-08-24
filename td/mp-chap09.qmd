@@ -1,10 +1,74 @@
 ---
-title: "Chapitre 09 : Calcul différentiel"
-pagetitle: "Calcul différentiel - Mathématiques en CPGE"
+title: "TD — Espaces préhilbertiens réels et endomorphismes des espaces euclidiens"
+subtitle: "Chapitre 09"
+author: "Saîd MAHARI"
+date: last-modified
+date-format: "D MMMM YYYY"
+lang: fr
+format:
+  html:
+    theme: cosmo
+    toc: true
+    number-sections: true
+    html-math-method: katex
+    css: styles.css
+filters:
+  - custom-numbered-blocks.lua
 ---
 
-**MP (2e année) — Chapitre 09.** Gradient, matrice jacobienne, extrema libres et liés.
+**MP (2e année) — TD du Chapitre 09.** Projection orthogonale sur un sous-espace de dimension finie, suites orthonormales et suites totales, endomorphismes symétriques, endomorphismes orthogonaux, formes linéaires et adjoint d'un endomorphisme, application à l'étude des extrema.
 
-## Document
+::: {.exercise}
+Montrer l'inégalité de Cauchy-Schwarz : $|\langle x, y \rangle| \leq \|x\| \cdot \|y\|$ et préciser le cas d'égalité.
+:::
 
-*PDF à venir : déposez le fichier `files/mp/chap09.pdf` puis régénérez la page.*
+::: {.exercise}
+Soit $F$ un sous-espace vectoriel de dimension finie d'un espace préhilbertien $E$. Montrer que $E = F \oplus F^\perp$.
+:::
+
+::: {.exercise}
+Soit $(e_n)_{n \in \mathbb{N}}$ une suite orthonormale d'un espace préhilbertien. Montrer l'inégalité de Bessel :
+$$\sum_{n=0}^{+\infty} |\langle x, e_n \rangle|^2 \leq \|x\|^2$$
+:::
+
+::: {.exercise}
+Soit $f$ un endomorphisme symétrique d'un espace euclidien. Montrer que les sous-espaces propres associés à des valeurs propres distinctes sont orthogonaux.
+:::
+
+::: {.exercise}
+Soit $u$ un endomorphisme orthogonal d'un espace euclidien. Montrer que :
+
+1. $u$ conserve le produit scalaire.
+2. $\det(u) \in \{-1, 1\}$.
+3. Si $F$ est stable par $u$, alors $F^\perp$ est stable par $u$.
+:::
+
+::: {.exercise}
+Soit $E$ un espace euclidien. Montrer que toute forme linéaire $\varphi$ sur $E$ s'écrit $\varphi(x) = \langle a, x \rangle$ pour un unique $a \in E$ (théorème de représentation).
+:::
+
+::: {.exercise}
+Soit $u \in \mathcal{L}(E)$ avec $E$ euclidien. Montrer qu'il existe un unique $u^* \in \mathcal{L}(E)$ tel que $\langle u(x), y \rangle = \langle x, u^*(y) \rangle$ pour tous $x, y$ (adjoint).
+:::
+
+::: {.exercise}
+Soit $u$ un endomorphisme orthogonal. Montrer que $u$ est inversible et $u^{-1} = u^*$.
+:::
+
+::: {.exercise}
+Soit $u$ un endomorphisme symétrique d'un espace euclidien. Montrer que $u$ est diagonalisable dans une base orthonormée (théorème spectral).
+:::
+
+::: {.exercise}
+Soit $f : \mathbb{R}^2 \to \mathbb{R}$ de classe $\mathcal{C}^2$. Montrer que si $\nabla f(a) = 0$ et la matrice hessienne est définie positive, alors $f$ admet un minimum local en $a$.
+:::
+
+# Cours {-}
+[**Chapitre 09 : Espaces préhilbertiens réels**](mp-chap09.qmd)
+
+# Navigation {-}
+::: {.chap-nav}
+[TD 08 : Calcul différentiel](mp-chap08.qmd){.prev}
+[Menu MP](mp.qmd){.home}
+[TD 10 : Intégrales dépendant d'un paramètre](mp-chap10.qmd){.next}
+:::

@@ -1,10 +1,99 @@
 ---
-title: "Chapitre 04 : Suites et séries de fonctions"
-pagetitle: "Suites et séries de fonctions - Mathématiques en CPGE"
+title: "TD — Fonctions vectorielles d'une variable réelle, arcs paramétrés"
+subtitle: "Chapitre 04"
+author: "Saîd MAHARI"
+date: last-modified
+date-format: "D MMMM YYYY"
+lang: fr
+format:
+  html:
+    theme: cosmo
+    toc: true
+    number-sections: true
+    html-math-method: katex
+    css: styles.css
+filters:
+  - custom-numbered-blocks.lua
 ---
 
-**TSI 2e année — Chapitre 04.** Convergence simple et uniforme.
+**TSI (2e année) — TD du Chapitre 04.** Dérivation d'une fonction à valeurs dans $\mathbb{R}^2$ ou $\mathbb{R}^3$, interprétation cinématique, arcs paramétrés, tangentes, normales, longueur d'un arc.
 
-## Document
+::: {.exercise}
+Soit $f : I \to \mathbb{R}^n$ une fonction vectorielle. Montrer que $f$ est dérivable en $a$ si et seulement si toutes ses composantes $f_1, \ldots, f_n$ sont dérivables en $a$, et dans ce cas :
+$$f'(a) = (f_1'(a), \ldots, f_n'(a))$$
+:::
 
-*PDF à venir : déposez le fichier `files/tsi2/chap04.pdf` puis régénérez la page.*
+::: {.exercise}
+Soit $f : I \to \mathbb{R}^2$ définie par $f(t) = (e^t \cos t, e^t \sin t)$.
+
+1. Calculer $f'(t)$ et $\|f'(t)\|$.
+2. Montrer que l'angle entre $f(t)$ et $f'(t)$ est constant.
+3. Calculer la longueur de l'arc entre $t = 0$ et $t = \ln 2$.
+:::
+
+::: {.exercise}
+Soit $f : I \to E$ de classe $\mathcal{C}^1$ et $\varphi : J \to I$ de classe $\mathcal{C}^1$. Montrer que $f \circ \varphi$ est de classe $\mathcal{C}^1$ et :
+$$(f \circ \varphi)'(t) = \varphi'(t) \cdot f'(\varphi(t))$$
+:::
+
+::: {.exercise}
+Un mobile se déplace dans le plan selon la trajectoire $\gamma(t) = (t^2, t^3)$.
+
+1. Déterminer le vecteur vitesse $\gamma'(t)$.
+2. Déterminer le vecteur accélération $\gamma''(t)$.
+3. À quel instant la vitesse est-elle nulle ? Interpréter.
+:::
+
+::: {.exercise}
+Soit $\gamma : I \to \mathbb{R}^2$ définie par $\gamma(t) = (t - \sin t, 1 - \cos t)$ (cycloïde).
+
+1. Étudier la périodicité et les symétries.
+2. Déterminer les points stationnaires.
+3. Calculer la longueur d'une arche.
+:::
+
+::: {.exercise}
+Soit $\gamma : I \to \mathbb{R}^3$ définie par $\gamma(t) = (a\cos t, a\sin t, bt)$ (hélice circulaire).
+
+1. Calculer $\gamma'(t)$ et $\|\gamma'(t)\|$.
+2. Montrer que la tangente fait un angle constant avec l'axe $(Oz)$.
+3. Calculer la longueur de l'hélice entre $t = 0$ et $t = 2\pi$.
+:::
+
+::: {.exercise}
+Soit $\gamma : I \to \mathbb{R}^2$ un arc paramétré régulier de classe $\mathcal{C}^2$. Montrer que si $\|\gamma'(t)\|$ est constant, alors $\gamma'(t) \perp \gamma''(t)$ pour tout $t$.
+:::
+
+**Indication :** Dériver $\|\gamma'(t)\|^2 = cte$.
+
+::: {.exercise}
+Soit $\gamma : \mathbb{R} \to \mathbb{R}^2$ définie par $\gamma(t) = (\cos 2t, \sin 3t)$.
+
+1. Étudier la périodicité et la parité.
+2. Réduire l'intervalle d'étude.
+3. Déterminer les points stationnaires.
+4. Déterminer les tangentes horizontales et verticales.
+:::
+
+::: {.exercise}
+Soit $\gamma : \mathbb{R} \to \mathbb{R}^2$ définie par $\gamma(t) = (t^2, t^3)$.
+
+1. Étudier les symétries.
+2. Déterminer les points stationnaires.
+3. Étudier la tangente au point stationnaire.
+4. Tracer l'allure de la courbe.
+:::
+
+::: {.exercise}
+Soit $\gamma : I \to \mathbb{R}^2$ un arc paramétré régulier. Montrer que la normale en $\gamma(t_0)$ est dirigée par un vecteur orthogonal à $\gamma'(t_0)$.
+:::
+
+# Cours {-}
+[**Chapitre 04 : Fonctions vectorielles et arcs paramétrés**](../cours/tsi2-chap04.qmd)
+
+# Navigation {-}
+::: {.chap-nav}
+[TD 03 : Réduction des endomorphismes](tsi2-chap03.qmd){.prev}
+[Menu TSI](tsi2.qmd){.home}
+[TD 05 : Intégration des fonctions continues sur un intervalle](tsi2-chap05.qmd){.next}
+:::

@@ -1,0 +1,87 @@
+---
+title: "TD — Probabilité sur un univers fini"
+subtitle: "Chapitre 18"
+author: "Saîd MAHARI"
+date: last-modified
+date-format: "D MMMM YYYY"
+lang: fr
+format:
+  html:
+    theme: cosmo
+    toc: true
+    number-sections: true
+    html-math-method: katex
+    css: styles.css
+filters:
+  - custom-numbered-blocks.lua
+---
+
+**TSI (1re année) — TD du Chapitre 18.** Espace probabilisable, probabilités, probabilités conditionnelles, Bayes, indépendance, variables aléatoires réelles finies, espérance, variance, lois usuelles (Bernoulli, binomiale, uniforme).
+
+::: {.exercise}
+On lance deux dés équilibrés. Calculer :
+
+1. $P(\text{somme} = 7)$
+2. $P(\text{deux } 6)$
+3. $P(\text{au moins un } 6)$
+:::
+
+::: {.exercise}
+Une urne contient 5 boules rouges et 3 noires. On tire 2 boules sans remise.
+
+1. $P(\text{2 rouges})$
+2. $P(\text{rouge puis noire})$
+3. $P(\text{au moins une rouge})$
+:::
+
+::: {.exercise}
+Une maladie touche 1\% de la population. Un test a une sensibilité de 0,95 et une spécificité de 0,95. Calculer $P(\text{malade} \mid \text{test positif})$.
+:::
+
+**Indication :** Bayes.
+
+::: {.exercise}
+Soient $A$, $B$ avec $P(A) = 1/3$, $P(B) = 1/4$, $P(A \cup B) = 1/2$.
+
+1. Calculer $P(A \cap B)$.
+2. Calculer $P_A(B)$.
+3. $A$ et $B$ sont-ils indépendants ?
+:::
+
+::: {.exercise}
+Soit $X \hookrightarrow \mathcal{B}(n,p)$. Montrer que $E(X) = np$ et $V(X) = np(1-p)$.
+:::
+
+::: {.exercise}
+On lance 3 fois une pièce équilibrée. Soit $X$ le nombre de piles.
+
+1. Déterminer la loi de $X$.
+2. Calculer $E(X)$ et $V(X)$.
+:::
+
+::: {.exercise}
+Une urne contient 4 boules rouges et 6 noires. On tire avec remise 5 boules. Soit $X$ le nombre de rouges. Déterminer la loi de $X$, $E(X)$ et $V(X)$.
+:::
+
+::: {.exercise}
+Soit $X$ uniforme sur $\{1, \ldots, n\}$. Calculer $E(X)$ et $V(X)$.
+:::
+
+::: {.exercise}
+Soient $X \hookrightarrow \mathcal{B}(n,p)$ et $Y \hookrightarrow \mathcal{B}(m,p)$ indépendantes. Montrer que $X+Y \hookrightarrow \mathcal{B}(n+m,p)$.
+:::
+
+::: {.exercise}
+Deux joueurs lancent chacun un dé. Quelle est la probabilité que le premier obtienne un résultat strictement supérieur au second ?
+:::
+
+**Indication :** Par symétrie $P(A>B) = P(B>A)$ et $P(A=B) = 1/6$.
+
+# Cours {-}
+[**Chapitre 18 : Probabilité sur un univers fini**](../cours/tsi1-chap18.qmd)
+
+# Navigation {-}
+::: {.chap-nav}
+[TD 17 : Dénombrement](tsi1-chap17.qmd){.prev}
+[Menu TSI1](tsi1.qmd){.home}
+:::
