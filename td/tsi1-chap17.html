@@ -8,7 +8,7 @@
 
 <meta name="author" content="Saîd MAHARI">
 
-<title>TD — Espaces probabilisés ; variables aléatoires réelles ; cas discret – Mathématiques en CPGE</title>
+<title>TD — Dénombrement – Mathématiques en CPGE</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -198,8 +198,8 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">TD — Espaces probabilisés ; variables aléatoires réelles ; cas discret</h1>
-<p class="subtitle lead">Chapitre 08</p>
+<h1 class="title">TD — Dénombrement</h1>
+<p class="subtitle lead">Chapitre 17</p>
 </div>
 
 
@@ -228,70 +228,71 @@ window.Quarto = {
 </header>
 
 
-<p><strong>TSI (2e année) — TD du Chapitre 08.</strong> Tribus, espaces probabilisés, variables aléatoires et lois, variables aléatoires discrètes, espérance et moments, fonctions génératrices, inégalités (Markov, Bienaymé-Tchebychev, Jensen), convergence en probabilité et en loi, loi faible des grands nombres.</p>
+<p><strong>TSI (1re année) — TD du Chapitre 17.</strong> Cardinaux, parties, <span class="math inline">p</span>-listes, arrangements, permutations, combinaisons, formules de Pascal et du binôme.</p>
 <div class="custom-numbered-block custom-exercise">
 <p><strong>Exercice 1</strong></p>
-<p>Soit <span class="math inline">\Omega</span> un ensemble fini. Montrer que <span class="math inline">\mathcal{P}(\Omega)</span> est une tribu sur <span class="math inline">\Omega</span>.</p>
+<p>Déterminer le cardinal :</p>
+<ol type="1">
+<li>Des listes de longueur <span class="math inline">p</span> à valeurs dans un ensemble de cardinal <span class="math inline">n</span>.</li>
+<li>Des arrangements de <span class="math inline">p</span> éléments parmi <span class="math inline">n</span>.</li>
+<li>Des combinaisons de <span class="math inline">p</span> éléments parmi <span class="math inline">n</span>.</li>
+</ol>
 </div>
 <div class="custom-numbered-block custom-exercise">
 <p><strong>Exercice 2</strong></p>
-<p>On lance deux dés équilibrés. Calculer :</p>
-<ol type="1">
-<li><span class="math inline">P(\text{somme} = 7)</span></li>
-<li><span class="math inline">P(\text{deux } 6)</span></li>
-<li><span class="math inline">P(\text{au moins un } 6)</span></li>
-</ol>
+<p>Combien de nombres de 4 chiffres distincts peut-on former ?</p>
 </div>
 <div class="custom-numbered-block custom-exercise">
 <p><strong>Exercice 3</strong></p>
-<p>Une urne contient 5 boules rouges et 3 noires. On tire 2 boules sans remise.</p>
-<ol type="1">
-<li><span class="math inline">P(\text{2 rouges})</span></li>
-<li><span class="math inline">P(\text{rouge puis noire})</span></li>
-<li><span class="math inline">P(\text{au moins une rouge})</span></li>
-</ol>
+<p>De combien de façons peut-on choisir un comité de 3 personnes parmi 10 ?</p>
 </div>
 <div class="custom-numbered-block custom-exercise">
 <p><strong>Exercice 4</strong></p>
-<p>Une maladie touche 1% de la population. Un test a une sensibilité de 0,95 et une spécificité de 0,95. Calculer <span class="math inline">P(\text{malade} \mid \text{test positif})</span>.</p>
+<p>Montrer que :</p>
+<ol type="1">
+<li><span class="math inline">\sum_{k=0}^n \binom{n}{k} = 2^n</span></li>
+<li><span class="math inline">\sum_{k=0}^n (-1)^k \binom{n}{k} = 0</span> pour <span class="math inline">n \geq 1</span></li>
+<li><span class="math inline">\sum_{k=0}^n k\binom{n}{k} = n \cdot 2^{n-1}</span></li>
+</ol>
 </div>
-<p><strong>Indication :</strong> Bayes.</p>
 <div class="custom-numbered-block custom-exercise">
 <p><strong>Exercice 5</strong></p>
-<p>Soit <span class="math inline">X \hookrightarrow \mathcal{B}(n,p)</span>. Montrer que <span class="math inline">E(X) = np</span> et <span class="math inline">V(X) = np(1-p)</span>.</p>
+<p>Montrer la formule de Pascal : <span class="math inline">\binom{n+1}{k} = \binom{n}{k} + \binom{n}{k-1}</span>.</p>
 </div>
 <div class="custom-numbered-block custom-exercise">
 <p><strong>Exercice 6</strong></p>
-<p>Soit <span class="math inline">X \hookrightarrow \mathcal{P}(\lambda)</span>.</p>
+<p>Un sac contient 3 boules rouges et 5 boules noires. On tire 3 boules.</p>
 <ol type="1">
-<li>Déterminer la fonction génératrice <span class="math inline">G_X(s)</span>.</li>
-<li>En déduire <span class="math inline">E(X)</span> et <span class="math inline">V(X)</span>.</li>
+<li>Combien de tirages possibles ?</li>
+<li>Combien avec exactement 2 rouges ?</li>
 </ol>
 </div>
 <div class="custom-numbered-block custom-exercise">
 <p><strong>Exercice 7</strong></p>
-<p>Soit <span class="math inline">X</span> une variable aléatoire positive admettant une espérance. Montrer l’inégalité de Markov : <span class="math inline">P(X \geq a) \leq \frac{E(X)}{a}</span> pour tout <span class="math inline">a &gt; 0</span>.</p>
+<p>Montrer l’identité de Vandermonde : <span class="math inline">\sum_{k=0}^r \binom{n}{k}\binom{m}{r-k} = \binom{n+m}{r}</span>.</p>
 </div>
 <div class="custom-numbered-block custom-exercise">
 <p><strong>Exercice 8</strong></p>
-<p>Soit <span class="math inline">X</span> une variable aléatoire admettant une variance. Montrer l’inégalité de Bienaymé-Tchebychev : <span class="math display">P(|X - E(X)| \geq \varepsilon) \leq \frac{V(X)}{\varepsilon^2}</span></p>
+<p>Soit <span class="math inline">E</span> fini de cardinal <span class="math inline">n</span>. Déterminer le nombre de couples <span class="math inline">(A,B)</span> avec <span class="math inline">A \subset B \subset E</span>.</p>
 </div>
+<p><strong>Indication :</strong> Chaque élément a 3 choix. Résultat : <span class="math inline">3^n</span>.</p>
 <div class="custom-numbered-block custom-exercise">
 <p><strong>Exercice 9</strong></p>
-<p>Soit <span class="math inline">(X_n)</span> une suite de variables aléatoires mutuellement indépendantes de même loi admettant un moment d’ordre 2. Montrer la loi faible des grands nombres : <span class="math display">\frac{1}{n}\sum_{k=1}^n X_k \xrightarrow{P} E(X_1)</span></p>
+<p>Un code est formé de 3 lettres distinctes suivies de 2 chiffres distincts. Combien de codes avec 26 lettres et 10 chiffres ?</p>
 </div>
 <div class="custom-numbered-block custom-exercise">
 <p><strong>Exercice 10</strong></p>
-<p>Soient <span class="math inline">X</span> et <span class="math inline">Y</span> indépendantes avec <span class="math inline">X \hookrightarrow \mathcal{P}(\lambda_1)</span> et <span class="math inline">Y \hookrightarrow \mathcal{P}(\lambda_2)</span>. Montrer que <span class="math inline">X+Y \hookrightarrow \mathcal{P}(\lambda_1 + \lambda_2)</span>.</p>
+<p>Calculer <span class="math inline">\sum_{k=0}^n \binom{n}{k}^2</span>.</p>
 </div>
+<p><strong>Indication :</strong> Vandermonde avec <span class="math inline">m = n</span> et <span class="math inline">r = n</span>.</p>
 <section id="cours" class="level1 unnumbered">
 <h1 class="unnumbered">Cours</h1>
-<p><a href="../cours/tsi2-chap08.html"><strong>Chapitre 08 : Espaces probabilisés ; variables aléatoires réelles ; cas discret</strong></a></p>
+<p><a href="../cours/tsi1-chap17.html"><strong>Chapitre 17 : Dénombrement</strong></a></p>
 </section>
 <section id="navigation" class="level1 unnumbered">
 <h1 class="unnumbered">Navigation</h1>
 <div class="chap-nav">
-<p><a href="../td/tsi2-chap07.html" class="prev">TD 07 : Séries entières</a> <a href="../td/tsi2.html" class="home">Menu TSI</a> <a href="../td/tsi2-chap09.html" class="next">TD 09 : Espaces préhilbertiens réels</a></p>
+<p><a href="../td/tsi1-chap16.html" class="prev">TD 16 : Intégration sur un segment</a> <a href="../td/tsi1.html" class="home">Menu TSI1</a> <a href="../td/tsi1-chap18.html" class="next">TD 18 : Probabilité sur un univers fini</a></p>
 </div>
 
 

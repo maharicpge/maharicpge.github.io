@@ -8,7 +8,7 @@
 
 <meta name="author" content="Saîd MAHARI">
 
-<title>TD — Espaces probabilisés ; variables aléatoires réelles ; cas discret – Mathématiques en CPGE</title>
+<title>TD — Fonctions holomorphes – Mathématiques en CPGE</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -198,8 +198,8 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">TD — Espaces probabilisés ; variables aléatoires réelles ; cas discret</h1>
-<p class="subtitle lead">Chapitre 08</p>
+<h1 class="title">TD — Fonctions holomorphes</h1>
+<p class="subtitle lead">Chapitre 13</p>
 </div>
 
 
@@ -228,70 +228,56 @@ window.Quarto = {
 </header>
 
 
-<p><strong>TSI (2e année) — TD du Chapitre 08.</strong> Tribus, espaces probabilisés, variables aléatoires et lois, variables aléatoires discrètes, espérance et moments, fonctions génératrices, inégalités (Markov, Bienaymé-Tchebychev, Jensen), convergence en probabilité et en loi, loi faible des grands nombres.</p>
+<p><strong>MP (2e année) — TD du Chapitre 13.</strong> Dérivation complexe, équations de Cauchy-Riemann, <span class="math inline">\mathbb{C}</span>-algèbre des fonctions holomorphes, fonctions analytiques, principe du prolongement analytique, principe des zéros isolés.</p>
 <div class="custom-numbered-block custom-exercise">
 <p><strong>Exercice 1</strong></p>
-<p>Soit <span class="math inline">\Omega</span> un ensemble fini. Montrer que <span class="math inline">\mathcal{P}(\Omega)</span> est une tribu sur <span class="math inline">\Omega</span>.</p>
+<p>Soit <span class="math inline">f(z) = z^2</span>. Montrer que <span class="math inline">f</span> est <span class="math inline">\mathbb{C}</span>-dérivable en tout point et calculer <span class="math inline">f'(z)</span>.</p>
 </div>
 <div class="custom-numbered-block custom-exercise">
 <p><strong>Exercice 2</strong></p>
-<p>On lance deux dés équilibrés. Calculer :</p>
-<ol type="1">
-<li><span class="math inline">P(\text{somme} = 7)</span></li>
-<li><span class="math inline">P(\text{deux } 6)</span></li>
-<li><span class="math inline">P(\text{au moins un } 6)</span></li>
-</ol>
+<p>Soit <span class="math inline">f(z) = \bar{z}</span>. Montrer que <span class="math inline">f</span> n’est pas <span class="math inline">\mathbb{C}</span>-dérivable en <span class="math inline">0</span>.</p>
 </div>
 <div class="custom-numbered-block custom-exercise">
 <p><strong>Exercice 3</strong></p>
-<p>Une urne contient 5 boules rouges et 3 noires. On tire 2 boules sans remise.</p>
-<ol type="1">
-<li><span class="math inline">P(\text{2 rouges})</span></li>
-<li><span class="math inline">P(\text{rouge puis noire})</span></li>
-<li><span class="math inline">P(\text{au moins une rouge})</span></li>
-</ol>
+<p>Soit <span class="math inline">f(z) = u(x,y) + iv(x,y)</span> avec <span class="math inline">z = x + iy</span>. Montrer que si <span class="math inline">f</span> est <span class="math inline">\mathbb{C}</span>-dérivable, alors : <span class="math display">\frac{\partial u}{\partial x} = \frac{\partial v}{\partial y} \quad \text{et} \quad \frac{\partial u}{\partial y} = -\frac{\partial v}{\partial x}</span> (équations de Cauchy-Riemann)</p>
 </div>
 <div class="custom-numbered-block custom-exercise">
 <p><strong>Exercice 4</strong></p>
-<p>Une maladie touche 1% de la population. Un test a une sensibilité de 0,95 et une spécificité de 0,95. Calculer <span class="math inline">P(\text{malade} \mid \text{test positif})</span>.</p>
+<p>Montrer que la fonction <span class="math inline">f(z) = e^z</span> est holomorphe sur <span class="math inline">\mathbb{C}</span> et <span class="math inline">f'(z) = e^z</span>.</p>
 </div>
-<p><strong>Indication :</strong> Bayes.</p>
 <div class="custom-numbered-block custom-exercise">
 <p><strong>Exercice 5</strong></p>
-<p>Soit <span class="math inline">X \hookrightarrow \mathcal{B}(n,p)</span>. Montrer que <span class="math inline">E(X) = np</span> et <span class="math inline">V(X) = np(1-p)</span>.</p>
+<p>Soit <span class="math inline">\mathcal{H}(\Omega)</span> l’ensemble des fonctions holomorphes sur un ouvert <span class="math inline">\Omega</span>. Montrer que <span class="math inline">\mathcal{H}(\Omega)</span> est une <span class="math inline">\mathbb{C}</span>-algèbre.</p>
 </div>
 <div class="custom-numbered-block custom-exercise">
 <p><strong>Exercice 6</strong></p>
-<p>Soit <span class="math inline">X \hookrightarrow \mathcal{P}(\lambda)</span>.</p>
-<ol type="1">
-<li>Déterminer la fonction génératrice <span class="math inline">G_X(s)</span>.</li>
-<li>En déduire <span class="math inline">E(X)</span> et <span class="math inline">V(X)</span>.</li>
-</ol>
+<p>Soit <span class="math inline">f</span> holomorphe sur <span class="math inline">\Omega</span> et <span class="math inline">g</span> holomorphe sur <span class="math inline">g(\Omega)</span>. Montrer que <span class="math inline">g \circ f</span> est holomorphe et <span class="math inline">(g \circ f)' = (g' \circ f) \cdot f'</span>.</p>
 </div>
 <div class="custom-numbered-block custom-exercise">
 <p><strong>Exercice 7</strong></p>
-<p>Soit <span class="math inline">X</span> une variable aléatoire positive admettant une espérance. Montrer l’inégalité de Markov : <span class="math inline">P(X \geq a) \leq \frac{E(X)}{a}</span> pour tout <span class="math inline">a &gt; 0</span>.</p>
+<p>Soit <span class="math inline">f</span> analytique sur <span class="math inline">\Omega</span>. Montrer que pour tout <span class="math inline">z_0 \in \Omega</span>, il existe <span class="math inline">r &gt; 0</span> et <span class="math inline">(a_n)</span> tels que : <span class="math display">f(z) = \sum_{n=0}^{+\infty} a_n (z - z_0)^n \quad \text{pour } |z - z_0| &lt; r</span></p>
 </div>
 <div class="custom-numbered-block custom-exercise">
 <p><strong>Exercice 8</strong></p>
-<p>Soit <span class="math inline">X</span> une variable aléatoire admettant une variance. Montrer l’inégalité de Bienaymé-Tchebychev : <span class="math display">P(|X - E(X)| \geq \varepsilon) \leq \frac{V(X)}{\varepsilon^2}</span></p>
+<p>Montrer le principe du prolongement analytique : si <span class="math inline">f</span> et <span class="math inline">g</span> sont holomorphes sur un ouvert connexe <span class="math inline">\Omega</span> et coïncident sur un sous-ensemble ayant un point d’accumulation dans <span class="math inline">\Omega</span>, alors <span class="math inline">f = g</span> sur <span class="math inline">\Omega</span>.</p>
 </div>
 <div class="custom-numbered-block custom-exercise">
 <p><strong>Exercice 9</strong></p>
-<p>Soit <span class="math inline">(X_n)</span> une suite de variables aléatoires mutuellement indépendantes de même loi admettant un moment d’ordre 2. Montrer la loi faible des grands nombres : <span class="math display">\frac{1}{n}\sum_{k=1}^n X_k \xrightarrow{P} E(X_1)</span></p>
+<p>Montrer le principe des zéros isolés : si <span class="math inline">f</span> est holomorphe non nulle sur un ouvert connexe <span class="math inline">\Omega</span>, alors les zéros de <span class="math inline">f</span> sont isolés.</p>
 </div>
 <div class="custom-numbered-block custom-exercise">
 <p><strong>Exercice 10</strong></p>
-<p>Soient <span class="math inline">X</span> et <span class="math inline">Y</span> indépendantes avec <span class="math inline">X \hookrightarrow \mathcal{P}(\lambda_1)</span> et <span class="math inline">Y \hookrightarrow \mathcal{P}(\lambda_2)</span>. Montrer que <span class="math inline">X+Y \hookrightarrow \mathcal{P}(\lambda_1 + \lambda_2)</span>.</p>
+<p>Soit <span class="math inline">f</span> holomorphe sur <span class="math inline">\mathbb{C}</span> avec <span class="math inline">f(n) = 0</span> pour tout <span class="math inline">n \in \mathbb{N}</span>. Montrer que <span class="math inline">f = 0</span> sur <span class="math inline">\mathbb{C}</span>.</p>
 </div>
+<p><strong>Indication :</strong> Les zéros de <span class="math inline">f</span> ne sont pas isolés car <span class="math inline">\mathbb{N}</span> a un point d’accumulation en <span class="math inline">+\infty</span> (mais pas dans <span class="math inline">\mathbb{C}</span>). Utiliser le principe du prolongement analytique ou le principe des zéros isolés.</p>
 <section id="cours" class="level1 unnumbered">
 <h1 class="unnumbered">Cours</h1>
-<p><a href="../cours/tsi2-chap08.html"><strong>Chapitre 08 : Espaces probabilisés ; variables aléatoires réelles ; cas discret</strong></a></p>
+<p><a href="../td/mp-chap13.html"><strong>Chapitre 13 : Fonctions holomorphes</strong></a></p>
 </section>
 <section id="navigation" class="level1 unnumbered">
 <h1 class="unnumbered">Navigation</h1>
 <div class="chap-nav">
-<p><a href="../td/tsi2-chap07.html" class="prev">TD 07 : Séries entières</a> <a href="../td/tsi2.html" class="home">Menu TSI</a> <a href="../td/tsi2-chap09.html" class="next">TD 09 : Espaces préhilbertiens réels</a></p>
+<p><a href="../td/mp-chap12.html" class="prev">TD 12 : Équations différentielles linéaires</a> <a href="../td/mp.html" class="home">Menu MP</a></p>
 </div>
 
 

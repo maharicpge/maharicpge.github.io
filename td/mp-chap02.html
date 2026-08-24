@@ -1,13 +1,14 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr"><head>
 
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.10.18">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Saîd MAHARI">
 
-<title>Algèbre linéaire (compléments) - Mathématiques en CPGE – Mathématiques en CPGE</title>
+<title>TD — Espaces vectoriels normés – Mathématiques en CPGE</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -45,7 +46,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-7a8c080b55ea27eb37b467515007f9ee.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-e0d9a45d84245cc5e3b300860d8fa645.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -60,22 +61,66 @@ ul.task-list li input[type="checkbox"] {
   ],
   "show-item-context": false,
   "language": {
-    "search-no-results-text": "No results",
-    "search-matching-documents-text": "matching documents",
-    "search-copy-link-title": "Copy link to search",
-    "search-hide-matches-text": "Hide additional matches",
-    "search-more-match-text": "more match in this document",
-    "search-more-matches-text": "more matches in this document",
-    "search-clear-button-title": "Clear",
+    "search-no-results-text": "Pas de résultats",
+    "search-matching-documents-text": "documents trouvés",
+    "search-copy-link-title": "Copier le lien vers la recherche",
+    "search-hide-matches-text": "Cacher les correspondances additionnelles",
+    "search-more-match-text": "correspondance de plus dans ce document",
+    "search-more-matches-text": "correspondances de plus dans ce document",
+    "search-clear-button-title": "Effacer",
     "search-text-placeholder": "",
-    "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit",
-    "search-label": "Search"
+    "search-detached-cancel-button-title": "Annuler",
+    "search-submit-button-title": "Envoyer",
+    "search-label": "Recherche"
   }
 }</script>
 
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="styles.css">
 </head>
 
 <body class="nav-fixed quarto-light">
@@ -89,8 +134,8 @@ ul.task-list li input[type="checkbox"] {
     <span class="navbar-title">Accueil</span>
     </a>
   </div>
-            <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+            <div id="quarto-search" class="" title="Recherche"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Basculer la navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
@@ -140,10 +185,11 @@ ul.task-list li input[type="checkbox"] {
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
+    <h2 id="toc-title">Sur cette page</h2>
    
   <ul>
-  <li><a href="#document" id="toc-document" class="nav-link active" data-scroll-target="#document">Document</a></li>
+  <li><a href="#cours" id="toc-cours" class="nav-link active" data-scroll-target="#cours">Cours</a></li>
+  <li><a href="#navigation" id="toc-navigation" class="nav-link" data-scroll-target="#navigation">Navigation</a></li>
   </ul>
 </nav>
     </div>
@@ -152,14 +198,27 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Chapitre 02 : Algèbre linéaire (compléments)</h1>
+<h1 class="title">TD — Espaces vectoriels normés</h1>
+<p class="subtitle lead">Chapitre 02</p>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Auteur·rice</div>
+    <div class="quarto-title-meta-contents">
+             <p>Saîd MAHARI </p>
+          </div>
+  </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">Date de publication</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">23 août 2026</p>
+    </div>
+  </div>
   
     
   </div>
@@ -169,10 +228,68 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p><strong>MP (2e année) — Chapitre 02.</strong> Sous-espaces stables, projecteurs, traces, dualité.</p>
-<section id="document" class="level2">
-<h2 class="anchored" data-anchor-id="document">Document</h2>
-<p><em>PDF à venir : déposez le fichier <code>files/mp/chap02.pdf</code> puis régénérez la page.</em></p>
+<p><strong>MP (2e année) — TD du Chapitre 02.</strong> Normes et EVN, suites d’éléments d’un EVN, topologie d’un EVN, comparaison des normes, étude locale d’une application, parties compactes, parties connexes par arcs, EVN de dimension finie, suites de Cauchy.</p>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 1</strong></p>
+<p>Montrer que les applications suivantes définissent des normes sur <span class="math inline">\mathbb{R}^n</span> :</p>
+<ol type="1">
+<li><span class="math inline">\|x\|_1 = \sum_{k=1}^n |x_k|</span></li>
+<li><span class="math inline">\|x\|_2 = \sqrt{\sum_{k=1}^n x_k^2}</span></li>
+<li><span class="math inline">\|x\|_\infty = \max_{1 \leq k \leq n} |x_k|</span></li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 2</strong></p>
+<p>Soit <span class="math inline">(E, \|\cdot\|)</span> un EVN et <span class="math inline">(u_n)</span> une suite convergente de limite <span class="math inline">l</span>. Montrer que :</p>
+<ol type="1">
+<li><span class="math inline">\|u_n\| \to \|l\|</span>.</li>
+<li><span class="math inline">(u_n)</span> est bornée.</li>
+<li>La limite est unique.</li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 3</strong></p>
+<p>Montrer que dans un EVN, toute boule ouverte est un ouvert et toute boule fermée est un fermé.</p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 4</strong></p>
+<p>Soient <span class="math inline">\mathcal{N}_1</span> et <span class="math inline">\mathcal{N}_2</span> deux normes sur un espace vectoriel <span class="math inline">E</span>. Montrer que <span class="math inline">\mathcal{N}_1</span> et <span class="math inline">\mathcal{N}_2</span> sont équivalentes si et seulement s’il existe <span class="math inline">a, b &gt; 0</span> tels que : <span class="math display">\forall x \in E,\quad a\,\mathcal{N}_1(x) \leq \mathcal{N}_2(x) \leq b\,\mathcal{N}_1(x)</span></p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 5</strong></p>
+<p>Montrer que sur <span class="math inline">\mathbb{R}[X]</span>, les normes <span class="math inline">\|P\|_\infty = \max_k |a_k|</span> et <span class="math inline">\|P\|_1 = \sum_k |a_k|</span> ne sont pas équivalentes.</p>
+</div>
+<p><strong>Indication :</strong> Prendre <span class="math inline">P_n = X^n</span>. On a <span class="math inline">\|P_n\|_\infty = 1</span> et <span class="math inline">\|P_n\|_1 = 1</span>, mais considérer <span class="math inline">Q_n = 1 + X + \cdots + X^n</span>.</p>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 6</strong></p>
+<p>Soit <span class="math inline">f : E \to F</span> une application entre deux EVN. Montrer que <span class="math inline">f</span> est continue en <span class="math inline">a</span> si et seulement si pour toute suite <span class="math inline">(x_n)</span> convergeant vers <span class="math inline">a</span>, <span class="math inline">(f(x_n))</span> converge vers <span class="math inline">f(a)</span>.</p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 7</strong></p>
+<p>Soit <span class="math inline">K</span> une partie compacte d’un EVN et <span class="math inline">f : K \to \mathbb{R}</span> continue. Montrer que <span class="math inline">f</span> est bornée et atteint ses bornes.</p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 8</strong></p>
+<p>Montrer que dans un EVN de dimension finie, toute partie fermée et bornée est compacte.</p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 9</strong></p>
+<p>Montrer que toute partie convexe d’un EVN est connexe par arcs.</p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 10</strong></p>
+<p>Soit <span class="math inline">(E, \|\cdot\|)</span> un EVN et <span class="math inline">(u_n)</span> une suite de Cauchy. Montrer que <span class="math inline">(u_n)</span> est bornée.</p>
+</div>
+<p><strong>Indication :</strong> Il existe <span class="math inline">N</span> tel que pour <span class="math inline">p, q \geq N</span>, <span class="math inline">\|u_p - u_q\| &lt; 1</span>. Donc pour <span class="math inline">n \geq N</span>, <span class="math inline">\|u_n\| \leq \|u_N\| + 1</span>.</p>
+<section id="cours" class="level1 unnumbered">
+<h1 class="unnumbered">Cours</h1>
+<p><a href="../td/mp-chap02.html"><strong>Chapitre 02 : Espaces vectoriels normés</strong></a></p>
+</section>
+<section id="navigation" class="level1 unnumbered">
+<h1 class="unnumbered">Navigation</h1>
+<div class="chap-nav">
+<p><a href="../td/mp-chap01.html" class="prev">TD 01 : Structures algébriques</a> <a href="../td/mp.html" class="home">Menu MP</a> <a href="../td/mp-chap03.html" class="next">TD 03 : Réduction des endomorphismes</a></p>
+</div>
 
 
 </section>
@@ -222,12 +339,12 @@ ul.task-list li input[type="checkbox"] {
       // flash "checked"
       button.classList.add('code-copy-button-checked');
       var currentTitle = button.getAttribute("title");
-      button.setAttribute("title", "Copied!");
+      button.setAttribute("title", "Copié");
       let tooltip;
       if (window.bootstrap) {
         button.setAttribute("data-bs-toggle", "tooltip");
         button.setAttribute("data-bs-placement", "left");
-        button.setAttribute("data-bs-title", "Copied!");
+        button.setAttribute("data-bs-title", "Copié");
         tooltip = new bootstrap.Tooltip(button, 
           { trigger: "manual", 
             customClass: "code-copy-button-tooltip",

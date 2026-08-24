@@ -1,13 +1,14 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr"><head>
 
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.10.18">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Saîd MAHARI">
 
-<title>Fonctions d’une variable réelle - Mathématiques en CPGE – Mathématiques en CPGE</title>
+<title>TD — Nombres complexes : calculs algébriques et applications géométriques – Mathématiques en CPGE</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -45,7 +46,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-7a8c080b55ea27eb37b467515007f9ee.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-e0d9a45d84245cc5e3b300860d8fa645.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -60,22 +61,66 @@ ul.task-list li input[type="checkbox"] {
   ],
   "show-item-context": false,
   "language": {
-    "search-no-results-text": "No results",
-    "search-matching-documents-text": "matching documents",
-    "search-copy-link-title": "Copy link to search",
-    "search-hide-matches-text": "Hide additional matches",
-    "search-more-match-text": "more match in this document",
-    "search-more-matches-text": "more matches in this document",
-    "search-clear-button-title": "Clear",
+    "search-no-results-text": "Pas de résultats",
+    "search-matching-documents-text": "documents trouvés",
+    "search-copy-link-title": "Copier le lien vers la recherche",
+    "search-hide-matches-text": "Cacher les correspondances additionnelles",
+    "search-more-match-text": "correspondance de plus dans ce document",
+    "search-more-matches-text": "correspondances de plus dans ce document",
+    "search-clear-button-title": "Effacer",
     "search-text-placeholder": "",
-    "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit",
-    "search-label": "Search"
+    "search-detached-cancel-button-title": "Annuler",
+    "search-submit-button-title": "Envoyer",
+    "search-label": "Recherche"
   }
 }</script>
 
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="styles.css">
 </head>
 
 <body class="nav-fixed quarto-light">
@@ -89,8 +134,8 @@ ul.task-list li input[type="checkbox"] {
     <span class="navbar-title">Accueil</span>
     </a>
   </div>
-            <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+            <div id="quarto-search" class="" title="Recherche"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Basculer la navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
@@ -140,10 +185,11 @@ ul.task-list li input[type="checkbox"] {
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
+    <h2 id="toc-title">Sur cette page</h2>
    
   <ul>
-  <li><a href="#document" id="toc-document" class="nav-link active" data-scroll-target="#document">Document</a></li>
+  <li><a href="#cours" id="toc-cours" class="nav-link active" data-scroll-target="#cours">Cours</a></li>
+  <li><a href="#navigation" id="toc-navigation" class="nav-link" data-scroll-target="#navigation">Navigation</a></li>
   </ul>
 </nav>
     </div>
@@ -152,14 +198,27 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Chapitre 02 : Fonctions d’une variable réelle</h1>
+<h1 class="title">TD — Nombres complexes : calculs algébriques et applications géométriques</h1>
+<p class="subtitle lead">Chapitre 02</p>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Auteur·rice</div>
+    <div class="quarto-title-meta-contents">
+             <p>Saîd MAHARI </p>
+          </div>
+  </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">Date de publication</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">23 août 2026</p>
+    </div>
+  </div>
   
     
   </div>
@@ -169,10 +228,98 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p><strong>TSI 1re année — Chapitre 02.</strong> Limites, continuité, dérivation, étude de fonctions.</p>
-<section id="document" class="level2">
-<h2 class="anchored" data-anchor-id="document">Document</h2>
-<p><em>PDF à venir : déposez le fichier <code>files/tsi1/chap02.pdf</code> puis régénérez la page.</em></p>
+<p><strong>TSI (1re année) — TD du Chapitre 02.</strong> Forme algébrique, conjugaison, module, arguments, forme trigonométrique, exponentielle complexe, trigonométrie, équations du second degré, racines <span class="math inline">n</span>-ièmes, interprétation géométrique.</p>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 1</strong></p>
+<p>Mettre sous forme algébrique <span class="math inline">a + ib</span> :</p>
+<ol type="1">
+<li><span class="math inline">(2+3i)(1-i)</span></li>
+<li><span class="math inline">\dfrac{1+i}{1-i}</span></li>
+<li><span class="math inline">(1+i)^{10}</span></li>
+<li><span class="math inline">\left(\dfrac{1+i\sqrt{3}}{1-i}\right)^6</span></li>
+</ol>
+</div>
+<p><strong>Indications :</strong> - (3) <span class="math inline">(1+i)^2 = 2i</span>, donc <span class="math inline">(1+i)^{10} = (2i)^5 = 32i</span>. - (4) Mettre numérateur et dénominateur sous forme exponentielle.</p>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 2</strong></p>
+<p>Déterminer le module et un argument de :</p>
+<ol type="1">
+<li><span class="math inline">z_1 = 1+i</span></li>
+<li><span class="math inline">z_2 = -1+i\sqrt{3}</span></li>
+<li><span class="math inline">z_3 = \dfrac{1+i}{1-i}</span></li>
+<li><span class="math inline">z_4 = (1+i)^n</span> pour <span class="math inline">n \in \mathbb{N}</span></li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 3</strong></p>
+<p>Résoudre dans <span class="math inline">\mathbb{C}</span> les équations :</p>
+<ol type="1">
+<li><span class="math inline">z^2 + 1 = 0</span></li>
+<li><span class="math inline">z^2 - 4z + 5 = 0</span></li>
+<li><span class="math inline">z^2 + (2-3i)z + 5 - i = 0</span></li>
+</ol>
+</div>
+<p><strong>Indications :</strong> - (2) <span class="math inline">\Delta = 16 - 20 = -4</span>, donc <span class="math inline">z = 2 \pm i</span>. - (3) Chercher une racine évidente (essayer <span class="math inline">z = i</span>, <span class="math inline">z = 1+i</span>, etc.).</p>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 4</strong></p>
+<p>Résoudre dans <span class="math inline">\mathbb{C}</span> :</p>
+<ol type="1">
+<li><span class="math inline">z^4 + z^2 + 1 = 0</span></li>
+<li><span class="math inline">z^3 = 1</span></li>
+<li><span class="math inline">z^4 = -1</span></li>
+<li><span class="math inline">z^5 = 1 + i</span></li>
+</ol>
+</div>
+<p><strong>Indications :</strong> - (1) Poser <span class="math inline">Z = z^2</span> et résoudre <span class="math inline">Z^2 + Z + 1 = 0</span>. - (3) <span class="math inline">-1 = e^{i\pi}</span>, solutions <span class="math inline">e^{i(\pi+2k\pi)/4}</span>.</p>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 5</strong></p>
+<p>Déterminer les racines <span class="math inline">n</span>-ièmes de l’unité pour <span class="math inline">n = 3</span>, <span class="math inline">n = 4</span> et <span class="math inline">n = 6</span>. Les placer dans le plan complexe.</p>
+</div>
+<p><strong>Indication :</strong> Les racines <span class="math inline">n</span>-ièmes de l’unité sont <span class="math inline">e^{2ik\pi/n}</span> pour <span class="math inline">k = 0, 1, \ldots, n-1</span>.</p>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 6</strong></p>
+<p>Montrer les formules d’Euler et de Moivre :</p>
+<ol type="1">
+<li><span class="math inline">\cos\theta = \dfrac{e^{i\theta}+e^{-i\theta}}{2}</span>, <span class="math inline">\quad \sin\theta = \dfrac{e^{i\theta}-e^{-i\theta}}{2i}</span></li>
+<li><span class="math inline">\cos^2\theta = \dfrac{1+\cos 2\theta}{2}</span>, <span class="math inline">\quad \sin^2\theta = \dfrac{1-\cos 2\theta}{2}</span></li>
+<li><span class="math inline">\cos 3\theta = 4\cos^3\theta - 3\cos\theta</span></li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 7</strong></p>
+<p>Soit <span class="math inline">z \in \mathbb{C}</span> avec <span class="math inline">|z| = 1</span>. Montrer que <span class="math inline">z + \dfrac{1}{z} \in \mathbb{R}</span>.</p>
+</div>
+<p><strong>Indication :</strong> <span class="math inline">|z|=1</span> implique <span class="math inline">\frac{1}{z} = \bar{z}</span>, donc <span class="math inline">z + \frac{1}{z} = z + \bar{z} = 2\operatorname{Re}(z)</span>.</p>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 8</strong></p>
+<p>Montrer que la somme des racines <span class="math inline">n</span>-ièmes de l’unité est nulle : <span class="math display">1 + e^{2i\pi/n} + e^{4i\pi/n} + \cdots + e^{2i(n-1)\pi/n} = 0</span></p>
+</div>
+<p><strong>Indication :</strong> Somme géométrique de raison <span class="math inline">e^{2i\pi/n} \neq 1</span>.</p>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 9</strong></p>
+<p>Interpréter géométriquement les ensembles suivants :</p>
+<ol type="1">
+<li><span class="math inline">\{z \in \mathbb{C} \mid |z-1| = |z+1|\}</span></li>
+<li><span class="math inline">\{z \in \mathbb{C} \mid |z-i| \leq 2\}</span></li>
+<li><span class="math inline">\{z \in \mathbb{C} \mid \operatorname{Re}(z) &gt; 0\}</span></li>
+<li><span class="math inline">\{z \in \mathbb{C} \mid |z-1| + |z+1| = 4\}</span></li>
+</ol>
+</div>
+<p><strong>Indications :</strong> - (1) Médiatrice du segment joignant <span class="math inline">1</span> et <span class="math inline">-1</span> : l’axe imaginaire. - (2) Disque fermé de centre <span class="math inline">i</span> et de rayon <span class="math inline">2</span>. - (4) Ellipse de foyers <span class="math inline">1</span> et <span class="math inline">-1</span>.</p>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 10</strong></p>
+<p>Soit <span class="math inline">ABC</span> un triangle équilatéral dans le plan complexe avec <span class="math inline">A</span> d’affixe <span class="math inline">0</span> et <span class="math inline">B</span> d’affixe <span class="math inline">1</span>. Déterminer les affixes possibles de <span class="math inline">C</span>.</p>
+</div>
+<p><strong>Indication :</strong> <span class="math inline">C</span> est l’image de <span class="math inline">B</span> par la rotation de centre <span class="math inline">A</span> et d’angle <span class="math inline">\pm \pi/3</span>. Donc <span class="math inline">C = e^{\pm i\pi/3}</span>.</p>
+<section id="cours" class="level1 unnumbered">
+<h1 class="unnumbered">Cours</h1>
+<p><a href="../td/tsi1-chap02.html"><strong>Chapitre 02 : Nombres complexes : calculs algébriques et applications géométriques</strong></a></p>
+</section>
+<section id="navigation" class="level1 unnumbered">
+<h1 class="unnumbered">Navigation</h1>
+<div class="chap-nav">
+<p><a href="../cours/tsi1-chap01.html" class="prev">TD 01 : Vocabulaire ensembliste</a> <a href="../td/tsi1.html" class="home">Menu TSI1</a> <a href="../td/tsi1-chap03.html" class="next">TD 03 : Compléments de calcul algébrique</a></p>
+</div>
 
 
 </section>
@@ -222,12 +369,12 @@ ul.task-list li input[type="checkbox"] {
       // flash "checked"
       button.classList.add('code-copy-button-checked');
       var currentTitle = button.getAttribute("title");
-      button.setAttribute("title", "Copied!");
+      button.setAttribute("title", "Copié");
       let tooltip;
       if (window.bootstrap) {
         button.setAttribute("data-bs-toggle", "tooltip");
         button.setAttribute("data-bs-placement", "left");
-        button.setAttribute("data-bs-title", "Copied!");
+        button.setAttribute("data-bs-title", "Copié");
         tooltip = new bootstrap.Tooltip(button, 
           { trigger: "manual", 
             customClass: "code-copy-button-tooltip",

@@ -8,7 +8,7 @@
 
 <meta name="author" content="Saîd MAHARI">
 
-<title>TD — Espaces probabilisés ; variables aléatoires réelles ; cas discret – Mathématiques en CPGE</title>
+<title>TD — Séries de Fourier – Mathématiques en CPGE</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -198,8 +198,8 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">TD — Espaces probabilisés ; variables aléatoires réelles ; cas discret</h1>
-<p class="subtitle lead">Chapitre 08</p>
+<h1 class="title">TD — Séries de Fourier</h1>
+<p class="subtitle lead">Chapitre 10</p>
 </div>
 
 
@@ -228,70 +228,58 @@ window.Quarto = {
 </header>
 
 
-<p><strong>TSI (2e année) — TD du Chapitre 08.</strong> Tribus, espaces probabilisés, variables aléatoires et lois, variables aléatoires discrètes, espérance et moments, fonctions génératrices, inégalités (Markov, Bienaymé-Tchebychev, Jensen), convergence en probabilité et en loi, loi faible des grands nombres.</p>
+<p><strong>TSI (2e année) — TD du Chapitre 10.</strong> Fonctions définies par morceaux, coefficients et séries de Fourier, théorème de Parseval, théorème de Dirichlet, interprétations en sciences physiques et industrielles.</p>
 <div class="custom-numbered-block custom-exercise">
 <p><strong>Exercice 1</strong></p>
-<p>Soit <span class="math inline">\Omega</span> un ensemble fini. Montrer que <span class="math inline">\mathcal{P}(\Omega)</span> est une tribu sur <span class="math inline">\Omega</span>.</p>
+<p>Soit <span class="math inline">f : \mathbb{R} \to \mathbb{R}</span> une fonction <span class="math inline">T</span>-périodique continue par morceaux. Montrer que l’ensemble des fonctions <span class="math inline">T</span>-périodiques continues par morceaux forme un espace vectoriel.</p>
 </div>
 <div class="custom-numbered-block custom-exercise">
 <p><strong>Exercice 2</strong></p>
-<p>On lance deux dés équilibrés. Calculer :</p>
-<ol type="1">
-<li><span class="math inline">P(\text{somme} = 7)</span></li>
-<li><span class="math inline">P(\text{deux } 6)</span></li>
-<li><span class="math inline">P(\text{au moins un } 6)</span></li>
-</ol>
+<p>Soit <span class="math inline">f</span> une fonction <span class="math inline">T</span>-périodique. Montrer que : <span class="math display">\frac{1}{T}\int_{-T/2}^{T/2} f(t)\, dt = \frac{1}{T}\int_{\alpha}^{\alpha+T} f(t)\, dt</span> pour tout <span class="math inline">\alpha \in \mathbb{R}</span>.</p>
 </div>
 <div class="custom-numbered-block custom-exercise">
 <p><strong>Exercice 3</strong></p>
-<p>Une urne contient 5 boules rouges et 3 noires. On tire 2 boules sans remise.</p>
-<ol type="1">
-<li><span class="math inline">P(\text{2 rouges})</span></li>
-<li><span class="math inline">P(\text{rouge puis noire})</span></li>
-<li><span class="math inline">P(\text{au moins une rouge})</span></li>
-</ol>
+<p>Calculer les coefficients de Fourier de la fonction <span class="math inline">f(t) = t</span> sur <span class="math inline">[-\pi, \pi]</span> (prolongée par <span class="math inline">2\pi</span>-périodicité).</p>
 </div>
+<p><strong>Indication :</strong> <span class="math inline">f</span> est impaire, donc <span class="math inline">a_n = 0</span>. Calculer <span class="math inline">b_n = \frac{2}{\pi}\int_0^\pi t \sin(nt)\, dt</span>.</p>
 <div class="custom-numbered-block custom-exercise">
 <p><strong>Exercice 4</strong></p>
-<p>Une maladie touche 1% de la population. Un test a une sensibilité de 0,95 et une spécificité de 0,95. Calculer <span class="math inline">P(\text{malade} \mid \text{test positif})</span>.</p>
+<p>Calculer les coefficients de Fourier de la fonction créneau : <span class="math display">f(t) = \begin{cases} 1 &amp; \text{si } 0 &lt; t &lt; \pi \\ -1 &amp; \text{si } -\pi &lt; t &lt; 0 \end{cases}</span></p>
 </div>
-<p><strong>Indication :</strong> Bayes.</p>
 <div class="custom-numbered-block custom-exercise">
 <p><strong>Exercice 5</strong></p>
-<p>Soit <span class="math inline">X \hookrightarrow \mathcal{B}(n,p)</span>. Montrer que <span class="math inline">E(X) = np</span> et <span class="math inline">V(X) = np(1-p)</span>.</p>
+<p>Énoncer le théorème de Dirichlet : si <span class="math inline">f</span> est <span class="math inline">T</span>-périodique, continue par morceaux et de classe <span class="math inline">\mathcal{C}^1</span> par morceaux, alors la série de Fourier de <span class="math inline">f</span> converge en tout point <span class="math inline">t</span> vers <span class="math inline">\frac{f(t^+) + f(t^-)}{2}</span>.</p>
 </div>
 <div class="custom-numbered-block custom-exercise">
 <p><strong>Exercice 6</strong></p>
-<p>Soit <span class="math inline">X \hookrightarrow \mathcal{P}(\lambda)</span>.</p>
-<ol type="1">
-<li>Déterminer la fonction génératrice <span class="math inline">G_X(s)</span>.</li>
-<li>En déduire <span class="math inline">E(X)</span> et <span class="math inline">V(X)</span>.</li>
-</ol>
+<p>Énoncer et démontrer le théorème de Parseval : <span class="math display">\frac{1}{T}\int_{-T/2}^{T/2} |f(t)|^2\, dt = |a_0|^2 + \frac{1}{2}\sum_{n=1}^{+\infty}(|a_n|^2 + |b_n|^2)</span></p>
 </div>
 <div class="custom-numbered-block custom-exercise">
 <p><strong>Exercice 7</strong></p>
-<p>Soit <span class="math inline">X</span> une variable aléatoire positive admettant une espérance. Montrer l’inégalité de Markov : <span class="math inline">P(X \geq a) \leq \frac{E(X)}{a}</span> pour tout <span class="math inline">a &gt; 0</span>.</p>
+<p>En utilisant le théorème de Parseval pour <span class="math inline">f(t) = t</span> sur <span class="math inline">[-\pi, \pi]</span>, calculer <span class="math inline">\sum_{n=1}^{+\infty} \frac{1}{n^2}</span>.</p>
 </div>
+<p><strong>Indication :</strong> On doit trouver <span class="math inline">\sum_{n=1}^{+\infty} \frac{1}{n^2} = \frac{\pi^2}{6}</span>.</p>
 <div class="custom-numbered-block custom-exercise">
 <p><strong>Exercice 8</strong></p>
-<p>Soit <span class="math inline">X</span> une variable aléatoire admettant une variance. Montrer l’inégalité de Bienaymé-Tchebychev : <span class="math display">P(|X - E(X)| \geq \varepsilon) \leq \frac{V(X)}{\varepsilon^2}</span></p>
+<p>En utilisant la série de Fourier de la fonction créneau, calculer <span class="math inline">\sum_{n=0}^{+\infty} \frac{(-1)^n}{2n+1}</span>.</p>
 </div>
+<p><strong>Indication :</strong> On doit trouver <span class="math inline">\frac{\pi}{4}</span>.</p>
 <div class="custom-numbered-block custom-exercise">
 <p><strong>Exercice 9</strong></p>
-<p>Soit <span class="math inline">(X_n)</span> une suite de variables aléatoires mutuellement indépendantes de même loi admettant un moment d’ordre 2. Montrer la loi faible des grands nombres : <span class="math display">\frac{1}{n}\sum_{k=1}^n X_k \xrightarrow{P} E(X_1)</span></p>
+<p>Soit <span class="math inline">f</span> une fonction <span class="math inline">T</span>-périodique de classe <span class="math inline">\mathcal{C}^1</span> par morceaux. Montrer que la série de Fourier de <span class="math inline">f</span> converge uniformément vers <span class="math inline">f</span> si <span class="math inline">f</span> est continue.</p>
 </div>
 <div class="custom-numbered-block custom-exercise">
 <p><strong>Exercice 10</strong></p>
-<p>Soient <span class="math inline">X</span> et <span class="math inline">Y</span> indépendantes avec <span class="math inline">X \hookrightarrow \mathcal{P}(\lambda_1)</span> et <span class="math inline">Y \hookrightarrow \mathcal{P}(\lambda_2)</span>. Montrer que <span class="math inline">X+Y \hookrightarrow \mathcal{P}(\lambda_1 + \lambda_2)</span>.</p>
+<p>Interpréter le théorème de Parseval en termes de puissance moyenne d’un signal périodique en physique.</p>
 </div>
 <section id="cours" class="level1 unnumbered">
 <h1 class="unnumbered">Cours</h1>
-<p><a href="../cours/tsi2-chap08.html"><strong>Chapitre 08 : Espaces probabilisés ; variables aléatoires réelles ; cas discret</strong></a></p>
+<p><a href="../cours/tsi2-chap10.html"><strong>Chapitre 10 : Séries de Fourier</strong></a></p>
 </section>
 <section id="navigation" class="level1 unnumbered">
 <h1 class="unnumbered">Navigation</h1>
 <div class="chap-nav">
-<p><a href="../td/tsi2-chap07.html" class="prev">TD 07 : Séries entières</a> <a href="../td/tsi2.html" class="home">Menu TSI</a> <a href="../td/tsi2-chap09.html" class="next">TD 09 : Espaces préhilbertiens réels</a></p>
+<p><a href="../td/tsi2-chap09.html" class="prev">TD 09 : Espaces préhilbertiens réels</a> <a href="../td/tsi2.html" class="home">Menu TSI</a> <a href="../td/tsi2-chap11.html" class="next">TD 11 : Équations différentielles linéaires</a></p>
 </div>
 
 

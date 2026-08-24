@@ -8,7 +8,7 @@
 
 <meta name="author" content="Saîd MAHARI">
 
-<title>TD — Espaces probabilisés ; variables aléatoires réelles ; cas discret – Mathématiques en CPGE</title>
+<title>TD — Représentations matricielles – Mathématiques en CPGE</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -198,8 +198,8 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">TD — Espaces probabilisés ; variables aléatoires réelles ; cas discret</h1>
-<p class="subtitle lead">Chapitre 08</p>
+<h1 class="title">TD — Représentations matricielles</h1>
+<p class="subtitle lead">Chapitre 15</p>
 </div>
 
 
@@ -228,70 +228,63 @@ window.Quarto = {
 </header>
 
 
-<p><strong>TSI (2e année) — TD du Chapitre 08.</strong> Tribus, espaces probabilisés, variables aléatoires et lois, variables aléatoires discrètes, espérance et moments, fonctions génératrices, inégalités (Markov, Bienaymé-Tchebychev, Jensen), convergence en probabilité et en loi, loi faible des grands nombres.</p>
+<p><strong>TSI (1re année) — TD du Chapitre 15.</strong> Matrice d’une application linéaire, changements de bases, matrices semblables, rang d’une matrice, retour sur les systèmes linéaires.</p>
 <div class="custom-numbered-block custom-exercise">
 <p><strong>Exercice 1</strong></p>
-<p>Soit <span class="math inline">\Omega</span> un ensemble fini. Montrer que <span class="math inline">\mathcal{P}(\Omega)</span> est une tribu sur <span class="math inline">\Omega</span>.</p>
+<p>Soit <span class="math inline">f : \mathbb{R}^2 \to \mathbb{R}^2</span>, <span class="math inline">f(x,y) = (x+y, x-y)</span>.</p>
+<ol type="1">
+<li>Déterminer la matrice de <span class="math inline">f</span> dans la base canonique.</li>
+<li>Soit <span class="math inline">\mathcal{B}' = ((1,1),(1,-1))</span>. Déterminer la matrice de <span class="math inline">f</span> dans <span class="math inline">\mathcal{B}'</span>.</li>
+</ol>
 </div>
 <div class="custom-numbered-block custom-exercise">
 <p><strong>Exercice 2</strong></p>
-<p>On lance deux dés équilibrés. Calculer :</p>
+<p>Soient <span class="math inline">\mathcal{B} = (e_1, e_2, e_3)</span> la base canonique de <span class="math inline">\mathbb{R}^3</span> et <span class="math inline">\mathcal{B}' = (e_1, e_1+e_2, e_1+e_2+e_3)</span>.</p>
 <ol type="1">
-<li><span class="math inline">P(\text{somme} = 7)</span></li>
-<li><span class="math inline">P(\text{deux } 6)</span></li>
-<li><span class="math inline">P(\text{au moins un } 6)</span></li>
+<li>Déterminer la matrice de passage <span class="math inline">P</span> de <span class="math inline">\mathcal{B}</span> à <span class="math inline">\mathcal{B}'</span>.</li>
+<li>Déterminer <span class="math inline">P^{-1}</span>.</li>
 </ol>
 </div>
 <div class="custom-numbered-block custom-exercise">
 <p><strong>Exercice 3</strong></p>
-<p>Une urne contient 5 boules rouges et 3 noires. On tire 2 boules sans remise.</p>
-<ol type="1">
-<li><span class="math inline">P(\text{2 rouges})</span></li>
-<li><span class="math inline">P(\text{rouge puis noire})</span></li>
-<li><span class="math inline">P(\text{au moins une rouge})</span></li>
-</ol>
+<p>Montrer que deux matrices semblables ont même rang.</p>
 </div>
 <div class="custom-numbered-block custom-exercise">
 <p><strong>Exercice 4</strong></p>
-<p>Une maladie touche 1% de la population. Un test a une sensibilité de 0,95 et une spécificité de 0,95. Calculer <span class="math inline">P(\text{malade} \mid \text{test positif})</span>.</p>
+<p>Soit <span class="math inline">A = \begin{pmatrix} 1 &amp; 2 &amp; 3 \\ 2 &amp; 5 &amp; 3 \\ 1 &amp; 0 &amp; 8 \end{pmatrix}</span>. Calculer <span class="math inline">A^{-1}</span> par Gauss-Jordan.</p>
 </div>
-<p><strong>Indication :</strong> Bayes.</p>
 <div class="custom-numbered-block custom-exercise">
 <p><strong>Exercice 5</strong></p>
-<p>Soit <span class="math inline">X \hookrightarrow \mathcal{B}(n,p)</span>. Montrer que <span class="math inline">E(X) = np</span> et <span class="math inline">V(X) = np(1-p)</span>.</p>
+<p>Résoudre le système : <span class="math display">\begin{cases} x + y + z = 6 \\ 2x - y + z = 3 \\ x + y - 2z = -1 \end{cases}</span> en utilisant la matrice inverse.</p>
 </div>
 <div class="custom-numbered-block custom-exercise">
 <p><strong>Exercice 6</strong></p>
-<p>Soit <span class="math inline">X \hookrightarrow \mathcal{P}(\lambda)</span>.</p>
-<ol type="1">
-<li>Déterminer la fonction génératrice <span class="math inline">G_X(s)</span>.</li>
-<li>En déduire <span class="math inline">E(X)</span> et <span class="math inline">V(X)</span>.</li>
-</ol>
+<p>Soit <span class="math inline">A \in \mathcal{M}_{n,p}(\mathbb{R})</span>. Montrer que <span class="math inline">\mathrm{rg}(A) = \mathrm{rg}(A^T)</span>.</p>
 </div>
 <div class="custom-numbered-block custom-exercise">
 <p><strong>Exercice 7</strong></p>
-<p>Soit <span class="math inline">X</span> une variable aléatoire positive admettant une espérance. Montrer l’inégalité de Markov : <span class="math inline">P(X \geq a) \leq \frac{E(X)}{a}</span> pour tout <span class="math inline">a &gt; 0</span>.</p>
+<p>Soit <span class="math inline">f : \mathbb{R}^3 \to \mathbb{R}^2</span>, <span class="math inline">f(x,y,z) = (x+y, y-z)</span>. Déterminer <span class="math inline">\mathrm{rg}(f)</span> et vérifier le théorème du rang.</p>
 </div>
 <div class="custom-numbered-block custom-exercise">
 <p><strong>Exercice 8</strong></p>
-<p>Soit <span class="math inline">X</span> une variable aléatoire admettant une variance. Montrer l’inégalité de Bienaymé-Tchebychev : <span class="math display">P(|X - E(X)| \geq \varepsilon) \leq \frac{V(X)}{\varepsilon^2}</span></p>
+<p>Soit <span class="math inline">A \in \mathcal{M}_n(\mathbb{R})</span> inversible. Montrer que <span class="math inline">\mathrm{rg}(AB) = \mathrm{rg}(B)</span> pour toute matrice <span class="math inline">B</span>.</p>
 </div>
 <div class="custom-numbered-block custom-exercise">
 <p><strong>Exercice 9</strong></p>
-<p>Soit <span class="math inline">(X_n)</span> une suite de variables aléatoires mutuellement indépendantes de même loi admettant un moment d’ordre 2. Montrer la loi faible des grands nombres : <span class="math display">\frac{1}{n}\sum_{k=1}^n X_k \xrightarrow{P} E(X_1)</span></p>
+<p>Soit <span class="math inline">A = \begin{pmatrix} 2 &amp; 1 \\ 0 &amp; 2 \end{pmatrix}</span>. Calculer <span class="math inline">A^n</span> pour tout <span class="math inline">n \in \mathbb{N}</span>.</p>
 </div>
 <div class="custom-numbered-block custom-exercise">
 <p><strong>Exercice 10</strong></p>
-<p>Soient <span class="math inline">X</span> et <span class="math inline">Y</span> indépendantes avec <span class="math inline">X \hookrightarrow \mathcal{P}(\lambda_1)</span> et <span class="math inline">Y \hookrightarrow \mathcal{P}(\lambda_2)</span>. Montrer que <span class="math inline">X+Y \hookrightarrow \mathcal{P}(\lambda_1 + \lambda_2)</span>.</p>
+<p>Soient <span class="math inline">A, B \in \mathcal{M}_n(\mathbb{R})</span> semblables. Montrer que <span class="math inline">\det(A) = \det(B)</span> et <span class="math inline">\mathrm{tr}(A) = \mathrm{tr}(B)</span>.</p>
 </div>
 <section id="cours" class="level1 unnumbered">
 <h1 class="unnumbered">Cours</h1>
-<p><a href="../cours/tsi2-chap08.html"><strong>Chapitre 08 : Espaces probabilisés ; variables aléatoires réelles ; cas discret</strong></a></p>
+<p><a href="../cours/tsi1-chap15.html"><strong>Chapitre 15 : Représentations matricielles</strong></a></p>
 </section>
 <section id="navigation" class="level1 unnumbered">
 <h1 class="unnumbered">Navigation</h1>
 <div class="chap-nav">
-<p><a href="../td/tsi2-chap07.html" class="prev">TD 07 : Séries entières</a> <a href="../td/tsi2.html" class="home">Menu TSI</a> <a href="../td/tsi2-chap09.html" class="next">TD 09 : Espaces préhilbertiens réels</a></p>
+<p><a href="../td/tsi1-chap14.html" class="prev">TD 14 : Applications linéaires</a> <a href="../td/tsi1.html" class="home">Menu TSI1</a> <a href="../td/tsi1-chap16.html" class="next">TD 16 : Intégration des fonctions continues sur un segment</a></p>
 </div>
 
 

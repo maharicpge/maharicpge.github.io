@@ -8,7 +8,7 @@
 
 <meta name="author" content="Saîd MAHARI">
 
-<title>TD — Espaces probabilisés ; variables aléatoires réelles ; cas discret – Mathématiques en CPGE</title>
+<title>TD — Probabilités – Mathématiques en CPGE</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -198,8 +198,8 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">TD — Espaces probabilisés ; variables aléatoires réelles ; cas discret</h1>
-<p class="subtitle lead">Chapitre 08</p>
+<h1 class="title">TD — Probabilités</h1>
+<p class="subtitle lead">Chapitre 10</p>
 </div>
 
 
@@ -228,40 +228,17 @@ window.Quarto = {
 </header>
 
 
-<p><strong>TSI (2e année) — TD du Chapitre 08.</strong> Tribus, espaces probabilisés, variables aléatoires et lois, variables aléatoires discrètes, espérance et moments, fonctions génératrices, inégalités (Markov, Bienaymé-Tchebychev, Jensen), convergence en probabilité et en loi, loi faible des grands nombres.</p>
+<p><strong>PSI (2e année) — TD du Chapitre 10.</strong> Ensembles dénombrables et familles sommables, espaces probabilisés, variables aléatoires et lois (discrètes et à densité), espérance et moments, fonctions génératrices, inégalités et théorèmes limites.</p>
 <div class="custom-numbered-block custom-exercise">
 <p><strong>Exercice 1</strong></p>
-<p>Soit <span class="math inline">\Omega</span> un ensemble fini. Montrer que <span class="math inline">\mathcal{P}(\Omega)</span> est une tribu sur <span class="math inline">\Omega</span>.</p>
+<p>Soit <span class="math inline">(u_i)_{i \in I}</span> une famille de nombres complexes indexée par un ensemble dénombrable. Montrer que la famille est sommable si et seulement si pour toute bijection <span class="math inline">\varphi : \mathbb{N} \to I</span>, la série <span class="math inline">\sum u_{\varphi(n)}</span> est absolument convergente.</p>
 </div>
 <div class="custom-numbered-block custom-exercise">
 <p><strong>Exercice 2</strong></p>
-<p>On lance deux dés équilibrés. Calculer :</p>
-<ol type="1">
-<li><span class="math inline">P(\text{somme} = 7)</span></li>
-<li><span class="math inline">P(\text{deux } 6)</span></li>
-<li><span class="math inline">P(\text{au moins un } 6)</span></li>
-</ol>
-</div>
-<div class="custom-numbered-block custom-exercise">
-<p><strong>Exercice 3</strong></p>
-<p>Une urne contient 5 boules rouges et 3 noires. On tire 2 boules sans remise.</p>
-<ol type="1">
-<li><span class="math inline">P(\text{2 rouges})</span></li>
-<li><span class="math inline">P(\text{rouge puis noire})</span></li>
-<li><span class="math inline">P(\text{au moins une rouge})</span></li>
-</ol>
-</div>
-<div class="custom-numbered-block custom-exercise">
-<p><strong>Exercice 4</strong></p>
-<p>Une maladie touche 1% de la population. Un test a une sensibilité de 0,95 et une spécificité de 0,95. Calculer <span class="math inline">P(\text{malade} \mid \text{test positif})</span>.</p>
-</div>
-<p><strong>Indication :</strong> Bayes.</p>
-<div class="custom-numbered-block custom-exercise">
-<p><strong>Exercice 5</strong></p>
 <p>Soit <span class="math inline">X \hookrightarrow \mathcal{B}(n,p)</span>. Montrer que <span class="math inline">E(X) = np</span> et <span class="math inline">V(X) = np(1-p)</span>.</p>
 </div>
 <div class="custom-numbered-block custom-exercise">
-<p><strong>Exercice 6</strong></p>
+<p><strong>Exercice 3</strong></p>
 <p>Soit <span class="math inline">X \hookrightarrow \mathcal{P}(\lambda)</span>.</p>
 <ol type="1">
 <li>Déterminer la fonction génératrice <span class="math inline">G_X(s)</span>.</li>
@@ -269,29 +246,41 @@ window.Quarto = {
 </ol>
 </div>
 <div class="custom-numbered-block custom-exercise">
-<p><strong>Exercice 7</strong></p>
-<p>Soit <span class="math inline">X</span> une variable aléatoire positive admettant une espérance. Montrer l’inégalité de Markov : <span class="math inline">P(X \geq a) \leq \frac{E(X)}{a}</span> pour tout <span class="math inline">a &gt; 0</span>.</p>
+<p><strong>Exercice 4</strong></p>
+<p>Soit <span class="math inline">X</span> une variable aléatoire positive admettant une espérance. Montrer l’inégalité de Markov : <span class="math inline">P(X \geq a) \leq \dfrac{E(X)}{a}</span> pour tout <span class="math inline">a &gt; 0</span>.</p>
 </div>
 <div class="custom-numbered-block custom-exercise">
-<p><strong>Exercice 8</strong></p>
+<p><strong>Exercice 5</strong></p>
 <p>Soit <span class="math inline">X</span> une variable aléatoire admettant une variance. Montrer l’inégalité de Bienaymé-Tchebychev : <span class="math display">P(|X - E(X)| \geq \varepsilon) \leq \frac{V(X)}{\varepsilon^2}</span></p>
 </div>
 <div class="custom-numbered-block custom-exercise">
-<p><strong>Exercice 9</strong></p>
+<p><strong>Exercice 6</strong></p>
+<p>Soient <span class="math inline">X</span> et <span class="math inline">Y</span> indépendantes avec <span class="math inline">X \hookrightarrow \mathcal{P}(\lambda_1)</span> et <span class="math inline">Y \hookrightarrow \mathcal{P}(\lambda_2)</span>. Montrer que <span class="math inline">X+Y \hookrightarrow \mathcal{P}(\lambda_1 + \lambda_2)</span>.</p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 7</strong></p>
+<p>Soit <span class="math inline">(X_n)</span> une suite de variables aléatoires avec <span class="math inline">X_n \hookrightarrow \mathcal{B}(n, \lambda/n)</span>. Montrer que <span class="math inline">X_n \xrightarrow{\mathcal{L}} \mathcal{P}(\lambda)</span>.</p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 8</strong></p>
 <p>Soit <span class="math inline">(X_n)</span> une suite de variables aléatoires mutuellement indépendantes de même loi admettant un moment d’ordre 2. Montrer la loi faible des grands nombres : <span class="math display">\frac{1}{n}\sum_{k=1}^n X_k \xrightarrow{P} E(X_1)</span></p>
 </div>
 <div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 9</strong></p>
+<p>Soit <span class="math inline">X \hookrightarrow \mathcal{E}(\lambda)</span> (loi exponentielle). Montrer que <span class="math inline">E(X) = \frac{1}{\lambda}</span> et <span class="math inline">V(X) = \frac{1}{\lambda^2}</span>.</p>
+</div>
+<div class="custom-numbered-block custom-exercise">
 <p><strong>Exercice 10</strong></p>
-<p>Soient <span class="math inline">X</span> et <span class="math inline">Y</span> indépendantes avec <span class="math inline">X \hookrightarrow \mathcal{P}(\lambda_1)</span> et <span class="math inline">Y \hookrightarrow \mathcal{P}(\lambda_2)</span>. Montrer que <span class="math inline">X+Y \hookrightarrow \mathcal{P}(\lambda_1 + \lambda_2)</span>.</p>
+<p>On lance <span class="math inline">n</span> fois un dé équilibré. Soit <span class="math inline">S_n</span> la somme des résultats. Utiliser le théorème de la limite centrée pour approcher <span class="math inline">P(S_n \leq 3{,}2n)</span> pour <span class="math inline">n</span> grand.</p>
 </div>
 <section id="cours" class="level1 unnumbered">
 <h1 class="unnumbered">Cours</h1>
-<p><a href="../cours/tsi2-chap08.html"><strong>Chapitre 08 : Espaces probabilisés ; variables aléatoires réelles ; cas discret</strong></a></p>
+<p><a href="../cours/psi-chap10.html"><strong>Chapitre 10 : Probabilités</strong></a></p>
 </section>
 <section id="navigation" class="level1 unnumbered">
 <h1 class="unnumbered">Navigation</h1>
 <div class="chap-nav">
-<p><a href="../td/tsi2-chap07.html" class="prev">TD 07 : Séries entières</a> <a href="../td/tsi2.html" class="home">Menu TSI</a> <a href="../td/tsi2-chap09.html" class="next">TD 09 : Espaces préhilbertiens réels</a></p>
+<p><a href="../td/psi-chap09.html" class="prev">TD 09 : Intégrales dépendant d’un paramètre</a> <a href="../td/psi.html" class="home">Menu PSI</a> <a href="../td/psi-chap11.html" class="next">TD 11 : Équations différentielles linéaires</a></p>
 </div>
 
 

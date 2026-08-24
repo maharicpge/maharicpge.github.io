@@ -8,7 +8,7 @@
 
 <meta name="author" content="Saîd MAHARI">
 
-<title>TD — Espaces probabilisés ; variables aléatoires réelles ; cas discret – Mathématiques en CPGE</title>
+<title>TD — Développements limités, calcul asymptotique – Mathématiques en CPGE</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -198,8 +198,8 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">TD — Espaces probabilisés ; variables aléatoires réelles ; cas discret</h1>
-<p class="subtitle lead">Chapitre 08</p>
+<h1 class="title">TD — Développements limités, calcul asymptotique</h1>
+<p class="subtitle lead">Chapitre 12</p>
 </div>
 
 
@@ -228,70 +228,73 @@ window.Quarto = {
 </header>
 
 
-<p><strong>TSI (2e année) — TD du Chapitre 08.</strong> Tribus, espaces probabilisés, variables aléatoires et lois, variables aléatoires discrètes, espérance et moments, fonctions génératrices, inégalités (Markov, Bienaymé-Tchebychev, Jensen), convergence en probabilité et en loi, loi faible des grands nombres.</p>
+<p><strong>TSI (1re année) — TD du Chapitre 12.</strong> Relations de comparaison (<span class="math inline">O</span>, <span class="math inline">o</span>, équivalence), développements limités, Taylor-Young, opérations, applications à l’étude locale des fonctions et des courbes.</p>
 <div class="custom-numbered-block custom-exercise">
 <p><strong>Exercice 1</strong></p>
-<p>Soit <span class="math inline">\Omega</span> un ensemble fini. Montrer que <span class="math inline">\mathcal{P}(\Omega)</span> est une tribu sur <span class="math inline">\Omega</span>.</p>
+<p>Donner les DL à l’ordre indiqué en <span class="math inline">0</span> :</p>
+<ol type="1">
+<li><span class="math inline">e^x</span> à l’ordre 4</li>
+<li><span class="math inline">\ln(1+x)</span> à l’ordre 3</li>
+<li><span class="math inline">\sin x</span> à l’ordre 5</li>
+<li><span class="math inline">\cos x</span> à l’ordre 4</li>
+<li><span class="math inline">\dfrac{1}{1-x}</span> à l’ordre 3</li>
+</ol>
 </div>
 <div class="custom-numbered-block custom-exercise">
 <p><strong>Exercice 2</strong></p>
-<p>On lance deux dés équilibrés. Calculer :</p>
+<p>Donner les équivalents simples en <span class="math inline">0</span> :</p>
 <ol type="1">
-<li><span class="math inline">P(\text{somme} = 7)</span></li>
-<li><span class="math inline">P(\text{deux } 6)</span></li>
-<li><span class="math inline">P(\text{au moins un } 6)</span></li>
+<li><span class="math inline">\sin x - x</span></li>
+<li><span class="math inline">1 - \cos x</span></li>
+<li><span class="math inline">\ln(1+x) - x</span></li>
+<li><span class="math inline">e^x - 1 - x</span></li>
 </ol>
 </div>
 <div class="custom-numbered-block custom-exercise">
 <p><strong>Exercice 3</strong></p>
-<p>Une urne contient 5 boules rouges et 3 noires. On tire 2 boules sans remise.</p>
+<p>Déterminer les limites suivantes :</p>
 <ol type="1">
-<li><span class="math inline">P(\text{2 rouges})</span></li>
-<li><span class="math inline">P(\text{rouge puis noire})</span></li>
-<li><span class="math inline">P(\text{au moins une rouge})</span></li>
+<li><span class="math inline">\lim_{x \to 0} \dfrac{e^x - 1 - x}{x^2}</span></li>
+<li><span class="math inline">\lim_{x \to 0} \dfrac{\sin x - x}{x^3}</span></li>
+<li><span class="math inline">\lim_{x \to 0} \dfrac{\tan x - \sin x}{x^3}</span></li>
 </ol>
 </div>
 <div class="custom-numbered-block custom-exercise">
 <p><strong>Exercice 4</strong></p>
-<p>Une maladie touche 1% de la population. Un test a une sensibilité de 0,95 et une spécificité de 0,95. Calculer <span class="math inline">P(\text{malade} \mid \text{test positif})</span>.</p>
+<p>Donner le DL de <span class="math inline">\sqrt{1+x}</span> à l’ordre 3 en <span class="math inline">0</span>. En déduire <span class="math inline">\sqrt{1{,}01}</span>.</p>
 </div>
-<p><strong>Indication :</strong> Bayes.</p>
 <div class="custom-numbered-block custom-exercise">
 <p><strong>Exercice 5</strong></p>
-<p>Soit <span class="math inline">X \hookrightarrow \mathcal{B}(n,p)</span>. Montrer que <span class="math inline">E(X) = np</span> et <span class="math inline">V(X) = np(1-p)</span>.</p>
+<p>Soit <span class="math inline">f(x) = \dfrac{x - \sin x}{x - \tan x}</span>. Déterminer <span class="math inline">\lim_{x \to 0} f(x)</span>.</p>
 </div>
 <div class="custom-numbered-block custom-exercise">
 <p><strong>Exercice 6</strong></p>
-<p>Soit <span class="math inline">X \hookrightarrow \mathcal{P}(\lambda)</span>.</p>
-<ol type="1">
-<li>Déterminer la fonction génératrice <span class="math inline">G_X(s)</span>.</li>
-<li>En déduire <span class="math inline">E(X)</span> et <span class="math inline">V(X)</span>.</li>
-</ol>
+<p>Donner le DL de <span class="math inline">e^x \cos x</span> à l’ordre 3 en <span class="math inline">0</span>.</p>
 </div>
 <div class="custom-numbered-block custom-exercise">
 <p><strong>Exercice 7</strong></p>
-<p>Soit <span class="math inline">X</span> une variable aléatoire positive admettant une espérance. Montrer l’inégalité de Markov : <span class="math inline">P(X \geq a) \leq \frac{E(X)}{a}</span> pour tout <span class="math inline">a &gt; 0</span>.</p>
+<p>Soit <span class="math inline">f(x) = \dfrac{1}{1+x}</span>. Déterminer le DL de <span class="math inline">f</span> à l’ordre 3 et la position de la courbe par rapport à sa tangente en <span class="math inline">0</span>.</p>
 </div>
 <div class="custom-numbered-block custom-exercise">
 <p><strong>Exercice 8</strong></p>
-<p>Soit <span class="math inline">X</span> une variable aléatoire admettant une variance. Montrer l’inégalité de Bienaymé-Tchebychev : <span class="math display">P(|X - E(X)| \geq \varepsilon) \leq \frac{V(X)}{\varepsilon^2}</span></p>
+<p>Montrer que si <span class="math inline">f(x) \sim g(x)</span> en <span class="math inline">0</span> et <span class="math inline">g(x) \neq 0</span>, alors <span class="math inline">\dfrac{f(x)}{g(x)} \to 1</span>.</p>
 </div>
 <div class="custom-numbered-block custom-exercise">
 <p><strong>Exercice 9</strong></p>
-<p>Soit <span class="math inline">(X_n)</span> une suite de variables aléatoires mutuellement indépendantes de même loi admettant un moment d’ordre 2. Montrer la loi faible des grands nombres : <span class="math display">\frac{1}{n}\sum_{k=1}^n X_k \xrightarrow{P} E(X_1)</span></p>
+<p>Donner le DL de <span class="math inline">\ln(1+x+x^2)</span> à l’ordre 3 en <span class="math inline">0</span>.</p>
 </div>
 <div class="custom-numbered-block custom-exercise">
 <p><strong>Exercice 10</strong></p>
-<p>Soient <span class="math inline">X</span> et <span class="math inline">Y</span> indépendantes avec <span class="math inline">X \hookrightarrow \mathcal{P}(\lambda_1)</span> et <span class="math inline">Y \hookrightarrow \mathcal{P}(\lambda_2)</span>. Montrer que <span class="math inline">X+Y \hookrightarrow \mathcal{P}(\lambda_1 + \lambda_2)</span>.</p>
+<p>Soit <span class="math inline">f : \mathbb{R} \to \mathbb{R}</span> de classe <span class="math inline">\mathcal{C}^2</span>. Montrer par Taylor-Young : <span class="math display">f(x) = f(0) + f'(0)x + \dfrac{f''(0)}{2}x^2 + o(x^2)</span></p>
 </div>
 <section id="cours" class="level1 unnumbered">
 <h1 class="unnumbered">Cours</h1>
-<p><a href="../cours/tsi2-chap08.html"><strong>Chapitre 08 : Espaces probabilisés ; variables aléatoires réelles ; cas discret</strong></a></p>
+<p><a href="../cours/tsi1-chap12.html"><strong>Chapitre 12 : Développements limités, calcul asymptotique</strong></a></p>
 </section>
 <section id="navigation" class="level1 unnumbered">
 <h1 class="unnumbered">Navigation</h1>
 <div class="chap-nav">
-<p><a href="../td/tsi2-chap07.html" class="prev">TD 07 : Séries entières</a> <a href="../td/tsi2.html" class="home">Menu TSI</a> <a href="../td/tsi2-chap09.html" class="next">TD 09 : Espaces préhilbertiens réels</a></p>
+<p><a href="../td/tsi1-chap11.html" class="prev">TD 11 : Polynômes et fractions rationnelles</a> <a href="../td/tsi1.html" class="home">Menu TSI1</a> <a href="../td/tsi1-chap13.html" class="next">TD 13 : Espaces vectoriels</a></p>
 </div>
 
 

@@ -8,7 +8,7 @@
 
 <meta name="author" content="Saîd MAHARI">
 
-<title>TD — Espaces probabilisés ; variables aléatoires réelles ; cas discret – Mathématiques en CPGE</title>
+<title>TD — Variables aléatoires à densité – Mathématiques en CPGE</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -198,8 +198,8 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">TD — Espaces probabilisés ; variables aléatoires réelles ; cas discret</h1>
-<p class="subtitle lead">Chapitre 08</p>
+<h1 class="title">TD — Variables aléatoires à densité</h1>
+<p class="subtitle lead">Chapitre 13</p>
 </div>
 
 
@@ -228,45 +228,40 @@ window.Quarto = {
 </header>
 
 
-<p><strong>TSI (2e année) — TD du Chapitre 08.</strong> Tribus, espaces probabilisés, variables aléatoires et lois, variables aléatoires discrètes, espérance et moments, fonctions génératrices, inégalités (Markov, Bienaymé-Tchebychev, Jensen), convergence en probabilité et en loi, loi faible des grands nombres.</p>
+<p><strong>TSI (2e année) — TD du Chapitre 13.</strong> Variables aléatoires à densité, lois usuelles (uniforme, exponentielle, gamma, gaussienne), espérance et moments, produit de convolution, inégalités, convergence en loi, théorème de la limite centrée.</p>
 <div class="custom-numbered-block custom-exercise">
 <p><strong>Exercice 1</strong></p>
-<p>Soit <span class="math inline">\Omega</span> un ensemble fini. Montrer que <span class="math inline">\mathcal{P}(\Omega)</span> est une tribu sur <span class="math inline">\Omega</span>.</p>
-</div>
-<div class="custom-numbered-block custom-exercise">
-<p><strong>Exercice 2</strong></p>
-<p>On lance deux dés équilibrés. Calculer :</p>
+<p>Soit <span class="math inline">f : \mathbb{R} \to \mathbb{R}</span> une fonction. Montrer que <span class="math inline">f</span> est une densité de probabilité si et seulement si :</p>
 <ol type="1">
-<li><span class="math inline">P(\text{somme} = 7)</span></li>
-<li><span class="math inline">P(\text{deux } 6)</span></li>
-<li><span class="math inline">P(\text{au moins un } 6)</span></li>
+<li><span class="math inline">f \geq 0</span> sur <span class="math inline">\mathbb{R}</span>.</li>
+<li><span class="math inline">f</span> est continue par morceaux.</li>
+<li><span class="math inline">\int_{-\infty}^{+\infty} f(t)\, dt = 1</span>.</li>
 </ol>
 </div>
 <div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 2</strong></p>
+<p>Soit <span class="math inline">X \hookrightarrow \mathcal{U}([a,b])</span>. Montrer que <span class="math inline">E(X) = \frac{a+b}{2}</span> et <span class="math inline">V(X) = \frac{(b-a)^2}{12}</span>.</p>
+</div>
+<div class="custom-numbered-block custom-exercise">
 <p><strong>Exercice 3</strong></p>
-<p>Une urne contient 5 boules rouges et 3 noires. On tire 2 boules sans remise.</p>
+<p>Soit <span class="math inline">X \hookrightarrow \mathcal{E}(\lambda)</span>. Montrer que :</p>
 <ol type="1">
-<li><span class="math inline">P(\text{2 rouges})</span></li>
-<li><span class="math inline">P(\text{rouge puis noire})</span></li>
-<li><span class="math inline">P(\text{au moins une rouge})</span></li>
+<li><span class="math inline">E(X) = \frac{1}{\lambda}</span> et <span class="math inline">V(X) = \frac{1}{\lambda^2}</span>.</li>
+<li><span class="math inline">P(X &gt; s + t \mid X &gt; s) = P(X &gt; t)</span> (absence de mémoire).</li>
 </ol>
 </div>
 <div class="custom-numbered-block custom-exercise">
 <p><strong>Exercice 4</strong></p>
-<p>Une maladie touche 1% de la population. Un test a une sensibilité de 0,95 et une spécificité de 0,95. Calculer <span class="math inline">P(\text{malade} \mid \text{test positif})</span>.</p>
+<p>Soit <span class="math inline">X \hookrightarrow \mathcal{N}(\mu, \sigma^2)</span>. Montrer que <span class="math inline">X^* = \frac{X - \mu}{\sigma} \hookrightarrow \mathcal{N}(0, 1)</span>.</p>
 </div>
-<p><strong>Indication :</strong> Bayes.</p>
 <div class="custom-numbered-block custom-exercise">
 <p><strong>Exercice 5</strong></p>
-<p>Soit <span class="math inline">X \hookrightarrow \mathcal{B}(n,p)</span>. Montrer que <span class="math inline">E(X) = np</span> et <span class="math inline">V(X) = np(1-p)</span>.</p>
+<p>Soient <span class="math inline">X \hookrightarrow \mathcal{N}(\mu_1, \sigma_1^2)</span> et <span class="math inline">Y \hookrightarrow \mathcal{N}(\mu_2, \sigma_2^2)</span> indépendantes. Montrer que <span class="math inline">X + Y \hookrightarrow \mathcal{N}(\mu_1 + \mu_2, \sigma_1^2 + \sigma_2^2)</span>.</p>
 </div>
+<p><strong>Indication :</strong> Utiliser le produit de convolution des densités.</p>
 <div class="custom-numbered-block custom-exercise">
 <p><strong>Exercice 6</strong></p>
-<p>Soit <span class="math inline">X \hookrightarrow \mathcal{P}(\lambda)</span>.</p>
-<ol type="1">
-<li>Déterminer la fonction génératrice <span class="math inline">G_X(s)</span>.</li>
-<li>En déduire <span class="math inline">E(X)</span> et <span class="math inline">V(X)</span>.</li>
-</ol>
+<p>Soient <span class="math inline">X</span> et <span class="math inline">Y</span> deux variables aléatoires à densité indépendantes. Montrer que la densité de <span class="math inline">X + Y</span> est le produit de convolution <span class="math inline">f_X * f_Y</span> : <span class="math display">(f_X * f_Y)(t) = \int_{-\infty}^{+\infty} f_X(u) f_Y(t-u)\, du</span></p>
 </div>
 <div class="custom-numbered-block custom-exercise">
 <p><strong>Exercice 7</strong></p>
@@ -278,20 +273,20 @@ window.Quarto = {
 </div>
 <div class="custom-numbered-block custom-exercise">
 <p><strong>Exercice 9</strong></p>
-<p>Soit <span class="math inline">(X_n)</span> une suite de variables aléatoires mutuellement indépendantes de même loi admettant un moment d’ordre 2. Montrer la loi faible des grands nombres : <span class="math display">\frac{1}{n}\sum_{k=1}^n X_k \xrightarrow{P} E(X_1)</span></p>
+<p>Soit <span class="math inline">(X_n)</span> une suite de variables aléatoires avec <span class="math inline">X_n \hookrightarrow \mathcal{B}(n, \lambda/n)</span>. Montrer que <span class="math inline">X_n \xrightarrow{\mathcal{L}} \mathcal{P}(\lambda)</span>.</p>
 </div>
 <div class="custom-numbered-block custom-exercise">
 <p><strong>Exercice 10</strong></p>
-<p>Soient <span class="math inline">X</span> et <span class="math inline">Y</span> indépendantes avec <span class="math inline">X \hookrightarrow \mathcal{P}(\lambda_1)</span> et <span class="math inline">Y \hookrightarrow \mathcal{P}(\lambda_2)</span>. Montrer que <span class="math inline">X+Y \hookrightarrow \mathcal{P}(\lambda_1 + \lambda_2)</span>.</p>
+<p>Énoncer le théorème de la limite centrée : soit <span class="math inline">(X_n)</span> une suite de variables aléatoires mutuellement indépendantes de même loi admettant un moment d’ordre 2. Alors : <span class="math display">\frac{1}{\sigma\sqrt{n}}\left(\sum_{k=1}^n X_k - nm\right) \xrightarrow{\mathcal{L}} \mathcal{N}(0, 1)</span></p>
 </div>
 <section id="cours" class="level1 unnumbered">
 <h1 class="unnumbered">Cours</h1>
-<p><a href="../cours/tsi2-chap08.html"><strong>Chapitre 08 : Espaces probabilisés ; variables aléatoires réelles ; cas discret</strong></a></p>
+<p><a href="../cours/tsi2-chap13.html"><strong>Chapitre 13 : Variables aléatoires à densité</strong></a></p>
 </section>
 <section id="navigation" class="level1 unnumbered">
 <h1 class="unnumbered">Navigation</h1>
 <div class="chap-nav">
-<p><a href="../td/tsi2-chap07.html" class="prev">TD 07 : Séries entières</a> <a href="../td/tsi2.html" class="home">Menu TSI</a> <a href="../td/tsi2-chap09.html" class="next">TD 09 : Espaces préhilbertiens réels</a></p>
+<p><a href="../td/tsi2-chap12.html" class="prev">TD 12 : Fonctions de plusieurs variables</a> <a href="../td/tsi2.html" class="home">Menu TSI</a></p>
 </div>
 
 

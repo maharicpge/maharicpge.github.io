@@ -8,7 +8,7 @@
 
 <meta name="author" content="Saîd MAHARI">
 
-<title>TD — Espaces probabilisés ; variables aléatoires réelles ; cas discret – Mathématiques en CPGE</title>
+<title>TD — Espaces vectoriels – Mathématiques en CPGE</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -198,8 +198,8 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">TD — Espaces probabilisés ; variables aléatoires réelles ; cas discret</h1>
-<p class="subtitle lead">Chapitre 08</p>
+<h1 class="title">TD — Espaces vectoriels</h1>
+<p class="subtitle lead">Chapitre 13</p>
 </div>
 
 
@@ -228,70 +228,68 @@ window.Quarto = {
 </header>
 
 
-<p><strong>TSI (2e année) — TD du Chapitre 08.</strong> Tribus, espaces probabilisés, variables aléatoires et lois, variables aléatoires discrètes, espérance et moments, fonctions génératrices, inégalités (Markov, Bienaymé-Tchebychev, Jensen), convergence en probabilité et en loi, loi faible des grands nombres.</p>
+<p><strong>TSI (1re année) — TD du Chapitre 13.</strong> EV, sous-espaces vectoriels, familles libres et génératrices, bases, dimension finie, théorème de la base incomplète, dimension d’un sous-espace.</p>
 <div class="custom-numbered-block custom-exercise">
 <p><strong>Exercice 1</strong></p>
-<p>Soit <span class="math inline">\Omega</span> un ensemble fini. Montrer que <span class="math inline">\mathcal{P}(\Omega)</span> est une tribu sur <span class="math inline">\Omega</span>.</p>
+<p>Montrer que les ensembles suivants sont des sous-espaces vectoriels :</p>
+<ol type="1">
+<li><span class="math inline">F = \{(x,y,z) \in \mathbb{R}^3 \mid x + 2y - z = 0\}</span></li>
+<li><span class="math inline">G = \{P \in \mathbb{R}[X] \mid P(0) = P(1)\}</span></li>
+<li><span class="math inline">H = \{f \in \mathcal{F}(\mathbb{R}, \mathbb{R}) \mid f(0) = f(1)\}</span></li>
+</ol>
 </div>
 <div class="custom-numbered-block custom-exercise">
 <p><strong>Exercice 2</strong></p>
-<p>On lance deux dés équilibrés. Calculer :</p>
+<p>Soient <span class="math inline">F = \mathrm{Vect}(e_1, e_2)</span> et <span class="math inline">G = \mathrm{Vect}(e_2, e_3)</span> dans <span class="math inline">\mathbb{R}^3</span>.</p>
 <ol type="1">
-<li><span class="math inline">P(\text{somme} = 7)</span></li>
-<li><span class="math inline">P(\text{deux } 6)</span></li>
-<li><span class="math inline">P(\text{au moins un } 6)</span></li>
+<li>Déterminer <span class="math inline">F \cap G</span> et <span class="math inline">F + G</span>.</li>
+<li>La somme est-elle directe ?</li>
 </ol>
 </div>
 <div class="custom-numbered-block custom-exercise">
 <p><strong>Exercice 3</strong></p>
-<p>Une urne contient 5 boules rouges et 3 noires. On tire 2 boules sans remise.</p>
-<ol type="1">
-<li><span class="math inline">P(\text{2 rouges})</span></li>
-<li><span class="math inline">P(\text{rouge puis noire})</span></li>
-<li><span class="math inline">P(\text{au moins une rouge})</span></li>
-</ol>
+<p>Montrer que <span class="math inline">(e_1, e_2, e_3)</span> avec <span class="math inline">e_1 = (1,1,0)</span>, <span class="math inline">e_2 = (0,1,1)</span>, <span class="math inline">e_3 = (1,0,1)</span> est une base de <span class="math inline">\mathbb{R}^3</span>.</p>
 </div>
 <div class="custom-numbered-block custom-exercise">
 <p><strong>Exercice 4</strong></p>
-<p>Une maladie touche 1% de la population. Un test a une sensibilité de 0,95 et une spécificité de 0,95. Calculer <span class="math inline">P(\text{malade} \mid \text{test positif})</span>.</p>
+<p>Énoncer et démontrer le théorème de la base incomplète : toute famille libre peut être complétée en une base.</p>
 </div>
-<p><strong>Indication :</strong> Bayes.</p>
 <div class="custom-numbered-block custom-exercise">
 <p><strong>Exercice 5</strong></p>
-<p>Soit <span class="math inline">X \hookrightarrow \mathcal{B}(n,p)</span>. Montrer que <span class="math inline">E(X) = np</span> et <span class="math inline">V(X) = np(1-p)</span>.</p>
-</div>
-<div class="custom-numbered-block custom-exercise">
-<p><strong>Exercice 6</strong></p>
-<p>Soit <span class="math inline">X \hookrightarrow \mathcal{P}(\lambda)</span>.</p>
+<p>Déterminer une base et la dimension des sous-espaces suivants :</p>
 <ol type="1">
-<li>Déterminer la fonction génératrice <span class="math inline">G_X(s)</span>.</li>
-<li>En déduire <span class="math inline">E(X)</span> et <span class="math inline">V(X)</span>.</li>
+<li><span class="math inline">\{P \in \mathbb{R}_3[X] \mid P(1) = 0\}</span></li>
+<li><span class="math inline">\{(x,y,z,t) \in \mathbb{R}^4 \mid x + y = z + t = 0\}</span></li>
 </ol>
 </div>
 <div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 6</strong></p>
+<p>Soient <span class="math inline">F_1, F_2, F_3</span> trois sous-espaces de <span class="math inline">E</span> tels que <span class="math inline">E = F_1 \oplus F_2 \oplus F_3</span>. Montrer que : <span class="math display">\dim E = \dim F_1 + \dim F_2 + \dim F_3</span></p>
+</div>
+<div class="custom-numbered-block custom-exercise">
 <p><strong>Exercice 7</strong></p>
-<p>Soit <span class="math inline">X</span> une variable aléatoire positive admettant une espérance. Montrer l’inégalité de Markov : <span class="math inline">P(X \geq a) \leq \frac{E(X)}{a}</span> pour tout <span class="math inline">a &gt; 0</span>.</p>
+<p>Montrer que la famille <span class="math inline">(1, X, X^2, \ldots, X^n)</span> est une base de <span class="math inline">\mathbb{R}_n[X]</span>.</p>
 </div>
 <div class="custom-numbered-block custom-exercise">
 <p><strong>Exercice 8</strong></p>
-<p>Soit <span class="math inline">X</span> une variable aléatoire admettant une variance. Montrer l’inégalité de Bienaymé-Tchebychev : <span class="math display">P(|X - E(X)| \geq \varepsilon) \leq \frac{V(X)}{\varepsilon^2}</span></p>
+<p>Soit <span class="math inline">E</span> un <span class="math inline">\mathbb{K}</span>-espace vectoriel de dimension <span class="math inline">n</span>. Montrer que toute famille libre de <span class="math inline">E</span> a au plus <span class="math inline">n</span> éléments.</p>
 </div>
 <div class="custom-numbered-block custom-exercise">
 <p><strong>Exercice 9</strong></p>
-<p>Soit <span class="math inline">(X_n)</span> une suite de variables aléatoires mutuellement indépendantes de même loi admettant un moment d’ordre 2. Montrer la loi faible des grands nombres : <span class="math display">\frac{1}{n}\sum_{k=1}^n X_k \xrightarrow{P} E(X_1)</span></p>
+<p>Montrer que <span class="math inline">\mathcal{M}_n(\mathbb{R})</span> est un espace vectoriel de dimension <span class="math inline">n^2</span>.</p>
 </div>
 <div class="custom-numbered-block custom-exercise">
 <p><strong>Exercice 10</strong></p>
-<p>Soient <span class="math inline">X</span> et <span class="math inline">Y</span> indépendantes avec <span class="math inline">X \hookrightarrow \mathcal{P}(\lambda_1)</span> et <span class="math inline">Y \hookrightarrow \mathcal{P}(\lambda_2)</span>. Montrer que <span class="math inline">X+Y \hookrightarrow \mathcal{P}(\lambda_1 + \lambda_2)</span>.</p>
+<p>Soit <span class="math inline">E</span> un <span class="math inline">\mathbb{K}</span>-espace vectoriel et <span class="math inline">F, G</span> deux sous-espaces. Montrer que : <span class="math display">\dim(F + G) = \dim F + \dim G - \dim(F \cap G)</span></p>
 </div>
 <section id="cours" class="level1 unnumbered">
 <h1 class="unnumbered">Cours</h1>
-<p><a href="../cours/tsi2-chap08.html"><strong>Chapitre 08 : Espaces probabilisés ; variables aléatoires réelles ; cas discret</strong></a></p>
+<p><a href="../cours/tsi1-chap13.html"><strong>Chapitre 13 : Espaces vectoriels</strong></a></p>
 </section>
 <section id="navigation" class="level1 unnumbered">
 <h1 class="unnumbered">Navigation</h1>
 <div class="chap-nav">
-<p><a href="../td/tsi2-chap07.html" class="prev">TD 07 : Séries entières</a> <a href="../td/tsi2.html" class="home">Menu TSI</a> <a href="../td/tsi2-chap09.html" class="next">TD 09 : Espaces préhilbertiens réels</a></p>
+<p><a href="../td/tsi1-chap12.html" class="prev">TD 12 : Développements limités</a> <a href="../td/tsi1.html" class="home">Menu TSI1</a> <a href="../td/tsi1-chap14.html" class="next">TD 14 : Applications linéaires</a></p>
 </div>
 
 

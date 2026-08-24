@@ -1,13 +1,14 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr"><head>
 
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.10.18">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Saîd MAHARI">
 
-<title>Suites numériques - Mathématiques en CPGE – Mathématiques en CPGE</title>
+<title>TD — Nombres réels et suites numériques – Mathématiques en CPGE</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -45,7 +46,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-7a8c080b55ea27eb37b467515007f9ee.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-e0d9a45d84245cc5e3b300860d8fa645.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -60,22 +61,66 @@ ul.task-list li input[type="checkbox"] {
   ],
   "show-item-context": false,
   "language": {
-    "search-no-results-text": "No results",
-    "search-matching-documents-text": "matching documents",
-    "search-copy-link-title": "Copy link to search",
-    "search-hide-matches-text": "Hide additional matches",
-    "search-more-match-text": "more match in this document",
-    "search-more-matches-text": "more matches in this document",
-    "search-clear-button-title": "Clear",
+    "search-no-results-text": "Pas de résultats",
+    "search-matching-documents-text": "documents trouvés",
+    "search-copy-link-title": "Copier le lien vers la recherche",
+    "search-hide-matches-text": "Cacher les correspondances additionnelles",
+    "search-more-match-text": "correspondance de plus dans ce document",
+    "search-more-matches-text": "correspondances de plus dans ce document",
+    "search-clear-button-title": "Effacer",
     "search-text-placeholder": "",
-    "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit",
-    "search-label": "Search"
+    "search-detached-cancel-button-title": "Annuler",
+    "search-submit-button-title": "Envoyer",
+    "search-label": "Recherche"
   }
 }</script>
 
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="styles.css">
 </head>
 
 <body class="nav-fixed quarto-light">
@@ -89,8 +134,8 @@ ul.task-list li input[type="checkbox"] {
     <span class="navbar-title">Accueil</span>
     </a>
   </div>
-            <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+            <div id="quarto-search" class="" title="Recherche"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Basculer la navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
@@ -140,10 +185,11 @@ ul.task-list li input[type="checkbox"] {
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
+    <h2 id="toc-title">Sur cette page</h2>
    
   <ul>
-  <li><a href="#document" id="toc-document" class="nav-link active" data-scroll-target="#document">Document</a></li>
+  <li><a href="#cours" id="toc-cours" class="nav-link active" data-scroll-target="#cours">Cours</a></li>
+  <li><a href="#navigation" id="toc-navigation" class="nav-link" data-scroll-target="#navigation">Navigation</a></li>
   </ul>
 </nav>
     </div>
@@ -152,14 +198,27 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Chapitre 05 : Suites numériques</h1>
+<h1 class="title">TD — Nombres réels et suites numériques</h1>
+<p class="subtitle lead">Chapitre 05</p>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Auteur·rice</div>
+    <div class="quarto-title-meta-contents">
+             <p>Saîd MAHARI </p>
+          </div>
+  </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">Date de publication</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">23 août 2026</p>
+    </div>
+  </div>
   
     
   </div>
@@ -169,10 +228,100 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p><strong>TSI 1re année — Chapitre 05.</strong> Suites arithmétiques, géométriques, récurrentes d’ordre 2.</p>
-<section id="document" class="level2">
-<h2 class="anchored" data-anchor-id="document">Document</h2>
-<p><em>PDF à venir : déposez le fichier <code>files/tsi1/chap05.pdf</code> puis régénérez la page.</em></p>
+<p><strong>TSI (1re année) — TD du Chapitre 05.</strong> Borne supérieure et inférieure, inégalités, limites, convergence, suites adjacentes, suites extraites, suites arithmétiques, géométriques, arithmético-géométriques, suites récurrentes linéaires d’ordre 2.</p>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 1</strong></p>
+<p>Soit <span class="math inline">A = \left\{1 + \dfrac{1}{n} \mid n \in \mathbb{N}^*\right\}</span>. Déterminer <span class="math inline">\sup A</span>, <span class="math inline">\inf A</span>, <span class="math inline">\max A</span>, <span class="math inline">\min A</span>.</p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 2</strong></p>
+<p>Montrer que pour tout <span class="math inline">x, y \in \mathbb{R}</span> :</p>
+<ol type="1">
+<li><span class="math inline">|x + y| \leq |x| + |y|</span> (inégalité triangulaire)</li>
+<li><span class="math inline">xy \leq \dfrac{x^2 + y^2}{2}</span> (inégalité de la moyenne arithmético-géométrique pour 2 termes)</li>
+<li><span class="math inline">|x| - |y| \leq |x - y|</span></li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 3</strong></p>
+<p>Montrer que les suites suivantes convergent et déterminer leur limite :</p>
+<ol type="1">
+<li><span class="math inline">u_n = \dfrac{2n+1}{3n-1}</span></li>
+<li><span class="math inline">u_n = \dfrac{(-1)^n}{n}</span></li>
+<li><span class="math inline">u_n = \dfrac{\sin n}{n}</span></li>
+<li><span class="math inline">u_n = \dfrac{n^2+1}{n^3+n}</span></li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 4</strong></p>
+<p>Étudier les suites arithmétiques et géométriques :</p>
+<ol type="1">
+<li><span class="math inline">u_n = 3 + 5n</span> : limite ?</li>
+<li><span class="math inline">u_n = 2^n</span> : limite ?</li>
+<li><span class="math inline">u_n = \left(\dfrac{1}{3}\right)^n</span> : limite ?</li>
+<li><span class="math inline">u_n = (-2)^n</span> : converge-t-elle ?</li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 5</strong></p>
+<p>Soit <span class="math inline">(u_n)</span> définie par <span class="math inline">u_0 = 1</span> et <span class="math inline">u_{n+1} = \dfrac{u_n + 2}{u_n + 1}</span>.</p>
+<ol type="1">
+<li>Montrer que <span class="math inline">u_n &gt; 0</span> pour tout <span class="math inline">n</span>.</li>
+<li>Montrer que <span class="math inline">(u_n)</span> converge.</li>
+<li>Déterminer la limite.</li>
+</ol>
+</div>
+<p><strong>Indications :</strong> - (2) Montrer que <span class="math inline">u_{n+1} - u_n</span> est du signe de <span class="math inline">(\sqrt{2} - u_n)(\sqrt{2} + u_n)</span>. - (3) Si <span class="math inline">\ell</span> est la limite : <span class="math inline">\ell = \frac{\ell+2}{\ell+1}</span> donc <span class="math inline">\ell^2 = 2</span>.</p>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 6</strong></p>
+<p>Soit <span class="math inline">u_0 = 1</span> et <span class="math inline">u_{n+1} = \sqrt{u_n + 2}</span>.</p>
+<ol type="1">
+<li>Montrer que <span class="math inline">(u_n)</span> est bien définie et positive.</li>
+<li>Montrer que <span class="math inline">(u_n)</span> est croissante et majorée par <span class="math inline">2</span>.</li>
+<li>En déduire la convergence et calculer la limite.</li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 7</strong></p>
+<p>Soient <span class="math inline">(u_n)</span> et <span class="math inline">(v_n)</span> deux suites adjacentes. Montrer qu’elles convergent vers la même limite.</p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 8</strong></p>
+<p>Soient <span class="math inline">(u_n)</span> et <span class="math inline">(v_n)</span> définies par <span class="math inline">u_0 = 1</span>, <span class="math inline">v_0 = 2</span> : <span class="math display">u_{n+1} = \dfrac{u_n+v_n}{2}, \quad v_{n+1} = \sqrt{u_n v_n}</span></p>
+<ol type="1">
+<li>Montrer que <span class="math inline">u_n \leq v_n</span> pour tout <span class="math inline">n</span>.</li>
+<li>Montrer que <span class="math inline">(u_n)</span> est croissante et <span class="math inline">(v_n)</span> décroissante.</li>
+<li>Montrer qu’elles sont adjacentes.</li>
+</ol>
+</div>
+<p><strong>Indication :</strong> Utiliser l’inégalité arithmético-géométrique <span class="math inline">\frac{a+b}{2} \geq \sqrt{ab}</span>.</p>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 9</strong></p>
+<p>Étudier la suite arithmético-géométrique <span class="math inline">u_{n+1} = \dfrac{1}{2}u_n + 1</span> avec <span class="math inline">u_0 = 0</span>.</p>
+<ol type="1">
+<li>Déterminer le point fixe <span class="math inline">\ell</span>.</li>
+<li>Poser <span class="math inline">v_n = u_n - \ell</span> et montrer que <span class="math inline">(v_n)</span> est géométrique.</li>
+<li>En déduire <span class="math inline">u_n</span> et la limite.</li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 10</strong></p>
+<p>Étudier la suite récurrente linéaire d’ordre 2 : <span class="math inline">u_{n+2} = 5u_{n+1} - 6u_n</span> avec <span class="math inline">u_0 = 1</span>, <span class="math inline">u_1 = 2</span>.</p>
+<ol type="1">
+<li>Former l’équation caractéristique.</li>
+<li>Déterminer <span class="math inline">u_n</span> en fonction de <span class="math inline">n</span>.</li>
+</ol>
+</div>
+<p><strong>Indication :</strong> Équation caractéristique <span class="math inline">r^2 - 5r + 6 = 0</span>, racines <span class="math inline">2</span> et <span class="math inline">3</span>. Donc <span class="math inline">u_n = \lambda 2^n + \mu 3^n</span>.</p>
+<section id="cours" class="level1 unnumbered">
+<h1 class="unnumbered">Cours</h1>
+<p><a href="../cours/tsi1-chap05.html"><strong>Chapitre 05 : Nombres réels et suites numériques</strong></a></p>
+</section>
+<section id="navigation" class="level1 unnumbered">
+<h1 class="unnumbered">Navigation</h1>
+<div class="chap-nav">
+<p><a href="../td/tsi1-chap04.html" class="prev">TD 04 : Géométrie élémentaire</a> <a href="../td/tsi1.html" class="home">Menu TSI1</a> <a href="../td/tsi1-chap06.html" class="next">TD 06 : Fonctions de la variable réelle, limites et continuité</a></p>
+</div>
 
 
 </section>
@@ -222,12 +371,12 @@ ul.task-list li input[type="checkbox"] {
       // flash "checked"
       button.classList.add('code-copy-button-checked');
       var currentTitle = button.getAttribute("title");
-      button.setAttribute("title", "Copied!");
+      button.setAttribute("title", "Copié");
       let tooltip;
       if (window.bootstrap) {
         button.setAttribute("data-bs-toggle", "tooltip");
         button.setAttribute("data-bs-placement", "left");
-        button.setAttribute("data-bs-title", "Copied!");
+        button.setAttribute("data-bs-title", "Copié");
         tooltip = new bootstrap.Tooltip(button, 
           { trigger: "manual", 
             customClass: "code-copy-button-tooltip",

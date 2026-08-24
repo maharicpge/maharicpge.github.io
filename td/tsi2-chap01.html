@@ -1,13 +1,14 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr"><head>
 
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.10.18">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Saîd MAHARI">
 
-<title>Algèbre linéaire et réduction - Mathématiques en CPGE – Mathématiques en CPGE</title>
+<title>TD — Rappels et compléments sur les espaces vectoriels, endomorphismes et matrices – Mathématiques en CPGE</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -45,7 +46,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-7a8c080b55ea27eb37b467515007f9ee.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-e0d9a45d84245cc5e3b300860d8fa645.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -60,22 +61,66 @@ ul.task-list li input[type="checkbox"] {
   ],
   "show-item-context": false,
   "language": {
-    "search-no-results-text": "No results",
-    "search-matching-documents-text": "matching documents",
-    "search-copy-link-title": "Copy link to search",
-    "search-hide-matches-text": "Hide additional matches",
-    "search-more-match-text": "more match in this document",
-    "search-more-matches-text": "more matches in this document",
-    "search-clear-button-title": "Clear",
+    "search-no-results-text": "Pas de résultats",
+    "search-matching-documents-text": "documents trouvés",
+    "search-copy-link-title": "Copier le lien vers la recherche",
+    "search-hide-matches-text": "Cacher les correspondances additionnelles",
+    "search-more-match-text": "correspondance de plus dans ce document",
+    "search-more-matches-text": "correspondances de plus dans ce document",
+    "search-clear-button-title": "Effacer",
     "search-text-placeholder": "",
-    "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit",
-    "search-label": "Search"
+    "search-detached-cancel-button-title": "Annuler",
+    "search-submit-button-title": "Envoyer",
+    "search-label": "Recherche"
   }
 }</script>
 
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="styles.css">
 </head>
 
 <body class="nav-fixed quarto-light">
@@ -89,8 +134,8 @@ ul.task-list li input[type="checkbox"] {
     <span class="navbar-title">Accueil</span>
     </a>
   </div>
-            <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+            <div id="quarto-search" class="" title="Recherche"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Basculer la navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
@@ -140,10 +185,11 @@ ul.task-list li input[type="checkbox"] {
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
+    <h2 id="toc-title">Sur cette page</h2>
    
   <ul>
-  <li><a href="#document" id="toc-document" class="nav-link active" data-scroll-target="#document">Document</a></li>
+  <li><a href="#cours" id="toc-cours" class="nav-link active" data-scroll-target="#cours">Cours</a></li>
+  <li><a href="#navigation" id="toc-navigation" class="nav-link" data-scroll-target="#navigation">Navigation</a></li>
   </ul>
 </nav>
     </div>
@@ -152,14 +198,27 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Chapitre 01 : Algèbre linéaire et réduction</h1>
+<h1 class="title">TD — Rappels et compléments sur les espaces vectoriels, endomorphismes et matrices</h1>
+<p class="subtitle lead">Chapitre 01</p>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Auteur·rice</div>
+    <div class="quarto-title-meta-contents">
+             <p>Saîd MAHARI </p>
+          </div>
+  </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">Date de publication</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">23 août 2026</p>
+    </div>
+  </div>
   
     
   </div>
@@ -169,10 +228,110 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p><strong>TSI 2e année — Chapitre 01.</strong> Déterminants, valeurs propres, diagonalisation pratique.</p>
-<section id="document" class="level2">
-<h2 class="anchored" data-anchor-id="document">Document</h2>
-<p><em>PDF à venir : déposez le fichier <code>files/tsi2/chap01.pdf</code> puis régénérez la page.</em></p>
+<p><strong>TSI (2e année) — TD du Chapitre 01.</strong> Familles dénombrables de vecteurs, produit et somme d’espaces vectoriels, projecteurs et symétries, matrices par blocs, sous-espaces stables, trace, polynômes de matrice.</p>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 1</strong></p>
+<p>Soit <span class="math inline">E</span> un <span class="math inline">\mathbb{K}</span>-espace vectoriel et <span class="math inline">(e_i)_{i \in I}</span> une famille dénombrable de vecteurs de <span class="math inline">E</span>.</p>
+<ol type="1">
+<li>Montrer que si <span class="math inline">(e_i)_{i \in I}</span> est libre, alors toute sous-famille est libre.</li>
+<li>Montrer que si <span class="math inline">(e_i)_{i \in I}</span> est génératrice de <span class="math inline">E</span>, alors toute sur-famille est génératrice de <span class="math inline">E</span>.</li>
+<li>Soit <span class="math inline">(f_n)_{n \in \mathbb{N}}</span> une famille dénombrable libre. Montrer que <span class="math inline">\mathrm{Vect}(f_n, n \in \mathbb{N})</span> admet une base dénombrable.</li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 2</strong></p>
+<p>Soient <span class="math inline">E_1, E_2, E_3</span> trois <span class="math inline">\mathbb{K}</span>-espaces vectoriels de dimensions respectives <span class="math inline">n_1, n_2, n_3</span>.</p>
+<ol type="1">
+<li>Montrer que <span class="math inline">E_1 \times E_2 \times E_3</span> est un <span class="math inline">\mathbb{K}</span>-espace vectoriel.</li>
+<li>Déterminer <span class="math inline">\dim(E_1 \times E_2 \times E_3)</span>.</li>
+<li>Déterminer une base de <span class="math inline">E_1 \times E_2 \times E_3</span> à partir de bases de <span class="math inline">E_1, E_2, E_3</span>.</li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 3</strong></p>
+<p>Soit <span class="math inline">E</span> un <span class="math inline">\mathbb{K}</span>-espace vectoriel et <span class="math inline">F_1, F_2, F_3</span> trois sous-espaces vectoriels de <span class="math inline">E</span>.</p>
+<ol type="1">
+<li>Montrer que <span class="math inline">F_1 + F_2 + F_3</span> est un sous-espace vectoriel.</li>
+<li>Montrer que <span class="math inline">F_1 + F_2 + F_3</span> est une somme directe si et seulement si <span class="math inline">F_1 \cap F_2 = F_1 \cap F_3 = F_2 \cap F_3 = \{0\}</span> et <span class="math inline">(F_1 + F_2) \cap F_3 = \{0\}</span>.</li>
+<li>Montrer par un contre-exemple que <span class="math inline">F_i \cap F_j = \{0\}</span> pour <span class="math inline">i \neq j</span> ne suffit pas à garantir la somme directe.</li>
+</ol>
+</div>
+<p><strong>Indication :</strong> Pour (3), prendre <span class="math inline">E = \mathbb{R}^2</span> et trois droites distinctes passant par l’origine.</p>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 4</strong></p>
+<p>Soit <span class="math inline">E</span> un <span class="math inline">\mathbb{K}</span>-espace vectoriel et <span class="math inline">p \in \mathcal{L}(E)</span> tel que <span class="math inline">p^2 = p</span>.</p>
+<ol type="1">
+<li>Montrer que <span class="math inline">E = \mathrm{Im}(p) \oplus \ker(p)</span>.</li>
+<li>Montrer que <span class="math inline">p</span> est la projection sur <span class="math inline">\mathrm{Im}(p)</span> parallèlement à <span class="math inline">\ker(p)</span>.</li>
+<li>Déterminer les valeurs propres possibles de <span class="math inline">p</span>.</li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 5</strong></p>
+<p>Soit <span class="math inline">E</span> un <span class="math inline">\mathbb{K}</span>-espace vectoriel et <span class="math inline">s \in \mathcal{L}(E)</span> tel que <span class="math inline">s^2 = \mathrm{Id}_E</span>.</p>
+<ol type="1">
+<li>Montrer que <span class="math inline">s</span> est un automorphisme.</li>
+<li>Montrer que <span class="math inline">E = \ker(s - \mathrm{Id}_E) \oplus \ker(s + \mathrm{Id}_E)</span>.</li>
+<li>Déterminer les valeurs propres possibles de <span class="math inline">s</span>.</li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 6</strong></p>
+<p>Soit <span class="math inline">A = \begin{pmatrix} A_{11} &amp; A_{12} \\ 0 &amp; A_{22} \end{pmatrix} \in \mathcal{M}_n(\mathbb{K})</span> une matrice par blocs triangulaire par blocs, où <span class="math inline">A_{11} \in \mathcal{M}_p(\mathbb{K})</span> et <span class="math inline">A_{22} \in \mathcal{M}_{n-p}(\mathbb{K})</span>.</p>
+<ol type="1">
+<li>Montrer que <span class="math inline">\det(A) = \det(A_{11}) \cdot \det(A_{22})</span>.</li>
+<li>Montrer que si <span class="math inline">A_{11}</span> et <span class="math inline">A_{22}</span> sont inversibles, alors <span class="math inline">A</span> est inversible.</li>
+<li>Montrer que <span class="math inline">\mathrm{tr}(A) = \mathrm{tr}(A_{11}) + \mathrm{tr}(A_{22})</span>.</li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 7</strong></p>
+<p>Soit <span class="math inline">E</span> un <span class="math inline">\mathbb{K}</span>-espace vectoriel de dimension <span class="math inline">n</span>, <span class="math inline">F</span> un sous-espace vectoriel de dimension <span class="math inline">p</span> et <span class="math inline">u \in \mathcal{L}(E)</span> tel que <span class="math inline">u(F) \subset F</span>.</p>
+<ol type="1">
+<li>Montrer que <span class="math inline">u</span> induit un endomorphisme <span class="math inline">u_F : F \to F</span>.</li>
+<li>Soit <span class="math inline">\mathcal{B} = (e_1, \ldots, e_n)</span> une base de <span class="math inline">E</span> telle que <span class="math inline">(e_1, \ldots, e_p)</span> soit une base de <span class="math inline">F</span>. Montrer que <span class="math inline">\mathrm{Mat}_{\mathcal{B}}(u) = \begin{pmatrix} A &amp; C \\ 0 &amp; D \end{pmatrix}</span> où <span class="math inline">A = \mathrm{Mat}_{(e_1, \ldots, e_p)}(u_F)</span>.</li>
+<li>Montrer que <span class="math inline">\chi_u = \chi_A \cdot \chi_D</span>.</li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 8</strong></p>
+<p>Soit <span class="math inline">E</span> un <span class="math inline">\mathbb{K}</span>-espace vectoriel de dimension finie et <span class="math inline">u \in \mathcal{L}(E)</span>.</p>
+<ol type="1">
+<li>Montrer que <span class="math inline">\mathrm{tr}(u + v) = \mathrm{tr}(u) + \mathrm{tr}(v)</span> pour tout <span class="math inline">v \in \mathcal{L}(E)</span>.</li>
+<li>Montrer que <span class="math inline">\mathrm{tr}(\lambda u) = \lambda \, \mathrm{tr}(u)</span> pour tout <span class="math inline">\lambda \in \mathbb{K}</span>.</li>
+<li>Montrer que <span class="math inline">\mathrm{tr}(u \circ v) = \mathrm{tr}(v \circ u)</span> pour tout <span class="math inline">v \in \mathcal{L}(E)</span>.</li>
+<li>Montrer que <span class="math inline">\mathrm{tr}(p) = \mathrm{rg}(p)</span> si <span class="math inline">p</span> est un projecteur.</li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 9</strong></p>
+<p>Soit <span class="math inline">A \in \mathcal{M}_n(\mathbb{K})</span> et <span class="math inline">P \in \mathbb{K}[X]</span>.</p>
+<ol type="1">
+<li>Montrer que l’application <span class="math inline">\Phi_A : \mathbb{K}[X] \to \mathcal{M}_n(\mathbb{K})</span> définie par <span class="math inline">P \mapsto P(A)</span> est un morphisme d’algèbres.</li>
+<li>Montrer que <span class="math inline">\ker(\Phi_A)</span> est un idéal de <span class="math inline">\mathbb{K}[X]</span>.</li>
+<li>Montrer que <span class="math inline">\ker(\Phi_A) \neq \{0\}</span> (utiliser la dimension finie de <span class="math inline">\mathcal{M}_n(\mathbb{K})</span>).</li>
+<li>On appelle polynôme minimal de <span class="math inline">A</span> le générateur unitaire de <span class="math inline">\ker(\Phi_A)</span>. Montrer qu’il divise tout polynôme annulateur de <span class="math inline">A</span>.</li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 10</strong></p>
+<p>Soit <span class="math inline">A = \begin{pmatrix} 1 &amp; 1 &amp; 0 \\ 0 &amp; 1 &amp; 1 \\ 0 &amp; 0 &amp; 1 \end{pmatrix}</span>.</p>
+<ol type="1">
+<li>Calculer <span class="math inline">A^n</span> pour tout <span class="math inline">n \in \mathbb{N}</span>.</li>
+<li>Déterminer le polynôme minimal de <span class="math inline">A</span>.</li>
+<li>Calculer <span class="math inline">e^A = \sum_{k=0}^{+\infty} \frac{A^k}{k!}</span>.</li>
+</ol>
+</div>
+<p><strong>Indications :</strong> - (1) Écrire <span class="math inline">A = I_3 + N</span> avec <span class="math inline">N^3 = 0</span> et utiliser le binôme de Newton. - (2) <span class="math inline">(A - I_3)^3 = 0</span> mais <span class="math inline">(A - I_3)^2 \neq 0</span>.</p>
+<section id="cours" class="level1 unnumbered">
+<h1 class="unnumbered">Cours</h1>
+<p><a href="../cours/tsi2-chap01.html"><strong>Chapitre 01 : Rappels et compléments sur les espaces vectoriels, endomorphismes et matrices</strong></a></p>
+</section>
+<section id="navigation" class="level1 unnumbered">
+<h1 class="unnumbered">Navigation</h1>
+<div class="chap-nav">
+<p><a href="../td/tsi2.html" class="home">Menu TSI</a> <a href="../td/tsi2-chap02.html" class="next">TD 02 : Déterminants</a></p>
+</div>
 
 
 </section>
@@ -222,12 +381,12 @@ ul.task-list li input[type="checkbox"] {
       // flash "checked"
       button.classList.add('code-copy-button-checked');
       var currentTitle = button.getAttribute("title");
-      button.setAttribute("title", "Copied!");
+      button.setAttribute("title", "Copié");
       let tooltip;
       if (window.bootstrap) {
         button.setAttribute("data-bs-toggle", "tooltip");
         button.setAttribute("data-bs-placement", "left");
-        button.setAttribute("data-bs-title", "Copied!");
+        button.setAttribute("data-bs-title", "Copié");
         tooltip = new bootstrap.Tooltip(button, 
           { trigger: "manual", 
             customClass: "code-copy-button-tooltip",
