@@ -1,14 +1,13 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr"><head>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.10.18">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Saîd MAHARI">
 
-<title>TD — Probabilités – Mathématiques en CPGE</title>
+<title>Statistiques - Mathématiques en CPGE – Mathématiques en CPGE</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -30,23 +29,23 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../">
-<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="../site_libs/quarto-html/popper.min.js"></script>
-<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-e0d9a45d84245cc5e3b300860d8fa645.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-7a8c080b55ea27eb37b467515007f9ee.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -61,119 +60,75 @@ ul.task-list li input[type="checkbox"] {
   ],
   "show-item-context": false,
   "language": {
-    "search-no-results-text": "Pas de résultats",
-    "search-matching-documents-text": "documents trouvés",
-    "search-copy-link-title": "Copier le lien vers la recherche",
-    "search-hide-matches-text": "Cacher les correspondances additionnelles",
-    "search-more-match-text": "correspondance de plus dans ce document",
-    "search-more-matches-text": "correspondances de plus dans ce document",
-    "search-clear-button-title": "Effacer",
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
     "search-text-placeholder": "",
-    "search-detached-cancel-button-title": "Annuler",
-    "search-submit-button-title": "Envoyer",
-    "search-label": "Recherche"
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
   }
 }</script>
 
-  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
-  <script>document.addEventListener("DOMContentLoaded", function () {
- var mathElements = document.getElementsByClassName("math");
- var macros = [];
- for (var i = 0; i < mathElements.length; i++) {
-  var texText = mathElements[i].firstChild;
-  if (mathElements[i].tagName == "SPAN") {
-   katex.render(texText.data, mathElements[i], {
-    displayMode: mathElements[i].classList.contains('display'),
-    throwOnError: false,
-    macros: macros,
-    fleqn: false
-   });
-}}});
-  </script>
-  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
 
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
-
-<link rel="stylesheet" href="../styles.css">
 <link rel="stylesheet" href="styles.css">
 </head>
 
-<body class="nav-fixed quarto-light">
+<body class="nav-fixed fullcontent quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="../index.html">
+    <a class="navbar-brand" href="./index.html">
     <span class="navbar-title">Accueil</span>
     </a>
   </div>
-            <div id="quarto-search" class="" title="Recherche"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Basculer la navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../cours/index.html"> 
+    <a class="nav-link" href="./cours/index.html"> 
 <span class="menu-text">Cours</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../td/index.html"> 
+    <a class="nav-link" href="./td/index.html"> 
 <span class="menu-text">TD</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../annales/index.html"> 
+    <a class="nav-link" href="./annales/index.html"> 
 <span class="menu-text">Annales</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../tipe/index.html"> 
+    <a class="nav-link" href="./tipe/index.html"> 
 <span class="menu-text">TIPE</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../conseils.html"> 
+    <a class="nav-link" href="./conseils.html"> 
 <span class="menu-text">Conseils et méthode</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../professeurs.html"> 
+    <a class="nav-link" href="./professeurs.html"> 
 <span class="menu-text">Aux professeurs</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../analytics.html"> 
+    <a class="nav-link active" href="./analytics.html" aria-current="page"> 
 <span class="menu-text">Statistiques</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../contact.html"> 
+    <a class="nav-link" href="./contact.html"> 
 <span class="menu-text">Contact</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../apropos.html"> 
+    <a class="nav-link" href="./apropos.html"> 
 <span class="menu-text">À propos de l’auteur</span></a>
   </li>  
 </ul>
@@ -187,42 +142,20 @@ window.Quarto = {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Sur cette page</h2>
-   
-  <ul>
-  <li><a href="#cours" id="toc-cours" class="nav-link active" data-scroll-target="#cours">Cours</a></li>
-  <li><a href="#navigation" id="toc-navigation" class="nav-link" data-scroll-target="#navigation">Navigation</a></li>
-  </ul>
-</nav>
-    </div>
+    
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">TD — Probabilités</h1>
-<p class="subtitle lead">Chapitre 10</p>
+<h1 class="title">Statistiques du site</h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Auteur·rice</div>
-    <div class="quarto-title-meta-contents">
-             <p>Saîd MAHARI </p>
-          </div>
-  </div>
     
-    <div>
-    <div class="quarto-title-meta-heading">Date de publication</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">23 août 2026</p>
-    </div>
-  </div>
   
     
   </div>
@@ -232,60 +165,82 @@ window.Quarto = {
 </header>
 
 
-<p><strong>PSI (2e année) — TD du Chapitre 10.</strong> Ensembles dénombrables et familles sommables, espaces probabilisés, variables aléatoires et lois (discrètes et à densité), espérance et moments, fonctions génératrices, inégalités et théorèmes limites.</p>
-<div class="custom-numbered-block custom-exercise">
-<p><strong>Exercice 1</strong></p>
-<p>Soit <span class="math inline">(u_i)_{i \in I}</span> une famille de nombres complexes indexée par un ensemble dénombrable. Montrer que la famille est sommable si et seulement si pour toute bijection <span class="math inline">\varphi : \mathbb{N} \to I</span>, la série <span class="math inline">\sum u_{\varphi(n)}</span> est absolument convergente.</p>
-</div>
-<div class="custom-numbered-block custom-exercise">
-<p><strong>Exercice 2</strong></p>
-<p>Soit <span class="math inline">X \hookrightarrow \mathcal{B}(n,p)</span>. Montrer que <span class="math inline">E(X) = np</span> et <span class="math inline">V(X) = np(1-p)</span>.</p>
-</div>
-<div class="custom-numbered-block custom-exercise">
-<p><strong>Exercice 3</strong></p>
-<p>Soit <span class="math inline">X \hookrightarrow \mathcal{P}(\lambda)</span>.</p>
-<ol type="1">
-<li>Déterminer la fonction génératrice <span class="math inline">G_X(s)</span>.</li>
-<li>En déduire <span class="math inline">E(X)</span> et <span class="math inline">V(X)</span>.</li>
-</ol>
-</div>
-<div class="custom-numbered-block custom-exercise">
-<p><strong>Exercice 4</strong></p>
-<p>Soit <span class="math inline">X</span> une variable aléatoire positive admettant une espérance. Montrer l’inégalité de Markov : <span class="math inline">P(X \geq a) \leq \dfrac{E(X)}{a}</span> pour tout <span class="math inline">a &gt; 0</span>.</p>
-</div>
-<div class="custom-numbered-block custom-exercise">
-<p><strong>Exercice 5</strong></p>
-<p>Soit <span class="math inline">X</span> une variable aléatoire admettant une variance. Montrer l’inégalité de Bienaymé-Tchebychev : <span class="math display">P(|X - E(X)| \geq \varepsilon) \leq \frac{V(X)}{\varepsilon^2}</span></p>
-</div>
-<div class="custom-numbered-block custom-exercise">
-<p><strong>Exercice 6</strong></p>
-<p>Soient <span class="math inline">X</span> et <span class="math inline">Y</span> indépendantes avec <span class="math inline">X \hookrightarrow \mathcal{P}(\lambda_1)</span> et <span class="math inline">Y \hookrightarrow \mathcal{P}(\lambda_2)</span>. Montrer que <span class="math inline">X+Y \hookrightarrow \mathcal{P}(\lambda_1 + \lambda_2)</span>.</p>
-</div>
-<div class="custom-numbered-block custom-exercise">
-<p><strong>Exercice 7</strong></p>
-<p>Soit <span class="math inline">(X_n)</span> une suite de variables aléatoires avec <span class="math inline">X_n \hookrightarrow \mathcal{B}(n, \lambda/n)</span>. Montrer que <span class="math inline">X_n \xrightarrow{\mathcal{L}} \mathcal{P}(\lambda)</span>.</p>
-</div>
-<div class="custom-numbered-block custom-exercise">
-<p><strong>Exercice 8</strong></p>
-<p>Soit <span class="math inline">(X_n)</span> une suite de variables aléatoires mutuellement indépendantes de même loi admettant un moment d’ordre 2. Montrer la loi faible des grands nombres : <span class="math display">\frac{1}{n}\sum_{k=1}^n X_k \xrightarrow{P} E(X_1)</span></p>
-</div>
-<div class="custom-numbered-block custom-exercise">
-<p><strong>Exercice 9</strong></p>
-<p>Soit <span class="math inline">X \hookrightarrow \mathcal{E}(\lambda)</span> (loi exponentielle). Montrer que <span class="math inline">E(X) = \frac{1}{\lambda}</span> et <span class="math inline">V(X) = \frac{1}{\lambda^2}</span>.</p>
-</div>
-<div class="custom-numbered-block custom-exercise">
-<p><strong>Exercice 10</strong></p>
-<p>On lance <span class="math inline">n</span> fois un dé équilibré. Soit <span class="math inline">S_n</span> la somme des résultats. Utiliser le théorème de la limite centrée pour approcher <span class="math inline">P(S_n \leq 3{,}2n)</span> pour <span class="math inline">n</span> grand.</p>
-</div>
-<section id="cours" class="level1 unnumbered">
-<h1 class="unnumbered">Cours</h1>
-<p><a href="../cours/psi-chap10.html"><strong>Chapitre 10 : Probabilités</strong></a></p>
+<section id="en-un-coup-dœil" class="level2">
+<h2 class="anchored" data-anchor-id="en-un-coup-dœil">En un coup d’œil</h2>
+<div class="grid">
+<div class="g-col-6 g-col-md-3">
+<section id="total-visiteurs" class="level3 card-home">
+<h3 class="anchored" data-anchor-id="total-visiteurs">👥 Total visiteurs</h3>
+<p><strong><span data-count-path="TOTAL">…</span></strong></p>
 </section>
-<section id="navigation" class="level1 unnumbered">
-<h1 class="unnumbered">Navigation</h1>
-<div class="chap-nav">
-<p><a href="../td/psi-chap09.html" class="prev">TD 09 : Intégrales dépendant d’un paramètre</a> <a href="../td/psi.html" class="home">Menu PSI</a> <a href="../td/psi-chap11.html" class="next">TD 11 : Équations différentielles linéaires</a></p>
 </div>
+<div class="g-col-6 g-col-md-3">
+<section id="accueil" class="level3 card-home">
+<h3 class="anchored" data-anchor-id="accueil">🏠 Accueil</h3>
+<p><strong><span data-count-path="/">…</span></strong> visites</p>
+</section>
+</div>
+<div class="g-col-6 g-col-md-3">
+<section id="cours" class="level3 card-home">
+<h3 class="anchored" data-anchor-id="cours">📘 Cours</h3>
+<p><strong><span data-count-path="/cours/">…</span></strong> visites</p>
+</section>
+</div>
+<div class="g-col-6 g-col-md-3">
+<section id="td" class="level3 card-home">
+<h3 class="anchored" data-anchor-id="td">✏️ TD</h3>
+<p><strong><span data-count-path="/td/">…</span></strong> visites</p>
+</section>
+</div>
+</div>
+<div class="grid">
+<div class="g-col-6 g-col-md-3">
+<section id="annales" class="level3 card-home">
+<h3 class="anchored" data-anchor-id="annales">🎓 Annales</h3>
+<p><strong><span data-count-path="/annales/">…</span></strong> visites</p>
+</section>
+</div>
+<div class="g-col-6 g-col-md-3">
+<section id="tipe" class="level3 card-home">
+<h3 class="anchored" data-anchor-id="tipe">🔬 TIPE</h3>
+<p><strong><span data-count-path="/tipe/">…</span></strong> visites</p>
+</section>
+</div>
+<div class="g-col-6 g-col-md-3">
+<section id="conseils" class="level3 card-home">
+<h3 class="anchored" data-anchor-id="conseils">💡 Conseils</h3>
+<p><strong><span data-count-path="/conseils.html">…</span></strong> visites</p>
+</section>
+</div>
+<div class="g-col-6 g-col-md-3">
+<section id="contact" class="level3 card-home">
+<h3 class="anchored" data-anchor-id="contact">✉️ Contact</h3>
+<p><strong><span data-count-path="/contact.html">…</span></strong> visites</p>
+</section>
+</div>
+</div>
+</section>
+<section id="détail-page-par-page-et-téléchargement-par-téléchargement" class="level2">
+<h2 class="anchored" data-anchor-id="détail-page-par-page-et-téléchargement-par-téléchargement">Détail page par page et téléchargement par téléchargement</h2>
+<p>Ci-dessous, le tableau de bord en direct. Dans la section « Pages » :</p>
+<ul>
+<li>chaque ligne ordinaire = une page du site et son nombre de visites ;</li>
+<li>chaque ligne commençant par <strong>« download: »</strong> = un PDF et son nombre de téléchargements.</li>
+</ul>
+<p>Astuce : tapez <code>download</code> dans le champ « Filtrer les pages » pour ne voir que les téléchargements, fichier par fichier.</p>
+<iframe src="https://maharicpge.goatcounter.com/" style="width:100%; height:80vh; border:none; border-radius:12px;" loading="lazy"></iframe>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    document.querySelectorAll('[data-count-path]').forEach(function (el) {
+      var p = el.getAttribute('data-count-path');
+      fetch('https://maharicpge.goatcounter.com/counter/' + encodeURIComponent(p) + '.json')
+        .then(function (r) { if (!r.ok) throw 0; return r.json(); })
+        .then(function (d) { el.textContent = d.count; })
+        .catch(function () { el.textContent = '0'; });
+    });
+  });
+</script>
 
 
 </section>
@@ -352,12 +307,12 @@ window.Quarto = {
       // flash "checked"
       button.classList.add('code-copy-button-checked');
       var currentTitle = button.getAttribute("title");
-      button.setAttribute("title", "Copié");
+      button.setAttribute("title", "Copied!");
       let tooltip;
       if (window.bootstrap) {
         button.setAttribute("data-bs-toggle", "tooltip");
         button.setAttribute("data-bs-placement", "left");
-        button.setAttribute("data-bs-title", "Copié");
+        button.setAttribute("data-bs-title", "Copied!");
         tooltip = new bootstrap.Tooltip(button, 
           { trigger: "manual", 
             customClass: "code-copy-button-tooltip",
