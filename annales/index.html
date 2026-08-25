@@ -606,6 +606,58 @@ ul.task-list li input[type="checkbox"] {
 </section>
 
 </main> <!-- /main -->
+<!-- Compteur de visites GoatCounter -->
+<script data-goatcounter="https://maharicpge.goatcounter.com/count" async="" src="//gc.zgo.at/count.js"></script>
+
+<!-- Comptage des clics sur les liens PDF (téléchargements) -->
+<script>
+  window.addEventListener('load', function () {
+    document.querySelectorAll('a[href$=".pdf"]').forEach(function (lien) {
+      lien.addEventListener('click', function () {
+        if (window.goatcounter) {
+          window.goatcounter.count({
+            path:  'download: ' + lien.href,
+            title: lien.textContent.trim(),
+            event: true
+          });
+        }
+      });
+    });
+  });
+</script>
+
+<!-- Badge « total visiteurs » à droite dans la barre de navigation -->
+<script>
+  window.addEventListener('load', function () {
+    fetch('https://maharicpge.goatcounter.com/counter/TOTAL.json')
+      .then(function (r) { return r.json(); })
+      .then(function (d) {
+        var nav = document.querySelector('.navbar .container-fluid');
+        if (!nav) return;
+        var badge = document.createElement('span');
+        badge.className = 'navbar-visitors-badge';
+        badge.textContent = '👥 ' + d.count + ' visiteurs';
+        nav.appendChild(badge);
+      })
+      .catch(function () {});
+  });
+</script>
+
+<!-- Nombre de téléchargements affiché à côté de chaque lien PDF -->
+<script>
+  window.addEventListener('load', function () {
+    document.querySelectorAll('a[href$=".pdf"]').forEach(function (lien) {
+      var badge = document.createElement('span');
+      badge.className = 'dl-count';
+      badge.textContent = '⬇ …';
+      lien.after(badge);
+      fetch('https://maharicpge.goatcounter.com/counter/' + encodeURIComponent('download: ' + lien.href) + '.json')
+        .then(function (r) { if (!r.ok) throw 0; return r.json(); })
+        .then(function (d) { badge.textContent = '⬇ ' + d.count; })
+        .catch(function () { badge.textContent = '⬇ 0'; });
+    });
+  });
+</script>
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
