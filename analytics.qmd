@@ -1,0 +1,98 @@
+---
+title: "Statistiques du site"
+pagetitle: "Statistiques - Mathématiques en CPGE"
+toc: false
+---
+
+## En un coup d'œil
+
+::: {.grid}
+
+::: {.g-col-6 .g-col-md-3}
+::: {.card-home}
+### 👥 Total visiteurs
+**<span data-count-path="TOTAL">…</span>**
+:::
+:::
+
+::: {.g-col-6 .g-col-md-3}
+::: {.card-home}
+### 🏠 Accueil
+**<span data-count-path="/">…</span>** visites
+:::
+:::
+
+::: {.g-col-6 .g-col-md-3}
+::: {.card-home}
+### 📘 Cours
+**<span data-count-path="/cours/">…</span>** visites
+:::
+:::
+
+::: {.g-col-6 .g-col-md-3}
+::: {.card-home}
+### ✏️ TD
+**<span data-count-path="/td/">…</span>** visites
+:::
+:::
+
+:::
+
+::: {.grid}
+
+::: {.g-col-6 .g-col-md-3}
+::: {.card-home}
+### 🎓 Annales
+**<span data-count-path="/annales/">…</span>** visites
+:::
+:::
+
+::: {.g-col-6 .g-col-md-3}
+::: {.card-home}
+### 🔬 TIPE
+**<span data-count-path="/tipe/">…</span>** visites
+:::
+:::
+
+::: {.g-col-6 .g-col-md-3}
+::: {.card-home}
+### 💡 Conseils
+**<span data-count-path="/conseils.html">…</span>** visites
+:::
+:::
+
+::: {.g-col-6 .g-col-md-3}
+::: {.card-home}
+### ✉️ Contact
+**<span data-count-path="/contact.html">…</span>** visites
+:::
+:::
+
+:::
+
+## Détail page par page et téléchargement par téléchargement
+
+Ci-dessous, le tableau de bord en direct. Dans la section « Pages » :
+
+- chaque ligne ordinaire = une page du site et son nombre de visites ;
+- chaque ligne commençant par **« download: »** = un PDF et son nombre de téléchargements.
+
+Astuce : tapez `download` dans le champ « Filtrer les pages » pour ne voir que les téléchargements, fichier par fichier.
+
+```{=html}
+<iframe src="https://maharicpge.goatcounter.com/"
+        style="width:100%; height:80vh; border:none; border-radius:12px;"
+        loading="lazy"></iframe>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    document.querySelectorAll('[data-count-path]').forEach(function (el) {
+      var p = el.getAttribute('data-count-path');
+      fetch('https://maharicpge.goatcounter.com/counter/' + encodeURIComponent(p) + '.json')
+        .then(function (r) { if (!r.ok) throw 0; return r.json(); })
+        .then(function (d) { el.textContent = d.count; })
+        .catch(function () { el.textContent = '0'; });
+    });
+  });
+</script>
+```

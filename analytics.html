@@ -2,7 +2,7 @@
 <script data-goatcounter="https://maharicpge.goatcounter.com/count"
         async src="//gc.zgo.at/count.js"></script>
 
-<!-- Compteur de téléchargements : compte chaque clic sur un lien PDF -->
+<!-- Compteur de téléchargements : chaque clic sur un lien PDF -->
 <script>
   window.addEventListener('load', function () {
     document.querySelectorAll('a[href$=".pdf"]').forEach(function (lien) {
@@ -16,5 +16,22 @@
         }
       });
     });
+  });
+</script>
+
+<!-- Badge « nombre total de visiteurs » au milieu de la barre de navigation -->
+<script>
+  window.addEventListener('load', function () {
+    fetch('https://maharicpge.goatcounter.com/counter/TOTAL.json')
+      .then(function (r) { return r.json(); })
+      .then(function (d) {
+        var nav = document.querySelector('.navbar .container-fluid');
+        if (!nav) return;
+        var badge = document.createElement('span');
+        badge.className = 'navbar-visitors-badge';
+        badge.textContent = '👥 ' + d.count + ' visiteurs';
+        nav.appendChild(badge);
+      })
+      .catch(function () {});
   });
 </script>

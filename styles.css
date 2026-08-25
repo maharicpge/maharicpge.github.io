@@ -44,3 +44,23 @@
 .profile-badges .badge {
   font-size: .95rem;
 }
+
+
+/* Badge compteur de visiteurs, centré dans la barre de navigation */
+.navbar .container-fluid { position: relative; }
+.navbar-visitors-badge {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(255, 255, 255, 0.18);
+  color: #fff;
+  padding: 0.25rem 0.9rem;
+  border-radius: 999px;
+  font-size: 0.9rem;
+  white-space: nowrap;
+  pointer-events: none;
+}
+@media (max-width: 991px) {
+  .navbar-visitors-badge { display: none; }
+}
