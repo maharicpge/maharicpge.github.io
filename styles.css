@@ -46,13 +46,13 @@
 }
 
 
-/* Badge compteur de visiteurs, centré dans la barre de navigation */
+/* Badge compteur de visiteurs, à DROITE dans la barre de navigation */
 .navbar .container-fluid { position: relative; }
 .navbar-visitors-badge {
   position: absolute;
-  left: 50%;
+  right: 4rem;
   top: 50%;
-  transform: translate(-50%, -50%);
+  transform: translateY(-50%);
   background: rgba(255, 255, 255, 0.18);
   color: #fff;
   padding: 0.25rem 0.9rem;
@@ -63,4 +63,16 @@
 }
 @media (max-width: 991px) {
   .navbar-visitors-badge { display: none; }
+}
+
+/* Petit badge « nombre de téléchargements » à côté des liens PDF */
+.dl-count {
+  display: inline-block;
+  margin-left: 0.4rem;
+  padding: 0.05rem 0.5rem;
+  border-radius: 999px;
+  background: #ede9fe;
+  color: #6d28d9;
+  font-size: 0.8rem;
+  white-space: nowrap;
 }
