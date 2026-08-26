@@ -32,6 +32,19 @@ header-includes: |
   <script>
     document.addEventListener('DOMContentLoaded', function () {
       function label(n) { return ' (' + n + ' téléchargement' + (n > 1 ? 's' : '') + ')'; }
+      function readCount(path, cb) {
+        var urls = [
+          'https://maharicpge.goatcounter.com/counter/' + encodeURIComponent(path) + '.json',
+          'https://maharicpge.goatcounter.com/counter' + path + '.json'
+        ];
+        (function tryNext(i) {
+          if (i >= urls.length) { cb(0); return; }
+          fetch(urls[i])
+            .then(function (r) { if (!r.ok) throw 0; return r.json(); })
+            .then(function (d) { cb(d.count || 0); })
+            .catch(function () { tryNext(i + 1); });
+        })(0);
+      }
       document.querySelectorAll('table a[href$=".pdf"]').forEach(function (a) {
         var url  = a.getAttribute('href');
         var name = url.split('/').pop().replace(/\.pdf$/i, '');
@@ -43,10 +56,7 @@ header-includes: |
         span.textContent = ' (…)';
         span.dataset.n = '0';
         a.insertAdjacentElement('afterend', span);
-        fetch('https://maharicpge.goatcounter.com/counter/' + encodeURIComponent(path) + '.json?ts=' + Date.now())
-          .then(function (r) { if (!r.ok) throw 0; return r.json(); })
-          .then(function (d) { span.dataset.n = String(d.count); span.textContent = label(d.count); })
-          .catch(function () { span.textContent = label(0); });
+        readCount(path, function (n) { span.dataset.n = String(n); span.textContent = label(n); });
         a.addEventListener('click', function () {
           var n = parseInt(span.dataset.n || '0', 10) + 1;
           span.dataset.n = String(n);

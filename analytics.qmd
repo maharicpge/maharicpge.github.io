@@ -113,7 +113,7 @@ toc: false
 <script>
   document.addEventListener('DOMContentLoaded', function () {
     document.querySelectorAll('[data-count-path]').forEach(function (el) {
-      var p = el.getAttribute('data-count-path');
+      var p = el.getAttribute('data-count-path').trim();
       fetch('https://maharicpge.goatcounter.com/counter/' + encodeURIComponent(p) + '.json')
         .then(function (r) { if (!r.ok) throw 0; return r.json(); })
         .then(function (d) { el.textContent = d.count; })
