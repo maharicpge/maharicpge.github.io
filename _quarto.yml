@@ -36,6 +36,8 @@ header-includes: |
         var url  = a.getAttribute('href');
         var name = url.split('/').pop().replace(/\.pdf$/i, '');
         var path = '/dl/' + name;
+        a.target = '_blank';
+        a.rel = 'noopener';
         var span = document.createElement('span');
         span.className = 'dl-count';
         span.textContent = ' (…)';

@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.18">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Saîd MAHARI">
+
+<title>TD — Espaces vectoriels et applications linéaires – Mathématiques en CPGE</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-e0d9a45d84245cc5e3b300860d8fa645.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "Pas de résultats",
+    "search-matching-documents-text": "documents trouvés",
+    "search-copy-link-title": "Copier le lien vers la recherche",
+    "search-hide-matches-text": "Cacher les correspondances additionnelles",
+    "search-more-match-text": "correspondance de plus dans ce document",
+    "search-more-matches-text": "correspondances de plus dans ce document",
+    "search-clear-button-title": "Effacer",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Annuler",
+    "search-submit-button-title": "Envoyer",
+    "search-label": "Recherche"
+  }
+}</script>
+<script data-goatcounter="https://maharicpge.goatcounter.com/count" async="" src="//gc.zgo.at/count.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    function label(n) { return ' (' + n + ' téléchargement' + (n > 1 ? 's' : '') + ')'; }
+    document.querySelectorAll('table a[href$=".pdf"]').forEach(function (a) {
+      var url  = a.getAttribute('href');
+      var name = url.split('/').pop().replace(/\.pdf$/i, '');
+      var path = '/dl/' + name;
+      var span = document.createElement('span');
+      span.className = 'dl-count';
+      span.textContent = ' (…)';
+      span.dataset.n = '0';
+      a.insertAdjacentElement('afterend', span);
+      fetch('https://maharicpge.goatcounter.com/counter/' + encodeURIComponent(path) + '.json?ts=' + Date.now())
+        .then(function (r) { if (!r.ok) throw 0; return r.json(); })
+        .then(function (d) { span.dataset.n = String(d.count); span.textContent = label(d.count); })
+        .catch(function () { span.textContent = label(0); });
+      a.addEventListener('click', function () {
+        var n = parseInt(span.dataset.n || '0', 10) + 1;
+        span.dataset.n = String(n);
+        span.textContent = label(n);
+        if (window.goatcounter && window.goatcounter.count) {
+          window.goatcounter.count({ path: path, title: 'Téléchargement : ' + name });
+        }
+      });
+    });
+  });
+</script>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">Accueil</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Recherche"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Basculer la navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../cours/index.html"> 
+<span class="menu-text">Cours</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../td/index.html"> 
+<span class="menu-text">TD</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../annales/index.html"> 
+<span class="menu-text">Annales</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../tipe/index.html"> 
+<span class="menu-text">TIPE</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../conseils.html"> 
+<span class="menu-text">Conseils et méthode</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../professeurs.html"> 
+<span class="menu-text">Aux professeurs</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../analytics.html"> 
+<span class="menu-text">Statistiques</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../contact.html"> 
+<span class="menu-text">Contact</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../apropos.html"> 
+<span class="menu-text">À propos de l’auteur</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Sur cette page</h2>
+   
+  <ul>
+  <li><a href="#cours" id="toc-cours" class="nav-link active" data-scroll-target="#cours">Cours</a></li>
+  <li><a href="#navigation" id="toc-navigation" class="nav-link" data-scroll-target="#navigation">Navigation</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">TD — Espaces vectoriels et applications linéaires</h1>
+<p class="subtitle lead">Chapitre 12</p>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Auteur·rice</div>
+    <div class="quarto-title-meta-contents">
+             <p>Saîd MAHARI </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Date de publication</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">23 août 2026</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p><strong>MPSI (1re année) — TD du Chapitre 12.</strong> Structure d’espace vectoriel, sous-espaces vectoriels, sommes directes, familles libres et génératrices, bases, applications linéaires, noyau, image, isomorphismes, projecteurs et symétries.</p>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 1</strong></p>
+<p>Montrer que les ensembles suivants sont des <span class="math inline">\mathbb{R}</span>-espaces vectoriels :</p>
+<ol type="1">
+<li>L’ensemble des suites réelles <span class="math inline">(u_n)_{n \in \mathbb{N}}</span>.</li>
+<li>L’ensemble <span class="math inline">\mathcal{F}(\mathbb{R}, \mathbb{R})</span> des fonctions de <span class="math inline">\mathbb{R}</span> dans <span class="math inline">\mathbb{R}</span>.</li>
+<li>L’ensemble des fonctions paires (resp. impaires) de <span class="math inline">\mathbb{R}</span> dans <span class="math inline">\mathbb{R}</span>.</li>
+<li>L’ensemble des solutions de l’équation différentielle <span class="math inline">y'' + y = 0</span>.</li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 2</strong></p>
+<p>Parmi les ensembles suivants, lesquels sont des sous-espaces vectoriels de <span class="math inline">\mathbb{R}^3</span> ?</p>
+<ol type="1">
+<li><span class="math inline">F_1 = \{(x, y, z) \mid x + y + z = 0\}</span></li>
+<li><span class="math inline">F_2 = \{(x, y, z) \mid x + y + z = 1\}</span></li>
+<li><span class="math inline">F_3 = \{(x, y, z) \mid x^2 + y^2 = z^2\}</span></li>
+<li><span class="math inline">F_4 = \{(x, y, z) \mid x = 2y = 3z\}</span></li>
+</ol>
+</div>
+<p><strong>Indication :</strong> Vérifier : <span class="math inline">0 \in F</span>, stabilité par addition et par multiplication scalaire. <span class="math inline">F_2</span> ne contient pas <span class="math inline">0</span> ; <span class="math inline">F_3</span> n’est pas stable par addition.</p>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 3</strong></p>
+<p>Soient <span class="math inline">F = \mathrm{Vect}((1, 2, 3), (2, 4, 6))</span> et <span class="math inline">G = \mathrm{Vect}((1, 0, -1), (0, 1, 1))</span> dans <span class="math inline">\mathbb{R}^3</span>.</p>
+<ol type="1">
+<li>Déterminer <span class="math inline">\dim F</span> et <span class="math inline">\dim G</span>.</li>
+<li>Déterminer <span class="math inline">F \cap G</span> et <span class="math inline">F + G</span>.</li>
+<li>La somme <span class="math inline">F + G</span> est-elle directe ?</li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 4</strong></p>
+<p>Dans <span class="math inline">\mathbb{R}^4</span>, on considère <span class="math inline">F = \{(x_1, x_2, x_3, x_4) \mid x_1 + x_2 = x_3 + x_4\}</span> et <span class="math inline">G = \{(x_1, x_2, x_3, x_4) \mid x_1 - x_2 = x_3 - x_4\}</span>.</p>
+<ol type="1">
+<li>Déterminer une base de <span class="math inline">F</span> et une base de <span class="math inline">G</span>.</li>
+<li>Déterminer <span class="math inline">F \cap G</span> et <span class="math inline">F + G</span>.</li>
+<li><span class="math inline">\mathbb{R}^4 = F \oplus G</span> ?</li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 5</strong></p>
+<p>Les familles suivantes sont-elles libres ? Sont-elles génératrices ?</p>
+<ol type="1">
+<li>Dans <span class="math inline">\mathbb{R}^3</span> : <span class="math inline">((1, 1, 0), (0, 1, 1), (1, 0, 1))</span>.</li>
+<li>Dans <span class="math inline">\mathbb{R}^3</span> : <span class="math inline">((1, 2, 3), (4, 5, 6), (7, 8, 9))</span>.</li>
+<li>Dans <span class="math inline">\mathbb{R}_2[X]</span> : <span class="math inline">(1, X, X^2, X^3)</span>.</li>
+</ol>
+</div>
+<p><strong>Indications :</strong> - (1) Calculer le déterminant : <span class="math inline">1(1) - 1(-1) = 2 \neq 0</span>. Famille libre et génératrice (base). - (2) <span class="math inline">L_3 = 2L_2 - L_1</span>, famille liée.</p>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 6</strong></p>
+<p>Soient <span class="math inline">f : E \to F</span> une application linéaire et <span class="math inline">A \subset E</span>.</p>
+<ol type="1">
+<li>Montrer que <span class="math inline">f(A)</span> est un sous-espace vectoriel de <span class="math inline">F</span> si <span class="math inline">A</span> est un sev de <span class="math inline">E</span>.</li>
+<li>Montrer que <span class="math inline">f^{-1}(B)</span> est un sev de <span class="math inline">E</span> si <span class="math inline">B</span> est un sev de <span class="math inline">F</span>.</li>
+<li>Montrer que <span class="math inline">f(\mathrm{Vect}(A)) = \mathrm{Vect}(f(A))</span>.</li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 7</strong></p>
+<p>Soit <span class="math inline">f : \mathbb{R}^3 \to \mathbb{R}^3</span> définie par <span class="math inline">f(x, y, z) = (x + y, y + z, z + x)</span>.</p>
+<ol type="1">
+<li>Montrer que <span class="math inline">f</span> est linéaire.</li>
+<li>Déterminer <span class="math inline">\ker f</span> et <span class="math inline">\mathrm{Im}\, f</span>.</li>
+<li><span class="math inline">f</span> est-elle injective ? Surjective ? Bijective ?</li>
+</ol>
+</div>
+<p><strong>Indications :</strong> - (2) <span class="math inline">f(x,y,z) = 0 \iff x + y = y + z = z + x = 0 \iff x = y = z = 0</span>. Donc <span class="math inline">\ker f = \{0\}</span>, <span class="math inline">f</span> injective. - En dimension finie, injective <span class="math inline">\Rightarrow</span> bijective (même dimension).</p>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 8</strong></p>
+<p>Soit <span class="math inline">D : \mathbb{R}_n[X] \to \mathbb{R}_{n-1}[X]</span> définie par <span class="math inline">D(P) = P'</span> (dérivation).</p>
+<ol type="1">
+<li>Montrer que <span class="math inline">D</span> est linéaire.</li>
+<li>Déterminer <span class="math inline">\ker D</span> et <span class="math inline">\mathrm{Im}\, D</span>.</li>
+<li>Vérifier le théorème du rang.</li>
+</ol>
+</div>
+<p><strong>Indications :</strong> - (2) <span class="math inline">\ker D = \mathbb{R}_0[X]</span> (polynômes constants), <span class="math inline">\dim \ker D = 1</span>. - <span class="math inline">\mathrm{Im}\, D = \mathbb{R}_{n-1}[X]</span>, <span class="math inline">\dim \mathrm{Im}\, D = n</span>. - (3) <span class="math inline">\dim \mathbb{R}_n[X] = n + 1 = 1 + n = \dim \ker D + \dim \mathrm{Im}\, D</span>. ✓</p>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 9</strong></p>
+<p>Soient <span class="math inline">p, q \in \mathcal{L}(E)</span> tels que <span class="math inline">p^2 = p</span>, <span class="math inline">q^2 = q</span> et <span class="math inline">p + q = \mathrm{Id}_E</span>.</p>
+<ol type="1">
+<li>Montrer que <span class="math inline">p \circ q = q \circ p = 0</span>.</li>
+<li>Montrer que <span class="math inline">E = \mathrm{Im}(p) \oplus \mathrm{Im}(q)</span>.</li>
+</ol>
+</div>
+<p><strong>Indication :</strong> <span class="math inline">(p+q)^2 = p^2 + pq + qp + q^2 = p + pq + qp + q = \mathrm{Id}_E = p + q</span>, donc <span class="math inline">pq + qp = 0</span>. Multiplier à gauche par <span class="math inline">p</span> : <span class="math inline">p^2 q + pqp = 0 \Rightarrow pq + pqp = 0</span>, etc.</p>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 10</strong></p>
+<p>Soit <span class="math inline">s \in \mathcal{L}(E)</span> tel que <span class="math inline">s^2 = \mathrm{Id}_E</span> (symétrie).</p>
+<ol type="1">
+<li>Montrer que <span class="math inline">p = \frac{1}{2}(s + \mathrm{Id}_E)</span> est un projecteur.</li>
+<li>En déduire que <span class="math inline">E = \ker(s - \mathrm{Id}_E) \oplus \ker(s + \mathrm{Id}_E)</span>.</li>
+</ol>
+</div>
+<p><strong>Indication :</strong> <span class="math inline">p^2 = \frac{1}{4}(s^2 + 2s + \mathrm{Id}_E) = \frac{1}{4}(\mathrm{Id}_E + 2s + \mathrm{Id}_E) = \frac{1}{2}(s + \mathrm{Id}_E) = p</span>.</p>
+<section id="cours" class="level1 unnumbered">
+<h1 class="unnumbered">Cours</h1>
+<p><a href="../td/mpsi-chap12.html"><strong>Chapitre 12 : Espaces vectoriels et applications linéaires</strong></a></p>
+</section>
+<section id="navigation" class="level1 unnumbered">
+<h1 class="unnumbered">Navigation</h1>
+<div class="chap-nav">
+<p><a href="../td/mpsi-chap11.html" class="prev">Chapitre 11 : Fractions rationnelles</a> <a href="../td/mpsi.html" class="home">Menu MPSI</a> <a href="../td/mpsi-chap13.html" class="next">Chapitre 13 : Dimension finie</a></p>
+</div>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copié");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copié");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/maharicpge\.github\.io\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">
+<p>© 2026 - Mathématiques en CPGE ————- Créateur : Saîd MAHARI (GSM: 0670050667)</p>
+</div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
+
+
+
+
+</body></html>
