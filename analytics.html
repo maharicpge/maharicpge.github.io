@@ -74,6 +74,28 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 <script data-goatcounter="https://maharicpge.goatcounter.com/count" async="" src="//gc.zgo.at/count.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    document.querySelectorAll('table a[href$=".pdf"]').forEach(function (a) {
+      var url  = a.getAttribute('href');
+      var name = url.split('/').pop().replace(/\.pdf$/i, '');
+      var path = '/dl/' + name;
+      var span = document.createElement('span');
+      span.className = 'dl-count';
+      span.textContent = ' (…)';
+      a.insertAdjacentElement('afterend', span);
+      fetch('https://maharicpge.goatcounter.com/counter/' + encodeURIComponent(path) + '.json')
+        .then(function (r) { if (!r.ok) throw 0; return r.json(); })
+        .then(function (d) { span.textContent = ' (' + d.count + ' téléchargement' + (d.count > 1 ? 's' : '') + ')'; })
+        .catch(function () { span.textContent = ' (0 téléchargement)'; });
+      a.addEventListener('click', function () {
+        if (window.goatcounter && window.goatcounter.count) {
+          window.goatcounter.count({ path: path, title: 'Téléchargement : ' + name, event: true });
+        }
+      });
+    });
+  });
+</script>
 
 
 <link rel="stylesheet" href="styles.css">
