@@ -31,6 +31,7 @@ header-includes: |
           async src="//gc.zgo.at/count.js"></script>
   <script>
     document.addEventListener('DOMContentLoaded', function () {
+      function label(n) { return ' (' + n + ' téléchargement' + (n > 1 ? 's' : '') + ')'; }
       document.querySelectorAll('table a[href$=".pdf"]').forEach(function (a) {
         var url  = a.getAttribute('href');
         var name = url.split('/').pop().replace(/\.pdf$/i, '');
@@ -38,14 +39,18 @@ header-includes: |
         var span = document.createElement('span');
         span.className = 'dl-count';
         span.textContent = ' (…)';
+        span.dataset.n = '0';
         a.insertAdjacentElement('afterend', span);
-        fetch('https://maharicpge.goatcounter.com/counter/' + encodeURIComponent(path) + '.json')
+        fetch('https://maharicpge.goatcounter.com/counter/' + encodeURIComponent(path) + '.json?ts=' + Date.now())
           .then(function (r) { if (!r.ok) throw 0; return r.json(); })
-          .then(function (d) { span.textContent = ' (' + d.count + ' téléchargement' + (d.count > 1 ? 's' : '') + ')'; })
-          .catch(function () { span.textContent = ' (0 téléchargement)'; });
+          .then(function (d) { span.dataset.n = String(d.count); span.textContent = label(d.count); })
+          .catch(function () { span.textContent = label(0); });
         a.addEventListener('click', function () {
+          var n = parseInt(span.dataset.n || '0', 10) + 1;
+          span.dataset.n = String(n);
+          span.textContent = label(n);
           if (window.goatcounter && window.goatcounter.count) {
-            window.goatcounter.count({ path: path, title: 'Téléchargement : ' + name, event: true });
+            window.goatcounter.count({ path: path, title: 'Téléchargement : ' + name });
           }
         });
       });
