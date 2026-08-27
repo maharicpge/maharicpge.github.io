@@ -1,9 +1,8 @@
 project:
   type: website
   output-dir: _site
-
-resources:
-  - files/
+  resources:
+    - files/
 
 website:
   title: "Mathématiques en CPGE"
@@ -25,11 +24,11 @@ website:
         text: Statistiques
       - contact.qmd
       - apropos.qmd
-    right:
+   right:
       - text: "👥 …"
         href: "/analytics.html#total"
-  page-footer: "© 2026 - Mathématiques en CPGE  ------------- Créateur : Saîd MAHARI (GSM: 0670050667)"
 
+  page-footer: "© 2026 - Mathématiques en CPGE  ------------- Créateur : Saîd MAHARI (GSM: 0670050667)"
 header-includes: |
   <script data-goatcounter="https://maharicpge.goatcounter.com/count"
           async src="//gc.zgo.at/count.js"></script>
@@ -100,9 +99,10 @@ header-includes: |
       });
     });
   </script>
-
-format:
+ format:
   html:
     theme: [minty, custom.scss]
     css: styles.css
     toc: true
+
+
