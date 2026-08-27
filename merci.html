@@ -77,6 +77,19 @@ ul.task-list li input[type="checkbox"] {
 <script>
   document.addEventListener('DOMContentLoaded', function () {
     function label(n) { return ' (' + n + ' téléchargement' + (n > 1 ? 's' : '') + ')'; }
+    function readCount(path, cb) {
+      var urls = [
+        'https://maharicpge.goatcounter.com/counter/' + encodeURIComponent(path) + '.json',
+        'https://maharicpge.goatcounter.com/counter' + path + '.json'
+      ];
+      (function tryNext(i) {
+        if (i >= urls.length) { cb(0); return; }
+        fetch(urls[i])
+          .then(function (r) { if (!r.ok) throw 0; return r.json(); })
+          .then(function (d) { cb(d.count || 0); })
+          .catch(function () { tryNext(i + 1); });
+      })(0);
+    }
     document.querySelectorAll('table a[href$=".pdf"]').forEach(function (a) {
       var url  = a.getAttribute('href');
       var name = url.split('/').pop().replace(/\.pdf$/i, '');
@@ -88,10 +101,7 @@ ul.task-list li input[type="checkbox"] {
       span.textContent = ' (…)';
       span.dataset.n = '0';
       a.insertAdjacentElement('afterend', span);
-      fetch('https://maharicpge.goatcounter.com/counter/' + encodeURIComponent(path) + '.json?ts=' + Date.now())
-        .then(function (r) { if (!r.ok) throw 0; return r.json(); })
-        .then(function (d) { span.dataset.n = String(d.count); span.textContent = label(d.count); })
-        .catch(function () { span.textContent = label(0); });
+      readCount(path, function (n) { span.dataset.n = String(n); span.textContent = label(n); });
       a.addEventListener('click', function () {
         var n = parseInt(span.dataset.n || '0', 10) + 1;
         span.dataset.n = String(n);
@@ -100,6 +110,34 @@ ul.task-list li input[type="checkbox"] {
           window.goatcounter.count({ path: path, title: 'Téléchargement : ' + name });
         }
       });
+    });
+  });
+</script>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    var PATHS = ['/', '/cours/', '/cours/mpsi.html', '/cours/mp.html', '/cours/pcsi.html', '/cours/psi.html', '/cours/tsi1.html', '/cours/tsi2.html', '/cours/ect1.html', '/cours/ect2.html', '/cours/ecs1.html', '/cours/ecs2.html', '/td/', '/td/mpsi.html', '/td/mp.html', '/td/pcsi.html', '/td/psi.html', '/td/tsi1.html', '/td/tsi2.html', '/td/ect1.html', '/td/ect2.html', '/td/ecs1.html', '/td/ecs2.html', '/annales/', '/annales/mp.html', '/annales/psi.html', '/annales/tsi.html', '/annales/ect.html', '/annales/ecs.html', '/tipe/', '/tipe/mp.html', '/conseils.html', '/contact.html', '/analytics.html'];
+    function getCount(p) {
+      return fetch('https://maharicpge.goatcounter.com/counter/' + encodeURIComponent(p) + '.json')
+        .then(function (r) { if (!r.ok) throw 0; return r.json(); })
+        .then(function (d) { return d.count || 0; })
+        .catch(function () { return 0; });
+    }
+    function show(n) {
+      document.querySelectorAll('.navbar a[href$="#total"]').forEach(function (a) {
+        a.textContent = '👥 ' + n.toLocaleString('fr-FR') + ' visites';
+      });
+    }
+    var cache = null;
+    try { cache = JSON.parse(localStorage.getItem('gcTotal') || 'null'); } catch (e) {}
+    if (cache && Date.now() - cache.t < 3600000) { show(cache.n); return; }
+    getCount('TOTAL').then(function (n) {
+      if (n > 0) { return n; }
+      return Promise.all(PATHS.map(getCount)).then(function (arr) {
+        return arr.reduce(function (s, x) { return s + x; }, 0);
+      });
+    }).then(function (n) {
+      try { localStorage.setItem('gcTotal', JSON.stringify({ n: n, t: Date.now() })); } catch (e) {}
+      show(n);
     });
   });
 </script>
@@ -160,6 +198,12 @@ ul.task-list li input[type="checkbox"] {
   <li class="nav-item">
     <a class="nav-link" href="./apropos.html"> 
 <span class="menu-text">À propos de l’auteur</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="./analytics.html#total"> 
+<span class="menu-text">👥 …</span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
