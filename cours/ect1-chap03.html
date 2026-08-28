@@ -1,13 +1,14 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr"><head>
 
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.10.18">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Saîd MAHARI">
 
-<title>Fonctions d’une variable réelle - Mathématiques en CPGE – Mathématiques en CPGE</title>
+<title>Exemples de suites réelles, polynômes – Mathématiques en CPGE</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -45,7 +46,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-7a8c080b55ea27eb37b467515007f9ee.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-e0d9a45d84245cc5e3b300860d8fa645.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -60,17 +61,17 @@ ul.task-list li input[type="checkbox"] {
   ],
   "show-item-context": false,
   "language": {
-    "search-no-results-text": "No results",
-    "search-matching-documents-text": "matching documents",
-    "search-copy-link-title": "Copy link to search",
-    "search-hide-matches-text": "Hide additional matches",
-    "search-more-match-text": "more match in this document",
-    "search-more-matches-text": "more matches in this document",
-    "search-clear-button-title": "Clear",
+    "search-no-results-text": "Pas de résultats",
+    "search-matching-documents-text": "documents trouvés",
+    "search-copy-link-title": "Copier le lien vers la recherche",
+    "search-hide-matches-text": "Cacher les correspondances additionnelles",
+    "search-more-match-text": "correspondance de plus dans ce document",
+    "search-more-matches-text": "correspondances de plus dans ce document",
+    "search-clear-button-title": "Effacer",
     "search-text-placeholder": "",
-    "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit",
-    "search-label": "Search"
+    "search-detached-cancel-button-title": "Annuler",
+    "search-submit-button-title": "Envoyer",
+    "search-label": "Recherche"
   }
 }</script>
 <script data-goatcounter="https://maharicpge.goatcounter.com/count" async="" src="//gc.zgo.at/count.js"></script>
@@ -142,8 +143,52 @@ ul.task-list li input[type="checkbox"] {
   });
 </script>
 
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="styles.css">
 </head>
 
 <body class="nav-fixed quarto-light">
@@ -157,8 +202,8 @@ ul.task-list li input[type="checkbox"] {
     <span class="navbar-title">Accueil</span>
     </a>
   </div>
-            <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+            <div id="quarto-search" class="" title="Recherche"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Basculer la navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
@@ -218,10 +263,31 @@ ul.task-list li input[type="checkbox"] {
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
+    <h2 id="toc-title">Sur cette page</h2>
    
   <ul>
-  <li><a href="#document" id="toc-document" class="nav-link active" data-scroll-target="#document">Document</a></li>
+  <li><a href="#sommes-et-produits-finis" id="toc-sommes-et-produits-finis" class="nav-link active" data-scroll-target="#sommes-et-produits-finis"><span class="header-section-number">1</span> Sommes et produits finis</a>
+  <ul class="collapse">
+  <li><a href="#notation-sigma" id="toc-notation-sigma" class="nav-link" data-scroll-target="#notation-sigma"><span class="header-section-number">1.1</span> Notation sigma</a></li>
+  <li><a href="#sommes-de-référence" id="toc-sommes-de-référence" class="nav-link" data-scroll-target="#sommes-de-référence"><span class="header-section-number">1.2</span> Sommes de référence</a></li>
+  <li><a href="#notation-produit" id="toc-notation-produit" class="nav-link" data-scroll-target="#notation-produit"><span class="header-section-number">1.3</span> Notation produit</a></li>
+  </ul></li>
+  <li><a href="#suites-arithmétiques-et-géométriques" id="toc-suites-arithmétiques-et-géométriques" class="nav-link" data-scroll-target="#suites-arithmétiques-et-géométriques"><span class="header-section-number">2</span> Suites arithmétiques et géométriques</a>
+  <ul class="collapse">
+  <li><a href="#suites-arithmétiques" id="toc-suites-arithmétiques" class="nav-link" data-scroll-target="#suites-arithmétiques"><span class="header-section-number">2.1</span> Suites arithmétiques</a></li>
+  <li><a href="#suites-géométriques" id="toc-suites-géométriques" class="nav-link" data-scroll-target="#suites-géométriques"><span class="header-section-number">2.2</span> Suites géométriques</a></li>
+  <li><a href="#suites-arithmético-géométriques" id="toc-suites-arithmético-géométriques" class="nav-link" data-scroll-target="#suites-arithmético-géométriques"><span class="header-section-number">2.3</span> Suites arithmético-géométriques</a></li>
+  </ul></li>
+  <li><a href="#polynômes-du-premier-et-second-degré" id="toc-polynômes-du-premier-et-second-degré" class="nav-link" data-scroll-target="#polynômes-du-premier-et-second-degré"><span class="header-section-number">3</span> Polynômes du premier et second degré</a>
+  <ul class="collapse">
+  <li><a href="#polynômes-du-premier-degré" id="toc-polynômes-du-premier-degré" class="nav-link" data-scroll-target="#polynômes-du-premier-degré"><span class="header-section-number">3.1</span> Polynômes du premier degré</a></li>
+  <li><a href="#polynômes-du-second-degré" id="toc-polynômes-du-second-degré" class="nav-link" data-scroll-target="#polynômes-du-second-degré"><span class="header-section-number">3.2</span> Polynômes du second degré</a></li>
+  </ul></li>
+  <li><a href="#exercices" id="toc-exercices" class="nav-link" data-scroll-target="#exercices"><span class="header-section-number">4</span> Exercices</a></li>
+  <li><a href="#document-en-pdf" id="toc-document-en-pdf" class="nav-link" data-scroll-target="#document-en-pdf">Document en PDF</a>
+  <ul class="collapse">
+  <li><a href="#navigation" id="toc-navigation" class="nav-link" data-scroll-target="#navigation">Navigation</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -230,14 +296,27 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Chapitre 03 : Fonctions d’une variable réelle</h1>
+<h1 class="title">Exemples de suites réelles, polynômes</h1>
+<p class="subtitle lead">Chapitre 03</p>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Auteur·rice</div>
+    <div class="quarto-title-meta-contents">
+             <p>Saîd MAHARI </p>
+          </div>
+  </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">Date de publication</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">28 août 2026</p>
+    </div>
+  </div>
   
     
   </div>
@@ -247,12 +326,206 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p><strong>ECT 1re année — Chapitre 03.</strong> Continuité, dérivation, variations, extrema.</p>
-<section id="document" class="level2">
-<h2 class="anchored" data-anchor-id="document">Document</h2>
-<p><em>PDF à venir : déposez le fichier <code>files/ect1/chap03.pdf</code> puis régénérez la page.</em></p>
+<p><strong>ECT (1re année) — Chapitre 03.</strong> Sommes et produits finis, suites arithmétiques et géométriques, suites arithmético-géométriques, polynômes du premier et second degré.</p>
+<p>Ce chapitre a été réalisé conformément au programme marocain de mathématiques de la filière ECT.</p>
+<section id="sommes-et-produits-finis" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Sommes et produits finis</h1>
+<section id="notation-sigma" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="notation-sigma"><span class="header-section-number">1.1</span> Notation sigma</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 1.1 — (Somme finie)</strong></p>
+<p>Soient <span class="math inline">a_p, a_{p+1}, \ldots, a_n</span> des nombres réels. On note : <span class="math display">\sum_{k=p}^n a_k = a_p + a_{p+1} + \cdots + a_n</span></p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 1.1 — (Propriétés)</strong></p>
+<ol type="1">
+<li><strong>Linéarité</strong> : <span class="math inline">\sum_{k=1}^n (\lambda a_k + \mu b_k) = \lambda \sum_{k=1}^n a_k + \mu \sum_{k=1}^n b_k</span></li>
+<li><strong>Relation de Chasles</strong> : <span class="math inline">\sum_{k=p}^n a_k = \sum_{k=p}^m a_k + \sum_{k=m+1}^n a_k</span></li>
+<li><strong>Somme d’une constante</strong> : <span class="math inline">\sum_{k=1}^n c = nc</span></li>
+</ol>
+</div>
+</section>
+<section id="sommes-de-référence" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="sommes-de-référence"><span class="header-section-number">1.2</span> Sommes de référence</h2>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 1.2 — (Sommes usuelles)</strong></p>
+<p>Pour tout <span class="math inline">n \in \mathbb{N}^*</span> :</p>
+<ol type="1">
+<li><span class="math inline">\sum_{k=1}^n k = \dfrac{n(n+1)}{2}</span></li>
+<li><span class="math inline">\sum_{k=1}^n k^2 = \dfrac{n(n+1)(2n+1)}{6}</span></li>
+<li><span class="math inline">\sum_{k=0}^n q^k = \dfrac{1-q^{n+1}}{1-q}</span> si <span class="math inline">q \neq 1</span></li>
+</ol>
+</div>
+</section>
+<section id="notation-produit" class="level2" data-number="1.3">
+<h2 data-number="1.3" class="anchored" data-anchor-id="notation-produit"><span class="header-section-number">1.3</span> Notation produit</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 1.2 — (Produit fini)</strong></p>
+<p><span class="math display">\prod_{k=p}^n a_k = a_p \times a_{p+1} \times \cdots \times a_n</span></p>
+</div>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 1.3 — (Factorielle)</strong></p>
+<p>Pour <span class="math inline">n \in \mathbb{N}</span> : <span class="math inline">n! = 1 \times 2 \times \cdots \times n</span> avec <span class="math inline">0! = 1</span>.</p>
+</div>
+</section>
+</section>
+<section id="suites-arithmétiques-et-géométriques" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> Suites arithmétiques et géométriques</h1>
+<section id="suites-arithmétiques" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="suites-arithmétiques"><span class="header-section-number">2.1</span> Suites arithmétiques</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 2.1 — (Suite arithmétique)</strong></p>
+<p>Une suite <span class="math inline">(u_n)</span> est <strong>arithmétique</strong> de raison <span class="math inline">r</span> et de premier terme <span class="math inline">u_0</span> si : <span class="math display">u_{n+1} = u_n + r \quad \text{pour tout } n \in \mathbb{N}</span></p>
+<p>Alors : <span class="math inline">u_n = u_0 + nr</span> pour tout <span class="math inline">n \in \mathbb{N}</span>.</p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 2.1 — (Somme des termes)</strong></p>
+<p><span class="math display">\sum_{k=0}^n (u_0 + kr) = (n+1)u_0 + r \cdot \frac{n(n+1)}{2} = (n+1)\frac{u_0 + u_n}{2}</span></p>
+</div>
+</section>
+<section id="suites-géométriques" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="suites-géométriques"><span class="header-section-number">2.2</span> Suites géométriques</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 2.2 — (Suite géométrique)</strong></p>
+<p>Une suite <span class="math inline">(u_n)</span> est <strong>géométrique</strong> de raison <span class="math inline">q</span> et de premier terme <span class="math inline">u_0</span> si : <span class="math display">u_{n+1} = q \cdot u_n \quad \text{pour tout } n \in \mathbb{N}</span></p>
+<p>Alors : <span class="math inline">u_n = u_0 \cdot q^n</span> pour tout <span class="math inline">n \in \mathbb{N}</span>.</p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 2.2 — (Somme des termes)</strong></p>
+<p>Si <span class="math inline">q \neq 1</span> : <span class="math display">\sum_{k=0}^n u_0 q^k = u_0 \cdot \frac{1 - q^{n+1}}{1 - q}</span></p>
+</div>
+</section>
+<section id="suites-arithmético-géométriques" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="suites-arithmético-géométriques"><span class="header-section-number">2.3</span> Suites arithmético-géométriques</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 2.3 — (Suite arithmético-géométrique)</strong></p>
+<p>Une suite <span class="math inline">(u_n)</span> est <strong>arithmético-géométrique</strong> si : <span class="math display">u_{n+1} = a \cdot u_n + b</span> où <span class="math inline">a, b \in \mathbb{R}</span> sont fixés.</p>
+</div>
+<div class="custom-numbered-block custom-methode">
+<p><strong>Méthode 2.1 — (Résolution)</strong></p>
+<p>Pour résoudre <span class="math inline">u_{n+1} = au_n + b</span> :</p>
+<ol type="1">
+<li>Si <span class="math inline">a \neq 1</span>, chercher le point fixe <span class="math inline">\ell = \frac{b}{1-a}</span>.</li>
+<li>Poser <span class="math inline">v_n = u_n - \ell</span>. Alors <span class="math inline">(v_n)</span> est géométrique de raison <span class="math inline">a</span>.</li>
+<li>En déduire <span class="math inline">u_n = \ell + (u_0 - \ell)a^n</span>.</li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 2.1</strong></p>
+<p>Soit <span class="math inline">u_0 = 1</span> et <span class="math inline">u_{n+1} = \frac{1}{2}u_n + 3</span>.</p>
+<ul>
+<li>Point fixe : <span class="math inline">\ell = \frac{3}{1-1/2} = 6</span>.</li>
+<li><span class="math inline">v_n = u_n - 6</span> est géométrique de raison <span class="math inline">\frac{1}{2}</span> : <span class="math inline">v_n = (u_0 - 6)\left(\frac{1}{2}\right)^n = -5\left(\frac{1}{2}\right)^n</span>.</li>
+<li>Donc <span class="math inline">u_n = 6 - 5\left(\frac{1}{2}\right)^n</span>.</li>
+</ul>
+</div>
+</section>
+</section>
+<section id="polynômes-du-premier-et-second-degré" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Polynômes du premier et second degré</h1>
+<section id="polynômes-du-premier-degré" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="polynômes-du-premier-degré"><span class="header-section-number">3.1</span> Polynômes du premier degré</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 3.1 — (Polynôme du premier degré)</strong></p>
+<p>Un polynôme du premier degré est de la forme <span class="math inline">P(x) = ax + b</span> avec <span class="math inline">a \neq 0</span>.</p>
+<ul>
+<li>Racine : <span class="math inline">x_0 = -\frac{b}{a}</span>.</li>
+<li>Signe : <span class="math inline">P(x)</span> est du signe de <span class="math inline">a</span> si <span class="math inline">x &gt; x_0</span>, du signe de <span class="math inline">-a</span> si <span class="math inline">x &lt; x_0</span>.</li>
+</ul>
+</div>
+</section>
+<section id="polynômes-du-second-degré" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="polynômes-du-second-degré"><span class="header-section-number">3.2</span> Polynômes du second degré</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 3.2 — (Polynôme du second degré)</strong></p>
+<p>Un polynôme du second degré est de la forme <span class="math inline">P(x) = ax^2 + bx + c</span> avec <span class="math inline">a \neq 0</span>.</p>
+<p>Le <strong>discriminant</strong> est <span class="math inline">\Delta = b^2 - 4ac</span>.</p>
+</div>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 3.1 — (Résolution de <span class="math inline">\boldsymbol{ax^2 + bx + c = 0}</span>)</strong></p>
+<ol type="1">
+<li>Si <span class="math inline">\Delta &gt; 0</span> : deux racines réelles distinctes <span class="math inline">x_1 = \dfrac{-b - \sqrt{\Delta}}{2a}</span> et <span class="math inline">x_2 = \dfrac{-b + \sqrt{\Delta}}{2a}</span>.</li>
+<li>Si <span class="math inline">\Delta = 0</span> : une racine double <span class="math inline">x_0 = -\dfrac{b}{2a}</span>.</li>
+<li>Si <span class="math inline">\Delta &lt; 0</span> : pas de racine réelle.</li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 3.1 — (Relations entre coefficients et racines)</strong></p>
+<p>Si <span class="math inline">x_1</span> et <span class="math inline">x_2</span> sont les racines de <span class="math inline">ax^2 + bx + c = 0</span> : <span class="math display">x_1 + x_2 = -\frac{b}{a}, \qquad x_1 x_2 = \frac{c}{a}</span></p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 3.2 — (Signe du trinôme)</strong></p>
+<p>Le signe de <span class="math inline">ax^2 + bx + c</span> :</p>
+<ul>
+<li>Si <span class="math inline">\Delta &gt; 0</span> : du signe de <span class="math inline">a</span> à l’extérieur des racines, du signe de <span class="math inline">-a</span> entre les racines.</li>
+<li>Si <span class="math inline">\Delta = 0</span> : du signe de <span class="math inline">a</span> sauf en <span class="math inline">x_0</span> où il s’annule.</li>
+<li>Si <span class="math inline">\Delta &lt; 0</span> : du signe de <span class="math inline">a</span> pour tout <span class="math inline">x</span>.</li>
+</ul>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 3.1</strong></p>
+<p>Résoudre <span class="math inline">2x^2 - 5x + 2 = 0</span>.</p>
+<p><span class="math inline">\Delta = 25 - 16 = 9 &gt; 0</span>. Racines : <span class="math inline">x_1 = \frac{5-3}{4} = \frac{1}{2}</span> et <span class="math inline">x_2 = \frac{5+3}{4} = 2</span>.</p>
+<p>Factorisation : <span class="math inline">2x^2 - 5x + 2 = 2(x - \frac{1}{2})(x - 2)</span>.</p>
+</div>
+</section>
+</section>
+<section id="exercices" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> Exercices</h1>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 4.1</strong></p>
+<p>Calculer les sommes suivantes :</p>
+<ol type="1">
+<li><span class="math inline">\sum_{k=1}^{100} k</span></li>
+<li><span class="math inline">\sum_{k=1}^{50} (2k - 1)</span></li>
+<li><span class="math inline">\sum_{k=0}^{10} 3^k</span></li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 4.2</strong></p>
+<p>Soit <span class="math inline">(u_n)</span> la suite arithmétique de premier terme <span class="math inline">u_0 = 3</span> et de raison <span class="math inline">r = 2</span>. Calculer <span class="math inline">u_{10}</span> et <span class="math inline">\sum_{k=0}^{10} u_k</span>.</p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 4.3</strong></p>
+<p>Soit <span class="math inline">(u_n)</span> la suite géométrique de premier terme <span class="math inline">u_0 = 5</span> et de raison <span class="math inline">q = \frac{1}{3}</span>. Calculer <span class="math inline">u_5</span> et <span class="math inline">\sum_{k=0}^5 u_k</span>.</p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 4.4</strong></p>
+<p>Soit <span class="math inline">u_0 = 2</span> et <span class="math inline">u_{n+1} = 3u_n - 4</span>. Déterminer <span class="math inline">u_n</span> en fonction de <span class="math inline">n</span>.</p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 4.5</strong></p>
+<p>Résoudre dans <span class="math inline">\mathbb{R}</span> :</p>
+<ol type="1">
+<li><span class="math inline">x^2 - 3x + 2 = 0</span></li>
+<li><span class="math inline">2x^2 + 4x + 2 = 0</span></li>
+<li><span class="math inline">x^2 + x + 1 = 0</span></li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 4.6</strong></p>
+<p>Étudier le signe de <span class="math inline">f(x) = -x^2 + 4x - 3</span>.</p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 4.7</strong></p>
+<p>Montrer que <span class="math inline">\sum_{k=1}^n \frac{1}{k(k+1)} = 1 - \frac{1}{n+1}</span>.</p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 4.8</strong></p>
+<p>Soit <span class="math inline">u_0 = 1</span> et <span class="math inline">u_{n+1} = \frac{1}{2}u_n + 1</span>. Montrer que <span class="math inline">(u_n)</span> converge vers <span class="math inline">2</span>.</p>
+</div>
+</section>
+<section id="document-en-pdf" class="level1 unnumbered">
+<h1 class="unnumbered">Document en PDF</h1>
+<p><a href="PDF/ect1-chap03.pdf"><strong>Chapitre 03 : Exemples de suites réelles, polynômes</strong></a></p>
+<section id="navigation" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="navigation">Navigation</h2>
+<div class="chap-nav">
+<p><a href="../cours/ect1-chap02.html" class="prev">Chapitre 02 : Calculs algébriques dans ℝ</a> <a href="../cours/ect1.html" class="home">Menu ECT1</a> <a href="../cours/ect1-chap04.html" class="next">Chapitre 04 : Fonctions réelles d’une variable réelle : limites, continuité</a></p>
+</div>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -281,12 +554,12 @@ ul.task-list li input[type="checkbox"] {
       // flash "checked"
       button.classList.add('code-copy-button-checked');
       var currentTitle = button.getAttribute("title");
-      button.setAttribute("title", "Copied!");
+      button.setAttribute("title", "Copié");
       let tooltip;
       if (window.bootstrap) {
         button.setAttribute("data-bs-toggle", "tooltip");
         button.setAttribute("data-bs-placement", "left");
-        button.setAttribute("data-bs-title", "Copied!");
+        button.setAttribute("data-bs-title", "Copié");
         tooltip = new bootstrap.Tooltip(button, 
           { trigger: "manual", 
             customClass: "code-copy-button-tooltip",

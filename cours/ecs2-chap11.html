@@ -1,13 +1,14 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr"><head>
 
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.10.18">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Saîd MAHARI">
 
-<title>Fonctions de plusieurs variables et optimisation - Mathématiques en CPGE – Mathématiques en CPGE</title>
+<title>Fonctions de plusieurs variables et optimisation – Mathématiques en CPGE</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -45,7 +46,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-7a8c080b55ea27eb37b467515007f9ee.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-e0d9a45d84245cc5e3b300860d8fa645.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -60,17 +61,17 @@ ul.task-list li input[type="checkbox"] {
   ],
   "show-item-context": false,
   "language": {
-    "search-no-results-text": "No results",
-    "search-matching-documents-text": "matching documents",
-    "search-copy-link-title": "Copy link to search",
-    "search-hide-matches-text": "Hide additional matches",
-    "search-more-match-text": "more match in this document",
-    "search-more-matches-text": "more matches in this document",
-    "search-clear-button-title": "Clear",
+    "search-no-results-text": "Pas de résultats",
+    "search-matching-documents-text": "documents trouvés",
+    "search-copy-link-title": "Copier le lien vers la recherche",
+    "search-hide-matches-text": "Cacher les correspondances additionnelles",
+    "search-more-match-text": "correspondance de plus dans ce document",
+    "search-more-matches-text": "correspondances de plus dans ce document",
+    "search-clear-button-title": "Effacer",
     "search-text-placeholder": "",
-    "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit",
-    "search-label": "Search"
+    "search-detached-cancel-button-title": "Annuler",
+    "search-submit-button-title": "Envoyer",
+    "search-label": "Recherche"
   }
 }</script>
 <script data-goatcounter="https://maharicpge.goatcounter.com/count" async="" src="//gc.zgo.at/count.js"></script>
@@ -142,8 +143,52 @@ ul.task-list li input[type="checkbox"] {
   });
 </script>
 
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="styles.css">
 </head>
 
 <body class="nav-fixed quarto-light">
@@ -157,8 +202,8 @@ ul.task-list li input[type="checkbox"] {
     <span class="navbar-title">Accueil</span>
     </a>
   </div>
-            <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+            <div id="quarto-search" class="" title="Recherche"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Basculer la navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
@@ -218,10 +263,29 @@ ul.task-list li input[type="checkbox"] {
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
+    <h2 id="toc-title">Sur cette page</h2>
    
   <ul>
-  <li><a href="#document" id="toc-document" class="nav-link active" data-scroll-target="#document">Document</a></li>
+  <li><a href="#dérivées-partielles" id="toc-dérivées-partielles" class="nav-link active" data-scroll-target="#dérivées-partielles"><span class="header-section-number">1</span> Dérivées partielles</a>
+  <ul class="collapse">
+  <li><a href="#définition" id="toc-définition" class="nav-link" data-scroll-target="#définition"><span class="header-section-number">1.1</span> Définition</a></li>
+  <li><a href="#classes-mathcalc1-et-mathcalc2" id="toc-classes-mathcalc1-et-mathcalc2" class="nav-link" data-scroll-target="#classes-mathcalc1-et-mathcalc2"><span class="header-section-number">1.2</span> Classes <span class="math inline">\mathcal{C}^1</span> et <span class="math inline">\mathcal{C}^2</span></a></li>
+  </ul></li>
+  <li><a href="#gradient" id="toc-gradient" class="nav-link" data-scroll-target="#gradient"><span class="header-section-number">2</span> Gradient</a></li>
+  <li><a href="#matrice-hessienne" id="toc-matrice-hessienne" class="nav-link" data-scroll-target="#matrice-hessienne"><span class="header-section-number">3</span> Matrice hessienne</a></li>
+  <li><a href="#extrema-locaux" id="toc-extrema-locaux" class="nav-link" data-scroll-target="#extrema-locaux"><span class="header-section-number">4</span> Extrema locaux</a>
+  <ul class="collapse">
+  <li><a href="#définition-1" id="toc-définition-1" class="nav-link" data-scroll-target="#définition-1"><span class="header-section-number">4.1</span> Définition</a></li>
+  <li><a href="#condition-nécessaire" id="toc-condition-nécessaire" class="nav-link" data-scroll-target="#condition-nécessaire"><span class="header-section-number">4.2</span> Condition nécessaire</a></li>
+  <li><a href="#conditions-suffisantes" id="toc-conditions-suffisantes" class="nav-link" data-scroll-target="#conditions-suffisantes"><span class="header-section-number">4.3</span> Conditions suffisantes</a></li>
+  </ul></li>
+  <li><a href="#extrema-globaux" id="toc-extrema-globaux" class="nav-link" data-scroll-target="#extrema-globaux"><span class="header-section-number">5</span> Extrema globaux</a></li>
+  <li><a href="#optimisation-sous-contrainte" id="toc-optimisation-sous-contrainte" class="nav-link" data-scroll-target="#optimisation-sous-contrainte"><span class="header-section-number">6</span> Optimisation sous contrainte</a></li>
+  <li><a href="#exercices" id="toc-exercices" class="nav-link" data-scroll-target="#exercices"><span class="header-section-number">7</span> Exercices</a></li>
+  <li><a href="#document-en-pdf" id="toc-document-en-pdf" class="nav-link" data-scroll-target="#document-en-pdf">Document en PDF</a>
+  <ul class="collapse">
+  <li><a href="#navigation" id="toc-navigation" class="nav-link" data-scroll-target="#navigation">Navigation</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -230,14 +294,27 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Chapitre 11 : Fonctions de plusieurs variables et optimisation</h1>
+<h1 class="title">Fonctions de plusieurs variables et optimisation</h1>
+<p class="subtitle lead">Chapitre 11</p>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Auteur·rice</div>
+    <div class="quarto-title-meta-contents">
+             <p>Saîd MAHARI </p>
+          </div>
+  </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">Date de publication</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">28 août 2026</p>
+    </div>
+  </div>
   
     
   </div>
@@ -247,12 +324,210 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p><strong>ECS 2e année (ECG) — Chapitre 11.</strong> Gradient, dérivées partielles, matrice hessienne, extrema locaux.</p>
-<section id="document" class="level2">
-<h2 class="anchored" data-anchor-id="document">Document</h2>
-<p><em>PDF à venir : déposez le fichier <code>files/ecs2/chap11.pdf</code> puis régénérez la page.</em></p>
+<p><strong>ECS (2e année) — Chapitre 11.</strong> Gradient, dérivées partielles, matrice hessienne, extrema locaux et globaux.</p>
+<p>Ce chapitre a été réalisé conformément au programme marocain de mathématiques de la filière ECS.</p>
+<p>Dans tout ce chapitre, <span class="math inline">U</span> désigne un ouvert de <span class="math inline">\mathbb{R}^n</span> et <span class="math inline">f : U \to \mathbb{R}</span> une fonction numérique.</p>
+<section id="dérivées-partielles" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Dérivées partielles</h1>
+<section id="définition" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="définition"><span class="header-section-number">1.1</span> Définition</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 1.1 — (Dérivée partielle)</strong></p>
+<p>Soit <span class="math inline">a = (a_1, \ldots, a_n) \in U</span>. La <strong>dérivée partielle</strong> de <span class="math inline">f</span> par rapport à <span class="math inline">x_i</span> en <span class="math inline">a</span> est, si elle existe : <span class="math display">\frac{\partial f}{\partial x_i}(a) = \lim_{h \to 0} \frac{f(a_1, \ldots, a_i + h, \ldots, a_n) - f(a)}{h}</span></p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 1.1</strong></p>
+<p>Soit <span class="math inline">f(x, y) = x^2 y + e^{xy}</span>. Alors : <span class="math display">\frac{\partial f}{\partial x}(x, y) = 2xy + ye^{xy}, \quad \frac{\partial f}{\partial y}(x, y) = x^2 + xe^{xy}</span></p>
+</div>
+</section>
+<section id="classes-mathcalc1-et-mathcalc2" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="classes-mathcalc1-et-mathcalc2"><span class="header-section-number">1.2</span> Classes <span class="math inline">\mathcal{C}^1</span> et <span class="math inline">\mathcal{C}^2</span></h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 1.2 — (Classe <span class="math inline">\boldsymbol{\mathcal{C}^1}</span>)</strong></p>
+<p><span class="math inline">f</span> est de <strong>classe <span class="math inline">\mathcal{C}^1</span></strong> sur <span class="math inline">U</span> si toutes les dérivées partielles <span class="math inline">\frac{\partial f}{\partial x_i}</span> existent et sont continues sur <span class="math inline">U</span>.</p>
+</div>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 1.3 — (Classe <span class="math inline">\boldsymbol{\mathcal{C}^2}</span>)</strong></p>
+<p><span class="math inline">f</span> est de <strong>classe <span class="math inline">\mathcal{C}^2</span></strong> sur <span class="math inline">U</span> si <span class="math inline">f</span> et ses dérivées partielles premières sont de classe <span class="math inline">\mathcal{C}^1</span>.</p>
+</div>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 1.1 — (Théorème de Schwarz)</strong></p>
+<p>Si <span class="math inline">f</span> est de classe <span class="math inline">\mathcal{C}^2</span> sur <span class="math inline">U</span>, alors pour tous <span class="math inline">i, j</span> : <span class="math display">\frac{\partial^2 f}{\partial x_i \partial x_j} = \frac{\partial^2 f}{\partial x_j \partial x_i}</span></p>
+</div>
+</section>
+</section>
+<section id="gradient" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> Gradient</h1>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 2.1 — (Gradient)</strong></p>
+<p>Si <span class="math inline">f</span> est de classe <span class="math inline">\mathcal{C}^1</span> sur <span class="math inline">U</span>, le <strong>gradient</strong> de <span class="math inline">f</span> en <span class="math inline">a</span> est : <span class="math display">\nabla f(a) = \left(\frac{\partial f}{\partial x_1}(a), \ldots, \frac{\partial f}{\partial x_n}(a)\right)</span></p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 2.1 — (Différentielle)</strong></p>
+<p>Si <span class="math inline">f</span> est de classe <span class="math inline">\mathcal{C}^1</span> sur <span class="math inline">U</span>, alors pour <span class="math inline">a \in U</span> et <span class="math inline">h \in \mathbb{R}^n</span> : <span class="math display">f(a + h) = f(a) + \langle \nabla f(a), h \rangle + o(\|h\|)</span></p>
+</div>
+</section>
+<section id="matrice-hessienne" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Matrice hessienne</h1>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 3.1 — (Matrice hessienne)</strong></p>
+<p>Si <span class="math inline">f</span> est de classe <span class="math inline">\mathcal{C}^2</span> sur <span class="math inline">U</span>, la <strong>matrice hessienne</strong> de <span class="math inline">f</span> en <span class="math inline">a</span> est : <span class="math display">H_f(a) = \left(\frac{\partial^2 f}{\partial x_i \partial x_j}(a)\right)_{1 \leq i, j \leq n}</span></p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 3.1</strong></p>
+<p>Par le théorème de Schwarz, <span class="math inline">H_f(a)</span> est une matrice symétrique.</p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 3.2 — (Développement limité à l’ordre 2)</strong></p>
+<p>Si <span class="math inline">f</span> est de classe <span class="math inline">\mathcal{C}^2</span> sur <span class="math inline">U</span>, alors : <span class="math display">f(a + h) = f(a) + \langle \nabla f(a), h \rangle + \frac{1}{2} h^T H_f(a) h + o(\|h\|^2)</span></p>
+</div>
+</section>
+<section id="extrema-locaux" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> Extrema locaux</h1>
+<section id="définition-1" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="définition-1"><span class="header-section-number">4.1</span> Définition</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 4.1 — (Extremum local)</strong></p>
+<p><span class="math inline">f</span> admet un <strong>maximum local</strong> (resp. <strong>minimum local</strong>) en <span class="math inline">a</span> s’il existe un voisinage <span class="math inline">V</span> de <span class="math inline">a</span> tel que <span class="math inline">f(x) \leq f(a)</span> (resp. <span class="math inline">f(x) \geq f(a)</span>) pour tout <span class="math inline">x \in V</span>.</p>
+</div>
+</section>
+<section id="condition-nécessaire" class="level2" data-number="4.2">
+<h2 data-number="4.2" class="anchored" data-anchor-id="condition-nécessaire"><span class="header-section-number">4.2</span> Condition nécessaire</h2>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 4.1 — (Condition d’ordre 1)</strong></p>
+<p>Si <span class="math inline">f</span> est de classe <span class="math inline">\mathcal{C}^1</span> sur <span class="math inline">U</span> et admet un extremum local en <span class="math inline">a \in U</span>, alors : <span class="math display">\nabla f(a) = 0</span></p>
+<p><span class="math inline">a</span> est alors appelé <strong>point critique</strong> de <span class="math inline">f</span>.</p>
+</div>
+<div class="remarque">
+<p>La réciproque est fausse : <span class="math inline">f(x, y) = x^2 - y^2</span> vérifie <span class="math inline">\nabla f(0, 0) = 0</span> mais n’admet pas d’extremum en <span class="math inline">(0,0)</span> (point selle).</p>
+</div>
+</section>
+<section id="conditions-suffisantes" class="level2" data-number="4.3">
+<h2 data-number="4.3" class="anchored" data-anchor-id="conditions-suffisantes"><span class="header-section-number">4.3</span> Conditions suffisantes</h2>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 4.2 — (Conditions d’ordre 2)</strong></p>
+<p>Soit <span class="math inline">f</span> de classe <span class="math inline">\mathcal{C}^2</span> sur <span class="math inline">U</span> et <span class="math inline">a \in U</span> un point critique (<span class="math inline">\nabla f(a) = 0</span>).</p>
+<ol type="1">
+<li>Si <span class="math inline">H_f(a)</span> est <strong>définie positive</strong>, alors <span class="math inline">f</span> admet un <strong>minimum local strict</strong> en <span class="math inline">a</span>.</li>
+<li>Si <span class="math inline">H_f(a)</span> est <strong>définie négative</strong>, alors <span class="math inline">f</span> admet un <strong>maximum local strict</strong> en <span class="math inline">a</span>.</li>
+<li>Si <span class="math inline">H_f(a)</span> a des valeurs propres de signes opposés, alors <span class="math inline">a</span> est un <strong>point selle</strong>.</li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 4.1 — (Critère pratique en dimension 2)</strong></p>
+<p>Soit <span class="math inline">f : U \subset \mathbb{R}^2 \to \mathbb{R}</span> de classe <span class="math inline">\mathcal{C}^2</span> et <span class="math inline">a = (x_0, y_0)</span> un point critique. On pose : <span class="math display">r = \frac{\partial^2 f}{\partial x^2}(a), \quad s = \frac{\partial^2 f}{\partial x \partial y}(a), \quad t = \frac{\partial^2 f}{\partial y^2}(a)</span></p>
+<ul>
+<li>Si <span class="math inline">rt - s^2 &gt; 0</span> et <span class="math inline">r &gt; 0</span> : minimum local.</li>
+<li>Si <span class="math inline">rt - s^2 &gt; 0</span> et <span class="math inline">r &lt; 0</span> : maximum local.</li>
+<li>Si <span class="math inline">rt - s^2 &lt; 0</span> : point selle.</li>
+<li>Si <span class="math inline">rt - s^2 = 0</span> : on ne peut pas conclure.</li>
+</ul>
+</div>
+</section>
+</section>
+<section id="extrema-globaux" class="level1" data-number="5">
+<h1 data-number="5"><span class="header-section-number">5</span> Extrema globaux</h1>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 5.1 — (Extremum global)</strong></p>
+<p><span class="math inline">f</span> admet un <strong>maximum global</strong> (resp. <strong>minimum global</strong>) en <span class="math inline">a</span> si <span class="math inline">f(x) \leq f(a)</span> (resp. <span class="math inline">f(x) \geq f(a)</span>) pour tout <span class="math inline">x \in U</span>.</p>
+</div>
+<div class="custom-numbered-block custom-methode">
+<p><strong>Méthode 5.1 — (Recherche d’extrema globaux)</strong></p>
+<p>Pour rechercher les extrema globaux de <span class="math inline">f</span> sur un domaine <span class="math inline">K</span> :</p>
+<ol type="1">
+<li>Déterminer les points critiques de <span class="math inline">f</span> dans l’intérieur de <span class="math inline">K</span>.</li>
+<li>Étudier la nature de ces points critiques.</li>
+<li>Étudier <span class="math inline">f</span> sur le bord de <span class="math inline">K</span>.</li>
+<li>Comparer les valeurs de <span class="math inline">f</span> aux points critiques et sur le bord.</li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 5.1</strong></p>
+<p>Soit <span class="math inline">f(x, y) = x^2 + y^2 - 2x - 4y + 5</span> sur <span class="math inline">\mathbb{R}^2</span>.</p>
+<ul>
+<li><span class="math inline">\nabla f(x, y) = (2x - 2, 2y - 4)</span>, donc le seul point critique est <span class="math inline">(1, 2)</span>.</li>
+<li><span class="math inline">H_f = \begin{pmatrix} 2 &amp; 0 \\ 0 &amp; 2 \end{pmatrix}</span> est définie positive.</li>
+<li><span class="math inline">f(1, 2) = 0</span> est un minimum global.</li>
+</ul>
+</div>
+</section>
+<section id="optimisation-sous-contrainte" class="level1" data-number="6">
+<h1 data-number="6"><span class="header-section-number">6</span> Optimisation sous contrainte</h1>
+<div class="custom-numbered-block custom-methode">
+<p><strong>Méthode 6.1 — (Méthode de Lagrange)</strong></p>
+<p>Pour optimiser <span class="math inline">f(x, y)</span> sous la contrainte <span class="math inline">g(x, y) = 0</span> :</p>
+<ol type="1">
+<li>Chercher les points où <span class="math inline">\nabla f = \lambda \nabla g</span> pour un certain <span class="math inline">\lambda</span> (multiplicateur de Lagrange).</li>
+<li>Vérifier les points ainsi obtenus.</li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 6.1</strong></p>
+<p>Optimiser <span class="math inline">f(x, y) = xy</span> sous la contrainte <span class="math inline">x^2 + y^2 = 1</span>.</p>
+<p><span class="math inline">\nabla f = (y, x)</span> et <span class="math inline">\nabla g = (2x, 2y)</span>. La condition <span class="math inline">\nabla f = \lambda \nabla g</span> donne : <span class="math display">y = 2\lambda x, \quad x = 2\lambda y</span></p>
+<p>D’où <span class="math inline">y = 4\lambda^2 y</span>, donc <span class="math inline">\lambda = \pm 1/2</span>. Les points critiques sont <span class="math inline">(\pm 1/\sqrt{2}, \pm 1/\sqrt{2})</span> avec <span class="math inline">f = \pm 1/2</span>.</p>
+</div>
+</section>
+<section id="exercices" class="level1" data-number="7">
+<h1 data-number="7"><span class="header-section-number">7</span> Exercices</h1>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 7.1</strong></p>
+<p>Soit <span class="math inline">f(x, y) = x^2 y + e^{xy}</span>. Calculer <span class="math inline">\frac{\partial f}{\partial x}</span>, <span class="math inline">\frac{\partial f}{\partial y}</span>, <span class="math inline">\frac{\partial^2 f}{\partial x^2}</span>, <span class="math inline">\frac{\partial^2 f}{\partial x \partial y}</span>, <span class="math inline">\frac{\partial^2 f}{\partial y^2}</span>.</p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 7.2</strong></p>
+<p>Soit <span class="math inline">f(x, y) = x^2 + y^2 - 2x - 4y + 5</span>.</p>
+<ol type="1">
+<li>Déterminer les points critiques.</li>
+<li>Déterminer leur nature.</li>
+<li><span class="math inline">f</span> admet-elle un extremum global ?</li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 7.3</strong></p>
+<p>Soit <span class="math inline">f(x, y) = x^3 + y^3 - 3xy</span>.</p>
+<ol type="1">
+<li>Déterminer les points critiques.</li>
+<li>Déterminer leur nature.</li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 7.4</strong></p>
+<p>Soit <span class="math inline">f(x, y) = x^2 - y^2</span>. Montrer que <span class="math inline">(0, 0)</span> est un point selle.</p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 7.5</strong></p>
+<p>Optimiser <span class="math inline">f(x, y) = xy</span> sous la contrainte <span class="math inline">x + y = 1</span>.</p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 7.6</strong></p>
+<p>Soit <span class="math inline">f(x, y) = e^{-(x^2 + y^2)}</span>.</p>
+<ol type="1">
+<li>Déterminer les points critiques.</li>
+<li>Déterminer leur nature.</li>
+<li><span class="math inline">f</span> admet-elle un extremum global ?</li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 7.7</strong></p>
+<p>Soit <span class="math inline">f(x, y, z) = x^2 + y^2 + z^2 - 2x + 4y - 6z + 1</span>. Déterminer les extrema de <span class="math inline">f</span> sur <span class="math inline">\mathbb{R}^3</span>.</p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 7.8</strong></p>
+<p>Optimiser <span class="math inline">f(x, y) = x^2 + y^2</span> sous la contrainte <span class="math inline">x^2 + y^2 = 1</span>.</p>
+</div>
+</section>
+<section id="document-en-pdf" class="level1 unnumbered">
+<h1 class="unnumbered">Document en PDF</h1>
+<p><a href="PDF/ecs2-chap11.pdf"><strong>Chapitre 11 : Fonctions de plusieurs variables et optimisation</strong></a></p>
+<section id="navigation" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="navigation">Navigation</h2>
+<div class="chap-nav">
+<p><a href="../cours/ecs2-chap10.html" class="prev">Chapitre 10 : Estimation statistique</a> <a href="../cours/ecs2.html" class="home">Menu ECS2</a></p>
+</div>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -281,12 +556,12 @@ ul.task-list li input[type="checkbox"] {
       // flash "checked"
       button.classList.add('code-copy-button-checked');
       var currentTitle = button.getAttribute("title");
-      button.setAttribute("title", "Copied!");
+      button.setAttribute("title", "Copié");
       let tooltip;
       if (window.bootstrap) {
         button.setAttribute("data-bs-toggle", "tooltip");
         button.setAttribute("data-bs-placement", "left");
-        button.setAttribute("data-bs-title", "Copied!");
+        button.setAttribute("data-bs-title", "Copié");
         tooltip = new bootstrap.Tooltip(button, 
           { trigger: "manual", 
             customClass: "code-copy-button-tooltip",

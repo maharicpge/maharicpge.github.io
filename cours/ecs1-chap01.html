@@ -1,13 +1,14 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr"><head>
 
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.10.18">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Saîd MAHARI">
 
-<title>Logique, ensembles et applications - Mathématiques en CPGE – Mathématiques en CPGE</title>
+<title>Logique, ensembles et applications – Mathématiques en CPGE</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -45,7 +46,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-7a8c080b55ea27eb37b467515007f9ee.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-e0d9a45d84245cc5e3b300860d8fa645.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -60,17 +61,17 @@ ul.task-list li input[type="checkbox"] {
   ],
   "show-item-context": false,
   "language": {
-    "search-no-results-text": "No results",
-    "search-matching-documents-text": "matching documents",
-    "search-copy-link-title": "Copy link to search",
-    "search-hide-matches-text": "Hide additional matches",
-    "search-more-match-text": "more match in this document",
-    "search-more-matches-text": "more matches in this document",
-    "search-clear-button-title": "Clear",
+    "search-no-results-text": "Pas de résultats",
+    "search-matching-documents-text": "documents trouvés",
+    "search-copy-link-title": "Copier le lien vers la recherche",
+    "search-hide-matches-text": "Cacher les correspondances additionnelles",
+    "search-more-match-text": "correspondance de plus dans ce document",
+    "search-more-matches-text": "correspondances de plus dans ce document",
+    "search-clear-button-title": "Effacer",
     "search-text-placeholder": "",
-    "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit",
-    "search-label": "Search"
+    "search-detached-cancel-button-title": "Annuler",
+    "search-submit-button-title": "Envoyer",
+    "search-label": "Recherche"
   }
 }</script>
 <script data-goatcounter="https://maharicpge.goatcounter.com/count" async="" src="//gc.zgo.at/count.js"></script>
@@ -142,8 +143,52 @@ ul.task-list li input[type="checkbox"] {
   });
 </script>
 
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="styles.css">
 </head>
 
 <body class="nav-fixed quarto-light">
@@ -157,8 +202,8 @@ ul.task-list li input[type="checkbox"] {
     <span class="navbar-title">Accueil</span>
     </a>
   </div>
-            <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+            <div id="quarto-search" class="" title="Recherche"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Basculer la navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
@@ -218,10 +263,29 @@ ul.task-list li input[type="checkbox"] {
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
+    <h2 id="toc-title">Sur cette page</h2>
    
   <ul>
-  <li><a href="#document" id="toc-document" class="nav-link active" data-scroll-target="#document">Document</a></li>
+  <li><a href="#éléments-de-logique" id="toc-éléments-de-logique" class="nav-link active" data-scroll-target="#éléments-de-logique"><span class="header-section-number">1</span> Éléments de logique</a>
+  <ul class="collapse">
+  <li><a href="#propositions-et-connecteurs" id="toc-propositions-et-connecteurs" class="nav-link" data-scroll-target="#propositions-et-connecteurs"><span class="header-section-number">1.1</span> Propositions et connecteurs</a></li>
+  <li><a href="#quantificateurs" id="toc-quantificateurs" class="nav-link" data-scroll-target="#quantificateurs"><span class="header-section-number">1.2</span> Quantificateurs</a></li>
+  <li><a href="#méthodes-de-raisonnement" id="toc-méthodes-de-raisonnement" class="nav-link" data-scroll-target="#méthodes-de-raisonnement"><span class="header-section-number">1.3</span> Méthodes de raisonnement</a></li>
+  </ul></li>
+  <li><a href="#ensembles" id="toc-ensembles" class="nav-link" data-scroll-target="#ensembles"><span class="header-section-number">2</span> Ensembles</a>
+  <ul class="collapse">
+  <li><a href="#opérations" id="toc-opérations" class="nav-link" data-scroll-target="#opérations"><span class="header-section-number">2.1</span> Opérations</a></li>
+  </ul></li>
+  <li><a href="#applications" id="toc-applications" class="nav-link" data-scroll-target="#applications"><span class="header-section-number">3</span> Applications</a>
+  <ul class="collapse">
+  <li><a href="#définitions" id="toc-définitions" class="nav-link" data-scroll-target="#définitions"><span class="header-section-number">3.1</span> Définitions</a></li>
+  <li><a href="#injection-surjection-bijection" id="toc-injection-surjection-bijection" class="nav-link" data-scroll-target="#injection-surjection-bijection"><span class="header-section-number">3.2</span> Injection, surjection, bijection</a></li>
+  </ul></li>
+  <li><a href="#exercices" id="toc-exercices" class="nav-link" data-scroll-target="#exercices"><span class="header-section-number">4</span> Exercices</a></li>
+  <li><a href="#document-en-pdf" id="toc-document-en-pdf" class="nav-link" data-scroll-target="#document-en-pdf">Document en PDF</a>
+  <ul class="collapse">
+  <li><a href="#navigation" id="toc-navigation" class="nav-link" data-scroll-target="#navigation">Navigation</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -230,14 +294,27 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Chapitre 01 : Logique, ensembles et applications</h1>
+<h1 class="title">Logique, ensembles et applications</h1>
+<p class="subtitle lead">Chapitre 01</p>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Auteur·rice</div>
+    <div class="quarto-title-meta-contents">
+             <p>Saîd MAHARI </p>
+          </div>
+  </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">Date de publication</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">28 août 2026</p>
+    </div>
+  </div>
   
     
   </div>
@@ -247,12 +324,264 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p><strong>ECS 1re année (ECG) — Chapitre 01.</strong> Raisonnements classiques, injections, surjections, bijections.</p>
-<section id="document" class="level2">
-<h2 class="anchored" data-anchor-id="document">Document</h2>
-<p><em>PDF à venir : déposez le fichier <code>files/ecs1/chap01.pdf</code> puis régénérez la page.</em></p>
+<p><strong>ECS (1re année) — Chapitre 01.</strong> Connecteurs, quantificateurs, raisonnements, injections, surjections, bijections.</p>
+<p>Ce chapitre a été réalisé conformément au programme marocain de mathématiques de la filière ECS.</p>
+<section id="éléments-de-logique" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Éléments de logique</h1>
+<section id="propositions-et-connecteurs" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="propositions-et-connecteurs"><span class="header-section-number">1.1</span> Propositions et connecteurs</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 1.1 — (Proposition)</strong></p>
+<p>Une <strong>proposition</strong> est un énoncé mathématique qui est soit vrai, soit faux. On les note <span class="math inline">P</span>, <span class="math inline">Q</span>, <span class="math inline">R</span>, etc.</p>
+</div>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 1.2 — (Connecteurs logiques)</strong></p>
+<p>Soient <span class="math inline">P</span> et <span class="math inline">Q</span> deux propositions.</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Connecteur</th>
+<th>Notation</th>
+<th>Lecture</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Négation</td>
+<td><span class="math inline">\neg P</span></td>
+<td>« non <span class="math inline">P</span> »</td>
+</tr>
+<tr class="even">
+<td>Conjonction</td>
+<td><span class="math inline">P \wedge Q</span></td>
+<td>« <span class="math inline">P</span> et <span class="math inline">Q</span> »</td>
+</tr>
+<tr class="odd">
+<td>Disjonction</td>
+<td><span class="math inline">P \vee Q</span></td>
+<td>« <span class="math inline">P</span> ou <span class="math inline">Q</span> »</td>
+</tr>
+<tr class="even">
+<td>Implication</td>
+<td><span class="math inline">P \Rightarrow Q</span></td>
+<td>« si <span class="math inline">P</span> alors <span class="math inline">Q</span> »</td>
+</tr>
+<tr class="odd">
+<td>Équivalence</td>
+<td><span class="math inline">P \Leftrightarrow Q</span></td>
+<td>« <span class="math inline">P</span> si et seulement si <span class="math inline">Q</span> »</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 1.1 — (Propriétés fondamentales)</strong></p>
+<p>Pour toutes propositions <span class="math inline">P</span>, <span class="math inline">Q</span> :</p>
+<ol type="1">
+<li><span class="math inline">P \Rightarrow Q</span> est équivalente à <span class="math inline">(\neg Q) \Rightarrow (\neg P)</span> (contraposée).</li>
+<li><span class="math inline">\neg(P \wedge Q)</span> est équivalente à <span class="math inline">(\neg P) \vee (\neg Q)</span> (De Morgan).</li>
+<li><span class="math inline">\neg(P \vee Q)</span> est équivalente à <span class="math inline">(\neg P) \wedge (\neg Q)</span>.</li>
+</ol>
+</div>
+</section>
+<section id="quantificateurs" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="quantificateurs"><span class="header-section-number">1.2</span> Quantificateurs</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 1.3 — (Quantificateurs)</strong></p>
+<p>Soit <span class="math inline">E</span> un ensemble et <span class="math inline">P(x)</span> une proposition dépendant de <span class="math inline">x \in E</span>.</p>
+<ul>
+<li><span class="math inline">\forall x \in E,\; P(x)</span> : « pour tout <span class="math inline">x</span> de <span class="math inline">E</span>, <span class="math inline">P(x)</span> ».</li>
+<li><span class="math inline">\exists x \in E,\; P(x)</span> : « il existe un <span class="math inline">x</span> de <span class="math inline">E</span> tel que <span class="math inline">P(x)</span> ».</li>
+</ul>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 1.2 — (Négation)</strong></p>
+<p><span class="math display">\neg(\forall x \in E,\; P(x)) \iff \exists x \in E,\; \neg P(x)</span> <span class="math display">\neg(\exists x \in E,\; P(x)) \iff \forall x \in E,\; \neg P(x)</span></p>
+</div>
+</section>
+<section id="méthodes-de-raisonnement" class="level2" data-number="1.3">
+<h2 data-number="1.3" class="anchored" data-anchor-id="méthodes-de-raisonnement"><span class="header-section-number">1.3</span> Méthodes de raisonnement</h2>
+<div class="custom-numbered-block custom-methode">
+<p><strong>Méthode 1.1 — (Récurrence)</strong></p>
+<p>Pour montrer <span class="math inline">P(n)</span> pour tout <span class="math inline">n \geq n_0</span> :</p>
+<ol type="1">
+<li><strong>Initialisation</strong> : montrer <span class="math inline">P(n_0)</span>.</li>
+<li><strong>Hérédité</strong> : supposer <span class="math inline">P(n)</span> et montrer <span class="math inline">P(n+1)</span>.</li>
+<li><strong>Conclusion</strong> : par récurrence, <span class="math inline">P(n)</span> pour tout <span class="math inline">n \geq n_0</span>.</li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-methode">
+<p><strong>Méthode 1.2 — (Contraposée)</strong></p>
+<p>Pour montrer <span class="math inline">P \Rightarrow Q</span>, on montre <span class="math inline">\neg Q \Rightarrow \neg P</span>.</p>
+</div>
+<div class="custom-numbered-block custom-methode">
+<p><strong>Méthode 1.3 — (Absurde)</strong></p>
+<p>Pour montrer <span class="math inline">P</span>, on suppose <span class="math inline">\neg P</span> et on aboutit à une contradiction.</p>
+</div>
+<div class="custom-numbered-block custom-methode">
+<p><strong>Méthode 1.4 — (Analyse-synthèse)</strong></p>
+<p>Pour résoudre un problème d’existence et d’unicité :</p>
+<ul>
+<li><strong>Analyse</strong> : supposer la solution existante et en déduire sa forme nécessaire.</li>
+<li><strong>Synthèse</strong> : vérifier que l’objet construit est bien solution.</li>
+</ul>
+</div>
+</section>
+</section>
+<section id="ensembles" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> Ensembles</h1>
+<section id="opérations" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="opérations"><span class="header-section-number">2.1</span> Opérations</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 2.1 — (Opérations sur les ensembles)</strong></p>
+<p>Soient <span class="math inline">A</span>, <span class="math inline">B</span> deux ensembles.</p>
+<ul>
+<li><span class="math inline">A \cup B = \{x \mid x \in A \text{ ou } x \in B\}</span></li>
+<li><span class="math inline">A \cap B = \{x \mid x \in A \text{ et } x \in B\}</span></li>
+<li><span class="math inline">A \setminus B = \{x \mid x \in A \text{ et } x \notin B\}</span></li>
+<li><span class="math inline">\overline{A} = E \setminus A</span> (complémentaire dans <span class="math inline">E</span>)</li>
+<li><span class="math inline">A \times B = \{(a,b) \mid a \in A,\; b \in B\}</span></li>
+</ul>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 2.1 — (Lois de De Morgan)</strong></p>
+<p><span class="math display">\overline{A \cup B} = \overline{A} \cap \overline{B} \qquad \text{et} \qquad \overline{A \cap B} = \overline{A} \cup \overline{B}</span></p>
+</div>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 2.2 — (Ensemble des parties)</strong></p>
+<p><span class="math inline">\mathcal{P}(E)</span> désigne l’ensemble de tous les sous-ensembles de <span class="math inline">E</span>. Si <span class="math inline">\mathrm{card}(E) = n</span>, alors <span class="math inline">\mathrm{card}(\mathcal{P}(E)) = 2^n</span>.</p>
+</div>
+</section>
+</section>
+<section id="applications" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Applications</h1>
+<section id="définitions" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="définitions"><span class="header-section-number">3.1</span> Définitions</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 3.1 — (Application)</strong></p>
+<p>Une <strong>application</strong> <span class="math inline">f : E \to F</span> associe à tout <span class="math inline">x \in E</span> un unique élément <span class="math inline">f(x) \in F</span>.</p>
+<ul>
+<li><span class="math inline">E</span> est l’<strong>ensemble de départ</strong>.</li>
+<li><span class="math inline">F</span> est l’<strong>ensemble d’arrivée</strong>.</li>
+<li><span class="math inline">f(A) = \{f(x) \mid x \in A\}</span> est l’<strong>image</strong> de <span class="math inline">A \subset E</span>.</li>
+<li><span class="math inline">f^{-1}(B) = \{x \in E \mid f(x) \in B\}</span> est l’<strong>image réciproque</strong> de <span class="math inline">B \subset F</span>.</li>
+</ul>
+</div>
+</section>
+<section id="injection-surjection-bijection" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="injection-surjection-bijection"><span class="header-section-number">3.2</span> Injection, surjection, bijection</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 3.2 — (Injection)</strong></p>
+<p><span class="math inline">f : E \to F</span> est <strong>injective</strong> si : <span class="math display">\forall x, x' \in E,\quad f(x) = f(x') \implies x = x'</span></p>
+<p>Autrement dit, tout élément de <span class="math inline">F</span> admet au plus un antécédent.</p>
+</div>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 3.3 — (Surjection)</strong></p>
+<p><span class="math inline">f : E \to F</span> est <strong>surjective</strong> si : <span class="math display">\forall y \in F,\quad \exists x \in E,\quad f(x) = y</span></p>
+<p>Autrement dit, tout élément de <span class="math inline">F</span> admet au moins un antécédent.</p>
+</div>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 3.4 — (Bijection)</strong></p>
+<p><span class="math inline">f : E \to F</span> est <strong>bijective</strong> si elle est injective et surjective. Tout élément de <span class="math inline">F</span> admet un unique antécédent. On note <span class="math inline">f^{-1} : F \to E</span> la bijection réciproque.</p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 3.1 — (Propriétés)</strong></p>
+<p>Soient <span class="math inline">f : E \to F</span> et <span class="math inline">g : F \to G</span>.</p>
+<ol type="1">
+<li><span class="math inline">f</span> et <span class="math inline">g</span> injectives <span class="math inline">\implies</span> <span class="math inline">g \circ f</span> injective.</li>
+<li><span class="math inline">f</span> et <span class="math inline">g</span> surjectives <span class="math inline">\implies</span> <span class="math inline">g \circ f</span> surjective.</li>
+<li><span class="math inline">f</span> et <span class="math inline">g</span> bijectives <span class="math inline">\implies</span> <span class="math inline">g \circ f</span> bijective, avec <span class="math inline">(g \circ f)^{-1} = f^{-1} \circ g^{-1}</span>.</li>
+<li><span class="math inline">f</span> bijective <span class="math inline">\iff</span> <span class="math inline">f</span> admet une application réciproque.</li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 3.2 — (Caractérisation ensembliste)</strong></p>
+<p>Soit <span class="math inline">f : E \to F</span>.</p>
+<ul>
+<li><span class="math inline">f</span> injective <span class="math inline">\iff</span> <span class="math inline">\forall A \subset E,\; f^{-1}(f(A)) = A</span>.</li>
+<li><span class="math inline">f</span> surjective <span class="math inline">\iff</span> <span class="math inline">\forall B \subset F,\; f(f^{-1}(B)) = B</span>.</li>
+</ul>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 3.1</strong></p>
+<p>Soit <span class="math inline">f : \mathbb{R} \to \mathbb{R}</span> définie par <span class="math inline">f(x) = 2x - 3</span>.</p>
+<ul>
+<li><strong>Injective</strong> : <span class="math inline">f(x) = f(x') \Rightarrow 2x = 2x' \Rightarrow x = x'</span>. ✓</li>
+<li><strong>Surjective</strong> : pour tout <span class="math inline">y</span>, <span class="math inline">x = \frac{y+3}{2}</span> vérifie <span class="math inline">f(x) = y</span>. ✓</li>
+<li>Donc <span class="math inline">f</span> est bijective et <span class="math inline">f^{-1}(y) = \frac{y+3}{2}</span>.</li>
+</ul>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 3.2</strong></p>
+<p>Soit <span class="math inline">g : \mathbb{R} \to \mathbb{R}</span> définie par <span class="math inline">g(x) = x^2</span>.</p>
+<ul>
+<li><span class="math inline">g</span> n’est <strong>pas injective</strong> : <span class="math inline">g(1) = g(-1) = 1</span>.</li>
+<li><span class="math inline">g</span> n’est <strong>pas surjective</strong> : <span class="math inline">-1</span> n’a pas d’antécédent.</li>
+<li>Mais <span class="math inline">g : [0, +\infty[ \to [0, +\infty[</span> est bijective, de réciproque <span class="math inline">x \mapsto \sqrt{x}</span>.</li>
+</ul>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 3.3 — (Application exponentielle)</strong></p>
+<p><span class="math inline">\exp : \mathbb{R} \to ]0, +\infty[</span> est une bijection, de réciproque <span class="math inline">\ln : ]0, +\infty[ \to \mathbb{R}</span>.</p>
+</div>
+</section>
+</section>
+<section id="exercices" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> Exercices</h1>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 4.1</strong></p>
+<p>Nier les propositions suivantes :</p>
+<ol type="1">
+<li><span class="math inline">\forall x \in \mathbb{R},\; x^2 \geq 0</span>.</li>
+<li><span class="math inline">\exists x \in \mathbb{R},\; x^2 = -1</span>.</li>
+<li><span class="math inline">\forall \varepsilon &gt; 0,\; \exists N \in \mathbb{N},\; \forall n \geq N,\; |u_n - \ell| &lt; \varepsilon</span>.</li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 4.2</strong></p>
+<p>Montrer par récurrence que pour tout <span class="math inline">n \in \mathbb{N}^*</span> : <span class="math inline">\sum_{k=1}^n k = \frac{n(n+1)}{2}</span>.</p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 4.3</strong></p>
+<p>Montrer par l’absurde que <span class="math inline">\sqrt{2} \notin \mathbb{Q}</span>.</p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 4.4</strong></p>
+<p>Montrer par contraposée que si <span class="math inline">n^2</span> est pair, alors <span class="math inline">n</span> est pair.</p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 4.5</strong></p>
+<p>Soient <span class="math inline">A</span>, <span class="math inline">B</span>, <span class="math inline">C</span> trois ensembles. Montrer que <span class="math inline">A \cap (B \cup C) = (A \cap B) \cup (A \cap C)</span>.</p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 4.6</strong></p>
+<p>Soit <span class="math inline">f : \mathbb{R} \to \mathbb{R}</span> définie par <span class="math inline">f(x) = \dfrac{x}{1+|x|}</span>.</p>
+<ol type="1">
+<li>Montrer que <span class="math inline">f</span> est injective.</li>
+<li>Montrer que <span class="math inline">f</span> n’est pas surjective.</li>
+<li>Montrer que <span class="math inline">f : \mathbb{R} \to ]-1,1[</span> est bijective et déterminer <span class="math inline">f^{-1}</span>.</li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 4.7</strong></p>
+<p>Soit <span class="math inline">f : E \to F</span> une application. Montrer que <span class="math inline">f</span> est injective si et seulement si <span class="math inline">f^{-1}(f(A)) = A</span> pour tout <span class="math inline">A \subset E</span>.</p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 4.8</strong></p>
+<p>Soit <span class="math inline">f : \mathbb{N} \to \mathbb{Z}</span> définie par <span class="math inline">f(n) = (-1)^n \lfloor n/2 \rfloor</span>. Montrer que <span class="math inline">f</span> est bijective.</p>
+</div>
+</section>
+<section id="document-en-pdf" class="level1 unnumbered">
+<h1 class="unnumbered">Document en PDF</h1>
+<p><a href="PDF/ecs1-chap01.pdf"><strong>Chapitre 01 : Logique, ensembles et applications</strong></a></p>
+<section id="navigation" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="navigation">Navigation</h2>
+<div class="chap-nav">
+<p><a href="../cours/ecs1.html" class="home">Menu ECS1</a> <a href="../cours/ecs1-chap02.html" class="next">Chapitre 02 : Calcul algébrique</a></p>
+</div>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -281,12 +610,12 @@ ul.task-list li input[type="checkbox"] {
       // flash "checked"
       button.classList.add('code-copy-button-checked');
       var currentTitle = button.getAttribute("title");
-      button.setAttribute("title", "Copied!");
+      button.setAttribute("title", "Copié");
       let tooltip;
       if (window.bootstrap) {
         button.setAttribute("data-bs-toggle", "tooltip");
         button.setAttribute("data-bs-placement", "left");
-        button.setAttribute("data-bs-title", "Copied!");
+        button.setAttribute("data-bs-title", "Copié");
         tooltip = new bootstrap.Tooltip(button, 
           { trigger: "manual", 
             customClass: "code-copy-button-tooltip",

@@ -1,13 +1,14 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr"><head>
 
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.10.18">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Saîd MAHARI">
 
-<title>Réduction des endomorphismes et matrices - Mathématiques en CPGE – Mathématiques en CPGE</title>
+<title>Réduction des endomorphismes et matrices – Mathématiques en CPGE</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -45,7 +46,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-7a8c080b55ea27eb37b467515007f9ee.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-e0d9a45d84245cc5e3b300860d8fa645.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -60,17 +61,17 @@ ul.task-list li input[type="checkbox"] {
   ],
   "show-item-context": false,
   "language": {
-    "search-no-results-text": "No results",
-    "search-matching-documents-text": "matching documents",
-    "search-copy-link-title": "Copy link to search",
-    "search-hide-matches-text": "Hide additional matches",
-    "search-more-match-text": "more match in this document",
-    "search-more-matches-text": "more matches in this document",
-    "search-clear-button-title": "Clear",
+    "search-no-results-text": "Pas de résultats",
+    "search-matching-documents-text": "documents trouvés",
+    "search-copy-link-title": "Copier le lien vers la recherche",
+    "search-hide-matches-text": "Cacher les correspondances additionnelles",
+    "search-more-match-text": "correspondance de plus dans ce document",
+    "search-more-matches-text": "correspondances de plus dans ce document",
+    "search-clear-button-title": "Effacer",
     "search-text-placeholder": "",
-    "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit",
-    "search-label": "Search"
+    "search-detached-cancel-button-title": "Annuler",
+    "search-submit-button-title": "Envoyer",
+    "search-label": "Recherche"
   }
 }</script>
 <script data-goatcounter="https://maharicpge.goatcounter.com/count" async="" src="//gc.zgo.at/count.js"></script>
@@ -142,8 +143,52 @@ ul.task-list li input[type="checkbox"] {
   });
 </script>
 
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="styles.css">
 </head>
 
 <body class="nav-fixed quarto-light">
@@ -157,8 +202,8 @@ ul.task-list li input[type="checkbox"] {
     <span class="navbar-title">Accueil</span>
     </a>
   </div>
-            <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+            <div id="quarto-search" class="" title="Recherche"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Basculer la navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
@@ -218,10 +263,26 @@ ul.task-list li input[type="checkbox"] {
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
+    <h2 id="toc-title">Sur cette page</h2>
    
   <ul>
-  <li><a href="#document" id="toc-document" class="nav-link active" data-scroll-target="#document">Document</a></li>
+  <li><a href="#éléments-propres" id="toc-éléments-propres" class="nav-link active" data-scroll-target="#éléments-propres"><span class="header-section-number">1</span> Éléments propres</a>
+  <ul class="collapse">
+  <li><a href="#valeurs-propres-et-vecteurs-propres" id="toc-valeurs-propres-et-vecteurs-propres" class="nav-link" data-scroll-target="#valeurs-propres-et-vecteurs-propres"><span class="header-section-number">1.1</span> Valeurs propres et vecteurs propres</a></li>
+  </ul></li>
+  <li><a href="#polynôme-caractéristique" id="toc-polynôme-caractéristique" class="nav-link" data-scroll-target="#polynôme-caractéristique"><span class="header-section-number">2</span> Polynôme caractéristique</a></li>
+  <li><a href="#diagonalisation" id="toc-diagonalisation" class="nav-link" data-scroll-target="#diagonalisation"><span class="header-section-number">3</span> Diagonalisation</a>
+  <ul class="collapse">
+  <li><a href="#définition" id="toc-définition" class="nav-link" data-scroll-target="#définition"><span class="header-section-number">3.1</span> Définition</a></li>
+  <li><a href="#caractérisations" id="toc-caractérisations" class="nav-link" data-scroll-target="#caractérisations"><span class="header-section-number">3.2</span> Caractérisations</a></li>
+  <li><a href="#trigonalisation" id="toc-trigonalisation" class="nav-link" data-scroll-target="#trigonalisation"><span class="header-section-number">3.3</span> Trigonalisation</a></li>
+  </ul></li>
+  <li><a href="#polynômes-annulateurs-et-applications" id="toc-polynômes-annulateurs-et-applications" class="nav-link" data-scroll-target="#polynômes-annulateurs-et-applications"><span class="header-section-number">4</span> Polynômes annulateurs et applications</a></li>
+  <li><a href="#exercices" id="toc-exercices" class="nav-link" data-scroll-target="#exercices"><span class="header-section-number">5</span> Exercices</a></li>
+  <li><a href="#document-en-pdf" id="toc-document-en-pdf" class="nav-link" data-scroll-target="#document-en-pdf">Document en PDF</a>
+  <ul class="collapse">
+  <li><a href="#navigation" id="toc-navigation" class="nav-link" data-scroll-target="#navigation">Navigation</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -230,14 +291,27 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Chapitre 02 : Réduction des endomorphismes et matrices</h1>
+<h1 class="title">Réduction des endomorphismes et matrices</h1>
+<p class="subtitle lead">Chapitre 02</p>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Auteur·rice</div>
+    <div class="quarto-title-meta-contents">
+             <p>Saîd MAHARI </p>
+          </div>
+  </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">Date de publication</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">28 août 2026</p>
+    </div>
+  </div>
   
     
   </div>
@@ -247,12 +321,186 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p><strong>ECS 2e année (ECG) — Chapitre 02.</strong> Spectre, diagonalisation, polynômes annulateurs.</p>
-<section id="document" class="level2">
-<h2 class="anchored" data-anchor-id="document">Document</h2>
-<p><em>PDF à venir : déposez le fichier <code>files/ecs2/chap02.pdf</code> puis régénérez la page.</em></p>
+<p><strong>ECS (2e année) — Chapitre 02.</strong> Valeurs propres, vecteurs propres, diagonalisation, polynômes annulateurs.</p>
+<p>Ce chapitre a été réalisé conformément au programme marocain de mathématiques de la filière ECS.</p>
+<p>Dans tout ce chapitre, <span class="math inline">\mathbb{K}</span> désigne <span class="math inline">\mathbb{R}</span> ou <span class="math inline">\mathbb{C}</span>, et <span class="math inline">E</span> un <span class="math inline">\mathbb{K}</span>-espace vectoriel de dimension finie <span class="math inline">n \geq 1</span>.</p>
+<section id="éléments-propres" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Éléments propres</h1>
+<section id="valeurs-propres-et-vecteurs-propres" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="valeurs-propres-et-vecteurs-propres"><span class="header-section-number">1.1</span> Valeurs propres et vecteurs propres</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 1.1 — (Valeur propre, vecteur propre)</strong></p>
+<p>Soit <span class="math inline">u \in \mathcal{L}(E)</span>. Un scalaire <span class="math inline">\lambda \in \mathbb{K}</span> est une <strong>valeur propre</strong> de <span class="math inline">u</span> s’il existe <span class="math inline">x \in E \setminus \{0\}</span> tel que <span class="math inline">u(x) = \lambda x</span>. Un tel vecteur <span class="math inline">x</span> est un <strong>vecteur propre</strong> associé à <span class="math inline">\lambda</span>.</p>
+</div>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 1.2 — (Sous-espace propre)</strong></p>
+<p>Pour <span class="math inline">\lambda \in \mathbb{K}</span>, le <strong>sous-espace propre</strong> associé à <span class="math inline">\lambda</span> est : <span class="math display">E_\lambda(u) = \ker(u - \lambda \mathrm{Id}_E)</span></p>
+</div>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 1.3 — (Spectre)</strong></p>
+<p>Le <strong>spectre</strong> de <span class="math inline">u</span>, noté <span class="math inline">\mathrm{Sp}(u)</span>, est l’ensemble des valeurs propres de <span class="math inline">u</span>. Il est fini et de cardinal au plus <span class="math inline">n</span>.</p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 1.1 — (Indépendance des sous-espaces propres)</strong></p>
+<p>Si <span class="math inline">\lambda_1, \ldots, \lambda_r</span> sont des valeurs propres distinctes de <span class="math inline">u</span>, alors : <span class="math display">E_{\lambda_1} + \cdots + E_{\lambda_r} \text{ est une somme directe}</span></p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 1.2 — (Stabilité)</strong></p>
+<p>Un sous-espace vectoriel <span class="math inline">F</span> de <span class="math inline">E</span> est <strong>stable par <span class="math inline">u</span></strong> si <span class="math inline">u(F) \subset F</span>. Les sous-espaces propres sont stables par <span class="math inline">u</span>.</p>
+</div>
+</section>
+</section>
+<section id="polynôme-caractéristique" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> Polynôme caractéristique</h1>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 2.1 — (Polynôme caractéristique)</strong></p>
+<p>Pour <span class="math inline">A \in \mathcal{M}_n(\mathbb{K})</span> : <span class="math display">\chi_A(X) = \det(X I_n - A)</span></p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 2.1 — (Propriétés)</strong></p>
+<ol type="1">
+<li><span class="math inline">\chi_A</span> est unitaire de degré <span class="math inline">n</span>.</li>
+<li><span class="math inline">\lambda</span> est valeur propre de <span class="math inline">A</span> <span class="math inline">\iff</span> <span class="math inline">\chi_A(\lambda) = 0</span>.</li>
+<li>Deux matrices semblables ont même polynôme caractéristique.</li>
+<li><span class="math inline">\chi_A(X) = X^n - \mathrm{tr}(A) X^{n-1} + \cdots + (-1)^n \det(A)</span>.</li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 2.2 — (Matrice triangulaire)</strong></p>
+<p>Si <span class="math inline">A</span> est triangulaire avec coefficients diagonaux <span class="math inline">a_{11}, \ldots, a_{nn}</span>, alors : <span class="math display">\chi_A(X) = \prod_{k=1}^n (X - a_{kk})</span></p>
+</div>
+</section>
+<section id="diagonalisation" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Diagonalisation</h1>
+<section id="définition" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="définition"><span class="header-section-number">3.1</span> Définition</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 3.1 — (Endomorphisme diagonalisable)</strong></p>
+<p><span class="math inline">u \in \mathcal{L}(E)</span> est <strong>diagonalisable</strong> s’il existe une base de <span class="math inline">E</span> formée de vecteurs propres de <span class="math inline">u</span>.</p>
+</div>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 3.2 — (Matrice diagonalisable)</strong></p>
+<p><span class="math inline">A \in \mathcal{M}_n(\mathbb{K})</span> est <strong>diagonalisable</strong> s’il existe <span class="math inline">P \in \mathrm{GL}_n(\mathbb{K})</span> et <span class="math inline">D</span> diagonale telles que <span class="math inline">A = P D P^{-1}</span>.</p>
+</div>
+</section>
+<section id="caractérisations" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="caractérisations"><span class="header-section-number">3.2</span> Caractérisations</h2>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 3.1 — (Caractérisation par les sous-espaces propres)</strong></p>
+<p><span class="math inline">u \in \mathcal{L}(E)</span> est diagonalisable si et seulement si : <span class="math display">E = E_{\lambda_1} \oplus \cdots \oplus E_{\lambda_r}</span> où <span class="math inline">\lambda_1, \ldots, \lambda_r</span> sont les valeurs propres distinctes de <span class="math inline">u</span>.</p>
+</div>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 3.2 — (Caractérisation par le polynôme caractéristique)</strong></p>
+<p><span class="math inline">u</span> est diagonalisable si et seulement si :</p>
+<ol type="1">
+<li><span class="math inline">\chi_u</span> est scindé sur <span class="math inline">\mathbb{K}</span> : <span class="math inline">\chi_u(X) = \prod_{k=1}^r (X - \lambda_k)^{\mu_k}</span>.</li>
+<li>Pour tout <span class="math inline">k</span>, <span class="math inline">\dim E_{\lambda_k} = \mu_k</span>.</li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 3.1 — (Cas des valeurs propres distinctes)</strong></p>
+<p>Si <span class="math inline">u</span> admet <span class="math inline">n</span> valeurs propres distinctes, alors <span class="math inline">u</span> est diagonalisable.</p>
+</div>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 3.3 — (Caractérisation par le polynôme minimal)</strong></p>
+<p><span class="math inline">u</span> est diagonalisable si et seulement si <span class="math inline">P_u</span> est scindé à racines simples.</p>
+</div>
+</section>
+<section id="trigonalisation" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="trigonalisation"><span class="header-section-number">3.3</span> Trigonalisation</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 3.3 — (Trigonalisable)</strong></p>
+<p><span class="math inline">u</span> est <strong>trigonalisable</strong> s’il existe une base de <span class="math inline">E</span> dans laquelle la matrice de <span class="math inline">u</span> est triangulaire supérieure.</p>
+</div>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 3.4 — (Caractérisation)</strong></p>
+<p><span class="math inline">u</span> est trigonalisable si et seulement si <span class="math inline">\chi_u</span> est scindé sur <span class="math inline">\mathbb{K}</span>.</p>
+</div>
+<div class="custom-numbered-block custom-corollary">
+<p><strong>Corollaire 3.1</strong></p>
+<p>Tout endomorphisme d’un <span class="math inline">\mathbb{C}</span>-espace vectoriel est trigonalisable.</p>
+</div>
+</section>
+</section>
+<section id="polynômes-annulateurs-et-applications" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> Polynômes annulateurs et applications</h1>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 4.1 — (Cayley-Hamilton)</strong></p>
+<p><span class="math inline">\chi_u(u) = 0</span>. Donc <span class="math inline">P_u</span> divise <span class="math inline">\chi_u</span>.</p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 4.1 — (Racines du polynôme minimal)</strong></p>
+<p>Les racines de <span class="math inline">P_u</span> sont exactement les valeurs propres de <span class="math inline">u</span>.</p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 4.1 — (Projecteurs et symétries)</strong></p>
+<ul>
+<li>Si <span class="math inline">u^2 = u</span>, alors <span class="math inline">X^2 - X = X(X-1)</span> annule <span class="math inline">u</span>, donc <span class="math inline">u</span> est diagonalisable.</li>
+<li>Si <span class="math inline">u^2 = \mathrm{Id}_E</span>, alors <span class="math inline">X^2 - 1 = (X-1)(X+1)</span> annule <span class="math inline">u</span>, donc <span class="math inline">u</span> est diagonalisable.</li>
+</ul>
+</div>
+</section>
+<section id="exercices" class="level1" data-number="5">
+<h1 data-number="5"><span class="header-section-number">5</span> Exercices</h1>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 5.1</strong></p>
+<p>Soit <span class="math inline">A = \begin{pmatrix} 3 &amp; 1 \\ 0 &amp; 2 \end{pmatrix}</span>.</p>
+<ol type="1">
+<li>Déterminer les valeurs propres et les sous-espaces propres.</li>
+<li><span class="math inline">A</span> est-elle diagonalisable ? Si oui, trouver <span class="math inline">P</span> et <span class="math inline">D</span> telles que <span class="math inline">A = P D P^{-1}</span>.</li>
+<li>En déduire <span class="math inline">A^n</span>.</li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 5.2</strong></p>
+<p>Soit <span class="math inline">A = \begin{pmatrix} 1 &amp; 1 \\ -1 &amp; 3 \end{pmatrix}</span>.</p>
+<ol type="1">
+<li>Calculer <span class="math inline">\chi_A</span>.</li>
+<li><span class="math inline">A</span> est-elle diagonalisable ? Trigonalisable ?</li>
+<li>Calculer <span class="math inline">A^n</span>.</li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 5.3</strong></p>
+<p>Soit <span class="math inline">u \in \mathcal{L}(E)</span> avec <span class="math inline">u^2 = 3u - 2\mathrm{Id}_E</span>. Montrer que <span class="math inline">u</span> est diagonalisable et déterminer ses valeurs propres possibles.</p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 5.4</strong></p>
+<p>Soit <span class="math inline">A = \begin{pmatrix} 2 &amp; 1 &amp; 1 \\ 1 &amp; 2 &amp; 1 \\ 1 &amp; 1 &amp; 2 \end{pmatrix}</span>.</p>
+<ol type="1">
+<li>Calculer <span class="math inline">\chi_A</span>.</li>
+<li>Déterminer les valeurs propres et les sous-espaces propres.</li>
+<li>Diagonaliser <span class="math inline">A</span>.</li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 5.5</strong></p>
+<p>Soit <span class="math inline">A</span> une matrice nilpotente (<span class="math inline">A^p = 0</span>). Montrer que <span class="math inline">\chi_A(X) = X^n</span> et que <span class="math inline">A</span> est diagonalisable si et seulement si <span class="math inline">A = 0</span>.</p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 5.6</strong></p>
+<p>Soit <span class="math inline">A \in \mathcal{M}_n(\mathbb{K})</span> diagonalisable. Montrer que <span class="math inline">A^k</span> est diagonalisable pour tout <span class="math inline">k \in \mathbb{N}</span>.</p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 5.7</strong></p>
+<p>Résoudre la suite récurrente <span class="math inline">u_{n+2} = 5u_{n+1} - 6u_n</span> avec <span class="math inline">u_0 = 1</span>, <span class="math inline">u_1 = 2</span> en diagonalisant la matrice compagnon.</p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 5.8</strong></p>
+<p>Soient <span class="math inline">A, B \in \mathcal{M}_n(\mathbb{K})</span> avec <span class="math inline">AB = BA</span>. Montrer que si <span class="math inline">\lambda</span> est valeur propre de <span class="math inline">A</span>, alors <span class="math inline">E_\lambda(A)</span> est stable par <span class="math inline">B</span>.</p>
+</div>
+</section>
+<section id="document-en-pdf" class="level1 unnumbered">
+<h1 class="unnumbered">Document en PDF</h1>
+<p><a href="PDF/ecs2-chap02.pdf"><strong>Chapitre 02 : Réduction des endomorphismes et matrices</strong></a></p>
+<section id="navigation" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="navigation">Navigation</h2>
+<div class="chap-nav">
+<p><a href="../cours/ecs2-chap01.html" class="prev">Chapitre 01 : Algèbre linéaire (compléments)</a> <a href="../cours/ecs2.html" class="home">Menu ECS2</a> <a href="../cours/ecs2-chap03.html" class="next">Chapitre 03 : Algèbre bilinéaire</a></p>
+</div>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -281,12 +529,12 @@ ul.task-list li input[type="checkbox"] {
       // flash "checked"
       button.classList.add('code-copy-button-checked');
       var currentTitle = button.getAttribute("title");
-      button.setAttribute("title", "Copied!");
+      button.setAttribute("title", "Copié");
       let tooltip;
       if (window.bootstrap) {
         button.setAttribute("data-bs-toggle", "tooltip");
         button.setAttribute("data-bs-placement", "left");
-        button.setAttribute("data-bs-title", "Copied!");
+        button.setAttribute("data-bs-title", "Copié");
         tooltip = new bootstrap.Tooltip(button, 
           { trigger: "manual", 
             customClass: "code-copy-button-tooltip",

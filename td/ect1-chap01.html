@@ -1,13 +1,14 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr"><head>
 
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.10.18">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Saîd MAHARI">
 
-<title>Révisions et outils de calcul - Mathématiques en CPGE – Mathématiques en CPGE</title>
+<title>TD — Raisonnements, notions d’ensemble et d’application – Mathématiques en CPGE</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -45,7 +46,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-7a8c080b55ea27eb37b467515007f9ee.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-e0d9a45d84245cc5e3b300860d8fa645.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -60,17 +61,17 @@ ul.task-list li input[type="checkbox"] {
   ],
   "show-item-context": false,
   "language": {
-    "search-no-results-text": "No results",
-    "search-matching-documents-text": "matching documents",
-    "search-copy-link-title": "Copy link to search",
-    "search-hide-matches-text": "Hide additional matches",
-    "search-more-match-text": "more match in this document",
-    "search-more-matches-text": "more matches in this document",
-    "search-clear-button-title": "Clear",
+    "search-no-results-text": "Pas de résultats",
+    "search-matching-documents-text": "documents trouvés",
+    "search-copy-link-title": "Copier le lien vers la recherche",
+    "search-hide-matches-text": "Cacher les correspondances additionnelles",
+    "search-more-match-text": "correspondance de plus dans ce document",
+    "search-more-matches-text": "correspondances de plus dans ce document",
+    "search-clear-button-title": "Effacer",
     "search-text-placeholder": "",
-    "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit",
-    "search-label": "Search"
+    "search-detached-cancel-button-title": "Annuler",
+    "search-submit-button-title": "Envoyer",
+    "search-label": "Recherche"
   }
 }</script>
 <script data-goatcounter="https://maharicpge.goatcounter.com/count" async="" src="//gc.zgo.at/count.js"></script>
@@ -142,8 +143,52 @@ ul.task-list li input[type="checkbox"] {
   });
 </script>
 
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="styles.css">
 </head>
 
 <body class="nav-fixed quarto-light">
@@ -157,8 +202,8 @@ ul.task-list li input[type="checkbox"] {
     <span class="navbar-title">Accueil</span>
     </a>
   </div>
-            <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+            <div id="quarto-search" class="" title="Recherche"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Basculer la navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
@@ -218,10 +263,11 @@ ul.task-list li input[type="checkbox"] {
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
+    <h2 id="toc-title">Sur cette page</h2>
    
   <ul>
-  <li><a href="#document" id="toc-document" class="nav-link active" data-scroll-target="#document">Document</a></li>
+  <li><a href="#cours" id="toc-cours" class="nav-link active" data-scroll-target="#cours">Cours</a></li>
+  <li><a href="#navigation" id="toc-navigation" class="nav-link" data-scroll-target="#navigation">Navigation</a></li>
   </ul>
 </nav>
     </div>
@@ -230,14 +276,27 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Chapitre 01 : Révisions et outils de calcul</h1>
+<h1 class="title">TD — Raisonnements, notions d’ensemble et d’application</h1>
+<p class="subtitle lead">Chapitre 01</p>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Auteur·rice</div>
+    <div class="quarto-title-meta-contents">
+             <p>Saîd MAHARI </p>
+          </div>
+  </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">Date de publication</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">28 août 2026</p>
+    </div>
+  </div>
   
     
   </div>
@@ -247,10 +306,105 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p><strong>ECT 1re année — Chapitre 01.</strong> Fractions, puissances, identités remarquables, équations, inéquations.</p>
-<section id="document" class="level2">
-<h2 class="anchored" data-anchor-id="document">Document</h2>
-<p><em>PDF à venir : déposez le fichier <code>files/ect1/chap01.pdf</code> puis régénérez la page.</em></p>
+<p><strong>ECT (1re année) — TD du Chapitre 01.</strong> Connecteurs logiques, quantificateurs, raisonnements (récurrence, contraposée, absurde, disjonction des cas), ensembles, applications, injections, surjections, bijections.</p>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 1</strong></p>
+<p>Soient <span class="math inline">P</span>, <span class="math inline">Q</span>, <span class="math inline">R</span> trois propositions. Montrer que :</p>
+<ol type="1">
+<li><span class="math inline">P \Rightarrow (Q \Rightarrow R)</span> est équivalente à <span class="math inline">(P \wedge Q) \Rightarrow R</span>.</li>
+<li><span class="math inline">\neg(P \wedge Q)</span> est équivalente à <span class="math inline">(\neg P) \vee (\neg Q)</span> (lois de De Morgan).</li>
+<li><span class="math inline">P \Rightarrow Q</span> est équivalente à <span class="math inline">(\neg P) \vee Q</span>.</li>
+<li>La contraposée de <span class="math inline">P \Rightarrow Q</span> est <span class="math inline">\neg Q \Rightarrow \neg P</span>.</li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 2</strong></p>
+<p>Soient <span class="math inline">P(x)</span> et <span class="math inline">Q(x)</span> deux propositions dépendant de <span class="math inline">x \in E</span>. Montrer que :</p>
+<ol type="1">
+<li><span class="math inline">\forall x \in E,\; P(x) \wedge Q(x)</span> équivaut à <span class="math inline">(\forall x,\; P(x)) \wedge (\forall x,\; Q(x))</span>.</li>
+<li><span class="math inline">\exists x \in E,\; P(x) \vee Q(x)</span> équivaut à <span class="math inline">(\exists x,\; P(x)) \vee (\exists x,\; Q(x))</span>.</li>
+<li><span class="math inline">\neg(\forall x,\; P(x))</span> équivaut à <span class="math inline">\exists x,\; \neg P(x)</span>.</li>
+<li><span class="math inline">\forall x\; \exists y,\; R(x,y)</span> n’équivaut pas en général à <span class="math inline">\exists y\; \forall x,\; R(x,y)</span>. Donner un contre-exemple.</li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 3</strong></p>
+<p>Montrer par récurrence que pour tout <span class="math inline">n \in \mathbb{N}^*</span> :</p>
+<ol type="1">
+<li><span class="math inline">\sum_{k=1}^n k = \dfrac{n(n+1)}{2}</span></li>
+<li><span class="math inline">\sum_{k=1}^n k^2 = \dfrac{n(n+1)(2n+1)}{6}</span></li>
+<li><span class="math inline">2^n &gt; n</span></li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 4</strong></p>
+<p>Montrer par l’absurde que :</p>
+<ol type="1">
+<li><span class="math inline">\sqrt{2} \notin \mathbb{Q}</span>.</li>
+<li>Il existe une infinité de nombres premiers.</li>
+</ol>
+</div>
+<p>Indications : (1) Supposer <span class="math inline">\sqrt{2} = p/q</span> avec <span class="math inline">p \wedge q = 1</span>. Montrer <span class="math inline">2 \mid p</span> puis <span class="math inline">2 \mid q</span>. (2) Supposer <span class="math inline">p_1, \ldots, p_n</span> premiers. Poser <span class="math inline">N = p_1 \cdots p_n + 1</span>.</p>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 5</strong></p>
+<p>Montrer par contraposée que :</p>
+<ol type="1">
+<li>Si <span class="math inline">n^2</span> est pair, alors <span class="math inline">n</span> est pair.</li>
+<li>Si <span class="math inline">ab</span> est impair, alors <span class="math inline">a</span> et <span class="math inline">b</span> sont impairs.</li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 6</strong></p>
+<p>Soient <span class="math inline">A</span>, <span class="math inline">B</span>, <span class="math inline">C</span> trois ensembles. Montrer que :</p>
+<ol type="1">
+<li><span class="math inline">A \setminus (B \cup C) = (A \setminus B) \cap (A \setminus C)</span></li>
+<li><span class="math inline">A \cap (B \setminus C) = (A \cap B) \setminus C</span></li>
+<li><span class="math inline">\mathcal{P}(A) \cup \mathcal{P}(B) \subset \mathcal{P}(A \cup B)</span> et que l’inclusion est stricte en général.</li>
+</ol>
+</div>
+<p>Indication : <span class="math inline">E = \{1,2\}</span>, <span class="math inline">A = \{1\}</span>, <span class="math inline">B = \{2\}</span>. Alors <span class="math inline">\{1,2\} \in \mathcal{P}(A \cup B)</span> mais <span class="math inline">\{1,2\} \notin \mathcal{P}(A) \cup \mathcal{P}(B)</span>.</p>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 7</strong></p>
+<p>Soit <span class="math inline">f : E \to F</span> une application. Montrer que :</p>
+<ol type="1">
+<li><span class="math inline">f</span> est injective <span class="math inline">\iff \forall A \in \mathcal{P}(E),\; f^{-1}(f(A)) = A</span>.</li>
+<li><span class="math inline">f</span> est surjective <span class="math inline">\iff \forall B \in \mathcal{P}(F),\; f(f^{-1}(B)) = B</span>.</li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 8</strong></p>
+<p>Soient <span class="math inline">f : E \to F</span> et <span class="math inline">g : F \to G</span> deux applications. Montrer que :</p>
+<ol type="1">
+<li>Si <span class="math inline">f</span> et <span class="math inline">g</span> sont injectives, alors <span class="math inline">g \circ f</span> est injective.</li>
+<li>Si <span class="math inline">f</span> et <span class="math inline">g</span> sont surjectives, alors <span class="math inline">g \circ f</span> est surjective.</li>
+<li>Si <span class="math inline">g \circ f</span> est injective, alors <span class="math inline">f</span> est injective.</li>
+<li>Si <span class="math inline">g \circ f</span> est surjective, alors <span class="math inline">g</span> est surjective.</li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 9</strong></p>
+<p>Soit <span class="math inline">f : \mathbb{R} \to \mathbb{R}</span> définie par <span class="math inline">f(x) = \dfrac{x}{1+|x|}</span>.</p>
+<ol type="1">
+<li>Montrer que <span class="math inline">f</span> est bien définie sur <span class="math inline">\mathbb{R}</span>.</li>
+<li>Montrer que <span class="math inline">f</span> est injective.</li>
+<li>Montrer que <span class="math inline">f</span> n’est pas surjective sur <span class="math inline">\mathbb{R}</span>.</li>
+<li>Montrer que <span class="math inline">f</span> réalise une bijection de <span class="math inline">\mathbb{R}</span> sur <span class="math inline">]-1, 1[</span> et déterminer sa réciproque.</li>
+</ol>
+</div>
+<p>Indications : (2) Résoudre <span class="math inline">f(x) = f(y)</span> en distinguant les cas <span class="math inline">x, y \geq 0</span> et <span class="math inline">x, y &lt; 0</span>. (4) Pour <span class="math inline">y \in ]-1,1[</span>, résoudre <span class="math inline">y = \frac{x}{1+|x|}</span>.</p>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 10</strong></p>
+<p>Soit <span class="math inline">f : \mathbb{N} \to \mathbb{Z}</span> définie par <span class="math inline">f(n) = (-1)^n \left\lfloor \dfrac{n+1}{2} \right\rfloor</span>. Montrer que <span class="math inline">f</span> est bijective.</p>
+</div>
+<section id="cours" class="level1 unnumbered">
+<h1 class="unnumbered">Cours</h1>
+<p><a href="../td/ect1-chap01.html"><strong>Chapitre 01 : Raisonnements, notions d’ensemble et d’application</strong></a></p>
+</section>
+<section id="navigation" class="level1 unnumbered">
+<h1 class="unnumbered">Navigation</h1>
+<div class="chap-nav">
+<p><a href="../td/ect1.html" class="home">Menu ECT1</a> <a href="../td/ect1-chap02.html" class="next">TD 02 : Calculs algébriques dans ℝ</a></p>
+</div>
 
 
 </section>
@@ -281,12 +435,12 @@ ul.task-list li input[type="checkbox"] {
       // flash "checked"
       button.classList.add('code-copy-button-checked');
       var currentTitle = button.getAttribute("title");
-      button.setAttribute("title", "Copied!");
+      button.setAttribute("title", "Copié");
       let tooltip;
       if (window.bootstrap) {
         button.setAttribute("data-bs-toggle", "tooltip");
         button.setAttribute("data-bs-placement", "left");
-        button.setAttribute("data-bs-title", "Copied!");
+        button.setAttribute("data-bs-title", "Copié");
         tooltip = new bootstrap.Tooltip(button, 
           { trigger: "manual", 
             customClass: "code-copy-button-tooltip",

@@ -1,13 +1,14 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr"><head>
 
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.10.18">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Saîd MAHARI">
 
-<title>Calcul algébrique - Mathématiques en CPGE – Mathématiques en CPGE</title>
+<title>Calcul algébrique – Mathématiques en CPGE</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -45,7 +46,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-7a8c080b55ea27eb37b467515007f9ee.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-e0d9a45d84245cc5e3b300860d8fa645.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -60,17 +61,17 @@ ul.task-list li input[type="checkbox"] {
   ],
   "show-item-context": false,
   "language": {
-    "search-no-results-text": "No results",
-    "search-matching-documents-text": "matching documents",
-    "search-copy-link-title": "Copy link to search",
-    "search-hide-matches-text": "Hide additional matches",
-    "search-more-match-text": "more match in this document",
-    "search-more-matches-text": "more matches in this document",
-    "search-clear-button-title": "Clear",
+    "search-no-results-text": "Pas de résultats",
+    "search-matching-documents-text": "documents trouvés",
+    "search-copy-link-title": "Copier le lien vers la recherche",
+    "search-hide-matches-text": "Cacher les correspondances additionnelles",
+    "search-more-match-text": "correspondance de plus dans ce document",
+    "search-more-matches-text": "correspondances de plus dans ce document",
+    "search-clear-button-title": "Effacer",
     "search-text-placeholder": "",
-    "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit",
-    "search-label": "Search"
+    "search-detached-cancel-button-title": "Annuler",
+    "search-submit-button-title": "Envoyer",
+    "search-label": "Recherche"
   }
 }</script>
 <script data-goatcounter="https://maharicpge.goatcounter.com/count" async="" src="//gc.zgo.at/count.js"></script>
@@ -142,8 +143,52 @@ ul.task-list li input[type="checkbox"] {
   });
 </script>
 
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="styles.css">
 </head>
 
 <body class="nav-fixed quarto-light">
@@ -157,8 +202,8 @@ ul.task-list li input[type="checkbox"] {
     <span class="navbar-title">Accueil</span>
     </a>
   </div>
-            <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+            <div id="quarto-search" class="" title="Recherche"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Basculer la navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
@@ -218,10 +263,26 @@ ul.task-list li input[type="checkbox"] {
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
+    <h2 id="toc-title">Sur cette page</h2>
    
   <ul>
-  <li><a href="#document" id="toc-document" class="nav-link active" data-scroll-target="#document">Document</a></li>
+  <li><a href="#sommes-et-produits-finis" id="toc-sommes-et-produits-finis" class="nav-link active" data-scroll-target="#sommes-et-produits-finis"><span class="header-section-number">1</span> Sommes et produits finis</a>
+  <ul class="collapse">
+  <li><a href="#notation-sigma" id="toc-notation-sigma" class="nav-link" data-scroll-target="#notation-sigma"><span class="header-section-number">1.1</span> Notation sigma</a></li>
+  <li><a href="#sommes-de-référence" id="toc-sommes-de-référence" class="nav-link" data-scroll-target="#sommes-de-référence"><span class="header-section-number">1.2</span> Sommes de référence</a></li>
+  <li><a href="#notation-produit" id="toc-notation-produit" class="nav-link" data-scroll-target="#notation-produit"><span class="header-section-number">1.3</span> Notation produit</a></li>
+  <li><a href="#factorielles" id="toc-factorielles" class="nav-link" data-scroll-target="#factorielles"><span class="header-section-number">1.4</span> Factorielles</a></li>
+  </ul></li>
+  <li><a href="#coefficients-binomiaux" id="toc-coefficients-binomiaux" class="nav-link" data-scroll-target="#coefficients-binomiaux"><span class="header-section-number">2</span> Coefficients binomiaux</a>
+  <ul class="collapse">
+  <li><a href="#définition" id="toc-définition" class="nav-link" data-scroll-target="#définition"><span class="header-section-number">2.1</span> Définition</a></li>
+  </ul></li>
+  <li><a href="#binôme-de-newton" id="toc-binôme-de-newton" class="nav-link" data-scroll-target="#binôme-de-newton"><span class="header-section-number">3</span> Binôme de Newton</a></li>
+  <li><a href="#exercices" id="toc-exercices" class="nav-link" data-scroll-target="#exercices"><span class="header-section-number">4</span> Exercices</a></li>
+  <li><a href="#document-en-pdf" id="toc-document-en-pdf" class="nav-link" data-scroll-target="#document-en-pdf">Document en PDF</a>
+  <ul class="collapse">
+  <li><a href="#navigation" id="toc-navigation" class="nav-link" data-scroll-target="#navigation">Navigation</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -230,14 +291,27 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Chapitre 02 : Calcul algébrique</h1>
+<h1 class="title">Calcul algébrique</h1>
+<p class="subtitle lead">Chapitre 02</p>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Auteur·rice</div>
+    <div class="quarto-title-meta-contents">
+             <p>Saîd MAHARI </p>
+          </div>
+  </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">Date de publication</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">28 août 2026</p>
+    </div>
+  </div>
   
     
   </div>
@@ -247,12 +321,222 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p><strong>ECS 1re année (ECG) — Chapitre 02.</strong> Sommes, produits, factorielles, coefficients binomiaux.</p>
-<section id="document" class="level2">
-<h2 class="anchored" data-anchor-id="document">Document</h2>
-<p><em>PDF à venir : déposez le fichier <code>files/ecs1/chap02.pdf</code> puis régénérez la page.</em></p>
+<p><strong>ECS (1re année) — Chapitre 02.</strong> Sommes, produits, factorielles, coefficients binomiaux, binôme de Newton.</p>
+<p>Ce chapitre a été réalisé conformément au programme marocain de mathématiques de la filière ECS.</p>
+<section id="sommes-et-produits-finis" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Sommes et produits finis</h1>
+<section id="notation-sigma" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="notation-sigma"><span class="header-section-number">1.1</span> Notation sigma</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 1.1 — (Somme finie)</strong></p>
+<p>Soient <span class="math inline">a_p, a_{p+1}, \ldots, a_n</span> des nombres réels. On note : <span class="math display">\sum_{k=p}^n a_k = a_p + a_{p+1} + \cdots + a_n</span></p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 1.1 — (Propriétés)</strong></p>
+<ol type="1">
+<li><strong>Linéarité</strong> : <span class="math inline">\sum_{k=1}^n (\lambda a_k + \mu b_k) = \lambda \sum_{k=1}^n a_k + \mu \sum_{k=1}^n b_k</span>.</li>
+<li><strong>Relation de Chasles</strong> : <span class="math inline">\sum_{k=p}^n a_k = \sum_{k=p}^m a_k + \sum_{k=m+1}^n a_k</span>.</li>
+<li><strong>Somme d’une constante</strong> : <span class="math inline">\sum_{k=1}^n c = nc</span>.</li>
+</ol>
+</div>
+</section>
+<section id="sommes-de-référence" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="sommes-de-référence"><span class="header-section-number">1.2</span> Sommes de référence</h2>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 1.2 — (Sommes usuelles)</strong></p>
+<p>Pour tout <span class="math inline">n \in \mathbb{N}^*</span> :</p>
+<ol type="1">
+<li><span class="math inline">\displaystyle\sum_{k=1}^n k = \frac{n(n+1)}{2}</span></li>
+<li><span class="math inline">\displaystyle\sum_{k=1}^n k^2 = \frac{n(n+1)(2n+1)}{6}</span></li>
+<li><span class="math inline">\displaystyle\sum_{k=1}^n k^3 = \left(\frac{n(n+1)}{2}\right)^2</span></li>
+<li><span class="math inline">\displaystyle\sum_{k=0}^n q^k = \frac{1 - q^{n+1}}{1 - q}</span> si <span class="math inline">q \neq 1</span></li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 1.1 — (Somme télescopique)</strong></p>
+<p>Pour tout <span class="math inline">n \in \mathbb{N}^*</span> : <span class="math display">\sum_{k=1}^n \frac{1}{k(k+1)} = \sum_{k=1}^n \left(\frac{1}{k} - \frac{1}{k+1}\right) = 1 - \frac{1}{n+1}</span></p>
+</div>
+</section>
+<section id="notation-produit" class="level2" data-number="1.3">
+<h2 data-number="1.3" class="anchored" data-anchor-id="notation-produit"><span class="header-section-number">1.3</span> Notation produit</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 1.2 — (Produit fini)</strong></p>
+<p><span class="math display">\prod_{k=p}^n a_k = a_p \times a_{p+1} \times \cdots \times a_n</span></p>
+</div>
+</section>
+<section id="factorielles" class="level2" data-number="1.4">
+<h2 data-number="1.4" class="anchored" data-anchor-id="factorielles"><span class="header-section-number">1.4</span> Factorielles</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 1.3 — (Factorielle)</strong></p>
+<p>Pour <span class="math inline">n \in \mathbb{N}</span> : <span class="math display">n! = 1 \times 2 \times \cdots \times n, \qquad 0! = 1</span></p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 1.3</strong></p>
+<p><span class="math inline">n! = n \times (n-1)!</span> pour tout <span class="math inline">n \geq 1</span>.</p>
+</div>
+</section>
+</section>
+<section id="coefficients-binomiaux" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> Coefficients binomiaux</h1>
+<section id="définition" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="définition"><span class="header-section-number">2.1</span> Définition</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 2.1 — (Coefficient binomial)</strong></p>
+<p>Pour <span class="math inline">n, k \in \mathbb{N}</span> avec <span class="math inline">0 \leq k \leq n</span> : <span class="math display">\binom{n}{k} = \frac{n!}{k!(n-k)!}</span></p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 2.1 — (Propriétés fondamentales)</strong></p>
+<ol type="1">
+<li><span class="math inline">\binom{n}{0} = \binom{n}{n} = 1</span>.</li>
+<li><span class="math inline">\binom{n}{1} = \binom{n}{n-1} = n</span>.</li>
+<li><strong>Symétrie</strong> : <span class="math inline">\binom{n}{k} = \binom{n}{n-k}</span>.</li>
+<li><strong>Formule de Pascal</strong> : <span class="math inline">\binom{n+1}{k} = \binom{n}{k} + \binom{n}{k-1}</span>.</li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 2.2 — (Somme des coefficients binomiaux)</strong></p>
+<p><span class="math display">\sum_{k=0}^n \binom{n}{k} = 2^n</span></p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 2.1 — (Triangle de Pascal)</strong></p>
+<p>Le triangle de Pascal permet de calculer les coefficients binomiaux :</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th><span class="math inline">n \setminus k</span></th>
+<th>0</th>
+<th>1</th>
+<th>2</th>
+<th>3</th>
+<th>4</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>0</td>
+<td>1</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>2</td>
+<td>1</td>
+<td>2</td>
+<td>1</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>3</td>
+<td>1</td>
+<td>3</td>
+<td>3</td>
+<td>1</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>4</td>
+<td>1</td>
+<td>4</td>
+<td>6</td>
+<td>4</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</section>
+<section id="binôme-de-newton" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Binôme de Newton</h1>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 3.1 — (Binôme de Newton)</strong></p>
+<p>Pour tout <span class="math inline">n \in \mathbb{N}</span> et tous <span class="math inline">a, b \in \mathbb{R}</span> : <span class="math display">(a + b)^n = \sum_{k=0}^n \binom{n}{k} a^k b^{n-k}</span></p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Preuve</em>. </span>Par récurrence sur <span class="math inline">n</span>.</p>
+<p><strong>Initialisation</strong> : pour <span class="math inline">n = 0</span> : <span class="math inline">(a+b)^0 = 1 = \binom{0}{0} a^0 b^0</span>. ✓</p>
+<p><strong>Hérédité</strong> : supposons <span class="math inline">(a+b)^n = \sum_{k=0}^n \binom{n}{k} a^k b^{n-k}</span>. Alors : <span class="math display">(a+b)^{n+1} = (a+b)(a+b)^n = \sum_{k=0}^n \binom{n}{k} a^{k+1} b^{n-k} + \sum_{k=0}^n \binom{n}{k} a^k b^{n-k+1}</span></p>
+<p>En regroupant les termes de même degré et en utilisant la formule de Pascal : <span class="math display">(a+b)^{n+1} = \sum_{k=0}^{n+1} \binom{n+1}{k} a^k b^{n+1-k}</span></p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 3.1</strong></p>
+<p><span class="math display">(a+b)^3 = a^3 + 3a^2b + 3ab^2 + b^3</span> <span class="math display">(a+b)^4 = a^4 + 4a^3b + 6a^2b^2 + 4ab^3 + b^4</span></p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 3.2 — (Conséquences)</strong></p>
+<ul>
+<li>Avec <span class="math inline">a = b = 1</span> : <span class="math inline">2^n = \sum_{k=0}^n \binom{n}{k}</span>.</li>
+<li>Avec <span class="math inline">a = 1</span>, <span class="math inline">b = -1</span> : <span class="math inline">0 = \sum_{k=0}^n (-1)^k \binom{n}{k}</span> pour <span class="math inline">n \geq 1</span>.</li>
+</ul>
+</div>
+</section>
+<section id="exercices" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> Exercices</h1>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 4.1</strong></p>
+<p>Calculer :</p>
+<ol type="1">
+<li><span class="math inline">\displaystyle\sum_{k=1}^{100} k</span></li>
+<li><span class="math inline">\displaystyle\sum_{k=1}^{50} (2k-1)</span></li>
+<li><span class="math inline">\displaystyle\sum_{k=0}^{10} 3^k</span></li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 4.2</strong></p>
+<p>Calculer <span class="math inline">\displaystyle\sum_{k=1}^n \frac{1}{k(k+1)}</span> et <span class="math inline">\displaystyle\sum_{k=1}^n \frac{1}{k(k+2)}</span>.</p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 4.3</strong></p>
+<p>Calculer :</p>
+<ol type="1">
+<li><span class="math inline">\binom{10}{3}</span></li>
+<li><span class="math inline">\displaystyle\sum_{k=0}^{10} \binom{10}{k}</span></li>
+<li><span class="math inline">\displaystyle\sum_{k=0}^{10} (-1)^k \binom{10}{k}</span></li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 4.4</strong></p>
+<p>Développer <span class="math inline">(2x+1)^5</span> et <span class="math inline">(x-1)^4</span>.</p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 4.5</strong></p>
+<p>Montrer par récurrence que <span class="math inline">\displaystyle\sum_{k=1}^n k^2 = \frac{n(n+1)(2n+1)}{6}</span>.</p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 4.6</strong></p>
+<p>Montrer la formule de Pascal par un argument combinatoire.</p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 4.7</strong></p>
+<p>Calculer <span class="math inline">\displaystyle\prod_{k=2}^n \left(1 - \frac{1}{k^2}\right)</span> pour <span class="math inline">n \geq 2</span>.</p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 4.8</strong></p>
+<p>Montrer que <span class="math inline">\displaystyle\sum_{k=0}^n \binom{n}{k}^2 = \binom{2n}{n}</span>.</p>
+</div>
+</section>
+<section id="document-en-pdf" class="level1 unnumbered">
+<h1 class="unnumbered">Document en PDF</h1>
+<p><a href="PDF/ecs1-chap02.pdf"><strong>Chapitre 02 : Calcul algébrique</strong></a></p>
+<section id="navigation" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="navigation">Navigation</h2>
+<div class="chap-nav">
+<p><a href="../cours/ecs1-chap01.html" class="prev">Chapitre 01 : Logique, ensembles et applications</a> <a href="../cours/ecs1.html" class="home">Menu ECS1</a> <a href="../cours/ecs1-chap03.html" class="next">Chapitre 03 : Polynômes</a></p>
+</div>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -281,12 +565,12 @@ ul.task-list li input[type="checkbox"] {
       // flash "checked"
       button.classList.add('code-copy-button-checked');
       var currentTitle = button.getAttribute("title");
-      button.setAttribute("title", "Copied!");
+      button.setAttribute("title", "Copié");
       let tooltip;
       if (window.bootstrap) {
         button.setAttribute("data-bs-toggle", "tooltip");
         button.setAttribute("data-bs-placement", "left");
-        button.setAttribute("data-bs-title", "Copied!");
+        button.setAttribute("data-bs-title", "Copié");
         tooltip = new bootstrap.Tooltip(button, 
           { trigger: "manual", 
             customClass: "code-copy-button-tooltip",

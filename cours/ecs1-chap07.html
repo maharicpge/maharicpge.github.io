@@ -1,13 +1,14 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr"><head>
 
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.10.18">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Saîd MAHARI">
 
-<title>Algèbre linéaire et calcul matriciel - Mathématiques en CPGE – Mathématiques en CPGE</title>
+<title>Algèbre linéaire et calcul matriciel – Mathématiques en CPGE</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -45,7 +46,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-7a8c080b55ea27eb37b467515007f9ee.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-e0d9a45d84245cc5e3b300860d8fa645.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -60,17 +61,17 @@ ul.task-list li input[type="checkbox"] {
   ],
   "show-item-context": false,
   "language": {
-    "search-no-results-text": "No results",
-    "search-matching-documents-text": "matching documents",
-    "search-copy-link-title": "Copy link to search",
-    "search-hide-matches-text": "Hide additional matches",
-    "search-more-match-text": "more match in this document",
-    "search-more-matches-text": "more matches in this document",
-    "search-clear-button-title": "Clear",
+    "search-no-results-text": "Pas de résultats",
+    "search-matching-documents-text": "documents trouvés",
+    "search-copy-link-title": "Copier le lien vers la recherche",
+    "search-hide-matches-text": "Cacher les correspondances additionnelles",
+    "search-more-match-text": "correspondance de plus dans ce document",
+    "search-more-matches-text": "correspondances de plus dans ce document",
+    "search-clear-button-title": "Effacer",
     "search-text-placeholder": "",
-    "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit",
-    "search-label": "Search"
+    "search-detached-cancel-button-title": "Annuler",
+    "search-submit-button-title": "Envoyer",
+    "search-label": "Recherche"
   }
 }</script>
 <script data-goatcounter="https://maharicpge.goatcounter.com/count" async="" src="//gc.zgo.at/count.js"></script>
@@ -142,8 +143,52 @@ ul.task-list li input[type="checkbox"] {
   });
 </script>
 
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="styles.css">
 </head>
 
 <body class="nav-fixed quarto-light">
@@ -157,8 +202,8 @@ ul.task-list li input[type="checkbox"] {
     <span class="navbar-title">Accueil</span>
     </a>
   </div>
-            <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+            <div id="quarto-search" class="" title="Recherche"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Basculer la navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
@@ -218,10 +263,32 @@ ul.task-list li input[type="checkbox"] {
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
+    <h2 id="toc-title">Sur cette page</h2>
    
   <ul>
-  <li><a href="#document" id="toc-document" class="nav-link active" data-scroll-target="#document">Document</a></li>
+  <li><a href="#espaces-vectoriels" id="toc-espaces-vectoriels" class="nav-link active" data-scroll-target="#espaces-vectoriels"><span class="header-section-number">1</span> Espaces vectoriels</a>
+  <ul class="collapse">
+  <li><a href="#sous-espaces-vectoriels" id="toc-sous-espaces-vectoriels" class="nav-link" data-scroll-target="#sous-espaces-vectoriels"><span class="header-section-number">1.1</span> Sous-espaces vectoriels</a></li>
+  <li><a href="#familles-libres-génératrices-bases" id="toc-familles-libres-génératrices-bases" class="nav-link" data-scroll-target="#familles-libres-génératrices-bases"><span class="header-section-number">1.2</span> Familles libres, génératrices, bases</a></li>
+  </ul></li>
+  <li><a href="#applications-linéaires" id="toc-applications-linéaires" class="nav-link" data-scroll-target="#applications-linéaires"><span class="header-section-number">2</span> Applications linéaires</a>
+  <ul class="collapse">
+  <li><a href="#théorème-du-rang" id="toc-théorème-du-rang" class="nav-link" data-scroll-target="#théorème-du-rang"><span class="header-section-number">2.1</span> Théorème du rang</a></li>
+  </ul></li>
+  <li><a href="#matrices" id="toc-matrices" class="nav-link" data-scroll-target="#matrices"><span class="header-section-number">3</span> Matrices</a>
+  <ul class="collapse">
+  <li><a href="#définition-et-opérations" id="toc-définition-et-opérations" class="nav-link" data-scroll-target="#définition-et-opérations"><span class="header-section-number">3.1</span> Définition et opérations</a></li>
+  <li><a href="#matrice-identité-et-inverse" id="toc-matrice-identité-et-inverse" class="nav-link" data-scroll-target="#matrice-identité-et-inverse"><span class="header-section-number">3.2</span> Matrice identité et inverse</a></li>
+  </ul></li>
+  <li><a href="#systèmes-linéaires" id="toc-systèmes-linéaires" class="nav-link" data-scroll-target="#systèmes-linéaires"><span class="header-section-number">4</span> Systèmes linéaires</a>
+  <ul class="collapse">
+  <li><a href="#pivot-de-gauss" id="toc-pivot-de-gauss" class="nav-link" data-scroll-target="#pivot-de-gauss"><span class="header-section-number">4.1</span> Pivot de Gauss</a></li>
+  </ul></li>
+  <li><a href="#exercices" id="toc-exercices" class="nav-link" data-scroll-target="#exercices"><span class="header-section-number">5</span> Exercices</a></li>
+  <li><a href="#document-en-pdf" id="toc-document-en-pdf" class="nav-link" data-scroll-target="#document-en-pdf">Document en PDF</a>
+  <ul class="collapse">
+  <li><a href="#navigation" id="toc-navigation" class="nav-link" data-scroll-target="#navigation">Navigation</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -230,14 +297,27 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Chapitre 07 : Algèbre linéaire et calcul matriciel</h1>
+<h1 class="title">Algèbre linéaire et calcul matriciel</h1>
+<p class="subtitle lead">Chapitre 07</p>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Auteur·rice</div>
+    <div class="quarto-title-meta-contents">
+             <p>Saîd MAHARI </p>
+          </div>
+  </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">Date de publication</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">28 août 2026</p>
+    </div>
+  </div>
   
     
   </div>
@@ -247,12 +327,186 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p><strong>ECS 1re année (ECG) — Chapitre 07.</strong> Familles libres et génératrices, applications linéaires, théorème du rang.</p>
-<section id="document" class="level2">
-<h2 class="anchored" data-anchor-id="document">Document</h2>
-<p><em>PDF à venir : déposez le fichier <code>files/ecs1/chap07.pdf</code> puis régénérez la page.</em></p>
+<p><strong>ECS (1re année) — Chapitre 07.</strong> Espaces vectoriels, applications linéaires, théorème du rang, matrices, systèmes linéaires.</p>
+<p>Ce chapitre a été réalisé conformément au programme marocain de mathématiques de la filière ECS.</p>
+<p>Dans tout ce chapitre, <span class="math inline">\mathbb{K} = \mathbb{R}</span>.</p>
+<section id="espaces-vectoriels" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Espaces vectoriels</h1>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 1.1 — (Espace vectoriel)</strong></p>
+<p>Un <strong><span class="math inline">\mathbb{R}</span>-espace vectoriel</strong> est un ensemble <span class="math inline">E</span> muni d’une addition et d’une multiplication par un réel, vérifiant les axiomes usuels (commutativité, associativité, élément neutre, opposé, distributivité).</p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 1.1</strong></p>
+<p><span class="math inline">\mathbb{R}^n</span>, <span class="math inline">\mathbb{R}_n[X]</span> (polynômes de degré <span class="math inline">\leq n</span>), <span class="math inline">\mathcal{F}(\mathbb{R}, \mathbb{R})</span>, <span class="math inline">\mathcal{M}_n(\mathbb{R})</span> sont des <span class="math inline">\mathbb{R}</span>-espaces vectoriels.</p>
+</div>
+<section id="sous-espaces-vectoriels" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="sous-espaces-vectoriels"><span class="header-section-number">1.1</span> Sous-espaces vectoriels</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 1.2 — (Sous-espace vectoriel)</strong></p>
+<p><span class="math inline">F \subset E</span> est un <strong>sous-espace vectoriel</strong> (SEV) si :</p>
+<ol type="1">
+<li><span class="math inline">0_E \in F</span>.</li>
+<li><span class="math inline">\forall x, y \in F,\; \forall \lambda \in \mathbb{R},\; \lambda x + y \in F</span>.</li>
+</ol>
+</div>
+</section>
+<section id="familles-libres-génératrices-bases" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="familles-libres-génératrices-bases"><span class="header-section-number">1.2</span> Familles libres, génératrices, bases</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 1.3 — (Famille libre)</strong></p>
+<p><span class="math inline">(v_1, \ldots, v_n)</span> est <strong>libre</strong> si <span class="math inline">\lambda_1 v_1 + \cdots + \lambda_n v_n = 0 \Rightarrow \lambda_1 = \cdots = \lambda_n = 0</span>.</p>
+</div>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 1.4 — (Famille génératrice)</strong></p>
+<p><span class="math inline">(v_1, \ldots, v_n)</span> est <strong>génératrice</strong> de <span class="math inline">E</span> si tout vecteur de <span class="math inline">E</span> est combinaison linéaire des <span class="math inline">v_i</span>.</p>
+</div>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 1.5 — (Base)</strong></p>
+<p><span class="math inline">(v_1, \ldots, v_n)</span> est une <strong>base</strong> de <span class="math inline">E</span> si elle est libre et génératrice.</p>
+</div>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 1.6 — (Dimension)</strong></p>
+<p>La <strong>dimension</strong> de <span class="math inline">E</span>, notée <span class="math inline">\dim E</span>, est le nombre de vecteurs d’une base de <span class="math inline">E</span>.</p>
+</div>
+</section>
+</section>
+<section id="applications-linéaires" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> Applications linéaires</h1>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 2.1 — (Application linéaire)</strong></p>
+<p><span class="math inline">f : E \to F</span> est <strong>linéaire</strong> si : <span class="math display">\forall x, y \in E,\; \forall \lambda \in \mathbb{R},\quad f(\lambda x + y) = \lambda f(x) + f(y)</span></p>
+</div>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 2.2 — (Noyau et image)</strong></p>
+<ul>
+<li><span class="math inline">\ker f = \{x \in E \mid f(x) = 0\}</span> est un SEV de <span class="math inline">E</span>.</li>
+<li><span class="math inline">\mathrm{Im}(f) = \{f(x) \mid x \in E\}</span> est un SEV de <span class="math inline">F</span>.</li>
+</ul>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 2.1</strong></p>
+<p><span class="math inline">f</span> injective <span class="math inline">\iff</span> <span class="math inline">\ker f = \{0\}</span>. <span class="math inline">f</span> surjective <span class="math inline">\iff</span> <span class="math inline">\mathrm{Im}(f) = F</span>.</p>
+</div>
+<section id="théorème-du-rang" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="théorème-du-rang"><span class="header-section-number">2.1</span> Théorème du rang</h2>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 2.1 — (Théorème du rang)</strong></p>
+<p>Soit <span class="math inline">f : E \to F</span> linéaire avec <span class="math inline">\dim E = n &lt; \infty</span>. Alors : <span class="math display">\dim E = \mathrm{rg}(f) + \dim(\ker f)</span> où <span class="math inline">\mathrm{rg}(f) = \dim(\mathrm{Im}(f))</span>.</p>
+</div>
+</section>
+</section>
+<section id="matrices" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Matrices</h1>
+<section id="définition-et-opérations" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="définition-et-opérations"><span class="header-section-number">3.1</span> Définition et opérations</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 3.1 — (Matrice)</strong></p>
+<p>Une <strong>matrice</strong> <span class="math inline">A \in \mathcal{M}_{n,p}(\mathbb{R})</span> est un tableau à <span class="math inline">n</span> lignes et <span class="math inline">p</span> colonnes.</p>
+</div>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 3.2 — (Produit matriciel)</strong></p>
+<p><span class="math inline">(AB)_{ij} = \sum_{k=1}^p a_{ik} b_{kj}</span>.</p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 3.1</strong></p>
+<p><span class="math inline">A(B + C) = AB + AC</span>, <span class="math inline">(A + B)C = AC + BC</span>, <span class="math inline">\lambda(AB) = (\lambda A)B = A(\lambda B)</span>.</p>
+<p>Attention : <span class="math inline">AB \neq BA</span> en général.</p>
+</div>
+</section>
+<section id="matrice-identité-et-inverse" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="matrice-identité-et-inverse"><span class="header-section-number">3.2</span> Matrice identité et inverse</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 3.3 — (Matrice identité)</strong></p>
+<p><span class="math inline">I_n = \begin{pmatrix} 1 &amp; &amp; 0 \\ &amp; \ddots &amp; \\ 0 &amp; &amp; 1 \end{pmatrix}</span>.</p>
+</div>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 3.4 — (Matrice inversible)</strong></p>
+<p><span class="math inline">A \in \mathcal{M}_n(\mathbb{R})</span> est <strong>inversible</strong> s’il existe <span class="math inline">B</span> telle que <span class="math inline">AB = BA = I_n</span>. On note <span class="math inline">B = A^{-1}</span>.</p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 3.1 — (Inverse <span class="math inline">\boldsymbol{2 \times 2}</span>)</strong></p>
+<p><span class="math inline">A = \begin{pmatrix} a &amp; b \\ c &amp; d \end{pmatrix}</span> est inversible ssi <span class="math inline">ad - bc \neq 0</span>, et : <span class="math display">A^{-1} = \frac{1}{ad-bc}\begin{pmatrix} d &amp; -b \\ -c &amp; a \end{pmatrix}</span></p>
+</div>
+</section>
+</section>
+<section id="systèmes-linéaires" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> Systèmes linéaires</h1>
+<section id="pivot-de-gauss" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="pivot-de-gauss"><span class="header-section-number">4.1</span> Pivot de Gauss</h2>
+<div class="custom-numbered-block custom-methode">
+<p><strong>Méthode 4.1 — (Pivot de Gauss)</strong></p>
+<p>Pour résoudre un système linéaire, on utilise les opérations élémentaires sur les lignes :</p>
+<ol type="1">
+<li>Échanger deux lignes.</li>
+<li>Multiplier une ligne par un scalaire non nul.</li>
+<li>Ajouter à une ligne un multiple d’une autre.</li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 4.1</strong></p>
+<p>Résoudre : <span class="math display">\begin{cases} x + y + z = 6 \\ 2x - y + z = 3 \\ x + 2y - z = 2 \end{cases}</span></p>
+<p><span class="math inline">L_2 \leftarrow L_2 - 2L_1</span> : <span class="math inline">-3y - z = -9</span> <span class="math inline">L_3 \leftarrow L_3 - L_1</span> : <span class="math inline">y - 2z = -4</span></p>
+<p><span class="math inline">L_3 \leftarrow L_3 + \frac{1}{3}L_2</span> : <span class="math inline">-\frac{7}{3}z = -7</span>, donc <span class="math inline">z = 3</span>, puis <span class="math inline">y = 2</span>, puis <span class="math inline">x = 1</span>.</p>
+</div>
+</section>
+</section>
+<section id="exercices" class="level1" data-number="5">
+<h1 data-number="5"><span class="header-section-number">5</span> Exercices</h1>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 5.1</strong></p>
+<p>Montrer que <span class="math inline">F = \{(x,y,z) \in \mathbb{R}^3 \mid x + 2y - z = 0\}</span> est un SEV de <span class="math inline">\mathbb{R}^3</span>.</p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 5.2</strong></p>
+<p>Soit <span class="math inline">f : \mathbb{R}^2 \to \mathbb{R}^2</span> définie par <span class="math inline">f(x,y) = (x+y, x-y)</span>.</p>
+<ol type="1">
+<li>Montrer que <span class="math inline">f</span> est linéaire.</li>
+<li>Déterminer <span class="math inline">\ker f</span> et <span class="math inline">\mathrm{Im}(f)</span>.</li>
+<li><span class="math inline">f</span> est-elle un isomorphisme ?</li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 5.3</strong></p>
+<p>Résoudre par Gauss-Jordan : <span class="math display">\begin{cases} 2x + y = 5 \\ x - y = 1 \end{cases}</span></p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 5.4</strong></p>
+<p>Soit <span class="math inline">A = \begin{pmatrix} 2 &amp; 1 \\ 5 &amp; 3 \end{pmatrix}</span>. Calculer <span class="math inline">A^{-1}</span>.</p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 5.5</strong></p>
+<p>Soit <span class="math inline">A = \begin{pmatrix} 1 &amp; 1 \\ 0 &amp; 1 \end{pmatrix}</span>. Calculer <span class="math inline">A^n</span> pour tout <span class="math inline">n \in \mathbb{N}</span>.</p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 5.6</strong></p>
+<p>Résoudre le système : <span class="math display">\begin{cases} x + 2y + 3z = 1 \\ 2x + 4y + 6z = 2 \\ 3x + 6y + 9z = 3 \end{cases}</span></p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 5.7</strong></p>
+<p>Montrer que si <span class="math inline">A</span> et <span class="math inline">B</span> sont inversibles, alors <span class="math inline">AB</span> est inversible et <span class="math inline">(AB)^{-1} = B^{-1}A^{-1}</span>.</p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 5.8</strong></p>
+<p>Soit <span class="math inline">f : \mathbb{R}_2[X] \to \mathbb{R}^2</span> définie par <span class="math inline">f(P) = (P(0), P(1))</span>.</p>
+<ol type="1">
+<li>Montrer que <span class="math inline">f</span> est linéaire.</li>
+<li>Déterminer <span class="math inline">\ker f</span> et <span class="math inline">\mathrm{Im}(f)</span>.</li>
+<li>Vérifier le théorème du rang.</li>
+</ol>
+</div>
+</section>
+<section id="document-en-pdf" class="level1 unnumbered">
+<h1 class="unnumbered">Document en PDF</h1>
+<p><a href="PDF/ecs1-chap07.pdf"><strong>Chapitre 07 : Algèbre linéaire et calcul matriciel</strong></a></p>
+<section id="navigation" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="navigation">Navigation</h2>
+<div class="chap-nav">
+<p><a href="../cours/ecs1-chap06.html" class="prev">Chapitre 06 : Intégration sur un segment</a> <a href="../cours/ecs1.html" class="home">Menu ECS1</a> <a href="../cours/ecs1-chap08.html" class="next">Chapitre 08 : Dénombrement</a></p>
+</div>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -281,12 +535,12 @@ ul.task-list li input[type="checkbox"] {
       // flash "checked"
       button.classList.add('code-copy-button-checked');
       var currentTitle = button.getAttribute("title");
-      button.setAttribute("title", "Copied!");
+      button.setAttribute("title", "Copié");
       let tooltip;
       if (window.bootstrap) {
         button.setAttribute("data-bs-toggle", "tooltip");
         button.setAttribute("data-bs-placement", "left");
-        button.setAttribute("data-bs-title", "Copied!");
+        button.setAttribute("data-bs-title", "Copié");
         tooltip = new bootstrap.Tooltip(button, 
           { trigger: "manual", 
             customClass: "code-copy-button-tooltip",

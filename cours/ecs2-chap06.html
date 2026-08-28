@@ -1,13 +1,14 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr"><head>
 
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.10.18">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Saîd MAHARI">
 
-<title>Variables aléatoires discrètes infinies - Mathématiques en CPGE – Mathématiques en CPGE</title>
+<title>Variables aléatoires discrètes infinies – Mathématiques en CPGE</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -45,7 +46,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-7a8c080b55ea27eb37b467515007f9ee.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-e0d9a45d84245cc5e3b300860d8fa645.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -60,17 +61,17 @@ ul.task-list li input[type="checkbox"] {
   ],
   "show-item-context": false,
   "language": {
-    "search-no-results-text": "No results",
-    "search-matching-documents-text": "matching documents",
-    "search-copy-link-title": "Copy link to search",
-    "search-hide-matches-text": "Hide additional matches",
-    "search-more-match-text": "more match in this document",
-    "search-more-matches-text": "more matches in this document",
-    "search-clear-button-title": "Clear",
+    "search-no-results-text": "Pas de résultats",
+    "search-matching-documents-text": "documents trouvés",
+    "search-copy-link-title": "Copier le lien vers la recherche",
+    "search-hide-matches-text": "Cacher les correspondances additionnelles",
+    "search-more-match-text": "correspondance de plus dans ce document",
+    "search-more-matches-text": "correspondances de plus dans ce document",
+    "search-clear-button-title": "Effacer",
     "search-text-placeholder": "",
-    "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit",
-    "search-label": "Search"
+    "search-detached-cancel-button-title": "Annuler",
+    "search-submit-button-title": "Envoyer",
+    "search-label": "Recherche"
   }
 }</script>
 <script data-goatcounter="https://maharicpge.goatcounter.com/count" async="" src="//gc.zgo.at/count.js"></script>
@@ -142,8 +143,52 @@ ul.task-list li input[type="checkbox"] {
   });
 </script>
 
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="styles.css">
 </head>
 
 <body class="nav-fixed quarto-light">
@@ -157,8 +202,8 @@ ul.task-list li input[type="checkbox"] {
     <span class="navbar-title">Accueil</span>
     </a>
   </div>
-            <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+            <div id="quarto-search" class="" title="Recherche"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Basculer la navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
@@ -218,10 +263,33 @@ ul.task-list li input[type="checkbox"] {
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
+    <h2 id="toc-title">Sur cette page</h2>
    
   <ul>
-  <li><a href="#document" id="toc-document" class="nav-link active" data-scroll-target="#document">Document</a></li>
+  <li><a href="#tribus-et-espaces-probabilisés" id="toc-tribus-et-espaces-probabilisés" class="nav-link active" data-scroll-target="#tribus-et-espaces-probabilisés"><span class="header-section-number">1</span> Tribus et espaces probabilisés</a>
+  <ul class="collapse">
+  <li><a href="#tribu" id="toc-tribu" class="nav-link" data-scroll-target="#tribu"><span class="header-section-number">1.1</span> Tribu</a></li>
+  <li><a href="#probabilité" id="toc-probabilité" class="nav-link" data-scroll-target="#probabilité"><span class="header-section-number">1.2</span> Probabilité</a></li>
+  </ul></li>
+  <li><a href="#variables-aléatoires-discrètes-infinies" id="toc-variables-aléatoires-discrètes-infinies" class="nav-link" data-scroll-target="#variables-aléatoires-discrètes-infinies"><span class="header-section-number">2</span> Variables aléatoires discrètes infinies</a>
+  <ul class="collapse">
+  <li><a href="#définition" id="toc-définition" class="nav-link" data-scroll-target="#définition"><span class="header-section-number">2.1</span> Définition</a></li>
+  </ul></li>
+  <li><a href="#lois-usuelles-discrètes-infinies" id="toc-lois-usuelles-discrètes-infinies" class="nav-link" data-scroll-target="#lois-usuelles-discrètes-infinies"><span class="header-section-number">3</span> Lois usuelles discrètes infinies</a>
+  <ul class="collapse">
+  <li><a href="#loi-géométrique" id="toc-loi-géométrique" class="nav-link" data-scroll-target="#loi-géométrique"><span class="header-section-number">3.1</span> Loi géométrique</a></li>
+  <li><a href="#loi-de-poisson" id="toc-loi-de-poisson" class="nav-link" data-scroll-target="#loi-de-poisson"><span class="header-section-number">3.2</span> Loi de Poisson</a></li>
+  </ul></li>
+  <li><a href="#fonctions-génératrices" id="toc-fonctions-génératrices" class="nav-link" data-scroll-target="#fonctions-génératrices"><span class="header-section-number">4</span> Fonctions génératrices</a>
+  <ul class="collapse">
+  <li><a href="#définition-1" id="toc-définition-1" class="nav-link" data-scroll-target="#définition-1"><span class="header-section-number">4.1</span> Définition</a></li>
+  <li><a href="#propriétés" id="toc-propriétés" class="nav-link" data-scroll-target="#propriétés"><span class="header-section-number">4.2</span> Propriétés</a></li>
+  </ul></li>
+  <li><a href="#exercices" id="toc-exercices" class="nav-link" data-scroll-target="#exercices"><span class="header-section-number">5</span> Exercices</a></li>
+  <li><a href="#document-en-pdf" id="toc-document-en-pdf" class="nav-link" data-scroll-target="#document-en-pdf">Document en PDF</a>
+  <ul class="collapse">
+  <li><a href="#navigation" id="toc-navigation" class="nav-link" data-scroll-target="#navigation">Navigation</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -230,14 +298,27 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Chapitre 06 : Variables aléatoires discrètes infinies</h1>
+<h1 class="title">Variables aléatoires discrètes infinies</h1>
+<p class="subtitle lead">Chapitre 06</p>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Auteur·rice</div>
+    <div class="quarto-title-meta-contents">
+             <p>Saîd MAHARI </p>
+          </div>
+  </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">Date de publication</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">28 août 2026</p>
+    </div>
+  </div>
   
     
   </div>
@@ -247,12 +328,193 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p><strong>ECS 2e année (ECG) — Chapitre 06.</strong> Lois géométrique et de Poisson, fonctions génératrices.</p>
-<section id="document" class="level2">
-<h2 class="anchored" data-anchor-id="document">Document</h2>
-<p><em>PDF à venir : déposez le fichier <code>files/ecs2/chap06.pdf</code> puis régénérez la page.</em></p>
+<p><strong>ECS (2e année) — Chapitre 06.</strong> Tribus, espaces probabilisés, lois géométrique et de Poisson, fonctions génératrices.</p>
+<p>Ce chapitre a été réalisé conformément au programme marocain de mathématiques de la filière ECS.</p>
+<section id="tribus-et-espaces-probabilisés" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Tribus et espaces probabilisés</h1>
+<section id="tribu" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="tribu"><span class="header-section-number">1.1</span> Tribu</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 1.1 — (Tribu)</strong></p>
+<p>Soit <span class="math inline">\Omega</span> un ensemble non vide. Une <strong>tribu</strong> (ou <span class="math inline">\sigma</span>-algèbre) <span class="math inline">\mathcal{A}</span> sur <span class="math inline">\Omega</span> est une partie de <span class="math inline">\mathcal{P}(\Omega)</span> vérifiant :</p>
+<ol type="1">
+<li><span class="math inline">\Omega \in \mathcal{A}</span>.</li>
+<li><span class="math inline">A \in \mathcal{A} \Rightarrow \overline{A} \in \mathcal{A}</span>.</li>
+<li>Pour toute suite <span class="math inline">(A_n)_{n \in \mathbb{N}}</span> d’éléments de <span class="math inline">\mathcal{A}</span> : <span class="math inline">\bigcup_{n=0}^{+\infty} A_n \in \mathcal{A}</span>.</li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 1.2 — (Espace probabilisable)</strong></p>
+<p>Le couple <span class="math inline">(\Omega, \mathcal{A})</span> est un <strong>espace probabilisable</strong>.</p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 1.1</strong></p>
+<ol type="1">
+<li><span class="math inline">\mathcal{P}(\Omega)</span> est une tribu (tribu discrète).</li>
+<li><span class="math inline">\{\varnothing, \Omega\}</span> est une tribu (tribu grossière).</li>
+<li>La tribu borélienne <span class="math inline">\mathcal{B}(\mathbb{R})</span> est la plus petite tribu contenant les intervalles de <span class="math inline">\mathbb{R}</span>.</li>
+</ol>
+</div>
+</section>
+<section id="probabilité" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="probabilité"><span class="header-section-number">1.2</span> Probabilité</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 1.3 — (Probabilité)</strong></p>
+<p>Une <strong>probabilité</strong> sur <span class="math inline">(\Omega, \mathcal{A})</span> est une application <span class="math inline">P : \mathcal{A} \to [0,1]</span> vérifiant :</p>
+<ol type="1">
+<li><span class="math inline">P(\Omega) = 1</span>.</li>
+<li>Pour toute suite <span class="math inline">(A_n)_{n \in \mathbb{N}}</span> d’événements deux à deux incompatibles : <span class="math display">P\left(\bigcup_{n=0}^{+\infty} A_n\right) = \sum_{n=0}^{+\infty} P(A_n)</span></li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 1.4 — (Espace probabilisé)</strong></p>
+<p>Le triplet <span class="math inline">(\Omega, \mathcal{A}, P)</span> est un <strong>espace probabilisé</strong>.</p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 1.1 — (Continuité des probabilités)</strong></p>
+<ol type="1">
+<li>Si <span class="math inline">(A_n)</span> est croissante : <span class="math inline">P\left(\bigcup_{n=0}^{+\infty} A_n\right) = \lim_{n \to +\infty} P(A_n)</span>.</li>
+<li>Si <span class="math inline">(A_n)</span> est décroissante : <span class="math inline">P\left(\bigcap_{n=0}^{+\infty} A_n\right) = \lim_{n \to +\infty} P(A_n)</span>.</li>
+</ol>
+</div>
+</section>
+</section>
+<section id="variables-aléatoires-discrètes-infinies" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> Variables aléatoires discrètes infinies</h1>
+<section id="définition" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="définition"><span class="header-section-number">2.1</span> Définition</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 2.1 — (Variable aléatoire discrète)</strong></p>
+<p>Une variable aléatoire <span class="math inline">X : \Omega \to E</span> (où <span class="math inline">E</span> est au plus dénombrable) est <strong>discrète</strong> si : <span class="math display">\forall x \in E, \quad X^{-1}(\{x\}) = \{X = x\} \in \mathcal{A}</span></p>
+</div>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 2.2 — (Loi d’une variable discrète)</strong></p>
+<p>La <strong>loi</strong> de <span class="math inline">X</span> est la donnée des <span class="math inline">P(X = x)</span> pour <span class="math inline">x \in X(\Omega)</span>, avec : <span class="math display">\sum_{x \in X(\Omega)} P(X = x) = 1</span></p>
+</div>
+</section>
+</section>
+<section id="lois-usuelles-discrètes-infinies" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Lois usuelles discrètes infinies</h1>
+<section id="loi-géométrique" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="loi-géométrique"><span class="header-section-number">3.1</span> Loi géométrique</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 3.1 — (Loi géométrique)</strong></p>
+<p><span class="math inline">X \hookrightarrow \mathcal{G}(p)</span> (<span class="math inline">p \in ]0,1]</span>) si : <span class="math display">P(X = k) = p(1-p)^{k-1}, \quad k \in \mathbb{N}^*</span></p>
+<p><span class="math inline">X</span> compte le nombre de lancers nécessaires pour obtenir le premier succès.</p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 3.1 — (Espérance et variance)</strong></p>
+<p><span class="math display">E(X) = \frac{1}{p}, \quad V(X) = \frac{1-p}{p^2}</span></p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 3.2 — (Absence de mémoire)</strong></p>
+<p><span class="math display">P(X &gt; n + k \mid X &gt; k) = P(X &gt; n)</span></p>
+</div>
+</section>
+<section id="loi-de-poisson" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="loi-de-poisson"><span class="header-section-number">3.2</span> Loi de Poisson</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 3.2 — (Loi de Poisson)</strong></p>
+<p><span class="math inline">X \hookrightarrow \mathcal{P}(\lambda)</span> (<span class="math inline">\lambda &gt; 0</span>) si : <span class="math display">P(X = k) = e^{-\lambda} \frac{\lambda^k}{k!}, \quad k \in \mathbb{N}</span></p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 3.3 — (Espérance et variance)</strong></p>
+<p><span class="math display">E(X) = \lambda, \quad V(X) = \lambda</span></p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 3.4 — (Somme de Poisson indépendantes)</strong></p>
+<p>Si <span class="math inline">X \hookrightarrow \mathcal{P}(\lambda_1)</span> et <span class="math inline">Y \hookrightarrow \mathcal{P}(\lambda_2)</span> sont indépendantes, alors : <span class="math display">X + Y \hookrightarrow \mathcal{P}(\lambda_1 + \lambda_2)</span></p>
+</div>
+</section>
+</section>
+<section id="fonctions-génératrices" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> Fonctions génératrices</h1>
+<section id="définition-1" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="définition-1"><span class="header-section-number">4.1</span> Définition</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 4.1 — (Fonction génératrice)</strong></p>
+<p>Soit <span class="math inline">X</span> une variable aléatoire à valeurs dans <span class="math inline">\mathbb{N}</span>. La <strong>fonction génératrice</strong> de <span class="math inline">X</span> est : <span class="math display">G_X(s) = E(s^X) = \sum_{k=0}^{+\infty} P(X = k) s^k</span> définie au moins sur <span class="math inline">[-1, 1]</span>.</p>
+</div>
+</section>
+<section id="propriétés" class="level2" data-number="4.2">
+<h2 data-number="4.2" class="anchored" data-anchor-id="propriétés"><span class="header-section-number">4.2</span> Propriétés</h2>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 4.1 — (Lien avec espérance et variance)</strong></p>
+<ol type="1">
+<li><span class="math inline">G_X(1) = 1</span>.</li>
+<li><span class="math inline">X</span> admet une espérance <span class="math inline">\iff</span> <span class="math inline">G_X</span> est dérivable en <span class="math inline">1</span>, et <span class="math inline">E(X) = G_X'(1)</span>.</li>
+<li><span class="math inline">X</span> admet un moment d’ordre <span class="math inline">2</span> <span class="math inline">\iff</span> <span class="math inline">G_X</span> est deux fois dérivable en <span class="math inline">1</span>, et : <span class="math display">V(X) = G_X''(1) + G_X'(1) - (G_X'(1))^2</span></li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 4.2 — (Fonction génératrice d’une somme)</strong></p>
+<p>Si <span class="math inline">X</span> et <span class="math inline">Y</span> sont indépendantes à valeurs dans <span class="math inline">\mathbb{N}</span> : <span class="math display">G_{X+Y}(s) = G_X(s) \cdot G_Y(s)</span></p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 4.1 — (Fonctions génératrices usuelles)</strong></p>
+<ul>
+<li>Si <span class="math inline">X \hookrightarrow \mathcal{B}(p)</span> : <span class="math inline">G_X(s) = 1 - p + ps</span>.</li>
+<li>Si <span class="math inline">X \hookrightarrow \mathcal{B}(n,p)</span> : <span class="math inline">G_X(s) = (1-p+ps)^n</span>.</li>
+<li>Si <span class="math inline">X \hookrightarrow \mathcal{G}(p)</span> : <span class="math inline">G_X(s) = \frac{ps}{1-(1-p)s}</span> pour <span class="math inline">|s| &lt; \frac{1}{1-p}</span>.</li>
+<li>Si <span class="math inline">X \hookrightarrow \mathcal{P}(\lambda)</span> : <span class="math inline">G_X(s) = e^{\lambda(s-1)}</span>.</li>
+</ul>
+</div>
+</section>
+</section>
+<section id="exercices" class="level1" data-number="5">
+<h1 data-number="5"><span class="header-section-number">5</span> Exercices</h1>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 5.1</strong></p>
+<p>On lance une pièce équilibrée jusqu’à obtenir pile. Soit <span class="math inline">X</span> le nombre de lancers nécessaires.</p>
+<ol type="1">
+<li>Déterminer la loi de <span class="math inline">X</span>.</li>
+<li>Calculer <span class="math inline">E(X)</span> et <span class="math inline">V(X)</span>.</li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 5.2</strong></p>
+<p>Soit <span class="math inline">X \hookrightarrow \mathcal{P}(\lambda)</span>.</p>
+<ol type="1">
+<li>Déterminer <span class="math inline">G_X(s)</span>.</li>
+<li>En déduire <span class="math inline">E(X)</span> et <span class="math inline">V(X)</span>.</li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 5.3</strong></p>
+<p>Soient <span class="math inline">X \hookrightarrow \mathcal{P}(\lambda_1)</span> et <span class="math inline">Y \hookrightarrow \mathcal{P}(\lambda_2)</span> indépendantes. Montrer que <span class="math inline">X + Y \hookrightarrow \mathcal{P}(\lambda_1 + \lambda_2)</span>.</p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 5.4</strong></p>
+<p>Soit <span class="math inline">X</span> une variable aléatoire à valeurs dans <span class="math inline">\mathbb{N}</span> de fonction génératrice <span class="math inline">G_X(s) = \frac{1}{2-s}</span>. Déterminer la loi de <span class="math inline">X</span>.</p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 5.5</strong></p>
+<p>Soit <span class="math inline">X \hookrightarrow \mathcal{G}(p)</span>. Montrer que <span class="math inline">P(X &gt; n) = (1-p)^n</span>.</p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 5.6</strong></p>
+<p>Soit <span class="math inline">(X_n)</span> une suite de variables aléatoires avec <span class="math inline">X_n \hookrightarrow \mathcal{B}(n, \lambda/n)</span>. Montrer que <span class="math inline">X_n \xrightarrow{\mathcal{L}} \mathcal{P}(\lambda)</span>.</p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 5.7</strong></p>
+<p>Soit <span class="math inline">X</span> une variable aléatoire à valeurs dans <span class="math inline">\mathbb{N}</span> avec <span class="math inline">P(X = k) = \frac{c}{k!}</span> pour <span class="math inline">k \geq 0</span>. Déterminer <span class="math inline">c</span> et la loi de <span class="math inline">X</span>.</p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 5.8</strong></p>
+<p>Soit <span class="math inline">X \hookrightarrow \mathcal{G}(p)</span>. Montrer l’absence de mémoire : <span class="math inline">P(X &gt; n + k \mid X &gt; k) = P(X &gt; n)</span>.</p>
+</div>
+</section>
+<section id="document-en-pdf" class="level1 unnumbered">
+<h1 class="unnumbered">Document en PDF</h1>
+<p><a href="PDF/ecs2-chap06.pdf"><strong>Chapitre 06 : Variables aléatoires discrètes infinies</strong></a></p>
+<section id="navigation" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="navigation">Navigation</h2>
+<div class="chap-nav">
+<p><a href="../cours/ecs2-chap05.html" class="prev">Chapitre 05 : Intégrales généralisées</a> <a href="../cours/ecs2.html" class="home">Menu ECS2</a> <a href="../cours/ecs2-chap07.html" class="next">Chapitre 07 : Variables aléatoires à densité</a></p>
+</div>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -281,12 +543,12 @@ ul.task-list li input[type="checkbox"] {
       // flash "checked"
       button.classList.add('code-copy-button-checked');
       var currentTitle = button.getAttribute("title");
-      button.setAttribute("title", "Copied!");
+      button.setAttribute("title", "Copié");
       let tooltip;
       if (window.bootstrap) {
         button.setAttribute("data-bs-toggle", "tooltip");
         button.setAttribute("data-bs-placement", "left");
-        button.setAttribute("data-bs-title", "Copied!");
+        button.setAttribute("data-bs-title", "Copié");
         tooltip = new bootstrap.Tooltip(button, 
           { trigger: "manual", 
             customClass: "code-copy-button-tooltip",

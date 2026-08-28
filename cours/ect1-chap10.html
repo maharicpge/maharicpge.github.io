@@ -8,7 +8,7 @@
 
 <meta name="author" content="Saîd MAHARI">
 
-<title>Variables aléatoires à densité – Mathématiques en CPGE</title>
+<title>Compléments de probabilités sur un univers fini – Mathématiques en CPGE</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -266,19 +266,18 @@ window.Quarto = {
     <h2 id="toc-title">Sur cette page</h2>
    
   <ul>
-  <li><a href="#densité-et-fonction-de-répartition" id="toc-densité-et-fonction-de-répartition" class="nav-link active" data-scroll-target="#densité-et-fonction-de-répartition"><span class="header-section-number">1</span> Densité et fonction de répartition</a>
+  <li><a href="#coefficients-binomiaux" id="toc-coefficients-binomiaux" class="nav-link active" data-scroll-target="#coefficients-binomiaux"><span class="header-section-number">1</span> Coefficients binomiaux</a>
   <ul class="collapse">
-  <li><a href="#densité" id="toc-densité" class="nav-link" data-scroll-target="#densité"><span class="header-section-number">1.1</span> Densité</a></li>
-  <li><a href="#fonction-de-répartition" id="toc-fonction-de-répartition" class="nav-link" data-scroll-target="#fonction-de-répartition"><span class="header-section-number">1.2</span> Fonction de répartition</a></li>
+  <li><a href="#définition" id="toc-définition" class="nav-link" data-scroll-target="#définition"><span class="header-section-number">1.1</span> Définition</a></li>
+  <li><a href="#binôme-de-newton" id="toc-binôme-de-newton" class="nav-link" data-scroll-target="#binôme-de-newton"><span class="header-section-number">1.2</span> Binôme de Newton</a></li>
   </ul></li>
-  <li><a href="#espérance-et-variance" id="toc-espérance-et-variance" class="nav-link" data-scroll-target="#espérance-et-variance"><span class="header-section-number">2</span> Espérance et variance</a></li>
-  <li><a href="#lois-usuelles-à-densité" id="toc-lois-usuelles-à-densité" class="nav-link" data-scroll-target="#lois-usuelles-à-densité"><span class="header-section-number">3</span> Lois usuelles à densité</a>
+  <li><a href="#lois-usuelles-finies" id="toc-lois-usuelles-finies" class="nav-link" data-scroll-target="#lois-usuelles-finies"><span class="header-section-number">2</span> Lois usuelles finies</a>
   <ul class="collapse">
-  <li><a href="#loi-uniforme" id="toc-loi-uniforme" class="nav-link" data-scroll-target="#loi-uniforme"><span class="header-section-number">3.1</span> Loi uniforme</a></li>
-  <li><a href="#loi-exponentielle" id="toc-loi-exponentielle" class="nav-link" data-scroll-target="#loi-exponentielle"><span class="header-section-number">3.2</span> Loi exponentielle</a></li>
-  <li><a href="#loi-normale" id="toc-loi-normale" class="nav-link" data-scroll-target="#loi-normale"><span class="header-section-number">3.3</span> Loi normale</a></li>
+  <li><a href="#loi-uniforme" id="toc-loi-uniforme" class="nav-link" data-scroll-target="#loi-uniforme"><span class="header-section-number">2.1</span> Loi uniforme</a></li>
+  <li><a href="#loi-de-bernoulli" id="toc-loi-de-bernoulli" class="nav-link" data-scroll-target="#loi-de-bernoulli"><span class="header-section-number">2.2</span> Loi de Bernoulli</a></li>
+  <li><a href="#loi-binomiale" id="toc-loi-binomiale" class="nav-link" data-scroll-target="#loi-binomiale"><span class="header-section-number">2.3</span> Loi binomiale</a></li>
   </ul></li>
-  <li><a href="#exercices" id="toc-exercices" class="nav-link" data-scroll-target="#exercices"><span class="header-section-number">4</span> Exercices</a></li>
+  <li><a href="#exercices" id="toc-exercices" class="nav-link" data-scroll-target="#exercices"><span class="header-section-number">3</span> Exercices</a></li>
   <li><a href="#document-en-pdf" id="toc-document-en-pdf" class="nav-link" data-scroll-target="#document-en-pdf">Document en PDF</a>
   <ul class="collapse">
   <li><a href="#navigation" id="toc-navigation" class="nav-link" data-scroll-target="#navigation">Navigation</a></li>
@@ -291,8 +290,8 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Variables aléatoires à densité</h1>
-<p class="subtitle lead">Chapitre 07</p>
+<h1 class="title">Compléments de probabilités sur un univers fini</h1>
+<p class="subtitle lead">Chapitre 10</p>
 </div>
 
 
@@ -321,166 +320,129 @@ window.Quarto = {
 </header>
 
 
-<p><strong>ECS (2e année) — Chapitre 07.</strong> Densités, fonction de répartition, lois uniforme, exponentielle, normale ; espérance et variance.</p>
-<p>Ce chapitre a été réalisé conformément au programme marocain de mathématiques de la filière ECS.</p>
-<section id="densité-et-fonction-de-répartition" class="level1" data-number="1">
-<h1 data-number="1"><span class="header-section-number">1</span> Densité et fonction de répartition</h1>
-<section id="densité" class="level2" data-number="1.1">
-<h2 data-number="1.1" class="anchored" data-anchor-id="densité"><span class="header-section-number">1.1</span> Densité</h2>
+<p><strong>ECT (1re année) — Chapitre 10.</strong> Coefficients binomiaux, lois usuelles finies (uniforme, Bernoulli, binomiale), binôme de Newton.</p>
+<p>Ce chapitre a été réalisé conformément au programme marocain de mathématiques de la filière ECT.</p>
+<section id="coefficients-binomiaux" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Coefficients binomiaux</h1>
+<section id="définition" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="définition"><span class="header-section-number">1.1</span> Définition</h2>
 <div class="custom-numbered-block custom-definition">
-<p><strong>Définition 1.1 — (Densité de probabilité)</strong></p>
-<p>Une fonction <span class="math inline">f : \mathbb{R} \to \mathbb{R}</span> est une <strong>densité de probabilité</strong> si :</p>
-<ol type="1">
-<li><span class="math inline">f \geq 0</span> sur <span class="math inline">\mathbb{R}</span>.</li>
-<li><span class="math inline">f</span> est continue par morceaux sur <span class="math inline">\mathbb{R}</span>.</li>
-<li><span class="math inline">\int_{-\infty}^{+\infty} f(t)\, dt = 1</span>.</li>
-</ol>
-</div>
-<div class="custom-numbered-block custom-definition">
-<p><strong>Définition 1.2 — (Variable à densité)</strong></p>
-<p>Une variable aléatoire <span class="math inline">X</span> est <strong>à densité</strong> si sa fonction de répartition <span class="math inline">F_X</span> est continue sur <span class="math inline">\mathbb{R}</span> et de classe <span class="math inline">\mathcal{C}^1</span> sauf en un nombre fini de points. Une <strong>densité</strong> de <span class="math inline">X</span> est : <span class="math display">f_X(x) = F_X'(x) \quad \text{aux points où } F_X \text{ est } \mathcal{C}^1</span></p>
-</div>
-</section>
-<section id="fonction-de-répartition" class="level2" data-number="1.2">
-<h2 data-number="1.2" class="anchored" data-anchor-id="fonction-de-répartition"><span class="header-section-number">1.2</span> Fonction de répartition</h2>
-<div class="custom-numbered-block custom-definition">
-<p><strong>Définition 1.3 — (Fonction de répartition)</strong></p>
-<p><span class="math display">F_X(x) = P(X \leq x)</span></p>
+<p><strong>Définition 1.1 — (Coefficient binomial)</strong></p>
+<p>Pour <span class="math inline">n, k \in \mathbb{N}</span> avec <span class="math inline">k \leq n</span> : <span class="math display">\binom{n}{k} = \frac{n!}{k!(n-k)!}</span></p>
 </div>
 <div class="custom-numbered-block custom-proposition">
 <p><strong>Proposition 1.1 — (Propriétés)</strong></p>
 <ol type="1">
-<li><span class="math inline">F_X</span> est croissante.</li>
-<li><span class="math inline">F_X</span> est continue à droite.</li>
-<li><span class="math inline">\lim_{x \to -\infty} F_X(x) = 0</span> et <span class="math inline">\lim_{x \to +\infty} F_X(x) = 1</span>.</li>
-<li>Pour <span class="math inline">a &lt; b</span> : <span class="math inline">P(a &lt; X \leq b) = F_X(b) - F_X(a)</span>.</li>
-<li>Pour une variable à densité : <span class="math inline">P(X = a) = 0</span>.</li>
+<li><span class="math inline">\binom{n}{0} = \binom{n}{n} = 1</span></li>
+<li><span class="math inline">\binom{n}{k} = \binom{n}{n-k}</span> (symétrie)</li>
+<li><span class="math inline">\binom{n+1}{k} = \binom{n}{k} + \binom{n}{k-1}</span> (formule de Pascal)</li>
+<li><span class="math inline">\sum_{k=0}^n \binom{n}{k} = 2^n</span></li>
 </ol>
 </div>
-<div class="custom-numbered-block custom-proposition">
-<p><strong>Proposition 1.2 — (Calcul de probabilités)</strong></p>
-<p>Pour une variable à densité et <span class="math inline">a &lt; b</span> : <span class="math display">P(a \leq X \leq b) = P(a &lt; X &lt; b) = P(a &lt; X \leq b) = P(a \leq X &lt; b) = \int_a^b f_X(t)\, dt</span></p>
+</section>
+<section id="binôme-de-newton" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="binôme-de-newton"><span class="header-section-number">1.2</span> Binôme de Newton</h2>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 1.1 — (Binôme de Newton)</strong></p>
+<p>Pour tout <span class="math inline">n \in \mathbb{N}</span> et tous <span class="math inline">a, b \in \mathbb{R}</span> : <span class="math display">(a + b)^n = \sum_{k=0}^n \binom{n}{k} a^k b^{n-k}</span></p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 1.1</strong></p>
+<p><span class="math inline">(a+b)^3 = a^3 + 3a^2b + 3ab^2 + b^3</span>.</p>
 </div>
 </section>
 </section>
-<section id="espérance-et-variance" class="level1" data-number="2">
-<h1 data-number="2"><span class="header-section-number">2</span> Espérance et variance</h1>
+<section id="lois-usuelles-finies" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> Lois usuelles finies</h1>
+<section id="loi-uniforme" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="loi-uniforme"><span class="header-section-number">2.1</span> Loi uniforme</h2>
 <div class="custom-numbered-block custom-definition">
-<p><strong>Définition 2.1 — (Espérance)</strong></p>
-<p><span class="math inline">X</span> admet une <strong>espérance</strong> si <span class="math inline">\int_{-\infty}^{+\infty} |t| f_X(t)\, dt</span> converge, et : <span class="math display">E(X) = \int_{-\infty}^{+\infty} t f_X(t)\, dt</span></p>
-</div>
-<div class="custom-numbered-block custom-definition">
-<p><strong>Définition 2.2 — (Variance)</strong></p>
-<p><span class="math inline">X</span> admet une <strong>variance</strong> si <span class="math inline">\int_{-\infty}^{+\infty} (t - E(X))^2 f_X(t)\, dt</span> converge, et : <span class="math display">V(X) = E((X - E(X))^2) = E(X^2) - (E(X))^2</span></p>
+<p><strong>Définition 2.1 — (Loi uniforme)</strong></p>
+<p><span class="math inline">X</span> suit la <strong>loi uniforme</strong> sur <span class="math inline">\{1, 2, \ldots, n\}</span>, notée <span class="math inline">X \hookrightarrow \mathcal{U}(\{1, \ldots, n\})</span>, si : <span class="math display">P(X = k) = \frac{1}{n} \quad \text{pour tout } k \in \{1, \ldots, n\}</span></p>
 </div>
 <div class="custom-numbered-block custom-proposition">
-<p><strong>Proposition 2.1 — (Formule de transfert)</strong></p>
-<p>Si <span class="math inline">\varphi : \mathbb{R} \to \mathbb{R}</span> est continue par morceaux : <span class="math display">E(\varphi(X)) = \int_{-\infty}^{+\infty} \varphi(t) f_X(t)\, dt</span></p>
+<p><strong>Proposition 2.1 — (Espérance et variance)</strong></p>
+<p><span class="math display">E(X) = \frac{n+1}{2}, \qquad V(X) = \frac{n^2-1}{12}</span></p>
 </div>
 </section>
-<section id="lois-usuelles-à-densité" class="level1" data-number="3">
-<h1 data-number="3"><span class="header-section-number">3</span> Lois usuelles à densité</h1>
-<section id="loi-uniforme" class="level2" data-number="3.1">
-<h2 data-number="3.1" class="anchored" data-anchor-id="loi-uniforme"><span class="header-section-number">3.1</span> Loi uniforme</h2>
+<section id="loi-de-bernoulli" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="loi-de-bernoulli"><span class="header-section-number">2.2</span> Loi de Bernoulli</h2>
 <div class="custom-numbered-block custom-definition">
-<p><strong>Définition 3.1 — (Loi uniforme)</strong></p>
-<p><span class="math inline">X \hookrightarrow \mathcal{U}([a,b])</span> si : <span class="math display">f_X(t) = \begin{cases} \frac{1}{b-a} &amp; \text{si } t \in [a,b] \\ 0 &amp; \text{sinon} \end{cases}</span></p>
+<p><strong>Définition 2.2 — (Loi de Bernoulli)</strong></p>
+<p><span class="math inline">X</span> suit la <strong>loi de Bernoulli</strong> de paramètre <span class="math inline">p \in [0,1]</span>, notée <span class="math inline">X \hookrightarrow \mathcal{B}(p)</span>, si : <span class="math display">P(X = 1) = p, \qquad P(X = 0) = 1-p = q</span></p>
 </div>
 <div class="custom-numbered-block custom-proposition">
-<p><strong>Proposition 3.1 — (Espérance et variance)</strong></p>
-<p><span class="math display">E(X) = \frac{a+b}{2}, \quad V(X) = \frac{(b-a)^2}{12}</span></p>
+<p><strong>Proposition 2.2 — (Espérance et variance)</strong></p>
+<p><span class="math display">E(X) = p, \qquad V(X) = p(1-p) = pq</span></p>
 </div>
 </section>
-<section id="loi-exponentielle" class="level2" data-number="3.2">
-<h2 data-number="3.2" class="anchored" data-anchor-id="loi-exponentielle"><span class="header-section-number">3.2</span> Loi exponentielle</h2>
+<section id="loi-binomiale" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="loi-binomiale"><span class="header-section-number">2.3</span> Loi binomiale</h2>
 <div class="custom-numbered-block custom-definition">
-<p><strong>Définition 3.2 — (Loi exponentielle)</strong></p>
-<p><span class="math inline">X \hookrightarrow \mathcal{E}(\lambda)</span> (<span class="math inline">\lambda &gt; 0</span>) si : <span class="math display">f_X(t) = \begin{cases} \lambda e^{-\lambda t} &amp; \text{si } t \geq 0 \\ 0 &amp; \text{si } t &lt; 0 \end{cases}</span></p>
+<p><strong>Définition 2.3 — (Loi binomiale)</strong></p>
+<p><span class="math inline">X</span> suit la <strong>loi binomiale</strong> de paramètres <span class="math inline">n</span> et <span class="math inline">p</span>, notée <span class="math inline">X \hookrightarrow \mathcal{B}(n,p)</span>, si : <span class="math display">P(X = k) = \binom{n}{k} p^k (1-p)^{n-k}, \qquad k \in \{0, 1, \ldots, n\}</span></p>
+<p><span class="math inline">X</span> compte le nombre de succès dans <span class="math inline">n</span> expériences de Bernoulli indépendantes de probabilité de succès <span class="math inline">p</span>.</p>
 </div>
 <div class="custom-numbered-block custom-proposition">
-<p><strong>Proposition 3.2 — (Fonction de répartition)</strong></p>
-<p><span class="math display">F_X(t) = \begin{cases} 1 - e^{-\lambda t} &amp; \text{si } t \geq 0 \\ 0 &amp; \text{si } t &lt; 0 \end{cases}</span></p>
+<p><strong>Proposition 2.3 — (Espérance et variance)</strong></p>
+<p><span class="math display">E(X) = np, \qquad V(X) = np(1-p)</span></p>
 </div>
-<div class="custom-numbered-block custom-proposition">
-<p><strong>Proposition 3.3 — (Espérance et variance)</strong></p>
-<p><span class="math display">E(X) = \frac{1}{\lambda}, \quad V(X) = \frac{1}{\lambda^2}</span></p>
-</div>
-<div class="custom-numbered-block custom-proposition">
-<p><strong>Proposition 3.4 — (Absence de mémoire)</strong></p>
-<p><span class="math display">P(X &gt; s + t \mid X &gt; s) = P(X &gt; t)</span></p>
-</div>
-</section>
-<section id="loi-normale" class="level2" data-number="3.3">
-<h2 data-number="3.3" class="anchored" data-anchor-id="loi-normale"><span class="header-section-number">3.3</span> Loi normale</h2>
-<div class="custom-numbered-block custom-definition">
-<p><strong>Définition 3.3 — (Loi normale centrée réduite)</strong></p>
-<p><span class="math inline">X \hookrightarrow \mathcal{N}(0,1)</span> si : <span class="math display">f_X(t) = \frac{1}{\sqrt{2\pi}} e^{-t^2/2}</span></p>
-</div>
-<div class="custom-numbered-block custom-definition">
-<p><strong>Définition 3.4 — (Loi normale)</strong></p>
-<p><span class="math inline">X \hookrightarrow \mathcal{N}(\mu, \sigma^2)</span> (<span class="math inline">\sigma &gt; 0</span>) si : <span class="math display">f_X(t) = \frac{1}{\sigma\sqrt{2\pi}} e^{-(t-\mu)^2/(2\sigma^2)}</span></p>
-</div>
-<div class="custom-numbered-block custom-proposition">
-<p><strong>Proposition 3.5 — (Espérance et variance)</strong></p>
-<p><span class="math display">E(X) = \mu, \quad V(X) = \sigma^2</span></p>
-</div>
-<div class="custom-numbered-block custom-proposition">
-<p><strong>Proposition 3.6 — (Translation et dilatation)</strong></p>
-<p>Si <span class="math inline">X \hookrightarrow \mathcal{N}(\mu, \sigma^2)</span>, alors pour <span class="math inline">(a,b) \in \mathbb{R}^* \times \mathbb{R}</span> : <span class="math display">aX + b \hookrightarrow \mathcal{N}(a\mu + b, a^2\sigma^2)</span> En particulier, <span class="math inline">X^* = \frac{X - \mu}{\sigma} \hookrightarrow \mathcal{N}(0,1)</span>.</p>
-</div>
-<div class="custom-numbered-block custom-proposition">
-<p><strong>Proposition 3.7 — (Somme de normales indépendantes)</strong></p>
-<p>Si <span class="math inline">X \hookrightarrow \mathcal{N}(\mu_1, \sigma_1^2)</span> et <span class="math inline">Y \hookrightarrow \mathcal{N}(\mu_2, \sigma_2^2)</span> sont indépendantes : <span class="math display">X + Y \hookrightarrow \mathcal{N}(\mu_1 + \mu_2, \sigma_1^2 + \sigma_2^2)</span></p>
+<div class="proof" title="(Démonstration)">
+<p><span class="proof-title"><em>Preuve</em>. </span>On écrit <span class="math inline">X = X_1 + \cdots + X_n</span> où les <span class="math inline">X_i</span> sont indépendantes et suivent <span class="math inline">\mathcal{B}(p)</span>. Par linéarité de l’espérance : <span class="math display">E(X) = \sum_{i=1}^n E(X_i) = np</span> Par indépendance : <span class="math display">V(X) = \sum_{i=1}^n V(X_i) = np(1-p)</span></p>
 </div>
 </section>
 </section>
-<section id="exercices" class="level1" data-number="4">
-<h1 data-number="4"><span class="header-section-number">4</span> Exercices</h1>
+<section id="exercices" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Exercices</h1>
 <div class="custom-numbered-block custom-exercise">
-<p><strong>Exercice 4.1</strong></p>
-<p>Soit <span class="math inline">f(t) = \begin{cases} c e^{-t} &amp; t \geq 0 \\ 0 &amp; t &lt; 0 \end{cases}</span>. Déterminer <span class="math inline">c</span> pour que <span class="math inline">f</span> soit une densité.</p>
-</div>
-<div class="custom-numbered-block custom-exercise">
-<p><strong>Exercice 4.2</strong></p>
-<p>Soit <span class="math inline">X \hookrightarrow \mathcal{U}([0,1])</span>. Calculer <span class="math inline">E(X)</span>, <span class="math inline">V(X)</span> et <span class="math inline">P(0{,}2 &lt; X &lt; 0{,}7)</span>.</p>
-</div>
-<div class="custom-numbered-block custom-exercise">
-<p><strong>Exercice 4.3</strong></p>
-<p>Soit <span class="math inline">X \hookrightarrow \mathcal{E}(2)</span>. Calculer <span class="math inline">E(X)</span>, <span class="math inline">V(X)</span> et <span class="math inline">P(X &gt; 1)</span>.</p>
-</div>
-<div class="custom-numbered-block custom-exercise">
-<p><strong>Exercice 4.4</strong></p>
-<p>Soit <span class="math inline">X \hookrightarrow \mathcal{N}(0,1)</span>. Calculer <span class="math inline">P(-1 &lt; X &lt; 1)</span> (résultat approché : <span class="math inline">0{,}68</span>).</p>
-</div>
-<div class="custom-numbered-block custom-exercise">
-<p><strong>Exercice 4.5</strong></p>
-<p>Soit <span class="math inline">X \hookrightarrow \mathcal{N}(10, 4)</span>. Déterminer la loi de <span class="math inline">Y = 2X + 3</span>.</p>
-</div>
-<div class="custom-numbered-block custom-exercise">
-<p><strong>Exercice 4.6</strong></p>
-<p>Soit <span class="math inline">X</span> à densité <span class="math inline">f_X(t) = \begin{cases} 2t &amp; 0 \leq t \leq 1 \\ 0 &amp; \text{sinon} \end{cases}</span>.</p>
+<p><strong>Exercice 3.1</strong></p>
+<p>Calculer :</p>
 <ol type="1">
-<li>Vérifier que <span class="math inline">f_X</span> est une densité.</li>
-<li>Calculer <span class="math inline">E(X)</span> et <span class="math inline">V(X)</span>.</li>
-<li>Déterminer <span class="math inline">F_X</span>.</li>
+<li><span class="math inline">\binom{10}{3}</span></li>
+<li><span class="math inline">\sum_{k=0}^{10} \binom{10}{k}</span></li>
+<li><span class="math inline">\sum_{k=0}^{10} (-1)^k \binom{10}{k}</span></li>
 </ol>
 </div>
 <div class="custom-numbered-block custom-exercise">
-<p><strong>Exercice 4.7</strong></p>
-<p>Soit <span class="math inline">X \hookrightarrow \mathcal{E}(\lambda)</span>. Montrer l’absence de mémoire.</p>
+<p><strong>Exercice 3.2</strong></p>
+<p>Développer <span class="math inline">(2x + 1)^5</span> en utilisant le binôme de Newton.</p>
 </div>
 <div class="custom-numbered-block custom-exercise">
-<p><strong>Exercice 4.8</strong></p>
-<p>Soient <span class="math inline">X</span> et <span class="math inline">Y</span> indépendantes suivant <span class="math inline">\mathcal{E}(\lambda)</span>. Déterminer la loi de <span class="math inline">X + Y</span>.</p>
+<p><strong>Exercice 3.3</strong></p>
+<p>On lance un dé équilibré. Soit <span class="math inline">X</span> le résultat. Déterminer la loi de <span class="math inline">X</span>, <span class="math inline">E(X)</span> et <span class="math inline">V(X)</span>.</p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 3.4</strong></p>
+<p>On lance 3 fois une pièce équilibrée. Soit <span class="math inline">X</span> le nombre de piles.</p>
+<ol type="1">
+<li>Déterminer la loi de <span class="math inline">X</span>.</li>
+<li>Calculer <span class="math inline">E(X)</span> et <span class="math inline">V(X)</span>.</li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 3.5</strong></p>
+<p>Soit <span class="math inline">X \hookrightarrow \mathcal{B}(n,p)</span>. Montrer que <span class="math inline">\sum_{k=0}^n P(X = k) = 1</span>.</p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 3.6</strong></p>
+<p>Soient <span class="math inline">X \hookrightarrow \mathcal{B}(n,p)</span> et <span class="math inline">Y \hookrightarrow \mathcal{B}(m,p)</span> indépendantes. Montrer que <span class="math inline">X + Y \hookrightarrow \mathcal{B}(n+m,p)</span>.</p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 3.7</strong></p>
+<p>Montrer la formule de Pascal par un argument combinatoire.</p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 3.8</strong></p>
+<p>Soit <span class="math inline">X \hookrightarrow \mathcal{B}(10, 0{,}3)</span>. Calculer <span class="math inline">P(X = 3)</span>, <span class="math inline">E(X)</span> et <span class="math inline">V(X)</span>.</p>
 </div>
 </section>
 <section id="document-en-pdf" class="level1 unnumbered">
 <h1 class="unnumbered">Document en PDF</h1>
-<p><a href="PDF/ecs2-chap07.pdf"><strong>Chapitre 07 : Variables aléatoires à densité</strong></a></p>
+<p><a href="PDF/ect1-chap10.pdf"><strong>Chapitre 10 : Compléments de probabilités</strong></a></p>
 <section id="navigation" class="level2 unnumbered">
 <h2 class="unnumbered anchored" data-anchor-id="navigation">Navigation</h2>
 <div class="chap-nav">
-<p><a href="../cours/ecs2-chap06.html" class="prev">Chapitre 06 : Variables aléatoires discrètes infinies</a> <a href="../cours/ecs2.html" class="home">Menu ECS2</a> <a href="../cours/ecs2-chap08.html" class="next">Chapitre 08 : Vecteurs aléatoires</a></p>
+<p><a href="../cours/ect1-chap09.html" class="prev">Chapitre 09 : Compléments d’analyse</a> <a href="../cours/ect1.html" class="home">Menu ECT1</a> <a href="../cours/ect1-chap11.html" class="next">Chapitre 11 : Primitives et intégration</a></p>
 </div>
 
 

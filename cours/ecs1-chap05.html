@@ -1,13 +1,14 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr"><head>
 
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.10.18">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Saîd MAHARI">
 
-<title>Fonctions réelles d’une variable - Mathématiques en CPGE – Mathématiques en CPGE</title>
+<title>Fonctions réelles d’une variable – Mathématiques en CPGE</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -45,7 +46,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-7a8c080b55ea27eb37b467515007f9ee.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-e0d9a45d84245cc5e3b300860d8fa645.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -60,17 +61,17 @@ ul.task-list li input[type="checkbox"] {
   ],
   "show-item-context": false,
   "language": {
-    "search-no-results-text": "No results",
-    "search-matching-documents-text": "matching documents",
-    "search-copy-link-title": "Copy link to search",
-    "search-hide-matches-text": "Hide additional matches",
-    "search-more-match-text": "more match in this document",
-    "search-more-matches-text": "more matches in this document",
-    "search-clear-button-title": "Clear",
+    "search-no-results-text": "Pas de résultats",
+    "search-matching-documents-text": "documents trouvés",
+    "search-copy-link-title": "Copier le lien vers la recherche",
+    "search-hide-matches-text": "Cacher les correspondances additionnelles",
+    "search-more-match-text": "correspondance de plus dans ce document",
+    "search-more-matches-text": "correspondances de plus dans ce document",
+    "search-clear-button-title": "Effacer",
     "search-text-placeholder": "",
-    "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit",
-    "search-label": "Search"
+    "search-detached-cancel-button-title": "Annuler",
+    "search-submit-button-title": "Envoyer",
+    "search-label": "Recherche"
   }
 }</script>
 <script data-goatcounter="https://maharicpge.goatcounter.com/count" async="" src="//gc.zgo.at/count.js"></script>
@@ -142,8 +143,52 @@ ul.task-list li input[type="checkbox"] {
   });
 </script>
 
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="styles.css">
 </head>
 
 <body class="nav-fixed quarto-light">
@@ -157,8 +202,8 @@ ul.task-list li input[type="checkbox"] {
     <span class="navbar-title">Accueil</span>
     </a>
   </div>
-            <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+            <div id="quarto-search" class="" title="Recherche"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Basculer la navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
@@ -218,10 +263,23 @@ ul.task-list li input[type="checkbox"] {
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
+    <h2 id="toc-title">Sur cette page</h2>
    
   <ul>
-  <li><a href="#document" id="toc-document" class="nav-link active" data-scroll-target="#document">Document</a></li>
+  <li><a href="#limites" id="toc-limites" class="nav-link active" data-scroll-target="#limites"><span class="header-section-number">1</span> Limites</a></li>
+  <li><a href="#continuité" id="toc-continuité" class="nav-link" data-scroll-target="#continuité"><span class="header-section-number">2</span> Continuité</a>
+  <ul class="collapse">
+  <li><a href="#théorème-des-valeurs-intermédiaires" id="toc-théorème-des-valeurs-intermédiaires" class="nav-link" data-scroll-target="#théorème-des-valeurs-intermédiaires"><span class="header-section-number">2.1</span> Théorème des valeurs intermédiaires</a></li>
+  </ul></li>
+  <li><a href="#dérivabilité" id="toc-dérivabilité" class="nav-link" data-scroll-target="#dérivabilité"><span class="header-section-number">3</span> Dérivabilité</a></li>
+  <li><a href="#théorème-de-rolle" id="toc-théorème-de-rolle" class="nav-link" data-scroll-target="#théorème-de-rolle"><span class="header-section-number">4</span> Théorème de Rolle</a></li>
+  <li><a href="#accroissements-finis" id="toc-accroissements-finis" class="nav-link" data-scroll-target="#accroissements-finis"><span class="header-section-number">5</span> Accroissements finis</a></li>
+  <li><a href="#convexité" id="toc-convexité" class="nav-link" data-scroll-target="#convexité"><span class="header-section-number">6</span> Convexité</a></li>
+  <li><a href="#exercices" id="toc-exercices" class="nav-link" data-scroll-target="#exercices"><span class="header-section-number">7</span> Exercices</a></li>
+  <li><a href="#document-en-pdf" id="toc-document-en-pdf" class="nav-link" data-scroll-target="#document-en-pdf">Document en PDF</a>
+  <ul class="collapse">
+  <li><a href="#navigation" id="toc-navigation" class="nav-link" data-scroll-target="#navigation">Navigation</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -230,14 +288,27 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Chapitre 05 : Fonctions réelles d’une variable</h1>
+<h1 class="title">Fonctions réelles d’une variable</h1>
+<p class="subtitle lead">Chapitre 05</p>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Auteur·rice</div>
+    <div class="quarto-title-meta-contents">
+             <p>Saîd MAHARI </p>
+          </div>
+  </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">Date de publication</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">28 août 2026</p>
+    </div>
+  </div>
   
     
   </div>
@@ -247,12 +318,152 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p><strong>ECS 1re année (ECG) — Chapitre 05.</strong> TVI, Rolle, accroissements finis, convexité.</p>
-<section id="document" class="level2">
-<h2 class="anchored" data-anchor-id="document">Document</h2>
-<p><em>PDF à venir : déposez le fichier <code>files/ecs1/chap05.pdf</code> puis régénérez la page.</em></p>
+<p><strong>ECS (1re année) — Chapitre 05.</strong> Limites, continuité, TVI, dérivabilité, Rolle, accroissements finis, convexité.</p>
+<p>Ce chapitre a été réalisé conformément au programme marocain de mathématiques de la filière ECS.</p>
+<section id="limites" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Limites</h1>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 1.1 — (Limite en un point)</strong></p>
+<p><span class="math inline">\lim_{x \to a} f(x) = \ell</span> signifie : <span class="math inline">\forall \varepsilon &gt; 0,\; \exists \delta &gt; 0,\; |x-a| &lt; \delta \Rightarrow |f(x) - \ell| &lt; \varepsilon</span>.</p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 1.1 — (Opérations)</strong></p>
+<p>Si <span class="math inline">\lim f = \ell</span> et <span class="math inline">\lim g = m</span>, alors <span class="math inline">\lim(f+g) = \ell+m</span>, <span class="math inline">\lim(fg) = \ell m</span>, <span class="math inline">\lim(f/g) = \ell/m</span> si <span class="math inline">m \neq 0</span>.</p>
+</div>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 1.1 — (Théorème des gendarmes)</strong></p>
+<p>Si <span class="math inline">g(x) \leq f(x) \leq h(x)</span> au voisinage de <span class="math inline">a</span> et <span class="math inline">\lim g = \lim h = \ell</span>, alors <span class="math inline">\lim f = \ell</span>.</p>
+</div>
+</section>
+<section id="continuité" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> Continuité</h1>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 2.1 — (Continuité)</strong></p>
+<p><span class="math inline">f</span> est <strong>continue en</strong> <span class="math inline">a</span> si <span class="math inline">\lim_{x \to a} f(x) = f(a)</span>.</p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 2.1 — (Opérations sur les fonctions continues)</strong></p>
+<p>La somme, le produit, le quotient (si dénominateur non nul) et la composition de fonctions continues sont continus.</p>
+</div>
+<section id="théorème-des-valeurs-intermédiaires" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="théorème-des-valeurs-intermédiaires"><span class="header-section-number">2.1</span> Théorème des valeurs intermédiaires</h2>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 2.1 — (TVI)</strong></p>
+<p>Soit <span class="math inline">f : [a,b] \to \mathbb{R}</span> continue. Pour tout <span class="math inline">y</span> compris entre <span class="math inline">f(a)</span> et <span class="math inline">f(b)</span>, il existe <span class="math inline">c \in [a,b]</span> tel que <span class="math inline">f(c) = y</span>.</p>
+</div>
+<div class="custom-numbered-block custom-corollary">
+<p><strong>Corollaire 2.1 — (Théorème des bornes atteintes)</strong></p>
+<p>Toute fonction continue sur un segment <span class="math inline">[a,b]</span> est bornée et atteint ses bornes.</p>
+</div>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 2.2 — (Continuité et monotonie stricte)</strong></p>
+<p>Si <span class="math inline">f : I \to \mathbb{R}</span> est continue et strictement monotone sur un intervalle <span class="math inline">I</span>, alors <span class="math inline">f</span> réalise une bijection de <span class="math inline">I</span> sur <span class="math inline">f(I)</span> et <span class="math inline">f^{-1}</span> est continue et strictement monotone.</p>
+</div>
+</section>
+</section>
+<section id="dérivabilité" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Dérivabilité</h1>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 3.1 — (Dérivabilité)</strong></p>
+<p><span class="math inline">f</span> est <strong>dérivable en</strong> <span class="math inline">a</span> si <span class="math inline">\lim_{h \to 0} \frac{f(a+h) - f(a)}{h}</span> existe. On note <span class="math inline">f'(a)</span> cette limite.</p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 3.1 — (Dérivabilité implique continuité)</strong></p>
+<p>Si <span class="math inline">f</span> est dérivable en <span class="math inline">a</span>, alors <span class="math inline">f</span> est continue en <span class="math inline">a</span>.</p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 3.2 — (Opérations)</strong></p>
+<p><span class="math inline">(f+g)' = f' + g'</span>, <span class="math inline">(fg)' = f'g + fg'</span>, <span class="math inline">\left(\frac{f}{g}\right)' = \frac{f'g - fg'}{g^2}</span>, <span class="math inline">(g \circ f)' = (g' \circ f) \cdot f'</span>.</p>
+</div>
+</section>
+<section id="théorème-de-rolle" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> Théorème de Rolle</h1>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 4.1 — (Théorème de Rolle)</strong></p>
+<p>Soit <span class="math inline">f : [a,b] \to \mathbb{R}</span> continue sur <span class="math inline">[a,b]</span>, dérivable sur <span class="math inline">]a,b[</span> avec <span class="math inline">f(a) = f(b)</span>. Alors il existe <span class="math inline">c \in ]a,b[</span> tel que <span class="math inline">f'(c) = 0</span>.</p>
+</div>
+</section>
+<section id="accroissements-finis" class="level1" data-number="5">
+<h1 data-number="5"><span class="header-section-number">5</span> Accroissements finis</h1>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 5.1 — (Théorème des accroissements finis)</strong></p>
+<p>Soit <span class="math inline">f : [a,b] \to \mathbb{R}</span> continue sur <span class="math inline">[a,b]</span>, dérivable sur <span class="math inline">]a,b[</span>. Alors il existe <span class="math inline">c \in ]a,b[</span> tel que : <span class="math display">f(b) - f(a) = (b-a)f'(c)</span></p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 5.1 — (Lien dérivée et monotonie)</strong></p>
+<ul>
+<li><span class="math inline">f' \geq 0</span> sur <span class="math inline">I \iff</span> <span class="math inline">f</span> croissante sur <span class="math inline">I</span>.</li>
+<li><span class="math inline">f' &gt; 0</span> sur <span class="math inline">I \implies</span> <span class="math inline">f</span> strictement croissante sur <span class="math inline">I</span>.</li>
+<li><span class="math inline">f' = 0</span> sur <span class="math inline">I \iff</span> <span class="math inline">f</span> constante sur <span class="math inline">I</span>.</li>
+</ul>
+</div>
+</section>
+<section id="convexité" class="level1" data-number="6">
+<h1 data-number="6"><span class="header-section-number">6</span> Convexité</h1>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 6.1 — (Convexité)</strong></p>
+<p><span class="math inline">f : I \to \mathbb{R}</span> est <strong>convexe</strong> si pour tous <span class="math inline">x, y \in I</span> et <span class="math inline">\lambda \in [0,1]</span> : <span class="math display">f(\lambda x + (1-\lambda)y) \leq \lambda f(x) + (1-\lambda)f(y)</span></p>
+</div>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 6.1 — (Critère de convexité)</strong></p>
+<p>Si <span class="math inline">f</span> est de classe <span class="math inline">\mathcal{C}^2</span> sur <span class="math inline">I</span>, alors <span class="math inline">f</span> est convexe sur <span class="math inline">I</span> si et seulement si <span class="math inline">f'' \geq 0</span> sur <span class="math inline">I</span>.</p>
+</div>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 6.2 — (Point d’inflexion)</strong></p>
+<p><span class="math inline">a</span> est un <strong>point d’inflexion</strong> de <span class="math inline">f</span> si <span class="math inline">f''(a) = 0</span> et <span class="math inline">f''</span> change de signe en <span class="math inline">a</span>.</p>
+</div>
+</section>
+<section id="exercices" class="level1" data-number="7">
+<h1 data-number="7"><span class="header-section-number">7</span> Exercices</h1>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 7.1</strong></p>
+<p>Calculer les limites suivantes :</p>
+<ol type="1">
+<li><span class="math inline">\lim_{x \to 0} \frac{e^x - 1}{x}</span></li>
+<li><span class="math inline">\lim_{x \to +\infty} \frac{\ln x}{x}</span></li>
+<li><span class="math inline">\lim_{x \to +\infty} \frac{e^x}{x^2}</span></li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 7.2</strong></p>
+<p>Étudier les variations de <span class="math inline">f(x) = x^3 - 3x + 1</span> et déterminer ses extremums.</p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 7.3</strong></p>
+<p>Montrer que l’équation <span class="math inline">x^3 + x - 1 = 0</span> admet une unique solution réelle.</p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 7.4</strong></p>
+<p>Montrer que <span class="math inline">e^x \geq 1 + x</span> pour tout <span class="math inline">x \in \mathbb{R}</span>.</p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 7.5</strong></p>
+<p>Étudier la convexité de <span class="math inline">f(x) = x^2 e^{-x}</span>.</p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 7.6</strong></p>
+<p>Soit <span class="math inline">f : [0,1] \to \mathbb{R}</span> continue avec <span class="math inline">f(0) = 0</span> et <span class="math inline">f(1) = 1</span>. Montrer qu’il existe <span class="math inline">c \in ]0,1[</span> tel que <span class="math inline">f(c) = c</span>.</p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 7.7</strong></p>
+<p>Soit <span class="math inline">f : \mathbb{R} \to \mathbb{R}</span> continue, <span class="math inline">2</span>-périodique, avec <span class="math inline">f(0) = 0</span> et <span class="math inline">f(1) = 1</span>. Montrer qu’il existe <span class="math inline">c \in ]0,1[</span> tel que <span class="math inline">f(c) = f(c+1)</span>.</p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 7.8</strong></p>
+<p>Montrer que <span class="math inline">\ln x \leq x - 1</span> pour tout <span class="math inline">x &gt; 0</span>.</p>
+</div>
+</section>
+<section id="document-en-pdf" class="level1 unnumbered">
+<h1 class="unnumbered">Document en PDF</h1>
+<p><a href="PDF/ecs1-chap05.pdf"><strong>Chapitre 05 : Fonctions réelles d’une variable</strong></a></p>
+<section id="navigation" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="navigation">Navigation</h2>
+<div class="chap-nav">
+<p><a href="../cours/ecs1-chap04.html" class="prev">Chapitre 04 : Suites réelles</a> <a href="../cours/ecs1.html" class="home">Menu ECS1</a> <a href="../cours/ecs1-chap06.html" class="next">Chapitre 06 : Intégration sur un segment</a></p>
+</div>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -281,12 +492,12 @@ ul.task-list li input[type="checkbox"] {
       // flash "checked"
       button.classList.add('code-copy-button-checked');
       var currentTitle = button.getAttribute("title");
-      button.setAttribute("title", "Copied!");
+      button.setAttribute("title", "Copié");
       let tooltip;
       if (window.bootstrap) {
         button.setAttribute("data-bs-toggle", "tooltip");
         button.setAttribute("data-bs-placement", "left");
-        button.setAttribute("data-bs-title", "Copied!");
+        button.setAttribute("data-bs-title", "Copié");
         tooltip = new bootstrap.Tooltip(button, 
           { trigger: "manual", 
             customClass: "code-copy-button-tooltip",

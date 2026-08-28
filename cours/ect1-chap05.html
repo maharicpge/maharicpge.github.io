@@ -1,13 +1,14 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr"><head>
 
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.10.18">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Saîd MAHARI">
 
-<title>Calcul matriciel - Mathématiques en CPGE – Mathématiques en CPGE</title>
+<title>Fonctions réelles d’une variable réelle : dérivabilité, convexité – Mathématiques en CPGE</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -45,7 +46,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-7a8c080b55ea27eb37b467515007f9ee.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-e0d9a45d84245cc5e3b300860d8fa645.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -60,17 +61,17 @@ ul.task-list li input[type="checkbox"] {
   ],
   "show-item-context": false,
   "language": {
-    "search-no-results-text": "No results",
-    "search-matching-documents-text": "matching documents",
-    "search-copy-link-title": "Copy link to search",
-    "search-hide-matches-text": "Hide additional matches",
-    "search-more-match-text": "more match in this document",
-    "search-more-matches-text": "more matches in this document",
-    "search-clear-button-title": "Clear",
+    "search-no-results-text": "Pas de résultats",
+    "search-matching-documents-text": "documents trouvés",
+    "search-copy-link-title": "Copier le lien vers la recherche",
+    "search-hide-matches-text": "Cacher les correspondances additionnelles",
+    "search-more-match-text": "correspondance de plus dans ce document",
+    "search-more-matches-text": "correspondances de plus dans ce document",
+    "search-clear-button-title": "Effacer",
     "search-text-placeholder": "",
-    "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit",
-    "search-label": "Search"
+    "search-detached-cancel-button-title": "Annuler",
+    "search-submit-button-title": "Envoyer",
+    "search-label": "Recherche"
   }
 }</script>
 <script data-goatcounter="https://maharicpge.goatcounter.com/count" async="" src="//gc.zgo.at/count.js"></script>
@@ -142,8 +143,52 @@ ul.task-list li input[type="checkbox"] {
   });
 </script>
 
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="styles.css">
 </head>
 
 <body class="nav-fixed quarto-light">
@@ -157,8 +202,8 @@ ul.task-list li input[type="checkbox"] {
     <span class="navbar-title">Accueil</span>
     </a>
   </div>
-            <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+            <div id="quarto-search" class="" title="Recherche"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Basculer la navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
@@ -218,10 +263,31 @@ ul.task-list li input[type="checkbox"] {
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
+    <h2 id="toc-title">Sur cette page</h2>
    
   <ul>
-  <li><a href="#document" id="toc-document" class="nav-link active" data-scroll-target="#document">Document</a></li>
+  <li><a href="#dérivabilité" id="toc-dérivabilité" class="nav-link active" data-scroll-target="#dérivabilité"><span class="header-section-number">1</span> Dérivabilité</a>
+  <ul class="collapse">
+  <li><a href="#définition" id="toc-définition" class="nav-link" data-scroll-target="#définition"><span class="header-section-number">1.1</span> Définition</a></li>
+  <li><a href="#opérations-sur-les-fonctions-dérivables" id="toc-opérations-sur-les-fonctions-dérivables" class="nav-link" data-scroll-target="#opérations-sur-les-fonctions-dérivables"><span class="header-section-number">1.2</span> Opérations sur les fonctions dérivables</a></li>
+  </ul></li>
+  <li><a href="#monotonie-et-extremum-local" id="toc-monotonie-et-extremum-local" class="nav-link" data-scroll-target="#monotonie-et-extremum-local"><span class="header-section-number">2</span> Monotonie et extremum local</a>
+  <ul class="collapse">
+  <li><a href="#monotonie" id="toc-monotonie" class="nav-link" data-scroll-target="#monotonie"><span class="header-section-number">2.1</span> Monotonie</a></li>
+  <li><a href="#extremum-local" id="toc-extremum-local" class="nav-link" data-scroll-target="#extremum-local"><span class="header-section-number">2.2</span> Extremum local</a></li>
+  </ul></li>
+  <li><a href="#dérivées-successives-et-classes-mathcalck" id="toc-dérivées-successives-et-classes-mathcalck" class="nav-link" data-scroll-target="#dérivées-successives-et-classes-mathcalck"><span class="header-section-number">3</span> Dérivées successives et classes <span class="math inline">\mathcal{C}^k</span></a></li>
+  <li><a href="#convexité" id="toc-convexité" class="nav-link" data-scroll-target="#convexité"><span class="header-section-number">4</span> Convexité</a>
+  <ul class="collapse">
+  <li><a href="#définition-1" id="toc-définition-1" class="nav-link" data-scroll-target="#définition-1"><span class="header-section-number">4.1</span> Définition</a></li>
+  <li><a href="#caractérisation-par-la-dérivée-seconde" id="toc-caractérisation-par-la-dérivée-seconde" class="nav-link" data-scroll-target="#caractérisation-par-la-dérivée-seconde"><span class="header-section-number">4.2</span> Caractérisation par la dérivée seconde</a></li>
+  <li><a href="#points-dinflexion" id="toc-points-dinflexion" class="nav-link" data-scroll-target="#points-dinflexion"><span class="header-section-number">4.3</span> Points d’inflexion</a></li>
+  </ul></li>
+  <li><a href="#exercices" id="toc-exercices" class="nav-link" data-scroll-target="#exercices"><span class="header-section-number">5</span> Exercices</a></li>
+  <li><a href="#document-en-pdf" id="toc-document-en-pdf" class="nav-link" data-scroll-target="#document-en-pdf">Document en PDF</a>
+  <ul class="collapse">
+  <li><a href="#navigation" id="toc-navigation" class="nav-link" data-scroll-target="#navigation">Navigation</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -230,14 +296,27 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Chapitre 05 : Calcul matriciel</h1>
+<h1 class="title">Fonctions réelles d’une variable réelle : dérivabilité, convexité</h1>
+<p class="subtitle lead">Chapitre 05</p>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Auteur·rice</div>
+    <div class="quarto-title-meta-contents">
+             <p>Saîd MAHARI </p>
+          </div>
+  </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">Date de publication</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">28 août 2026</p>
+    </div>
+  </div>
   
     
   </div>
@@ -247,12 +326,208 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p><strong>ECT 1re année — Chapitre 05.</strong> Opérations, inversibilité en ordre 2 ou 3, systèmes linéaires.</p>
-<section id="document" class="level2">
-<h2 class="anchored" data-anchor-id="document">Document</h2>
-<p><em>PDF à venir : déposez le fichier <code>files/ect1/chap05.pdf</code> puis régénérez la page.</em></p>
+<p><strong>ECT (1re année) — Chapitre 05.</strong> Dérivabilité, monotonie, extremum local, dérivées successives, convexité, points d’inflexion.</p>
+<p>Ce chapitre a été réalisé conformément au programme marocain de mathématiques de la filière ECT.</p>
+<section id="dérivabilité" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Dérivabilité</h1>
+<section id="définition" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="définition"><span class="header-section-number">1.1</span> Définition</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 1.1 — (Dérivabilité en un point)</strong></p>
+<p><span class="math inline">f : I \to \mathbb{R}</span> est <strong>dérivable en</strong> <span class="math inline">a \in I</span> si la limite : <span class="math display">f'(a) = \lim_{h \to 0} \frac{f(a+h) - f(a)}{h}</span> existe et est finie.</p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 1.1 — (Dérivabilité implique continuité)</strong></p>
+<p>Si <span class="math inline">f</span> est dérivable en <span class="math inline">a</span>, alors <span class="math inline">f</span> est continue en <span class="math inline">a</span>.</p>
+</div>
+<div class="remarque">
+<p>La réciproque est fausse : <span class="math inline">f(x) = |x|</span> est continue en <span class="math inline">0</span> mais non dérivable en <span class="math inline">0</span>.</p>
+</div>
+</section>
+<section id="opérations-sur-les-fonctions-dérivables" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="opérations-sur-les-fonctions-dérivables"><span class="header-section-number">1.2</span> Opérations sur les fonctions dérivables</h2>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 1.2 — (Opérations)</strong></p>
+<p>Soient <span class="math inline">f</span> et <span class="math inline">g</span> dérivables en <span class="math inline">a</span>. Alors :</p>
+<ol type="1">
+<li><span class="math inline">(f + g)'(a) = f'(a) + g'(a)</span></li>
+<li><span class="math inline">(\lambda f)'(a) = \lambda f'(a)</span></li>
+<li><span class="math inline">(fg)'(a) = f'(a)g(a) + f(a)g'(a)</span></li>
+<li><span class="math inline">\left(\dfrac{f}{g}\right)'(a) = \dfrac{f'(a)g(a) - f(a)g'(a)}{(g(a))^2}</span> si <span class="math inline">g(a) \neq 0</span></li>
+<li><span class="math inline">(g \circ f)'(a) = g'(f(a)) \cdot f'(a)</span> (règle de la chaîne)</li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 1.3 — (Dérivées des fonctions usuelles)</strong></p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th><span class="math inline">f(x)</span></th>
+<th><span class="math inline">f'(x)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">x^n</span></td>
+<td><span class="math inline">nx^{n-1}</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">e^x</span></td>
+<td><span class="math inline">e^x</span></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\ln x</span></td>
+<td><span class="math inline">\frac{1}{x}</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\sin x</span></td>
+<td><span class="math inline">\cos x</span></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\cos x</span></td>
+<td><span class="math inline">-\sin x</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\tan x</span></td>
+<td><span class="math inline">\frac{1}{\cos^2 x}</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</section>
+<section id="monotonie-et-extremum-local" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> Monotonie et extremum local</h1>
+<section id="monotonie" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="monotonie"><span class="header-section-number">2.1</span> Monotonie</h2>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 2.1 — (Lien entre dérivée et monotonie)</strong></p>
+<p>Soit <span class="math inline">f : I \to \mathbb{R}</span> dérivable sur un intervalle <span class="math inline">I</span>.</p>
+<ol type="1">
+<li><span class="math inline">f'(x) \geq 0</span> pour tout <span class="math inline">x \in I</span> <span class="math inline">\iff</span> <span class="math inline">f</span> est croissante sur <span class="math inline">I</span>.</li>
+<li><span class="math inline">f'(x) \leq 0</span> pour tout <span class="math inline">x \in I</span> <span class="math inline">\iff</span> <span class="math inline">f</span> est décroissante sur <span class="math inline">I</span>.</li>
+<li><span class="math inline">f'(x) = 0</span> pour tout <span class="math inline">x \in I</span> <span class="math inline">\iff</span> <span class="math inline">f</span> est constante sur <span class="math inline">I</span>.</li>
+<li><span class="math inline">f'(x) &gt; 0</span> pour tout <span class="math inline">x \in I</span> <span class="math inline">\implies</span> <span class="math inline">f</span> est strictement croissante sur <span class="math inline">I</span>.</li>
+</ol>
+</div>
+</section>
+<section id="extremum-local" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="extremum-local"><span class="header-section-number">2.2</span> Extremum local</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 2.1 — (Extremum local)</strong></p>
+<p><span class="math inline">f</span> admet un <strong>maximum local</strong> (resp. <strong>minimum local</strong>) en <span class="math inline">a</span> s’il existe un voisinage <span class="math inline">V</span> de <span class="math inline">a</span> tel que <span class="math inline">f(x) \leq f(a)</span> (resp. <span class="math inline">f(x) \geq f(a)</span>) pour tout <span class="math inline">x \in V</span>.</p>
+</div>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 2.2 — (Condition nécessaire)</strong></p>
+<p>Si <span class="math inline">f</span> est dérivable en <span class="math inline">a</span> et admet un extremum local en <span class="math inline">a</span> (point intérieur), alors <span class="math inline">f'(a) = 0</span>.</p>
+</div>
+<div class="remarque">
+<p>La réciproque est fausse : <span class="math inline">f(x) = x^3</span> vérifie <span class="math inline">f'(0) = 0</span> mais n’admet pas d’extremum en <span class="math inline">0</span>.</p>
+</div>
+</section>
+</section>
+<section id="dérivées-successives-et-classes-mathcalck" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Dérivées successives et classes <span class="math inline">\mathcal{C}^k</span></h1>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 3.1 — (Dérivées d’ordre supérieur)</strong></p>
+<p>Si <span class="math inline">f</span> est dérivable sur <span class="math inline">I</span>, on note <span class="math inline">f'</span> sa dérivée. Si <span class="math inline">f'</span> est dérivable, on note <span class="math inline">f'' = (f')'</span> la dérivée seconde. Par récurrence, on définit <span class="math inline">f^{(n)} = (f^{(n-1)})'</span>.</p>
+</div>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 3.2 — (Classes <span class="math inline">\boldsymbol{\mathcal{C}^k}</span>)</strong></p>
+<p><span class="math inline">f</span> est de <strong>classe <span class="math inline">\mathcal{C}^k</span></strong> sur <span class="math inline">I</span> si <span class="math inline">f</span> est <span class="math inline">k</span> fois dérivable et <span class="math inline">f^{(k)}</span> est continue sur <span class="math inline">I</span>. <span class="math inline">f</span> est de <strong>classe <span class="math inline">\mathcal{C}^\infty</span></strong> si elle est indéfiniment dérivable.</p>
+</div>
+</section>
+<section id="convexité" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> Convexité</h1>
+<section id="définition-1" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="définition-1"><span class="header-section-number">4.1</span> Définition</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 4.1 — (Fonction convexe)</strong></p>
+<p><span class="math inline">f : I \to \mathbb{R}</span> est <strong>convexe</strong> sur <span class="math inline">I</span> si pour tous <span class="math inline">x, y \in I</span> et tout <span class="math inline">\lambda \in [0,1]</span> : <span class="math display">f(\lambda x + (1-\lambda)y) \leq \lambda f(x) + (1-\lambda)f(y)</span></p>
+<p><span class="math inline">f</span> est <strong>concave</strong> si <span class="math inline">-f</span> est convexe.</p>
+</div>
+</section>
+<section id="caractérisation-par-la-dérivée-seconde" class="level2" data-number="4.2">
+<h2 data-number="4.2" class="anchored" data-anchor-id="caractérisation-par-la-dérivée-seconde"><span class="header-section-number">4.2</span> Caractérisation par la dérivée seconde</h2>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 4.1 — (Critère de convexité)</strong></p>
+<p>Soit <span class="math inline">f : I \to \mathbb{R}</span> de classe <span class="math inline">\mathcal{C}^2</span> sur <span class="math inline">I</span>. Alors :</p>
+<ul>
+<li><span class="math inline">f</span> est convexe sur <span class="math inline">I</span> <span class="math inline">\iff</span> <span class="math inline">f''(x) \geq 0</span> pour tout <span class="math inline">x \in I</span>.</li>
+<li><span class="math inline">f</span> est concave sur <span class="math inline">I</span> <span class="math inline">\iff</span> <span class="math inline">f''(x) \leq 0</span> pour tout <span class="math inline">x \in I</span>.</li>
+</ul>
+</div>
+</section>
+<section id="points-dinflexion" class="level2" data-number="4.3">
+<h2 data-number="4.3" class="anchored" data-anchor-id="points-dinflexion"><span class="header-section-number">4.3</span> Points d’inflexion</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 4.2 — (Point d’inflexion)</strong></p>
+<p>Un point <span class="math inline">a</span> est un <strong>point d’inflexion</strong> de <span class="math inline">f</span> si la courbe de <span class="math inline">f</span> traverse sa tangente en <span class="math inline">a</span>. Si <span class="math inline">f</span> est de classe <span class="math inline">\mathcal{C}^2</span>, alors <span class="math inline">f''(a) = 0</span> et <span class="math inline">f''</span> change de signe en <span class="math inline">a</span>.</p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 4.1</strong></p>
+<p><span class="math inline">f(x) = x^3</span> admet un point d’inflexion en <span class="math inline">0</span> car <span class="math inline">f''(x) = 6x</span> s’annule en <span class="math inline">0</span> en changeant de signe.</p>
+</div>
+</section>
+</section>
+<section id="exercices" class="level1" data-number="5">
+<h1 data-number="5"><span class="header-section-number">5</span> Exercices</h1>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 5.1</strong></p>
+<p>Calculer les dérivées des fonctions suivantes :</p>
+<ol type="1">
+<li><span class="math inline">f(x) = x^3 e^x</span></li>
+<li><span class="math inline">f(x) = \frac{\ln x}{x}</span></li>
+<li><span class="math inline">f(x) = \sin(x^2)</span></li>
+<li><span class="math inline">f(x) = e^{\cos x}</span></li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 5.2</strong></p>
+<p>Étudier les variations de <span class="math inline">f(x) = x^2 e^{-x}</span> sur <span class="math inline">\mathbb{R}</span>.</p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 5.3</strong></p>
+<p>Soit <span class="math inline">f(x) = x^3 - 3x + 1</span>.</p>
+<ol type="1">
+<li>Étudier les variations de <span class="math inline">f</span>.</li>
+<li>Déterminer les extremums locaux.</li>
+<li>Montrer que <span class="math inline">f</span> admet trois racines réelles.</li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 5.4</strong></p>
+<p>Montrer que <span class="math inline">f(x) = e^x</span> est convexe sur <span class="math inline">\mathbb{R}</span> et que <span class="math inline">g(x) = \ln x</span> est concave sur <span class="math inline">]0, +\infty[</span>.</p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 5.5</strong></p>
+<p>Soit <span class="math inline">f(x) = x^3 - 3x^2 + 2</span>. Déterminer les points d’inflexion de <span class="math inline">f</span>.</p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 5.6</strong></p>
+<p>Montrer que pour tout <span class="math inline">x \in \mathbb{R}</span> : <span class="math inline">e^x \geq 1 + x</span>.</p>
+</div>
+<p><strong>Indication :</strong> Étudier <span class="math inline">g(x) = e^x - 1 - x</span> et montrer que <span class="math inline">g</span> admet un minimum en <span class="math inline">0</span>.</p>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 5.7</strong></p>
+<p>Soit <span class="math inline">f : [a,b] \to \mathbb{R}</span> dérivable avec <span class="math inline">f'(a) &lt; 0</span> et <span class="math inline">f'(b) &gt; 0</span>. Montrer que <span class="math inline">f</span> admet un minimum local en un point <span class="math inline">c \in ]a,b[</span>.</p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 5.8</strong></p>
+<p>Soit <span class="math inline">f : \mathbb{R} \to \mathbb{R}</span> de classe <span class="math inline">\mathcal{C}^2</span> avec <span class="math inline">f''(x) \geq 0</span> pour tout <span class="math inline">x</span>. Montrer que <span class="math inline">f(x) \geq f(a) + f'(a)(x-a)</span> pour tout <span class="math inline">x</span> (la tangente est en dessous de la courbe).</p>
+</div>
+</section>
+<section id="document-en-pdf" class="level1 unnumbered">
+<h1 class="unnumbered">Document en PDF</h1>
+<p><a href="PDF/ect1-chap05.pdf"><strong>Chapitre 05 : Fonctions réelles d’une variable réelle : dérivabilité, convexité</strong></a></p>
+<section id="navigation" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="navigation">Navigation</h2>
+<div class="chap-nav">
+<p><a href="../cours/ect1-chap04.html" class="prev">Chapitre 04 : Limites, continuité</a> <a href="../cours/ect1.html" class="home">Menu ECT1</a> <a href="../cours/ect1-chap06.html" class="next">Chapitre 06 : Probabilité sur un univers fini</a></p>
+</div>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -281,12 +556,12 @@ ul.task-list li input[type="checkbox"] {
       // flash "checked"
       button.classList.add('code-copy-button-checked');
       var currentTitle = button.getAttribute("title");
-      button.setAttribute("title", "Copied!");
+      button.setAttribute("title", "Copié");
       let tooltip;
       if (window.bootstrap) {
         button.setAttribute("data-bs-toggle", "tooltip");
         button.setAttribute("data-bs-placement", "left");
-        button.setAttribute("data-bs-title", "Copied!");
+        button.setAttribute("data-bs-title", "Copié");
         tooltip = new bootstrap.Tooltip(button, 
           { trigger: "manual", 
             customClass: "code-copy-button-tooltip",

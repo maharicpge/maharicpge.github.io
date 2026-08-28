@@ -1,13 +1,14 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr"><head>
 
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.10.18">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Saîd MAHARI">
 
-<title>Algèbre linéaire (compléments) - Mathématiques en CPGE – Mathématiques en CPGE</title>
+<title>Algèbre linéaire (compléments) – Mathématiques en CPGE</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -45,7 +46,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-7a8c080b55ea27eb37b467515007f9ee.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-e0d9a45d84245cc5e3b300860d8fa645.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -60,17 +61,17 @@ ul.task-list li input[type="checkbox"] {
   ],
   "show-item-context": false,
   "language": {
-    "search-no-results-text": "No results",
-    "search-matching-documents-text": "matching documents",
-    "search-copy-link-title": "Copy link to search",
-    "search-hide-matches-text": "Hide additional matches",
-    "search-more-match-text": "more match in this document",
-    "search-more-matches-text": "more matches in this document",
-    "search-clear-button-title": "Clear",
+    "search-no-results-text": "Pas de résultats",
+    "search-matching-documents-text": "documents trouvés",
+    "search-copy-link-title": "Copier le lien vers la recherche",
+    "search-hide-matches-text": "Cacher les correspondances additionnelles",
+    "search-more-match-text": "correspondance de plus dans ce document",
+    "search-more-matches-text": "correspondances de plus dans ce document",
+    "search-clear-button-title": "Effacer",
     "search-text-placeholder": "",
-    "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit",
-    "search-label": "Search"
+    "search-detached-cancel-button-title": "Annuler",
+    "search-submit-button-title": "Envoyer",
+    "search-label": "Recherche"
   }
 }</script>
 <script data-goatcounter="https://maharicpge.goatcounter.com/count" async="" src="//gc.zgo.at/count.js"></script>
@@ -142,8 +143,52 @@ ul.task-list li input[type="checkbox"] {
   });
 </script>
 
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="styles.css">
 </head>
 
 <body class="nav-fixed quarto-light">
@@ -157,8 +202,8 @@ ul.task-list li input[type="checkbox"] {
     <span class="navbar-title">Accueil</span>
     </a>
   </div>
-            <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+            <div id="quarto-search" class="" title="Recherche"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Basculer la navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
@@ -218,10 +263,34 @@ ul.task-list li input[type="checkbox"] {
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
+    <h2 id="toc-title">Sur cette page</h2>
    
   <ul>
-  <li><a href="#document" id="toc-document" class="nav-link active" data-scroll-target="#document">Document</a></li>
+  <li><a href="#sommes-directes" id="toc-sommes-directes" class="nav-link active" data-scroll-target="#sommes-directes"><span class="header-section-number">1</span> Sommes directes</a>
+  <ul class="collapse">
+  <li><a href="#somme-de-sous-espaces" id="toc-somme-de-sous-espaces" class="nav-link" data-scroll-target="#somme-de-sous-espaces"><span class="header-section-number">1.1</span> Somme de sous-espaces</a></li>
+  <li><a href="#supplémentaires" id="toc-supplémentaires" class="nav-link" data-scroll-target="#supplémentaires"><span class="header-section-number">1.2</span> Supplémentaires</a></li>
+  </ul></li>
+  <li><a href="#projecteurs" id="toc-projecteurs" class="nav-link" data-scroll-target="#projecteurs"><span class="header-section-number">2</span> Projecteurs</a>
+  <ul class="collapse">
+  <li><a href="#définition" id="toc-définition" class="nav-link" data-scroll-target="#définition"><span class="header-section-number">2.1</span> Définition</a></li>
+  </ul></li>
+  <li><a href="#symétries" id="toc-symétries" class="nav-link" data-scroll-target="#symétries"><span class="header-section-number">3</span> Symétries</a></li>
+  <li><a href="#trace" id="toc-trace" class="nav-link" data-scroll-target="#trace"><span class="header-section-number">4</span> Trace</a>
+  <ul class="collapse">
+  <li><a href="#définition-1" id="toc-définition-1" class="nav-link" data-scroll-target="#définition-1"><span class="header-section-number">4.1</span> Définition</a></li>
+  <li><a href="#propriétés" id="toc-propriétés" class="nav-link" data-scroll-target="#propriétés"><span class="header-section-number">4.2</span> Propriétés</a></li>
+  </ul></li>
+  <li><a href="#polynômes-dendomorphismes" id="toc-polynômes-dendomorphismes" class="nav-link" data-scroll-target="#polynômes-dendomorphismes"><span class="header-section-number">5</span> Polynômes d’endomorphismes</a>
+  <ul class="collapse">
+  <li><a href="#définition-2" id="toc-définition-2" class="nav-link" data-scroll-target="#définition-2"><span class="header-section-number">5.1</span> Définition</a></li>
+  <li><a href="#idéal-annulateur-et-polynôme-minimal" id="toc-idéal-annulateur-et-polynôme-minimal" class="nav-link" data-scroll-target="#idéal-annulateur-et-polynôme-minimal"><span class="header-section-number">5.2</span> Idéal annulateur et polynôme minimal</a></li>
+  </ul></li>
+  <li><a href="#exercices" id="toc-exercices" class="nav-link" data-scroll-target="#exercices"><span class="header-section-number">6</span> Exercices</a></li>
+  <li><a href="#document-en-pdf" id="toc-document-en-pdf" class="nav-link" data-scroll-target="#document-en-pdf">Document en PDF</a>
+  <ul class="collapse">
+  <li><a href="#navigation" id="toc-navigation" class="nav-link" data-scroll-target="#navigation">Navigation</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -230,14 +299,27 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Chapitre 01 : Algèbre linéaire (compléments)</h1>
+<h1 class="title">Algèbre linéaire (compléments)</h1>
+<p class="subtitle lead">Chapitre 01</p>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Auteur·rice</div>
+    <div class="quarto-title-meta-contents">
+             <p>Saîd MAHARI </p>
+          </div>
+  </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">Date de publication</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">28 août 2026</p>
+    </div>
+  </div>
   
     
   </div>
@@ -247,12 +329,200 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p><strong>ECS 2e année (ECG) — Chapitre 01.</strong> Sommes directes, projecteurs, symétries.</p>
-<section id="document" class="level2">
-<h2 class="anchored" data-anchor-id="document">Document</h2>
-<p><em>PDF à venir : déposez le fichier <code>files/ecs2/chap01.pdf</code> puis régénérez la page.</em></p>
+<p><strong>ECS (2e année) — Chapitre 01.</strong> Sommes directes, projecteurs, symétries, trace, polynômes d’endomorphismes.</p>
+<p>Ce chapitre a été réalisé conformément au programme marocain de mathématiques de la filière ECS.</p>
+<p>Dans tout ce chapitre, <span class="math inline">\mathbb{K}</span> désigne <span class="math inline">\mathbb{R}</span> ou <span class="math inline">\mathbb{C}</span>, et <span class="math inline">E</span> un <span class="math inline">\mathbb{K}</span>-espace vectoriel de dimension finie <span class="math inline">n \geq 1</span>.</p>
+<section id="sommes-directes" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Sommes directes</h1>
+<section id="somme-de-sous-espaces" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="somme-de-sous-espaces"><span class="header-section-number">1.1</span> Somme de sous-espaces</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 1.1 — (Somme de sous-espaces)</strong></p>
+<p>Soient <span class="math inline">F_1, \ldots, F_p</span> des sous-espaces vectoriels de <span class="math inline">E</span>. Leur <strong>somme</strong> est : <span class="math display">F_1 + \cdots + F_p = \{x_1 + \cdots + x_p \mid x_i \in F_i\}</span> C’est le plus petit sous-espace vectoriel de <span class="math inline">E</span> contenant tous les <span class="math inline">F_i</span>.</p>
+</div>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 1.2 — (Somme directe)</strong></p>
+<p>La somme <span class="math inline">F_1 + \cdots + F_p</span> est <strong>directe</strong>, notée <span class="math inline">F_1 \oplus \cdots \oplus F_p</span>, si tout vecteur de cette somme s’écrit de manière <strong>unique</strong> comme somme d’un vecteur de chaque <span class="math inline">F_i</span>.</p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 1.1 — (Caractérisation)</strong></p>
+<p>La somme <span class="math inline">F_1 + \cdots + F_p</span> est directe si et seulement si : <span class="math display">\forall i \in \{1, \ldots, p\}, \quad F_i \cap \sum_{j \neq i} F_j = \{0_E\}</span></p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 1.2 — (Cas de deux sous-espaces)</strong></p>
+<p>Pour deux sous-espaces <span class="math inline">F</span> et <span class="math inline">G</span>, la somme <span class="math inline">F + G</span> est directe si et seulement si <span class="math inline">F \cap G = \{0_E\}</span>.</p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 1.3 — (Dimension d’une somme directe)</strong></p>
+<p>Si <span class="math inline">E = F_1 \oplus \cdots \oplus F_p</span> avec chaque <span class="math inline">F_i</span> de dimension finie, alors : <span class="math display">\dim E = \dim F_1 + \cdots + \dim F_p</span></p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 1.4 — (Formule de Grassmann)</strong></p>
+<p>Pour deux sous-espaces <span class="math inline">F</span> et <span class="math inline">G</span> de dimension finie : <span class="math display">\dim(F + G) = \dim F + \dim G - \dim(F \cap G)</span></p>
+</div>
+</section>
+<section id="supplémentaires" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="supplémentaires"><span class="header-section-number">1.2</span> Supplémentaires</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 1.3 — (Supplémentaires)</strong></p>
+<p>Deux sous-espaces <span class="math inline">F</span> et <span class="math inline">G</span> de <span class="math inline">E</span> sont <strong>supplémentaires</strong> si <span class="math inline">E = F \oplus G</span>. On note aussi <span class="math inline">G</span> un <strong>supplémentaire</strong> de <span class="math inline">F</span>.</p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 1.5</strong></p>
+<p>Tout sous-espace vectoriel d’un espace de dimension finie admet au moins un supplémentaire. Ce supplémentaire n’est pas unique en général.</p>
+</div>
+</section>
+</section>
+<section id="projecteurs" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> Projecteurs</h1>
+<section id="définition" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="définition"><span class="header-section-number">2.1</span> Définition</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 2.1 — (Projecteur)</strong></p>
+<p>Soient <span class="math inline">F</span> et <span class="math inline">G</span> deux sous-espaces supplémentaires de <span class="math inline">E</span>. Le <strong>projecteur sur <span class="math inline">F</span> parallèlement à <span class="math inline">G</span></strong> est l’application <span class="math inline">p : E \to E</span> définie par : <span class="math display">\forall x = f + g \in E, \quad (f,g) \in F \times G, \quad p(x) = f</span></p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 2.1 — (Caractérisation des projecteurs)</strong></p>
+<p>Soit <span class="math inline">p \in \mathcal{L}(E)</span>. Alors : <span class="math display">p \text{ est un projecteur} \iff p^2 = p</span> Dans ce cas, <span class="math inline">E = \mathrm{Im}(p) \oplus \ker(p)</span>, avec <span class="math inline">\mathrm{Im}(p) = \{x \in E \mid p(x) = x\}</span>.</p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 2.2 — (Propriétés)</strong></p>
+<p>Si <span class="math inline">p</span> est un projecteur :</p>
+<ol type="1">
+<li><span class="math inline">\mathrm{rg}(p) = \mathrm{tr}(p)</span>.</li>
+<li>Les valeurs propres de <span class="math inline">p</span> sont dans <span class="math inline">\{0, 1\}</span>.</li>
+<li><span class="math inline">p</span> est diagonalisable.</li>
+</ol>
+</div>
+</section>
+</section>
+<section id="symétries" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Symétries</h1>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 3.1 — (Symétrie)</strong></p>
+<p>Soient <span class="math inline">F</span> et <span class="math inline">G</span> deux sous-espaces supplémentaires de <span class="math inline">E</span>. La <strong>symétrie par rapport à <span class="math inline">F</span> parallèlement à <span class="math inline">G</span></strong> est l’application <span class="math inline">s : E \to E</span> définie par : <span class="math display">\forall x = f + g \in E, \quad (f,g) \in F \times G, \quad s(x) = f - g</span></p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 3.1 — (Caractérisation)</strong></p>
+<p>Soit <span class="math inline">s \in \mathcal{L}(E)</span>. Alors : <span class="math display">s \text{ est une symétrie} \iff s^2 = \mathrm{Id}_E</span> Dans ce cas, <span class="math inline">E = \ker(s - \mathrm{Id}_E) \oplus \ker(s + \mathrm{Id}_E)</span>.</p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 3.2 — (Lien projecteur-symétrie)</strong></p>
+<p>Si <span class="math inline">p</span> est le projecteur sur <span class="math inline">F</span> parallèlement à <span class="math inline">G</span>, alors la symétrie <span class="math inline">s</span> par rapport à <span class="math inline">F</span> parallèlement à <span class="math inline">G</span> vérifie : <span class="math display">s = 2p - \mathrm{Id}_E</span></p>
+</div>
+</section>
+<section id="trace" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> Trace</h1>
+<section id="définition-1" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="définition-1"><span class="header-section-number">4.1</span> Définition</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 4.1 — (Trace d’une matrice)</strong></p>
+<p>Pour <span class="math inline">A = (a_{ij}) \in \mathcal{M}_n(\mathbb{K})</span> : <span class="math display">\mathrm{tr}(A) = \sum_{i=1}^n a_{ii}</span></p>
+</div>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 4.2 — (Trace d’un endomorphisme)</strong></p>
+<p>Pour <span class="math inline">u \in \mathcal{L}(E)</span>, <span class="math inline">\mathrm{tr}(u) = \mathrm{tr}(\mathrm{Mat}_{\mathcal{B}}(u))</span> pour toute base <span class="math inline">\mathcal{B}</span> de <span class="math inline">E</span> (ne dépend pas du choix de <span class="math inline">\mathcal{B}</span>).</p>
+</div>
+</section>
+<section id="propriétés" class="level2" data-number="4.2">
+<h2 data-number="4.2" class="anchored" data-anchor-id="propriétés"><span class="header-section-number">4.2</span> Propriétés</h2>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 4.1 — (Linéarité)</strong></p>
+<p>Pour tous <span class="math inline">u, v \in \mathcal{L}(E)</span> et <span class="math inline">\lambda \in \mathbb{K}</span> : <span class="math display">\mathrm{tr}(\lambda u + v) = \lambda \mathrm{tr}(u) + \mathrm{tr}(v)</span></p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 4.2 — (Trace d’un produit)</strong></p>
+<p>Pour <span class="math inline">A \in \mathcal{M}_{n,p}(\mathbb{K})</span> et <span class="math inline">B \in \mathcal{M}_{p,n}(\mathbb{K})</span> : <span class="math display">\mathrm{tr}(AB) = \mathrm{tr}(BA)</span></p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 4.3 — (Invariance par transposition)</strong></p>
+<p><span class="math inline">\mathrm{tr}(A^T) = \mathrm{tr}(A)</span>.</p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 4.4 — (Trace et valeurs propres)</strong></p>
+<p>Si <span class="math inline">A</span> est trigonalisable de valeurs propres <span class="math inline">\lambda_1, \ldots, \lambda_n</span> (comptées avec multiplicité), alors : <span class="math display">\mathrm{tr}(A) = \lambda_1 + \cdots + \lambda_n</span></p>
+</div>
+</section>
+</section>
+<section id="polynômes-dendomorphismes" class="level1" data-number="5">
+<h1 data-number="5"><span class="header-section-number">5</span> Polynômes d’endomorphismes</h1>
+<section id="définition-2" class="level2" data-number="5.1">
+<h2 data-number="5.1" class="anchored" data-anchor-id="définition-2"><span class="header-section-number">5.1</span> Définition</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 5.1 — (Polynôme d’endomorphisme)</strong></p>
+<p>Pour <span class="math inline">u \in \mathcal{L}(E)</span> et <span class="math inline">P(X) = \sum_{k=0}^d a_k X^k \in \mathbb{K}[X]</span> : <span class="math display">P(u) = \sum_{k=0}^d a_k u^k</span> où <span class="math inline">u^0 = \mathrm{Id}_E</span> et <span class="math inline">u^k = u \circ \cdots \circ u</span>.</p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 5.1 — (Morphisme de <span class="math inline">\boldsymbol{\mathbb{K}}</span>-algèbres)</strong></p>
+<p>L’application <span class="math inline">\Phi_u : \mathbb{K}[X] \to \mathcal{L}(E)</span>, <span class="math inline">P \mapsto P(u)</span>, est un morphisme de <span class="math inline">\mathbb{K}</span>-algèbres. En particulier : <span class="math display">P(u) \circ Q(u) = (PQ)(u)</span></p>
+</div>
+</section>
+<section id="idéal-annulateur-et-polynôme-minimal" class="level2" data-number="5.2">
+<h2 data-number="5.2" class="anchored" data-anchor-id="idéal-annulateur-et-polynôme-minimal"><span class="header-section-number">5.2</span> Idéal annulateur et polynôme minimal</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 5.2 — (Polynôme annulateur)</strong></p>
+<p>Un polynôme <span class="math inline">P \in \mathbb{K}[X]</span> est <strong>annulateur</strong> de <span class="math inline">u</span> si <span class="math inline">P(u) = 0</span>.</p>
+</div>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 5.1 — (Existence du polynôme minimal)</strong></p>
+<p>L’idéal des polynômes annulateurs de <span class="math inline">u</span> est non réduit à <span class="math inline">\{0\}</span> (car <span class="math inline">\mathcal{L}(E)</span> est de dimension finie <span class="math inline">n^2</span>). Son générateur unitaire est le <strong>polynôme minimal</strong> de <span class="math inline">u</span>, noté <span class="math inline">P_u</span>.</p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 5.2</strong></p>
+<p>Tout polynôme annulateur de <span class="math inline">u</span> est divisible par <span class="math inline">P_u</span>.</p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 5.3 — (Théorème de Cayley-Hamilton)</strong></p>
+<p>Le polynôme caractéristique <span class="math inline">\chi_u</span> annule <span class="math inline">u</span> : <span class="math inline">\chi_u(u) = 0</span>. Donc <span class="math inline">P_u</span> divise <span class="math inline">\chi_u</span>.</p>
+</div>
+</section>
+</section>
+<section id="exercices" class="level1" data-number="6">
+<h1 data-number="6"><span class="header-section-number">6</span> Exercices</h1>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 6.1</strong></p>
+<p>Soient <span class="math inline">F = \{(x,y,z) \in \mathbb{R}^3 \mid x + y + z = 0\}</span> et <span class="math inline">G = \{(x,y,z) \in \mathbb{R}^3 \mid x = y = z\}</span>. Montrer que <span class="math inline">\mathbb{R}^3 = F \oplus G</span> et déterminer la matrice du projecteur sur <span class="math inline">F</span> parallèlement à <span class="math inline">G</span>.</p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 6.2</strong></p>
+<p>Soit <span class="math inline">p \in \mathcal{L}(E)</span> avec <span class="math inline">p^2 = p</span>. Montrer que <span class="math inline">E = \mathrm{Im}(p) \oplus \ker(p)</span>.</p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 6.3</strong></p>
+<p>Soit <span class="math inline">s \in \mathcal{L}(E)</span> avec <span class="math inline">s^2 = \mathrm{Id}_E</span>. Montrer que <span class="math inline">s</span> est un automorphisme et déterminer ses valeurs propres.</p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 6.4</strong></p>
+<p>Soit <span class="math inline">A = \begin{pmatrix} 1 &amp; 1 &amp; 0 \\ 0 &amp; 1 &amp; 1 \\ 0 &amp; 0 &amp; 1 \end{pmatrix}</span>. Calculer <span class="math inline">A^n</span> et <span class="math inline">\mathrm{tr}(A^n)</span>.</p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 6.5</strong></p>
+<p>Soit <span class="math inline">u \in \mathcal{L}(E)</span> avec <span class="math inline">u^3 = u</span>. Montrer que <span class="math inline">u</span> est diagonalisable.</p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 6.6</strong></p>
+<p>Soit <span class="math inline">A \in \mathcal{M}_n(\mathbb{R})</span> idempotente (<span class="math inline">A^2 = A</span>). Montrer que <span class="math inline">\mathrm{tr}(A) = \mathrm{rg}(A)</span>.</p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 6.7</strong></p>
+<p>Soit <span class="math inline">A = \begin{pmatrix} 2 &amp; 1 \\ 0 &amp; 2 \end{pmatrix}</span>. Déterminer le polynôme minimal de <span class="math inline">A</span>.</p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 6.8</strong></p>
+<p>Soit <span class="math inline">u \in \mathcal{L}(E)</span> nilpotent d’indice <span class="math inline">p</span> (<span class="math inline">u^p = 0</span> et <span class="math inline">u^{p-1} \neq 0</span>). Déterminer le polynôme minimal de <span class="math inline">u</span>.</p>
+</div>
+</section>
+<section id="document-en-pdf" class="level1 unnumbered">
+<h1 class="unnumbered">Document en PDF</h1>
+<p><a href="PDF/ecs2-chap01.pdf"><strong>Chapitre 01 : Algèbre linéaire (compléments)</strong></a></p>
+<section id="navigation" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="navigation">Navigation</h2>
+<div class="chap-nav">
+<p><a href="../cours/ecs2.html" class="home">Menu ECS2</a> <a href="../cours/ecs2-chap02.html" class="next">Chapitre 02 : Réduction des endomorphismes et matrices</a></p>
+</div>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -281,12 +551,12 @@ ul.task-list li input[type="checkbox"] {
       // flash "checked"
       button.classList.add('code-copy-button-checked');
       var currentTitle = button.getAttribute("title");
-      button.setAttribute("title", "Copied!");
+      button.setAttribute("title", "Copié");
       let tooltip;
       if (window.bootstrap) {
         button.setAttribute("data-bs-toggle", "tooltip");
         button.setAttribute("data-bs-placement", "left");
-        button.setAttribute("data-bs-title", "Copied!");
+        button.setAttribute("data-bs-title", "Copié");
         tooltip = new bootstrap.Tooltip(button, 
           { trigger: "manual", 
             customClass: "code-copy-button-tooltip",

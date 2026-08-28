@@ -1,13 +1,14 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr"><head>
 
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.10.18">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Saîd MAHARI">
 
-<title>Polynômes - Mathématiques en CPGE – Mathématiques en CPGE</title>
+<title>Polynômes – Mathématiques en CPGE</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -45,7 +46,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-7a8c080b55ea27eb37b467515007f9ee.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-e0d9a45d84245cc5e3b300860d8fa645.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -60,17 +61,17 @@ ul.task-list li input[type="checkbox"] {
   ],
   "show-item-context": false,
   "language": {
-    "search-no-results-text": "No results",
-    "search-matching-documents-text": "matching documents",
-    "search-copy-link-title": "Copy link to search",
-    "search-hide-matches-text": "Hide additional matches",
-    "search-more-match-text": "more match in this document",
-    "search-more-matches-text": "more matches in this document",
-    "search-clear-button-title": "Clear",
+    "search-no-results-text": "Pas de résultats",
+    "search-matching-documents-text": "documents trouvés",
+    "search-copy-link-title": "Copier le lien vers la recherche",
+    "search-hide-matches-text": "Cacher les correspondances additionnelles",
+    "search-more-match-text": "correspondance de plus dans ce document",
+    "search-more-matches-text": "correspondances de plus dans ce document",
+    "search-clear-button-title": "Effacer",
     "search-text-placeholder": "",
-    "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit",
-    "search-label": "Search"
+    "search-detached-cancel-button-title": "Annuler",
+    "search-submit-button-title": "Envoyer",
+    "search-label": "Recherche"
   }
 }</script>
 <script data-goatcounter="https://maharicpge.goatcounter.com/count" async="" src="//gc.zgo.at/count.js"></script>
@@ -142,8 +143,52 @@ ul.task-list li input[type="checkbox"] {
   });
 </script>
 
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="styles.css">
 </head>
 
 <body class="nav-fixed quarto-light">
@@ -157,8 +202,8 @@ ul.task-list li input[type="checkbox"] {
     <span class="navbar-title">Accueil</span>
     </a>
   </div>
-            <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+            <div id="quarto-search" class="" title="Recherche"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Basculer la navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
@@ -218,10 +263,30 @@ ul.task-list li input[type="checkbox"] {
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
+    <h2 id="toc-title">Sur cette page</h2>
    
   <ul>
-  <li><a href="#document" id="toc-document" class="nav-link active" data-scroll-target="#document">Document</a></li>
+  <li><a href="#lanneau-mathbbkx" id="toc-lanneau-mathbbkx" class="nav-link active" data-scroll-target="#lanneau-mathbbkx"><span class="header-section-number">1</span> L’anneau <span class="math inline">\mathbb{K}[X]</span></a>
+  <ul class="collapse">
+  <li><a href="#définition" id="toc-définition" class="nav-link" data-scroll-target="#définition"><span class="header-section-number">1.1</span> Définition</a></li>
+  <li><a href="#division-euclidienne" id="toc-division-euclidienne" class="nav-link" data-scroll-target="#division-euclidienne"><span class="header-section-number">1.2</span> Division euclidienne</a></li>
+  </ul></li>
+  <li><a href="#racines-et-multiplicité" id="toc-racines-et-multiplicité" class="nav-link" data-scroll-target="#racines-et-multiplicité"><span class="header-section-number">2</span> Racines et multiplicité</a>
+  <ul class="collapse">
+  <li><a href="#racines" id="toc-racines" class="nav-link" data-scroll-target="#racines"><span class="header-section-number">2.1</span> Racines</a></li>
+  <li><a href="#multiplicité" id="toc-multiplicité" class="nav-link" data-scroll-target="#multiplicité"><span class="header-section-number">2.2</span> Multiplicité</a></li>
+  <li><a href="#dérivée-formelle" id="toc-dérivée-formelle" class="nav-link" data-scroll-target="#dérivée-formelle"><span class="header-section-number">2.3</span> Dérivée formelle</a></li>
+  </ul></li>
+  <li><a href="#factorisation" id="toc-factorisation" class="nav-link" data-scroll-target="#factorisation"><span class="header-section-number">3</span> Factorisation</a>
+  <ul class="collapse">
+  <li><a href="#théorème-de-dalembert-gauss" id="toc-théorème-de-dalembert-gauss" class="nav-link" data-scroll-target="#théorème-de-dalembert-gauss"><span class="header-section-number">3.1</span> Théorème de d’Alembert-Gauss</a></li>
+  <li><a href="#factorisation-dans-mathbbrx" id="toc-factorisation-dans-mathbbrx" class="nav-link" data-scroll-target="#factorisation-dans-mathbbrx"><span class="header-section-number">3.2</span> Factorisation dans <span class="math inline">\mathbb{R}[X]</span></a></li>
+  </ul></li>
+  <li><a href="#exercices" id="toc-exercices" class="nav-link" data-scroll-target="#exercices"><span class="header-section-number">4</span> Exercices</a></li>
+  <li><a href="#document-en-pdf" id="toc-document-en-pdf" class="nav-link" data-scroll-target="#document-en-pdf">Document en PDF</a>
+  <ul class="collapse">
+  <li><a href="#navigation" id="toc-navigation" class="nav-link" data-scroll-target="#navigation">Navigation</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -230,14 +295,27 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Chapitre 03 : Polynômes</h1>
+<h1 class="title">Polynômes</h1>
+<p class="subtitle lead">Chapitre 03</p>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Auteur·rice</div>
+    <div class="quarto-title-meta-contents">
+             <p>Saîd MAHARI </p>
+          </div>
+  </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">Date de publication</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">28 août 2026</p>
+    </div>
+  </div>
   
     
   </div>
@@ -247,12 +325,187 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p><strong>ECS 1re année (ECG) — Chapitre 03.</strong> Divisibilité, racines, factorisation.</p>
-<section id="document" class="level2">
-<h2 class="anchored" data-anchor-id="document">Document</h2>
-<p><em>PDF à venir : déposez le fichier <code>files/ecs1/chap03.pdf</code> puis régénérez la page.</em></p>
+<p><strong>ECS (1re année) — Chapitre 03.</strong> Divisibilité dans <span class="math inline">\mathbb{K}[X]</span>, racines, multiplicité, factorisation.</p>
+<p>Ce chapitre a été réalisé conformément au programme marocain de mathématiques de la filière ECS.</p>
+<p>Dans tout ce chapitre, <span class="math inline">\mathbb{K}</span> désigne <span class="math inline">\mathbb{R}</span> ou <span class="math inline">\mathbb{C}</span>.</p>
+<section id="lanneau-mathbbkx" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> L’anneau <span class="math inline">\mathbb{K}[X]</span></h1>
+<section id="définition" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="définition"><span class="header-section-number">1.1</span> Définition</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 1.1 — (Polynôme)</strong></p>
+<p>Un <strong>polynôme</strong> à coefficients dans <span class="math inline">\mathbb{K}</span> est une expression de la forme : <span class="math display">P(X) = a_0 + a_1 X + a_2 X^2 + \cdots + a_n X^n = \sum_{k=0}^n a_k X^k</span> où <span class="math inline">a_0, a_1, \ldots, a_n \in \mathbb{K}</span>. On note <span class="math inline">\mathbb{K}[X]</span> l’ensemble des polynômes à coefficients dans <span class="math inline">\mathbb{K}</span>.</p>
+</div>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 1.2 — (Degré)</strong></p>
+<p>Si <span class="math inline">P(X) = a_n X^n + \cdots + a_0</span> avec <span class="math inline">a_n \neq 0</span>, le <strong>degré</strong> de <span class="math inline">P</span> est <span class="math inline">n</span>, noté <span class="math inline">\deg(P) = n</span>. Le coefficient <span class="math inline">a_n</span> est appelé <strong>coefficient dominant</strong>.</p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 1.1 — (Opérations)</strong></p>
+<p>Pour tous polynômes <span class="math inline">P, Q \in \mathbb{K}[X]</span> :</p>
+<ol type="1">
+<li><span class="math inline">\deg(P + Q) \leq \max(\deg P, \deg Q)</span>.</li>
+<li><span class="math inline">\deg(PQ) = \deg P + \deg Q</span> (si <span class="math inline">P, Q \neq 0</span>).</li>
+<li><span class="math inline">\mathbb{K}[X]</span> est un anneau intègre (pas de diviseurs de zéro).</li>
+</ol>
+</div>
+</section>
+<section id="division-euclidienne" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="division-euclidienne"><span class="header-section-number">1.2</span> Division euclidienne</h2>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 1.1 — (Division euclidienne)</strong></p>
+<p>Pour tous <span class="math inline">A, B \in \mathbb{K}[X]</span> avec <span class="math inline">B \neq 0</span>, il existe un unique couple <span class="math inline">(Q, R) \in \mathbb{K}[X]^2</span> tel que : <span class="math display">A = BQ + R \qquad \text{avec} \qquad \deg R &lt; \deg B</span></p>
+<p><span class="math inline">Q</span> est le <strong>quotient</strong> et <span class="math inline">R</span> le <strong>reste</strong> de la division de <span class="math inline">A</span> par <span class="math inline">B</span>.</p>
+</div>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 1.3 — (Divisibilité)</strong></p>
+<p>On dit que <span class="math inline">B</span> <strong>divise</strong> <span class="math inline">A</span>, noté <span class="math inline">B \mid A</span>, si le reste de la division de <span class="math inline">A</span> par <span class="math inline">B</span> est nul, c’est-à-dire s’il existe <span class="math inline">Q \in \mathbb{K}[X]</span> tel que <span class="math inline">A = BQ</span>.</p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 1.1</strong></p>
+<p>Diviser <span class="math inline">A = X^3 + 2X^2 - X + 3</span> par <span class="math inline">B = X - 1</span>.</p>
+<p>On trouve <span class="math inline">A = (X-1)(X^2 + 3X + 2) + 5</span>. Le quotient est <span class="math inline">Q = X^2 + 3X + 2</span> et le reste est <span class="math inline">R = 5</span>.</p>
+</div>
+</section>
+</section>
+<section id="racines-et-multiplicité" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> Racines et multiplicité</h1>
+<section id="racines" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="racines"><span class="header-section-number">2.1</span> Racines</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 2.1 — (Racine)</strong></p>
+<p><span class="math inline">\alpha \in \mathbb{K}</span> est une <strong>racine</strong> de <span class="math inline">P \in \mathbb{K}[X]</span> si <span class="math inline">P(\alpha) = 0</span>.</p>
+</div>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 2.1 — (Lien avec la divisibilité)</strong></p>
+<p><span class="math inline">\alpha</span> est racine de <span class="math inline">P</span> si et seulement si <span class="math inline">(X - \alpha) \mid P(X)</span>.</p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Preuve</em>. </span>Par division euclidienne : <span class="math inline">P(X) = (X-\alpha)Q(X) + R</span> avec <span class="math inline">\deg R &lt; 1</span>, donc <span class="math inline">R</span> est une constante. En évaluant en <span class="math inline">\alpha</span> : <span class="math inline">P(\alpha) = 0 \cdot Q(\alpha) + R = R</span>. Donc <span class="math inline">R = 0</span> si et seulement si <span class="math inline">P(\alpha) = 0</span>.</p>
+</div>
+</section>
+<section id="multiplicité" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="multiplicité"><span class="header-section-number">2.2</span> Multiplicité</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 2.2 — (Multiplicité)</strong></p>
+<p><span class="math inline">\alpha</span> est racine de <span class="math inline">P</span> de <strong>multiplicité</strong> <span class="math inline">m \geq 1</span> si <span class="math inline">(X-\alpha)^m \mid P(X)</span> et <span class="math inline">(X-\alpha)^{m+1} \nmid P(X)</span>.</p>
+<p>Autrement dit, <span class="math inline">P(X) = (X-\alpha)^m Q(X)</span> avec <span class="math inline">Q(\alpha) \neq 0</span>.</p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 2.1 — (Caractérisation par la dérivée)</strong></p>
+<p><span class="math inline">\alpha</span> est racine de multiplicité <span class="math inline">m</span> de <span class="math inline">P</span> si et seulement si : <span class="math display">P(\alpha) = P'(\alpha) = \cdots = P^{(m-1)}(\alpha) = 0 \quad \text{et} \quad P^{(m)}(\alpha) \neq 0</span></p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 2.1</strong></p>
+<p><span class="math inline">P(X) = X^3 - 3X^2 + 3X - 1 = (X-1)^3</span>.</p>
+<p><span class="math inline">1</span> est racine de multiplicité <span class="math inline">3</span> car <span class="math inline">P(1) = P'(1) = P''(1) = 0</span> et <span class="math inline">P'''(1) = 6 \neq 0</span>.</p>
+</div>
+</section>
+<section id="dérivée-formelle" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="dérivée-formelle"><span class="header-section-number">2.3</span> Dérivée formelle</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 2.3 — (Dérivée formelle)</strong></p>
+<p>Si <span class="math inline">P(X) = \sum_{k=0}^n a_k X^k</span>, la <strong>dérivée formelle</strong> de <span class="math inline">P</span> est : <span class="math display">P'(X) = \sum_{k=1}^n k a_k X^{k-1}</span></p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 2.2</strong></p>
+<p><span class="math inline">(P + Q)' = P' + Q'</span>, <span class="math inline">(\lambda P)' = \lambda P'</span> et <span class="math inline">(PQ)' = P'Q + PQ'</span>.</p>
+</div>
+</section>
+</section>
+<section id="factorisation" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Factorisation</h1>
+<section id="théorème-de-dalembert-gauss" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="théorème-de-dalembert-gauss"><span class="header-section-number">3.1</span> Théorème de d’Alembert-Gauss</h2>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 3.1 — (Théorème de d’Alembert-Gauss)</strong></p>
+<p>Tout polynôme non constant <span class="math inline">P \in \mathbb{C}[X]</span> admet au moins une racine dans <span class="math inline">\mathbb{C}</span>.</p>
+<p>En particulier, tout polynôme <span class="math inline">P \in \mathbb{C}[X]</span> de degré <span class="math inline">n \geq 1</span> se factorise complètement dans <span class="math inline">\mathbb{C}[X]</span> : <span class="math display">P(X) = a_n \prod_{k=1}^n (X - \alpha_k)</span> où <span class="math inline">\alpha_1, \ldots, \alpha_n</span> sont les racines de <span class="math inline">P</span> (comptées avec multiplicité).</p>
+</div>
+</section>
+<section id="factorisation-dans-mathbbrx" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="factorisation-dans-mathbbrx"><span class="header-section-number">3.2</span> Factorisation dans <span class="math inline">\mathbb{R}[X]</span></h2>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 3.2 — (Irréductibles de <span class="math inline">\boldsymbol{\mathbb{R}[X]}</span>)</strong></p>
+<p>Les polynômes irréductibles de <span class="math inline">\mathbb{R}[X]</span> sont :</p>
+<ul>
+<li>Les polynômes de degré <span class="math inline">1</span> : <span class="math inline">aX + b</span> avec <span class="math inline">a \neq 0</span>.</li>
+<li>Les polynômes de degré <span class="math inline">2</span> sans racine réelle : <span class="math inline">aX^2 + bX + c</span> avec <span class="math inline">\Delta = b^2 - 4ac &lt; 0</span>.</li>
+</ul>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 3.1 — (Factorisation dans <span class="math inline">\boldsymbol{\mathbb{R}[X]}</span>)</strong></p>
+<p>Tout polynôme <span class="math inline">P \in \mathbb{R}[X]</span> de degré <span class="math inline">n \geq 1</span> se factorise dans <span class="math inline">\mathbb{R}[X]</span> en produit de polynômes irréductibles : <span class="math display">P(X) = a_n \prod_{i} (X - \alpha_i) \prod_{j} (X^2 + p_j X + q_j)</span> où les <span class="math inline">\alpha_i</span> sont les racines réelles et les <span class="math inline">X^2 + p_j X + q_j</span> sont les facteurs irréductibles de degré <span class="math inline">2</span> (avec <span class="math inline">\Delta_j &lt; 0</span>).</p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 3.1</strong></p>
+<p>Factoriser <span class="math inline">P(X) = X^4 - 1</span> dans <span class="math inline">\mathbb{R}[X]</span> et <span class="math inline">\mathbb{C}[X]</span>.</p>
+<p>Dans <span class="math inline">\mathbb{C}[X]</span> : <span class="math inline">X^4 - 1 = (X-1)(X+1)(X-i)(X+i)</span>.</p>
+<p>Dans <span class="math inline">\mathbb{R}[X]</span> : <span class="math inline">X^4 - 1 = (X-1)(X+1)(X^2+1)</span>.</p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 3.2</strong></p>
+<p>Factoriser <span class="math inline">Q(X) = X^3 - 1</span>.</p>
+<p>Dans <span class="math inline">\mathbb{C}[X]</span> : <span class="math inline">X^3 - 1 = (X-1)(X-e^{2i\pi/3})(X-e^{-2i\pi/3})</span>.</p>
+<p>Dans <span class="math inline">\mathbb{R}[X]</span> : <span class="math inline">X^3 - 1 = (X-1)(X^2+X+1)</span>.</p>
+</div>
+</section>
+</section>
+<section id="exercices" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> Exercices</h1>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 4.1</strong></p>
+<p>Effectuer la division euclidienne de <span class="math inline">A = X^4 + 3X^3 - X + 2</span> par <span class="math inline">B = X^2 + X - 1</span>.</p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 4.2</strong></p>
+<p>Déterminer les racines et leur multiplicité de :</p>
+<ol type="1">
+<li><span class="math inline">P(X) = X^3 - 6X^2 + 11X - 6</span></li>
+<li><span class="math inline">Q(X) = X^4 - 2X^3 + X^2</span></li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 4.3</strong></p>
+<p>Factoriser dans <span class="math inline">\mathbb{R}[X]</span> et <span class="math inline">\mathbb{C}[X]</span> :</p>
+<ol type="1">
+<li><span class="math inline">X^4 + 1</span></li>
+<li><span class="math inline">X^6 - 1</span></li>
+<li><span class="math inline">X^3 + 2X^2 + 2X + 1</span></li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 4.4</strong></p>
+<p>Soit <span class="math inline">P(X) = X^n - 1</span>. Déterminer les racines de <span class="math inline">P</span> dans <span class="math inline">\mathbb{C}</span>.</p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 4.5</strong></p>
+<p>Montrer que si <span class="math inline">P \in \mathbb{R}[X]</span> admet une racine complexe non réelle <span class="math inline">\alpha</span>, alors <span class="math inline">\bar{\alpha}</span> est aussi racine de <span class="math inline">P</span>.</p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 4.6</strong></p>
+<p>Soit <span class="math inline">P(X) = X^3 + aX^2 + bX + c</span> avec <span class="math inline">a, b, c \in \mathbb{R}</span>. On suppose que <span class="math inline">P</span> admet trois racines réelles <span class="math inline">r_1, r_2, r_3</span>. Exprimer <span class="math inline">a</span>, <span class="math inline">b</span>, <span class="math inline">c</span> en fonction de <span class="math inline">r_1, r_2, r_3</span>.</p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 4.7</strong></p>
+<p>Montrer que le polynôme <span class="math inline">P(X) = X^2 + X + 1</span> est irréductible dans <span class="math inline">\mathbb{R}[X]</span> mais pas dans <span class="math inline">\mathbb{C}[X]</span>.</p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 4.8</strong></p>
+<p>Soit <span class="math inline">P \in \mathbb{R}[X]</span> de degré impair. Montrer que <span class="math inline">P</span> admet au moins une racine réelle.</p>
+</div>
+</section>
+<section id="document-en-pdf" class="level1 unnumbered">
+<h1 class="unnumbered">Document en PDF</h1>
+<p><a href="PDF/ecs1-chap03.pdf"><strong>Chapitre 03 : Polynômes</strong></a></p>
+<section id="navigation" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="navigation">Navigation</h2>
+<div class="chap-nav">
+<p><a href="../cours/ecs1-chap02.html" class="prev">Chapitre 02 : Calcul algébrique</a> <a href="../cours/ecs1.html" class="home">Menu ECS1</a> <a href="../cours/ecs1-chap04.html" class="next">Chapitre 04 : Suites réelles</a></p>
+</div>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -281,12 +534,12 @@ ul.task-list li input[type="checkbox"] {
       // flash "checked"
       button.classList.add('code-copy-button-checked');
       var currentTitle = button.getAttribute("title");
-      button.setAttribute("title", "Copied!");
+      button.setAttribute("title", "Copié");
       let tooltip;
       if (window.bootstrap) {
         button.setAttribute("data-bs-toggle", "tooltip");
         button.setAttribute("data-bs-placement", "left");
-        button.setAttribute("data-bs-title", "Copied!");
+        button.setAttribute("data-bs-title", "Copié");
         tooltip = new bootstrap.Tooltip(button, 
           { trigger: "manual", 
             customClass: "code-copy-button-tooltip",

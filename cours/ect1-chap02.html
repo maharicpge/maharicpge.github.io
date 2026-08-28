@@ -1,13 +1,14 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr"><head>
 
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.10.18">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Saîd MAHARI">
 
-<title>Suites numériques - Mathématiques en CPGE – Mathématiques en CPGE</title>
+<title>Calculs algébriques dans ℝ – Mathématiques en CPGE</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -45,7 +46,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-7a8c080b55ea27eb37b467515007f9ee.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-e0d9a45d84245cc5e3b300860d8fa645.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -60,17 +61,17 @@ ul.task-list li input[type="checkbox"] {
   ],
   "show-item-context": false,
   "language": {
-    "search-no-results-text": "No results",
-    "search-matching-documents-text": "matching documents",
-    "search-copy-link-title": "Copy link to search",
-    "search-hide-matches-text": "Hide additional matches",
-    "search-more-match-text": "more match in this document",
-    "search-more-matches-text": "more matches in this document",
-    "search-clear-button-title": "Clear",
+    "search-no-results-text": "Pas de résultats",
+    "search-matching-documents-text": "documents trouvés",
+    "search-copy-link-title": "Copier le lien vers la recherche",
+    "search-hide-matches-text": "Cacher les correspondances additionnelles",
+    "search-more-match-text": "correspondance de plus dans ce document",
+    "search-more-matches-text": "correspondances de plus dans ce document",
+    "search-clear-button-title": "Effacer",
     "search-text-placeholder": "",
-    "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit",
-    "search-label": "Search"
+    "search-detached-cancel-button-title": "Annuler",
+    "search-submit-button-title": "Envoyer",
+    "search-label": "Recherche"
   }
 }</script>
 <script data-goatcounter="https://maharicpge.goatcounter.com/count" async="" src="//gc.zgo.at/count.js"></script>
@@ -142,8 +143,52 @@ ul.task-list li input[type="checkbox"] {
   });
 </script>
 
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="styles.css">
 </head>
 
 <body class="nav-fixed quarto-light">
@@ -157,8 +202,8 @@ ul.task-list li input[type="checkbox"] {
     <span class="navbar-title">Accueil</span>
     </a>
   </div>
-            <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+            <div id="quarto-search" class="" title="Recherche"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Basculer la navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
@@ -218,10 +263,27 @@ ul.task-list li input[type="checkbox"] {
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
+    <h2 id="toc-title">Sur cette page</h2>
    
   <ul>
-  <li><a href="#document" id="toc-document" class="nav-link active" data-scroll-target="#document">Document</a></li>
+  <li><a href="#nombres-réels-et-inégalités" id="toc-nombres-réels-et-inégalités" class="nav-link active" data-scroll-target="#nombres-réels-et-inégalités"><span class="header-section-number">1</span> Nombres réels et inégalités</a>
+  <ul class="collapse">
+  <li><a href="#corps-des-nombres-réels" id="toc-corps-des-nombres-réels" class="nav-link" data-scroll-target="#corps-des-nombres-réels"><span class="header-section-number">1.1</span> Corps des nombres réels</a></li>
+  <li><a href="#puissances" id="toc-puissances" class="nav-link" data-scroll-target="#puissances"><span class="header-section-number">1.2</span> Puissances</a></li>
+  <li><a href="#valeur-absolue" id="toc-valeur-absolue" class="nav-link" data-scroll-target="#valeur-absolue"><span class="header-section-number">1.3</span> Valeur absolue</a></li>
+  <li><a href="#propriété-darchimède" id="toc-propriété-darchimède" class="nav-link" data-scroll-target="#propriété-darchimède"><span class="header-section-number">1.4</span> Propriété d’Archimède</a></li>
+  <li><a href="#partie-entière" id="toc-partie-entière" class="nav-link" data-scroll-target="#partie-entière"><span class="header-section-number">1.5</span> Partie entière</a></li>
+  </ul></li>
+  <li><a href="#systèmes-linéaires-2-times-2" id="toc-systèmes-linéaires-2-times-2" class="nav-link" data-scroll-target="#systèmes-linéaires-2-times-2"><span class="header-section-number">2</span> Systèmes linéaires <span class="math inline">2 \times 2</span></a>
+  <ul class="collapse">
+  <li><a href="#définition" id="toc-définition" class="nav-link" data-scroll-target="#définition"><span class="header-section-number">2.1</span> Définition</a></li>
+  <li><a href="#résolution" id="toc-résolution" class="nav-link" data-scroll-target="#résolution"><span class="header-section-number">2.2</span> Résolution</a></li>
+  </ul></li>
+  <li><a href="#exercices" id="toc-exercices" class="nav-link" data-scroll-target="#exercices"><span class="header-section-number">3</span> Exercices</a></li>
+  <li><a href="#document-en-pdf" id="toc-document-en-pdf" class="nav-link" data-scroll-target="#document-en-pdf">Document en PDF</a>
+  <ul class="collapse">
+  <li><a href="#navigation" id="toc-navigation" class="nav-link" data-scroll-target="#navigation">Navigation</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -230,14 +292,27 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Chapitre 02 : Suites numériques</h1>
+<h1 class="title">Calculs algébriques dans ℝ</h1>
+<p class="subtitle lead">Chapitre 02</p>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Auteur·rice</div>
+    <div class="quarto-title-meta-contents">
+             <p>Saîd MAHARI </p>
+          </div>
+  </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">Date de publication</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">28 août 2026</p>
+    </div>
+  </div>
   
     
   </div>
@@ -247,12 +322,199 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p><strong>ECT 1re année — Chapitre 02.</strong> Suites arithmétiques et géométriques, comportement global et limites.</p>
-<section id="document" class="level2">
-<h2 class="anchored" data-anchor-id="document">Document</h2>
-<p><em>PDF à venir : déposez le fichier <code>files/ect1/chap02.pdf</code> puis régénérez la page.</em></p>
+<p><strong>ECT (1re année) — Chapitre 02.</strong> Nombres réels, puissances, inégalités, valeur absolue, propriété d’Archimède, systèmes linéaires <span class="math inline">2 \times 2</span>.</p>
+<p>Ce chapitre a été réalisé conformément au programme marocain de mathématiques de la filière ECT.</p>
+<section id="nombres-réels-et-inégalités" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Nombres réels et inégalités</h1>
+<section id="corps-des-nombres-réels" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="corps-des-nombres-réels"><span class="header-section-number">1.1</span> Corps des nombres réels</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 1.1 — (Corps des réels)</strong></p>
+<p><span class="math inline">\mathbb{R}</span> est un <strong>corps commutatif</strong> muni des opérations <span class="math inline">+</span> et <span class="math inline">\times</span>, c’est-à-dire :</p>
+<ul>
+<li><span class="math inline">(\mathbb{R}, +)</span> est un groupe commutatif d’élément neutre <span class="math inline">0</span>.</li>
+<li><span class="math inline">(\mathbb{R}^*, \times)</span> est un groupe commutatif d’élément neutre <span class="math inline">1</span>.</li>
+<li>La multiplication est distributive sur l’addition.</li>
+</ul>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 1.1 — (Inégalités dans ℝ)</strong></p>
+<p>Pour tous <span class="math inline">a, b, c \in \mathbb{R}</span> :</p>
+<ol type="1">
+<li><span class="math inline">a \leq b \iff a + c \leq b + c</span></li>
+<li><span class="math inline">a \leq b</span> et <span class="math inline">c &gt; 0 \implies ac \leq bc</span></li>
+<li><span class="math inline">a \leq b</span> et <span class="math inline">c &lt; 0 \implies ac \geq bc</span></li>
+<li><span class="math inline">a \leq b</span> et <span class="math inline">c \leq d \implies a + c \leq b + d</span></li>
+<li><span class="math inline">0 \leq a \leq b</span> et <span class="math inline">0 \leq c \leq d \implies ac \leq bd</span></li>
+</ol>
+</div>
+<div class="remarque">
+<p>On ne peut pas additionner deux inégalités de sens contraire. On ne peut pas multiplier deux inégalités sans vérifier les signes.</p>
+</div>
+</section>
+<section id="puissances" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="puissances"><span class="header-section-number">1.2</span> Puissances</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 1.2 — (Puissances entières)</strong></p>
+<p>Pour <span class="math inline">a \in \mathbb{R}</span> et <span class="math inline">n \in \mathbb{N}^*</span> : <span class="math display">a^n = \underbrace{a \times a \times \cdots \times a}_{n \text{ fois}}, \qquad a^0 = 1</span></p>
+<p>Pour <span class="math inline">a \neq 0</span> et <span class="math inline">n \in \mathbb{N}^*</span> : <span class="math inline">a^{-n} = \dfrac{1}{a^n}</span>.</p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 1.2 — (Règles de calcul)</strong></p>
+<p>Pour <span class="math inline">a, b \in \mathbb{R}</span> et <span class="math inline">m, n \in \mathbb{Z}</span> :</p>
+<ol type="1">
+<li><span class="math inline">a^m \times a^n = a^{m+n}</span></li>
+<li><span class="math inline">(a^m)^n = a^{mn}</span></li>
+<li><span class="math inline">(ab)^n = a^n b^n</span></li>
+<li><span class="math inline">\dfrac{a^m}{a^n} = a^{m-n}</span> (si <span class="math inline">a \neq 0</span>)</li>
+</ol>
+</div>
+</section>
+<section id="valeur-absolue" class="level2" data-number="1.3">
+<h2 data-number="1.3" class="anchored" data-anchor-id="valeur-absolue"><span class="header-section-number">1.3</span> Valeur absolue</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 1.3 — (Valeur absolue)</strong></p>
+<p>Pour <span class="math inline">x \in \mathbb{R}</span>, la <strong>valeur absolue</strong> de <span class="math inline">x</span> est : <span class="math display">|x| = \begin{cases} x &amp; \text{si } x \geq 0 \\ -x &amp; \text{si } x &lt; 0 \end{cases}</span></p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 1.3 — (Propriétés de la valeur absolue)</strong></p>
+<p>Pour tous <span class="math inline">x, y \in \mathbb{R}</span> :</p>
+<ol type="1">
+<li><span class="math inline">|x| \geq 0</span> et <span class="math inline">|x| = 0 \iff x = 0</span></li>
+<li><span class="math inline">|xy| = |x| \cdot |y|</span></li>
+<li><span class="math inline">|x + y| \leq |x| + |y|</span> (inégalité triangulaire)</li>
+<li><span class="math inline">|x - y| \geq ||x| - |y||</span></li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 1.4 — (Caractérisation)</strong></p>
+<p>Pour <span class="math inline">a \geq 0</span> :</p>
+<ul>
+<li><span class="math inline">|x| \leq a \iff -a \leq x \leq a</span></li>
+<li><span class="math inline">|x| \geq a \iff x \leq -a</span> ou <span class="math inline">x \geq a</span></li>
+</ul>
+</div>
+</section>
+<section id="propriété-darchimède" class="level2" data-number="1.4">
+<h2 data-number="1.4" class="anchored" data-anchor-id="propriété-darchimède"><span class="header-section-number">1.4</span> Propriété d’Archimède</h2>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 1.1 — (Propriété d’Archimède)</strong></p>
+<p>Pour tout <span class="math inline">x \in \mathbb{R}</span>, il existe <span class="math inline">n \in \mathbb{N}</span> tel que <span class="math inline">n &gt; x</span>.</p>
+<p>Autrement dit, <span class="math inline">\mathbb{N}</span> n’est pas majoré dans <span class="math inline">\mathbb{R}</span>.</p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 1.5 — (Conséquences)</strong></p>
+<ol type="1">
+<li>Pour tout <span class="math inline">\varepsilon &gt; 0</span>, il existe <span class="math inline">n \in \mathbb{N}^*</span> tel que <span class="math inline">\frac{1}{n} &lt; \varepsilon</span>.</li>
+<li>Pour tout <span class="math inline">x \in \mathbb{R}</span>, il existe un unique <span class="math inline">p \in \mathbb{Z}</span> tel que <span class="math inline">p \leq x &lt; p+1</span> (partie entière).</li>
+</ol>
+</div>
+</section>
+<section id="partie-entière" class="level2" data-number="1.5">
+<h2 data-number="1.5" class="anchored" data-anchor-id="partie-entière"><span class="header-section-number">1.5</span> Partie entière</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 1.4 — (Partie entière)</strong></p>
+<p>Pour <span class="math inline">x \in \mathbb{R}</span>, la <strong>partie entière</strong> de <span class="math inline">x</span>, notée <span class="math inline">\lfloor x \rfloor</span> ou <span class="math inline">E(x)</span>, est l’unique entier <span class="math inline">p</span> tel que <span class="math inline">p \leq x &lt; p+1</span>.</p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 1.1</strong></p>
+<p><span class="math inline">\lfloor 3,7 \rfloor = 3</span>, <span class="math inline">\lfloor -2,3 \rfloor = -3</span>, <span class="math inline">\lfloor 5 \rfloor = 5</span>.</p>
+</div>
+</section>
+</section>
+<section id="systèmes-linéaires-2-times-2" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> Systèmes linéaires <span class="math inline">2 \times 2</span></h1>
+<section id="définition" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="définition"><span class="header-section-number">2.1</span> Définition</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 2.1 — (Système linéaire <span class="math inline">\boldsymbol{2 \times 2}</span>)</strong></p>
+<p>Un <strong>système linéaire</strong> de 2 équations à 2 inconnues est de la forme : <span class="math display">\begin{cases} ax + by = s \\ cx + dy = t \end{cases}</span> où <span class="math inline">a, b, c, d, s, t \in \mathbb{R}</span> sont donnés et <span class="math inline">x, y \in \mathbb{R}</span> sont les inconnues.</p>
+</div>
+</section>
+<section id="résolution" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="résolution"><span class="header-section-number">2.2</span> Résolution</h2>
+<div class="custom-numbered-block custom-methode">
+<p><strong>Méthode 2.1 — (Méthode de résolution)</strong></p>
+<p>Pour résoudre le système <span class="math inline">\begin{cases} ax + by = s \\ cx + dy = t \end{cases}</span> :</p>
+<ol type="1">
+<li>Calculer le déterminant <span class="math inline">\Delta = ad - bc</span>.</li>
+<li>Si <span class="math inline">\Delta \neq 0</span> : le système a une solution unique : <span class="math display">x = \frac{sd - bt}{ad - bc}, \qquad y = \frac{at - sc}{ad - bc}</span></li>
+<li>Si <span class="math inline">\Delta = 0</span> : le système n’a pas de solution ou une infinité de solutions.</li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 2.1</strong></p>
+<p>Résoudre <span class="math inline">\begin{cases} 2x + 3y = 7 \\ x - y = 1 \end{cases}</span>.</p>
+<p><span class="math inline">\Delta = 2 \times (-1) - 3 \times 1 = -5 \neq 0</span>. Le système a une solution unique : <span class="math display">x = \frac{7 \times (-1) - 3 \times 1}{-5} = \frac{-10}{-5} = 2</span> <span class="math display">y = \frac{2 \times 1 - 7 \times 1}{-5} = \frac{-5}{-5} = 1</span></p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 2.2 — (Cas particulier)</strong></p>
+<p>Résoudre <span class="math inline">\begin{cases} x + y = 2 \\ 2x + 2y = 4 \end{cases}</span>.</p>
+<p><span class="math inline">\Delta = 1 \times 2 - 1 \times 2 = 0</span>. Les deux équations sont proportionnelles. Le système a une infinité de solutions : <span class="math inline">\{(x, 2-x) \mid x \in \mathbb{R}\}</span>.</p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 2.3 — (Cas incompatible)</strong></p>
+<p>Résoudre <span class="math inline">\begin{cases} x + y = 2 \\ x + y = 3 \end{cases}</span>.</p>
+<p><span class="math inline">\Delta = 0</span>. Les deux équations sont incompatibles. Le système n’a pas de solution.</p>
+</div>
+</section>
+</section>
+<section id="exercices" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Exercices</h1>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 3.1</strong></p>
+<p>Résoudre les inéquations suivantes :</p>
+<ol type="1">
+<li><span class="math inline">|2x - 3| \leq 5</span></li>
+<li><span class="math inline">|x + 1| &gt; |x - 2|</span></li>
+<li><span class="math inline">x^2 - 5x + 6 \leq 0</span></li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 3.2</strong></p>
+<p>Montrer que pour tout <span class="math inline">x \in \mathbb{R}</span> : <span class="math inline">|x| + |x-1| \geq 1</span>.</p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 3.3</strong></p>
+<p>Soit <span class="math inline">a \in \mathbb{R}^*</span>. Montrer que <span class="math inline">a + \frac{1}{a} \geq 2</span> si <span class="math inline">a &gt; 0</span> et <span class="math inline">a + \frac{1}{a} \leq -2</span> si <span class="math inline">a &lt; 0</span>.</p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 3.4</strong></p>
+<p>Résoudre les systèmes suivants :</p>
+<ol type="1">
+<li><span class="math inline">\begin{cases} 3x + 2y = 12 \\ x - y = 1 \end{cases}</span></li>
+<li><span class="math inline">\begin{cases} 2x - y = 3 \\ 4x - 2y = 6 \end{cases}</span></li>
+<li><span class="math inline">\begin{cases} x + 2y = 5 \\ 2x + 4y = 8 \end{cases}</span></li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 3.5</strong></p>
+<p>Soit <span class="math inline">x \in \mathbb{R}</span>. Montrer que <span class="math inline">\lfloor x \rfloor \leq x &lt; \lfloor x \rfloor + 1</span> et <span class="math inline">x - 1 &lt; \lfloor x \rfloor \leq x</span>.</p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 3.6</strong></p>
+<p>Montrer que pour tous <span class="math inline">a, b \in \mathbb{R}^+</span> : <span class="math inline">\sqrt{ab} \leq \dfrac{a+b}{2}</span> (inégalité arithmético-géométrique).</p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 3.7</strong></p>
+<p>Soit <span class="math inline">n \in \mathbb{N}^*</span>. Montrer que <span class="math inline">\sum_{k=1}^n \frac{1}{k(k+1)} = 1 - \frac{1}{n+1}</span>.</p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 3.8</strong></p>
+<p>Résoudre dans <span class="math inline">\mathbb{R}</span> : <span class="math inline">|x - 1| + |x + 2| = 5</span>.</p>
+</div>
+</section>
+<section id="document-en-pdf" class="level1 unnumbered">
+<h1 class="unnumbered">Document en PDF</h1>
+<p><a href="PDF/ect1-chap02.pdf"><strong>Chapitre 02 : Calculs algébriques dans ℝ</strong></a></p>
+<section id="navigation" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="navigation">Navigation</h2>
+<div class="chap-nav">
+<p><a href="../cours/ect1-chap01.html" class="prev">Chapitre 01 : Raisonnements, notions d’ensemble et d’application</a> <a href="../cours/ect1.html" class="home">Menu ECT1</a> <a href="../cours/ect1-chap03.html" class="next">Chapitre 03 : Exemples de suites réelles, polynômes</a></p>
+</div>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -281,12 +543,12 @@ ul.task-list li input[type="checkbox"] {
       // flash "checked"
       button.classList.add('code-copy-button-checked');
       var currentTitle = button.getAttribute("title");
-      button.setAttribute("title", "Copied!");
+      button.setAttribute("title", "Copié");
       let tooltip;
       if (window.bootstrap) {
         button.setAttribute("data-bs-toggle", "tooltip");
         button.setAttribute("data-bs-placement", "left");
-        button.setAttribute("data-bs-title", "Copied!");
+        button.setAttribute("data-bs-title", "Copié");
         tooltip = new bootstrap.Tooltip(button, 
           { trigger: "manual", 
             customClass: "code-copy-button-tooltip",

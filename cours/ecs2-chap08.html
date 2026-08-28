@@ -1,13 +1,14 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr"><head>
 
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.10.18">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Saîd MAHARI">
 
-<title>Vecteurs aléatoires - Mathématiques en CPGE – Mathématiques en CPGE</title>
+<title>Vecteurs aléatoires – Mathématiques en CPGE</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -45,7 +46,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-7a8c080b55ea27eb37b467515007f9ee.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-e0d9a45d84245cc5e3b300860d8fa645.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -60,17 +61,17 @@ ul.task-list li input[type="checkbox"] {
   ],
   "show-item-context": false,
   "language": {
-    "search-no-results-text": "No results",
-    "search-matching-documents-text": "matching documents",
-    "search-copy-link-title": "Copy link to search",
-    "search-hide-matches-text": "Hide additional matches",
-    "search-more-match-text": "more match in this document",
-    "search-more-matches-text": "more matches in this document",
-    "search-clear-button-title": "Clear",
+    "search-no-results-text": "Pas de résultats",
+    "search-matching-documents-text": "documents trouvés",
+    "search-copy-link-title": "Copier le lien vers la recherche",
+    "search-hide-matches-text": "Cacher les correspondances additionnelles",
+    "search-more-match-text": "correspondance de plus dans ce document",
+    "search-more-matches-text": "correspondances de plus dans ce document",
+    "search-clear-button-title": "Effacer",
     "search-text-placeholder": "",
-    "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit",
-    "search-label": "Search"
+    "search-detached-cancel-button-title": "Annuler",
+    "search-submit-button-title": "Envoyer",
+    "search-label": "Recherche"
   }
 }</script>
 <script data-goatcounter="https://maharicpge.goatcounter.com/count" async="" src="//gc.zgo.at/count.js"></script>
@@ -142,8 +143,52 @@ ul.task-list li input[type="checkbox"] {
   });
 </script>
 
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="styles.css">
 </head>
 
 <body class="nav-fixed quarto-light">
@@ -157,8 +202,8 @@ ul.task-list li input[type="checkbox"] {
     <span class="navbar-title">Accueil</span>
     </a>
   </div>
-            <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+            <div id="quarto-search" class="" title="Recherche"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Basculer la navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
@@ -218,10 +263,21 @@ ul.task-list li input[type="checkbox"] {
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
+    <h2 id="toc-title">Sur cette page</h2>
    
   <ul>
-  <li><a href="#document" id="toc-document" class="nav-link active" data-scroll-target="#document">Document</a></li>
+  <li><a href="#loi-conjointe" id="toc-loi-conjointe" class="nav-link active" data-scroll-target="#loi-conjointe"><span class="header-section-number">1</span> Loi conjointe</a></li>
+  <li><a href="#lois-marginales" id="toc-lois-marginales" class="nav-link" data-scroll-target="#lois-marginales"><span class="header-section-number">2</span> Lois marginales</a></li>
+  <li><a href="#lois-conditionnelles" id="toc-lois-conditionnelles" class="nav-link" data-scroll-target="#lois-conditionnelles"><span class="header-section-number">3</span> Lois conditionnelles</a></li>
+  <li><a href="#indépendance" id="toc-indépendance" class="nav-link" data-scroll-target="#indépendance"><span class="header-section-number">4</span> Indépendance</a></li>
+  <li><a href="#covariance" id="toc-covariance" class="nav-link" data-scroll-target="#covariance"><span class="header-section-number">5</span> Covariance</a></li>
+  <li><a href="#corrélation-linéaire" id="toc-corrélation-linéaire" class="nav-link" data-scroll-target="#corrélation-linéaire"><span class="header-section-number">6</span> Corrélation linéaire</a></li>
+  <li><a href="#vecteurs-aléatoires-à-densité" id="toc-vecteurs-aléatoires-à-densité" class="nav-link" data-scroll-target="#vecteurs-aléatoires-à-densité"><span class="header-section-number">7</span> Vecteurs aléatoires à densité</a></li>
+  <li><a href="#exercices" id="toc-exercices" class="nav-link" data-scroll-target="#exercices"><span class="header-section-number">8</span> Exercices</a></li>
+  <li><a href="#document-en-pdf" id="toc-document-en-pdf" class="nav-link" data-scroll-target="#document-en-pdf">Document en PDF</a>
+  <ul class="collapse">
+  <li><a href="#navigation" id="toc-navigation" class="nav-link" data-scroll-target="#navigation">Navigation</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -230,14 +286,27 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Chapitre 08 : Vecteurs aléatoires</h1>
+<h1 class="title">Vecteurs aléatoires</h1>
+<p class="subtitle lead">Chapitre 08</p>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Auteur·rice</div>
+    <div class="quarto-title-meta-contents">
+             <p>Saîd MAHARI </p>
+          </div>
+  </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">Date de publication</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">28 août 2026</p>
+    </div>
+  </div>
   
     
   </div>
@@ -247,12 +316,210 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p><strong>ECS 2e année (ECG) — Chapitre 08.</strong> Lois conjointes, marginales, conditionnelles, covariance, corrélation.</p>
-<section id="document" class="level2">
-<h2 class="anchored" data-anchor-id="document">Document</h2>
-<p><em>PDF à venir : déposez le fichier <code>files/ecs2/chap08.pdf</code> puis régénérez la page.</em></p>
+<p><strong>ECS (2e année) — Chapitre 08.</strong> Lois conjointes, marginales, conditionnelles, covariance, corrélation linéaire.</p>
+<p>Ce chapitre a été réalisé conformément au programme marocain de mathématiques de la filière ECS.</p>
+<p>Dans tout ce chapitre, <span class="math inline">(X, Y)</span> désigne un couple de variables aléatoires.</p>
+<section id="loi-conjointe" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Loi conjointe</h1>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 1.1 — (Loi conjointe)</strong></p>
+<p>La <strong>loi conjointe</strong> de <span class="math inline">(X, Y)</span> est la donnée des <span class="math inline">P(X = x, Y = y)</span> pour <span class="math inline">(x, y) \in X(\Omega) \times Y(\Omega)</span>, avec : <span class="math display">\sum_{x} \sum_{y} P(X = x, Y = y) = 1</span></p>
+</div>
+</section>
+<section id="lois-marginales" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> Lois marginales</h1>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 2.1 — (Lois marginales)</strong></p>
+<p>Les <strong>lois marginales</strong> de <span class="math inline">X</span> et <span class="math inline">Y</span> sont : <span class="math display">P(X = x) = \sum_y P(X = x, Y = y), \quad P(Y = y) = \sum_x P(X = x, Y = y)</span></p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 2.1</strong></p>
+<p>Soit <span class="math inline">(X, Y)</span> de loi conjointe :</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th><span class="math inline">X \setminus Y</span></th>
+<th style="text-align: right;">0</th>
+<th style="text-align: right;">1</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>0</td>
+<td style="text-align: right;"><span class="math inline">1/4</span></td>
+<td style="text-align: right;"><span class="math inline">1/4</span></td>
+</tr>
+<tr class="even">
+<td>1</td>
+<td style="text-align: right;"><span class="math inline">1/4</span></td>
+<td style="text-align: right;"><span class="math inline">1/4</span></td>
+</tr>
+</tbody>
+</table>
+<p>Lois marginales : <span class="math inline">P(X = 0) = P(X = 1) = 1/2</span>, idem pour <span class="math inline">Y</span>.</p>
+</div>
+</section>
+<section id="lois-conditionnelles" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Lois conditionnelles</h1>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 3.1 — (Loi conditionnelle)</strong></p>
+<p>Si <span class="math inline">P(Y = y) &gt; 0</span>, la <strong>loi conditionnelle</strong> de <span class="math inline">X</span> sachant <span class="math inline">Y = y</span> est : <span class="math display">P(X = x \mid Y = y) = \frac{P(X = x, Y = y)}{P(Y = y)}</span></p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 3.1 — (Formule des probabilités totales)</strong></p>
+<p><span class="math display">P(X = x) = \sum_y P(X = x \mid Y = y) P(Y = y)</span></p>
+</div>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 3.1 — (Formule de Bayes)</strong></p>
+<p><span class="math display">P(Y = y \mid X = x) = \frac{P(X = x \mid Y = y) P(Y = y)}{\sum_{y'} P(X = x \mid Y = y') P(Y = y')}</span></p>
+</div>
+</section>
+<section id="indépendance" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> Indépendance</h1>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 4.1 — (Indépendance)</strong></p>
+<p><span class="math inline">X</span> et <span class="math inline">Y</span> sont <strong>indépendantes</strong> si pour tout <span class="math inline">(x, y)</span> : <span class="math display">P(X = x, Y = y) = P(X = x) P(Y = y)</span></p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 4.1 — (Caractérisation par les lois conditionnelles)</strong></p>
+<p><span class="math inline">X</span> et <span class="math inline">Y</span> sont indépendantes si et seulement si la loi conditionnelle de <span class="math inline">X</span> sachant <span class="math inline">Y = y</span> est égale à la loi marginale de <span class="math inline">X</span>, pour tout <span class="math inline">y</span> avec <span class="math inline">P(Y = y) &gt; 0</span>.</p>
+</div>
+</section>
+<section id="covariance" class="level1" data-number="5">
+<h1 data-number="5"><span class="header-section-number">5</span> Covariance</h1>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 5.1 — (Covariance)</strong></p>
+<p>Si <span class="math inline">X</span> et <span class="math inline">Y</span> admettent un moment d’ordre <span class="math inline">2</span> : <span class="math display">\mathrm{cov}(X, Y) = E((X - E(X))(Y - E(Y))) = E(XY) - E(X)E(Y)</span></p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 5.1 — (Propriétés)</strong></p>
+<ol type="1">
+<li><span class="math inline">\mathrm{cov}(X, X) = V(X)</span>.</li>
+<li><span class="math inline">\mathrm{cov}(X, Y) = \mathrm{cov}(Y, X)</span>.</li>
+<li><span class="math inline">\mathrm{cov}(aX + b, cY + d) = ac \, \mathrm{cov}(X, Y)</span>.</li>
+<li><span class="math inline">\mathrm{cov}(X + Y, Z) = \mathrm{cov}(X, Z) + \mathrm{cov}(Y, Z)</span>.</li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 5.2 — (Indépendance implique covariance nulle)</strong></p>
+<p>Si <span class="math inline">X</span> et <span class="math inline">Y</span> sont indépendantes et admettent un moment d’ordre <span class="math inline">2</span>, alors <span class="math inline">\mathrm{cov}(X, Y) = 0</span>.</p>
+</div>
+<div class="remarque">
+<p>La réciproque est fausse : <span class="math inline">\mathrm{cov}(X, Y) = 0</span> n’implique pas l’indépendance.</p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 5.3 — (Inégalité de Cauchy-Schwarz)</strong></p>
+<p><span class="math display">|\mathrm{cov}(X, Y)| \leq \sigma(X) \sigma(Y)</span></p>
+</div>
+</section>
+<section id="corrélation-linéaire" class="level1" data-number="6">
+<h1 data-number="6"><span class="header-section-number">6</span> Corrélation linéaire</h1>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 6.1 — (Coefficient de corrélation)</strong></p>
+<p>Si <span class="math inline">\sigma(X) &gt; 0</span> et <span class="math inline">\sigma(Y) &gt; 0</span> : <span class="math display">\rho(X, Y) = \frac{\mathrm{cov}(X, Y)}{\sigma(X) \sigma(Y)}</span></p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 6.1 — (Propriétés)</strong></p>
+<ol type="1">
+<li><span class="math inline">\rho(X, Y) \in [-1, 1]</span>.</li>
+<li><span class="math inline">\rho(X, Y) = 1</span> <span class="math inline">\iff</span> <span class="math inline">\exists (a, b) \in \mathbb{R}^* \times \mathbb{R}</span> avec <span class="math inline">a &gt; 0</span> tel que <span class="math inline">Y = aX + b</span> presque sûrement.</li>
+<li><span class="math inline">\rho(X, Y) = -1</span> <span class="math inline">\iff</span> idem avec <span class="math inline">a &lt; 0</span>.</li>
+</ol>
+</div>
+</section>
+<section id="vecteurs-aléatoires-à-densité" class="level1" data-number="7">
+<h1 data-number="7"><span class="header-section-number">7</span> Vecteurs aléatoires à densité</h1>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 7.1 — (Vecteur aléatoire à densité)</strong></p>
+<p><span class="math inline">(X, Y)</span> est à densité s’il existe <span class="math inline">f_{X,Y} : \mathbb{R}^2 \to \mathbb{R}^+</span> continue par morceaux telle que : <span class="math display">P((X, Y) \in D) = \iint_D f_{X,Y}(x, y)\, dx\, dy</span> pour tout domaine <span class="math inline">D</span> du plan.</p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 7.1 — (Lois marginales à densité)</strong></p>
+<p><span class="math display">f_X(x) = \int_{-\infty}^{+\infty} f_{X,Y}(x, y)\, dy, \quad f_Y(y) = \int_{-\infty}^{+\infty} f_{X,Y}(x, y)\, dx</span></p>
+</div>
+</section>
+<section id="exercices" class="level1" data-number="8">
+<h1 data-number="8"><span class="header-section-number">8</span> Exercices</h1>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 8.1</strong></p>
+<p>Soit <span class="math inline">(X, Y)</span> de loi conjointe :</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th><span class="math inline">X \setminus Y</span></th>
+<th style="text-align: right;">0</th>
+<th style="text-align: right;">1</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>0</td>
+<td style="text-align: right;"><span class="math inline">0{,}2</span></td>
+<td style="text-align: right;"><span class="math inline">0{,}3</span></td>
+</tr>
+<tr class="even">
+<td>1</td>
+<td style="text-align: right;"><span class="math inline">0{,}1</span></td>
+<td style="text-align: right;"><span class="math inline">0{,}4</span></td>
+</tr>
+</tbody>
+</table>
+<ol type="1">
+<li>Déterminer les lois marginales.</li>
+<li><span class="math inline">X</span> et <span class="math inline">Y</span> sont-elles indépendantes ?</li>
+<li>Calculer <span class="math inline">E(X)</span>, <span class="math inline">E(Y)</span>, <span class="math inline">\mathrm{cov}(X, Y)</span>.</li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 8.2</strong></p>
+<p>Soient <span class="math inline">X</span> et <span class="math inline">Y</span> indépendantes suivant <span class="math inline">\mathcal{B}(p)</span>. Déterminer la loi de <span class="math inline">X + Y</span>.</p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 8.3</strong></p>
+<p>Soient <span class="math inline">X</span> et <span class="math inline">Y</span> indépendantes suivant <span class="math inline">\mathcal{E}(\lambda)</span>. Déterminer la densité de <span class="math inline">X + Y</span>.</p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 8.4</strong></p>
+<p>Soit <span class="math inline">(X, Y)</span> de densité <span class="math inline">f_{X,Y}(x, y) = \begin{cases} c(x + y) &amp; 0 \leq x \leq 1, 0 \leq y \leq 1 \\ 0 &amp; \text{sinon} \end{cases}</span>.</p>
+<ol type="1">
+<li>Déterminer <span class="math inline">c</span>.</li>
+<li>Déterminer les lois marginales.</li>
+<li><span class="math inline">X</span> et <span class="math inline">Y</span> sont-elles indépendantes ?</li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 8.5</strong></p>
+<p>Soient <span class="math inline">X</span> et <span class="math inline">Y</span> avec <span class="math inline">V(X) = 4</span>, <span class="math inline">V(Y) = 9</span>, <span class="math inline">\mathrm{cov}(X, Y) = 3</span>. Calculer <span class="math inline">\rho(X, Y)</span> et <span class="math inline">V(X + Y)</span>.</p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 8.6</strong></p>
+<p>Soit <span class="math inline">X \hookrightarrow \mathcal{B}(n, p)</span>. Montrer que <span class="math inline">V(X) = np(1-p)</span> en écrivant <span class="math inline">X = X_1 + \cdots + X_n</span> avec les <span class="math inline">X_i</span> indépendantes suivant <span class="math inline">\mathcal{B}(p)</span>.</p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 8.7</strong></p>
+<p>Soient <span class="math inline">X</span> et <span class="math inline">Y</span> indépendantes suivant <span class="math inline">\mathcal{N}(0, 1)</span>. Déterminer la loi de <span class="math inline">X + Y</span>.</p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 8.8</strong></p>
+<p>Soit <span class="math inline">(X, Y)</span> de densité <span class="math inline">f_{X,Y}(x, y) = \begin{cases} e^{-y} &amp; 0 \leq x \leq y \\ 0 &amp; \text{sinon} \end{cases}</span>.</p>
+<ol type="1">
+<li>Vérifier que <span class="math inline">f_{X,Y}</span> est une densité.</li>
+<li>Déterminer les lois marginales.</li>
+<li><span class="math inline">X</span> et <span class="math inline">Y</span> sont-elles indépendantes ?</li>
+</ol>
+</div>
+</section>
+<section id="document-en-pdf" class="level1 unnumbered">
+<h1 class="unnumbered">Document en PDF</h1>
+<p><a href="PDF/ecs2-chap08.pdf"><strong>Chapitre 08 : Vecteurs aléatoires</strong></a></p>
+<section id="navigation" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="navigation">Navigation</h2>
+<div class="chap-nav">
+<p><a href="../cours/ecs2-chap07.html" class="prev">Chapitre 07 : Variables aléatoires à densité</a> <a href="../cours/ecs2.html" class="home">Menu ECS2</a> <a href="../cours/ecs2-chap09.html" class="next">Chapitre 09 : Convergences et approximations</a></p>
+</div>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -281,12 +548,12 @@ ul.task-list li input[type="checkbox"] {
       // flash "checked"
       button.classList.add('code-copy-button-checked');
       var currentTitle = button.getAttribute("title");
-      button.setAttribute("title", "Copied!");
+      button.setAttribute("title", "Copié");
       let tooltip;
       if (window.bootstrap) {
         button.setAttribute("data-bs-toggle", "tooltip");
         button.setAttribute("data-bs-placement", "left");
-        button.setAttribute("data-bs-title", "Copied!");
+        button.setAttribute("data-bs-title", "Copié");
         tooltip = new bootstrap.Tooltip(button, 
           { trigger: "manual", 
             customClass: "code-copy-button-tooltip",

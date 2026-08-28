@@ -1,13 +1,14 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr"><head>
 
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.10.18">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Saîd MAHARI">
 
-<title>Estimation statistique - Mathématiques en CPGE – Mathématiques en CPGE</title>
+<title>Estimation statistique – Mathématiques en CPGE</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -45,7 +46,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-7a8c080b55ea27eb37b467515007f9ee.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-e0d9a45d84245cc5e3b300860d8fa645.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -60,17 +61,17 @@ ul.task-list li input[type="checkbox"] {
   ],
   "show-item-context": false,
   "language": {
-    "search-no-results-text": "No results",
-    "search-matching-documents-text": "matching documents",
-    "search-copy-link-title": "Copy link to search",
-    "search-hide-matches-text": "Hide additional matches",
-    "search-more-match-text": "more match in this document",
-    "search-more-matches-text": "more matches in this document",
-    "search-clear-button-title": "Clear",
+    "search-no-results-text": "Pas de résultats",
+    "search-matching-documents-text": "documents trouvés",
+    "search-copy-link-title": "Copier le lien vers la recherche",
+    "search-hide-matches-text": "Cacher les correspondances additionnelles",
+    "search-more-match-text": "correspondance de plus dans ce document",
+    "search-more-matches-text": "correspondances de plus dans ce document",
+    "search-clear-button-title": "Effacer",
     "search-text-placeholder": "",
-    "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit",
-    "search-label": "Search"
+    "search-detached-cancel-button-title": "Annuler",
+    "search-submit-button-title": "Envoyer",
+    "search-label": "Recherche"
   }
 }</script>
 <script data-goatcounter="https://maharicpge.goatcounter.com/count" async="" src="//gc.zgo.at/count.js"></script>
@@ -142,8 +143,52 @@ ul.task-list li input[type="checkbox"] {
   });
 </script>
 
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="styles.css">
 </head>
 
 <body class="nav-fixed quarto-light">
@@ -157,8 +202,8 @@ ul.task-list li input[type="checkbox"] {
     <span class="navbar-title">Accueil</span>
     </a>
   </div>
-            <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+            <div id="quarto-search" class="" title="Recherche"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Basculer la navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
@@ -218,10 +263,26 @@ ul.task-list li input[type="checkbox"] {
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
+    <h2 id="toc-title">Sur cette page</h2>
    
   <ul>
-  <li><a href="#document" id="toc-document" class="nav-link active" data-scroll-target="#document">Document</a></li>
+  <li><a href="#notion-destimateur" id="toc-notion-destimateur" class="nav-link active" data-scroll-target="#notion-destimateur"><span class="header-section-number">1</span> Notion d’estimateur</a>
+  <ul class="collapse">
+  <li><a href="#définition" id="toc-définition" class="nav-link" data-scroll-target="#définition"><span class="header-section-number">1.1</span> Définition</a></li>
+  </ul></li>
+  <li><a href="#biais" id="toc-biais" class="nav-link" data-scroll-target="#biais"><span class="header-section-number">2</span> Biais</a></li>
+  <li><a href="#risque-quadratique" id="toc-risque-quadratique" class="nav-link" data-scroll-target="#risque-quadratique"><span class="header-section-number">3</span> Risque quadratique</a></li>
+  <li><a href="#intervalle-de-confiance" id="toc-intervalle-de-confiance" class="nav-link" data-scroll-target="#intervalle-de-confiance"><span class="header-section-number">4</span> Intervalle de confiance</a>
+  <ul class="collapse">
+  <li><a href="#définition-1" id="toc-définition-1" class="nav-link" data-scroll-target="#définition-1"><span class="header-section-number">4.1</span> Définition</a></li>
+  <li><a href="#intervalle-de-confiance-pour-une-moyenne" id="toc-intervalle-de-confiance-pour-une-moyenne" class="nav-link" data-scroll-target="#intervalle-de-confiance-pour-une-moyenne"><span class="header-section-number">4.2</span> Intervalle de confiance pour une moyenne</a></li>
+  <li><a href="#intervalle-de-confiance-pour-une-proportion" id="toc-intervalle-de-confiance-pour-une-proportion" class="nav-link" data-scroll-target="#intervalle-de-confiance-pour-une-proportion"><span class="header-section-number">4.3</span> Intervalle de confiance pour une proportion</a></li>
+  </ul></li>
+  <li><a href="#exercices" id="toc-exercices" class="nav-link" data-scroll-target="#exercices"><span class="header-section-number">5</span> Exercices</a></li>
+  <li><a href="#document-en-pdf" id="toc-document-en-pdf" class="nav-link" data-scroll-target="#document-en-pdf">Document en PDF</a>
+  <ul class="collapse">
+  <li><a href="#navigation" id="toc-navigation" class="nav-link" data-scroll-target="#navigation">Navigation</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -230,14 +291,27 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Chapitre 10 : Estimation statistique</h1>
+<h1 class="title">Estimation statistique</h1>
+<p class="subtitle lead">Chapitre 10</p>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Auteur·rice</div>
+    <div class="quarto-title-meta-contents">
+             <p>Saîd MAHARI </p>
+          </div>
+  </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">Date de publication</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">28 août 2026</p>
+    </div>
+  </div>
   
     
   </div>
@@ -247,12 +321,153 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p><strong>ECS 2e année (ECG) — Chapitre 10.</strong> Estimateurs sans biais, risque quadratique, convergence.</p>
-<section id="document" class="level2">
-<h2 class="anchored" data-anchor-id="document">Document</h2>
-<p><em>PDF à venir : déposez le fichier <code>files/ecs2/chap10.pdf</code> puis régénérez la page.</em></p>
+<p><strong>ECS (2e année) — Chapitre 10.</strong> Estimateurs sans biais, risque quadratique, intervalles de confiance.</p>
+<p>Ce chapitre a été réalisé conformément au programme marocain de mathématiques de la filière ECS.</p>
+<section id="notion-destimateur" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Notion d’estimateur</h1>
+<section id="définition" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="définition"><span class="header-section-number">1.1</span> Définition</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 1.1 — (Estimateur)</strong></p>
+<p>Soit <span class="math inline">(X_1, \ldots, X_n)</span> un <span class="math inline">n</span>-échantillon de variables aléatoires indépendantes de même loi dépendant d’un paramètre <span class="math inline">\theta</span>. Un <strong>estimateur</strong> de <span class="math inline">\theta</span> est une statistique <span class="math inline">T_n = g(X_1, \ldots, X_n)</span>.</p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 1.1 — (Moyenne empirique)</strong></p>
+<p><span class="math inline">\overline{X}_n = \frac{1}{n}\sum_{k=1}^n X_k</span> est un estimateur naturel de <span class="math inline">E(X_1)</span>.</p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 1.2 — (Variance empirique)</strong></p>
+<p><span class="math inline">S_n^2 = \frac{1}{n}\sum_{k=1}^n (X_k - \overline{X}_n)^2</span> est un estimateur naturel de <span class="math inline">V(X_1)</span>.</p>
+</div>
+</section>
+</section>
+<section id="biais" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> Biais</h1>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 2.1 — (Biais)</strong></p>
+<p>Le <strong>biais</strong> de <span class="math inline">T_n</span> comme estimateur de <span class="math inline">\theta</span> est : <span class="math display">b_n(\theta) = E(T_n) - \theta</span></p>
+</div>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 2.2 — (Estimateur sans biais)</strong></p>
+<p><span class="math inline">T_n</span> est <strong>sans biais</strong> si <span class="math inline">E(T_n) = \theta</span> pour tout <span class="math inline">\theta</span>.</p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 2.1 — (Exemples)</strong></p>
+<ol type="1">
+<li><span class="math inline">\overline{X}_n</span> est un estimateur sans biais de <span class="math inline">E(X_1)</span>.</li>
+<li><span class="math inline">S_n^2 = \frac{1}{n}\sum (X_k - \overline{X}_n)^2</span> est un estimateur <strong>biaisé</strong> de <span class="math inline">V(X_1)</span>, avec : <span class="math display">E(S_n^2) = \frac{n-1}{n} V(X_1)</span></li>
+<li><span class="math inline">s_n^2 = \frac{1}{n-1}\sum (X_k - \overline{X}_n)^2</span> est un estimateur <strong>sans biais</strong> de <span class="math inline">V(X_1)</span>.</li>
+</ol>
+</div>
+</section>
+<section id="risque-quadratique" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Risque quadratique</h1>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 3.1 — (Risque quadratique)</strong></p>
+<p>Le <strong>risque quadratique</strong> de <span class="math inline">T_n</span> comme estimateur de <span class="math inline">\theta</span> est : <span class="math display">R_n(\theta) = E((T_n - \theta)^2)</span></p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 3.1 — (Décomposition)</strong></p>
+<p><span class="math display">R_n(\theta) = V(T_n) + (b_n(\theta))^2</span></p>
+</div>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 3.2 — (Convergence)</strong></p>
+<p><span class="math inline">T_n</span> est un estimateur <strong>convergent</strong> de <span class="math inline">\theta</span> si <span class="math inline">T_n \xrightarrow{P} \theta</span>.</p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 3.2</strong></p>
+<p>Si <span class="math inline">R_n(\theta) \to 0</span>, alors <span class="math inline">T_n</span> est convergent vers <span class="math inline">\theta</span>.</p>
+</div>
+</section>
+<section id="intervalle-de-confiance" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> Intervalle de confiance</h1>
+<section id="définition-1" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="définition-1"><span class="header-section-number">4.1</span> Définition</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 4.1 — (Intervalle de confiance)</strong></p>
+<p>Un <strong>intervalle de confiance</strong> de niveau <span class="math inline">1 - \alpha</span> pour <span class="math inline">\theta</span> est un intervalle aléatoire <span class="math inline">[T_n^-, T_n^+]</span> tel que : <span class="math display">P(T_n^- \leq \theta \leq T_n^+) \geq 1 - \alpha</span></p>
+</div>
+</section>
+<section id="intervalle-de-confiance-pour-une-moyenne" class="level2" data-number="4.2">
+<h2 data-number="4.2" class="anchored" data-anchor-id="intervalle-de-confiance-pour-une-moyenne"><span class="header-section-number">4.2</span> Intervalle de confiance pour une moyenne</h2>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 4.1 — (Cas gaussien)</strong></p>
+<p>Soit <span class="math inline">(X_1, \ldots, X_n)</span> un <span class="math inline">n</span>-échantillon de variables indépendantes suivant <span class="math inline">\mathcal{N}(\mu, \sigma^2)</span> avec <span class="math inline">\sigma</span> connu. Alors : <span class="math display">\left[\overline{X}_n - \frac{\sigma z_{\alpha/2}}{\sqrt{n}}, \overline{X}_n + \frac{\sigma z_{\alpha/2}}{\sqrt{n}}\right]</span> est un intervalle de confiance de niveau <span class="math inline">1 - \alpha</span> pour <span class="math inline">\mu</span>, où <span class="math inline">z_{\alpha/2}</span> est le quantile de la loi normale centrée réduite : <span class="math display">P(|Z| \leq z_{\alpha/2}) = 1 - \alpha \quad \text{avec} \quad Z \hookrightarrow \mathcal{N}(0,1)</span></p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 4.1 — (Valeurs usuelles)</strong></p>
+<ul>
+<li>Pour <span class="math inline">1 - \alpha = 0{,}95</span> : <span class="math inline">z_{\alpha/2} \approx 1{,}96</span>.</li>
+<li>Pour <span class="math inline">1 - \alpha = 0{,}99</span> : <span class="math inline">z_{\alpha/2} \approx 2{,}58</span>.</li>
+</ul>
+</div>
+</section>
+<section id="intervalle-de-confiance-pour-une-proportion" class="level2" data-number="4.3">
+<h2 data-number="4.3" class="anchored" data-anchor-id="intervalle-de-confiance-pour-une-proportion"><span class="header-section-number">4.3</span> Intervalle de confiance pour une proportion</h2>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 4.2 — (Cas binomial)</strong></p>
+<p>Soit <span class="math inline">X \hookrightarrow \mathcal{B}(n, p)</span> avec <span class="math inline">n</span> grand. Alors : <span class="math display">\left[\frac{X}{n} - z_{\alpha/2}\sqrt{\frac{(X/n)(1 - X/n)}{n}}, \frac{X}{n} + z_{\alpha/2}\sqrt{\frac{(X/n)(1 - X/n)}{n}}\right]</span> est un intervalle de confiance approché de niveau <span class="math inline">1 - \alpha</span> pour <span class="math inline">p</span>.</p>
+</div>
+</section>
+</section>
+<section id="exercices" class="level1" data-number="5">
+<h1 data-number="5"><span class="header-section-number">5</span> Exercices</h1>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 5.1</strong></p>
+<p>Soit <span class="math inline">(X_1, \ldots, X_n)</span> un <span class="math inline">n</span>-échantillon de variables indépendantes suivant <span class="math inline">\mathcal{E}(\lambda)</span>.</p>
+<ol type="1">
+<li>Montrer que <span class="math inline">\overline{X}_n</span> est un estimateur sans biais de <span class="math inline">1/\lambda</span>.</li>
+<li>Calculer le risque quadratique de <span class="math inline">\overline{X}_n</span> comme estimateur de <span class="math inline">1/\lambda</span>.</li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 5.2</strong></p>
+<p>Soit <span class="math inline">(X_1, \ldots, X_n)</span> un <span class="math inline">n</span>-échantillon de variables indépendantes de moyenne <span class="math inline">\mu</span> et de variance <span class="math inline">\sigma^2</span>. Montrer que <span class="math inline">\overline{X}_n</span> est un estimateur sans biais et convergent de <span class="math inline">\mu</span>.</p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 5.3</strong></p>
+<p>Soit <span class="math inline">(X_1, \ldots, X_n)</span> un <span class="math inline">n</span>-échantillon de variables indépendantes suivant <span class="math inline">\mathcal{N}(\mu, \sigma^2)</span> avec <span class="math inline">\sigma = 2</span> connu. On observe <span class="math inline">\overline{X}_{100} = 10</span>.</p>
+<ol type="1">
+<li>Déterminer un intervalle de confiance de niveau <span class="math inline">95\%</span> pour <span class="math inline">\mu</span>.</li>
+<li>Déterminer un intervalle de confiance de niveau <span class="math inline">99\%</span> pour <span class="math inline">\mu</span>.</li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 5.4</strong></p>
+<p>Soit <span class="math inline">X \hookrightarrow \mathcal{B}(100, p)</span>. On observe <span class="math inline">X = 45</span>. Déterminer un intervalle de confiance de niveau <span class="math inline">95\%</span> pour <span class="math inline">p</span>.</p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 5.5</strong></p>
+<p>Montrer que <span class="math inline">s_n^2 = \frac{1}{n-1}\sum_{k=1}^n (X_k - \overline{X}_n)^2</span> est un estimateur sans biais de <span class="math inline">V(X_1)</span>.</p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 5.6</strong></p>
+<p>Soit <span class="math inline">T_n</span> un estimateur sans biais de <span class="math inline">\theta</span> avec <span class="math inline">V(T_n) \to 0</span>. Montrer que <span class="math inline">T_n</span> est convergent vers <span class="math inline">\theta</span>.</p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 5.7</strong></p>
+<p>Soit <span class="math inline">(X_1, \ldots, X_n)</span> un <span class="math inline">n</span>-échantillon de variables indépendantes suivant <span class="math inline">\mathcal{U}([0, \theta])</span>.</p>
+<ol type="1">
+<li>Montrer que <span class="math inline">\overline{X}_n</span> est un estimateur sans biais de <span class="math inline">\theta/2</span>.</li>
+<li>En déduire un estimateur sans biais de <span class="math inline">\theta</span>.</li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 5.8</strong></p>
+<p>Soit <span class="math inline">(X_1, \ldots, X_n)</span> un <span class="math inline">n</span>-échantillon de variables indépendantes de moyenne <span class="math inline">\mu</span> et de variance <span class="math inline">\sigma^2</span>. Calculer <span class="math inline">E(S_n^2)</span> où <span class="math inline">S_n^2 = \frac{1}{n}\sum (X_k - \overline{X}_n)^2</span>.</p>
+</div>
+</section>
+<section id="document-en-pdf" class="level1 unnumbered">
+<h1 class="unnumbered">Document en PDF</h1>
+<p><a href="PDF/ecs2-chap10.pdf"><strong>Chapitre 10 : Estimation statistique</strong></a></p>
+<section id="navigation" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="navigation">Navigation</h2>
+<div class="chap-nav">
+<p><a href="../cours/ecs2-chap09.html" class="prev">Chapitre 09 : Convergences et approximations</a> <a href="../cours/ecs2.html" class="home">Menu ECS2</a> <a href="../cours/ecs2-chap11.html" class="next">Chapitre 11 : Fonctions de plusieurs variables et optimisation</a></p>
+</div>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -281,12 +496,12 @@ ul.task-list li input[type="checkbox"] {
       // flash "checked"
       button.classList.add('code-copy-button-checked');
       var currentTitle = button.getAttribute("title");
-      button.setAttribute("title", "Copied!");
+      button.setAttribute("title", "Copié");
       let tooltip;
       if (window.bootstrap) {
         button.setAttribute("data-bs-toggle", "tooltip");
         button.setAttribute("data-bs-placement", "left");
-        button.setAttribute("data-bs-title", "Copied!");
+        button.setAttribute("data-bs-title", "Copié");
         tooltip = new bootstrap.Tooltip(button, 
           { trigger: "manual", 
             customClass: "code-copy-button-tooltip",

@@ -1,13 +1,14 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr"><head>
 
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.10.18">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Saîd MAHARI">
 
-<title>Variables aléatoires finies - Mathématiques en CPGE – Mathématiques en CPGE</title>
+<title>Statistique descriptive univariée – Mathématiques en CPGE</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -45,7 +46,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-7a8c080b55ea27eb37b467515007f9ee.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-e0d9a45d84245cc5e3b300860d8fa645.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -60,17 +61,17 @@ ul.task-list li input[type="checkbox"] {
   ],
   "show-item-context": false,
   "language": {
-    "search-no-results-text": "No results",
-    "search-matching-documents-text": "matching documents",
-    "search-copy-link-title": "Copy link to search",
-    "search-hide-matches-text": "Hide additional matches",
-    "search-more-match-text": "more match in this document",
-    "search-more-matches-text": "more matches in this document",
-    "search-clear-button-title": "Clear",
+    "search-no-results-text": "Pas de résultats",
+    "search-matching-documents-text": "documents trouvés",
+    "search-copy-link-title": "Copier le lien vers la recherche",
+    "search-hide-matches-text": "Cacher les correspondances additionnelles",
+    "search-more-match-text": "correspondance de plus dans ce document",
+    "search-more-matches-text": "correspondances de plus dans ce document",
+    "search-clear-button-title": "Effacer",
     "search-text-placeholder": "",
-    "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit",
-    "search-label": "Search"
+    "search-detached-cancel-button-title": "Annuler",
+    "search-submit-button-title": "Envoyer",
+    "search-label": "Recherche"
   }
 }</script>
 <script data-goatcounter="https://maharicpge.goatcounter.com/count" async="" src="//gc.zgo.at/count.js"></script>
@@ -142,8 +143,52 @@ ul.task-list li input[type="checkbox"] {
   });
 </script>
 
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="styles.css">
 </head>
 
 <body class="nav-fixed quarto-light">
@@ -157,8 +202,8 @@ ul.task-list li input[type="checkbox"] {
     <span class="navbar-title">Accueil</span>
     </a>
   </div>
-            <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+            <div id="quarto-search" class="" title="Recherche"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Basculer la navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
@@ -218,10 +263,31 @@ ul.task-list li input[type="checkbox"] {
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
+    <h2 id="toc-title">Sur cette page</h2>
    
   <ul>
-  <li><a href="#document" id="toc-document" class="nav-link active" data-scroll-target="#document">Document</a></li>
+  <li><a href="#vocabulaire-statistique" id="toc-vocabulaire-statistique" class="nav-link active" data-scroll-target="#vocabulaire-statistique"><span class="header-section-number">1</span> Vocabulaire statistique</a>
+  <ul class="collapse">
+  <li><a href="#population-individus-caractère" id="toc-population-individus-caractère" class="nav-link" data-scroll-target="#population-individus-caractère"><span class="header-section-number">1.1</span> Population, individus, caractère</a></li>
+  <li><a href="#données-groupées-en-classes" id="toc-données-groupées-en-classes" class="nav-link" data-scroll-target="#données-groupées-en-classes"><span class="header-section-number">1.2</span> Données groupées en classes</a></li>
+  </ul></li>
+  <li><a href="#indicateurs-de-position" id="toc-indicateurs-de-position" class="nav-link" data-scroll-target="#indicateurs-de-position"><span class="header-section-number">2</span> Indicateurs de position</a>
+  <ul class="collapse">
+  <li><a href="#moyenne" id="toc-moyenne" class="nav-link" data-scroll-target="#moyenne"><span class="header-section-number">2.1</span> Moyenne</a></li>
+  <li><a href="#médiane" id="toc-médiane" class="nav-link" data-scroll-target="#médiane"><span class="header-section-number">2.2</span> Médiane</a></li>
+  <li><a href="#mode" id="toc-mode" class="nav-link" data-scroll-target="#mode"><span class="header-section-number">2.3</span> Mode</a></li>
+  </ul></li>
+  <li><a href="#indicateurs-de-dispersion" id="toc-indicateurs-de-dispersion" class="nav-link" data-scroll-target="#indicateurs-de-dispersion"><span class="header-section-number">3</span> Indicateurs de dispersion</a>
+  <ul class="collapse">
+  <li><a href="#variance-et-écart-type" id="toc-variance-et-écart-type" class="nav-link" data-scroll-target="#variance-et-écart-type"><span class="header-section-number">3.1</span> Variance et écart-type</a></li>
+  <li><a href="#quartiles" id="toc-quartiles" class="nav-link" data-scroll-target="#quartiles"><span class="header-section-number">3.2</span> Quartiles</a></li>
+  <li><a href="#déciles" id="toc-déciles" class="nav-link" data-scroll-target="#déciles"><span class="header-section-number">3.3</span> Déciles</a></li>
+  </ul></li>
+  <li><a href="#exercices" id="toc-exercices" class="nav-link" data-scroll-target="#exercices"><span class="header-section-number">4</span> Exercices</a></li>
+  <li><a href="#document-en-pdf" id="toc-document-en-pdf" class="nav-link" data-scroll-target="#document-en-pdf">Document en PDF</a>
+  <ul class="collapse">
+  <li><a href="#navigation" id="toc-navigation" class="nav-link" data-scroll-target="#navigation">Navigation</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -230,14 +296,27 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Chapitre 07 : Variables aléatoires finies</h1>
+<h1 class="title">Statistique descriptive univariée</h1>
+<p class="subtitle lead">Chapitre 07</p>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Auteur·rice</div>
+    <div class="quarto-title-meta-contents">
+             <p>Saîd MAHARI </p>
+          </div>
+  </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">Date de publication</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">28 août 2026</p>
+    </div>
+  </div>
   
     
   </div>
@@ -247,12 +326,198 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p><strong>ECT 1re année — Chapitre 07.</strong> Espérance, variance, lois uniforme, de Bernoulli, binomiale.</p>
-<section id="document" class="level2">
-<h2 class="anchored" data-anchor-id="document">Document</h2>
-<p><em>PDF à venir : déposez le fichier <code>files/ect1/chap07.pdf</code> puis régénérez la page.</em></p>
+<p><strong>ECT (1re année) — Chapitre 07.</strong> Indicateurs de position (moyenne, médiane, mode), indicateurs de dispersion (variance, écart-type, quartiles, déciles).</p>
+<p>Ce chapitre a été réalisé conformément au programme marocain de mathématiques de la filière ECT.</p>
+<section id="vocabulaire-statistique" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Vocabulaire statistique</h1>
+<section id="population-individus-caractère" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="population-individus-caractère"><span class="header-section-number">1.1</span> Population, individus, caractère</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 1.1 — (Population, individus, caractère)</strong></p>
+<ul>
+<li>Une <strong>population</strong> est un ensemble d’individus (objets d’une étude statistique).</li>
+<li>Un <strong>individu</strong> est un élément de la population.</li>
+<li>Un <strong>caractère</strong> est une propriété étudiée sur la population. Il peut être :
+<ul>
+<li><strong>qualitatif</strong> (couleur, profession, etc.)</li>
+<li><strong>quantitatif</strong> (taille, salaire, etc.)</li>
+</ul></li>
+</ul>
+</div>
+</section>
+<section id="données-groupées-en-classes" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="données-groupées-en-classes"><span class="header-section-number">1.2</span> Données groupées en classes</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 1.2 — (Données groupées)</strong></p>
+<p>Pour une série statistique quantitative, on peut regrouper les données en <strong>classes</strong> <span class="math inline">[a_i, a_{i+1}[</span> avec des <strong>effectifs</strong> <span class="math inline">n_i</span> et des <strong>fréquences</strong> <span class="math inline">f_i = \frac{n_i}{n}</span>.</p>
+</div>
+</section>
+</section>
+<section id="indicateurs-de-position" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> Indicateurs de position</h1>
+<section id="moyenne" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="moyenne"><span class="header-section-number">2.1</span> Moyenne</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 2.1 — (Moyenne)</strong></p>
+<p>La <strong>moyenne</strong> d’une série statistique <span class="math inline">(x_i)_{1 \leq i \leq n}</span> est : <span class="math display">\bar{x} = \frac{1}{n}\sum_{i=1}^n x_i</span></p>
+<p>Pour des données groupées avec effectifs <span class="math inline">n_i</span> : <span class="math display">\bar{x} = \frac{1}{n}\sum_{i} n_i c_i</span> où <span class="math inline">c_i</span> est le centre de la classe <span class="math inline">i</span>-ème.</p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 2.1 — (Propriétés de la moyenne)</strong></p>
+<ol type="1">
+<li><span class="math inline">\sum_{i=1}^n (x_i - \bar{x}) = 0</span></li>
+<li>Si <span class="math inline">y_i = ax_i + b</span>, alors <span class="math inline">\bar{y} = a\bar{x} + b</span>.</li>
+</ol>
+</div>
+</section>
+<section id="médiane" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="médiane"><span class="header-section-number">2.2</span> Médiane</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 2.2 — (Médiane)</strong></p>
+<p>La <strong>médiane</strong> <span class="math inline">m</span> est une valeur qui partage la population en deux groupes d’effectifs égaux : 50% des données sont inférieures à <span class="math inline">m</span> et 50% sont supérieures à <span class="math inline">m</span>.</p>
+</div>
+<div class="custom-numbered-block custom-methode">
+<p><strong>Méthode 2.1 — (Calcul de la médiane)</strong></p>
+<ul>
+<li>Si <span class="math inline">n</span> est impair : <span class="math inline">m = x_{(n+1)/2}</span> (la valeur centrale).</li>
+<li>Si <span class="math inline">n</span> est pair : <span class="math inline">m = \frac{x_{(n/2)} + x_{(n/2+1)}}{2}</span>.</li>
+</ul>
+</div>
+</section>
+<section id="mode" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="mode"><span class="header-section-number">2.3</span> Mode</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 2.3 — (Mode)</strong></p>
+<p>Le <strong>mode</strong> est la valeur la plus fréquente (celle qui a le plus grand effectif ou la plus grande fréquence).</p>
+</div>
+</section>
+</section>
+<section id="indicateurs-de-dispersion" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Indicateurs de dispersion</h1>
+<section id="variance-et-écart-type" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="variance-et-écart-type"><span class="header-section-number">3.1</span> Variance et écart-type</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 3.1 — (Variance)</strong></p>
+<p>La <strong>variance</strong> d’une série statistique est : <span class="math display">V = \frac{1}{n}\sum_{i=1}^n (x_i - \bar{x})^2 = \frac{1}{n}\sum_{i=1}^n x_i^2 - \bar{x}^2</span></p>
+<p>L’<strong>écart-type</strong> est <span class="math inline">\sigma = \sqrt{V}</span>.</p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 3.1 — (Propriétés)</strong></p>
+<ol type="1">
+<li><span class="math inline">V \geq 0</span>.</li>
+<li>Si <span class="math inline">y_i = ax_i + b</span>, alors <span class="math inline">V_y = a^2 V_x</span> et <span class="math inline">\sigma_y = |a|\sigma_x</span>.</li>
+</ol>
+</div>
+</section>
+<section id="quartiles" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="quartiles"><span class="header-section-number">3.2</span> Quartiles</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 3.2 — (Quartiles)</strong></p>
+<p>Les <strong>quartiles</strong> sont les valeurs <span class="math inline">Q_1</span>, <span class="math inline">Q_2</span>, <span class="math inline">Q_3</span> qui partagent la population en 4 groupes d’effectifs égaux :</p>
+<ul>
+<li><span class="math inline">Q_1</span> : 25% des données sont inférieures à <span class="math inline">Q_1</span>.</li>
+<li><span class="math inline">Q_2 = m</span> (médiane) : 50% des données sont inférieures à <span class="math inline">Q_2</span>.</li>
+<li><span class="math inline">Q_3</span> : 75% des données sont inférieures à <span class="math inline">Q_3</span>.</li>
+</ul>
+<p>L’<strong>écart interquartile</strong> est <span class="math inline">Q_3 - Q_1</span>.</p>
+</div>
+</section>
+<section id="déciles" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="déciles"><span class="header-section-number">3.3</span> Déciles</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 3.3 — (Déciles)</strong></p>
+<p>Les <strong>déciles</strong> <span class="math inline">D_1, D_2, \ldots, D_9</span> sont les valeurs qui partagent la population en 10 groupes d’effectifs égaux. <span class="math inline">D_k</span> est tel que <span class="math inline">k \times 10\%</span> des données sont inférieures à <span class="math inline">D_k</span>.</p>
+</div>
+</section>
+</section>
+<section id="exercices" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> Exercices</h1>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 4.1</strong></p>
+<p>Les notes de 10 élèves sont : 8, 12, 10, 15, 9, 11, 14, 7, 13, 10.</p>
+<ol type="1">
+<li>Calculer la moyenne.</li>
+<li>Déterminer la médiane.</li>
+<li>Déterminer le mode.</li>
+<li>Calculer la variance et l’écart-type.</li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 4.2</strong></p>
+<p>La distribution des salaires dans une entreprise est donnée par :</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Classe</th>
+<th><span class="math inline">[1000, 2000[</span></th>
+<th><span class="math inline">[2000, 3000[</span></th>
+<th><span class="math inline">[3000, 4000[</span></th>
+<th><span class="math inline">[4000, 5000[</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Effectif</td>
+<td>15</td>
+<td>25</td>
+<td>8</td>
+<td>2</td>
+</tr>
+</tbody>
+</table>
+<ol type="1">
+<li>Calculer le salaire moyen.</li>
+<li>Déterminer la classe modale.</li>
+<li>Estimer la médiane.</li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 4.3</strong></p>
+<p>Soit une série statistique avec <span class="math inline">n = 20</span> valeurs rangées par ordre croissant. Déterminer <span class="math inline">Q_1</span>, <span class="math inline">Q_2</span>, <span class="math inline">Q_3</span>.</p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 4.4</strong></p>
+<p>Montrer que <span class="math inline">\sum_{i=1}^n (x_i - \bar{x})^2 = \sum_{i=1}^n x_i^2 - n\bar{x}^2</span>.</p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 4.5</strong></p>
+<p>Les tailles de 8 personnes sont : 160, 165, 170, 172, 175, 178, 180, 185 cm.</p>
+<ol type="1">
+<li>Calculer la moyenne et l’écart-type.</li>
+<li>Si on ajoute 5 cm à chaque taille, comment changent la moyenne et l’écart-type ?</li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 4.6</strong></p>
+<p>Soit une série de <span class="math inline">n</span> valeurs avec moyenne <span class="math inline">\bar{x}</span> et variance <span class="math inline">V</span>. Si on remplace chaque <span class="math inline">x_i</span> par <span class="math inline">y_i = 2x_i + 3</span>, déterminer la moyenne et la variance de la nouvelle série.</p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 4.7</strong></p>
+<p>Les déciles d’une distribution sont <span class="math inline">D_1 = 10</span>, <span class="math inline">D_2 = 15</span>, <span class="math inline">\ldots</span>, <span class="math inline">D_9 = 50</span>. Interpréter <span class="math inline">D_5</span> et <span class="math inline">D_7</span>.</p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 4.8</strong></p>
+<p>Montrer que la variance peut s’écrire : <span class="math display">V = \frac{1}{2n^2}\sum_{i=1}^n \sum_{j=1}^n (x_i - x_j)^2</span></p>
+</div>
+</section>
+<section id="document-en-pdf" class="level1 unnumbered">
+<h1 class="unnumbered">Document en PDF</h1>
+<p><a href="PDF/ect1-chap07.pdf"><strong>Chapitre 07 : Statistique descriptive univariée</strong></a></p>
+<section id="navigation" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="navigation">Navigation</h2>
+<div class="chap-nav">
+<p><a href="../cours/ect1-chap06.html" class="prev">Chapitre 06 : Probabilité sur un univers fini</a> <a href="../cours/ect1.html" class="home">Menu ECT1</a> <a href="../cours/ect1-chap08.html" class="next">Chapitre 08 : Systèmes d’équations linéaires et calcul matriciel</a></p>
+</div>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -281,12 +546,12 @@ ul.task-list li input[type="checkbox"] {
       // flash "checked"
       button.classList.add('code-copy-button-checked');
       var currentTitle = button.getAttribute("title");
-      button.setAttribute("title", "Copied!");
+      button.setAttribute("title", "Copié");
       let tooltip;
       if (window.bootstrap) {
         button.setAttribute("data-bs-toggle", "tooltip");
         button.setAttribute("data-bs-placement", "left");
-        button.setAttribute("data-bs-title", "Copied!");
+        button.setAttribute("data-bs-title", "Copié");
         tooltip = new bootstrap.Tooltip(button, 
           { trigger: "manual", 
             customClass: "code-copy-button-tooltip",

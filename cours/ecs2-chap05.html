@@ -1,13 +1,14 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr"><head>
 
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.10.18">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Saîd MAHARI">
 
-<title>Intégrales généralisées - Mathématiques en CPGE – Mathématiques en CPGE</title>
+<title>Intégrales généralisées – Mathématiques en CPGE</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -45,7 +46,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-7a8c080b55ea27eb37b467515007f9ee.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-e0d9a45d84245cc5e3b300860d8fa645.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -60,17 +61,17 @@ ul.task-list li input[type="checkbox"] {
   ],
   "show-item-context": false,
   "language": {
-    "search-no-results-text": "No results",
-    "search-matching-documents-text": "matching documents",
-    "search-copy-link-title": "Copy link to search",
-    "search-hide-matches-text": "Hide additional matches",
-    "search-more-match-text": "more match in this document",
-    "search-more-matches-text": "more matches in this document",
-    "search-clear-button-title": "Clear",
+    "search-no-results-text": "Pas de résultats",
+    "search-matching-documents-text": "documents trouvés",
+    "search-copy-link-title": "Copier le lien vers la recherche",
+    "search-hide-matches-text": "Cacher les correspondances additionnelles",
+    "search-more-match-text": "correspondance de plus dans ce document",
+    "search-more-matches-text": "correspondances de plus dans ce document",
+    "search-clear-button-title": "Effacer",
     "search-text-placeholder": "",
-    "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit",
-    "search-label": "Search"
+    "search-detached-cancel-button-title": "Annuler",
+    "search-submit-button-title": "Envoyer",
+    "search-label": "Recherche"
   }
 }</script>
 <script data-goatcounter="https://maharicpge.goatcounter.com/count" async="" src="//gc.zgo.at/count.js"></script>
@@ -142,8 +143,52 @@ ul.task-list li input[type="checkbox"] {
   });
 </script>
 
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="styles.css">
 </head>
 
 <body class="nav-fixed quarto-light">
@@ -157,8 +202,8 @@ ul.task-list li input[type="checkbox"] {
     <span class="navbar-title">Accueil</span>
     </a>
   </div>
-            <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+            <div id="quarto-search" class="" title="Recherche"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Basculer la navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
@@ -218,10 +263,23 @@ ul.task-list li input[type="checkbox"] {
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
+    <h2 id="toc-title">Sur cette page</h2>
    
   <ul>
-  <li><a href="#document" id="toc-document" class="nav-link active" data-scroll-target="#document">Document</a></li>
+  <li><a href="#définition" id="toc-définition" class="nav-link active" data-scroll-target="#définition"><span class="header-section-number">1</span> Définition</a></li>
+  <li><a href="#intégrales-de-référence" id="toc-intégrales-de-référence" class="nav-link" data-scroll-target="#intégrales-de-référence"><span class="header-section-number">2</span> Intégrales de référence</a>
+  <ul class="collapse">
+  <li><a href="#riemann-en-infty" id="toc-riemann-en-infty" class="nav-link" data-scroll-target="#riemann-en-infty"><span class="header-section-number">2.1</span> Riemann en <span class="math inline">+\infty</span></a></li>
+  <li><a href="#riemann-en-0" id="toc-riemann-en-0" class="nav-link" data-scroll-target="#riemann-en-0"><span class="header-section-number">2.2</span> Riemann en <span class="math inline">0</span></a></li>
+  <li><a href="#exponentielle" id="toc-exponentielle" class="nav-link" data-scroll-target="#exponentielle"><span class="header-section-number">2.3</span> Exponentielle</a></li>
+  </ul></li>
+  <li><a href="#critères-pour-fonctions-positives" id="toc-critères-pour-fonctions-positives" class="nav-link" data-scroll-target="#critères-pour-fonctions-positives"><span class="header-section-number">3</span> Critères pour fonctions positives</a></li>
+  <li><a href="#convergence-absolue" id="toc-convergence-absolue" class="nav-link" data-scroll-target="#convergence-absolue"><span class="header-section-number">4</span> Convergence absolue</a></li>
+  <li><a href="#exercices" id="toc-exercices" class="nav-link" data-scroll-target="#exercices"><span class="header-section-number">5</span> Exercices</a></li>
+  <li><a href="#document-en-pdf" id="toc-document-en-pdf" class="nav-link" data-scroll-target="#document-en-pdf">Document en PDF</a>
+  <ul class="collapse">
+  <li><a href="#navigation" id="toc-navigation" class="nav-link" data-scroll-target="#navigation">Navigation</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -230,14 +288,27 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Chapitre 05 : Intégrales généralisées</h1>
+<h1 class="title">Intégrales généralisées</h1>
+<p class="subtitle lead">Chapitre 05</p>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Auteur·rice</div>
+    <div class="quarto-title-meta-contents">
+             <p>Saîd MAHARI </p>
+          </div>
+  </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">Date de publication</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">28 août 2026</p>
+    </div>
+  </div>
   
     
   </div>
@@ -247,12 +318,144 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p><strong>ECS 2e année (ECG) — Chapitre 05.</strong> Critères de convergence pour fonctions positives et par convergence absolue.</p>
-<section id="document" class="level2">
-<h2 class="anchored" data-anchor-id="document">Document</h2>
-<p><em>PDF à venir : déposez le fichier <code>files/ecs2/chap05.pdf</code> puis régénérez la page.</em></p>
+<p><strong>ECS (2e année) — Chapitre 05.</strong> Convergence, critères pour fonctions positives, convergence absolue.</p>
+<p>Ce chapitre a été réalisé conformément au programme marocain de mathématiques de la filière ECS.</p>
+<section id="définition" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Définition</h1>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 1.1 — (Intégrale généralisée)</strong></p>
+<p>Soit <span class="math inline">f : [a, b[ \to \mathbb{R}</span> continue par morceaux, où <span class="math inline">b \in ]a, +\infty]</span> ou <span class="math inline">b = +\infty</span>. L’intégrale <span class="math inline">\int_a^b f(t)\, dt</span> <strong>converge</strong> si : <span class="math display">\lim_{x \to b^-} \int_a^x f(t)\, dt</span> existe et est finie. On la note alors <span class="math inline">\int_a^b f(t)\, dt</span>.</p>
+</div>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 1.2 — (Cas <span class="math inline">\boldsymbol{]a, b]}</span>)</strong></p>
+<p>Si <span class="math inline">f : ]a, b] \to \mathbb{R}</span>, l’intégrale <span class="math inline">\int_a^b f(t)\, dt</span> converge si <span class="math inline">\lim_{x \to a^+} \int_x^b f(t)\, dt</span> existe et est finie.</p>
+</div>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 1.3 — (Cas <span class="math inline">\boldsymbol{]a, b[}</span>)</strong></p>
+<p>Si <span class="math inline">f : ]a, b[ \to \mathbb{R}</span>, l’intégrale converge si pour un <span class="math inline">c \in ]a, b[</span>, les deux intégrales <span class="math inline">\int_a^c f</span> et <span class="math inline">\int_c^b f</span> convergent (indépendamment du choix de <span class="math inline">c</span>).</p>
+</div>
+</section>
+<section id="intégrales-de-référence" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> Intégrales de référence</h1>
+<section id="riemann-en-infty" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="riemann-en-infty"><span class="header-section-number">2.1</span> Riemann en <span class="math inline">+\infty</span></h2>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 2.1 — (Riemann en <span class="math inline">\boldsymbol{+\infty}</span>)</strong></p>
+<p><span class="math inline">\int_1^{+\infty} \frac{dt}{t^\alpha}</span> converge si et seulement si <span class="math inline">\alpha &gt; 1</span>, et : <span class="math display">\int_1^{+\infty} \frac{dt}{t^\alpha} = \frac{1}{\alpha - 1}</span></p>
+</div>
+</section>
+<section id="riemann-en-0" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="riemann-en-0"><span class="header-section-number">2.2</span> Riemann en <span class="math inline">0</span></h2>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 2.2 — (Riemann en <span class="math inline">\boldsymbol{0^+}</span>)</strong></p>
+<p><span class="math inline">\int_0^1 \frac{dt}{t^\alpha}</span> converge si et seulement si <span class="math inline">\alpha &lt; 1</span>, et : <span class="math display">\int_0^1 \frac{dt}{t^\alpha} = \frac{1}{1 - \alpha}</span></p>
+</div>
+</section>
+<section id="exponentielle" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="exponentielle"><span class="header-section-number">2.3</span> Exponentielle</h2>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 2.3</strong></p>
+<p><span class="math inline">\int_0^{+\infty} e^{-\alpha t}\, dt</span> converge si et seulement si <span class="math inline">\alpha &gt; 0</span>, et : <span class="math display">\int_0^{+\infty} e^{-\alpha t}\, dt = \frac{1}{\alpha}</span></p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 2.4</strong></p>
+<p><span class="math inline">\int_0^1 \ln t\, dt</span> converge et vaut <span class="math inline">-1</span>.</p>
+</div>
+</section>
+</section>
+<section id="critères-pour-fonctions-positives" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Critères pour fonctions positives</h1>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 3.1 — (Comparaison)</strong></p>
+<p>Soient <span class="math inline">f, g : [a, b[ \to \mathbb{R}^+</span> continues par morceaux avec <span class="math inline">0 \leq f(t) \leq g(t)</span> au voisinage de <span class="math inline">b</span>.</p>
+<ol type="1">
+<li>Si <span class="math inline">\int_a^b g(t)\, dt</span> converge, alors <span class="math inline">\int_a^b f(t)\, dt</span> converge.</li>
+<li>Si <span class="math inline">\int_a^b f(t)\, dt</span> diverge, alors <span class="math inline">\int_a^b g(t)\, dt</span> diverge.</li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 3.2 — (Équivalence)</strong></p>
+<p>Si <span class="math inline">f(t) \sim_b g(t)</span> avec <span class="math inline">f, g \geq 0</span>, alors <span class="math inline">\int_a^b f</span> et <span class="math inline">\int_a^b g</span> sont de même nature.</p>
+</div>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 3.3 — (Critère de Riemann)</strong></p>
+<p>Si <span class="math inline">f(t) \sim_b \frac{1}{(b-t)^\alpha}</span> (ou <span class="math inline">\frac{1}{t^\alpha}</span> en <span class="math inline">+\infty</span>) :</p>
+<ul>
+<li>En <span class="math inline">+\infty</span> : convergence ssi <span class="math inline">\alpha &gt; 1</span>.</li>
+<li>En <span class="math inline">a^+</span> : convergence ssi <span class="math inline">\alpha &lt; 1</span>.</li>
+</ul>
+</div>
+</section>
+<section id="convergence-absolue" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> Convergence absolue</h1>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 4.1 — (Convergence absolue)</strong></p>
+<p><span class="math inline">\int_a^b f(t)\, dt</span> est <strong>absolument convergente</strong> si <span class="math inline">\int_a^b |f(t)|\, dt</span> converge.</p>
+</div>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 4.1</strong></p>
+<p>Toute intégrale absolument convergente est convergente. De plus : <span class="math display">\left|\int_a^b f(t)\, dt\right| \leq \int_a^b |f(t)|\, dt</span></p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 4.1</strong></p>
+<p><span class="math inline">\int_1^{+\infty} \frac{\sin t}{t^2}\, dt</span> converge absolument car <span class="math inline">\left|\frac{\sin t}{t^2}\right| \leq \frac{1}{t^2}</span>.</p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 4.2 — (Semi-convergence)</strong></p>
+<p><span class="math inline">\int_1^{+\infty} \frac{\sin t}{t}\, dt</span> converge (par IPP) mais pas absolument.</p>
+</div>
+</section>
+<section id="exercices" class="level1" data-number="5">
+<h1 data-number="5"><span class="header-section-number">5</span> Exercices</h1>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 5.1</strong></p>
+<p>Étudier la convergence de :</p>
+<ol type="1">
+<li><span class="math inline">\int_1^{+\infty} \frac{dt}{t^2 + 1}</span></li>
+<li><span class="math inline">\int_0^1 \frac{dt}{\sqrt{t}}</span></li>
+<li><span class="math inline">\int_0^{+\infty} e^{-t^2}\, dt</span></li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 5.2</strong></p>
+<p>Étudier <span class="math inline">\int_0^{+\infty} \frac{1 - \cos t}{t^\alpha}\, dt</span> selon <span class="math inline">\alpha</span>.</p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 5.3</strong></p>
+<p>Calculer <span class="math inline">\int_0^{+\infty} t e^{-t}\, dt</span>.</p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 5.4</strong></p>
+<p>Étudier <span class="math inline">\int_0^1 \frac{\ln t}{t^\alpha}\, dt</span> selon <span class="math inline">\alpha</span>.</p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 5.5</strong></p>
+<p>Montrer que <span class="math inline">\int_0^{+\infty} \frac{\sin t}{t}\, dt</span> converge mais pas absolument.</p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 5.6</strong></p>
+<p>Étudier <span class="math inline">\int_0^{+\infty} \frac{dt}{(1+t^2)^2}</span>.</p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 5.7</strong></p>
+<p>Soit <span class="math inline">f : [0, +\infty[ \to \mathbb{R}^+</span> continue, positive et décroissante. Montrer que <span class="math inline">\int_0^{+\infty} f(t)\, dt</span> converge si et seulement si <span class="math inline">\sum f(n)</span> converge.</p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 5.8</strong></p>
+<p>Étudier la convergence absolue de <span class="math inline">\int_0^{+\infty} \frac{\sin t}{t^\alpha}\, dt</span> selon <span class="math inline">\alpha</span>.</p>
+</div>
+</section>
+<section id="document-en-pdf" class="level1 unnumbered">
+<h1 class="unnumbered">Document en PDF</h1>
+<p><a href="PDF/ecs2-chap05.pdf"><strong>Chapitre 05 : Intégrales généralisées</strong></a></p>
+<section id="navigation" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="navigation">Navigation</h2>
+<div class="chap-nav">
+<p><a href="../cours/ecs2-chap04.html" class="prev">Chapitre 04 : Séries numériques</a> <a href="../cours/ecs2.html" class="home">Menu ECS2</a> <a href="../cours/ecs2-chap06.html" class="next">Chapitre 06 : Variables aléatoires discrètes infinies</a></p>
+</div>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -281,12 +484,12 @@ ul.task-list li input[type="checkbox"] {
       // flash "checked"
       button.classList.add('code-copy-button-checked');
       var currentTitle = button.getAttribute("title");
-      button.setAttribute("title", "Copied!");
+      button.setAttribute("title", "Copié");
       let tooltip;
       if (window.bootstrap) {
         button.setAttribute("data-bs-toggle", "tooltip");
         button.setAttribute("data-bs-placement", "left");
-        button.setAttribute("data-bs-title", "Copied!");
+        button.setAttribute("data-bs-title", "Copié");
         tooltip = new bootstrap.Tooltip(button, 
           { trigger: "manual", 
             customClass: "code-copy-button-tooltip",

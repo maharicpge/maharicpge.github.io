@@ -8,7 +8,7 @@
 
 <meta name="author" content="Saîd MAHARI">
 
-<title>Variables aléatoires à densité – Mathématiques en CPGE</title>
+<title>Fonctions de la variable réelle : primitives et intégration – Mathématiques en CPGE</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -266,19 +266,18 @@ window.Quarto = {
     <h2 id="toc-title">Sur cette page</h2>
    
   <ul>
-  <li><a href="#densité-et-fonction-de-répartition" id="toc-densité-et-fonction-de-répartition" class="nav-link active" data-scroll-target="#densité-et-fonction-de-répartition"><span class="header-section-number">1</span> Densité et fonction de répartition</a>
+  <li><a href="#primitives" id="toc-primitives" class="nav-link active" data-scroll-target="#primitives"><span class="header-section-number">1</span> Primitives</a>
   <ul class="collapse">
-  <li><a href="#densité" id="toc-densité" class="nav-link" data-scroll-target="#densité"><span class="header-section-number">1.1</span> Densité</a></li>
-  <li><a href="#fonction-de-répartition" id="toc-fonction-de-répartition" class="nav-link" data-scroll-target="#fonction-de-répartition"><span class="header-section-number">1.2</span> Fonction de répartition</a></li>
+  <li><a href="#définition" id="toc-définition" class="nav-link" data-scroll-target="#définition"><span class="header-section-number">1.1</span> Définition</a></li>
   </ul></li>
-  <li><a href="#espérance-et-variance" id="toc-espérance-et-variance" class="nav-link" data-scroll-target="#espérance-et-variance"><span class="header-section-number">2</span> Espérance et variance</a></li>
-  <li><a href="#lois-usuelles-à-densité" id="toc-lois-usuelles-à-densité" class="nav-link" data-scroll-target="#lois-usuelles-à-densité"><span class="header-section-number">3</span> Lois usuelles à densité</a>
+  <li><a href="#intégrale-définie" id="toc-intégrale-définie" class="nav-link" data-scroll-target="#intégrale-définie"><span class="header-section-number">2</span> Intégrale définie</a>
   <ul class="collapse">
-  <li><a href="#loi-uniforme" id="toc-loi-uniforme" class="nav-link" data-scroll-target="#loi-uniforme"><span class="header-section-number">3.1</span> Loi uniforme</a></li>
-  <li><a href="#loi-exponentielle" id="toc-loi-exponentielle" class="nav-link" data-scroll-target="#loi-exponentielle"><span class="header-section-number">3.2</span> Loi exponentielle</a></li>
-  <li><a href="#loi-normale" id="toc-loi-normale" class="nav-link" data-scroll-target="#loi-normale"><span class="header-section-number">3.3</span> Loi normale</a></li>
+  <li><a href="#définition-1" id="toc-définition-1" class="nav-link" data-scroll-target="#définition-1"><span class="header-section-number">2.1</span> Définition</a></li>
+  <li><a href="#propriétés" id="toc-propriétés" class="nav-link" data-scroll-target="#propriétés"><span class="header-section-number">2.2</span> Propriétés</a></li>
   </ul></li>
-  <li><a href="#exercices" id="toc-exercices" class="nav-link" data-scroll-target="#exercices"><span class="header-section-number">4</span> Exercices</a></li>
+  <li><a href="#aire-sous-la-courbe" id="toc-aire-sous-la-courbe" class="nav-link" data-scroll-target="#aire-sous-la-courbe"><span class="header-section-number">3</span> Aire sous la courbe</a></li>
+  <li><a href="#intégration-par-parties" id="toc-intégration-par-parties" class="nav-link" data-scroll-target="#intégration-par-parties"><span class="header-section-number">4</span> Intégration par parties</a></li>
+  <li><a href="#exercices" id="toc-exercices" class="nav-link" data-scroll-target="#exercices"><span class="header-section-number">5</span> Exercices</a></li>
   <li><a href="#document-en-pdf" id="toc-document-en-pdf" class="nav-link" data-scroll-target="#document-en-pdf">Document en PDF</a>
   <ul class="collapse">
   <li><a href="#navigation" id="toc-navigation" class="nav-link" data-scroll-target="#navigation">Navigation</a></li>
@@ -291,8 +290,8 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Variables aléatoires à densité</h1>
-<p class="subtitle lead">Chapitre 07</p>
+<h1 class="title">Fonctions de la variable réelle : primitives et intégration</h1>
+<p class="subtitle lead">Chapitre 11</p>
 </div>
 
 
@@ -321,166 +320,169 @@ window.Quarto = {
 </header>
 
 
-<p><strong>ECS (2e année) — Chapitre 07.</strong> Densités, fonction de répartition, lois uniforme, exponentielle, normale ; espérance et variance.</p>
-<p>Ce chapitre a été réalisé conformément au programme marocain de mathématiques de la filière ECS.</p>
-<section id="densité-et-fonction-de-répartition" class="level1" data-number="1">
-<h1 data-number="1"><span class="header-section-number">1</span> Densité et fonction de répartition</h1>
-<section id="densité" class="level2" data-number="1.1">
-<h2 data-number="1.1" class="anchored" data-anchor-id="densité"><span class="header-section-number">1.1</span> Densité</h2>
+<p><strong>ECT (1re année) — Chapitre 11.</strong> Primitives, intégrales, intégration par parties, aire sous la courbe.</p>
+<p>Ce chapitre a été réalisé conformément au programme marocain de mathématiques de la filière ECT.</p>
+<section id="primitives" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Primitives</h1>
+<section id="définition" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="définition"><span class="header-section-number">1.1</span> Définition</h2>
 <div class="custom-numbered-block custom-definition">
-<p><strong>Définition 1.1 — (Densité de probabilité)</strong></p>
-<p>Une fonction <span class="math inline">f : \mathbb{R} \to \mathbb{R}</span> est une <strong>densité de probabilité</strong> si :</p>
+<p><strong>Définition 1.1 — (Primitive)</strong></p>
+<p>Une <strong>primitive</strong> d’une fonction <span class="math inline">f : I \to \mathbb{R}</span> est une fonction <span class="math inline">F : I \to \mathbb{R}</span> dérivable telle que <span class="math inline">F' = f</span> sur <span class="math inline">I</span>.</p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 1.1 — (Unicité à constante près)</strong></p>
+<p>Si <span class="math inline">F</span> est une primitive de <span class="math inline">f</span> sur <span class="math inline">I</span>, alors toutes les primitives de <span class="math inline">f</span> sont de la forme <span class="math inline">F + C</span> avec <span class="math inline">C \in \mathbb{R}</span>.</p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 1.2 — (Primitives usuelles)</strong></p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th><span class="math inline">f(x)</span></th>
+<th><span class="math inline">F(x)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">x^n</span> (<span class="math inline">n \neq -1</span>)</td>
+<td><span class="math inline">\frac{x^{n+1}}{n+1}</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\frac{1}{x}</span></td>
+<td><span class="math inline">\ln |x|</span></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">e^x</span></td>
+<td><span class="math inline">e^x</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\cos x</span></td>
+<td><span class="math inline">\sin x</span></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\sin x</span></td>
+<td><span class="math inline">-\cos x</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\frac{1}{1+x^2}</span></td>
+<td><span class="math inline">\arctan x</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 1.3 — (Opérations)</strong></p>
+<p>Si <span class="math inline">F</span> est une primitive de <span class="math inline">f</span> et <span class="math inline">G</span> une primitive de <span class="math inline">g</span>, alors :</p>
 <ol type="1">
-<li><span class="math inline">f \geq 0</span> sur <span class="math inline">\mathbb{R}</span>.</li>
-<li><span class="math inline">f</span> est continue par morceaux sur <span class="math inline">\mathbb{R}</span>.</li>
-<li><span class="math inline">\int_{-\infty}^{+\infty} f(t)\, dt = 1</span>.</li>
+<li><span class="math inline">F + G</span> est une primitive de <span class="math inline">f + g</span>.</li>
+<li><span class="math inline">\lambda F</span> est une primitive de <span class="math inline">\lambda f</span>.</li>
 </ol>
 </div>
+</section>
+</section>
+<section id="intégrale-définie" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> Intégrale définie</h1>
+<section id="définition-1" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="définition-1"><span class="header-section-number">2.1</span> Définition</h2>
 <div class="custom-numbered-block custom-definition">
-<p><strong>Définition 1.2 — (Variable à densité)</strong></p>
-<p>Une variable aléatoire <span class="math inline">X</span> est <strong>à densité</strong> si sa fonction de répartition <span class="math inline">F_X</span> est continue sur <span class="math inline">\mathbb{R}</span> et de classe <span class="math inline">\mathcal{C}^1</span> sauf en un nombre fini de points. Une <strong>densité</strong> de <span class="math inline">X</span> est : <span class="math display">f_X(x) = F_X'(x) \quad \text{aux points où } F_X \text{ est } \mathcal{C}^1</span></p>
+<p><strong>Définition 2.1 — (Intégrale)</strong></p>
+<p>Soit <span class="math inline">f : [a,b] \to \mathbb{R}</span> continue. L’<strong>intégrale</strong> de <span class="math inline">f</span> sur <span class="math inline">[a,b]</span> est : <span class="math display">\int_a^b f(t)\, dt = F(b) - F(a)</span> où <span class="math inline">F</span> est une primitive de <span class="math inline">f</span> sur <span class="math inline">[a,b]</span>.</p>
+</div>
+<div class="remarque">
+<p>La valeur de <span class="math inline">\int_a^b f(t)\, dt</span> ne dépend pas du choix de la primitive <span class="math inline">F</span>.</p>
 </div>
 </section>
-<section id="fonction-de-répartition" class="level2" data-number="1.2">
-<h2 data-number="1.2" class="anchored" data-anchor-id="fonction-de-répartition"><span class="header-section-number">1.2</span> Fonction de répartition</h2>
-<div class="custom-numbered-block custom-definition">
-<p><strong>Définition 1.3 — (Fonction de répartition)</strong></p>
-<p><span class="math display">F_X(x) = P(X \leq x)</span></p>
-</div>
+<section id="propriétés" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="propriétés"><span class="header-section-number">2.2</span> Propriétés</h2>
 <div class="custom-numbered-block custom-proposition">
-<p><strong>Proposition 1.1 — (Propriétés)</strong></p>
+<p><strong>Proposition 2.1 — (Propriétés)</strong></p>
 <ol type="1">
-<li><span class="math inline">F_X</span> est croissante.</li>
-<li><span class="math inline">F_X</span> est continue à droite.</li>
-<li><span class="math inline">\lim_{x \to -\infty} F_X(x) = 0</span> et <span class="math inline">\lim_{x \to +\infty} F_X(x) = 1</span>.</li>
-<li>Pour <span class="math inline">a &lt; b</span> : <span class="math inline">P(a &lt; X \leq b) = F_X(b) - F_X(a)</span>.</li>
-<li>Pour une variable à densité : <span class="math inline">P(X = a) = 0</span>.</li>
+<li><strong>Linéarité</strong> : <span class="math inline">\int_a^b (\lambda f + \mu g) = \lambda \int_a^b f + \mu \int_a^b g</span></li>
+<li><strong>Relation de Chasles</strong> : <span class="math inline">\int_a^b f = \int_a^c f + \int_c^b f</span></li>
+<li><strong>Positivité</strong> : si <span class="math inline">f \geq 0</span> sur <span class="math inline">[a,b]</span>, alors <span class="math inline">\int_a^b f \geq 0</span></li>
+<li><strong>Croissance</strong> : si <span class="math inline">f \leq g</span> sur <span class="math inline">[a,b]</span>, alors <span class="math inline">\int_a^b f \leq \int_a^b g</span></li>
+<li><strong>Inégalité triangulaire</strong> : <span class="math inline">\left|\int_a^b f\right| \leq \int_a^b |f|</span></li>
 </ol>
 </div>
-<div class="custom-numbered-block custom-proposition">
-<p><strong>Proposition 1.2 — (Calcul de probabilités)</strong></p>
-<p>Pour une variable à densité et <span class="math inline">a &lt; b</span> : <span class="math display">P(a \leq X \leq b) = P(a &lt; X &lt; b) = P(a &lt; X \leq b) = P(a \leq X &lt; b) = \int_a^b f_X(t)\, dt</span></p>
-</div>
 </section>
 </section>
-<section id="espérance-et-variance" class="level1" data-number="2">
-<h1 data-number="2"><span class="header-section-number">2</span> Espérance et variance</h1>
-<div class="custom-numbered-block custom-definition">
-<p><strong>Définition 2.1 — (Espérance)</strong></p>
-<p><span class="math inline">X</span> admet une <strong>espérance</strong> si <span class="math inline">\int_{-\infty}^{+\infty} |t| f_X(t)\, dt</span> converge, et : <span class="math display">E(X) = \int_{-\infty}^{+\infty} t f_X(t)\, dt</span></p>
-</div>
-<div class="custom-numbered-block custom-definition">
-<p><strong>Définition 2.2 — (Variance)</strong></p>
-<p><span class="math inline">X</span> admet une <strong>variance</strong> si <span class="math inline">\int_{-\infty}^{+\infty} (t - E(X))^2 f_X(t)\, dt</span> converge, et : <span class="math display">V(X) = E((X - E(X))^2) = E(X^2) - (E(X))^2</span></p>
-</div>
+<section id="aire-sous-la-courbe" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Aire sous la courbe</h1>
 <div class="custom-numbered-block custom-proposition">
-<p><strong>Proposition 2.1 — (Formule de transfert)</strong></p>
-<p>Si <span class="math inline">\varphi : \mathbb{R} \to \mathbb{R}</span> est continue par morceaux : <span class="math display">E(\varphi(X)) = \int_{-\infty}^{+\infty} \varphi(t) f_X(t)\, dt</span></p>
+<p><strong>Proposition 3.1 — (Interprétation géométrique)</strong></p>
+<p>Si <span class="math inline">f \geq 0</span> sur <span class="math inline">[a,b]</span>, alors <span class="math inline">\int_a^b f(t)\, dt</span> est l’aire du domaine délimité par la courbe de <span class="math inline">f</span>, l’axe des abscisses et les droites <span class="math inline">x = a</span> et <span class="math inline">x = b</span>.</p>
 </div>
 </section>
-<section id="lois-usuelles-à-densité" class="level1" data-number="3">
-<h1 data-number="3"><span class="header-section-number">3</span> Lois usuelles à densité</h1>
-<section id="loi-uniforme" class="level2" data-number="3.1">
-<h2 data-number="3.1" class="anchored" data-anchor-id="loi-uniforme"><span class="header-section-number">3.1</span> Loi uniforme</h2>
-<div class="custom-numbered-block custom-definition">
-<p><strong>Définition 3.1 — (Loi uniforme)</strong></p>
-<p><span class="math inline">X \hookrightarrow \mathcal{U}([a,b])</span> si : <span class="math display">f_X(t) = \begin{cases} \frac{1}{b-a} &amp; \text{si } t \in [a,b] \\ 0 &amp; \text{sinon} \end{cases}</span></p>
+<section id="intégration-par-parties" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> Intégration par parties</h1>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 4.1 — (Intégration par parties)</strong></p>
+<p>Soient <span class="math inline">u</span> et <span class="math inline">v</span> deux fonctions de classe <span class="math inline">\mathcal{C}^1</span> sur <span class="math inline">[a,b]</span>. Alors : <span class="math display">\int_a^b u(t) v'(t)\, dt = [u(t)v(t)]_a^b - \int_a^b u'(t) v(t)\, dt</span></p>
 </div>
-<div class="custom-numbered-block custom-proposition">
-<p><strong>Proposition 3.1 — (Espérance et variance)</strong></p>
-<p><span class="math display">E(X) = \frac{a+b}{2}, \quad V(X) = \frac{(b-a)^2}{12}</span></p>
-</div>
-</section>
-<section id="loi-exponentielle" class="level2" data-number="3.2">
-<h2 data-number="3.2" class="anchored" data-anchor-id="loi-exponentielle"><span class="header-section-number">3.2</span> Loi exponentielle</h2>
-<div class="custom-numbered-block custom-definition">
-<p><strong>Définition 3.2 — (Loi exponentielle)</strong></p>
-<p><span class="math inline">X \hookrightarrow \mathcal{E}(\lambda)</span> (<span class="math inline">\lambda &gt; 0</span>) si : <span class="math display">f_X(t) = \begin{cases} \lambda e^{-\lambda t} &amp; \text{si } t \geq 0 \\ 0 &amp; \text{si } t &lt; 0 \end{cases}</span></p>
-</div>
-<div class="custom-numbered-block custom-proposition">
-<p><strong>Proposition 3.2 — (Fonction de répartition)</strong></p>
-<p><span class="math display">F_X(t) = \begin{cases} 1 - e^{-\lambda t} &amp; \text{si } t \geq 0 \\ 0 &amp; \text{si } t &lt; 0 \end{cases}</span></p>
-</div>
-<div class="custom-numbered-block custom-proposition">
-<p><strong>Proposition 3.3 — (Espérance et variance)</strong></p>
-<p><span class="math display">E(X) = \frac{1}{\lambda}, \quad V(X) = \frac{1}{\lambda^2}</span></p>
-</div>
-<div class="custom-numbered-block custom-proposition">
-<p><strong>Proposition 3.4 — (Absence de mémoire)</strong></p>
-<p><span class="math display">P(X &gt; s + t \mid X &gt; s) = P(X &gt; t)</span></p>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 4.1</strong></p>
+<p>Calculer <span class="math inline">\int_0^1 t e^{-t}\, dt</span>.</p>
+<p>On pose <span class="math inline">u(t) = t</span> et <span class="math inline">v'(t) = e^{-t}</span>, donc <span class="math inline">u'(t) = 1</span> et <span class="math inline">v(t) = -e^{-t}</span>. <span class="math display">\int_0^1 t e^{-t}\, dt = [-te^{-t}]_0^1 + \int_0^1 e^{-t}\, dt = -e^{-1} + [-e^{-t}]_0^1 = -e^{-1} + 1 - e^{-1} = 1 - 2e^{-1}</span></p>
 </div>
 </section>
-<section id="loi-normale" class="level2" data-number="3.3">
-<h2 data-number="3.3" class="anchored" data-anchor-id="loi-normale"><span class="header-section-number">3.3</span> Loi normale</h2>
-<div class="custom-numbered-block custom-definition">
-<p><strong>Définition 3.3 — (Loi normale centrée réduite)</strong></p>
-<p><span class="math inline">X \hookrightarrow \mathcal{N}(0,1)</span> si : <span class="math display">f_X(t) = \frac{1}{\sqrt{2\pi}} e^{-t^2/2}</span></p>
-</div>
-<div class="custom-numbered-block custom-definition">
-<p><strong>Définition 3.4 — (Loi normale)</strong></p>
-<p><span class="math inline">X \hookrightarrow \mathcal{N}(\mu, \sigma^2)</span> (<span class="math inline">\sigma &gt; 0</span>) si : <span class="math display">f_X(t) = \frac{1}{\sigma\sqrt{2\pi}} e^{-(t-\mu)^2/(2\sigma^2)}</span></p>
-</div>
-<div class="custom-numbered-block custom-proposition">
-<p><strong>Proposition 3.5 — (Espérance et variance)</strong></p>
-<p><span class="math display">E(X) = \mu, \quad V(X) = \sigma^2</span></p>
-</div>
-<div class="custom-numbered-block custom-proposition">
-<p><strong>Proposition 3.6 — (Translation et dilatation)</strong></p>
-<p>Si <span class="math inline">X \hookrightarrow \mathcal{N}(\mu, \sigma^2)</span>, alors pour <span class="math inline">(a,b) \in \mathbb{R}^* \times \mathbb{R}</span> : <span class="math display">aX + b \hookrightarrow \mathcal{N}(a\mu + b, a^2\sigma^2)</span> En particulier, <span class="math inline">X^* = \frac{X - \mu}{\sigma} \hookrightarrow \mathcal{N}(0,1)</span>.</p>
-</div>
-<div class="custom-numbered-block custom-proposition">
-<p><strong>Proposition 3.7 — (Somme de normales indépendantes)</strong></p>
-<p>Si <span class="math inline">X \hookrightarrow \mathcal{N}(\mu_1, \sigma_1^2)</span> et <span class="math inline">Y \hookrightarrow \mathcal{N}(\mu_2, \sigma_2^2)</span> sont indépendantes : <span class="math display">X + Y \hookrightarrow \mathcal{N}(\mu_1 + \mu_2, \sigma_1^2 + \sigma_2^2)</span></p>
-</div>
-</section>
-</section>
-<section id="exercices" class="level1" data-number="4">
-<h1 data-number="4"><span class="header-section-number">4</span> Exercices</h1>
+<section id="exercices" class="level1" data-number="5">
+<h1 data-number="5"><span class="header-section-number">5</span> Exercices</h1>
 <div class="custom-numbered-block custom-exercise">
-<p><strong>Exercice 4.1</strong></p>
-<p>Soit <span class="math inline">f(t) = \begin{cases} c e^{-t} &amp; t \geq 0 \\ 0 &amp; t &lt; 0 \end{cases}</span>. Déterminer <span class="math inline">c</span> pour que <span class="math inline">f</span> soit une densité.</p>
-</div>
-<div class="custom-numbered-block custom-exercise">
-<p><strong>Exercice 4.2</strong></p>
-<p>Soit <span class="math inline">X \hookrightarrow \mathcal{U}([0,1])</span>. Calculer <span class="math inline">E(X)</span>, <span class="math inline">V(X)</span> et <span class="math inline">P(0{,}2 &lt; X &lt; 0{,}7)</span>.</p>
-</div>
-<div class="custom-numbered-block custom-exercise">
-<p><strong>Exercice 4.3</strong></p>
-<p>Soit <span class="math inline">X \hookrightarrow \mathcal{E}(2)</span>. Calculer <span class="math inline">E(X)</span>, <span class="math inline">V(X)</span> et <span class="math inline">P(X &gt; 1)</span>.</p>
-</div>
-<div class="custom-numbered-block custom-exercise">
-<p><strong>Exercice 4.4</strong></p>
-<p>Soit <span class="math inline">X \hookrightarrow \mathcal{N}(0,1)</span>. Calculer <span class="math inline">P(-1 &lt; X &lt; 1)</span> (résultat approché : <span class="math inline">0{,}68</span>).</p>
-</div>
-<div class="custom-numbered-block custom-exercise">
-<p><strong>Exercice 4.5</strong></p>
-<p>Soit <span class="math inline">X \hookrightarrow \mathcal{N}(10, 4)</span>. Déterminer la loi de <span class="math inline">Y = 2X + 3</span>.</p>
-</div>
-<div class="custom-numbered-block custom-exercise">
-<p><strong>Exercice 4.6</strong></p>
-<p>Soit <span class="math inline">X</span> à densité <span class="math inline">f_X(t) = \begin{cases} 2t &amp; 0 \leq t \leq 1 \\ 0 &amp; \text{sinon} \end{cases}</span>.</p>
+<p><strong>Exercice 5.1</strong></p>
+<p>Calculer les primitives suivantes :</p>
 <ol type="1">
-<li>Vérifier que <span class="math inline">f_X</span> est une densité.</li>
-<li>Calculer <span class="math inline">E(X)</span> et <span class="math inline">V(X)</span>.</li>
-<li>Déterminer <span class="math inline">F_X</span>.</li>
+<li><span class="math inline">\int x^3\, dx</span></li>
+<li><span class="math inline">\int \frac{1}{x}\, dx</span></li>
+<li><span class="math inline">\int e^{2x}\, dx</span></li>
+<li><span class="math inline">\int \sin(3x)\, dx</span></li>
 </ol>
 </div>
 <div class="custom-numbered-block custom-exercise">
-<p><strong>Exercice 4.7</strong></p>
-<p>Soit <span class="math inline">X \hookrightarrow \mathcal{E}(\lambda)</span>. Montrer l’absence de mémoire.</p>
+<p><strong>Exercice 5.2</strong></p>
+<p>Calculer les intégrales suivantes :</p>
+<ol type="1">
+<li><span class="math inline">\int_0^1 x^2\, dx</span></li>
+<li><span class="math inline">\int_1^e \frac{dt}{t}</span></li>
+<li><span class="math inline">\int_0^{\pi} \sin t\, dt</span></li>
+</ol>
 </div>
 <div class="custom-numbered-block custom-exercise">
-<p><strong>Exercice 4.8</strong></p>
-<p>Soient <span class="math inline">X</span> et <span class="math inline">Y</span> indépendantes suivant <span class="math inline">\mathcal{E}(\lambda)</span>. Déterminer la loi de <span class="math inline">X + Y</span>.</p>
+<p><strong>Exercice 5.3</strong></p>
+<p>Calculer par IPP :</p>
+<ol type="1">
+<li><span class="math inline">\int_0^1 t^2 e^{-t}\, dt</span></li>
+<li><span class="math inline">\int_1^e t \ln t\, dt</span></li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 5.4</strong></p>
+<p>Calculer l’aire du domaine délimité par la courbe de <span class="math inline">f(x) = x^2</span>, l’axe des abscisses et les droites <span class="math inline">x = 0</span> et <span class="math inline">x = 2</span>.</p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 5.5</strong></p>
+<p>Montrer que <span class="math inline">\int_a^b f(t)\, dt = -\int_b^a f(t)\, dt</span>.</p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 5.6</strong></p>
+<p>Soit <span class="math inline">f : [0,1] \to \mathbb{R}</span> continue avec <span class="math inline">f(x) \geq 0</span>. Montrer que si <span class="math inline">\int_0^1 f(t)\, dt = 0</span>, alors <span class="math inline">f = 0</span> sur <span class="math inline">[0,1]</span>.</p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 5.7</strong></p>
+<p>Calculer <span class="math inline">\int_0^1 t^n (1-t)^m\, dt</span> pour <span class="math inline">n, m \in \mathbb{N}</span> par IPP itérées.</p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 5.8</strong></p>
+<p>Soit <span class="math inline">f : \mathbb{R} \to \mathbb{R}</span> continue et <span class="math inline">T</span>-périodique. Montrer que <span class="math inline">\int_0^T f(t)\, dt = \int_a^{a+T} f(t)\, dt</span> pour tout <span class="math inline">a \in \mathbb{R}</span>.</p>
 </div>
 </section>
 <section id="document-en-pdf" class="level1 unnumbered">
 <h1 class="unnumbered">Document en PDF</h1>
-<p><a href="PDF/ecs2-chap07.pdf"><strong>Chapitre 07 : Variables aléatoires à densité</strong></a></p>
+<p><a href="PDF/ect1-chap11.pdf"><strong>Chapitre 11 : Primitives et intégration</strong></a></p>
 <section id="navigation" class="level2 unnumbered">
 <h2 class="unnumbered anchored" data-anchor-id="navigation">Navigation</h2>
 <div class="chap-nav">
-<p><a href="../cours/ecs2-chap06.html" class="prev">Chapitre 06 : Variables aléatoires discrètes infinies</a> <a href="../cours/ecs2.html" class="home">Menu ECS2</a> <a href="../cours/ecs2-chap08.html" class="next">Chapitre 08 : Vecteurs aléatoires</a></p>
+<p><a href="../cours/ect1-chap10.html" class="prev">Chapitre 10 : Compléments de probabilités</a> <a href="../cours/ect1.html" class="home">Menu ECT1</a></p>
 </div>
 
 

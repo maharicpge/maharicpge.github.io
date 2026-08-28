@@ -8,7 +8,7 @@
 
 <meta name="author" content="Saîd MAHARI">
 
-<title>Variables aléatoires à densité – Mathématiques en CPGE</title>
+<title>Systèmes d’équations linéaires et introduction au calcul matriciel – Mathématiques en CPGE</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -266,19 +266,19 @@ window.Quarto = {
     <h2 id="toc-title">Sur cette page</h2>
    
   <ul>
-  <li><a href="#densité-et-fonction-de-répartition" id="toc-densité-et-fonction-de-répartition" class="nav-link active" data-scroll-target="#densité-et-fonction-de-répartition"><span class="header-section-number">1</span> Densité et fonction de répartition</a>
+  <li><a href="#systèmes-déquations-linéaires" id="toc-systèmes-déquations-linéaires" class="nav-link active" data-scroll-target="#systèmes-déquations-linéaires"><span class="header-section-number">1</span> Systèmes d’équations linéaires</a>
   <ul class="collapse">
-  <li><a href="#densité" id="toc-densité" class="nav-link" data-scroll-target="#densité"><span class="header-section-number">1.1</span> Densité</a></li>
-  <li><a href="#fonction-de-répartition" id="toc-fonction-de-répartition" class="nav-link" data-scroll-target="#fonction-de-répartition"><span class="header-section-number">1.2</span> Fonction de répartition</a></li>
+  <li><a href="#définition" id="toc-définition" class="nav-link" data-scroll-target="#définition"><span class="header-section-number">1.1</span> Définition</a></li>
+  <li><a href="#opérations-élémentaires" id="toc-opérations-élémentaires" class="nav-link" data-scroll-target="#opérations-élémentaires"><span class="header-section-number">1.2</span> Opérations élémentaires</a></li>
   </ul></li>
-  <li><a href="#espérance-et-variance" id="toc-espérance-et-variance" class="nav-link" data-scroll-target="#espérance-et-variance"><span class="header-section-number">2</span> Espérance et variance</a></li>
-  <li><a href="#lois-usuelles-à-densité" id="toc-lois-usuelles-à-densité" class="nav-link" data-scroll-target="#lois-usuelles-à-densité"><span class="header-section-number">3</span> Lois usuelles à densité</a>
+  <li><a href="#matrices" id="toc-matrices" class="nav-link" data-scroll-target="#matrices"><span class="header-section-number">2</span> Matrices</a>
   <ul class="collapse">
-  <li><a href="#loi-uniforme" id="toc-loi-uniforme" class="nav-link" data-scroll-target="#loi-uniforme"><span class="header-section-number">3.1</span> Loi uniforme</a></li>
-  <li><a href="#loi-exponentielle" id="toc-loi-exponentielle" class="nav-link" data-scroll-target="#loi-exponentielle"><span class="header-section-number">3.2</span> Loi exponentielle</a></li>
-  <li><a href="#loi-normale" id="toc-loi-normale" class="nav-link" data-scroll-target="#loi-normale"><span class="header-section-number">3.3</span> Loi normale</a></li>
+  <li><a href="#définition-1" id="toc-définition-1" class="nav-link" data-scroll-target="#définition-1"><span class="header-section-number">2.1</span> Définition</a></li>
+  <li><a href="#opérations-sur-les-matrices" id="toc-opérations-sur-les-matrices" class="nav-link" data-scroll-target="#opérations-sur-les-matrices"><span class="header-section-number">2.2</span> Opérations sur les matrices</a></li>
+  <li><a href="#matrice-identité-et-transposée" id="toc-matrice-identité-et-transposée" class="nav-link" data-scroll-target="#matrice-identité-et-transposée"><span class="header-section-number">2.3</span> Matrice identité et transposée</a></li>
+  <li><a href="#matrices-inversibles" id="toc-matrices-inversibles" class="nav-link" data-scroll-target="#matrices-inversibles"><span class="header-section-number">2.4</span> Matrices inversibles</a></li>
   </ul></li>
-  <li><a href="#exercices" id="toc-exercices" class="nav-link" data-scroll-target="#exercices"><span class="header-section-number">4</span> Exercices</a></li>
+  <li><a href="#exercices" id="toc-exercices" class="nav-link" data-scroll-target="#exercices"><span class="header-section-number">3</span> Exercices</a></li>
   <li><a href="#document-en-pdf" id="toc-document-en-pdf" class="nav-link" data-scroll-target="#document-en-pdf">Document en PDF</a>
   <ul class="collapse">
   <li><a href="#navigation" id="toc-navigation" class="nav-link" data-scroll-target="#navigation">Navigation</a></li>
@@ -291,8 +291,8 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Variables aléatoires à densité</h1>
-<p class="subtitle lead">Chapitre 07</p>
+<h1 class="title">Systèmes d’équations linéaires et introduction au calcul matriciel</h1>
+<p class="subtitle lead">Chapitre 08</p>
 </div>
 
 
@@ -321,166 +321,150 @@ window.Quarto = {
 </header>
 
 
-<p><strong>ECS (2e année) — Chapitre 07.</strong> Densités, fonction de répartition, lois uniforme, exponentielle, normale ; espérance et variance.</p>
-<p>Ce chapitre a été réalisé conformément au programme marocain de mathématiques de la filière ECS.</p>
-<section id="densité-et-fonction-de-répartition" class="level1" data-number="1">
-<h1 data-number="1"><span class="header-section-number">1</span> Densité et fonction de répartition</h1>
-<section id="densité" class="level2" data-number="1.1">
-<h2 data-number="1.1" class="anchored" data-anchor-id="densité"><span class="header-section-number">1.1</span> Densité</h2>
+<p><strong>ECT (1re année) — Chapitre 08.</strong> Systèmes linéaires, pivot de Gauss, matrices, opérations, inversibilité.</p>
+<p>Ce chapitre a été réalisé conformément au programme marocain de mathématiques de la filière ECT.</p>
+<section id="systèmes-déquations-linéaires" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Systèmes d’équations linéaires</h1>
+<section id="définition" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="définition"><span class="header-section-number">1.1</span> Définition</h2>
 <div class="custom-numbered-block custom-definition">
-<p><strong>Définition 1.1 — (Densité de probabilité)</strong></p>
-<p>Une fonction <span class="math inline">f : \mathbb{R} \to \mathbb{R}</span> est une <strong>densité de probabilité</strong> si :</p>
+<p><strong>Définition 1.1 — (Système linéaire)</strong></p>
+<p>Un <strong>système linéaire</strong> de <span class="math inline">n</span> équations à <span class="math inline">p</span> inconnues est de la forme : <span class="math display">\begin{cases} a_{11}x_1 + a_{12}x_2 + \cdots + a_{1p}x_p = b_1 \\ a_{21}x_1 + a_{22}x_2 + \cdots + a_{2p}x_p = b_2 \\ \vdots \\ a_{n1}x_1 + a_{n2}x_2 + \cdots + a_{np}x_p = b_n \end{cases}</span></p>
+</div>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 1.2 — (Système homogène)</strong></p>
+<p>Si <span class="math inline">b_1 = b_2 = \cdots = b_n = 0</span>, le système est <strong>homogène</strong>. Il admet toujours la solution nulle <span class="math inline">(0, \ldots, 0)</span>.</p>
+</div>
+</section>
+<section id="opérations-élémentaires" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="opérations-élémentaires"><span class="header-section-number">1.2</span> Opérations élémentaires</h2>
+<div class="custom-numbered-block custom-methode">
+<p><strong>Méthode 1.1 — (Pivot de Gauss)</strong></p>
+<p>Pour résoudre un système linéaire, on utilise les opérations élémentaires sur les lignes :</p>
 <ol type="1">
-<li><span class="math inline">f \geq 0</span> sur <span class="math inline">\mathbb{R}</span>.</li>
-<li><span class="math inline">f</span> est continue par morceaux sur <span class="math inline">\mathbb{R}</span>.</li>
-<li><span class="math inline">\int_{-\infty}^{+\infty} f(t)\, dt = 1</span>.</li>
+<li>Échanger deux lignes : <span class="math inline">L_i \leftrightarrow L_j</span>.</li>
+<li>Multiplier une ligne par un scalaire non nul : <span class="math inline">L_i \leftarrow \lambda L_i</span> (<span class="math inline">\lambda \neq 0</span>).</li>
+<li>Ajouter à une ligne un multiple d’une autre : <span class="math inline">L_i \leftarrow L_i + \lambda L_j</span>.</li>
+</ol>
+<p>Ces opérations ne changent pas l’ensemble des solutions.</p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 1.1</strong></p>
+<p>Résoudre : <span class="math display">\begin{cases} x + y + z = 6 \\ 2x + 3y + z = 11 \\ x + 2y + 2z = 9 \end{cases}</span></p>
+<p><span class="math inline">L_2 \leftarrow L_2 - 2L_1</span> : <span class="math inline">y - z = -1</span> <span class="math inline">L_3 \leftarrow L_3 - L_1</span> : <span class="math inline">y + z = 3</span> <span class="math inline">L_3 \leftarrow L_3 - L_2</span> : <span class="math inline">2z = 4</span>, donc <span class="math inline">z = 2</span>, puis <span class="math inline">y = 1</span>, puis <span class="math inline">x = 3</span>.</p>
+</div>
+</section>
+</section>
+<section id="matrices" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> Matrices</h1>
+<section id="définition-1" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="définition-1"><span class="header-section-number">2.1</span> Définition</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 2.1 — (Matrice)</strong></p>
+<p>Une <strong>matrice</strong> <span class="math inline">A</span> de taille <span class="math inline">n \times p</span> est un tableau de <span class="math inline">n</span> lignes et <span class="math inline">p</span> colonnes : <span class="math display">A = \begin{pmatrix} a_{11} &amp; \cdots &amp; a_{1p} \\ \vdots &amp; \ddots &amp; \vdots \\ a_{n1} &amp; \cdots &amp; a_{np} \end{pmatrix}</span></p>
+</div>
+</section>
+<section id="opérations-sur-les-matrices" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="opérations-sur-les-matrices"><span class="header-section-number">2.2</span> Opérations sur les matrices</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 2.2 — (Addition et multiplication par un scalaire)</strong></p>
+<p>Soient <span class="math inline">A = (a_{ij})</span> et <span class="math inline">B = (b_{ij})</span> deux matrices de taille <span class="math inline">n \times p</span>. Alors :</p>
+<ul>
+<li><span class="math inline">A + B = (a_{ij} + b_{ij})</span></li>
+<li><span class="math inline">\lambda A = (\lambda a_{ij})</span></li>
+</ul>
+</div>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 2.3 — (Produit matriciel)</strong></p>
+<p>Soient <span class="math inline">A \in \mathcal{M}_{n,p}(\mathbb{R})</span> et <span class="math inline">B \in \mathcal{M}_{p,q}(\mathbb{R})</span>. Le produit <span class="math inline">AB</span> est la matrice de taille <span class="math inline">n \times q</span> définie par : <span class="math display">(AB)_{ij} = \sum_{k=1}^p a_{ik} b_{kj}</span></p>
+</div>
+<div class="remarque">
+<p>Le produit matriciel n’est <strong>pas commutatif</strong> en général : <span class="math inline">AB \neq BA</span>.</p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 2.1</strong></p>
+<p><span class="math inline">A = \begin{pmatrix} 1 &amp; 2 \\ 3 &amp; 4 \end{pmatrix}</span>, <span class="math inline">B = \begin{pmatrix} 0 &amp; 1 \\ 1 &amp; 0 \end{pmatrix}</span>.</p>
+<p><span class="math inline">AB = \begin{pmatrix} 2 &amp; 1 \\ 4 &amp; 3 \end{pmatrix}</span> mais <span class="math inline">BA = \begin{pmatrix} 3 &amp; 4 \\ 1 &amp; 2 \end{pmatrix}</span>. Donc <span class="math inline">AB \neq BA</span>.</p>
+</div>
+</section>
+<section id="matrice-identité-et-transposée" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="matrice-identité-et-transposée"><span class="header-section-number">2.3</span> Matrice identité et transposée</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 2.4 — (Matrice identité)</strong></p>
+<p>La <strong>matrice identité</strong> <span class="math inline">I_n</span> est la matrice <span class="math inline">n \times n</span> avec des <span class="math inline">1</span> sur la diagonale et des <span class="math inline">0</span> ailleurs : <span class="math display">I_n = \begin{pmatrix} 1 &amp; 0 &amp; \cdots &amp; 0 \\ 0 &amp; 1 &amp; \cdots &amp; 0 \\ \vdots &amp; &amp; \ddots &amp; \\ 0 &amp; \cdots &amp; 0 &amp; 1 \end{pmatrix}</span></p>
+</div>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 2.5 — (Transposée)</strong></p>
+<p>La <strong>transposée</strong> de <span class="math inline">A = (a_{ij}) \in \mathcal{M}_{n,p}(\mathbb{R})</span> est <span class="math inline">A^T = (a_{ji}) \in \mathcal{M}_{p,n}(\mathbb{R})</span>.</p>
+</div>
+</section>
+<section id="matrices-inversibles" class="level2" data-number="2.4">
+<h2 data-number="2.4" class="anchored" data-anchor-id="matrices-inversibles"><span class="header-section-number">2.4</span> Matrices inversibles</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 2.6 — (Matrice inversible)</strong></p>
+<p><span class="math inline">A \in \mathcal{M}_n(\mathbb{R})</span> est <strong>inversible</strong> s’il existe <span class="math inline">B \in \mathcal{M}_n(\mathbb{R})</span> telle que <span class="math inline">AB = BA = I_n</span>. On note <span class="math inline">A^{-1}</span> l’inverse de <span class="math inline">A</span>.</p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 2.1 — (Propriétés)</strong></p>
+<ol type="1">
+<li><span class="math inline">(A^{-1})^{-1} = A</span></li>
+<li><span class="math inline">(AB)^{-1} = B^{-1}A^{-1}</span></li>
+<li><span class="math inline">(A^T)^{-1} = (A^{-1})^T</span></li>
+<li><span class="math inline">\det(A^{-1}) = \frac{1}{\det(A)}</span></li>
 </ol>
 </div>
-<div class="custom-numbered-block custom-definition">
-<p><strong>Définition 1.2 — (Variable à densité)</strong></p>
-<p>Une variable aléatoire <span class="math inline">X</span> est <strong>à densité</strong> si sa fonction de répartition <span class="math inline">F_X</span> est continue sur <span class="math inline">\mathbb{R}</span> et de classe <span class="math inline">\mathcal{C}^1</span> sauf en un nombre fini de points. Une <strong>densité</strong> de <span class="math inline">X</span> est : <span class="math display">f_X(x) = F_X'(x) \quad \text{aux points où } F_X \text{ est } \mathcal{C}^1</span></p>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 2.2 — (Inverse d’une matrice <span class="math inline">\boldsymbol{2 \times 2}</span>)</strong></p>
+<p><span class="math inline">A = \begin{pmatrix} a &amp; b \\ c &amp; d \end{pmatrix}</span> est inversible si et seulement si <span class="math inline">ad - bc \neq 0</span>, et : <span class="math display">A^{-1} = \frac{1}{ad-bc}\begin{pmatrix} d &amp; -b \\ -c &amp; a \end{pmatrix}</span></p>
 </div>
 </section>
-<section id="fonction-de-répartition" class="level2" data-number="1.2">
-<h2 data-number="1.2" class="anchored" data-anchor-id="fonction-de-répartition"><span class="header-section-number">1.2</span> Fonction de répartition</h2>
-<div class="custom-numbered-block custom-definition">
-<p><strong>Définition 1.3 — (Fonction de répartition)</strong></p>
-<p><span class="math display">F_X(x) = P(X \leq x)</span></p>
-</div>
-<div class="custom-numbered-block custom-proposition">
-<p><strong>Proposition 1.1 — (Propriétés)</strong></p>
+</section>
+<section id="exercices" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Exercices</h1>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 3.1</strong></p>
+<p>Résoudre par le pivot de Gauss :</p>
 <ol type="1">
-<li><span class="math inline">F_X</span> est croissante.</li>
-<li><span class="math inline">F_X</span> est continue à droite.</li>
-<li><span class="math inline">\lim_{x \to -\infty} F_X(x) = 0</span> et <span class="math inline">\lim_{x \to +\infty} F_X(x) = 1</span>.</li>
-<li>Pour <span class="math inline">a &lt; b</span> : <span class="math inline">P(a &lt; X \leq b) = F_X(b) - F_X(a)</span>.</li>
-<li>Pour une variable à densité : <span class="math inline">P(X = a) = 0</span>.</li>
-</ol>
-</div>
-<div class="custom-numbered-block custom-proposition">
-<p><strong>Proposition 1.2 — (Calcul de probabilités)</strong></p>
-<p>Pour une variable à densité et <span class="math inline">a &lt; b</span> : <span class="math display">P(a \leq X \leq b) = P(a &lt; X &lt; b) = P(a &lt; X \leq b) = P(a \leq X &lt; b) = \int_a^b f_X(t)\, dt</span></p>
-</div>
-</section>
-</section>
-<section id="espérance-et-variance" class="level1" data-number="2">
-<h1 data-number="2"><span class="header-section-number">2</span> Espérance et variance</h1>
-<div class="custom-numbered-block custom-definition">
-<p><strong>Définition 2.1 — (Espérance)</strong></p>
-<p><span class="math inline">X</span> admet une <strong>espérance</strong> si <span class="math inline">\int_{-\infty}^{+\infty} |t| f_X(t)\, dt</span> converge, et : <span class="math display">E(X) = \int_{-\infty}^{+\infty} t f_X(t)\, dt</span></p>
-</div>
-<div class="custom-numbered-block custom-definition">
-<p><strong>Définition 2.2 — (Variance)</strong></p>
-<p><span class="math inline">X</span> admet une <strong>variance</strong> si <span class="math inline">\int_{-\infty}^{+\infty} (t - E(X))^2 f_X(t)\, dt</span> converge, et : <span class="math display">V(X) = E((X - E(X))^2) = E(X^2) - (E(X))^2</span></p>
-</div>
-<div class="custom-numbered-block custom-proposition">
-<p><strong>Proposition 2.1 — (Formule de transfert)</strong></p>
-<p>Si <span class="math inline">\varphi : \mathbb{R} \to \mathbb{R}</span> est continue par morceaux : <span class="math display">E(\varphi(X)) = \int_{-\infty}^{+\infty} \varphi(t) f_X(t)\, dt</span></p>
-</div>
-</section>
-<section id="lois-usuelles-à-densité" class="level1" data-number="3">
-<h1 data-number="3"><span class="header-section-number">3</span> Lois usuelles à densité</h1>
-<section id="loi-uniforme" class="level2" data-number="3.1">
-<h2 data-number="3.1" class="anchored" data-anchor-id="loi-uniforme"><span class="header-section-number">3.1</span> Loi uniforme</h2>
-<div class="custom-numbered-block custom-definition">
-<p><strong>Définition 3.1 — (Loi uniforme)</strong></p>
-<p><span class="math inline">X \hookrightarrow \mathcal{U}([a,b])</span> si : <span class="math display">f_X(t) = \begin{cases} \frac{1}{b-a} &amp; \text{si } t \in [a,b] \\ 0 &amp; \text{sinon} \end{cases}</span></p>
-</div>
-<div class="custom-numbered-block custom-proposition">
-<p><strong>Proposition 3.1 — (Espérance et variance)</strong></p>
-<p><span class="math display">E(X) = \frac{a+b}{2}, \quad V(X) = \frac{(b-a)^2}{12}</span></p>
-</div>
-</section>
-<section id="loi-exponentielle" class="level2" data-number="3.2">
-<h2 data-number="3.2" class="anchored" data-anchor-id="loi-exponentielle"><span class="header-section-number">3.2</span> Loi exponentielle</h2>
-<div class="custom-numbered-block custom-definition">
-<p><strong>Définition 3.2 — (Loi exponentielle)</strong></p>
-<p><span class="math inline">X \hookrightarrow \mathcal{E}(\lambda)</span> (<span class="math inline">\lambda &gt; 0</span>) si : <span class="math display">f_X(t) = \begin{cases} \lambda e^{-\lambda t} &amp; \text{si } t \geq 0 \\ 0 &amp; \text{si } t &lt; 0 \end{cases}</span></p>
-</div>
-<div class="custom-numbered-block custom-proposition">
-<p><strong>Proposition 3.2 — (Fonction de répartition)</strong></p>
-<p><span class="math display">F_X(t) = \begin{cases} 1 - e^{-\lambda t} &amp; \text{si } t \geq 0 \\ 0 &amp; \text{si } t &lt; 0 \end{cases}</span></p>
-</div>
-<div class="custom-numbered-block custom-proposition">
-<p><strong>Proposition 3.3 — (Espérance et variance)</strong></p>
-<p><span class="math display">E(X) = \frac{1}{\lambda}, \quad V(X) = \frac{1}{\lambda^2}</span></p>
-</div>
-<div class="custom-numbered-block custom-proposition">
-<p><strong>Proposition 3.4 — (Absence de mémoire)</strong></p>
-<p><span class="math display">P(X &gt; s + t \mid X &gt; s) = P(X &gt; t)</span></p>
-</div>
-</section>
-<section id="loi-normale" class="level2" data-number="3.3">
-<h2 data-number="3.3" class="anchored" data-anchor-id="loi-normale"><span class="header-section-number">3.3</span> Loi normale</h2>
-<div class="custom-numbered-block custom-definition">
-<p><strong>Définition 3.3 — (Loi normale centrée réduite)</strong></p>
-<p><span class="math inline">X \hookrightarrow \mathcal{N}(0,1)</span> si : <span class="math display">f_X(t) = \frac{1}{\sqrt{2\pi}} e^{-t^2/2}</span></p>
-</div>
-<div class="custom-numbered-block custom-definition">
-<p><strong>Définition 3.4 — (Loi normale)</strong></p>
-<p><span class="math inline">X \hookrightarrow \mathcal{N}(\mu, \sigma^2)</span> (<span class="math inline">\sigma &gt; 0</span>) si : <span class="math display">f_X(t) = \frac{1}{\sigma\sqrt{2\pi}} e^{-(t-\mu)^2/(2\sigma^2)}</span></p>
-</div>
-<div class="custom-numbered-block custom-proposition">
-<p><strong>Proposition 3.5 — (Espérance et variance)</strong></p>
-<p><span class="math display">E(X) = \mu, \quad V(X) = \sigma^2</span></p>
-</div>
-<div class="custom-numbered-block custom-proposition">
-<p><strong>Proposition 3.6 — (Translation et dilatation)</strong></p>
-<p>Si <span class="math inline">X \hookrightarrow \mathcal{N}(\mu, \sigma^2)</span>, alors pour <span class="math inline">(a,b) \in \mathbb{R}^* \times \mathbb{R}</span> : <span class="math display">aX + b \hookrightarrow \mathcal{N}(a\mu + b, a^2\sigma^2)</span> En particulier, <span class="math inline">X^* = \frac{X - \mu}{\sigma} \hookrightarrow \mathcal{N}(0,1)</span>.</p>
-</div>
-<div class="custom-numbered-block custom-proposition">
-<p><strong>Proposition 3.7 — (Somme de normales indépendantes)</strong></p>
-<p>Si <span class="math inline">X \hookrightarrow \mathcal{N}(\mu_1, \sigma_1^2)</span> et <span class="math inline">Y \hookrightarrow \mathcal{N}(\mu_2, \sigma_2^2)</span> sont indépendantes : <span class="math display">X + Y \hookrightarrow \mathcal{N}(\mu_1 + \mu_2, \sigma_1^2 + \sigma_2^2)</span></p>
-</div>
-</section>
-</section>
-<section id="exercices" class="level1" data-number="4">
-<h1 data-number="4"><span class="header-section-number">4</span> Exercices</h1>
-<div class="custom-numbered-block custom-exercise">
-<p><strong>Exercice 4.1</strong></p>
-<p>Soit <span class="math inline">f(t) = \begin{cases} c e^{-t} &amp; t \geq 0 \\ 0 &amp; t &lt; 0 \end{cases}</span>. Déterminer <span class="math inline">c</span> pour que <span class="math inline">f</span> soit une densité.</p>
-</div>
-<div class="custom-numbered-block custom-exercise">
-<p><strong>Exercice 4.2</strong></p>
-<p>Soit <span class="math inline">X \hookrightarrow \mathcal{U}([0,1])</span>. Calculer <span class="math inline">E(X)</span>, <span class="math inline">V(X)</span> et <span class="math inline">P(0{,}2 &lt; X &lt; 0{,}7)</span>.</p>
-</div>
-<div class="custom-numbered-block custom-exercise">
-<p><strong>Exercice 4.3</strong></p>
-<p>Soit <span class="math inline">X \hookrightarrow \mathcal{E}(2)</span>. Calculer <span class="math inline">E(X)</span>, <span class="math inline">V(X)</span> et <span class="math inline">P(X &gt; 1)</span>.</p>
-</div>
-<div class="custom-numbered-block custom-exercise">
-<p><strong>Exercice 4.4</strong></p>
-<p>Soit <span class="math inline">X \hookrightarrow \mathcal{N}(0,1)</span>. Calculer <span class="math inline">P(-1 &lt; X &lt; 1)</span> (résultat approché : <span class="math inline">0{,}68</span>).</p>
-</div>
-<div class="custom-numbered-block custom-exercise">
-<p><strong>Exercice 4.5</strong></p>
-<p>Soit <span class="math inline">X \hookrightarrow \mathcal{N}(10, 4)</span>. Déterminer la loi de <span class="math inline">Y = 2X + 3</span>.</p>
-</div>
-<div class="custom-numbered-block custom-exercise">
-<p><strong>Exercice 4.6</strong></p>
-<p>Soit <span class="math inline">X</span> à densité <span class="math inline">f_X(t) = \begin{cases} 2t &amp; 0 \leq t \leq 1 \\ 0 &amp; \text{sinon} \end{cases}</span>.</p>
-<ol type="1">
-<li>Vérifier que <span class="math inline">f_X</span> est une densité.</li>
-<li>Calculer <span class="math inline">E(X)</span> et <span class="math inline">V(X)</span>.</li>
-<li>Déterminer <span class="math inline">F_X</span>.</li>
+<li><span class="math inline">\begin{cases} 2x + y = 5 \\ x - y = 1 \end{cases}</span></li>
+<li><span class="math inline">\begin{cases} x + y + z = 1 \\ 2x + 3y + z = 4 \\ x + 2y + 2z = 5 \end{cases}</span></li>
 </ol>
 </div>
 <div class="custom-numbered-block custom-exercise">
-<p><strong>Exercice 4.7</strong></p>
-<p>Soit <span class="math inline">X \hookrightarrow \mathcal{E}(\lambda)</span>. Montrer l’absence de mémoire.</p>
+<p><strong>Exercice 3.2</strong></p>
+<p>Calculer <span class="math inline">AB</span> et <span class="math inline">BA</span> avec <span class="math inline">A = \begin{pmatrix} 1 &amp; 2 \\ 0 &amp; 1 \end{pmatrix}</span> et <span class="math inline">B = \begin{pmatrix} 1 &amp; 0 \\ 3 &amp; 2 \end{pmatrix}</span>.</p>
 </div>
 <div class="custom-numbered-block custom-exercise">
-<p><strong>Exercice 4.8</strong></p>
-<p>Soient <span class="math inline">X</span> et <span class="math inline">Y</span> indépendantes suivant <span class="math inline">\mathcal{E}(\lambda)</span>. Déterminer la loi de <span class="math inline">X + Y</span>.</p>
+<p><strong>Exercice 3.3</strong></p>
+<p>Soit <span class="math inline">A = \begin{pmatrix} 2 &amp; 1 \\ 5 &amp; 3 \end{pmatrix}</span>. Calculer <span class="math inline">A^{-1}</span>.</p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 3.4</strong></p>
+<p>Montrer que si <span class="math inline">A</span> et <span class="math inline">B</span> sont inversibles, alors <span class="math inline">AB</span> est inversible et <span class="math inline">(AB)^{-1} = B^{-1}A^{-1}</span>.</p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 3.5</strong></p>
+<p>Soit <span class="math inline">A = \begin{pmatrix} 1 &amp; 1 \\ 1 &amp; -1 \end{pmatrix}</span>. Calculer <span class="math inline">A^2</span> et en déduire <span class="math inline">A^{-1}</span>.</p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 3.6</strong></p>
+<p>Résoudre le système : <span class="math display">\begin{cases} x + 2y + 3z = 1 \\ 2x + 4y + 6z = 2 \\ 3x + 6y + 9z = 3 \end{cases}</span></p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 3.7</strong></p>
+<p>Soit <span class="math inline">A = \begin{pmatrix} 1 &amp; 2 &amp; 0 \\ 0 &amp; 1 &amp; 1 \\ 0 &amp; 0 &amp; 1 \end{pmatrix}</span>. Calculer <span class="math inline">A^n</span> pour tout <span class="math inline">n \in \mathbb{N}</span>.</p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 3.8</strong></p>
+<p>Montrer que <span class="math inline">(AB)^T = B^T A^T</span>.</p>
 </div>
 </section>
 <section id="document-en-pdf" class="level1 unnumbered">
 <h1 class="unnumbered">Document en PDF</h1>
-<p><a href="PDF/ecs2-chap07.pdf"><strong>Chapitre 07 : Variables aléatoires à densité</strong></a></p>
+<p><a href="PDF/ect1-chap08.pdf"><strong>Chapitre 08 : Systèmes d’équations linéaires et calcul matriciel</strong></a></p>
 <section id="navigation" class="level2 unnumbered">
 <h2 class="unnumbered anchored" data-anchor-id="navigation">Navigation</h2>
 <div class="chap-nav">
-<p><a href="../cours/ecs2-chap06.html" class="prev">Chapitre 06 : Variables aléatoires discrètes infinies</a> <a href="../cours/ecs2.html" class="home">Menu ECS2</a> <a href="../cours/ecs2-chap08.html" class="next">Chapitre 08 : Vecteurs aléatoires</a></p>
+<p><a href="../cours/ect1-chap07.html" class="prev">Chapitre 07 : Statistique descriptive</a> <a href="../cours/ect1.html" class="home">Menu ECT1</a> <a href="../cours/ect1-chap09.html" class="next">Chapitre 09 : Compléments d’analyse</a></p>
 </div>
 
 

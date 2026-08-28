@@ -1,13 +1,14 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr"><head>
 
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.10.18">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Saîd MAHARI">
 
-<title>Convergences et approximations - Mathématiques en CPGE – Mathématiques en CPGE</title>
+<title>Convergences et approximations – Mathématiques en CPGE</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -45,7 +46,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-7a8c080b55ea27eb37b467515007f9ee.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-e0d9a45d84245cc5e3b300860d8fa645.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -60,17 +61,17 @@ ul.task-list li input[type="checkbox"] {
   ],
   "show-item-context": false,
   "language": {
-    "search-no-results-text": "No results",
-    "search-matching-documents-text": "matching documents",
-    "search-copy-link-title": "Copy link to search",
-    "search-hide-matches-text": "Hide additional matches",
-    "search-more-match-text": "more match in this document",
-    "search-more-matches-text": "more matches in this document",
-    "search-clear-button-title": "Clear",
+    "search-no-results-text": "Pas de résultats",
+    "search-matching-documents-text": "documents trouvés",
+    "search-copy-link-title": "Copier le lien vers la recherche",
+    "search-hide-matches-text": "Cacher les correspondances additionnelles",
+    "search-more-match-text": "correspondance de plus dans ce document",
+    "search-more-matches-text": "correspondances de plus dans ce document",
+    "search-clear-button-title": "Effacer",
     "search-text-placeholder": "",
-    "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit",
-    "search-label": "Search"
+    "search-detached-cancel-button-title": "Annuler",
+    "search-submit-button-title": "Envoyer",
+    "search-label": "Recherche"
   }
 }</script>
 <script data-goatcounter="https://maharicpge.goatcounter.com/count" async="" src="//gc.zgo.at/count.js"></script>
@@ -142,8 +143,52 @@ ul.task-list li input[type="checkbox"] {
   });
 </script>
 
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="styles.css">
 </head>
 
 <body class="nav-fixed quarto-light">
@@ -157,8 +202,8 @@ ul.task-list li input[type="checkbox"] {
     <span class="navbar-title">Accueil</span>
     </a>
   </div>
-            <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+            <div id="quarto-search" class="" title="Recherche"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Basculer la navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
@@ -218,10 +263,20 @@ ul.task-list li input[type="checkbox"] {
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
+    <h2 id="toc-title">Sur cette page</h2>
    
   <ul>
-  <li><a href="#document" id="toc-document" class="nav-link active" data-scroll-target="#document">Document</a></li>
+  <li><a href="#inégalité-de-markov" id="toc-inégalité-de-markov" class="nav-link active" data-scroll-target="#inégalité-de-markov"><span class="header-section-number">1</span> Inégalité de Markov</a></li>
+  <li><a href="#inégalité-de-bienaymé-tchebychev" id="toc-inégalité-de-bienaymé-tchebychev" class="nav-link" data-scroll-target="#inégalité-de-bienaymé-tchebychev"><span class="header-section-number">2</span> Inégalité de Bienaymé-Tchebychev</a></li>
+  <li><a href="#convergence-en-probabilité" id="toc-convergence-en-probabilité" class="nav-link" data-scroll-target="#convergence-en-probabilité"><span class="header-section-number">3</span> Convergence en probabilité</a></li>
+  <li><a href="#loi-faible-des-grands-nombres" id="toc-loi-faible-des-grands-nombres" class="nav-link" data-scroll-target="#loi-faible-des-grands-nombres"><span class="header-section-number">4</span> Loi faible des grands nombres</a></li>
+  <li><a href="#convergence-en-loi" id="toc-convergence-en-loi" class="nav-link" data-scroll-target="#convergence-en-loi"><span class="header-section-number">5</span> Convergence en loi</a></li>
+  <li><a href="#théorème-central-limite" id="toc-théorème-central-limite" class="nav-link" data-scroll-target="#théorème-central-limite"><span class="header-section-number">6</span> Théorème central limite</a></li>
+  <li><a href="#exercices" id="toc-exercices" class="nav-link" data-scroll-target="#exercices"><span class="header-section-number">7</span> Exercices</a></li>
+  <li><a href="#document-en-pdf" id="toc-document-en-pdf" class="nav-link" data-scroll-target="#document-en-pdf">Document en PDF</a>
+  <ul class="collapse">
+  <li><a href="#navigation" id="toc-navigation" class="nav-link" data-scroll-target="#navigation">Navigation</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -230,14 +285,27 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Chapitre 09 : Convergences et approximations</h1>
+<h1 class="title">Convergences et approximations</h1>
+<p class="subtitle lead">Chapitre 09</p>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Auteur·rice</div>
+    <div class="quarto-title-meta-contents">
+             <p>Saîd MAHARI </p>
+          </div>
+  </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">Date de publication</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">28 août 2026</p>
+    </div>
+  </div>
   
     
   </div>
@@ -247,12 +315,133 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p><strong>ECS 2e année (ECG) — Chapitre 09.</strong> Markov, Tchebychev, loi faible des grands nombres, théorème central limite.</p>
-<section id="document" class="level2">
-<h2 class="anchored" data-anchor-id="document">Document</h2>
-<p><em>PDF à venir : déposez le fichier <code>files/ecs2/chap09.pdf</code> puis régénérez la page.</em></p>
+<p><strong>ECS (2e année) — Chapitre 09.</strong> Markov, Tchebychev, loi faible des grands nombres, théorème central limite.</p>
+<p>Ce chapitre a été réalisé conformément au programme marocain de mathématiques de la filière ECS.</p>
+<section id="inégalité-de-markov" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Inégalité de Markov</h1>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 1.1 — (Inégalité de Markov)</strong></p>
+<p>Soit <span class="math inline">X</span> une variable aléatoire positive admettant une espérance. Pour tout <span class="math inline">a &gt; 0</span> : <span class="math display">P(X \geq a) \leq \frac{E(X)}{a}</span></p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 1.1</strong></p>
+<p>Si <span class="math inline">E(X) = 5</span>, alors <span class="math inline">P(X \geq 10) \leq 1/2</span>.</p>
+</div>
+</section>
+<section id="inégalité-de-bienaymé-tchebychev" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> Inégalité de Bienaymé-Tchebychev</h1>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 2.1 — (Inégalité de Bienaymé-Tchebychev)</strong></p>
+<p>Soit <span class="math inline">X</span> une variable aléatoire admettant une variance. Pour tout <span class="math inline">\varepsilon &gt; 0</span> : <span class="math display">P(|X - E(X)| \geq \varepsilon) \leq \frac{V(X)}{\varepsilon^2}</span></p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Preuve</em>. </span>On applique l’inégalité de Markov à <span class="math inline">(X - E(X))^2 \geq 0</span> : <span class="math display">P(|X - E(X)| \geq \varepsilon) = P((X - E(X))^2 \geq \varepsilon^2) \leq \frac{E((X - E(X))^2)}{\varepsilon^2} = \frac{V(X)}{\varepsilon^2}</span></p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 2.1</strong></p>
+<p>Si <span class="math inline">E(X) = 10</span> et <span class="math inline">V(X) = 4</span>, alors <span class="math inline">P(|X - 10| \geq 4) \leq 4/16 = 1/4</span>.</p>
+</div>
+</section>
+<section id="convergence-en-probabilité" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Convergence en probabilité</h1>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 3.1 — (Convergence en probabilité)</strong></p>
+<p><span class="math inline">(X_n)</span> converge en probabilité vers <span class="math inline">X</span>, noté <span class="math inline">X_n \xrightarrow{P} X</span>, si : <span class="math display">\forall \varepsilon &gt; 0, \quad P(|X_n - X| \geq \varepsilon) \to 0</span></p>
+</div>
+</section>
+<section id="loi-faible-des-grands-nombres" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> Loi faible des grands nombres</h1>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 4.1 — (Loi faible des grands nombres)</strong></p>
+<p>Soit <span class="math inline">(X_n)_{n \geq 1}</span> une suite de variables aléatoires mutuellement indépendantes, de même loi, admettant un moment d’ordre <span class="math inline">2</span>. Notons <span class="math inline">\mu = E(X_1)</span> et <span class="math inline">\sigma^2 = V(X_1)</span>. Alors : <span class="math display">\overline{X}_n = \frac{1}{n}\sum_{k=1}^n X_k \xrightarrow{P} \mu</span></p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Preuve</em>. </span><span class="math inline">E(\overline{X}_n) = \mu</span> et <span class="math inline">V(\overline{X}_n) = \sigma^2/n</span>. Par Bienaymé-Tchebychev : <span class="math display">P(|\overline{X}_n - \mu| \geq \varepsilon) \leq \frac{\sigma^2}{n\varepsilon^2} \to 0</span></p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 4.1 — (Fréquence empirique)</strong></p>
+<p>Si <span class="math inline">(X_n)</span> est une suite de variables de Bernoulli <span class="math inline">\mathcal{B}(p)</span> indépendantes, alors la fréquence empirique <span class="math inline">\overline{X}_n \xrightarrow{P} p</span>.</p>
+</div>
+</section>
+<section id="convergence-en-loi" class="level1" data-number="5">
+<h1 data-number="5"><span class="header-section-number">5</span> Convergence en loi</h1>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 5.1 — (Convergence en loi)</strong></p>
+<p><span class="math inline">(X_n)</span> converge en loi vers <span class="math inline">X</span>, noté <span class="math inline">X_n \xrightarrow{\mathcal{L}} X</span>, si pour tout point de continuité <span class="math inline">x</span> de <span class="math inline">F_X</span> : <span class="math display">F_{X_n}(x) \to F_X(x)</span></p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 5.1</strong></p>
+<p>La convergence en probabilité implique la convergence en loi.</p>
+</div>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 5.1 — (Convergence de binomiale vers Poisson)</strong></p>
+<p>Si <span class="math inline">X_n \hookrightarrow \mathcal{B}(n, \lambda/n)</span>, alors <span class="math inline">X_n \xrightarrow{\mathcal{L}} \mathcal{P}(\lambda)</span>.</p>
+</div>
+</section>
+<section id="théorème-central-limite" class="level1" data-number="6">
+<h1 data-number="6"><span class="header-section-number">6</span> Théorème central limite</h1>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 6.1 — (Théorème central limite)</strong></p>
+<p>Soit <span class="math inline">(X_n)_{n \geq 1}</span> une suite de variables aléatoires mutuellement indépendantes, de même loi, admettant un moment d’ordre <span class="math inline">2</span>. Notons <span class="math inline">\mu = E(X_1)</span> et <span class="math inline">\sigma = \sigma(X_1) &gt; 0</span>. Alors : <span class="math display">\frac{1}{\sigma\sqrt{n}}\left(\sum_{k=1}^n X_k - n\mu\right) \xrightarrow{\mathcal{L}} \mathcal{N}(0, 1)</span></p>
+</div>
+<div class="remarque" title="(Interprétation)">
+<p>La vitesse de convergence de la loi des grands nombres est en <span class="math inline">\sigma/\sqrt{n}</span>. Ce théorème permet d’approcher la loi de la somme d’un grand nombre de variables indépendantes par une loi normale.</p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 6.1 — (Approximation normale)</strong></p>
+<p>Si <span class="math inline">X_n \hookrightarrow \mathcal{B}(n, p)</span>, alors pour <span class="math inline">n</span> grand : <span class="math display">\frac{X_n - np}{\sqrt{np(1-p)}} \approx \mathcal{N}(0, 1)</span></p>
+</div>
+</section>
+<section id="exercices" class="level1" data-number="7">
+<h1 data-number="7"><span class="header-section-number">7</span> Exercices</h1>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 7.1</strong></p>
+<p>Soit <span class="math inline">X</span> une variable aléatoire positive avec <span class="math inline">E(X) = 10</span>. Majorer <span class="math inline">P(X \geq 20)</span>.</p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 7.2</strong></p>
+<p>Soit <span class="math inline">X</span> avec <span class="math inline">E(X) = 5</span> et <span class="math inline">V(X) = 9</span>. Majorer <span class="math inline">P(|X - 5| \geq 6)</span>.</p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 7.3</strong></p>
+<p>On lance <span class="math inline">n</span> fois un dé équilibré. Soit <span class="math inline">S_n</span> la somme des résultats.</p>
+<ol type="1">
+<li>Calculer <span class="math inline">E(S_n)</span> et <span class="math inline">V(S_n)</span>.</li>
+<li>Utiliser le TCL pour approcher <span class="math inline">P(S_n \leq 3{,}2n)</span> pour <span class="math inline">n = 100</span>.</li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 7.4</strong></p>
+<p>Soit <span class="math inline">X_n \hookrightarrow \mathcal{B}(n, 1/n)</span>. Montrer que <span class="math inline">X_n \xrightarrow{\mathcal{L}} \mathcal{P}(1)</span>.</p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 7.5</strong></p>
+<p>Soit <span class="math inline">(X_n)</span> une suite de variables de Bernoulli <span class="math inline">\mathcal{B}(p)</span> indépendantes. Montrer que <span class="math inline">\overline{X}_n \xrightarrow{P} p</span>.</p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 7.6</strong></p>
+<p>Soit <span class="math inline">X \hookrightarrow \mathcal{U}([0,1])</span>. Utiliser l’inégalité de Markov pour majorer <span class="math inline">P(X \geq 0{,}8)</span>.</p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 7.7</strong></p>
+<p>Soit <span class="math inline">X \hookrightarrow \mathcal{E}(1)</span>. Utiliser l’inégalité de Tchebychev pour majorer <span class="math inline">P(|X - 1| \geq 3)</span>.</p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 7.8</strong></p>
+<p>On lance 100 fois une pièce équilibrée. Soit <span class="math inline">X</span> le nombre de piles. Utiliser le TCL pour approcher <span class="math inline">P(40 \leq X \leq 60)</span>.</p>
+</div>
+</section>
+<section id="document-en-pdf" class="level1 unnumbered">
+<h1 class="unnumbered">Document en PDF</h1>
+<p><a href="PDF/ecs2-chap09.pdf"><strong>Chapitre 09 : Convergences et approximations</strong></a></p>
+<section id="navigation" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="navigation">Navigation</h2>
+<div class="chap-nav">
+<p><a href="../cours/ecs2-chap08.html" class="prev">Chapitre 08 : Vecteurs aléatoires</a> <a href="../cours/ecs2.html" class="home">Menu ECS2</a> <a href="../cours/ecs2-chap10.html" class="next">Chapitre 10 : Estimation statistique</a></p>
+</div>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -281,12 +470,12 @@ ul.task-list li input[type="checkbox"] {
       // flash "checked"
       button.classList.add('code-copy-button-checked');
       var currentTitle = button.getAttribute("title");
-      button.setAttribute("title", "Copied!");
+      button.setAttribute("title", "Copié");
       let tooltip;
       if (window.bootstrap) {
         button.setAttribute("data-bs-toggle", "tooltip");
         button.setAttribute("data-bs-placement", "left");
-        button.setAttribute("data-bs-title", "Copied!");
+        button.setAttribute("data-bs-title", "Copié");
         tooltip = new bootstrap.Tooltip(button, 
           { trigger: "manual", 
             customClass: "code-copy-button-tooltip",
