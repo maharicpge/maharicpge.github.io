@@ -1,0 +1,95 @@
+---
+title: "TD — Compléments d'analyse"
+subtitle: "Chapitre 09"
+author: "Saîd MAHARI"
+date: last-modified
+date-format: "D MMMM YYYY"
+lang: fr
+format:
+  html:
+    theme: cosmo
+    toc: true
+    number-sections: true
+    html-math-method: katex
+    css: styles.css
+filters:
+  - custom-numbered-blocks.lua
+---
+
+**ECT1 (1re année) — TD du Chapitre 09.** Suites réelles, convergence, limite monotone, continuité sur un intervalle, logarithme, exponentielle.
+
+::: {.exercise}
+Étudier la convergence des suites suivantes et déterminer leur limite lorsqu'elle existe :
+
+1. $u_n=\frac{n+1}{n+2}$
+2. $v_n=\frac{2n^2+1}{n^2+n}$
+3. $w_n=\frac{(-1)^n}{n}$
+4. $a_n=n^2$
+:::
+
+::: {.exercise}
+Soit $(u_n)$ définie par $u_0=1$ et :
+$$u_{n+1}=\frac{u_n+2}{2}.$$
+
+1. Montrer que si $u_n \leq 2$, alors $u_{n+1} \leq 2$.
+2. Montrer que $(u_n)$ est croissante.
+3. En déduire que $(u_n)$ converge.
+4. Déterminer sa limite.
+:::
+
+::: {.exercise}
+Soit $(u_n)$ définie par :
+$$u_n=\sum_{k=1}^n \frac{1}{k}.$$
+
+Montrer que $(u_n)$ est croissante et qu'elle diverge vers $+\infty$.
+:::
+
+::: {.exercise}
+Calculer les limites suivantes :
+
+1. $\lim_{x\to +\infty} \frac{\ln x}{x}$
+2. $\lim_{x\to 0^+} x\ln x$
+3. $\lim_{x\to +\infty} \frac{e^x}{x^2}$
+4. $\lim_{x\to -\infty} x^2e^x$
+:::
+
+::: {.exercise}
+Résoudre dans $\mathbb{R}$ les équations suivantes :
+
+1. $e^x=5$
+2. $\ln x=2$
+3. $e^{2x}-3e^x+2=0$
+4. $\ln(x)+\ln(x-1)=\ln 2$
+:::
+
+::: {.exercise}
+Montrer que l'équation :
+$$e^x=x+2$$
+admet au moins une solution dans $[0,2]$.
+:::
+
+::: {.exercise}
+Montrer que la fonction $f(x)=\ln x - x +1$ est négative sur $]0,+\infty[$.
+:::
+
+**Indication :** Étudier ses variations.
+
+::: {.exercise}
+Soit $f : [a,b] \to \mathbb{R}$ continue. Montrer que $f$ est bornée et atteint ses bornes sur $[a,b]$.
+:::
+
+::: {.exercise}
+Soit $f : [0,1] \to \mathbb{R}$ continue telle que $f(0)<0$ et $f(1)>0$.
+
+Montrer qu'il existe $c \in ]0,1[$ tel que $f(c)=0$.
+:::
+
+# Cours {-}
+[**Chapitre 09 : Compléments d'analyse**](ect1-chap09.qmd)
+
+# Navigation {-}
+::: {.chap-nav}
+[TD 08 : Systèmes linéaires et calcul matriciel](ect1-chap08.qmd){.prev}
+[Menu ECT1](ect1.qmd){.home}
+[TD 10 : Compléments de probabilités](ect1-chap10.qmd){.next}
+:::

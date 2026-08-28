@@ -1,0 +1,176 @@
+---
+title: "Compléments d'analyse"
+subtitle: "Chapitre 09"
+author: "Saîd MAHARI"
+date: last-modified
+date-format: "D MMMM YYYY"
+sidebar:
+  style: docked
+  contents:
+    - href: cours/index.qmd
+      text: "← Tous les cours"
+    - section: "ECT — 1re année"
+      contents:
+        - cours/ect1-chap08.qmd
+        - cours/ect1-chap09.qmd
+lang: fr
+format:
+  html:
+    theme: cosmo
+    toc: true
+    number-sections: true
+    html-math-method: katex
+    css: styles.css
+filters:
+  - custom-numbered-blocks.lua
+---
+
+**ECT (1re année) — Chapitre 09.** Suites réelles (convergence, limite monotone), limites de fonctions, continuité sur un intervalle (TVI, bornes atteintes), fonctions logarithme et exponentielle.
+
+Ce chapitre a été réalisé conformément au programme marocain de mathématiques de la filière ECT.
+
+# Suites réelles : convergence
+
+## Définition
+
+::: {.definition title="(Convergence d'une suite)"}
+$(u_n)$ converge vers $\ell \in \mathbb{R}$ si :
+$$\forall \varepsilon > 0,\quad \exists N \in \mathbb{N},\quad \forall n \geq N,\quad |u_n - \ell| < \varepsilon$$
+
+On note $\lim_{n \to +\infty} u_n = \ell$.
+:::
+
+::: {.definition title="(Divergence)"}
+$(u_n)$ diverge vers $+\infty$ si : $\forall A > 0,\; \exists N \in \mathbb{N},\; \forall n \geq N,\; u_n > A$.
+:::
+
+## Opérations sur les limites
+
+::: {.proposition title="(Opérations)"}
+Si $u_n \to \ell$ et $v_n \to m$, alors :
+
+1. $u_n + v_n \to \ell + m$
+2. $\lambda u_n \to \lambda \ell$
+3. $u_n v_n \to \ell m$
+4. $\dfrac{u_n}{v_n} \to \dfrac{\ell}{m}$ si $m \neq 0$
+:::
+
+## Limite monotone
+
+::: {.theorem title="(Théorème de convergence monotone)"}
+
+- Toute suite croissante et majorée converge.
+- Toute suite décroissante et minorée converge.
+- Toute suite croissante non majorée diverge vers $+\infty$.
+:::
+
+# Continuité sur un intervalle
+
+## Théorème des valeurs intermédiaires
+
+::: {.theorem title="(TVI)"}
+Soit $f : [a,b] \to \mathbb{R}$ continue. Pour tout $y$ compris entre $f(a)$ et $f(b)$, il existe $c \in [a,b]$ tel que $f(c) = y$.
+
+En particulier, si $f(a) < 0 < f(b)$, alors il existe $c \in ]a,b[$ tel que $f(c) = 0$.
+:::
+
+## Théorème des bornes atteintes
+
+::: {.theorem title="(Bornes atteintes)"}
+Toute fonction continue sur un segment $[a,b]$ est bornée et atteint ses bornes : il existe $x_1, x_2 \in [a,b]$ tels que :
+$$f(x_1) = \min_{[a,b]} f \quad \text{et} \quad f(x_2) = \max_{[a,b]} f$$
+:::
+
+# Fonctions logarithme et exponentielle
+
+## Fonction logarithme
+
+::: {.definition title="(Logarithme népérien)"}
+La fonction $\ln : ]0, +\infty[ \to \mathbb{R}$ est définie par $\ln x = \int_1^x \frac{dt}{t}$.
+:::
+
+::: {.proposition title="(Propriétés de $\ln$)"}
+
+1. $\ln(1) = 0$, $\ln(e) = 1$
+2. $\ln(xy) = \ln x + \ln y$
+3. $\ln(1/x) = -\ln x$
+4. $\ln(x^n) = n\ln x$
+5. $\ln'(x) = \frac{1}{x}$
+6. $\ln$ est strictement croissante sur $]0, +\infty[$
+7. $\lim_{x \to 0^+} \ln x = -\infty$, $\lim_{x \to +\infty} \ln x = +\infty$
+:::
+
+::: {.proposition title="(Croissances comparées)"}
+$$\lim_{x \to +\infty} \frac{\ln x}{x} = 0, \qquad \lim_{x \to 0^+} x\ln x = 0$$
+:::
+
+## Fonction exponentielle
+
+::: {.definition title="(Exponentielle)"}
+La fonction $\exp : \mathbb{R} \to ]0, +\infty[$ est la bijection réciproque de $\ln$. On note $\exp(x) = e^x$.
+:::
+
+::: {.proposition title="(Propriétés de $\exp$)"}
+
+1. $e^0 = 1$, $e^1 = e \approx 2{,}718$
+2. $e^{x+y} = e^x \cdot e^y$
+3. $(e^x)' = e^x$
+4. $\exp$ est strictement croissante sur $\mathbb{R}$
+5. $\lim_{x \to -\infty} e^x = 0$, $\lim_{x \to +\infty} e^x = +\infty$
+6. $e^x > 0$ pour tout $x \in \mathbb{R}$
+:::
+
+::: {.proposition title="(Croissances comparées)"}
+Pour tout $n \in \mathbb{N}^*$ :
+$$\lim_{x \to +\infty} \frac{e^x}{x^n} = +\infty, \qquad \lim_{x \to -\infty} x^n e^x = 0$$
+:::
+
+# Exercices
+
+::: {.exercise}
+Montrer que la suite $u_n = \frac{n^2 + 1}{2n^2 + n}$ converge et calculer sa limite.
+:::
+
+::: {.exercise}
+Soit $u_0 = 1$ et $u_{n+1} = \frac{1}{2}u_n + 1$. Montrer que $(u_n)$ converge vers $2$.
+:::
+
+::: {.exercise}
+Montrer que la suite $u_n = \sum_{k=1}^n \frac{1}{k}$ diverge vers $+\infty$.
+:::
+
+::: {.exercise}
+Montrer que l'équation $e^x = x + 2$ admet une unique solution positive.
+:::
+
+::: {.exercise}
+Résoudre dans $\mathbb{R}$ :
+
+1. $e^x = 3$
+2. $\ln(x) + \ln(x-1) = \ln 2$
+3. $e^{2x} - 3e^x + 2 = 0$
+:::
+
+::: {.exercise}
+Soit $f : [0,1] \to \mathbb{R}$ continue avec $f(0) = 0$ et $f(1) = 1$. Montrer qu'il existe $c \in ]0,1[$ tel que $f(c) = c$.
+:::
+
+::: {.exercise}
+Montrer que $\lim_{x \to +\infty} \frac{\ln x}{x^\alpha} = 0$ pour tout $\alpha > 0$.
+:::
+
+::: {.exercise}
+Soit $f(x) = e^x - x - 1$. Montrer que $f(x) \geq 0$ pour tout $x \in \mathbb{R}$.
+:::
+
+# Document en PDF {-}
+
+[**Chapitre 09 : Compléments d'analyse**](PDF/ect1-chap09.pdf)
+
+
+## Navigation {-}
+::: {.chap-nav}
+[Chapitre 08 : Systèmes linéaires et calcul matriciel](ect1-chap08.qmd){.prev}
+[Menu ECT1](ect1.qmd){.home}
+[Chapitre 10 : Compléments de probabilités](ect1-chap10.qmd){.next}
+:::

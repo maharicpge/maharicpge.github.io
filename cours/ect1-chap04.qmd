@@ -1,10 +1,188 @@
 ---
-title: "Chapitre 04 : Fonctions usuelles"
-pagetitle: "Fonctions usuelles - Mathématiques en CPGE"
+title: "Fonctions réelles d'une variable réelle : limites, continuité"
+subtitle: "Chapitre 04"
+author: "Saîd MAHARI"
+date: last-modified
+date-format: "D MMMM YYYY"
+sidebar:
+  style: docked
+  contents:
+    - href: cours/index.qmd
+      text: "← Tous les cours"
+    - section: "ECT — 1re année"
+      contents:
+        - cours/ect1-chap03.qmd
+        - cours/ect1-chap04.qmd
+lang: fr
+format:
+  html:
+    theme: cosmo
+    toc: true
+    number-sections: true
+    html-math-method: katex
+    css: styles.css
+filters:
+  - custom-numbered-blocks.lua
 ---
 
-**ECT 1re année — Chapitre 04.** Polynômes, rationnelles, logarithme népérien, exponentielle.
+**ECT (1re année) — Chapitre 04.** Limites, continuité, opérations algébriques, composition.
 
-## Document
+Ce chapitre a été réalisé conformément au programme marocain de mathématiques de la filière ECT.
 
-*PDF à venir : déposez le fichier `files/ect1/chap04.pdf` puis régénérez la page.*
+# Limites de fonctions
+
+## Définition
+
+::: {.definition title="(Limite d'une fonction en un point)"}
+Soit $f : I \to \mathbb{R}$ une fonction définie sur un intervalle $I$ et $a \in I$ (ou $a$ adhérent à $I$). On dit que $f$ admet pour limite $\ell \in \mathbb{R}$ en $a$, et on note $\lim_{x \to a} f(x) = \ell$, si :
+$$\forall \varepsilon > 0,\quad \exists \delta > 0,\quad \forall x \in I,\quad |x - a| < \delta \implies |f(x) - \ell| < \varepsilon$$
+:::
+
+::: {.definition title="(Limites à gauche et à droite)"}
+- La **limite à gauche** de $f$ en $a$ est $\lim_{x \to a^-} f(x) = \lim_{\substack{x \to a \\ x < a}} f(x)$.
+- La **limite à droite** de $f$ en $a$ est $\lim_{x \to a^+} f(x) = \lim_{\substack{x \to a \\ x > a}} f(x)$.
+
+$f$ admet une limite en $a$ si et seulement si les limites à gauche et à droite existent et sont égales.
+:::
+
+::: {.definition title="(Limites en l'infini)"}
+- $\lim_{x \to +\infty} f(x) = \ell$ signifie : $\forall \varepsilon > 0,\; \exists A > 0,\; \forall x > A,\; |f(x) - \ell| < \varepsilon$.
+- $\lim_{x \to +\infty} f(x) = +\infty$ signifie : $\forall M > 0,\; \exists A > 0,\; \forall x > A,\; f(x) > M$.
+:::
+
+::: {.example}
+
+1. $\lim_{x \to 0} \frac{\sin x}{x} = 1$
+2. $\lim_{x \to +\infty} \frac{1}{x} = 0$
+3. $\lim_{x \to +\infty} e^x = +\infty$
+4. $\lim_{x \to -\infty} e^x = 0$
+:::
+
+## Opérations sur les limites
+
+::: {.proposition title="(Opérations algébriques)"}
+Soient $f$ et $g$ deux fonctions admettant des limites finies en $a$ (ou en $+\infty$). Alors :
+
+1. $\lim (f + g) = \lim f + \lim g$
+2. $\lim (\lambda f) = \lambda \lim f$ pour tout $\lambda \in \mathbb{R}$
+3. $\lim (fg) = (\lim f)(\lim g)$
+4. $\lim \dfrac{f}{g} = \dfrac{\lim f}{\lim g}$ si $\lim g \neq 0$
+:::
+
+::: {.proposition title="(Limites et inégalités)"}
+Si $f(x) \leq g(x)$ au voisinage de $a$ et si $\lim f$ et $\lim g$ existent, alors $\lim f \leq \lim g$.
+:::
+
+::: {.remarque}
+Si $f(x) < g(x)$ au voisinage de $a$, on ne peut conclure que $\lim f < \lim g$. On a seulement $\lim f \leq \lim g$.
+:::
+
+## Théorème des gendarmes
+
+::: {.theorem title="(Théorème des gendarmes)"}
+Si $f(x) \leq g(x) \leq h(x)$ au voisinage de $a$ et si $\lim_{x \to a} f(x) = \lim_{x \to a} h(x) = \ell$, alors $\lim_{x \to a} g(x) = \ell$.
+:::
+
+::: {.example}
+Montrer que $\lim_{x \to +\infty} \frac{\sin x}{x} = 0$.
+
+Pour tout $x > 0$ : $-\frac{1}{x} \leq \frac{\sin x}{x} \leq \frac{1}{x}$. Comme $\lim_{x \to +\infty} \frac{1}{x} = 0$, par le théorème des gendarmes, $\lim_{x \to +\infty} \frac{\sin x}{x} = 0$.
+:::
+
+## Composition
+
+::: {.proposition title="(Limite d'une composée)"}
+Si $\lim_{x \to a} f(x) = b$ et $\lim_{y \to b} g(y) = \ell$, alors $\lim_{x \to a} g(f(x)) = \ell$.
+:::
+
+# Continuité
+
+## Définition
+
+::: {.definition title="(Continuité en un point)"}
+$f : I \to \mathbb{R}$ est **continue en** $a \in I$ si :
+$$\lim_{x \to a} f(x) = f(a)$$
+
+Autrement dit : $\forall \varepsilon > 0,\; \exists \delta > 0,\; \forall x \in I,\; |x - a| < \delta \implies |f(x) - f(a)| < \varepsilon$.
+:::
+
+::: {.definition title="(Continuité sur un intervalle)"}
+$f$ est **continue sur** $I$ si elle est continue en tout point de $I$.
+:::
+
+::: {.example title="(Fonctions usuelles continues)"}
+Les fonctions suivantes sont continues sur leur domaine de définition :
+
+- Les polynômes sur $\mathbb{R}$.
+- $\sin$, $\cos$ sur $\mathbb{R}$.
+- $\exp$ sur $\mathbb{R}$.
+- $\ln$ sur $]0, +\infty[$.
+- $x \mapsto x^\alpha$ sur $]0, +\infty[$.
+:::
+
+## Opérations sur les fonctions continues
+
+::: {.proposition title="(Opérations)"}
+Soient $f$ et $g$ deux fonctions continues en $a$. Alors :
+
+1. $f + g$ et $\lambda f$ sont continues en $a$.
+2. $fg$ est continue en $a$.
+3. $\dfrac{f}{g}$ est continue en $a$ si $g(a) \neq 0$.
+4. $g \circ f$ est continue en $a$ si $g$ est continue en $f(a)$.
+:::
+
+::: {.proposition title="(Continuité et suites)"}
+$f$ est continue en $a$ si et seulement si pour toute suite $(u_n)$ convergeant vers $a$, la suite $(f(u_n))$ converge vers $f(a)$.
+:::
+
+# Exercices
+
+::: {.exercise}
+Calculer les limites suivantes :
+
+1. $\lim_{x \to 0} \frac{e^x - 1}{x}$
+2. $\lim_{x \to 0} \frac{\ln(1+x)}{x}$
+3. $\lim_{x \to +\infty} \frac{\ln x}{x}$
+4. $\lim_{x \to +\infty} \frac{e^x}{x^2}$
+:::
+
+::: {.exercise}
+Étudier la continuité de la fonction :
+$$f(x) = \begin{cases} x^2 & \text{si } x \leq 1 \\ 2x - 1 & \text{si } x > 1 \end{cases}$$
+:::
+
+::: {.exercise}
+Montrer que la fonction $f(x) = \frac{x}{1+|x|}$ est continue sur $\mathbb{R}$.
+:::
+
+::: {.exercise}
+Soit $f : \mathbb{R} \to \mathbb{R}$ continue avec $f(0) = 0$ et $f(1) = 1$. Montrer qu'il existe $c \in ]0,1[$ tel que $f(c) = c$.
+:::
+
+::: {.exercise}
+Soit $f : [0,1] \to [0,1]$ continue. Montrer que $f$ admet un point fixe.
+:::
+
+::: {.exercise}
+Montrer que l'équation $x^3 + x - 1 = 0$ admet une unique solution réelle.
+:::
+
+::: {.exercise}
+Soit $f : \mathbb{R} \to \mathbb{R}$ continue et $2$-périodique. Montrer que $f$ est bornée sur $\mathbb{R}$.
+:::
+
+::: {.exercise}
+Montrer que si $f : [a,b] \to \mathbb{R}$ est continue, alors $f$ est bornée et atteint ses bornes.
+:::
+
+# Document en PDF {-}
+
+[**Chapitre 04 : Fonctions réelles d'une variable réelle : limites, continuité**](PDF/ect1-chap04.pdf)
+
+## Navigation {-}
+
+::: {.chap-nav}
+[Chapitre 03 : Exemples de suites réelles, polynômes](ect1-chap03.qmd){.prev}
+[Menu ECT1](ect1.qmd){.home}
+[Chapitre 05 : Fonctions réelles d'une variable réelle : dérivabilité, convexité](ect1-chap05.qmd){.next}
+:::

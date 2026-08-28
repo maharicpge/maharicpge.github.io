@@ -1,10 +1,205 @@
 ---
-title: "Chapitre 07 : Algèbre linéaire et calcul matriciel"
-pagetitle: "Algèbre linéaire et calcul matriciel - Mathématiques en CPGE"
+title: "Algèbre linéaire et calcul matriciel"
+subtitle: "Chapitre 07"
+author: "Saîd MAHARI"
+date: last-modified
+date-format: "D MMMM YYYY"
+sidebar:
+  style: docked
+  contents:
+    - href: cours/index.qmd
+      text: "← Tous les cours"
+    - section: "ECS — 1re année"
+      contents:
+        - cours/ecs1-chap06.qmd
+        - cours/ecs1-chap07.qmd
+lang: fr
+format:
+  html:
+    theme: cosmo
+    toc: true
+    number-sections: true
+    html-math-method: katex
+    css: styles.css
+filters:
+  - custom-numbered-blocks.lua
 ---
 
-**ECS 1re année (ECG) — Chapitre 07.** Familles libres et génératrices, applications linéaires, théorème du rang.
+**ECS (1re année) — Chapitre 07.** Espaces vectoriels, applications linéaires, théorème du rang, matrices, systèmes linéaires.
 
-## Document
+Ce chapitre a été réalisé conformément au programme marocain de mathématiques de la filière ECS.
 
-*PDF à venir : déposez le fichier `files/ecs1/chap07.pdf` puis régénérez la page.*
+Dans tout ce chapitre, $\mathbb{K} = \mathbb{R}$.
+
+# Espaces vectoriels
+
+::: {.definition title="(Espace vectoriel)"}
+Un **$\mathbb{R}$-espace vectoriel** est un ensemble $E$ muni d'une addition et d'une multiplication par un réel, vérifiant les axiomes usuels (commutativité, associativité, élément neutre, opposé, distributivité).
+:::
+
+::: {.example}
+$\mathbb{R}^n$, $\mathbb{R}_n[X]$ (polynômes de degré $\leq n$), $\mathcal{F}(\mathbb{R}, \mathbb{R})$, $\mathcal{M}_n(\mathbb{R})$ sont des $\mathbb{R}$-espaces vectoriels.
+:::
+
+## Sous-espaces vectoriels
+
+::: {.definition title="(Sous-espace vectoriel)"}
+$F \subset E$ est un **sous-espace vectoriel** (SEV) si :
+
+1. $0_E \in F$.
+2. $\forall x, y \in F,\; \forall \lambda \in \mathbb{R},\; \lambda x + y \in F$.
+:::
+
+## Familles libres, génératrices, bases
+
+::: {.definition title="(Famille libre)"}
+$(v_1, \ldots, v_n)$ est **libre** si $\lambda_1 v_1 + \cdots + \lambda_n v_n = 0 \Rightarrow \lambda_1 = \cdots = \lambda_n = 0$.
+:::
+
+::: {.definition title="(Famille génératrice)"}
+$(v_1, \ldots, v_n)$ est **génératrice** de $E$ si tout vecteur de $E$ est combinaison linéaire des $v_i$.
+:::
+
+::: {.definition title="(Base)"}
+$(v_1, \ldots, v_n)$ est une **base** de $E$ si elle est libre et génératrice.
+:::
+
+::: {.definition title="(Dimension)"}
+La **dimension** de $E$, notée $\dim E$, est le nombre de vecteurs d'une base de $E$.
+:::
+
+# Applications linéaires
+
+::: {.definition title="(Application linéaire)"}
+$f : E \to F$ est **linéaire** si :
+$$\forall x, y \in E,\; \forall \lambda \in \mathbb{R},\quad f(\lambda x + y) = \lambda f(x) + f(y)$$
+:::
+
+::: {.definition title="(Noyau et image)"}
+
+- $\ker f = \{x \in E \mid f(x) = 0\}$ est un SEV de $E$.
+- $\mathrm{Im}(f) = \{f(x) \mid x \in E\}$ est un SEV de $F$.
+:::
+
+::: {.proposition}
+$f$ injective $\iff$ $\ker f = \{0\}$. $f$ surjective $\iff$ $\mathrm{Im}(f) = F$.
+:::
+
+## Théorème du rang
+
+::: {.theorem title="(Théorème du rang)"}
+Soit $f : E \to F$ linéaire avec $\dim E = n < \infty$. Alors :
+$$\dim E = \mathrm{rg}(f) + \dim(\ker f)$$
+où $\mathrm{rg}(f) = \dim(\mathrm{Im}(f))$.
+:::
+
+# Matrices
+
+## Définition et opérations
+
+::: {.definition title="(Matrice)"}
+Une **matrice** $A \in \mathcal{M}_{n,p}(\mathbb{R})$ est un tableau à $n$ lignes et $p$ colonnes.
+:::
+
+::: {.definition title="(Produit matriciel)"}
+$(AB)_{ij} = \sum_{k=1}^p a_{ik} b_{kj}$.
+:::
+
+::: {.proposition}
+$A(B + C) = AB + AC$, $(A + B)C = AC + BC$, $\lambda(AB) = (\lambda A)B = A(\lambda B)$.
+
+Attention : $AB \neq BA$ en général.
+:::
+
+## Matrice identité et inverse
+
+::: {.definition title="(Matrice identité)"}
+$I_n = \begin{pmatrix} 1 & & 0 \\ & \ddots & \\ 0 & & 1 \end{pmatrix}$.
+:::
+
+::: {.definition title="(Matrice inversible)"}
+$A \in \mathcal{M}_n(\mathbb{R})$ est **inversible** s'il existe $B$ telle que $AB = BA = I_n$. On note $B = A^{-1}$.
+:::
+
+::: {.example title="(Inverse $2 \times 2$)"}
+$A = \begin{pmatrix} a & b \\ c & d \end{pmatrix}$ est inversible ssi $ad - bc \neq 0$, et :
+$$A^{-1} = \frac{1}{ad-bc}\begin{pmatrix} d & -b \\ -c & a \end{pmatrix}$$
+:::
+
+# Systèmes linéaires
+
+## Pivot de Gauss
+
+::: {.methode title="(Pivot de Gauss)"}
+Pour résoudre un système linéaire, on utilise les opérations élémentaires sur les lignes :
+
+1. Échanger deux lignes.
+2. Multiplier une ligne par un scalaire non nul.
+3. Ajouter à une ligne un multiple d'une autre.
+:::
+
+::: {.example}
+Résoudre :
+$$\begin{cases} x + y + z = 6 \\ 2x - y + z = 3 \\ x + 2y - z = 2 \end{cases}$$
+
+$L_2 \leftarrow L_2 - 2L_1$ : $-3y - z = -9$
+$L_3 \leftarrow L_3 - L_1$ : $y - 2z = -4$
+
+$L_3 \leftarrow L_3 + \frac{1}{3}L_2$ : $-\frac{7}{3}z = -7$, donc $z = 3$, puis $y = 2$, puis $x = 1$.
+:::
+
+# Exercices
+
+::: {.exercise}
+Montrer que $F = \{(x,y,z) \in \mathbb{R}^3 \mid x + 2y - z = 0\}$ est un SEV de $\mathbb{R}^3$.
+:::
+
+::: {.exercise}
+Soit $f : \mathbb{R}^2 \to \mathbb{R}^2$ définie par $f(x,y) = (x+y, x-y)$.
+
+1. Montrer que $f$ est linéaire.
+2. Déterminer $\ker f$ et $\mathrm{Im}(f)$.
+3. $f$ est-elle un isomorphisme ?
+:::
+
+::: {.exercise}
+Résoudre par Gauss-Jordan :
+$$\begin{cases} 2x + y = 5 \\ x - y = 1 \end{cases}$$
+:::
+
+::: {.exercise}
+Soit $A = \begin{pmatrix} 2 & 1 \\ 5 & 3 \end{pmatrix}$. Calculer $A^{-1}$.
+:::
+
+::: {.exercise}
+Soit $A = \begin{pmatrix} 1 & 1 \\ 0 & 1 \end{pmatrix}$. Calculer $A^n$ pour tout $n \in \mathbb{N}$.
+:::
+
+::: {.exercise}
+Résoudre le système :
+$$\begin{cases} x + 2y + 3z = 1 \\ 2x + 4y + 6z = 2 \\ 3x + 6y + 9z = 3 \end{cases}$$
+:::
+
+::: {.exercise}
+Montrer que si $A$ et $B$ sont inversibles, alors $AB$ est inversible et $(AB)^{-1} = B^{-1}A^{-1}$.
+:::
+
+::: {.exercise}
+Soit $f : \mathbb{R}_2[X] \to \mathbb{R}^2$ définie par $f(P) = (P(0), P(1))$.
+
+1. Montrer que $f$ est linéaire.
+2. Déterminer $\ker f$ et $\mathrm{Im}(f)$.
+3. Vérifier le théorème du rang.
+:::
+
+# Document en PDF {-}
+
+[**Chapitre 07 : Algèbre linéaire et calcul matriciel**](PDF/ecs1-chap07.pdf)
+
+## Navigation {-}
+
+::: {.chap-nav}
+[Chapitre 06 : Intégration sur un segment](ecs1-chap06.qmd){.prev}
+[Menu ECS1](ecs1.qmd){.home}
+[Chapitre 08 : Dénombrement](ecs1-chap08.qmd){.next}
+:::

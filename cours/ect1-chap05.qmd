@@ -1,10 +1,196 @@
 ---
-title: "Chapitre 05 : Calcul matriciel"
-pagetitle: "Calcul matriciel - Mathématiques en CPGE"
+title: "Fonctions réelles d'une variable réelle : dérivabilité, convexité"
+subtitle: "Chapitre 05"
+author: "Saîd MAHARI"
+date: last-modified
+date-format: "D MMMM YYYY"
+sidebar:
+  style: docked
+  contents:
+    - href: cours/index.qmd
+      text: "← Tous les cours"
+    - section: "ECT — 1re année"
+      contents:
+        - cours/ect1-chap04.qmd
+        - cours/ect1-chap05.qmd
+lang: fr
+format:
+  html:
+    theme: cosmo
+    toc: true
+    number-sections: true
+    html-math-method: katex
+    css: styles.css
+filters:
+  - custom-numbered-blocks.lua
 ---
 
-**ECT 1re année — Chapitre 05.** Opérations, inversibilité en ordre 2 ou 3, systèmes linéaires.
+**ECT (1re année) — Chapitre 05.** Dérivabilité, monotonie, extremum local, dérivées successives, convexité, points d'inflexion.
 
-## Document
+Ce chapitre a été réalisé conformément au programme marocain de mathématiques de la filière ECT.
 
-*PDF à venir : déposez le fichier `files/ect1/chap05.pdf` puis régénérez la page.*
+# Dérivabilité
+
+## Définition
+
+::: {.definition title="(Dérivabilité en un point)"}
+$f : I \to \mathbb{R}$ est **dérivable en** $a \in I$ si la limite :
+$$f'(a) = \lim_{h \to 0} \frac{f(a+h) - f(a)}{h}$$
+existe et est finie.
+:::
+
+::: {.proposition title="(Dérivabilité implique continuité)"}
+Si $f$ est dérivable en $a$, alors $f$ est continue en $a$.
+:::
+
+::: {.remarque}
+La réciproque est fausse : $f(x) = |x|$ est continue en $0$ mais non dérivable en $0$.
+:::
+
+## Opérations sur les fonctions dérivables
+
+::: {.proposition title="(Opérations)"}
+Soient $f$ et $g$ dérivables en $a$. Alors :
+
+1. $(f + g)'(a) = f'(a) + g'(a)$
+2. $(\lambda f)'(a) = \lambda f'(a)$
+3. $(fg)'(a) = f'(a)g(a) + f(a)g'(a)$
+4. $\left(\dfrac{f}{g}\right)'(a) = \dfrac{f'(a)g(a) - f(a)g'(a)}{(g(a))^2}$ si $g(a) \neq 0$
+5. $(g \circ f)'(a) = g'(f(a)) \cdot f'(a)$ (règle de la chaîne)
+:::
+
+::: {.proposition title="(Dérivées des fonctions usuelles)"}
+
+| $f(x)$ | $f'(x)$ |
+|---|---|
+| $x^n$ | $nx^{n-1}$ |
+| $e^x$ | $e^x$ |
+| $\ln x$ | $\frac{1}{x}$ |
+| $\sin x$ | $\cos x$ |
+| $\cos x$ | $-\sin x$ |
+| $\tan x$ | $\frac{1}{\cos^2 x}$ |
+:::
+
+# Monotonie et extremum local
+
+## Monotonie
+
+::: {.theorem title="(Lien entre dérivée et monotonie)"}
+Soit $f : I \to \mathbb{R}$ dérivable sur un intervalle $I$.
+
+1. $f'(x) \geq 0$ pour tout $x \in I$ $\iff$ $f$ est croissante sur $I$.
+2. $f'(x) \leq 0$ pour tout $x \in I$ $\iff$ $f$ est décroissante sur $I$.
+3. $f'(x) = 0$ pour tout $x \in I$ $\iff$ $f$ est constante sur $I$.
+4. $f'(x) > 0$ pour tout $x \in I$ $\implies$ $f$ est strictement croissante sur $I$.
+:::
+
+## Extremum local
+
+::: {.definition title="(Extremum local)"}
+$f$ admet un **maximum local** (resp. **minimum local**) en $a$ s'il existe un voisinage $V$ de $a$ tel que $f(x) \leq f(a)$ (resp. $f(x) \geq f(a)$) pour tout $x \in V$.
+:::
+
+::: {.theorem title="(Condition nécessaire)"}
+Si $f$ est dérivable en $a$ et admet un extremum local en $a$ (point intérieur), alors $f'(a) = 0$.
+:::
+
+::: {.remarque}
+La réciproque est fausse : $f(x) = x^3$ vérifie $f'(0) = 0$ mais n'admet pas d'extremum en $0$.
+:::
+
+# Dérivées successives et classes $\mathcal{C}^k$
+
+::: {.definition title="(Dérivées d'ordre supérieur)"}
+Si $f$ est dérivable sur $I$, on note $f'$ sa dérivée. Si $f'$ est dérivable, on note $f'' = (f')'$ la dérivée seconde. Par récurrence, on définit $f^{(n)} = (f^{(n-1)})'$.
+:::
+
+::: {.definition title="(Classes $\mathcal{C}^k$)"}
+$f$ est de **classe $\mathcal{C}^k$** sur $I$ si $f$ est $k$ fois dérivable et $f^{(k)}$ est continue sur $I$. $f$ est de **classe $\mathcal{C}^\infty$** si elle est indéfiniment dérivable.
+:::
+
+# Convexité
+
+## Définition
+
+::: {.definition title="(Fonction convexe)"}
+$f : I \to \mathbb{R}$ est **convexe** sur $I$ si pour tous $x, y \in I$ et tout $\lambda \in [0,1]$ :
+$$f(\lambda x + (1-\lambda)y) \leq \lambda f(x) + (1-\lambda)f(y)$$
+
+$f$ est **concave** si $-f$ est convexe.
+:::
+
+## Caractérisation par la dérivée seconde
+
+::: {.theorem title="(Critère de convexité)"}
+Soit $f : I \to \mathbb{R}$ de classe $\mathcal{C}^2$ sur $I$. Alors :
+
+- $f$ est convexe sur $I$ $\iff$ $f''(x) \geq 0$ pour tout $x \in I$.
+- $f$ est concave sur $I$ $\iff$ $f''(x) \leq 0$ pour tout $x \in I$.
+:::
+
+## Points d'inflexion
+
+::: {.definition title="(Point d'inflexion)"}
+Un point $a$ est un **point d'inflexion** de $f$ si la courbe de $f$ traverse sa tangente en $a$. Si $f$ est de classe $\mathcal{C}^2$, alors $f''(a) = 0$ et $f''$ change de signe en $a$.
+:::
+
+::: {.example}
+$f(x) = x^3$ admet un point d'inflexion en $0$ car $f''(x) = 6x$ s'annule en $0$ en changeant de signe.
+:::
+
+# Exercices
+
+::: {.exercise}
+Calculer les dérivées des fonctions suivantes :
+
+1. $f(x) = x^3 e^x$
+2. $f(x) = \frac{\ln x}{x}$
+3. $f(x) = \sin(x^2)$
+4. $f(x) = e^{\cos x}$
+:::
+
+::: {.exercise}
+Étudier les variations de $f(x) = x^2 e^{-x}$ sur $\mathbb{R}$.
+:::
+
+::: {.exercise}
+Soit $f(x) = x^3 - 3x + 1$.
+
+1. Étudier les variations de $f$.
+2. Déterminer les extremums locaux.
+3. Montrer que $f$ admet trois racines réelles.
+:::
+
+::: {.exercise}
+Montrer que $f(x) = e^x$ est convexe sur $\mathbb{R}$ et que $g(x) = \ln x$ est concave sur $]0, +\infty[$.
+:::
+
+::: {.exercise}
+Soit $f(x) = x^3 - 3x^2 + 2$. Déterminer les points d'inflexion de $f$.
+:::
+
+::: {.exercise}
+Montrer que pour tout $x \in \mathbb{R}$ : $e^x \geq 1 + x$.
+:::
+
+**Indication :** Étudier $g(x) = e^x - 1 - x$ et montrer que $g$ admet un minimum en $0$.
+
+::: {.exercise}
+Soit $f : [a,b] \to \mathbb{R}$ dérivable avec $f'(a) < 0$ et $f'(b) > 0$. Montrer que $f$ admet un minimum local en un point $c \in ]a,b[$.
+:::
+
+::: {.exercise}
+Soit $f : \mathbb{R} \to \mathbb{R}$ de classe $\mathcal{C}^2$ avec $f''(x) \geq 0$ pour tout $x$. Montrer que $f(x) \geq f(a) + f'(a)(x-a)$ pour tout $x$ (la tangente est en dessous de la courbe).
+:::
+
+# Document en PDF {-}
+
+[**Chapitre 05 : Fonctions réelles d'une variable réelle : dérivabilité, convexité**](PDF/ect1-chap05.pdf)
+
+## Navigation {-}
+
+::: {.chap-nav}
+[Chapitre 04 : Limites, continuité](ect1-chap04.qmd){.prev}
+[Menu ECT1](ect1.qmd){.home}
+[Chapitre 06 : Probabilité sur un univers fini](ect1-chap06.qmd){.next}
+:::

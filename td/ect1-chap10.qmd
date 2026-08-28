@@ -1,0 +1,98 @@
+---
+title: "TD — Compléments de probabilités sur un univers fini"
+subtitle: "Chapitre 10"
+author: "Saîd MAHARI"
+date: last-modified
+date-format: "D MMMM YYYY"
+lang: fr
+format:
+  html:
+    theme: cosmo
+    toc: true
+    number-sections: true
+    html-math-method: katex
+    css: styles.css
+filters:
+  - custom-numbered-blocks.lua
+---
+
+**ECT1 (1re année) — TD du Chapitre 10.** Coefficients binomiaux, lois usuelles finies, loi uniforme, loi de Bernoulli, loi binomiale, binôme de Newton.
+
+::: {.exercise}
+Calculer :
+
+1. $\binom{5}{2}$
+2. $\binom{8}{3}$
+3. $\binom{10}{0}$
+4. $\binom{10}{10}$
+5. $\binom{10}{1}$
+:::
+
+::: {.exercise}
+Montrer que pour tout $n \in \mathbb{N}$ et tout $k \in \{0,\ldots,n\}$ :
+$$\binom{n}{k}=\binom{n}{n-k}.$$
+:::
+
+::: {.exercise}
+Montrer la formule de Pascal :
+$$\binom{n+1}{k}=\binom{n}{k}+\binom{n}{k-1}.$$
+:::
+
+::: {.exercise}
+Développer à l'aide du binôme de Newton :
+
+1. $(a+b)^4$
+2. $(x+1)^5$
+3. $(2x-1)^3$
+:::
+
+::: {.exercise}
+Montrer que :
+$$\sum_{k=0}^{n} \binom{n}{k}=2^n.$$
+:::
+
+**Indication :** Utiliser le binôme de Newton avec $a=b=1$.
+
+::: {.exercise}
+Soit $X$ une variable aléatoire suivant la loi uniforme sur $\{1,2,3,4,5\}$.
+
+1. Donner la loi de $X$.
+2. Calculer $E(X)$.
+3. Calculer $V(X)$.
+:::
+
+::: {.exercise}
+Soit $X$ une variable aléatoire suivant une loi de Bernoulli de paramètre $p$.
+
+1. Donner la loi de $X$.
+2. Calculer $E(X)$.
+3. Calculer $V(X)$.
+:::
+
+::: {.exercise}
+On lance 5 fois une pièce équilibrée. Soit $X$ le nombre de piles obtenus.
+
+1. Quelle est la loi de $X$ ?
+2. Calculer $P(X=2)$.
+3. Calculer $P(X\geq 1)$.
+4. Calculer $E(X)$ et $V(X)$.
+:::
+
+::: {.exercise}
+Une urne contient 3 boules rouges et 7 boules noires. On effectue 4 tirages avec remise. Soit $X$ le nombre de boules rouges obtenues.
+
+1. Quelle est la loi de $X$ ?
+2. Calculer $P(X=0)$.
+3. Calculer $P(X=1)$.
+4. Calculer $E(X)$ et $V(X)$.
+:::
+
+# Cours {-}
+[**Chapitre 10 : Compléments de probabilités sur un univers fini**](ect1-chap10.qmd)
+
+# Navigation {-}
+::: {.chap-nav}
+[TD 09 : Compléments d'analyse](ect1-chap09.qmd){.prev}
+[Menu ECT1](ect1.qmd){.home}
+[TD 11 : Primitives et intégration](ect1-chap11.qmd){.next}
+:::

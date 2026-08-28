@@ -1,10 +1,90 @@
 ---
-title: "Chapitre 05 : Intégrales généralisées"
-pagetitle: "Intégrales généralisées - Mathématiques en CPGE"
+title: "TD — Intégrales généralisées"
+subtitle: "Chapitre 05"
+author: "Saîd MAHARI"
+date: last-modified
+date-format: "D MMMM YYYY"
+lang: fr
+format:
+  html:
+    theme: cosmo
+    toc: true
+    number-sections: true
+    html-math-method: katex
+    css: styles.css
+filters:
+  - custom-numbered-blocks.lua
 ---
 
-**ECS 2e année (ECG) — Chapitre 05.** Critères de convergence pour fonctions positives et par convergence absolue.
+**ECS (2e année) — TD du Chapitre 05.** Convergence, critères pour fonctions positives, convergence absolue.
 
-## Document
+::: {.exercise}
+Étudier la convergence des intégrales suivantes :
 
-*PDF à venir : déposez le fichier `files/ecs2/chap05.pdf` puis régénérez la page.*
+1. $\int_1^{+\infty} \frac{dt}{t^2 + t + 1}$
+2. $\int_1^{+\infty} \frac{dt}{\sqrt{t^3 + 1}}$
+3. $\int_0^1 \frac{dt}{\sqrt{t}}$
+4. $\int_0^1 \frac{dt}{t}$
+:::
+
+::: {.exercise}
+Étudier la convergence des intégrales suivantes :
+
+1. $\int_0^{+\infty} e^{-t}\, dt$
+2. $\int_0^{+\infty} t e^{-t}\, dt$
+3. $\int_0^{+\infty} t^n e^{-t}\, dt$ pour $n \in \mathbb{N}$.
+:::
+
+::: {.exercise}
+Étudier la convergence absolue des intégrales suivantes :
+
+1. $\int_1^{+\infty} \frac{\sin t}{t^2}\, dt$
+2. $\int_1^{+\infty} \frac{\sin t}{t}\, dt$
+3. $\int_1^{+\infty} \frac{\cos t}{t^2}\, dt$
+:::
+
+::: {.exercise}
+Étudier la convergence de l'intégrale $\int_0^{+\infty} \frac{dt}{(1+t^2)^2}$ et calculer sa valeur.
+:::
+
+::: {.exercise}
+Étudier la convergence de l'intégrale $\int_0^{+\infty} \frac{\ln t}{1+t^2}\, dt$ et calculer sa valeur.
+
+**Indication :** Effectuer le changement de variable $u = 1/t$.
+:::
+
+::: {.exercise}
+Étudier la convergence de $\int_0^{+\infty} \frac{1 - \cos t}{t^\alpha}\, dt$ selon les valeurs de $\alpha \in \mathbb{R}$.
+:::
+
+::: {.exercise}
+Calculer, si elles convergent, les intégrales suivantes :
+
+1. $\int_0^{+\infty} t e^{-2t}\, dt$
+2. $\int_0^{+\infty} t^2 e^{-t}\, dt$
+3. $\int_0^1 \ln t\, dt$
+:::
+
+::: {.exercise}
+Étudier la convergence de $\int_0^{+\infty} \frac{\sin t}{t^\alpha}\, dt$ selon les valeurs de $\alpha \in \mathbb{R}$.
+
+**Indication :** Distinguer les cas $\alpha \leq 0$, $0 < \alpha \leq 1$, et $\alpha > 1$. Utiliser le critère de Dirichlet pour $0 < \alpha \leq 1$.
+:::
+
+::: {.exercise}
+Étudier la convergence de $\int_0^{+\infty} \frac{dt}{1 + t^\alpha}$ selon les valeurs de $\alpha \in \mathbb{R}$.
+:::
+
+::: {.exercise}
+Étudier la convergence de $\int_0^{+\infty} \frac{\ln t}{t^\alpha}\, dt$ selon les valeurs de $\alpha \in \mathbb{R}$.
+:::
+
+# Cours {-}
+[**Chapitre 05 : Intégrales généralisées**](../cours/ecs2-chap05.qmd)
+
+# Navigation {-}
+::: {.chap-nav}
+[TD 04 : Séries numériques](ecs2-chap04.qmd){.prev}
+[Menu ECS2](ecs2.qmd){.home}
+[TD 06 : Variables aléatoires discrètes infinies](ecs2-chap06.qmd){.next}
+:::

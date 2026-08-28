@@ -1,10 +1,160 @@
 ---
-title: "Chapitre 09 : Convergences et approximations"
-pagetitle: "Convergences et approximations - Mathématiques en CPGE"
+title: "Convergences et approximations"
+subtitle: "Chapitre 09"
+author: "Saîd MAHARI"
+date: last-modified
+date-format: "D MMMM YYYY"
+sidebar:
+  style: docked
+  contents:
+    - href: cours/index.qmd
+      text: "← Tous les cours"
+    - section: "ECS — 2e année"
+      contents:
+        - cours/ecs2-chap08.qmd
+        - cours/ecs2-chap09.qmd
+lang: fr
+format:
+  html:
+    theme: cosmo
+    toc: true
+    number-sections: true
+    html-math-method: katex
+    css: styles.css
+filters:
+  - custom-numbered-blocks.lua
 ---
 
-**ECS 2e année (ECG) — Chapitre 09.** Markov, Tchebychev, loi faible des grands nombres, théorème central limite.
+**ECS (2e année) — Chapitre 09.** Markov, Tchebychev, loi faible des grands nombres, théorème central limite.
 
-## Document
+Ce chapitre a été réalisé conformément au programme marocain de mathématiques de la filière ECS.
 
-*PDF à venir : déposez le fichier `files/ecs2/chap09.pdf` puis régénérez la page.*
+# Inégalité de Markov
+
+::: {.theorem title="(Inégalité de Markov)"}
+Soit $X$ une variable aléatoire positive admettant une espérance. Pour tout $a > 0$ :
+$$P(X \geq a) \leq \frac{E(X)}{a}$$
+:::
+
+::: {.example}
+Si $E(X) = 5$, alors $P(X \geq 10) \leq 1/2$.
+:::
+
+# Inégalité de Bienaymé-Tchebychev
+
+::: {.theorem title="(Inégalité de Bienaymé-Tchebychev)"}
+Soit $X$ une variable aléatoire admettant une variance. Pour tout $\varepsilon > 0$ :
+$$P(|X - E(X)| \geq \varepsilon) \leq \frac{V(X)}{\varepsilon^2}$$
+:::
+
+::: {.proof}
+On applique l'inégalité de Markov à $(X - E(X))^2 \geq 0$ :
+$$P(|X - E(X)| \geq \varepsilon) = P((X - E(X))^2 \geq \varepsilon^2) \leq \frac{E((X - E(X))^2)}{\varepsilon^2} = \frac{V(X)}{\varepsilon^2}$$
+:::
+
+::: {.example}
+Si $E(X) = 10$ et $V(X) = 4$, alors $P(|X - 10| \geq 4) \leq 4/16 = 1/4$.
+:::
+
+# Convergence en probabilité
+
+::: {.definition title="(Convergence en probabilité)"}
+$(X_n)$ converge en probabilité vers $X$, noté $X_n \xrightarrow{P} X$, si :
+$$\forall \varepsilon > 0, \quad P(|X_n - X| \geq \varepsilon) \to 0$$
+:::
+
+# Loi faible des grands nombres
+
+::: {.theorem title="(Loi faible des grands nombres)"}
+Soit $(X_n)_{n \geq 1}$ une suite de variables aléatoires mutuellement indépendantes, de même loi, admettant un moment d'ordre $2$. Notons $\mu = E(X_1)$ et $\sigma^2 = V(X_1)$. Alors :
+$$\overline{X}_n = \frac{1}{n}\sum_{k=1}^n X_k \xrightarrow{P} \mu$$
+:::
+
+::: {.proof}
+$E(\overline{X}_n) = \mu$ et $V(\overline{X}_n) = \sigma^2/n$. Par Bienaymé-Tchebychev :
+$$P(|\overline{X}_n - \mu| \geq \varepsilon) \leq \frac{\sigma^2}{n\varepsilon^2} \to 0$$
+:::
+
+::: {.example title="(Fréquence empirique)"}
+Si $(X_n)$ est une suite de variables de Bernoulli $\mathcal{B}(p)$ indépendantes, alors la fréquence empirique $\overline{X}_n \xrightarrow{P} p$.
+:::
+
+# Convergence en loi
+
+::: {.definition title="(Convergence en loi)"}
+$(X_n)$ converge en loi vers $X$, noté $X_n \xrightarrow{\mathcal{L}} X$, si pour tout point de continuité $x$ de $F_X$ :
+$$F_{X_n}(x) \to F_X(x)$$
+:::
+
+::: {.proposition}
+La convergence en probabilité implique la convergence en loi.
+:::
+
+::: {.theorem title="(Convergence de binomiale vers Poisson)"}
+Si $X_n \hookrightarrow \mathcal{B}(n, \lambda/n)$, alors $X_n \xrightarrow{\mathcal{L}} \mathcal{P}(\lambda)$.
+:::
+
+# Théorème central limite
+
+::: {.theorem title="(Théorème central limite)"}
+Soit $(X_n)_{n \geq 1}$ une suite de variables aléatoires mutuellement indépendantes, de même loi, admettant un moment d'ordre $2$. Notons $\mu = E(X_1)$ et $\sigma = \sigma(X_1) > 0$. Alors :
+$$\frac{1}{\sigma\sqrt{n}}\left(\sum_{k=1}^n X_k - n\mu\right) \xrightarrow{\mathcal{L}} \mathcal{N}(0, 1)$$
+:::
+
+::: {.remarque title="(Interprétation)"}
+La vitesse de convergence de la loi des grands nombres est en $\sigma/\sqrt{n}$. Ce théorème permet d'approcher la loi de la somme d'un grand nombre de variables indépendantes par une loi normale.
+:::
+
+::: {.example title="(Approximation normale)"}
+Si $X_n \hookrightarrow \mathcal{B}(n, p)$, alors pour $n$ grand :
+$$\frac{X_n - np}{\sqrt{np(1-p)}} \approx \mathcal{N}(0, 1)$$
+:::
+
+# Exercices
+
+::: {.exercise}
+Soit $X$ une variable aléatoire positive avec $E(X) = 10$. Majorer $P(X \geq 20)$.
+:::
+
+::: {.exercise}
+Soit $X$ avec $E(X) = 5$ et $V(X) = 9$. Majorer $P(|X - 5| \geq 6)$.
+:::
+
+::: {.exercise}
+On lance $n$ fois un dé équilibré. Soit $S_n$ la somme des résultats.
+
+1. Calculer $E(S_n)$ et $V(S_n)$.
+2. Utiliser le TCL pour approcher $P(S_n \leq 3{,}2n)$ pour $n = 100$.
+:::
+
+::: {.exercise}
+Soit $X_n \hookrightarrow \mathcal{B}(n, 1/n)$. Montrer que $X_n \xrightarrow{\mathcal{L}} \mathcal{P}(1)$.
+:::
+
+::: {.exercise}
+Soit $(X_n)$ une suite de variables de Bernoulli $\mathcal{B}(p)$ indépendantes. Montrer que $\overline{X}_n \xrightarrow{P} p$.
+:::
+
+::: {.exercise}
+Soit $X \hookrightarrow \mathcal{U}([0,1])$. Utiliser l'inégalité de Markov pour majorer $P(X \geq 0{,}8)$.
+:::
+
+::: {.exercise}
+Soit $X \hookrightarrow \mathcal{E}(1)$. Utiliser l'inégalité de Tchebychev pour majorer $P(|X - 1| \geq 3)$.
+:::
+
+::: {.exercise}
+On lance 100 fois une pièce équilibrée. Soit $X$ le nombre de piles. Utiliser le TCL pour approcher $P(40 \leq X \leq 60)$.
+:::
+
+# Document en PDF {-}
+
+[**Chapitre 09 : Convergences et approximations**](PDF/ecs2-chap09.pdf)
+
+## Navigation {-}
+
+::: {.chap-nav}
+[Chapitre 08 : Vecteurs aléatoires](ecs2-chap08.qmd){.prev}
+[Menu ECS2](ecs2.qmd){.home}
+[Chapitre 10 : Estimation statistique](ecs2-chap10.qmd){.next}
+:::

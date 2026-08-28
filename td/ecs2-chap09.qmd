@@ -1,10 +1,103 @@
 ---
-title: "Chapitre 09 : Convergences et approximations"
-pagetitle: "Convergences et approximations - Mathématiques en CPGE"
+title: "TD — Convergences et approximations"
+subtitle: "Chapitre 09"
+author: "Saîd MAHARI"
+date: last-modified
+date-format: "D MMMM YYYY"
+lang: fr
+format:
+  html:
+    theme: cosmo
+    toc: true
+    number-sections: true
+    html-math-method: katex
+    css: styles.css
+filters:
+  - custom-numbered-blocks.lua
 ---
 
-**ECS 2e année (ECG) — Chapitre 09.** Markov, Tchebychev, loi faible des grands nombres, théorème central limite.
+**ECS (2e année) — TD du Chapitre 09.** Markov, Tchebychev, loi faible des grands nombres, théorème central limite.
 
-## Document
+::: {.exercise}
+Soit $X$ une variable aléatoire positive avec $E(X) = 10$.
 
-*PDF à venir : déposez le fichier `files/ecs2/chap09.pdf` puis régénérez la page.*
+1. Majorer $P(X \geq 20)$ à l'aide de l'inégalité de Markov.
+2. Majorer $P(X \geq 50)$.
+:::
+
+::: {.exercise}
+Soit $X$ une variable aléatoire avec $E(X) = 5$ et $V(X) = 9$.
+
+1. Majorer $P(|X - 5| \geq 3)$ à l'aide de l'inégalité de Tchebychev.
+2. Majorer $P(|X - 5| \geq 6)$.
+:::
+
+::: {.exercise}
+On lance $n$ fois un dé équilibré. Soit $S_n$ la somme des résultats obtenus.
+
+1. Calculer $E(S_n)$ et $V(S_n)$.
+2. Utiliser l'inégalité de Tchebychev pour majorer $P(|S_n - 3{,}5n| \geq n)$.
+3. Utiliser le théorème central limite pour approcher $P(S_n \leq 3{,}2n)$ pour $n = 100$.
+:::
+
+::: {.exercise}
+On lance $n$ fois une pièce équilibrée. Soit $S_n$ le nombre de piles obtenus.
+
+1. Montrer que $S_n \hookrightarrow \mathcal{B}(n, 1/2)$.
+2. Utiliser le théorème central limite pour approcher $P(40 \leq S_n \leq 60)$ pour $n = 100$.
+:::
+
+::: {.exercise}
+Soit $(X_n)$ une suite de variables aléatoires de Bernoulli de paramètre $p$, indépendantes.
+
+1. Montrer que $\overline{X}_n = \frac{1}{n}\sum_{k=1}^n X_k$ converge en probabilité vers $p$.
+2. Utiliser l'inégalité de Tchebychev pour majorer $P(|\overline{X}_n - p| \geq \varepsilon)$.
+:::
+
+::: {.exercise}
+Soit $(X_n)$ une suite de variables aléatoires indépendantes suivant chacune la loi uniforme sur $[0, 1]$.
+
+1. Calculer $E(X_k)$ et $V(X_k)$.
+2. Montrer que $\overline{X}_n = \frac{1}{n}\sum_{k=1}^n X_k$ converge en probabilité vers $\frac{1}{2}$.
+3. Utiliser le théorème central limite pour approcher $P(\overline{X}_n < 0{,}6)$ pour $n = 100$.
+:::
+
+::: {.exercise}
+Soit $(X_n)$ une suite de variables aléatoires indépendantes suivant chacune la loi exponentielle de paramètre $\lambda$.
+
+1. Calculer $E(X_k)$ et $V(X_k)$.
+2. Montrer que $\overline{X}_n$ converge en probabilité vers $\frac{1}{\lambda}$.
+3. Utiliser le théorème central limite pour approcher $P(\overline{X}_n < 2/\lambda)$ pour $n = 100$.
+:::
+
+::: {.exercise}
+Soit $(X_n)$ une suite de variables aléatoires indépendantes suivant chacune la loi de Poisson de paramètre $\lambda$.
+
+1. Montrer que $S_n = X_1 + \cdots + X_n \hookrightarrow \mathcal{P}(n\lambda)$.
+2. Utiliser le théorème central limite pour approcher $P(S_n \leq n\lambda + \sqrt{n\lambda})$ pour $n$ grand.
+:::
+
+::: {.exercise}
+Soit $X$ une variable aléatoire positive avec $E(X) = 4$.
+
+1. Majorer $P(X \geq 8)$.
+2. Si $V(X) = 4$, majorer $P(|X - 4| \geq 4)$ à l'aide de l'inégalité de Tchebychev.
+:::
+
+::: {.exercise}
+Soit $(X_n)$ une suite de variables aléatoires indépendantes suivant chacune la loi uniforme sur $[-1, 1]$.
+
+1. Calculer $E(X_k)$ et $V(X_k)$.
+2. Montrer que $\overline{X}_n$ converge en probabilité vers $0$.
+3. Utiliser le théorème central limite pour approcher $P(|\overline{X}_n| < 0{,}1)$ pour $n = 100$.
+:::
+
+# Cours {-}
+[**Chapitre 09 : Convergences et approximations**](../cours/ecs2-chap09.qmd)
+
+# Navigation {-}
+::: {.chap-nav}
+[TD 08 : Vecteurs aléatoires](ecs2-chap08.qmd){.prev}
+[Menu ECS2](ecs2.qmd){.home}
+[TD 10 : Estimation statistique](ecs2-chap10.qmd){.next}
+:::

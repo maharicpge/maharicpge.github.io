@@ -1,0 +1,177 @@
+---
+title: "Systèmes d'équations linéaires et introduction au calcul matriciel"
+subtitle: "Chapitre 08"
+author: "Saîd MAHARI"
+date: last-modified
+date-format: "D MMMM YYYY"
+sidebar:
+  style: docked
+  contents:
+    - href: cours/index.qmd
+      text: "← Tous les cours"
+    - section: "ECT — 1re année"
+      contents:
+        - cours/ect1-chap07.qmd
+        - cours/ect1-chap08.qmd
+lang: fr
+format:
+  html:
+    theme: cosmo
+    toc: true
+    number-sections: true
+    html-math-method: katex
+    css: styles.css
+filters:
+  - custom-numbered-blocks.lua
+---
+
+**ECT (1re année) — Chapitre 08.** Systèmes linéaires, pivot de Gauss, matrices, opérations, inversibilité.
+
+Ce chapitre a été réalisé conformément au programme marocain de mathématiques de la filière ECT.
+
+# Systèmes d'équations linéaires
+
+## Définition
+
+::: {.definition title="(Système linéaire)"}
+Un **système linéaire** de $n$ équations à $p$ inconnues est de la forme :
+$$\begin{cases} a_{11}x_1 + a_{12}x_2 + \cdots + a_{1p}x_p = b_1 \\ a_{21}x_1 + a_{22}x_2 + \cdots + a_{2p}x_p = b_2 \\ \vdots \\ a_{n1}x_1 + a_{n2}x_2 + \cdots + a_{np}x_p = b_n \end{cases}$$
+:::
+
+::: {.definition title="(Système homogène)"}
+Si $b_1 = b_2 = \cdots = b_n = 0$, le système est **homogène**. Il admet toujours la solution nulle $(0, \ldots, 0)$.
+:::
+
+## Opérations élémentaires
+
+::: {.methode title="(Pivot de Gauss)"}
+Pour résoudre un système linéaire, on utilise les opérations élémentaires sur les lignes :
+
+1. Échanger deux lignes : $L_i \leftrightarrow L_j$.
+2. Multiplier une ligne par un scalaire non nul : $L_i \leftarrow \lambda L_i$ ($\lambda \neq 0$).
+3. Ajouter à une ligne un multiple d'une autre : $L_i \leftarrow L_i + \lambda L_j$.
+
+Ces opérations ne changent pas l'ensemble des solutions.
+:::
+
+::: {.example}
+Résoudre :
+$$\begin{cases} x + y + z = 6 \\ 2x + 3y + z = 11 \\ x + 2y + 2z = 9 \end{cases}$$
+
+$L_2 \leftarrow L_2 - 2L_1$ : $y - z = -1$
+$L_3 \leftarrow L_3 - L_1$ : $y + z = 3$
+$L_3 \leftarrow L_3 - L_2$ : $2z = 4$, donc $z = 2$, puis $y = 1$, puis $x = 3$.
+:::
+
+# Matrices
+
+## Définition
+
+::: {.definition title="(Matrice)"}
+Une **matrice** $A$ de taille $n \times p$ est un tableau de $n$ lignes et $p$ colonnes :
+$$A = \begin{pmatrix} a_{11} & \cdots & a_{1p} \\ \vdots & \ddots & \vdots \\ a_{n1} & \cdots & a_{np} \end{pmatrix}$$
+:::
+
+## Opérations sur les matrices
+
+::: {.definition title="(Addition et multiplication par un scalaire)"}
+Soient $A = (a_{ij})$ et $B = (b_{ij})$ deux matrices de taille $n \times p$. Alors :
+
+- $A + B = (a_{ij} + b_{ij})$
+- $\lambda A = (\lambda a_{ij})$
+:::
+
+::: {.definition title="(Produit matriciel)"}
+Soient $A \in \mathcal{M}_{n,p}(\mathbb{R})$ et $B \in \mathcal{M}_{p,q}(\mathbb{R})$. Le produit $AB$ est la matrice de taille $n \times q$ définie par :
+$$(AB)_{ij} = \sum_{k=1}^p a_{ik} b_{kj}$$
+:::
+
+::: {.remarque}
+Le produit matriciel n'est **pas commutatif** en général : $AB \neq BA$.
+:::
+
+::: {.example}
+$A = \begin{pmatrix} 1 & 2 \\ 3 & 4 \end{pmatrix}$, $B = \begin{pmatrix} 0 & 1 \\ 1 & 0 \end{pmatrix}$.
+
+$AB = \begin{pmatrix} 2 & 1 \\ 4 & 3 \end{pmatrix}$ mais $BA = \begin{pmatrix} 3 & 4 \\ 1 & 2 \end{pmatrix}$. Donc $AB \neq BA$.
+:::
+
+## Matrice identité et transposée
+
+::: {.definition title="(Matrice identité)"}
+La **matrice identité** $I_n$ est la matrice $n \times n$ avec des $1$ sur la diagonale et des $0$ ailleurs :
+$$I_n = \begin{pmatrix} 1 & 0 & \cdots & 0 \\ 0 & 1 & \cdots & 0 \\ \vdots & & \ddots & \\ 0 & \cdots & 0 & 1 \end{pmatrix}$$
+:::
+
+::: {.definition title="(Transposée)"}
+La **transposée** de $A = (a_{ij}) \in \mathcal{M}_{n,p}(\mathbb{R})$ est $A^T = (a_{ji}) \in \mathcal{M}_{p,n}(\mathbb{R})$.
+:::
+
+## Matrices inversibles
+
+::: {.definition title="(Matrice inversible)"}
+$A \in \mathcal{M}_n(\mathbb{R})$ est **inversible** s'il existe $B \in \mathcal{M}_n(\mathbb{R})$ telle que $AB = BA = I_n$. On note $A^{-1}$ l'inverse de $A$.
+:::
+
+::: {.proposition title="(Propriétés)"}
+
+1. $(A^{-1})^{-1} = A$
+2. $(AB)^{-1} = B^{-1}A^{-1}$
+3. $(A^T)^{-1} = (A^{-1})^T$
+4. $\det(A^{-1}) = \frac{1}{\det(A)}$
+:::
+
+::: {.example title="(Inverse d'une matrice $2 \times 2$)"}
+$A = \begin{pmatrix} a & b \\ c & d \end{pmatrix}$ est inversible si et seulement si $ad - bc \neq 0$, et :
+$$A^{-1} = \frac{1}{ad-bc}\begin{pmatrix} d & -b \\ -c & a \end{pmatrix}$$
+:::
+
+# Exercices
+
+::: {.exercise}
+Résoudre par le pivot de Gauss :
+
+1. $\begin{cases} 2x + y = 5 \\ x - y = 1 \end{cases}$
+2. $\begin{cases} x + y + z = 1 \\ 2x + 3y + z = 4 \\ x + 2y + 2z = 5 \end{cases}$
+:::
+
+::: {.exercise}
+Calculer $AB$ et $BA$ avec $A = \begin{pmatrix} 1 & 2 \\ 0 & 1 \end{pmatrix}$ et $B = \begin{pmatrix} 1 & 0 \\ 3 & 2 \end{pmatrix}$.
+:::
+
+::: {.exercise}
+Soit $A = \begin{pmatrix} 2 & 1 \\ 5 & 3 \end{pmatrix}$. Calculer $A^{-1}$.
+:::
+
+::: {.exercise}
+Montrer que si $A$ et $B$ sont inversibles, alors $AB$ est inversible et $(AB)^{-1} = B^{-1}A^{-1}$.
+:::
+
+::: {.exercise}
+Soit $A = \begin{pmatrix} 1 & 1 \\ 1 & -1 \end{pmatrix}$. Calculer $A^2$ et en déduire $A^{-1}$.
+:::
+
+::: {.exercise}
+Résoudre le système :
+$$\begin{cases} x + 2y + 3z = 1 \\ 2x + 4y + 6z = 2 \\ 3x + 6y + 9z = 3 \end{cases}$$
+:::
+
+::: {.exercise}
+Soit $A = \begin{pmatrix} 1 & 2 & 0 \\ 0 & 1 & 1 \\ 0 & 0 & 1 \end{pmatrix}$. Calculer $A^n$ pour tout $n \in \mathbb{N}$.
+:::
+
+::: {.exercise}
+Montrer que $(AB)^T = B^T A^T$.
+:::
+
+# Document en PDF {-}
+
+[**Chapitre 08 : Systèmes d'équations linéaires et calcul matriciel**](PDF/ect1-chap08.pdf)
+
+## Navigation {-}
+
+::: {.chap-nav}
+[Chapitre 07 : Statistique descriptive](ect1-chap07.qmd){.prev}
+[Menu ECT1](ect1.qmd){.home}
+[Chapitre 09 : Compléments d'analyse](ect1-chap09.qmd){.next}
+:::

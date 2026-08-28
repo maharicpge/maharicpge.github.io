@@ -1,10 +1,105 @@
 ---
-title: "Chapitre 06 : Dénombrement et probabilités finies"
-pagetitle: "Dénombrement et probabilités finies - Mathématiques en CPGE"
+title: "TD — Probabilité sur un univers fini"
+subtitle: "Chapitre 06"
+author: "Saîd MAHARI"
+date: last-modified
+date-format: "D MMMM YYYY"
+lang: fr
+format:
+  html:
+    theme: cosmo
+    toc: true
+    number-sections: true
+    html-math-method: katex
+    css: styles.css
+filters:
+  - custom-numbered-blocks.lua
 ---
 
-**ECT 1re année — Chapitre 06.** Permutations, combinaisons, probabilités conditionnelles, indépendance.
+**ECT1 (1re année) — TD du Chapitre 06.** Espace probabilisable, probabilités, probabilités conditionnelles, indépendance, variables aléatoires réelles, espérance, variance.
 
-## Document
+::: {.exercise}
+On lance un dé équilibré à six faces. Calculer :
 
-*PDF à venir : déposez le fichier `files/ect1/chap06.pdf` puis régénérez la page.*
+1. La probabilité d'obtenir un nombre pair.
+2. La probabilité d'obtenir un nombre supérieur ou égal à $5$.
+3. La probabilité d'obtenir un nombre pair ou supérieur ou égal à $5$.
+:::
+
+::: {.exercise}
+On lance deux dés équilibrés. Calculer :
+
+1. $P(\text{somme}=7)$
+2. $P(\text{somme}=10)$
+3. $P(\text{les deux dés donnent le même résultat})$
+4. $P(\text{au moins un }6)$
+:::
+
+::: {.exercise}
+Une urne contient 4 boules rouges, 3 boules noires et 2 boules blanches. On tire une boule au hasard.
+
+1. Calculer la probabilité de tirer une boule rouge.
+2. Calculer la probabilité de ne pas tirer une boule noire.
+3. Calculer la probabilité de tirer une boule rouge ou blanche.
+:::
+
+::: {.exercise}
+Une urne contient 5 boules rouges et 3 boules noires. On tire successivement deux boules sans remise.
+
+1. Calculer la probabilité de tirer deux rouges.
+2. Calculer la probabilité de tirer une rouge puis une noire.
+3. Calculer la probabilité de tirer deux boules de couleurs différentes.
+:::
+
+::: {.exercise}
+Soient $A$ et $B$ deux événements tels que :
+$$P(A)=0{,}4,\quad P(B)=0{,}5,\quad P(A \cap B)=0{,}2.$$
+
+1. Calculer $P(A \cup B)$.
+2. Calculer $P(A \mid B)$.
+3. Les événements $A$ et $B$ sont-ils indépendants ?
+:::
+
+::: {.exercise}
+Une maladie touche $2\%$ d'une population. Un test est positif chez $95\%$ des malades et chez $4\%$ des non-malades.
+
+Calculer la probabilité qu'une personne soit malade sachant que son test est positif.
+:::
+
+**Indication :** Utiliser la formule de Bayes.
+
+::: {.exercise}
+Soit $X$ la variable aléatoire donnant le résultat du lancer d'un dé équilibré.
+
+1. Déterminer la loi de $X$.
+2. Calculer $E(X)$.
+3. Calculer $V(X)$.
+:::
+
+::: {.exercise}
+On lance trois fois une pièce équilibrée. Soit $X$ le nombre de piles obtenus.
+
+1. Déterminer la loi de $X$.
+2. Calculer $E(X)$.
+3. Calculer $V(X)$.
+:::
+
+::: {.exercise}
+Soit $X$ une variable aléatoire dont la loi est donnée par :
+
+| $x_i$ | $-1$ | $0$ | $2$ |
+|---|---:|---:|---:|
+| $P(X=x_i)$ | $0{,}2$ | $0{,}5$ | $0{,}3$ |
+
+Calculer $E(X)$, $E(X^2)$ et $V(X)$.
+:::
+
+# Cours {-}
+[**Chapitre 06 : Probabilité sur un univers fini**](ect1-chap06.qmd)
+
+# Navigation {-}
+::: {.chap-nav}
+[TD 05 : Dérivabilité, convexité](ect1-chap05.qmd){.prev}
+[Menu ECT1](ect1.qmd){.home}
+[TD 07 : Statistique descriptive univariée](ect1-chap07.qmd){.next}
+:::

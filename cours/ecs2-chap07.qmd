@@ -1,10 +1,194 @@
 ---
-title: "Chapitre 07 : Variables aléatoires à densité"
-pagetitle: "Variables aléatoires à densité - Mathématiques en CPGE"
+title: "Variables aléatoires à densité"
+subtitle: "Chapitre 07"
+author: "Saîd MAHARI"
+date: last-modified
+date-format: "D MMMM YYYY"
+sidebar:
+  style: docked
+  contents:
+    - href: cours/index.qmd
+      text: "← Tous les cours"
+    - section: "ECS — 2e année"
+      contents:
+        - cours/ecs2-chap06.qmd
+        - cours/ecs2-chap07.qmd
+lang: fr
+format:
+  html:
+    theme: cosmo
+    toc: true
+    number-sections: true
+    html-math-method: katex
+    css: styles.css
+filters:
+  - custom-numbered-blocks.lua
 ---
 
-**ECS 2e année (ECG) — Chapitre 07.** Densités, fonction de répartition, espérance, variance, lois usuelles.
+**ECS (2e année) — Chapitre 07.** Densités, fonction de répartition, lois uniforme, exponentielle, normale ; espérance et variance.
 
-## Document
+Ce chapitre a été réalisé conformément au programme marocain de mathématiques de la filière ECS.
 
-*PDF à venir : déposez le fichier `files/ecs2/chap07.pdf` puis régénérez la page.*
+# Densité et fonction de répartition
+
+## Densité
+
+::: {.definition title="(Densité de probabilité)"}
+Une fonction $f : \mathbb{R} \to \mathbb{R}$ est une **densité de probabilité** si :
+
+1. $f \geq 0$ sur $\mathbb{R}$.
+2. $f$ est continue par morceaux sur $\mathbb{R}$.
+3. $\int_{-\infty}^{+\infty} f(t)\, dt = 1$.
+:::
+
+::: {.definition title="(Variable à densité)"}
+Une variable aléatoire $X$ est **à densité** si sa fonction de répartition $F_X$ est continue sur $\mathbb{R}$ et de classe $\mathcal{C}^1$ sauf en un nombre fini de points. Une **densité** de $X$ est :
+$$f_X(x) = F_X'(x) \quad \text{aux points où } F_X \text{ est } \mathcal{C}^1$$
+:::
+
+## Fonction de répartition
+
+::: {.definition title="(Fonction de répartition)"}
+$$F_X(x) = P(X \leq x)$$
+:::
+
+::: {.proposition title="(Propriétés)"}
+
+1. $F_X$ est croissante.
+2. $F_X$ est continue à droite.
+3. $\lim_{x \to -\infty} F_X(x) = 0$ et $\lim_{x \to +\infty} F_X(x) = 1$.
+4. Pour $a < b$ : $P(a < X \leq b) = F_X(b) - F_X(a)$.
+5. Pour une variable à densité : $P(X = a) = 0$.
+:::
+
+::: {.proposition title="(Calcul de probabilités)"}
+Pour une variable à densité et $a < b$ :
+$$P(a \leq X \leq b) = P(a < X < b) = P(a < X \leq b) = P(a \leq X < b) = \int_a^b f_X(t)\, dt$$
+:::
+
+# Espérance et variance
+
+::: {.definition title="(Espérance)"}
+$X$ admet une **espérance** si $\int_{-\infty}^{+\infty} |t| f_X(t)\, dt$ converge, et :
+$$E(X) = \int_{-\infty}^{+\infty} t f_X(t)\, dt$$
+:::
+
+::: {.definition title="(Variance)"}
+$X$ admet une **variance** si $\int_{-\infty}^{+\infty} (t - E(X))^2 f_X(t)\, dt$ converge, et :
+$$V(X) = E((X - E(X))^2) = E(X^2) - (E(X))^2$$
+:::
+
+::: {.proposition title="(Formule de transfert)"}
+Si $\varphi : \mathbb{R} \to \mathbb{R}$ est continue par morceaux :
+$$E(\varphi(X)) = \int_{-\infty}^{+\infty} \varphi(t) f_X(t)\, dt$$
+:::
+
+# Lois usuelles à densité
+
+## Loi uniforme
+
+::: {.definition title="(Loi uniforme)"}
+$X \hookrightarrow \mathcal{U}([a,b])$ si :
+$$f_X(t) = \begin{cases} \frac{1}{b-a} & \text{si } t \in [a,b] \\ 0 & \text{sinon} \end{cases}$$
+:::
+
+::: {.proposition title="(Espérance et variance)"}
+$$E(X) = \frac{a+b}{2}, \quad V(X) = \frac{(b-a)^2}{12}$$
+:::
+
+## Loi exponentielle
+
+::: {.definition title="(Loi exponentielle)"}
+$X \hookrightarrow \mathcal{E}(\lambda)$ ($\lambda > 0$) si :
+$$f_X(t) = \begin{cases} \lambda e^{-\lambda t} & \text{si } t \geq 0 \\ 0 & \text{si } t < 0 \end{cases}$$
+:::
+
+::: {.proposition title="(Fonction de répartition)"}
+$$F_X(t) = \begin{cases} 1 - e^{-\lambda t} & \text{si } t \geq 0 \\ 0 & \text{si } t < 0 \end{cases}$$
+:::
+
+::: {.proposition title="(Espérance et variance)"}
+$$E(X) = \frac{1}{\lambda}, \quad V(X) = \frac{1}{\lambda^2}$$
+:::
+
+::: {.proposition title="(Absence de mémoire)"}
+$$P(X > s + t \mid X > s) = P(X > t)$$
+:::
+
+## Loi normale
+
+::: {.definition title="(Loi normale centrée réduite)"}
+$X \hookrightarrow \mathcal{N}(0,1)$ si :
+$$f_X(t) = \frac{1}{\sqrt{2\pi}} e^{-t^2/2}$$
+:::
+
+::: {.definition title="(Loi normale)"}
+$X \hookrightarrow \mathcal{N}(\mu, \sigma^2)$ ($\sigma > 0$) si :
+$$f_X(t) = \frac{1}{\sigma\sqrt{2\pi}} e^{-(t-\mu)^2/(2\sigma^2)}$$
+:::
+
+::: {.proposition title="(Espérance et variance)"}
+$$E(X) = \mu, \quad V(X) = \sigma^2$$
+:::
+
+::: {.proposition title="(Translation et dilatation)"}
+Si $X \hookrightarrow \mathcal{N}(\mu, \sigma^2)$, alors pour $(a,b) \in \mathbb{R}^* \times \mathbb{R}$ :
+$$aX + b \hookrightarrow \mathcal{N}(a\mu + b, a^2\sigma^2)$$
+En particulier, $X^* = \frac{X - \mu}{\sigma} \hookrightarrow \mathcal{N}(0,1)$.
+:::
+
+::: {.proposition title="(Somme de normales indépendantes)"}
+Si $X \hookrightarrow \mathcal{N}(\mu_1, \sigma_1^2)$ et $Y \hookrightarrow \mathcal{N}(\mu_2, \sigma_2^2)$ sont indépendantes :
+$$X + Y \hookrightarrow \mathcal{N}(\mu_1 + \mu_2, \sigma_1^2 + \sigma_2^2)$$
+:::
+
+# Exercices
+
+::: {.exercise}
+Soit $f(t) = \begin{cases} c e^{-t} & t \geq 0 \\ 0 & t < 0 \end{cases}$. Déterminer $c$ pour que $f$ soit une densité.
+:::
+
+::: {.exercise}
+Soit $X \hookrightarrow \mathcal{U}([0,1])$. Calculer $E(X)$, $V(X)$ et $P(0{,}2 < X < 0{,}7)$.
+:::
+
+::: {.exercise}
+Soit $X \hookrightarrow \mathcal{E}(2)$. Calculer $E(X)$, $V(X)$ et $P(X > 1)$.
+:::
+
+::: {.exercise}
+Soit $X \hookrightarrow \mathcal{N}(0,1)$. Calculer $P(-1 < X < 1)$ (résultat approché : $0{,}68$).
+:::
+
+::: {.exercise}
+Soit $X \hookrightarrow \mathcal{N}(10, 4)$. Déterminer la loi de $Y = 2X + 3$.
+:::
+
+::: {.exercise}
+Soit $X$ à densité $f_X(t) = \begin{cases} 2t & 0 \leq t \leq 1 \\ 0 & \text{sinon} \end{cases}$.
+
+1. Vérifier que $f_X$ est une densité.
+2. Calculer $E(X)$ et $V(X)$.
+3. Déterminer $F_X$.
+:::
+
+::: {.exercise}
+Soit $X \hookrightarrow \mathcal{E}(\lambda)$. Montrer l'absence de mémoire.
+:::
+
+::: {.exercise}
+Soient $X$ et $Y$ indépendantes suivant $\mathcal{E}(\lambda)$. Déterminer la loi de $X + Y$.
+:::
+
+# Document en PDF {-}
+
+[**Chapitre 07 : Variables aléatoires à densité**](PDF/ecs2-chap07.pdf)
+
+
+## Navigation {-}
+
+::: {.chap-nav}
+[Chapitre 06 : Variables aléatoires discrètes infinies](ecs2-chap06.qmd){.prev}
+[Menu ECS2](ecs2.qmd){.home}
+[Chapitre 08 : Vecteurs aléatoires](ecs2-chap08.qmd){.next}
+:::

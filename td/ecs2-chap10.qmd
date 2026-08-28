@@ -1,10 +1,102 @@
 ---
-title: "Chapitre 10 : Estimation statistique"
-pagetitle: "Estimation statistique - Mathématiques en CPGE"
+title: "TD — Estimation statistique"
+subtitle: "Chapitre 10"
+author: "Saîd MAHARI"
+date: last-modified
+date-format: "D MMMM YYYY"
+lang: fr
+format:
+  html:
+    theme: cosmo
+    toc: true
+    number-sections: true
+    html-math-method: katex
+    css: styles.css
+filters:
+  - custom-numbered-blocks.lua
 ---
 
-**ECS 2e année (ECG) — Chapitre 10.** Estimateurs sans biais, risque quadratique, convergence.
+**ECS (2e année) — TD du Chapitre 10.** Estimateurs sans biais, risque quadratique, intervalles de confiance.
 
-## Document
+::: {.exercise}
+Soit $(X_1, \ldots, X_n)$ un échantillon de variables aléatoires indépendantes suivant la loi uniforme sur $[0, \theta]$.
 
-*PDF à venir : déposez le fichier `files/ecs2/chap10.pdf` puis régénérez la page.*
+1. Montrer que $\overline{X}_n$ est un estimateur sans biais de $\theta/2$.
+2. En déduire un estimateur sans biais de $\theta$.
+:::
+
+::: {.exercise}
+Soit $(X_1, \ldots, X_n)$ un échantillon de variables aléatoires indépendantes suivant la loi exponentielle de paramètre $\lambda$.
+
+1. Montrer que $\overline{X}_n$ est un estimateur sans biais de $1/\lambda$.
+2. Calculer le risque quadratique de $\overline{X}_n$ comme estimateur de $1/\lambda$.
+:::
+
+::: {.exercise}
+Soit $(X_1, \ldots, X_n)$ un échantillon de variables aléatoires indépendantes de moyenne $\mu$ et de variance $\sigma^2$.
+
+1. Montrer que $\overline{X}_n$ est un estimateur sans biais de $\mu$.
+2. Montrer que $S_n^2 = \frac{1}{n}\sum_{k=1}^n (X_k - \overline{X}_n)^2$ est un estimateur biaisé de $\sigma^2$.
+3. Montrer que $s_n^2 = \frac{1}{n-1}\sum_{k=1}^n (X_k - \overline{X}_n)^2$ est un estimateur sans biais de $\sigma^2$.
+:::
+
+::: {.exercise}
+Soit $(X_1, \ldots, X_n)$ un échantillon de variables aléatoires indépendantes suivant la loi normale $\mathcal{N}(\mu, \sigma^2)$ avec $\sigma$ connu.
+
+1. Montrer que $\overline{X}_n \hookrightarrow \mathcal{N}(\mu, \sigma^2/n)$.
+2. Déterminer un intervalle de confiance de niveau $95\%$ pour $\mu$.
+3. Déterminer un intervalle de confiance de niveau $99\%$ pour $\mu$.
+:::
+
+::: {.exercise}
+Soit $X \hookrightarrow \mathcal{B}(100, p)$. On observe $X = 45$.
+
+1. Déterminer un estimateur de $p$.
+2. Déterminer un intervalle de confiance de niveau $95\%$ pour $p$.
+:::
+
+::: {.exercise}
+Soit $(X_1, \ldots, X_n)$ un échantillon de variables aléatoires indépendantes suivant la loi uniforme sur $[0, \theta]$.
+
+1. Montrer que $M_n = \max(X_1, \ldots, X_n)$ est un estimateur convergent de $\theta$.
+2. Montrer que $\frac{n+1}{n} M_n$ est un estimateur sans biais de $\theta$.
+:::
+
+::: {.exercise}
+Soit $(X_1, \ldots, X_n)$ un échantillon de variables aléatoires indépendantes suivant la loi normale $\mathcal{N}(\mu, \sigma^2)$ avec $\sigma = 2$ connu. On observe $\overline{X}_{100} = 10$.
+
+1. Déterminer un intervalle de confiance de niveau $95\%$ pour $\mu$.
+2. Déterminer un intervalle de confiance de niveau $99\%$ pour $\mu$.
+:::
+
+::: {.exercise}
+Soit $(X_1, \ldots, X_n)$ un échantillon de variables aléatoires indépendantes de moyenne $\mu$ et de variance $\sigma^2$.
+
+1. Montrer que $\overline{X}_n$ est un estimateur convergent de $\mu$.
+2. Montrer que le risque quadratique de $\overline{X}_n$ comme estimateur de $\mu$ est $\sigma^2/n$.
+:::
+
+::: {.exercise}
+Soit $(X_1, \ldots, X_n)$ un échantillon de variables aléatoires indépendantes suivant la loi exponentielle de paramètre $\lambda$.
+
+1. Montrer que $\overline{X}_n$ est un estimateur convergent de $1/\lambda$.
+2. Déterminer un intervalle de confiance asymptotique de niveau $95\%$ pour $1/\lambda$.
+:::
+
+::: {.exercise}
+Soit $(X_1, \ldots, X_n)$ un échantillon de variables aléatoires indépendantes suivant la loi uniforme sur $[0, \theta]$.
+
+1. Montrer que $\hat{\theta}_1 = 2\overline{X}_n$ est un estimateur sans biais de $\theta$.
+2. Montrer que $\hat{\theta}_2 = \frac{n+1}{n} M_n$ est un estimateur sans biais de $\theta$.
+3. Comparer les risques quadratiques de $\hat{\theta}_1$ et $\hat{\theta}_2$.
+:::
+
+# Cours {-}
+[**Chapitre 10 : Estimation statistique**](../cours/ecs2-chap10.qmd)
+
+# Navigation {-}
+::: {.chap-nav}
+[TD 09 : Convergences et approximations](ecs2-chap09.qmd){.prev}
+[Menu ECS2](ecs2.qmd){.home}
+[TD 11 : Fonctions de plusieurs variables et optimisation](ecs2-chap11.qmd){.next}
+:::

@@ -1,10 +1,88 @@
 ---
-title: "Chapitre 05 : Calcul matriciel"
-pagetitle: "Calcul matriciel - Mathématiques en CPGE"
+title: "TD — Fonctions réelles d'une variable réelle : dérivabilité, convexité"
+subtitle: "Chapitre 05"
+author: "Saîd MAHARI"
+date: last-modified
+date-format: "D MMMM YYYY"
+lang: fr
+format:
+  html:
+    theme: cosmo
+    toc: true
+    number-sections: true
+    html-math-method: katex
+    css: styles.css
+filters:
+  - custom-numbered-blocks.lua
 ---
 
-**ECT 1re année — Chapitre 05.** Opérations, inversibilité en ordre 2 ou 3, systèmes linéaires.
+**ECT (1re année) — TD du Chapitre 05.** Dérivabilité, monotonie, extremum local, dérivées successives, convexité, points d'inflexion.
 
-## Document
+::: {.exercise}
+Calculer les dérivées des fonctions suivantes :
 
-*PDF à venir : déposez le fichier `files/ect1/chap05.pdf` puis régénérez la page.*
+1. $f(x) = x^3 e^x$
+2. $f(x) = \dfrac{\ln x}{x}$
+3. $f(x) = \sin(x^2)$
+4. $f(x) = e^{\cos x}$
+:::
+
+::: {.exercise}
+Étudier les variations de $f(x) = x^2 e^{-x}$ sur $\mathbb{R}$.
+:::
+
+::: {.exercise}
+Soit $f(x) = x^3 - 3x + 1$.
+
+1. Étudier les variations de $f$.
+2. Déterminer les extremums locaux.
+3. Montrer que $f$ admet trois racines réelles.
+:::
+
+::: {.exercise}
+Montrer que $f(x) = e^x$ est convexe sur $\mathbb{R}$ et que $g(x) = \ln x$ est concave sur $]0, +\infty[$.
+:::
+
+::: {.exercise}
+Soit $f(x) = x^3 - 3x^2 + 2$. Déterminer les points d'inflexion de $f$.
+:::
+
+Indication : $f''(x) = 6x - 6$ s'annule en $x = 1$ en changeant de signe.
+
+::: {.exercise}
+Montrer que pour tout $x \in \mathbb{R}$ : $e^x \geq 1 + x$.
+:::
+
+Indication : Étudier $g(x) = e^x - 1 - x$ et montrer que $g$ admet un minimum en $0$.
+
+::: {.exercise}
+Soit $f : [a,b] \to \mathbb{R}$ dérivable avec $f'(a) < 0$ et $f'(b) > 0$. Montrer que $f$ admet un minimum local en un point $c \in ]a,b[$.
+:::
+
+::: {.exercise}
+Soit $f : \mathbb{R} \to \mathbb{R}$ de classe $\mathcal{C}^2$ avec $f''(x) \geq 0$ pour tout $x$. Montrer que pour tout $a \in \mathbb{R}$ :
+$$f(x) \geq f(a) + f'(a)(x-a)$$
+:::
+
+Indication : La tangente est en dessous de la courbe pour une fonction convexe.
+
+::: {.exercise}
+Étudier la convexité de $f(x) = x \ln x$ sur $]0, +\infty[$.
+:::
+
+::: {.exercise}
+Soit $f(x) = x^4 - 4x^2$.
+
+1. Déterminer les extremums locaux et globaux.
+2. Déterminer les points d'inflexion.
+:::
+
+# Cours {-}
+[**Chapitre 05 : Fonctions réelles : dérivabilité, convexité**](ect1-chap05.qmd)
+
+# Navigation {-}
+::: {.chap-nav}
+[TD 04 : Fonctions réelles : limites, continuité](ect1-chap04.qmd){.prev}
+[Menu ECT1](ect1.qmd){.home}
+[TD 06 : Probabilité sur un univers fini](ect1-chap06.qmd){.next}
+:::

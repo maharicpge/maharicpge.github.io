@@ -1,10 +1,108 @@
 ---
-title: "Chapitre 01 : Algèbre linéaire (compléments)"
-pagetitle: "Algèbre linéaire (compléments) - Mathématiques en CPGE"
+title: "TD — Algèbre linéaire (compléments)"
+subtitle: "Chapitre 01"
+author: "Saîd MAHARI"
+date: last-modified
+date-format: "D MMMM YYYY"
+lang: fr
+format:
+  html:
+    theme: cosmo
+    toc: true
+    number-sections: true
+    html-math-method: katex
+    css: styles.css
+filters:
+  - custom-numbered-blocks.lua
 ---
 
-**ECS 2e année (ECG) — Chapitre 01.** Sommes directes, projecteurs, symétries.
+**ECS (2e année) — TD du Chapitre 01.** Sommes directes, projecteurs, symétries, trace, polynômes d'endomorphismes.
 
-## Document
+::: {.exercise}
+Soit $E$ un $\mathbb{R}$-espace vectoriel de dimension 3 et soient :
+$$F = \{(x,y,z) \in \mathbb{R}^3 \mid x + y + z = 0\}, \quad G = \{(t,t,t) \mid t \in \mathbb{R}\}.$$
 
-*PDF à venir : déposez le fichier `files/ecs2/chap01.pdf` puis régénérez la page.*
+1. Montrer que $\mathbb{R}^3 = F \oplus G$.
+2. Déterminer la matrice du projecteur $p$ sur $F$ parallèlement à $G$ dans la base canonique.
+3. Déterminer la matrice de la symétrie $s$ par rapport à $F$ parallèlement à $G$.
+:::
+
+::: {.exercise}
+Soit $E$ un espace vectoriel et $p \in \mathcal{L}(E)$ tel que $p^2 = p$.
+
+1. Montrer que $E = \mathrm{Im}(p) \oplus \ker(p)$.
+2. Montrer que $\mathrm{Im}(p) = \{x \in E \mid p(x) = x\}$.
+3. Montrer que $\mathrm{tr}(p) = \mathrm{rg}(p)$.
+:::
+
+::: {.exercise}
+Soit $s \in \mathcal{L}(E)$ tel que $s^2 = \mathrm{Id}_E$.
+
+1. Montrer que $E = \ker(s - \mathrm{Id}_E) \oplus \ker(s + \mathrm{Id}_E)$.
+2. En déduire que $s$ est diagonalisable.
+3. Si $E$ est de dimension 3 et $\mathrm{tr}(s) = 1$, déterminer les dimensions de $\ker(s - \mathrm{Id}_E)$ et $\ker(s + \mathrm{Id}_E)$.
+:::
+
+::: {.exercise}
+Soit $A = \begin{pmatrix} 1 & 2 & 0 \\ 0 & 3 & 0 \\ 0 & 0 & 4 \end{pmatrix}$.
+
+1. Calculer $\mathrm{tr}(A)$ et $\det(A)$.
+2. Calculer $\mathrm{tr}(A^2)$ sans calculer $A^2$.
+3. Calculer $\mathrm{tr}(A^k)$ pour tout $k \in \mathbb{N}$.
+:::
+
+::: {.exercise}
+Soit $A \in \mathcal{M}_n(\mathbb{R})$ telle que $A^2 = A$.
+
+1. Montrer que $\mathrm{tr}(A) \in \mathbb{N}$ et $0 \leq \mathrm{tr}(A) \leq n$.
+2. Montrer que $\mathrm{tr}(A) = \mathrm{rg}(A)$.
+3. Montrer que $I_n - A$ est aussi un projecteur et que $\mathrm{tr}(I_n - A) = n - \mathrm{tr}(A)$.
+:::
+
+::: {.exercise}
+Soit $E$ un espace vectoriel de dimension $n$ et $u \in \mathcal{L}(E)$.
+
+1. Montrer que l'application $\varphi : \mathbb{R}[X] \to \mathcal{L}(E)$, $P \mapsto P(u)$, est un morphisme de $\mathbb{R}$-algèbres.
+2. Montrer que $\mathbb{R}[u]$ est une sous-algèbre commutative de $\mathcal{L}(E)$.
+3. Montrer qu'il existe un polynôme non nul $P$ tel que $P(u) = 0$.
+:::
+
+::: {.exercise}
+Soit $E$ un espace vectoriel de dimension $n$ et soient $F_1, F_2, F_3$ des sous-espaces vectoriels tels que $E = F_1 \oplus F_2 \oplus F_3$.
+
+1. Montrer que la famille des projecteurs $(p_1, p_2, p_3)$ associés à cette décomposition vérifie $p_i \circ p_j = 0$ pour $i \neq j$ et $\sum_{i=1}^3 p_i = \mathrm{Id}_E$.
+2. Montrer que $\mathrm{tr}(p_1) + \mathrm{tr}(p_2) + \mathrm{tr}(p_3) = n$.
+:::
+
+::: {.exercise}
+Soit $A \in \mathcal{M}_2(\mathbb{R})$ telle que $A^3 - 2A^2 + A = 0$.
+
+1. Montrer que $A$ est diagonalisable.
+2. Déterminer les valeurs propres possibles de $A$.
+3. Montrer que $\mathrm{tr}(A) \in \{0, 1, 2\}$.
+:::
+
+::: {.exercise}
+Soit $E$ un $\mathbb{R}$-espace vectoriel de dimension 2 et $p$ le projecteur sur $F = \mathrm{Vect}((1,1))$ parallèlement à $G = \mathrm{Vect}((1,-1))$ dans $\mathbb{R}^2$.
+
+1. Calculer $p(x,y)$ pour tout $(x,y) \in \mathbb{R}^2$.
+2. Déterminer la matrice de $p$ dans la base canonique.
+3. Calculer $\mathrm{tr}(p)$ et vérifier que $\mathrm{tr}(p) = \dim F$.
+:::
+
+::: {.exercise}
+Soit $A \in \mathcal{M}_n(\mathbb{R})$ idempotente ($A^2 = A$) et $\mathrm{tr}(A) = r$.
+
+1. Montrer que $\mathrm{rg}(A) = r$.
+2. Montrer que $A$ est semblable à $\begin{pmatrix} I_r & 0 \\ 0 & 0 \end{pmatrix}$.
+3. Montrer que $\mathrm{tr}(A^k) = r$ pour tout $k \in \mathbb{N}^*$.
+:::
+
+# Cours {-}
+[**Chapitre 01 : Algèbre linéaire (compléments)**](../cours/ecs2-chap01.qmd)
+
+# Navigation {-}
+::: {.chap-nav}
+[Menu ECS2](ecs2.qmd){.home}
+[TD 02 : Réduction des endomorphismes et matrices](ecs2-chap02.qmd){.next}
+:::

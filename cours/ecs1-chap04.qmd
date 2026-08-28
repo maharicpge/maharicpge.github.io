@@ -1,10 +1,189 @@
 ---
-title: "Chapitre 04 : Suites réelles"
-pagetitle: "Suites réelles - Mathématiques en CPGE"
+title: "Suites réelles"
+subtitle: "Chapitre 04"
+author: "Saîd MAHARI"
+date: last-modified
+date-format: "D MMMM YYYY"
+sidebar:
+  style: docked
+  contents:
+    - href: cours/index.qmd
+      text: "← Tous les cours"
+    - section: "ECS — 1re année"
+      contents:
+        - cours/ecs1-chap03.qmd
+        - cours/ecs1-chap04.qmd
+lang: fr
+format:
+  html:
+    theme: cosmo
+    toc: true
+    number-sections: true
+    html-math-method: katex
+    css: styles.css
+filters:
+  - custom-numbered-blocks.lua
 ---
 
-**ECS 1re année (ECG) — Chapitre 04.** Convergence, suites monotones, suites arithmético-géométriques.
+**ECS (1re année) — Chapitre 04.** Convergence, suites monotones, suites arithmético-géométriques, suites récurrentes.
 
-## Document
+Ce chapitre a été réalisé conformément au programme marocain de mathématiques de la filière ECS.
 
-*PDF à venir : déposez le fichier `files/ecs1/chap04.pdf` puis régénérez la page.*
+# Convergence des suites
+
+## Définition
+
+::: {.definition title="(Convergence)"}
+Une suite $(u_n)_{n \in \mathbb{N}}$ **converge** vers $\ell \in \mathbb{R}$ si :
+$$\forall \varepsilon > 0,\quad \exists N \in \mathbb{N},\quad \forall n \geq N,\quad |u_n - \ell| < \varepsilon$$
+
+On note $\lim_{n \to +\infty} u_n = \ell$.
+:::
+
+::: {.definition title="(Divergence)"}
+$(u_n)$ diverge vers $+\infty$ si : $\forall A > 0,\; \exists N \in \mathbb{N},\; \forall n \geq N,\; u_n > A$.
+:::
+
+## Opérations sur les limites
+
+::: {.proposition title="(Opérations)"}
+Si $u_n \to \ell$ et $v_n \to m$, alors :
+
+1. $u_n + v_n \to \ell + m$
+2. $\lambda u_n \to \lambda \ell$
+3. $u_n v_n \to \ell m$
+4. $\dfrac{u_n}{v_n} \to \dfrac{\ell}{m}$ si $m \neq 0$
+:::
+
+::: {.proposition title="(Théorème des gendarmes)"}
+Si $v_n \leq u_n \leq w_n$ à partir d'un certain rang et $v_n \to \ell$, $w_n \to \ell$, alors $u_n \to \ell$.
+:::
+
+## Suites monotones
+
+::: {.definition title="(Suite monotone)"}
+$(u_n)$ est **croissante** si $u_{n+1} \geq u_n$ pour tout $n$. Elle est **décroissante** si $u_{n+1} \leq u_n$.
+:::
+
+::: {.theorem title="(Convergence monotone)"}
+
+- Toute suite croissante et majorée converge.
+- Toute suite décroissante et minorée converge.
+- Toute suite croissante non majorée diverge vers $+\infty$.
+:::
+
+::: {.example}
+Soit $u_0 = 1$ et $u_{n+1} = \frac{1}{2}u_n + 1$.
+
+- On montre par récurrence que $u_n \leq 2$ pour tout $n$.
+- On montre que $(u_n)$ est croissante.
+- Par convergence monotone, $(u_n)$ converge vers $\ell$ avec $\ell = \frac{1}{2}\ell + 1$, donc $\ell = 2$.
+:::
+
+# Suites arithmético-géométriques
+
+::: {.definition title="(Suite arithmético-géométrique)"}
+$(u_n)$ est **arithmético-géométrique** si :
+$$u_{n+1} = a u_n + b$$
+avec $a, b \in \mathbb{R}$ fixés.
+:::
+
+::: {.methode title="(Résolution)"}
+
+1. Si $a \neq 1$, chercher le point fixe $\ell = \frac{b}{1-a}$.
+2. Poser $v_n = u_n - \ell$. Alors $(v_n)$ est géométrique de raison $a$ : $v_n = v_0 \cdot a^n$.
+3. En déduire $u_n = \ell + (u_0 - \ell)a^n$.
+:::
+
+::: {.example}
+Soit $u_0 = 3$ et $u_{n+1} = 2u_n - 1$.
+
+- Point fixe : $\ell = \frac{-1}{1-2} = 1$.
+- $v_n = u_n - 1$ est géométrique de raison $2$ : $v_n = (u_0 - 1) \cdot 2^n = 2 \cdot 2^n = 2^{n+1}$.
+- Donc $u_n = 1 + 2^{n+1}$.
+:::
+
+# Suites récurrentes
+
+::: {.definition title="(Suite récurrente)"}
+Une suite est **récurrente** si elle est définie par une relation $u_{n+1} = f(u_n)$ pour une fonction $f : I \to I$.
+:::
+
+::: {.methode title="(Étude d'une suite récurrente)"}
+
+1. Déterminer les points fixes de $f$ (solutions de $f(x) = x$).
+2. Étudier le signe de $f(x) - x$ pour la monotonie.
+3. Montrer que $(u_n)$ est bornée (par récurrence si $f$ est croissante).
+4. Appliquer le théorème de convergence monotone.
+:::
+
+::: {.example}
+Soit $u_0 = 1$ et $u_{n+1} = \sqrt{u_n + 2}$.
+
+- Points fixes : $\ell = \sqrt{\ell + 2}$ donne $\ell^2 = \ell + 2$, donc $\ell = 2$ ou $\ell = -1$. Comme $u_n \geq 0$, $\ell = 2$.
+- $f(x) = \sqrt{x+2}$ est croissante sur $[0, +\infty[$.
+- Par récurrence, $0 \leq u_n \leq 2$ pour tout $n$.
+- $(u_n)$ est croissante et majorée par $2$, donc converge vers $2$.
+:::
+
+# Exercices
+
+::: {.exercise}
+Étudier la convergence des suites suivantes :
+
+1. $u_n = \dfrac{n^2 + 1}{2n^2 + n}$
+2. $v_n = \dfrac{(-1)^n}{n}$
+3. $w_n = \sqrt{n+1} - \sqrt{n}$
+:::
+
+::: {.exercise}
+Soit $u_0 = 0$ et $u_{n+1} = \frac{1}{3}u_n + 2$.
+
+1. Montrer que $(u_n)$ converge.
+2. Déterminer sa limite.
+3. Exprimer $u_n$ en fonction de $n$.
+:::
+
+::: {.exercise}
+Soit $u_0 = 1$ et $u_{n+1} = 3u_n - 4$. Déterminer $u_n$ en fonction de $n$.
+:::
+
+::: {.exercise}
+Soit $u_0 = 1$ et $u_{n+1} = \sqrt{u_n}$.
+
+1. Montrer que $(u_n)$ est bien définie et positive.
+2. Montrer que $(u_n)$ est croissante et majorée par $1$.
+3. Déterminer $\lim u_n$.
+:::
+
+::: {.exercise}
+Montrer que la suite $u_n = \sum_{k=1}^n \frac{1}{k}$ diverge vers $+\infty$.
+:::
+
+::: {.exercise}
+Soit $u_0 = 2$ et $u_{n+1} = \frac{2u_n + 1}{u_n + 2}$.
+
+1. Montrer que $1 \leq u_n \leq 2$ pour tout $n$.
+2. Montrer que $(u_n)$ est décroissante.
+3. Déterminer $\lim u_n$.
+:::
+
+::: {.exercise}
+Soit $(u_n)$ définie par $u_0 = 1$ et $u_{n+1} = u_n + \frac{1}{u_n}$. Montrer que $(u_n)$ diverge vers $+\infty$.
+:::
+
+::: {.exercise}
+Soit $u_0 \in ]0, 1[$ et $u_{n+1} = u_n(1-u_n)$. Montrer que $(u_n)$ converge vers $0$.
+:::
+
+# Document en PDF {-}
+
+[**Chapitre 04 : Suites réelles**](PDF/ecs1-chap04.pdf)
+
+## Navigation {-}
+
+::: {.chap-nav}
+[Chapitre 03 : Polynômes](ecs1-chap03.qmd){.prev}
+[Menu ECS1](ecs1.qmd){.home}
+[Chapitre 05 : Fonctions réelles d'une variable](ecs1-chap05.qmd){.next}
+:::

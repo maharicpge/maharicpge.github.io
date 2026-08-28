@@ -1,10 +1,99 @@
 ---
-title: "Chapitre 01 : Logique, ensembles et applications"
-pagetitle: "Logique, ensembles et applications - Mathématiques en CPGE"
+title: "TD — Logique, ensembles et applications"
+subtitle: "Chapitre 01"
+author: "Saîd MAHARI"
+date: last-modified
+date-format: "D MMMM YYYY"
+lang: fr
+format:
+  html:
+    theme: cosmo
+    toc: true
+    number-sections: true
+    html-math-method: katex
+    css: styles.css
+filters:
+  - custom-numbered-blocks.lua
 ---
 
-**ECS 1re année (ECG) — Chapitre 01.** Raisonnements classiques, injections, surjections, bijections.
+**ECS1 (1re année) — TD du Chapitre 01.** Connecteurs, quantificateurs, raisonnements, injections, surjections, bijections.
 
-## Document
+::: {.exercise}
+Soient $P$ et $Q$ deux propositions. Écrire la négation des propositions suivantes :
 
-*PDF à venir : déposez le fichier `files/ecs1/chap01.pdf` puis régénérez la page.*
+1. $P \wedge Q$
+2. $P \vee Q$
+3. $P \Rightarrow Q$
+4. $P \Leftrightarrow Q$
+:::
+
+**Indication :** Utiliser les lois de De Morgan et l'équivalence $P \Rightarrow Q \iff \neg P \vee Q$.
+
+::: {.exercise}
+Nier les propositions suivantes :
+
+1. $\forall x \in \mathbb{R},\; x^2 \geq 0$
+2. $\exists x \in \mathbb{R},\; x^2 = -1$
+3. $\forall x \in \mathbb{R},\; \exists y \in \mathbb{R},\; y > x$
+4. $\exists M > 0,\; \forall x \in \mathbb{R},\; |f(x)| \leq M$
+:::
+
+::: {.exercise}
+Montrer par récurrence que pour tout $n \in \mathbb{N}^*$ :
+$$1 + 2 + \cdots + n = \frac{n(n+1)}{2}.$$
+:::
+
+::: {.exercise}
+Montrer par récurrence que pour tout $n \in \mathbb{N}$ :
+$$2^n \geq n + 1.$$
+:::
+
+::: {.exercise}
+Montrer par contraposée que si $n^2$ est pair, alors $n$ est pair.
+:::
+
+::: {.exercise}
+Montrer par l'absurde que $\sqrt{2} \notin \mathbb{Q}$.
+:::
+
+**Indication :** Supposer $\sqrt{2} = \frac{p}{q}$ avec $p$ et $q$ premiers entre eux.
+
+::: {.exercise}
+Soient $A$, $B$ et $C$ trois parties d'un ensemble $E$. Montrer :
+
+1. $A \cap (B \cup C) = (A \cap B) \cup (A \cap C)$
+2. $A \cup (B \cap C) = (A \cup B) \cap (A \cup C)$
+3. $A \setminus (B \cup C) = (A \setminus B) \cap (A \setminus C)$
+4. $A \setminus (B \cap C) = (A \setminus B) \cup (A \setminus C)$
+:::
+
+::: {.exercise}
+Soit $f : \mathbb{R} \to \mathbb{R}$ définie par $f(x) = 2x - 3$.
+
+1. Montrer que $f$ est injective.
+2. Montrer que $f$ est surjective.
+3. En déduire que $f$ est bijective.
+4. Déterminer sa bijection réciproque.
+:::
+
+::: {.exercise}
+Soit $g : \mathbb{R} \to \mathbb{R}$ définie par $g(x) = x^2$.
+
+1. $g$ est-elle injective ?
+2. $g$ est-elle surjective ?
+3. Montrer que $g : [0,+\infty[ \to [0,+\infty[$ est bijective.
+4. Déterminer sa bijection réciproque.
+:::
+
+::: {.exercise}
+Soit $f : E \to F$ une application. Montrer que $f$ est injective si et seulement si pour tout $A \subset E$, $f^{-1}(f(A)) = A$.
+:::
+
+# Cours {-}
+[**Chapitre 01 : Logique, ensembles et applications**](ecs1-chap01.qmd)
+
+# Navigation {-}
+::: {.chap-nav}
+[Menu ECS1](ecs1.qmd){.home}
+[TD 02 : Calcul algébrique](ecs1-chap02.qmd){.next}
+:::

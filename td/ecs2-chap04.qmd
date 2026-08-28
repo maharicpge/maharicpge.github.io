@@ -1,10 +1,96 @@
 ---
-title: "Chapitre 04 : Séries numériques"
-pagetitle: "Séries numériques - Mathématiques en CPGE"
+title: "TD — Séries numériques"
+subtitle: "Chapitre 04"
+author: "Saîd MAHARI"
+date: last-modified
+date-format: "D MMMM YYYY"
+lang: fr
+format:
+  html:
+    theme: cosmo
+    toc: true
+    number-sections: true
+    html-math-method: katex
+    css: styles.css
+filters:
+  - custom-numbered-blocks.lua
 ---
 
-**ECS 2e année (ECG) — Chapitre 04.** Séries à termes positifs, convergence absolue, séries de Riemann.
+**ECS (2e année) — TD du Chapitre 04.** Séries à termes positifs, convergence absolue, séries de Riemann, séries alternées.
 
-## Document
+::: {.exercise}
+Étudier la convergence des séries suivantes :
 
-*PDF à venir : déposez le fichier `files/ecs2/chap04.pdf` puis régénérez la page.*
+1. $\sum_{n=1}^{+\infty} \frac{1}{n^2 + n + 1}$
+2. $\sum_{n=1}^{+\infty} \frac{n}{n^3 + 1}$
+3. $\sum_{n=1}^{+\infty} \frac{\ln n}{n^2}$
+4. $\sum_{n=1}^{+\infty} \frac{1}{\sqrt{n}}$
+:::
+
+::: {.exercise}
+Étudier la convergence des séries suivantes à l'aide du critère de d'Alembert :
+
+1. $\sum_{n=1}^{+\infty} \frac{n!}{n^n}$
+2. $\sum_{n=1}^{+\infty} \frac{n^n}{n!}$
+3. $\sum_{n=1}^{+\infty} \frac{2^n}{n^3}$
+:::
+
+::: {.exercise}
+Étudier la convergence des séries suivantes :
+
+1. $\sum_{n=1}^{+\infty} \frac{(-1)^n}{n}$ (série alternée harmonique)
+2. $\sum_{n=1}^{+\infty} \frac{(-1)^n}{\sqrt{n}}$
+3. $\sum_{n=1}^{+\infty} \frac{(-1)^n}{n^2}$
+
+Lesquelles convergent absolument ? Lesquelles sont semi-convergentes ?
+:::
+
+::: {.exercise}
+Étudier la convergence des séries de Riemann $\sum_{n=1}^{+\infty} \frac{1}{n^\alpha}$ selon les valeurs de $\alpha \in \mathbb{R}$.
+:::
+
+::: {.exercise}
+Étudier la convergence absolue des séries suivantes :
+
+1. $\sum_{n=1}^{+\infty} \frac{\sin n}{n^2}$
+2. $\sum_{n=1}^{+\infty} \frac{\sin n}{n}$
+3. $\sum_{n=1}^{+\infty} \frac{\cos n}{n^2}$
+:::
+
+::: {.exercise}
+Étudier la convergence de la série $\sum_{n=1}^{+\infty} \frac{1}{n \ln n}$ pour $n \geq 2$.
+
+**Indication :** Comparer avec la série de Riemann ou utiliser la comparaison série-intégrale.
+:::
+
+::: {.exercise}
+Étudier la convergence de la série $\sum_{n=1}^{+\infty} \frac{(-1)^n \ln n}{n}$. La convergence est-elle absolue ?
+:::
+
+::: {.exercise}
+Calculer la somme des séries suivantes :
+
+1. $\sum_{n=0}^{+\infty} \frac{1}{2^n}$
+2. $\sum_{n=0}^{+\infty} \frac{1}{n!}$
+3. $\sum_{n=1}^{+\infty} \frac{1}{n(n+1)}$
+:::
+
+::: {.exercise}
+Étudier la convergence de la série $\sum_{n=1}^{+\infty} u_n$ où $u_n = \frac{1}{n^2 + (-1)^n \sqrt{n}}$.
+
+**Indication :** Utiliser un développement asymptotique de $u_n$.
+:::
+
+::: {.exercise}
+Étudier la convergence de la série $\sum_{n=1}^{+\infty} \frac{(-1)^n}{n^\alpha}$ selon les valeurs de $\alpha \in \mathbb{R}$.
+:::
+
+# Cours {-}
+[**Chapitre 04 : Séries numériques**](../cours/ecs2-chap04.qmd)
+
+# Navigation {-}
+::: {.chap-nav}
+[TD 03 : Algèbre bilinéaire](ecs2-chap03.qmd){.prev}
+[Menu ECS2](ecs2.qmd){.home}
+[TD 05 : Intégrales généralisées](ecs2-chap05.qmd){.next}
+:::

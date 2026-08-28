@@ -1,10 +1,101 @@
 ---
-title: "Chapitre 02 : Suites numériques"
-pagetitle: "Suites numériques - Mathématiques en CPGE"
+title: "TD — Calculs algébriques dans ℝ"
+subtitle: "Chapitre 02"
+author: "Saîd MAHARI"
+date: last-modified
+date-format: "D MMMM YYYY"
+lang: fr
+format:
+  html:
+    theme: cosmo
+    toc: true
+    number-sections: true
+    html-math-method: katex
+    css: styles.css
+filters:
+  - custom-numbered-blocks.lua
 ---
 
-**ECT 1re année — Chapitre 02.** Suites arithmétiques et géométriques, comportement global et limites.
+**ECT1 (1re année) — TD du Chapitre 02.** Nombres réels, puissances, inégalités, valeur absolue, propriété d'Archimède, systèmes linéaires $2 \times 2$.
 
-## Document
+::: {.exercise}
+Simplifier les expressions suivantes :
 
-*PDF à venir : déposez le fichier `files/ect1/chap02.pdf` puis régénérez la page.*
+1. $2^3 \times 2^5$
+2. $\dfrac{3^7}{3^4}$
+3. $(5^2)^3$
+4. $\dfrac{x^4 y^2}{x^2 y}$ avec $x,y \neq 0$
+:::
+
+::: {.exercise}
+Résoudre dans $\mathbb{R}$ les équations suivantes :
+
+1. $|x-3| = 5$
+2. $|2x+1| = 7$
+3. $|x+2| = |x-4|$
+:::
+
+::: {.exercise}
+Résoudre dans $\mathbb{R}$ les inéquations suivantes :
+
+1. $|x-1| \leq 3$
+2. $|2x+5| < 1$
+3. $|x+1| \geq 4$
+:::
+
+::: {.exercise}
+Montrer que pour tous réels $x$ et $y$ :
+$$|x+y| \leq |x| + |y|.$$
+:::
+
+::: {.exercise}
+Montrer que pour tout réel $x$ :
+$$|x| \leq 1 \iff -1 \leq x \leq 1.$$
+:::
+
+::: {.exercise}
+Résoudre les systèmes suivants :
+
+1.
+$$\begin{cases}
+2x+y=5\\
+x-y=1
+\end{cases}$$
+
+2.
+$$\begin{cases}
+3x-2y=4\\
+x+y=5
+\end{cases}$$
+:::
+
+::: {.exercise}
+Résoudre, suivant la valeur du paramètre $m \in \mathbb{R}$, le système :
+$$\begin{cases}
+x+my=1\\
+mx+y=1
+\end{cases}$$
+:::
+
+**Indication :** Calculer le déterminant $\Delta = 1-m^2$.
+
+::: {.exercise}
+Montrer que pour tout réel $x$, il existe un entier naturel $n$ tel que $n > x$.
+:::
+
+::: {.exercise}
+Soit $x \in \mathbb{R}$. On note $\lfloor x \rfloor$ sa partie entière.
+
+1. Déterminer $\lfloor 3,7 \rfloor$, $\lfloor -2,1 \rfloor$, $\lfloor 5 \rfloor$.
+2. Montrer que $\lfloor x \rfloor \leq x < \lfloor x \rfloor +1$.
+:::
+
+# Cours {-}
+[**Chapitre 02 : Calculs algébriques dans ℝ**](ect1-chap02.qmd)
+
+# Navigation {-}
+::: {.chap-nav}
+[TD 01 : Raisonnements, ensembles et applications](ect1-chap01.qmd){.prev}
+[Menu ECT1](ect1.qmd){.home}
+[TD 03 : Exemples de suites réelles, polynômes](ect1-chap03.qmd){.next}
+:::

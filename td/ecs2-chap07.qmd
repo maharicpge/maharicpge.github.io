@@ -1,10 +1,107 @@
 ---
-title: "Chapitre 07 : Variables aléatoires à densité"
-pagetitle: "Variables aléatoires à densité - Mathématiques en CPGE"
+title: "TD — Variables aléatoires à densité"
+subtitle: "Chapitre 07"
+author: "Saîd MAHARI"
+date: last-modified
+date-format: "D MMMM YYYY"
+lang: fr
+format:
+  html:
+    theme: cosmo
+    toc: true
+    number-sections: true
+    html-math-method: katex
+    css: styles.css
+filters:
+  - custom-numbered-blocks.lua
 ---
 
-**ECS 2e année (ECG) — Chapitre 07.** Densités, fonction de répartition, espérance, variance, lois usuelles.
+**ECS (2e année) — TD du Chapitre 07.** Densités, fonction de répartition, lois uniforme, exponentielle, normale ; espérance et variance.
 
-## Document
+::: {.exercise}
+Soit $f(x) = \begin{cases} c x^2 & 0 \leq x \leq 1 \\ 0 & \text{sinon} \end{cases}$.
 
-*PDF à venir : déposez le fichier `files/ecs2/chap07.pdf` puis régénérez la page.*
+1. Déterminer $c$ pour que $f$ soit une densité de probabilité.
+2. Déterminer la fonction de répartition $F_X$.
+3. Calculer $E(X)$ et $V(X)$.
+:::
+
+::: {.exercise}
+Soit $X \hookrightarrow \mathcal{U}([0, 1])$.
+
+1. Déterminer la fonction de répartition $F_X$.
+2. Calculer $P(0{,}2 < X < 0{,}7)$.
+3. Calculer $E(X)$ et $V(X)$.
+:::
+
+::: {.exercise}
+Soit $X \hookrightarrow \mathcal{E}(\lambda)$ avec $\lambda > 0$.
+
+1. Déterminer la fonction de répartition $F_X$.
+2. Calculer $P(X > t)$ pour $t \geq 0$.
+3. Montrer la propriété d'absence de mémoire : $P(X > s + t \mid X > s) = P(X > t)$.
+4. Calculer $E(X)$ et $V(X)$.
+:::
+
+::: {.exercise}
+Soit $X \hookrightarrow \mathcal{N}(0, 1)$.
+
+1. Calculer $P(X > 0)$.
+2. Calculer $P(|X| < 1)$ (résultat approché : $0{,}68$).
+3. Calculer $P(X > 2)$ (résultat approché : $0{,}023$).
+:::
+
+::: {.exercise}
+Soit $X \hookrightarrow \mathcal{N}(\mu, \sigma^2)$.
+
+1. Montrer que $X^* = \frac{X - \mu}{\sigma} \hookrightarrow \mathcal{N}(0, 1)$.
+2. Montrer que pour tout $(a, b) \in \mathbb{R}^* \times \mathbb{R}$, $aX + b \hookrightarrow \mathcal{N}(a\mu + b, a^2\sigma^2)$.
+:::
+
+::: {.exercise}
+Soit $X$ une variable aléatoire à densité $f(x) = \begin{cases} 2x & 0 \leq x \leq 1 \\ 0 & \text{sinon} \end{cases}$.
+
+1. Vérifier que $f$ est une densité.
+2. Calculer $E(X)$ et $V(X)$.
+3. Déterminer la fonction de répartition $F_X$.
+:::
+
+::: {.exercise}
+Soit $X \hookrightarrow \mathcal{U}([a, b])$.
+
+1. Déterminer la fonction de répartition $F_X$.
+2. Calculer $E(X)$ et $V(X)$.
+3. Montrer que pour tout $c \in [a, b]$, $P(a < X < c) = \frac{c-a}{b-a}$.
+:::
+
+::: {.exercise}
+Soit $X \hookrightarrow \mathcal{E}(\lambda)$ et $Y \hookrightarrow \mathcal{E}(\mu)$ indépendantes.
+
+1. Déterminer la densité de $X + Y$.
+2. Montrer que $X + Y$ ne suit pas une loi exponentielle.
+:::
+
+::: {.exercise}
+Soit $X \hookrightarrow \mathcal{N}(0, 1)$ et $Y = X^2$.
+
+1. Déterminer la fonction de répartition de $Y$.
+2. Déterminer la densité de $Y$.
+3. Calculer $E(Y)$.
+:::
+
+::: {.exercise}
+Soit $X \hookrightarrow \mathcal{U}([0, 1])$ et $Y = -\frac{\ln(1-X)}{\lambda}$ avec $\lambda > 0$.
+
+1. Déterminer la fonction de répartition de $Y$.
+2. Montrer que $Y \hookrightarrow \mathcal{E}(\lambda)$.
+:::
+
+# Cours {-}
+[**Chapitre 07 : Variables aléatoires à densité**](../cours/ecs2-chap07.qmd)
+
+# Navigation {-}
+::: {.chap-nav}
+[TD 06 : Variables aléatoires discrètes infinies](ecs2-chap06.qmd){.prev}
+[Menu ECS2](ecs2.qmd){.home}
+[TD 08 : Vecteurs aléatoires](ecs2-chap08.qmd){.next}
+:::
