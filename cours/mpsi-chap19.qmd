@@ -25,10 +25,12 @@ Ce chapitre a été réalisé conformément au programme marocain de mathématiq
 # Formules de dérivation (Rappels)
 
 ::: {.theorem}
+
 Si $f : I \longrightarrow J$ et $g : J \longrightarrow K$, avec $I$, $J$ et $K$ des intervalles de $\mathbb{R}$, sont deux fonctions vérifiant : $f$ dérivable sur $I$ et $g$ dérivable sur $J$, alors $g\circ f$ est dérivable sur $I$ et on a :
 $$\forall x\in I,\ (g\circ f)'(x)=f'(x)\times g'(f(x))$$
 En particulier, si $f$ est bijective et $f'$ ne s'annule pas sur $I$, alors $f^{-1}$ est dérivable et :
 $$\forall x\in J,\ (f^{-1})'(x)=\frac{1}{f'(f^{-1}(x))}$$
+
 :::
 
 **Dérivées des fonctions usuelles :**
@@ -52,57 +54,75 @@ $$\forall x\in J,\ (f^{-1})'(x)=\frac{1}{f'(f^{-1}(x))}$$
 ## Théorème de Rolle
 
 ::: {.theorem title="(Théorème de Rolle)"}
+
 Soit $f : [a,b] \longrightarrow \mathbb{R}$ une fonction continue sur $[a,b]$ et dérivable sur $]a,b[$. Si $f(a)=f(b)$, alors il existe $c\in]a,b[$ tel que :
 $$f'(c)=0$$
+
 :::
 
 ::: {.proof}
+
 La fonction $f$ est continue sur le segment $[a,b]$ : d'après le théorème de Weierstrass, elle y atteint ses bornes. Si $f$ est constante, alors $f'=0$ et tout $c\in]a,b[$ convient. Sinon, $f$ atteint un extremum en un point $c\in[a,b]$ avec $f(c)\neq f(a)=f(b)$, donc $c\in]a,b[$ : c'est un extremum local en un point intérieur où $f$ est dérivable, donc $f'(c)=0$.
+
 :::
 
 ## Théorème des accroissements finis
 
 ::: {.theorem title="(Théorème des accroissements finis)"}
+
 Soit $f : [a,b] \longrightarrow \mathbb{R}$ une fonction continue sur $[a,b]$ et dérivable sur $]a,b[$. Alors il existe $c\in]a,b[$ tel que :
 $$f(b)-f(a)=f'(c)(b-a)$$
+
 :::
 
 ::: {.proof}
+
 On applique le théorème de Rolle à la fonction :
 $$g(x)=f(x)-f(a)-\frac{f(b)-f(a)}{b-a}(x-a)$$
 qui est continue sur $[a,b]$, dérivable sur $]a,b[$ et vérifie $g(a)=g(b)=0$. Il existe donc $c\in]a,b[$ tel que $g'(c)=0$, c'est-à-dire $f'(c)=\frac{f(b)-f(a)}{b-a}$.
+
 :::
 
 ::: {.remark title="(Interprétation géométrique)"}
+
 Il existe au moins un point du graphe de $f$ où la tangente est parallèle à la corde joignant $(a,f(a))$ à $(b,f(b))$.
+
 :::
 
 ## Applications des accroissements finis
 
 ::: {.proposition}
+
 Soit $f : I \longrightarrow \mathbb{R}$ dérivable sur un intervalle $I$. Alors :
 
 1. si $\forall x\in I,\ f'(x)=0$, alors $f$ est constante sur $I$ ;
 2. si $\forall x\in I,\ f'(x)\geq 0$, alors $f$ est croissante sur $I$ (si $f'\leq 0$, $f$ est décroissante) ;
 3. si $\forall x\in I,\ f'(x)>0$, alors $f$ est strictement croissante sur $I$ ;
 4. si $\exists M\geq 0,\ \forall x\in I,\ |f'(x)|\leq M$, alors $f$ est $M$-lipschitzienne : $\forall x,y\in I,\ |f(x)-f(y)|\leq M|x-y|$.
+
 :::
 
 ::: {.example title="(Inégalités classiques)"}
+
 - Pour $x\geq 0$, $e^x\geq 1+x$ : appliquer les accroissements finis (ou l'étude de $f(x)=e^x-1-x$).
 - Pour $x>-1$, $\ln(1+x)\leq x$.
 - Pour $x\geq 0$, $\sin x\leq x$ ; et pour tout $x\in\mathbb{R}$, $|\sin x|\leq |x|$ (car $|\sin'|\leq 1$).
 - Pour $x\geq 0$, $\cos x\geq 1-\frac{x^2}{2}$, puis $\sin x\geq x-\frac{x^3}{6}$.
 - Pour $x\geq 0$, $\sqrt{1+x}\leq 1+\frac{x}{2}$.
+
 :::
 
 ::: {.theorem title="(Extremum local)"}
+
 Soit $f : I \longrightarrow \mathbb{R}$ dérivable sur un intervalle $I$. Si $f$ admet un extremum local en un point $a$ **intérieur** à $I$, alors :
 $$f'(a)=0$$
+
 :::
 
 ::: {.remark}
+
 La réciproque est fausse : $f(x)=x^3$ vérifie $f'(0)=0$ sans admettre d'extremum en $0$. De plus, sur un intervalle fermé $[a,b]$, un extremum peut être atteint en $a$ ou $b$ sans que $f'$ s'y annule.
+
 :::
 
 # Classes $\mathcal{C}^k$
@@ -110,40 +130,52 @@ La réciproque est fausse : $f(x)=x^3$ vérifie $f'(0)=0$ sans admettre d'extrem
 ## Définitions et premières propriétés
 
 ::: {.definition}
+
 Soit $k\in\mathbb{N}$. On dit que $f : I \longrightarrow \mathbb{R}$ est de **classe $\mathcal{C}^k$** sur $I$ si $f$ est $k$ fois dérivable sur $I$ et si $f^{(k)}$ est continue sur $I$. On dit que $f$ est de **classe $\mathcal{C}^{\infty}$** si elle est de classe $\mathcal{C}^k$ pour tout $k\in\mathbb{N}$.
+
 :::
 
 ::: {.proposition}
+
 - Les fonctions usuelles ($x\mapsto x^n$, $\exp$, $\sin$, $\cos$, $\operatorname{ch}$, $\operatorname{sh}$, $\ln$ sur $]0,+\infty[$…) sont $\mathcal{C}^{\infty}$ sur leur domaine.
 - Somme, produit et composée de fonctions $\mathcal{C}^k$ sont $\mathcal{C}^k$.
 - Si $f$ est une bijection $\mathcal{C}^k$ dont la dérivée ne s'annule pas, alors $f^{-1}$ est $\mathcal{C}^k$.
+
 :::
 
 ## Dérivées d'ordre $n$ et formule de Leibniz
 
 ::: {.proposition title="(Dérivées $n$-ièmes usuelles)"}
+
 - $\left(e^{ax+b}\right)^{(n)}=a^n e^{ax+b}$ ;
 - $\left(\sin(ax+b)\right)^{(n)}=a^n\sin\left(ax+b+\frac{n\pi}{2}\right)$ et $\left(\cos(ax+b)\right)^{(n)}=a^n\cos\left(ax+b+\frac{n\pi}{2}\right)$ ;
 - $\left(\frac{1}{x-a}\right)^{(n)}=\frac{(-1)^n n!}{(x-a)^{n+1}}$ ;
 - $\left(\ln x\right)^{(n)}=\frac{(-1)^{n-1}(n-1)!}{x^n}$.
+
 :::
 
 ::: {.theorem title="(Formule de Leibniz)"}
+
 Soient $f,g : I \longrightarrow \mathbb{R}$ deux fonctions $n$ fois dérivables. Alors $fg$ est $n$ fois dérivable et :
 $$(fg)^{(n)}=\sum_{k=0}^{n}\binom{n}{k}f^{(k)}g^{(n-k)}$$
+
 :::
 
 ::: {.example}
+
 - Pour $f(x)=x^2e^x$ : avec $u=x^2$ ($u'=2x$, $u''=2$, $u^{(k)}=0$ si $k\geq 3$) :
 $$f^{(n)}(x)=x^2e^x+2nx e^x+n(n-1)e^x=\left(x^2+2nx+n(n-1)\right)e^x$$
 - Pour $f(x)=xe^{2x}$ : $f^{(n)}(x)=x\,2^n e^{2x}+n\,2^{n-1}e^{2x}=\left(2^n x+n2^{n-1}\right)e^{2x}$.
+
 :::
 
 ::: {.exercise}
+
 1. Montrer que $\forall x\in\mathbb{R}$, $e^x\geq 1+x$, avec égalité ssi $x=0$. En déduire $\lim_{x\to+\infty}\frac{e^x}{x}=+\infty$.
 2. Montrer que $\forall x\geq 0$, $\cos x\geq 1-\frac{x^2}{2}$, puis $\sin x\geq x-\frac{x^3}{6}$.
 3. Calculer la dérivée $n$-ième de $f(x)=x\ln x$ sur $]0,+\infty[$.
 4. Soit $f$ dérivable sur $\mathbb{R}$ telle que $f(0)=0$ et $\forall x,\ |f'(x)|\leq |f(x)|$. Montrer que $f=0$.
+
 :::
 
 # Document en PDF {-}
@@ -153,9 +185,11 @@ $$f^{(n)}(x)=x^2e^x+2nx e^x+n(n-1)e^x=\left(x^2+2nx+n(n-1)\right)e^x$$
 ## Navigation {-}
 
 ::: {.chap-nav}
+
 [Chapitre 18 : Limites et continuité](mpsi-chap18.qmd){.prev}
 
 [Menu MPSI](mpsi.qmd){.home}
 
 [Chapitre 20 : Développements limités](mpsi-chap20.qmd){.next}
+
 :::

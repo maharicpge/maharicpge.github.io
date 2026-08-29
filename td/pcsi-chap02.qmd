@@ -19,37 +19,45 @@ filters:
 **PCSI (1re année) — TD du Chapitre 02.** Forme algébrique, conjugaison, module, arguments, forme trigonométrique, exponentielle complexe, trigonométrie, équations du second degré, racines $n$-ièmes, interprétation géométrique.
 
 ::: {.exercise}
+
 Mettre sous forme algébrique :
 
 1. $(2+3i)(1-i)$
 2. $\dfrac{1+i}{1-i}$
 3. $(1+i)^{10}$
 4. $\left(\dfrac{1+i\sqrt{3}}{1-i}\right)^6$
+
 :::
 
 ::: {.exercise}
+
 Déterminer le module et un argument de :
 
 1. $z_1 = 1+i$
 2. $z_2 = -1+i\sqrt{3}$
 3. $z_3 = (1+i)^n$ pour $n \in \mathbb{N}$
+
 :::
 
 ::: {.exercise}
+
 Résoudre dans $\mathbb{C}$ :
 
 1. $z^2 + 1 = 0$
 2. $z^2 - 4z + 5 = 0$
 3. $z^4 + z^2 + 1 = 0$
 4. $z^3 = 1$
+
 :::
 
 ::: {.exercise}
+
 Résoudre dans $\mathbb{C}$ :
 
 1. $z^4 = -1$
 2. $z^5 = 1+i$
 3. $z^6 - 1 = 0$
+
 :::
 
 **Indications :**
@@ -57,32 +65,40 @@ Résoudre dans $\mathbb{C}$ :
 - (3) $z^6 - 1 = (z^3-1)(z^3+1)$.
 
 ::: {.exercise}
+
 Montrer les formules d'Euler :
 
 1. $\cos\theta = \dfrac{e^{i\theta}+e^{-i\theta}}{2}$, $\quad \sin\theta = \dfrac{e^{i\theta}-e^{-i\theta}}{2i}$
 2. $\cos^2\theta = \dfrac{1+\cos 2\theta}{2}$, $\quad \sin^2\theta = \dfrac{1-\cos 2\theta}{2}$
 3. $\cos 3\theta = 4\cos^3\theta - 3\cos\theta$ (formule de Moivre)
+
 :::
 
 ::: {.exercise}
+
 Soit $z \in \mathbb{C}$ avec $|z| = 1$. Montrer que $z + \dfrac{1}{z} \in \mathbb{R}$.
+
 :::
 
 **Indication :** $|z|=1$ implique $\frac{1}{z} = \bar{z}$, donc $z + \frac{1}{z} = z + \bar{z} = 2\operatorname{Re}(z)$.
 
 ::: {.exercise}
+
 Montrer que la somme des racines $n$-ièmes de l'unité est nulle :
 $$1 + e^{2i\pi/n} + e^{4i\pi/n} + \cdots + e^{2i(n-1)\pi/n} = 0$$
+
 :::
 
 **Indication :** Somme géométrique de raison $e^{2i\pi/n} \neq 1$.
 
 ::: {.exercise}
+
 Interpréter géométriquement les ensembles suivants :
 
 1. $\{z \in \mathbb{C} \mid |z - 1| = |z + 1|\}$
 2. $\{z \in \mathbb{C} \mid |z - i| \leq 2\}$
 3. $\{z \in \mathbb{C} \mid \operatorname{Re}(z) > 0\}$
+
 :::
 
 **Indications :**
@@ -90,8 +106,10 @@ Interpréter géométriquement les ensembles suivants :
 - (2) Disque fermé de centre $i$ et de rayon $2$.
 
 ::: {.exercise}
+
 Montrer que pour tout $n \in \mathbb{N}^*$ :
 $$\sum_{k=0}^n \binom{n}{k} \cos(k\theta) = 2^n \cos^n\!\left(\frac{\theta}{2}\right) \cos\!\left(\frac{n\theta}{2}\right)$$
+
 :::
 
 **Indications :**
@@ -100,7 +118,9 @@ $$\sum_{k=0}^n \binom{n}{k} \cos(k\theta) = 2^n \cos^n\!\left(\frac{\theta}{2}\r
 - Prendre la partie réelle.
 
 ::: {.exercise}
+
 Soit $ABC$ un triangle équilatéral dans le plan complexe avec $A$ d'affixe $0$, $B$ d'affixe $1$. Déterminer les affixes possibles de $C$.
+
 :::
 
 **Indication :** $C$ est l'image de $B$ par la rotation de centre $A$ et d'angle $\pm \pi/3$. Donc $C = e^{\pm i\pi/3}$.
@@ -109,8 +129,11 @@ Soit $ABC$ un triangle équilatéral dans le plan complexe avec $A$ d'affixe $0$
 [**Chapitre 02 : Nombres complexes : calculs algébriques et applications géométriques**](pcsi-chap02.qmd)
 
 # Navigation {-}
+
 ::: {.chap-nav}
+
 [TD 01 : Vocabulaire ensembliste et logique](pcsi-chap01.qmd){.prev}
 [Menu PCSI](pcsi.qmd){.home}
 [TD 03 : Compléments de calcul algébrique](pcsi-chap03.qmd){.next}
+
 :::

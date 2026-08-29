@@ -42,6 +42,7 @@ Une équation différentielle est une équation :
 Voici des équations différentielles faciles à résoudre.
 
 ::: {.example}
+
 De tête, trouver au moins une fonction solution des équations différentielles suivantes :
 
 | Équation | Solution |
@@ -52,33 +53,41 @@ De tête, trouver au moins une fonction solution des équations différentielles
 | $y'=3y$ | $y(x)=ke^{3x}$, où $k\in\mathbb{R}$ |
 | $y''=\cos x$ | $y(x)=-\cos x+ax+b$, où $a,b\in\mathbb{R}$ |
 | $y''=y$ | $y(x)=ae^x+be^{-x}$, où $a,b\in\mathbb{R}$ |
+
 :::
 
 Il est aussi facile de vérifier qu'une fonction donnée est bien solution d'une équation.
 
 ::: {.example}
+
 1. Soit l'équation différentielle $y'=2xy+4x$. Vérifier que $y(x)=k\exp(x^2)-2$ est une solution sur $\mathbb{R}$, ceci quel que soit $k\in\mathbb{R}$.
 2. Soit l'équation différentielle $x^2y''-2y+2x=0$. Vérifier que $y(x)=kx^2+x$ est une solution sur $\mathbb{R}$, pour tout $k\in\mathbb{R}$.
+
 :::
 
 ## Définition
 
 ::: {.definition}
+
 - Une **équation différentielle** d'ordre $n$ est une équation de la forme
 $$F\left(x,y,y',\dots,y^{(n)}\right)=0 \qquad (E)$$
 où $F$ est une fonction de $(n+2)$ variables.
 - Une **solution** d'une telle équation sur un intervalle $I\subset\mathbb{R}$ est une fonction $y:I\to\mathbb{R}$ qui est $n$ fois dérivable et qui vérifie l'équation $(E)$.
+
 :::
 
 ::: {.remark}
+
 - C'est la coutume pour les équations différentielles de noter $y$ au lieu de $y(x)$, $y'$ au lieu de $y'(x)$, … On note donc « $y'=\sin x$ » ce qui signifie « $y'(x)=\sin x$ ».
 - Il faut s'habituer au changement de nom pour les fonctions et les variables. Par exemple $(x'')^3+t(x')^3+(\sin t)\,x^4=e^t$ est une équation différentielle d'ordre $2$, dont l'inconnue est une fonction $x$ qui dépend de la variable $t$. On cherche donc une fonction $x(t)$, deux fois dérivable, qui vérifie $(x''(t))^3+t(x'(t))^3+(\sin t)(x(t))^4=e^t$.
 - Rechercher une primitive, c'est déjà résoudre l'équation différentielle $y'=f(x)$. C'est pourquoi on trouve souvent « intégrer l'équation différentielle » pour « trouver les solutions de l'équation différentielle ».
 - La notion d'intervalle dans la résolution d'une équation différentielle est fondamentale. Si on change d'intervalle, on peut très bien obtenir d'autres solutions. Par exemple, sur $I_1=]0,+\infty[$, l'équation $y'=1/x$ a pour solutions les fonctions $y(x)=\ln(x)+k$ ; alors que sur $I_2=]-\infty,0[$, les solutions sont les fonctions $y(x)=\ln(-x)+k$ ($k$ constante).
 - Si aucune précision n'est donnée sur l'intervalle $I$, on considérera qu'il s'agit de $I=\mathbb{R}$.
+
 :::
 
 ::: {.example title="(Équation à variables séparées)"}
+
 Une équation différentielle **à variables séparées** est une équation du type :
 $$y'=g(x)/f(y) \qquad \text{ou} \qquad y'f(y)=g(x)$$
 Une telle équation se résout par calcul de primitives. Si $G$ est une primitive de $g$ et $F$ une primitive de $f$, alors, par dérivation d'une composition, $\big(F(y(x))\big)'=y'(x)F'(y(x))=y'f(y)$. Ainsi l'équation $y'f(y)=g(x)$ se réécrit $\big(F(y(x))\big)'=G'(x)$, ce qui équivaut à une égalité de fonctions :
@@ -89,6 +98,7 @@ $$e^{y}=-\frac{1}{x}+c \quad (c\in\mathbb{R})$$
 Ce qui permet d'obtenir $y$ (en supposant $-\frac{1}{x}+c>0$) :
 $$y(x)=\ln\left(-\frac{1}{x}+c\right)$$
 qui est une solution sur chaque intervalle $I$ où elle est définie et dérivable. Cet intervalle dépend de la constante $c$ : si $c<0$, $I=]\frac1c,0[$ ; si $c=0$, $I=]-\infty,0[$ ; si $c>0$, $I=]\frac1c,+\infty[$.
+
 :::
 
 ## Équation différentielle linéaire
@@ -96,6 +106,7 @@ qui est une solution sur chaque intervalle $I$ où elle est définie et dérivab
 On ne sait pas résoudre toutes les équations différentielles. On se concentre dans ce chapitre sur deux types d'équations : les équations différentielles linéaires du premier ordre et celles du second ordre à coefficients constants.
 
 ::: {.definition}
+
 - Une équation différentielle d'ordre $n$ est **linéaire** si elle est de la forme
 $$a_0(x)y+a_1(x)y'+\dots+a_n(x)y^{(n)}=g(x)$$
 où les $a_i$ et $g$ sont des fonctions réelles continues sur un intervalle $I\subset\mathbb{R}$. Le terme *linéaire* signifie grosso modo qu'il n'y a pas d'exposant pour les termes $y,y',y'',\ldots$
@@ -103,19 +114,24 @@ où les $a_i$ et $g$ sont des fonctions réelles continues sur un intervalle $I\
 $$a_0(x)y+a_1(x)y'+\dots+a_n(x)y^{(n)}=0$$
 - Une équation différentielle linéaire est **à coefficients constants** si les fonctions $a_i$ ci-dessus sont constantes :
 $$a_0y+a_1y'+\dots+a_ny^{(n)}=g(x)$$
+
 :::
 
 ::: {.example}
+
 1. $y'+5xy=e^x$ est une équation différentielle linéaire du premier ordre avec second membre.
 2. $y'+5xy=0$ est l'équation différentielle homogène associée à la précédente.
 3. $2y''-3y'+5y=0$ est une équation différentielle linéaire du second ordre à coefficients constants, sans second membre.
 4. $y'^2-y=x$ ou $y''\cdot y'-y=0$ *ne sont pas* des équations différentielles linéaires.
+
 :::
 
 ::: {.proposition title="(Principe de linéarité)"}
+
 Si $y_1$ et $y_2$ sont solutions de l'équation différentielle linéaire homogène
 $$a_0(x)y+a_1(x)y'+\dots+a_n(x)y^{(n)}=0 \qquad (E_0)$$
 alors, quels que soient $\lambda,\mu\in\mathbb{R}$, $\lambda y_1+\mu y_2$ est aussi solution de cette équation.
+
 :::
 
 C'est une simple vérification. On peut reformuler la proposition en disant que l'ensemble des solutions forme un espace vectoriel.
@@ -128,24 +144,30 @@ on décompose souvent la résolution en deux étapes :
 - trouver l'ensemble $\mathcal{S}_h$ des solutions $y$ de l'équation homogène associée $(E_0)$.
 
 ::: {.proposition title="(Principe de superposition)"}
+
 L'ensemble des solutions $\mathcal{S}$ de $(E)$ est formé des
 $$y_0+y \quad \text{avec} \quad y\in\mathcal{S}_h.$$
+
 :::
 
 Autrement dit, on trouve toutes les solutions en ajoutant une solution particulière aux solutions de l'équation homogène. C'est une conséquence immédiate du caractère linéaire des équations.
 
 ::: {.exercise}
+
 1. Chercher une solution « simple » de l'équation différentielle $y'=2y$. Même question avec $y''=-y$ ; $y''+\cos(2x)=0$ ; $xy''=y'$.
 2. Résoudre l'équation différentielle à variables séparées $y'y^2=x$. Même question avec $y'=y\ln x$ ; $y'=\frac{1}{y^n}$ ($n\geq 1$).
 3. Soit l'équation $y'=y(1-y)$. Montrer que si $y$ est une solution non nulle de cette équation, alors $z=2y$ n'est pas solution. Que peut-on en conclure ?
+
 :::
 
 # Équation différentielle linéaire du premier ordre
 
 ::: {.definition}
+
 Une équation différentielle **linéaire du premier ordre** est une équation du type :
 $$y'=a(x)y+b(x) \qquad (E)$$
 où $a$ et $b$ sont des fonctions définies sur un intervalle ouvert $I$ de $\mathbb{R}$.
+
 :::
 
 Dans la suite on supposera que $a$ et $b$ sont des fonctions continues sur $I$. On peut envisager la forme $\alpha(x)y'+\beta(x)y=\gamma(x)$ ; on demandera alors que $\alpha(x)\neq 0$ pour tout $x\in I$, et la division par $\alpha$ permet de retrouver la forme $(E)$.
@@ -155,31 +177,39 @@ On va commencer par résoudre le cas où $a$ est une constante et $b=0$, puis $a
 ## $y'=ay$
 
 ::: {.theorem}
+
 Soit $a$ un réel. Les solutions sur $\mathbb{R}$ de l'équation différentielle
 $$y'=ay \qquad (E)$$
 sont les fonctions $y$ définies par :
 $$\boxed{y(x)=ke^{ax}}$$
 où $k\in\mathbb{R}$ est une constante quelconque.
+
 :::
 
 Ce résultat est fondamental. Il est tout aussi fondamental de comprendre d'où vient cette formule, via une preuve rapide (mais pas tout à fait rigoureuse). On réécrit l'équation sous la forme $\frac{y'}{y}=a$, que l'on intègre à gauche et à droite : $\ln|y(x)|=ax+b$. On compose par l'exponentielle des deux côtés : $|y(x)|=e^{ax+b}$, autrement dit $y(x)=\pm e^b e^{ax}$. En posant $k=\pm e^b$ on obtient les solutions (non nulles) cherchées. Une preuve rigoureuse suit juste après.
 
 ::: {.example}
+
 Résoudre l'équation différentielle $3y'-5y=0$.
 On écrit cette équation sous la forme $y'=\frac53 y$. Ses solutions sur $\mathbb{R}$ sont donc de la forme $y(x)=ke^{\frac53 x}$, où $k\in\mathbb{R}$.
+
 :::
 
 ::: {.remark}
+
 - L'équation $(E)$ admet donc une infinité de solutions (puisque l'on a une infinité de choix de la constante $k$).
 - La constante $k$ peut être nulle : on obtient la « solution nulle » $y=0$ sur $\mathbb{R}$, qui est une solution évidente de l'équation.
 - Le théorème peut aussi s'interpréter ainsi : si $y_0$ est une solution non identiquement nulle de $(E)$, alors toutes les autres solutions $y$ sont des multiples de $y_0$. En termes plus savants, l'ensemble des solutions forme un espace vectoriel de dimension $1$ (une droite vectorielle).
+
 :::
 
 ::: {.proof}
+
 1. On vérifie que les fonctions proposées sont bien solutions de $(E)$ : pour $y(x)=ke^{ax}$, on a $y'(x)=ake^{ax}=ay(x)$.
 2. Montrons que ce sont les seules solutions. Soit $y$ une solution quelconque de $(E)$ sur $\mathbb{R}$. Considérons la fonction $z$ définie par $z(x)=y(x)e^{-ax}$. Alors, par la formule de dérivation d'un produit :
 $$z'(x)=y'(x)e^{-ax}+y(x)\left(-ae^{-ax}\right)=e^{-ax}\left(y'(x)-ay(x)\right)$$
 Mais $y$ est solution de $(E)$, donc $y'(x)-ay(x)=0$. On en déduit que $z'(x)=0$ pour tout réel $x$ : $z$ est constante sur $\mathbb{R}$, il existe une constante $k$ telle que $z(x)=k$ pour tout $x$. D'où $y(x)e^{-ax}=k$, donc $y(x)=ke^{ax}$.
+
 :::
 
 ## $y'=a(x)y$
@@ -187,11 +217,13 @@ Mais $y$ est solution de $(E)$, donc $y'(x)-ay(x)=0$. On en déduit que $z'(x)=0
 Le théorème suivant affirme que, lorsque $a$ est une fonction, résoudre l'équation $y'=a(x)y$ revient à déterminer une primitive $A$ de $a$ (ce qui n'est pas toujours possible explicitement).
 
 ::: {.theorem}
+
 Soit $a:I\to\mathbb{R}$ une fonction continue et $A:I\to\mathbb{R}$ une primitive de $a$. Les solutions sur $I$ de l'équation différentielle
 $$y'=a(x)y \qquad (E)$$
 sont les fonctions $y$ définies par :
 $$\boxed{y(x)=ke^{A(x)}}$$
 où $k\in\mathbb{R}$ est une constante quelconque.
+
 :::
 
 Si $a(x)=a$ est constante, une primitive est par exemple $A(x)=ax$ et on retrouve le théorème précédent. Preuve rapide :
@@ -200,6 +232,7 @@ $$\frac{y'}{y}=a(x) \iff \ln|y(x)|=A(x)+b \iff |y(x)|=e^{A(x)+b} \iff y(x)=ke^{A
 Preuve rigoureuse (on évite de diviser par quelque chose qui pourrait être nul) :
 
 ::: {.proof}
+
 $$\begin{array}{rl}
 & y(x) \text{ solution de } (E) \\
 \iff & y'(x)-a(x)y(x)=0 \\
@@ -208,10 +241,13 @@ $$\begin{array}{rl}
 \iff & \exists k\in\mathbb{R} \quad y(x)e^{-A(x)}=k \\
 \iff & \exists k\in\mathbb{R} \quad y(x)=ke^{A(x)}
 \end{array}$$
+
 :::
 
 ::: {.example}
+
 Comment résoudre l'équation différentielle $x^2y'=y$ ? On se place sur $I_+=]0,+\infty[$ ou $I_-=]-\infty,0[$. L'équation devient $y'=\frac{1}{x^2}y$. Donc $a(x)=\frac{1}{x^2}$, dont une primitive est $A(x)=-\frac1x$. Ainsi les solutions cherchées sont $y(x)=ke^{-\frac1x}$, où $k\in\mathbb{R}$.
+
 :::
 
 ## $y'=a(x)y+b(x)$
@@ -223,22 +259,27 @@ $$y'=a(x)y \qquad (E_0)$$
 Il n'y a pas de nouvelle formule à apprendre : il suffit d'appliquer le principe de superposition.
 
 ::: {.proposition}
+
 Si $y_0$ est une solution de $(E)$, alors les solutions de $(E)$ sont les fonctions $y:I\to\mathbb{R}$ définies par :
 $$y(x)=y_0(x)+ke^{A(x)} \qquad (k\in\mathbb{R})$$
 où $x\mapsto A(x)$ est une primitive de $x\mapsto a(x)$.
+
 :::
 
 La recherche de la solution générale se réduit donc à celle d'une solution particulière, parfois en remarquant une solution évidente. Par exemple $y'=2xy+4x$ a pour solution particulière $y_0(x)=-2$ ; donc les solutions sont les $y(x)=-2+ke^{x^2}$, $k\in\mathbb{R}$.
 
 ::: {.callout-note title="Recherche d'une solution particulière : variation de la constante" icon="false"}
+
 La solution générale de $(E_0)$ est $y(x)=ke^{A(x)}$. La méthode consiste à chercher une solution particulière sous la forme $y_0(x)=k(x)e^{A(x)}$, où $k$ est maintenant une **fonction** à déterminer. Puisque $A'=a$ :
 $$y_0'(x)=a(x)k(x)e^{A(x)}+k'(x)e^{A(x)}=a(x)y_0(x)+k'(x)e^{A(x)}$$
 Ainsi $y_0$ est solution de $(E)$ si et seulement si
 $$k'(x)e^{A(x)}=b(x) \iff k'(x)=b(x)e^{-A(x)} \iff k(x)=\int b(x)e^{-A(x)}\,dx$$
 Ce qui donne une solution particulière $y_0(x)=\left(\int b(x)e^{-A(x)}\,dx\right)e^{A(x)}$, et la solution générale $y(x)=y_0(x)+ke^{A(x)}$, $k\in\mathbb{R}$.
+
 :::
 
 ::: {.example}
+
 Soit l'équation $y'+y=e^x+1$.
 L'équation homogène est $y'=-y$, dont les solutions sont les $y(x)=ke^{-x}$, $k\in\mathbb{R}$. Cherchons une solution particulière avec la variation de la constante : $y_0(x)=k(x)e^{-x}$.
 $$\begin{array}{rcl}
@@ -250,12 +291,15 @@ $$\begin{array}{rcl}
 \end{array}$$
 On fixe $c=0$ : $y_0(x)=\left(\frac12 e^{2x}+e^x\right)e^{-x}=\frac12 e^{x}+1$. Les solutions générales de l'équation sont :
 $$y(x)=\frac12 e^{x}+1+ke^{-x}, \qquad k\in\mathbb{R}.$$
+
 :::
 
 ## Théorème de Cauchy-Lipschitz
 
 ::: {.theorem title="(Théorème de Cauchy-Lipschitz)"}
+
 Soit $y'=a(x)y+b(x)$ une équation différentielle linéaire du premier ordre, où $a,b:I\to\mathbb{R}$ sont continues sur un intervalle ouvert $I$. Alors, pour tout $x_0\in I$ et pour tout $y_0\in\mathbb{R}$, il existe une et une seule solution $y$ telle que $y(x_0)=y_0$.
+
 :::
 
 D'après nos calculs précédents, cette solution est :
@@ -263,27 +307,34 @@ $$y(x)=\left(\int_{x_0}^x b(t)e^{-A(t)}\,dt\right)e^{A(x)}+y_0e^{A(x)}$$
 où $A$ est la primitive de $a$ s'annulant en $x_0$, et cette solution vérifie bien $y(x_0)=y_0$.
 
 ::: {.example}
+
 Trouver la solution de $y'+y=e^x+1$ vérifiant $y(1)=2$.
 Toutes les solutions sont $y(x)=\frac12 e^{x}+1+ke^{-x}$. On détermine $k$ :
 $$y(1)=2 \iff \frac12 e+1+ke^{-1}=2 \iff \frac{k}{e}=1-\frac{e}{2} \iff k=e-\frac{e^2}{2}$$
 Ainsi la solution cherchée est $y(x)=\frac12 e^{x}+1+\left(e-\frac{e^2}{2}\right)e^{-x}$, et c'est la seule.
+
 :::
 
 ## Courbes intégrales
 
 ::: {.definition}
+
 Une **courbe intégrale** d'une équation différentielle $(E)$ est le graphe d'une solution de $(E)$.
+
 :::
 
 Le théorème de Cauchy-Lipschitz se reformule ainsi : « Par chaque point $(x_0,y_0)\in I\times\mathbb{R}$ passe une et une seule courbe intégrale. »
 
 ::: {.example}
+
 Les solutions de l'équation $y'+y=x$ sont les $y(x)=x-1+ke^{-x}$, $k\in\mathbb{R}$, définies sur $I=\mathbb{R}$. Pour chaque point $(x_0,y_0)\in\mathbb{R}^2$, il existe une unique solution $y$ telle que $y(x_0)=y_0$ ; le graphe de cette solution est la courbe intégrale passant par $(x_0,y_0)$.
+
 :::
 
 ## Exemples
 
 ::: {.example}
+
 On considère l'équation différentielle $(E)$ : $x^3y'+(2-3x^2)y=x^3$.
 
 1. Résoudre $(E)$ sur $]0,+\infty[$ et $]-\infty,0[$.
@@ -297,9 +348,11 @@ On considère l'équation différentielle $(E)$ : $x^3y'+(2-3x^2)y=x^3$.
 **Solution générale** sur $]0,+\infty[$ : $y(x)=\frac12 x^3+k_1x^3e^{1/x^2}$ ; sur $]-\infty,0[$ : $y(x)=\frac12 x^3+k_2x^3e^{1/x^2}$.
 2. $x^3e^{1/x^2}$ tend vers $+\infty$ (resp. $-\infty$) lorsque $x\to 0^+$ (resp. $0^-$), donc pour $k_1$ ou $k_2$ non nul, $y$ ne peut pas être prolongée par continuité en $0$. Pour $k_1=k_2=0$, $y(x)=\frac12 x^3$ est continue et dérivable sur $\mathbb{R}$ : c'est la seule solution sur $\mathbb{R}$.
 3. Avec $y(1)=0$ : $y(1)=\frac12+ke=0$, donc $k=-\frac{1}{2e}$, et $y(x)=\frac12 x^3-\frac{1}{2e}x^3e^{1/x^2}$.
+
 :::
 
 ::: {.example}
+
 Résoudre $x(1+x)y'-(x+2)y=2x$.
 
 1. **Équation homogène.** Pour $x\neq 0$ et $x\neq -1$ : $y'=\frac{x+2}{x(1+x)}y$. La décomposition en éléments simples est $a(x)=\frac{x+2}{x(1+x)}=\frac{2}{x}-\frac{1}{1+x}$ ; une primitive est $A(x)=2\ln|x|-\ln|x+1|$. La solution générale de l'équation homogène est :
@@ -309,13 +362,16 @@ soit $y(x)=k\frac{x^2}{x+1}$ sur $]-\infty,-1[$ ou sur $]-1,+\infty[$.
 $$y(x)=-\frac{2x}{x+1}+k\frac{x^2}{x+1}$$
 définie sur $]-\infty,-1[$ ou $]-1,+\infty[$.
 3. **Solution définie sur $\mathbb{R}$ ?** $y(x)=\frac{x(kx-2)}{x+1}$. Pour $k\neq -2$, on ne peut pas prolonger $y$ en $-1$. Pour $k=-2$, on obtient une solution définie sur $\mathbb{R}$ : $y=-2x$.
+
 :::
 
 ::: {.exercise}
+
 1. Résoudre $y'+y\ln 2=0$. Tracer les courbes intégrales. Trouver la solution vérifiant $y(1)=\frac12$.
 2. Résoudre $2y'+3y=5$. Trouver la solution vérifiant $y(0)=-\frac13$. Tracer la courbe intégrale.
 3. Trouver une solution évidente, puis résoudre $2xy'+y=1$. Trouver la solution vérifiant $y(1)=2$. Même travail avec $xy'-y=x^2$.
 4. Par la méthode de variation de la constante, trouver une solution particulière de $y'-2xy=3xe^{x^2}$. Même travail avec $y'+2y=\sin(3x)e^{-2x}$.
+
 :::
 
 # Équation différentielle linéaire du second ordre à coefficients constants
@@ -329,7 +385,9 @@ $$ay''+by'+cy=0 \qquad (E_0)$$
 est appelée l'équation homogène associée à $(E)$. La structure des solutions est très simple :
 
 ::: {.theorem}
+
 L'ensemble des solutions de l'équation homogène $(E_0)$ est un $\mathbb{R}$-espace vectoriel de dimension $2$.
+
 :::
 
 Nous admettons ce résultat.
@@ -340,27 +398,34 @@ On cherche une solution de $(E_0)$ sous la forme $y(x)=e^{rx}$, où $r\in\mathbb
 $$ay''+by'+cy=0 \iff (ar^2+br+c)e^{rx}=0 \iff ar^2+br+c=0$$
 
 ::: {.definition}
+
 L'équation $ar^2+br+c=0$ est appelée **l'équation caractéristique** associée à $(E_0)$.
+
 :::
 
 Soit $\Delta=b^2-4ac$ le discriminant de l'équation caractéristique.
 
 ::: {.theorem}
+
 1. Si $\Delta>0$, l'équation caractéristique possède deux racines réelles distinctes $r_1\neq r_2$ et les solutions de $(E_0)$ sont les
 $$\boxed{y(x)=\lambda e^{r_1x}+\mu e^{r_2x} \quad \text{où } \lambda,\mu\in\mathbb{R}.}$$
 2. Si $\Delta=0$, l'équation caractéristique possède une racine double $r_0$ et les solutions de $(E_0)$ sont les
 $$\boxed{y(x)=(\lambda+\mu x)e^{r_0x} \quad \text{où } \lambda,\mu\in\mathbb{R}.}$$
 3. Si $\Delta<0$, l'équation caractéristique possède deux racines complexes conjuguées $r_1=\alpha+i\beta$, $r_2=\alpha-i\beta$ et les solutions de $(E_0)$ sont les
 $$\boxed{y(x)=e^{\alpha x}\left(\lambda\cos(\beta x)+\mu\sin(\beta x)\right) \quad \text{où } \lambda,\mu\in\mathbb{R}.}$$
+
 :::
 
 ::: {.example}
+
 1. Résoudre sur $\mathbb{R}$ : $y''-y'-2y=0$. L'équation caractéristique est $r^2-r-2=0$, qui s'écrit $(r+1)(r-2)=0$ ($\Delta>0$). D'où $y(x)=\lambda e^{-x}+\mu e^{2x}$, $\lambda,\mu\in\mathbb{R}$.
 2. Résoudre sur $\mathbb{R}$ : $y''-4y'+4y=0$. L'équation caractéristique est $r^2-4r+4=0$, soit $(r-2)^2=0$ ($\Delta=0$). D'où $y(x)=(\lambda x+\mu)e^{2x}$, $\lambda,\mu\in\mathbb{R}$.
 3. Résoudre sur $\mathbb{R}$ : $y''-2y'+5y=0$. L'équation caractéristique est $r^2-2r+5=0$, qui admet deux racines complexes conjuguées $r_1=1+2i$ et $r_2=1-2i$ ($\Delta<0$). D'où $y(x)=e^x(\lambda\cos(2x)+\mu\sin(2x))$, $\lambda,\mu\in\mathbb{R}$.
+
 :::
 
 ::: {.proof}
+
 La preuve consiste à trouver deux solutions linéairement indépendantes, qui forment alors une base d'après le théorème de la dimension 2 (admis).
 
 1. Si $\Delta>0$ : deux racines réelles distinctes $r_1,r_2$ donnent deux solutions $y_1=e^{r_1x}$, $y_2=e^{r_2x}$, linéairement indépendantes car $r_1\neq r_2$ ; une base est $\{e^{r_1x},e^{r_2x}\}$.
@@ -368,6 +433,7 @@ La preuve consiste à trouver deux solutions linéairement indépendantes, qui f
 $$ay_2''+by_2'+cy_2=(2ar_0+ar_0^2x)e^{r_0x}+(b+br_0x)e^{r_0x}+cxe^{r_0x}=(2ar_0+b)e^{r_0x}=0$$
 car $2ar_0+b=P'(r_0)=0$, où $P(r)=ar^2+br+c$. Une base est $\{e^{r_0x},xe^{r_0x}\}$.
 3. Si $\Delta<0$ : racines conjuguées $r_1=\alpha+i\beta$, $r_2=\alpha-i\beta$ ; les solutions complexes $Y_1=e^{(\alpha+i\beta)x}$, $Y_2=e^{(\alpha-i\beta)x}$ donnent, par parties réelles et imaginaires, deux solutions réelles $y_1=e^{\alpha x}\cos(\beta x)$, $y_2=e^{\alpha x}\sin(\beta x)$, linéairement indépendantes. Une base est $\{e^{\alpha x}\cos(\beta x),e^{\alpha x}\sin(\beta x)\}$.
+
 :::
 
 ## Équation avec second membre
@@ -376,14 +442,18 @@ Nous passons au cas général avec un second membre $g$ continu sur un intervall
 $$ay''+by'+cy=g(x) \qquad (E)$$
 
 ::: {.theorem title="(Théorème de Cauchy-Lipschitz)"}
+
 Pour chaque $x_0\in I$ et chaque couple $(y_0,y_1)\in\mathbb{R}^2$, l'équation $(E)$ admet une **unique** solution $y$ sur $I$ satisfaisant aux conditions initiales :
 $$\boxed{y(x_0)=y_0 \quad \text{et} \quad y'(x_0)=y_1.}$$
+
 :::
 
 Dans la pratique, on cherche d'abord les solutions de l'équation homogène, puis une solution particulière de l'équation avec second membre, et on applique le principe de superposition :
 
 ::: {.proposition}
+
 Les solutions générales de $(E)$ s'obtiennent en ajoutant les solutions générales de l'équation homogène $(E_0)$ à une solution particulière de $(E)$.
+
 :::
 
 ## Recherche d'une solution particulière
@@ -404,6 +474,7 @@ On donne deux cas particuliers importants et une méthode générale.
 Dans les deux cas, $Q_1$ et $Q_2$ sont deux polynômes de degré $n=\max\{\deg P_1,\deg P_2\}$.
 
 ::: {.example}
+
 Résoudre :
 $$(E_0)\ \ y''-5y'+6y=0 \qquad (E_1)\ \ y''-5y'+6y=4xe^x \qquad (E_2)\ \ y''-5y'+6y=4xe^{2x}$$
 Trouver la solution de $(E_1)$ vérifiant $y(0)=1$ et $y'(0)=0$.
@@ -421,6 +492,7 @@ Donc $y_0(x)=(2x+3)e^x$.
    - L'ensemble des solutions de $(E_1)$ est $\{(2x+3)e^x+\lambda e^{2x}+\mu e^{3x} \mid \lambda,\mu\in\mathbb{R}\}$.
    - Conditions initiales : $3+\lambda+\mu=1$ et $5+2\lambda+3\mu=0$, donc $\lambda=-1$, $\mu=-1$, c'est-à-dire $y(x)=(2x+3)e^{x}-e^{2x}-e^{3x}$.
 3. **Équation $(E_2)$.** Comme $2$ est racine de l'équation caractéristique, on cherche $y_0(x)=x(ax+b)e^{2x}$. On obtient $y_0(x)=x(-2x-4)e^{2x}$.
+
 :::
 
 **Méthode de variation des constantes.** Si $\{y_1,y_2\}$ est une base de solutions de $(E_0)$, on cherche une solution particulière sous la forme $y_0=\lambda y_1+\mu y_2$, mais cette fois $\lambda$ et $\mu$ sont deux **fonctions** vérifiant :
@@ -434,18 +506,22 @@ $$ay_0''+by_0'+cy_0=g(x)+\lambda\left(ay_1''+by_1'+cy_1\right)+\mu\left(ay_2''+b
 (on utilise le fait que $y_1$ et $y_2$ sont solutions de l'équation homogène). Le système $(S)$ se résout facilement, ce qui donne $\lambda'$ et $\mu'$, puis $\lambda$ et $\mu$ par intégration.
 
 ::: {.example}
+
 Résoudre, sur $]-\frac\pi2,+\frac\pi2[$ :
 $$y''+y=\frac{1}{\cos x}$$
 Les solutions de l'équation homogène $y''+y=0$ sont $\lambda\cos x+\mu\sin x$. On cherche une solution particulière sous la forme $y_0(x)=\lambda(x)\cos x+\mu(x)\sin x$, où $(\lambda,\mu)$ vérifient $(S)$ :
 $$\begin{cases} \lambda'\cos x+\mu'\sin x=0 \\ -\lambda'\sin x+\mu'\cos x=\frac{1}{\cos x}\end{cases}$$
 En multipliant la première ligne par $\sin x$ et la seconde par $\cos x$, puis en sommant : $\mu'=1$. Ainsi $\mu(x)=x$, et la première ligne donne $\lambda'=-\frac{\sin x}{\cos x}$, donc $\lambda(x)=\ln(\cos x)$. On vérifie que $y_0(x)=\ln(\cos x)\cos x+x\sin x$ est solution. Ainsi les fonctions solutions sont de la forme :
 $$\lambda\cos x+\mu\sin x+\ln(\cos x)\cos x+x\sin x, \qquad \lambda,\mu\in\mathbb{R}.$$
+
 :::
 
 ::: {.exercise}
+
 1. Résoudre $y''+\omega^2y=0$. Trouver la solution vérifiant $y(0)=1$ et $y'(0)=1$. Tracer la courbe intégrale. Résoudre $y''+\omega^2y=\sin(\omega x)$.
 2. Résoudre $y''+y'-6y=0$. Trouver la solution vérifiant $y(-1)=1$ et $y'(-1)=0$. Résoudre $y''+y'-6y=e^x$.
 3. Résoudre $2y''-2y'+\frac12 y=0$. Trouver la solution ayant une limite finie lorsque $x\to+\infty$. Résoudre $2y''-2y'+\frac12 y=x-1$.
+
 :::
 
 # Problèmes conduisant à des équations différentielles
@@ -523,8 +599,10 @@ Il s'agit de résoudre $y''+\frac{k}{m}y=0$. L'équation caractéristique est $r
 $$x(t)=\lambda\cos\left(\sqrt{\tfrac{k}{m}}\,t\right)+\mu\sin\left(\sqrt{\tfrac{k}{m}}\,t\right), \qquad \lambda,\mu\in\mathbb{R}$$
 
 ::: {.example}
+
 On lâche la masse au point d'abscisse $1$, sans vitesse initiale : $x(0)=1$ et $x'(0)=0$. Comme $x(0)=1$, $\lambda=1$ ; comme $x'(0)=0$, $\mu=0$. On trouve une solution périodique :
 $$x(t)=\cos\left(\sqrt{\tfrac{k}{m}}\,t\right)$$
+
 :::
 
 **Oscillations avec faibles frottements.** On rajoute une force de frottement $\vec F=-fm\frac{dx(t)}{dt}$, proportionnelle à la vitesse et s'opposant au déplacement. Le principe fondamental devient :
@@ -534,9 +612,11 @@ $$x(t)=e^{-\frac{f}{2}t}\left(\lambda\cos\left(\tfrac{\delta}{2}t\right)+\mu\sin
 Cette fois la solution n'est plus périodique : c'est un mouvement oscillant amorti, qui tend vers la position d'équilibre $x=0$.
 
 ::: {.exercise}
+
 1. Un circuit électrique constitué d'un condensateur de capacité $C$ se décharge dans une résistance $R$. Calculer l'évolution de la charge électrique qui vérifie $q(t)=-RC\frac{dq(t)}{dt}$.
 2. Calculer et tracer les solutions du système masse-ressort pour différents niveaux de frottements.
 3. Une tasse de café de température $T_0=100$ °C est posée dans une pièce de température $T_\infty=20$ °C. La loi de Newton affirme que la vitesse de décroissance de la température $\frac{dT(t)}{dt}$ est proportionnelle à l'écart $T(t)-T_\infty$. Sachant qu'au bout de 3 minutes la température du café est passée à 80 °C, combien de temps faudra-t-il pour avoir un café à 65 °C ?
+
 :::
 
 
@@ -549,11 +629,13 @@ Cette fois la solution n'est plus périodique : c'est un mouvement oscillant amo
 ## Navigation {-}
 
 ::: {.chap-nav}
+
 [Chapitre 05 : Fonctions usuelles](mpsi-chap05.qmd){.prev}
 
 [Menu MPSI](mpsi.qmd){.home}
 
 [Chapitre 07 : Systèmes linéaires](mpsi-chap07.qmd){.next}
+
 :::
 
 

@@ -19,58 +19,81 @@ filters:
 **PSI (2e année) — TD du Chapitre 08.** Produits scalaires, orthogonalité, projection orthogonale, formes linéaires, matrices orthogonales, isométries vectorielles (plan et espace), réduction des endomorphismes autoadjoints et des matrices symétriques réelles.
 
 ::: {.exercise}
+
 Montrer l'inégalité de Cauchy-Schwarz : $|\langle x, y \rangle| \leq \|x\| \cdot \|y\|$ et préciser le cas d'égalité.
+
 :::
 
 ::: {.exercise}
+
 Soit $F$ un sous-espace vectoriel de dimension finie d'un espace préhilbertien $E$. Montrer que $E = F \oplus F^\perp$.
+
 :::
 
 ::: {.exercise}
+
 Soit $E$ un espace euclidien et $u$ un vecteur non nul. Soient $p$ la projection orthogonale sur $H = u^\perp$ et $s$ la symétrie orthogonale par rapport à $H$.
 
 1. Montrer que $\forall x \in E, \quad p(x) = x - \dfrac{\langle x, u \rangle}{\|u\|^2} u$.
 2. Montrer que $\forall x \in E, \quad s(x) = x - 2\dfrac{\langle x, u \rangle}{\|u\|^2} u$.
+
 :::
 
 ::: {.exercise}
+
 Soit $E$ un espace euclidien. Montrer que toute forme linéaire $\varphi$ sur $E$ s'écrit $\varphi(x) = \langle a, x \rangle$ pour un unique $a \in E$ (théorème de représentation).
+
 :::
 
 ::: {.exercise}
+
 Soit $u$ un endomorphisme orthogonal d'un espace euclidien. Montrer que :
 
 1. $u$ conserve le produit scalaire.
 2. $\det(u) \in \{-1, 1\}$.
 3. Si $F$ est stable par $u$, alors $F^\perp$ est stable par $u$.
+
 :::
 
 ::: {.exercise}
+
 Soit $E$ un espace euclidien de dimension 2. Montrer que toute isométrie directe est une rotation et que toute isométrie indirecte est une réflexion.
+
 :::
 
 ::: {.exercise}
+
 Soit $E$ un espace euclidien de dimension 3. Montrer que toute isométrie directe est soit l'identité, soit une rotation autour d'un axe.
+
 :::
 
 ::: {.exercise}
+
 Soit $f$ un endomorphisme symétrique d'un espace euclidien. Montrer que les sous-espaces propres associés à des valeurs propres distinctes sont orthogonaux.
+
 :::
 
 ::: {.exercise}
+
 Soit $u$ un endomorphisme symétrique d'un espace euclidien. Montrer que $u$ est diagonalisable dans une base orthonormée (théorème spectral).
+
 :::
 
 ::: {.exercise}
+
 Soit $A \in \mathcal{S}_n(\mathbb{R})$ une matrice symétrique réelle. Montrer qu'il existe une matrice orthogonale $P$ et une matrice diagonale $D$ telles que $A = PDP^{-1} = PDP^T$.
+
 :::
 
 # Cours {-}
 [**Chapitre 08 : Espaces préhilbertiens réels. Endomorphismes d'un espace euclidien**](../cours/psi-chap08.qmd)
 
 # Navigation {-}
+
 ::: {.chap-nav}
+
 [TD 07 : Séries entières](psi-chap07.qmd){.prev}
 [Menu PSI](psi.qmd){.home}
 [TD 09 : Intégrales dépendant d'un paramètre](psi-chap09.qmd){.next}
+
 :::

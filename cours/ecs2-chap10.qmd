@@ -34,26 +34,36 @@ Ce chapitre a été réalisé conformément au programme marocain de mathématiq
 ## Définition
 
 ::: {.definition title="(Estimateur)"}
+
 Soit $(X_1, \ldots, X_n)$ un $n$-échantillon de variables aléatoires indépendantes de même loi dépendant d'un paramètre $\theta$. Un **estimateur** de $\theta$ est une statistique $T_n = g(X_1, \ldots, X_n)$.
+
 :::
 
 ::: {.example title="(Moyenne empirique)"}
+
 $\overline{X}_n = \frac{1}{n}\sum_{k=1}^n X_k$ est un estimateur naturel de $E(X_1)$.
+
 :::
 
 ::: {.example title="(Variance empirique)"}
+
 $S_n^2 = \frac{1}{n}\sum_{k=1}^n (X_k - \overline{X}_n)^2$ est un estimateur naturel de $V(X_1)$.
+
 :::
 
 # Biais
 
 ::: {.definition title="(Biais)"}
+
 Le **biais** de $T_n$ comme estimateur de $\theta$ est :
 $$b_n(\theta) = E(T_n) - \theta$$
+
 :::
 
 ::: {.definition title="(Estimateur sans biais)"}
+
 $T_n$ est **sans biais** si $E(T_n) = \theta$ pour tout $\theta$.
+
 :::
 
 ::: {.proposition title="(Exemples)"}
@@ -62,25 +72,34 @@ $T_n$ est **sans biais** si $E(T_n) = \theta$ pour tout $\theta$.
 2. $S_n^2 = \frac{1}{n}\sum (X_k - \overline{X}_n)^2$ est un estimateur **biaisé** de $V(X_1)$, avec :
 $$E(S_n^2) = \frac{n-1}{n} V(X_1)$$
 3. $s_n^2 = \frac{1}{n-1}\sum (X_k - \overline{X}_n)^2$ est un estimateur **sans biais** de $V(X_1)$.
+
 :::
 
 # Risque quadratique
 
 ::: {.definition title="(Risque quadratique)"}
+
 Le **risque quadratique** de $T_n$ comme estimateur de $\theta$ est :
 $$R_n(\theta) = E((T_n - \theta)^2)$$
+
 :::
 
 ::: {.proposition title="(Décomposition)"}
+
 $$R_n(\theta) = V(T_n) + (b_n(\theta))^2$$
+
 :::
 
 ::: {.definition title="(Convergence)"}
+
 $T_n$ est un estimateur **convergent** de $\theta$ si $T_n \xrightarrow{P} \theta$.
+
 :::
 
 ::: {.proposition}
+
 Si $R_n(\theta) \to 0$, alors $T_n$ est convergent vers $\theta$.
+
 :::
 
 # Intervalle de confiance
@@ -88,74 +107,97 @@ Si $R_n(\theta) \to 0$, alors $T_n$ est convergent vers $\theta$.
 ## Définition
 
 ::: {.definition title="(Intervalle de confiance)"}
+
 Un **intervalle de confiance** de niveau $1 - \alpha$ pour $\theta$ est un intervalle aléatoire $[T_n^-, T_n^+]$ tel que :
 $$P(T_n^- \leq \theta \leq T_n^+) \geq 1 - \alpha$$
+
 :::
 
 ## Intervalle de confiance pour une moyenne
 
 ::: {.proposition title="(Cas gaussien)"}
+
 Soit $(X_1, \ldots, X_n)$ un $n$-échantillon de variables indépendantes suivant $\mathcal{N}(\mu, \sigma^2)$ avec $\sigma$ connu. Alors :
 $$\left[\overline{X}_n - \frac{\sigma z_{\alpha/2}}{\sqrt{n}}, \overline{X}_n + \frac{\sigma z_{\alpha/2}}{\sqrt{n}}\right]$$
 est un intervalle de confiance de niveau $1 - \alpha$ pour $\mu$, où $z_{\alpha/2}$ est le quantile de la loi normale centrée réduite :
 $$P(|Z| \leq z_{\alpha/2}) = 1 - \alpha \quad \text{avec} \quad Z \hookrightarrow \mathcal{N}(0,1)$$
+
 :::
 
 ::: {.example title="(Valeurs usuelles)"}
 
 - Pour $1 - \alpha = 0{,}95$ : $z_{\alpha/2} \approx 1{,}96$.
 - Pour $1 - \alpha = 0{,}99$ : $z_{\alpha/2} \approx 2{,}58$.
+
 :::
 
 ## Intervalle de confiance pour une proportion
 
 ::: {.proposition title="(Cas binomial)"}
+
 Soit $X \hookrightarrow \mathcal{B}(n, p)$ avec $n$ grand. Alors :
 $$\left[\frac{X}{n} - z_{\alpha/2}\sqrt{\frac{(X/n)(1 - X/n)}{n}}, \frac{X}{n} + z_{\alpha/2}\sqrt{\frac{(X/n)(1 - X/n)}{n}}\right]$$
 est un intervalle de confiance approché de niveau $1 - \alpha$ pour $p$.
+
 :::
 
 # Exercices
 
 ::: {.exercise}
+
 Soit $(X_1, \ldots, X_n)$ un $n$-échantillon de variables indépendantes suivant $\mathcal{E}(\lambda)$.
 
 1. Montrer que $\overline{X}_n$ est un estimateur sans biais de $1/\lambda$.
 2. Calculer le risque quadratique de $\overline{X}_n$ comme estimateur de $1/\lambda$.
+
 :::
 
 ::: {.exercise}
+
 Soit $(X_1, \ldots, X_n)$ un $n$-échantillon de variables indépendantes de moyenne $\mu$ et de variance $\sigma^2$. Montrer que $\overline{X}_n$ est un estimateur sans biais et convergent de $\mu$.
+
 :::
 
 ::: {.exercise}
+
 Soit $(X_1, \ldots, X_n)$ un $n$-échantillon de variables indépendantes suivant $\mathcal{N}(\mu, \sigma^2)$ avec $\sigma = 2$ connu. On observe $\overline{X}_{100} = 10$.
 
 1. Déterminer un intervalle de confiance de niveau $95\%$ pour $\mu$.
 2. Déterminer un intervalle de confiance de niveau $99\%$ pour $\mu$.
+
 :::
 
 ::: {.exercise}
+
 Soit $X \hookrightarrow \mathcal{B}(100, p)$. On observe $X = 45$. Déterminer un intervalle de confiance de niveau $95\%$ pour $p$.
+
 :::
 
 ::: {.exercise}
+
 Montrer que $s_n^2 = \frac{1}{n-1}\sum_{k=1}^n (X_k - \overline{X}_n)^2$ est un estimateur sans biais de $V(X_1)$.
+
 :::
 
 ::: {.exercise}
+
 Soit $T_n$ un estimateur sans biais de $\theta$ avec $V(T_n) \to 0$. Montrer que $T_n$ est convergent vers $\theta$.
+
 :::
 
 ::: {.exercise}
+
 Soit $(X_1, \ldots, X_n)$ un $n$-échantillon de variables indépendantes suivant $\mathcal{U}([0, \theta])$.
 
 1. Montrer que $\overline{X}_n$ est un estimateur sans biais de $\theta/2$.
 2. En déduire un estimateur sans biais de $\theta$.
+
 :::
 
 ::: {.exercise}
+
 Soit $(X_1, \ldots, X_n)$ un $n$-échantillon de variables indépendantes de moyenne $\mu$ et de variance $\sigma^2$. Calculer $E(S_n^2)$ où $S_n^2 = \frac{1}{n}\sum (X_k - \overline{X}_n)^2$.
+
 :::
 
 # Document en PDF {-}
@@ -165,7 +207,9 @@ Soit $(X_1, \ldots, X_n)$ un $n$-échantillon de variables indépendantes de moy
 ## Navigation {-}
 
 ::: {.chap-nav}
+
 [Chapitre 09 : Convergences et approximations](ecs2-chap09.qmd){.prev}
 [Menu ECS2](ecs2.qmd){.home}
 [Chapitre 11 : Fonctions de plusieurs variables et optimisation](ecs2-chap11.qmd){.next}
+
 :::

@@ -19,24 +19,29 @@ filters:
 **ECT2 (2e année) — TD du Chapitre 04.** Lois marginales, lois conditionnelles, indépendance, covariance, coefficient de corrélation linéaire.
 
 ::: {.exercise}
+
 On lance deux dés équilibrés. Soit $X$ le résultat du premier dé et $Y$ le résultat du second dé.
 
 1. Donner la loi conjointe de $(X, Y)$.
 2. Donner les lois marginales de $X$ et $Y$.
 3. $X$ et $Y$ sont-elles indépendantes ?
 4. Calculer $E(X)$, $E(Y)$, $V(X)$, $V(Y)$ et $\operatorname{Cov}(X, Y)$.
+
 :::
 
 ::: {.exercise}
+
 On lance une pièce équilibrée deux fois. Soit $X$ le nombre de « pile » obtenus et $Y$ le nombre de « face » obtenus.
 
 1. Donner la loi conjointe de $(X, Y)$.
 2. Donner les lois marginales de $X$ et $Y$.
 3. $X$ et $Y$ sont-elles indépendantes ?
 4. Calculer $E(X)$, $E(Y)$, $V(X)$, $V(Y)$, $\operatorname{Cov}(X, Y)$ et $\rho(X, Y)$.
+
 :::
 
 ::: {.exercise}
+
 On considère le tableau de loi conjointe suivant :
 
 | $X \setminus Y$ | $0$ | $1$ | $2$ |
@@ -48,9 +53,11 @@ On considère le tableau de loi conjointe suivant :
 2. Donner les lois marginales de $X$ et $Y$.
 3. $X$ et $Y$ sont-elles indépendantes ?
 4. Calculer $E(X)$, $E(Y)$, $V(X)$, $V(Y)$, $\operatorname{Cov}(X, Y)$ et $\rho(X, Y)$.
+
 :::
 
 ::: {.exercise}
+
 On considère le tableau de loi conjointe suivant :
 
 | $X \setminus Y$ | $0$ | $1$ |
@@ -60,27 +67,33 @@ On considère le tableau de loi conjointe suivant :
 
 1. Quelle condition sur $a$, $b$, $c$, $d$ pour que ce tableau définisse une loi de probabilité ?
 2. Quelle condition supplémentaire pour que $X$ et $Y$ soient indépendantes ?
+
 :::
 
 ::: {.exercise}
+
 On lance trois pièces équilibrées. Soit $X$ le nombre de « pile » et $Y$ le nombre de « face ».
 
 1. Donner la loi conjointe de $(X, Y)$.
 2. Donner les lois marginales de $X$ et $Y$.
 3. $X$ et $Y$ sont-elles indépendantes ? Justifier.
 4. Calculer $E(X)$, $E(Y)$, $V(X)$, $V(Y)$, $\operatorname{Cov}(X, Y)$.
+
 :::
 
 ::: {.exercise}
+
 On tire une boule dans une urne contenant 3 boules rouges et 2 boules vertes, puis une seconde boule sans remise. Soit $X$ l'indicateur de « la première boule est rouge » et $Y$ l'indicateur de « la seconde boule est rouge ».
 
 1. Donner la loi conjointe de $(X, Y)$.
 2. Donner les lois marginales de $X$ et $Y$.
 3. $X$ et $Y$ sont-elles indépendantes ?
 4. Calculer $E(X)$, $E(Y)$, $\operatorname{Cov}(X, Y)$.
+
 :::
 
 ::: {.exercise}
+
 Soit $(X, Y)$ un couple de variables aléatoires tel que :
 
 - $X$ suit une loi de Bernoulli de paramètre $\frac{1}{2}$
@@ -90,18 +103,22 @@ Soit $(X, Y)$ un couple de variables aléatoires tel que :
 1. Donner la loi conjointe de $(X, Y)$.
 2. $X$ et $Y$ sont-elles indépendantes ?
 3. Calculer $\operatorname{Cov}(X, Y)$ et $\rho(X, Y)$.
+
 :::
 
 ::: {.exercise}
+
 On lance un dé équilibré. Soit $X$ le résultat obtenu et $Y$ l'indicateur de « le résultat est pair ».
 
 1. Donner la loi conjointe de $(X, Y)$.
 2. Donner les lois marginales de $X$ et $Y$.
 3. $X$ et $Y$ sont-elles indépendantes ?
 4. Calculer $\operatorname{Cov}(X, Y)$.
+
 :::
 
 ::: {.exercise}
+
 On considère le tableau de loi conjointe suivant :
 
 | $X \setminus Y$ | $-1$ | $0$ | $1$ |
@@ -114,48 +131,60 @@ On considère le tableau de loi conjointe suivant :
 2. Donner les lois marginales de $X$ et $Y$.
 3. $X$ et $Y$ sont-elles indépendantes ?
 4. Calculer $E(X)$, $E(Y)$, $V(X)$, $V(Y)$, $\operatorname{Cov}(X, Y)$ et $\rho(X, Y)$.
+
 :::
 
 ::: {.exercise}
+
 On lance deux pièces équilibrées. Soit $X$ le nombre de « pile » et $Y$ l'indicateur de « les deux pièces donnent le même résultat ».
 
 1. Donner la loi conjointe de $(X, Y)$.
 2. Donner les lois marginales de $X$ et $Y$.
 3. $X$ et $Y$ sont-elles indépendantes ?
 4. Calculer $\operatorname{Cov}(X, Y)$ et $\rho(X, Y)$.
+
 :::
 
 ::: {.exercise}
+
 On considère deux variables aléatoires $X$ et $Y$ telles que $E(X) = 2$, $E(Y) = 3$, $V(X) = 4$, $V(Y) = 9$ et $\operatorname{Cov}(X, Y) = 3$.
 
 1. Calculer $\rho(X, Y)$.
 2. Calculer $V(X + Y)$ et $V(X - Y)$.
 3. Calculer $V(2X + 3Y)$.
 4. $X$ et $Y$ sont-elles indépendantes ? Justifier.
+
 :::
 
 ::: {.exercise}
+
 On lance un dé équilibré deux fois. Soit $X$ la somme des deux résultats et $Y$ la valeur absolue de la différence des deux résultats.
 
 1. Donner les lois marginales de $X$ et $Y$.
 2. $X$ et $Y$ sont-elles indépendantes ?
 3. Calculer $E(X)$, $E(Y)$, $\operatorname{Cov}(X, Y)$.
+
 :::
 
 ::: {.exercise}
+
 On tire deux boules dans une urne contenant 2 boules rouges et 3 boules vertes, avec remise. Soit $X$ l'indicateur de « la première boule est rouge » et $Y$ l'indicateur de « la seconde boule est rouge ».
 
 1. Donner la loi conjointe de $(X, Y)$.
 2. $X$ et $Y$ sont-elles indépendantes ?
 3. Calculer $E(X)$, $E(Y)$, $\operatorname{Cov}(X, Y)$.
+
 :::
 
 # Cours {-}
 [**Chapitre 04 : Couples de variables aléatoires discrètes finies**](../cours/ect2-chap04.qmd)
 
 # Navigation {-}
+
 ::: {.chap-nav}
+
 [TD 03 : Sommes finies et séries numériques](ect2-chap03.qmd){.prev}
 [Menu ECT2](ect2.qmd){.home}
 [TD 05 : Variables aléatoires discrètes infinies](ect2-chap05.qmd){.next}
+
 :::

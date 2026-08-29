@@ -27,77 +27,103 @@ Ce chapitre a été réalisé conformément au programme marocain de mathématiq
 # Intégrales généralisées
 
 ::: {.definition title="(Continuité par morceaux sur $I$)"}
+
 Soit $f\in\mathcal{F}(I,\mathbb{K})$. La fonction $f$ est **continue par morceaux sur $I$** si pour tout $(x,y)\in I^2$ tel que $x<y$, la fonction $f$ est continue par morceaux sur $[x,y]$.
+
 :::
 
 ## Définition de la convergence
 
 ::: {.definition title="(Convergence)"}
+
 - **Si $I=[a,b[$.** L'intégrale généralisée $\int_a^b f(t)\,dt$ **converge** si $x\mapsto\int_a^x f(t)\,dt$ possède une limite finie lorsque $x$ tend vers $b$.
 - **Si $I=]a,b]$.** L'intégrale généralisée $\int_a^b f(t)\,dt$ **converge** si $x\mapsto\int_x^b f(t)\,dt$ possède une limite finie lorsque $x$ tend vers $a$.
 - **Si $I=]a,b[$.** L'intégrale généralisée $\int_a^b f(t)\,dt$ **converge** s'il existe $c\in]a,b[$ tel que $\int_a^c f(t)\,dt$ et $\int_c^b f(t)\,dt$ soient convergentes.
 
 Dans tous les cas, si l'intégrale ne converge pas, elle **diverge**.
+
 :::
 
 ::: {.exercise}
+
 1. Étudier la convergence de $\int_0^1\frac{dt}{1+t^2}$ et $\int_0^1\frac{dt}{1+t}$.
 2. Montrer que l'intégrale $\int_0^{+\infty}\cos(t)\,dt$ est divergente.
 3. Étudier la convergence de $\int_0^1\ln(t)\,dt$. Que constatez-vous ?
 4. Soit $f$ la fonction définie, pour tout entier naturel $n$ non nul, par $f(n)=n$, qui est affine sur $\left[n-\frac{1}{n^3},n+\frac{1}{n^3}\right]$ et qui vaut $0$ sinon. Représenter graphiquement $f$ puis montrer que $\int_{\mathbb{R}^+}f$ converge. Que constatez-vous ?
+
 :::
 
 ::: {.theorem title="(Intégrales de référence)"}
+
 1. **Intégrales de Riemann sur $[1,+\infty[$.** $\int_1^{+\infty}\frac{dt}{t^\alpha}$ converge si et seulement si $\alpha>1$. Alors, $\int_1^{+\infty}\frac{dt}{t^\alpha}=\frac{1}{\alpha-1}$.
 2. **Intégrales de Riemann sur $]0,1]$.** $\int_0^1\frac{dt}{t^\alpha}$ converge si et seulement si $\alpha<1$. Alors, $\int_0^1\frac{dt}{t^\alpha}=\frac{1}{1-\alpha}$.
 3. **Fonction exponentielle.** $\int_0^{+\infty}e^{-\alpha t}\,dt$ converge si et seulement si $\alpha>0$. Alors, $\int_0^{+\infty}e^{-\alpha t}\,dt=\frac{1}{\alpha}$.
 4. **Fonction logarithme.** $\int_0^1\ln(t)\,dt$ converge. De plus, $\int_0^1\ln(t)\,dt=-1$.
+
 :::
 
 ::: {.exercise}
+
 1. Montrer que $\int_0^{+\infty}\frac{dx}{1+x^\alpha}$ converge si et seulement si $\alpha>1$.
 2. Montrer que, si $f$ est continue par morceaux, positive et décroissante sur $\mathbb{R}^+$, alors $\int_0^{+\infty}f(x)\,dx$ converge $\iff$ $\sum f(n)$ converge.
+
 :::
 
 ## Propriétés
 
 ::: {.proposition title="(Intégrale faussement impropre)"}
+
 Soit $f$ une fonction continue par morceaux sur le segment $[a,b]$. Alors, les intégrales de $f$ sur $[a,b]$, $]a,b]$, $]a,b[$ et $[a,b[$ sont égales.
+
 :::
 
 ::: {.exercise}
+
 Montrer que $\int_0^1 t\ln(t)\,dt$ est convergente.
+
 :::
 
 ::: {.proposition title="(Linéarité)"}
+
 Soit $\lambda\in\mathbb{K}$. Si $\int_a^b f(t)\,dt$ et $\int_a^b g(t)\,dt$ convergent, alors $\int_a^b(f(t)+\lambda g(t))\,dt$ converge et
 $$\int_a^b(f(t)+\lambda g(t))\,dt=\int_a^b f(t)\,dt+\lambda\int_a^b g(t)\,dt.$$
+
 :::
 
 ::: {.proposition title="(Relation de Chasles)"}
+
 On suppose que $\int_a^b f(t)\,dt$ converge et $c\in]a,b[$. Alors $\int_a^c f(t)\,dt$ et $\int_c^b f(t)\,dt$ convergent et
 $$\int_a^b f(t)\,dt=\int_a^c f(t)\,dt+\int_c^b f(t)\,dt.$$
+
 :::
 
 ## Fonctions à valeurs réelles
 
 ::: {.proposition title="(Positivité, croissance)"}
+
 On suppose que $\int_a^b f(t)\,dt$ et $\int_a^b g(t)\,dt$ convergent.
 
 1. **Positivité :** si pour tout $x\in I$, $f(x)\geq 0$, alors $\int_a^b f(t)\,dt\geq 0$.
 2. **Croissance :** si pour tout $x\in I$, $f(x)\leq g(x)$, alors $\int_a^b f(t)\,dt\leq\int_a^b g(t)\,dt$.
+
 :::
 
 ::: {.proposition title="(Fonctions à valeurs positives)"}
+
 Si $f$ est à valeurs positives sur $[a,b[$, alors $\int_a^b f(t)\,dt$ converge si et seulement si $x\mapsto\int_a^x f(t)\,dt$ est majorée sur $[a,b[$.
+
 :::
 
 ::: {.proposition title="(Domination locale)"}
+
 Soient $f,g$ deux fonctions continues de $[a,b[$ dans $\mathbb{R}^+$. S'il existe un réel $c$ tel que $\forall x\in[c,b[,\ 0\leq f(x)\leq g(x)$ et $\int_c^b g(t)\,dt$ converge, alors $\int_c^b f(t)\,dt$ converge.
+
 :::
 
 ::: {.corollary}
+
 Soient $f,g$ deux fonctions continues de $[a,b[$ dans $\mathbb{R}^+$. Si $f(t)=O_b(g(t))$ et $\int_c^b g(t)\,dt$ converge, alors $\int_c^b f(t)\,dt$ converge.
+
 :::
 
 # Absolue convergence, fonctions intégrables
@@ -105,106 +131,142 @@ Soient $f,g$ deux fonctions continues de $[a,b[$ dans $\mathbb{R}^+$. Si $f(t)=O
 ## Définition
 
 ::: {.definition title="(Convergence absolue)"}
+
 L'intégrale $\int_a^b f(t)\,dt$ est **absolument convergente** si l'intégrale $\int_a^b\|f(t)\|\,dt$ est convergente.
+
 :::
 
 ::: {.exercise}
+
 Soit $\alpha>1$. Montrer que l'intégrale $\int_0^{+\infty}\frac{\sin(x)}{1+x^\alpha}\,dt$ est absolument convergente.
+
 :::
 
 ::: {.theorem title="(Absolue convergence ⇒ convergence, intégrabilité)"}
+
 Si l'intégrale $\int_a^b f(t)\,dt$ est absolument convergente, alors elle est convergente. La fonction $f$ est alors **intégrable** sur $I$. La valeur de son intégrale sera notée $\int_a^b f(t)\,dt$ ou $\int_I f(t)\,dt$ ou $\int_I f$.
+
 :::
 
 ::: {.theorem title="(Inégalité triangulaire)"}
+
 Si $\int_a^b f(t)\,dt$ est absolument convergente, alors
 $$\left|\int_a^b f(t)\,dt\right|\leq\int_a^b\|f(t)\|\,dt.$$
+
 :::
 
 ::: {.theorem}
+
 Soit $f : I\to\mathbb{K}$ une fonction continue et intégrable sur $I$. Si $\int_I\|f\|=0$, alors $f\equiv 0$ sur $I$.
+
 :::
 
 ::: {.theorem title="(Théorème de comparaison)"}
+
 On suppose que $I=[a,b[$.
 
 1. Si $\|f\|\leq\|g\|$ sur $I$ et $g$ est intégrable sur $I$, alors $f$ est intégrable sur $I$.
 2. Si $f=O_b(g)$ et $g$ est intégrable sur $I$, alors $f$ est intégrable sur $I$.
 3. Si $f(t)\sim_b g(t)$, alors $f$ est intégrable sur $I$ si et seulement si $g$ est intégrable sur $I$.
+
 :::
 
 ::: {.exercise}
+
 Étudier l'intégrabilité des fonctions suivantes :
 
 1. $t\mapsto\frac{\sin(t)}{t^2}$ sur $[1,+\infty[$ ;
 2. $t\mapsto t\cos(t)$ et $-1$ sur $]0,+\infty[$ ;
 3. $t\mapsto\frac{1}{1-t^2}$ sur $[0,1[$.
+
 :::
 
 ## Méthodes de calculs
 
 ::: {.theorem title="(Primitive)"}
+
 Soit $f$ une fonction continue sur $[a,b[$ possédant une primitive $F$. Alors $\int_a^b f(t)\,dt$ converge si et seulement si $F$ possède une limite finie en $b$. Si ces propriétés sont vérifiées,
 $$\int_a^b f(t)\,dt=\lim_{x\to b^-}F(x)-F(a).$$
+
 :::
 
 ::: {.exercise}
+
 Reprendre les exemples des intégrales de Riemann.
+
 :::
 
 ::: {.theorem title="(Intégration par parties)"}
+
 Soient $f$ et $g$ deux fonctions de classe $\mathcal{C}^1$ sur $I$. Si la fonction $fg$ a une limite finie en $a$ et en $b$, alors les intégrales $\int_a^b f'(t)g(t)\,dt$ et $\int_a^b f(t)g'(t)\,dt$ sont de même nature. Si ces quantités sont convergentes, en notant $[f(t)g(t)]_a^b=\lim_{x\to b^-}(f(x)g(x))-\lim_{x\to a^+}(f(x)g(x))$, on obtient la relation
 $$\int_a^b f'(t)g(t)\,dt=[f(t)g(t)]_a^b-\int_a^b f(t)g'(t)\,dt.$$
+
 :::
 
 ::: {.exercise title="(Fonction Gamma d'Euler)"}
+
 Pour tout nombre réel $x$, on pose, sous réserve d'existence,
 $$\Gamma(x)=\int_0^{+\infty}t^{x-1}e^{-t}\,dt.$$
 1. Déterminer le domaine de définition de $\Gamma$.
 2. Montrer que pour tout réel $x$ strictement positif, $\Gamma(x+1)=x\Gamma(x)$.
 3. Pour tout entier naturel $n$, déterminer $\Gamma(n+1)$.
+
 :::
 
 ::: {.theorem title="(Changement de variable)"}
+
 Soit $f : ]a,b[\to\mathbb{K}$ une fonction continue par morceaux et $\varphi$ telle que : (i) $\varphi(]\alpha,\beta[)=]a,b[$ ; (ii) $\varphi$ est de classe $\mathcal{C}^1$ sur $]\alpha,\beta[$ ; (iii) $\varphi$ est strictement monotone.
 
 Alors, les intégrales $\int_a^b f(t)\,dt$ et $\int_\alpha^\beta f(\varphi(u))|\varphi'(u)|\,du$ sont de même nature. Si ces quantités sont convergentes,
 $$\int_a^b f(t)\,dt=\int_\alpha^\beta f(\varphi(u))\,|\varphi'(u)|\,du.$$
+
 :::
 
 ::: {.exercise}
+
 Calculer, si $a<b$ :
 
 1. $\int_0^{\pi/2}\frac{dt}{1+\cos^2(t)}$ ;
 2. $\int_a^b\frac{dt}{\sqrt{(t-a)(b-t)}}$.
+
 :::
 
 ## Espaces fonctionnels
 
 ::: {.definition title="($L^1$, $L^2$)"}
+
 1. L'ensemble des fonctions continues par morceaux **intégrables** sur $I$, à valeurs dans $\mathbb{K}$, est noté $L^1(I,\mathbb{K})$.
 2. L'ensemble des fonctions continues par morceaux sur $I$, à valeurs dans $\mathbb{K}$, de **carré intégrable**, i.e. pour lesquelles $\|f\|^2$ est intégrable sur $I$, est noté $L^2(I,\mathbb{K})$.
+
 :::
 
 ::: {.exercise}
+
 1. Déterminer une fonction $f$ qui appartienne à $L^1(]0,1],\mathbb{R})$ mais pas à $L^2(]0,1],\mathbb{R})$.
 2. Déterminer une fonction $f$ qui appartienne à $L^2([1,+\infty[,\mathbb{R})$ mais pas à $L^1([1,+\infty[,\mathbb{R})$.
+
 :::
 
 ::: {.theorem title="(Structure d'espace vectoriel)"}
+
 $L^1(I,\mathbb{K})$ est un espace vectoriel.
+
 :::
 
 ::: {.proposition title="(Structure préhilbertienne)"}
+
 1. Si $f$ et $g$ appartiennent à $L^2(I,\mathbb{K})$, leur produit $f\cdot g$ appartient à $L^1(I,\mathbb{K})$.
 2. L'ensemble $L^2(I,\mathbb{K})$ est un $\mathbb{K}$-espace vectoriel.
 3. **Inégalité de Cauchy-Schwarz.** Pour tout $(f,g)\in L^2(I,\mathbb{R})^2$,
 $$\left|\int_I fg\right|\leq\sqrt{\int_I\|f\|^2}\cdot\sqrt{\int_I\|g\|^2}.$$
 De plus, si $f$ et $g$ sont continues, $(f,g)\mapsto\int_I fg$ est un produit scalaire. La norme associée est notée $\|f\|_2=\left(\int_I\|f\|^2\right)^{1/2}$.
+
 :::
 
 ::: {.exercise}
+
 Montrer que $L^2([0,1],\mathbb{R})\subset L^1([0,1],\mathbb{R})$.
+
 :::
 
 # Plan d'étude
@@ -222,6 +284,7 @@ On suppose qu'il faille étudier l'intégrale $\int_I f(t)\,dt$.
 # Autour de l'intégrale de Dirichlet
 
 ::: {.exercise}
+
 1. Montrer que $\int_0^1\frac{\sin(t)}{t}\,dt$ est convergente.
 2. Deux méthodes :
    - a) Montrer que la série de terme général $\int_{n\pi}^{(n+1)\pi}\frac{\sin(t)}{t}\,dt$ est convergente. En déduire que $\int_1^{+\infty}\frac{\sin(t)}{t}\,dt$ converge.
@@ -230,6 +293,7 @@ On suppose qu'il faille étudier l'intégrale $\int_I f(t)\,dt$.
 4. Pour tout entier naturel $n$, montrer que $\int_{n\pi}^{(n+1)\pi}\frac{\|\sin(t)\|}{t}\,dt>\frac{2}{(n+1)\pi}$.
 5. En déduire que $t\mapsto\frac{\sin(t)}{t}$ n'est pas intégrable sur $\mathbb{R}^+$.
 6. Soit $x>0$. Appliquer la formule d'intégration par parties avec $u : t\mapsto-\cos(t)$ et $v : t\mapsto\frac{1}{t}$ sur l'intervalle $[x,2\pi]$. Que dire lorsque $x\to 0$ ?
+
 :::
 
 # Document en PDF {-}
@@ -239,9 +303,11 @@ On suppose qu'il faille étudier l'intégrale $\int_I f(t)\,dt$.
 ## Navigation {-}
 
 ::: {.chap-nav}
+
 [Chapitre 21 : Intégration sur un segment](mpsi-chap21.qmd){.prev}
 
 [Menu MPSI](mpsi.qmd){.home}
 
 [Chapitre 23 : Séries numériques](mpsi-chap23.qmd){.next}
+
 :::

@@ -32,66 +32,92 @@ Ce chapitre a été réalisé conformément au programme marocain de mathématiq
 # Limites
 
 ::: {.definition title="(Limite en un point)"}
+
 $\lim_{x \to a} f(x) = \ell$ signifie : $\forall \varepsilon > 0,\; \exists \delta > 0,\; |x-a| < \delta \Rightarrow |f(x) - \ell| < \varepsilon$.
+
 :::
 
 ::: {.proposition title="(Opérations)"}
+
 Si $\lim f = \ell$ et $\lim g = m$, alors $\lim(f+g) = \ell+m$, $\lim(fg) = \ell m$, $\lim(f/g) = \ell/m$ si $m \neq 0$.
+
 :::
 
 ::: {.theorem title="(Théorème des gendarmes)"}
+
 Si $g(x) \leq f(x) \leq h(x)$ au voisinage de $a$ et $\lim g = \lim h = \ell$, alors $\lim f = \ell$.
+
 :::
 
 # Continuité
 
 ::: {.definition title="(Continuité)"}
+
 $f$ est **continue en** $a$ si $\lim_{x \to a} f(x) = f(a)$.
+
 :::
 
 ::: {.proposition title="(Opérations sur les fonctions continues)"}
+
 La somme, le produit, le quotient (si dénominateur non nul) et la composition de fonctions continues sont continus.
+
 :::
 
 ## Théorème des valeurs intermédiaires
 
 ::: {.theorem title="(TVI)"}
+
 Soit $f : [a,b] \to \mathbb{R}$ continue. Pour tout $y$ compris entre $f(a)$ et $f(b)$, il existe $c \in [a,b]$ tel que $f(c) = y$.
+
 :::
 
 ::: {.corollary title="(Théorème des bornes atteintes)"}
+
 Toute fonction continue sur un segment $[a,b]$ est bornée et atteint ses bornes.
+
 :::
 
 ::: {.theorem title="(Continuité et monotonie stricte)"}
+
 Si $f : I \to \mathbb{R}$ est continue et strictement monotone sur un intervalle $I$, alors $f$ réalise une bijection de $I$ sur $f(I)$ et $f^{-1}$ est continue et strictement monotone.
+
 :::
 
 # Dérivabilité
 
 ::: {.definition title="(Dérivabilité)"}
+
 $f$ est **dérivable en** $a$ si $\lim_{h \to 0} \frac{f(a+h) - f(a)}{h}$ existe. On note $f'(a)$ cette limite.
+
 :::
 
 ::: {.proposition title="(Dérivabilité implique continuité)"}
+
 Si $f$ est dérivable en $a$, alors $f$ est continue en $a$.
+
 :::
 
 ::: {.proposition title="(Opérations)"}
+
 $(f+g)' = f' + g'$, $(fg)' = f'g + fg'$, $\left(\frac{f}{g}\right)' = \frac{f'g - fg'}{g^2}$, $(g \circ f)' = (g' \circ f) \cdot f'$.
+
 :::
 
 # Théorème de Rolle
 
 ::: {.theorem title="(Théorème de Rolle)"}
+
 Soit $f : [a,b] \to \mathbb{R}$ continue sur $[a,b]$, dérivable sur $]a,b[$ avec $f(a) = f(b)$. Alors il existe $c \in ]a,b[$ tel que $f'(c) = 0$.
+
 :::
 
 # Accroissements finis
 
 ::: {.theorem title="(Théorème des accroissements finis)"}
+
 Soit $f : [a,b] \to \mathbb{R}$ continue sur $[a,b]$, dérivable sur $]a,b[$. Alors il existe $c \in ]a,b[$ tel que :
 $$f(b) - f(a) = (b-a)f'(c)$$
+
 :::
 
 ::: {.proposition title="(Lien dérivée et monotonie)"}
@@ -99,59 +125,82 @@ $$f(b) - f(a) = (b-a)f'(c)$$
 - $f' \geq 0$ sur $I \iff$ $f$ croissante sur $I$.
 - $f' > 0$ sur $I \implies$ $f$ strictement croissante sur $I$.
 - $f' = 0$ sur $I \iff$ $f$ constante sur $I$.
+
 :::
 
 # Convexité
 
 ::: {.definition title="(Convexité)"}
+
 $f : I \to \mathbb{R}$ est **convexe** si pour tous $x, y \in I$ et $\lambda \in [0,1]$ :
 $$f(\lambda x + (1-\lambda)y) \leq \lambda f(x) + (1-\lambda)f(y)$$
+
 :::
 
 ::: {.theorem title="(Critère de convexité)"}
+
 Si $f$ est de classe $\mathcal{C}^2$ sur $I$, alors $f$ est convexe sur $I$ si et seulement si $f'' \geq 0$ sur $I$.
+
 :::
 
 ::: {.definition title="(Point d'inflexion)"}
+
 $a$ est un **point d'inflexion** de $f$ si $f''(a) = 0$ et $f''$ change de signe en $a$.
+
 :::
 
 # Exercices
 
 ::: {.exercise}
+
 Calculer les limites suivantes :
 
 1. $\lim_{x \to 0} \frac{e^x - 1}{x}$
 2. $\lim_{x \to +\infty} \frac{\ln x}{x}$
 3. $\lim_{x \to +\infty} \frac{e^x}{x^2}$
+
 :::
 
 ::: {.exercise}
+
 Étudier les variations de $f(x) = x^3 - 3x + 1$ et déterminer ses extremums.
+
 :::
 
 ::: {.exercise}
+
 Montrer que l'équation $x^3 + x - 1 = 0$ admet une unique solution réelle.
+
 :::
 
 ::: {.exercise}
+
 Montrer que $e^x \geq 1 + x$ pour tout $x \in \mathbb{R}$.
+
 :::
 
 ::: {.exercise}
+
 Étudier la convexité de $f(x) = x^2 e^{-x}$.
+
 :::
 
 ::: {.exercise}
+
 Soit $f : [0,1] \to \mathbb{R}$ continue avec $f(0) = 0$ et $f(1) = 1$. Montrer qu'il existe $c \in ]0,1[$ tel que $f(c) = c$.
+
 :::
 
 ::: {.exercise}
+
 Soit $f : \mathbb{R} \to \mathbb{R}$ continue, $2$-périodique, avec $f(0) = 0$ et $f(1) = 1$. Montrer qu'il existe $c \in ]0,1[$ tel que $f(c) = f(c+1)$.
+
 :::
 
 ::: {.exercise}
+
 Montrer que $\ln x \leq x - 1$ pour tout $x > 0$.
+
 :::
 
 # Document en PDF {-}
@@ -161,7 +210,9 @@ Montrer que $\ln x \leq x - 1$ pour tout $x > 0$.
 ## Navigation {-}
 
 ::: {.chap-nav}
+
 [Chapitre 04 : Suites réelles](ecs1-chap04.qmd){.prev}
 [Menu ECS1](ecs1.qmd){.home}
 [Chapitre 06 : Intégration sur un segment](ecs1-chap06.qmd){.next}
+
 :::

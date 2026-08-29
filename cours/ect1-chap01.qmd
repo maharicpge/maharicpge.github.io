@@ -34,10 +34,13 @@ Ce chapitre a été réalisé conformément au programme marocain de mathématiq
 ## Propositions et connecteurs logiques
 
 ::: {.definition title="(Proposition)"}
+
 Une **proposition** est un énoncé mathématique qui est soit vrai, soit faux. On note généralement les propositions par $P$, $Q$, $R$, etc.
+
 :::
 
 ::: {.definition title="(Connecteurs logiques)"}
+
 Soient $P$ et $Q$ deux propositions. On définit :
 
 | Connecteur | Notation | Lecture |
@@ -47,9 +50,11 @@ Soient $P$ et $Q$ deux propositions. On définit :
 | Disjonction | $P \vee Q$ | « $P$ ou $Q$ » |
 | Implication | $P \Rightarrow Q$ | « si $P$ alors $Q$ » |
 | Équivalence | $P \Leftrightarrow Q$ | « $P$ si et seulement si $Q$ » |
+
 :::
 
 ::: {.proposition title="(Tables de vérité)"}
+
 Les tables de vérité des connecteurs logiques sont :
 
 | $P$ | $Q$ | $P \wedge Q$ | $P \vee Q$ | $P \Rightarrow Q$ | $P \Leftrightarrow Q$ |
@@ -58,50 +63,64 @@ Les tables de vérité des connecteurs logiques sont :
 | V | F | F | V | F | F |
 | F | V | F | V | V | F |
 | F | F | F | F | V | V |
+
 :::
 
 ::: {.remarque}
+
 L'implication $P \Rightarrow Q$ est fausse uniquement quand $P$ est vraie et $Q$ est fausse. En particulier, si $P$ est fausse, alors $P \Rightarrow Q$ est vraie quelle que soit la valeur de $Q$.
+
 :::
 
 ::: {.proposition title="(Propriétés fondamentales)"}
+
 Pour toutes propositions $P$, $Q$, $R$ :
 
 1. $P \Rightarrow Q$ est équivalente à $(\neg Q) \Rightarrow (\neg P)$ (contraposée).
 2. $P \Leftrightarrow Q$ est équivalente à $(P \Rightarrow Q) \wedge (Q \Rightarrow P)$.
 3. $\neg(P \wedge Q)$ est équivalente à $(\neg P) \vee (\neg Q)$ (De Morgan).
 4. $\neg(P \vee Q)$ est équivalente à $(\neg P) \wedge (\neg Q)$ (De Morgan).
+
 :::
 
 ## Quantificateurs
 
 ::: {.definition title="(Quantificateurs)"}
+
 Soit $E$ un ensemble et $P(x)$ une proposition dépendant de $x \in E$.
 
 - Le **quantificateur universel** $\forall x \in E$ signifie « pour tout $x$ de $E$ ».
 - Le **quantificateur existentiel** $\exists x \in E$ signifie « il existe au moins un $x$ de $E$ ».
+
 :::
 
 ::: {.proposition title="(Négation des quantificateurs)"}
+
 $$\neg(\forall x \in E,\; P(x)) \iff \exists x \in E,\; \neg P(x)$$
 $$\neg(\exists x \in E,\; P(x)) \iff \forall x \in E,\; \neg P(x)$$
+
 :::
 
 ::: {.remarque}
+
 L'ordre des quantificateurs est important : $\forall x\; \exists y\; R(x,y)$ n'est pas équivalent à $\exists y\; \forall x\; R(x,y)$ en général.
+
 :::
 
 ## Méthodes de raisonnement
 
 ::: {.methode title="(Raisonnement par récurrence)"}
+
 Pour montrer qu'une propriété $P(n)$ est vraie pour tout $n \in \mathbb{N}$ :
 
 1. **Initialisation** : montrer que $P(n_0)$ est vraie pour un certain $n_0$.
 2. **Hérédité** : montrer que si $P(n)$ est vraie, alors $P(n+1)$ est vraie.
 3. **Conclusion** : par récurrence, $P(n)$ est vraie pour tout $n \geq n_0$.
+
 :::
 
 ::: {.example}
+
 Montrer par récurrence que pour tout $n \in \mathbb{N}^*$ : $\sum_{k=1}^n k = \frac{n(n+1)}{2}$.
 
 **Initialisation** : pour $n = 1$ : $\sum_{k=1}^1 k = 1 = \frac{1 \cdot 2}{2}$. ✓
@@ -110,30 +129,41 @@ Montrer par récurrence que pour tout $n \in \mathbb{N}^*$ : $\sum_{k=1}^n k = \
 $$\sum_{k=1}^{n+1} k = \sum_{k=1}^n k + (n+1) = \frac{n(n+1)}{2} + (n+1) = (n+1)\left(\frac{n}{2} + 1\right) = \frac{(n+1)(n+2)}{2}$$
 
 **Conclusion** : par récurrence, $\sum_{k=1}^n k = \frac{n(n+1)}{2}$ pour tout $n \in \mathbb{N}^*$.
+
 :::
 
 ::: {.methode title="(Raisonnement par contraposée)"}
+
 Pour montrer $P \Rightarrow Q$, on montre $\neg Q \Rightarrow \neg P$.
+
 :::
 
 ::: {.example}
+
 Montrer que si $n^2$ est pair, alors $n$ est pair.
 
 **Contraposée** : si $n$ est impair, alors $n^2$ est impair. Si $n = 2k+1$, alors $n^2 = 4k^2 + 4k + 1 = 2(2k^2+2k)+1$ est impair. ✓
+
 :::
 
 ::: {.methode title="(Raisonnement par l'absurde)"}
+
 Pour montrer qu'une proposition $P$ est vraie, on suppose $\neg P$ et on aboutit à une contradiction.
+
 :::
 
 ::: {.example}
+
 Montrer que $\sqrt{2} \notin \mathbb{Q}$.
 
 **Par l'absurde** : supposons $\sqrt{2} = \frac{p}{q}$ avec $p, q \in \mathbb{Z}$, $q \neq 0$ et $p \wedge q = 1$. Alors $2q^2 = p^2$, donc $2 \mid p^2$, donc $2 \mid p$. Posons $p = 2k$. Alors $2q^2 = 4k^2$, donc $q^2 = 2k^2$, donc $2 \mid q$. Contradiction avec $p \wedge q = 1$.
+
 :::
 
 ::: {.methode title="(Raisonnement par disjonction des cas)"}
+
 Pour montrer qu'une proposition $P$ est vraie, on divise en cas exhaustifs et on montre $P$ dans chaque cas.
+
 :::
 
 # Ensembles
@@ -141,14 +171,17 @@ Pour montrer qu'une proposition $P$ est vraie, on divise en cas exhaustifs et on
 ## Définitions et opérations
 
 ::: {.definition title="(Ensemble, appartenance, inclusion)"}
+
 Un **ensemble** $E$ est une collection d'objets appelés **éléments**. On note :
 
 - $x \in E$ : « $x$ appartient à $E$ ».
 - $A \subset E$ : « $A$ est inclus dans $E$ » (tout élément de $A$ est élément de $E$).
 - $\varnothing$ : l'ensemble vide.
+
 :::
 
 ::: {.definition title="(Opérations sur les ensembles)"}
+
 Soient $A$ et $B$ deux ensembles.
 
 - **Union** : $A \cup B = \{x \mid x \in A \text{ ou } x \in B\}$
@@ -156,19 +189,24 @@ Soient $A$ et $B$ deux ensembles.
 - **Différence** : $A \setminus B = \{x \mid x \in A \text{ et } x \notin B\}$
 - **Complémentaire** : $\overline{A} = E \setminus A$ (dans un ensemble $E$)
 - **Produit cartésien** : $A \times B = \{(a,b) \mid a \in A \text{ et } b \in B\}$
+
 :::
 
 ::: {.proposition title="(Propriétés des opérations)"}
+
 Pour tous ensembles $A$, $B$, $C$ :
 
 1. $A \cup (B \cap C) = (A \cup B) \cap (A \cup C)$
 2. $A \cap (B \cup C) = (A \cap B) \cup (A \cap C)$
 3. $\overline{A \cup B} = \overline{A} \cap \overline{B}$
 4. $\overline{A \cap B} = \overline{A} \cup \overline{B}$
+
 :::
 
 ::: {.definition title="(Ensemble des parties)"}
+
 L'**ensemble des parties** de $E$, noté $\mathcal{P}(E)$, est l'ensemble de tous les sous-ensembles de $E$. Si $E$ est fini de cardinal $n$, alors $\mathrm{card}(\mathcal{P}(E)) = 2^n$.
+
 :::
 
 # Applications
@@ -176,114 +214,146 @@ L'**ensemble des parties** de $E$, noté $\mathcal{P}(E)$, est l'ensemble de tou
 ## Définitions
 
 ::: {.definition title="(Application)"}
+
 Soient $E$ et $F$ deux ensembles. Une **application** $f : E \to F$ est la donnée de :
 
 - un ensemble $E$ appelé **ensemble de départ** ;
 - un ensemble $F$ appelé **ensemble d'arrivée** ;
 - une règle qui à tout $x \in E$ associe un unique élément $f(x) \in F$.
+
 :::
 
 ::: {.definition title="(Image, antécédent)"}
+
 Soit $f : E \to F$ une application.
 
 - L'**image** de $x \in E$ est $f(x) \in F$.
 - Un **antécédent** de $y \in F$ est un $x \in E$ tel que $f(x) = y$.
 - L'**image** de $A \subset E$ est $f(A) = \{f(x) \mid x \in A\}$.
 - L'**image réciproque** de $B \subset F$ est $f^{-1}(B) = \{x \in E \mid f(x) \in B\}$.
+
 :::
 
 ## Injection, surjection, bijection
 
 ::: {.definition title="(Injection)"}
+
 $f : E \to F$ est **injective** si :
 $$\forall x, x' \in E,\quad f(x) = f(x') \implies x = x'$$
 
 Autrement dit, tout élément de $F$ admet au plus un antécédent.
+
 :::
 
 ::: {.definition title="(Surjection)"}
+
 $f : E \to F$ est **surjective** si :
 $$\forall y \in F,\quad \exists x \in E,\quad f(x) = y$$
 
 Autrement dit, tout élément de $F$ admet au moins un antécédent.
+
 :::
 
 ::: {.definition title="(Bijection)"}
+
 $f : E \to F$ est **bijective** si elle est injective et surjective. Autrement dit, tout élément de $F$ admet un unique antécédent.
 
 Si $f$ est bijective, on note $f^{-1} : F \to E$ la bijection réciproque.
+
 :::
 
 ::: {.proposition title="(Propriétés des injections, surjections, bijections)"}
+
 Soient $f : E \to F$ et $g : F \to G$ deux applications.
 
 1. Si $f$ et $g$ sont injectives, alors $g \circ f$ est injective.
 2. Si $f$ et $g$ sont surjectives, alors $g \circ f$ est surjective.
 3. Si $f$ et $g$ sont bijectives, alors $g \circ f$ est bijective et $(g \circ f)^{-1} = f^{-1} \circ g^{-1}$.
+
 :::
 
 ::: {.example}
+
 Soit $f : \mathbb{R} \to \mathbb{R}$ définie par $f(x) = 2x + 1$.
 
 - **Injectivité** : $f(x) = f(x') \implies 2x+1 = 2x'+1 \implies x = x'$. ✓
 - **Surjectivité** : pour tout $y \in \mathbb{R}$, $x = \frac{y-1}{2}$ vérifie $f(x) = y$. ✓
 - Donc $f$ est bijective et $f^{-1}(y) = \frac{y-1}{2}$.
+
 :::
 
 ::: {.example}
+
 Soit $f : \mathbb{R} \to \mathbb{R}$ définie par $f(x) = x^2$.
 
 - $f$ n'est **pas injective** car $f(1) = f(-1) = 1$.
 - $f$ n'est **pas surjective** car $-1 \in \mathbb{R}$ n'a pas d'antécédent.
 - Cependant, $f : [0, +\infty[ \to [0, +\infty[$ est bijective de réciproque $x \mapsto \sqrt{x}$.
+
 :::
 
 # Exercices
 
 ::: {.exercise}
+
 Soient $P$ et $Q$ deux propositions. Montrer que $(P \Rightarrow Q) \Leftrightarrow (\neg P \vee Q)$.
+
 :::
 
 ::: {.exercise}
+
 Nier les propositions suivantes :
 
 1. $\forall x \in \mathbb{R},\; x^2 \geq 0$
 2. $\exists x \in \mathbb{R},\; x^2 = -1$
 3. $\forall \varepsilon > 0,\; \exists N \in \mathbb{N},\; \forall n \geq N,\; |u_n - \ell| < \varepsilon$
+
 :::
 
 ::: {.exercise}
+
 Montrer par récurrence que pour tout $n \in \mathbb{N}^*$ :
 
 1. $\sum_{k=1}^n k^2 = \dfrac{n(n+1)(2n+1)}{6}$
 2. $2^n > n$
+
 :::
 
 ::: {.exercise}
+
 Montrer par contraposée que si $ab$ est impair, alors $a$ et $b$ sont impairs.
+
 :::
 
 ::: {.exercise}
+
 Soit $f : \mathbb{R} \to \mathbb{R}$ définie par $f(x) = \dfrac{x}{1+|x|}$.
 
 1. Montrer que $f$ est injective.
 2. Montrer que $f$ n'est pas surjective.
 3. Montrer que $f : \mathbb{R} \to ]-1, 1[$ est bijective et déterminer $f^{-1}$.
+
 :::
 
 ::: {.exercise}
+
 Soient $A$, $B$, $C$ trois ensembles. Montrer que :
 
 1. $A \setminus (B \cup C) = (A \setminus B) \cap (A \setminus C)$
 2. $A \cap (B \setminus C) = (A \cap B) \setminus C$
+
 :::
 
 ::: {.exercise}
+
 Soit $f : E \to F$ une application. Montrer que $f$ est injective si et seulement si pour tout $A \subset E$, $f^{-1}(f(A)) = A$.
+
 :::
 
 ::: {.exercise}
+
 Soit $f : \mathbb{N} \to \mathbb{Z}$ définie par $f(n) = (-1)^n \lfloor n/2 \rfloor$. Montrer que $f$ est bijective.
+
 :::
 
 # Document en PDF {-}
@@ -293,6 +363,8 @@ Soit $f : \mathbb{N} \to \mathbb{Z}$ définie par $f(n) = (-1)^n \lfloor n/2 \rf
 ## Navigation {-}
 
 ::: {.chap-nav}
+
 [Menu ECT1](ect1.qmd){.home}
 [Chapitre 02 : Calculs algébriques dans ℝ](ect1-chap02.qmd){.next}
+
 :::

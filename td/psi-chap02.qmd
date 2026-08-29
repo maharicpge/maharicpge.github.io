@@ -19,82 +19,105 @@ filters:
 **PSI (2e année) — TD du Chapitre 02.** Éléments propres, polynôme caractéristique, endomorphismes et matrices diagonalisables, polynômes annulateurs, endomorphismes et matrices trigonalisables.
 
 ::: {.exercise}
+
 Soit $A = \begin{pmatrix} -1 & 3 & 3 \\ 3 & -1 & -3 \\ -3 & 3 & 5 \end{pmatrix}$.
 
 1. Déterminer $\chi_A$.
 2. Déterminer les valeurs propres et les sous-espaces propres.
 3. $A$ est-elle diagonalisable ?
+
 :::
 
 ::: {.exercise}
+
 Soit $A = \begin{pmatrix} 1 & 1 \\ 0 & 1 \end{pmatrix}$.
 
 1. Calculer $\chi_A$.
 2. $A$ est-elle diagonalisable ? Trigonalisable ?
 3. Déterminer le polynôme minimal de $A$.
+
 :::
 
 ::: {.exercise}
+
 Soit $u \in \mathcal{L}(E)$ avec $u^2 = u$ (projecteur). Montrer que :
 
 1. Les valeurs propres de $u$ sont dans $\{0, 1\}$.
 2. $u$ est diagonalisable.
 3. $\mathrm{tr}(u) = \mathrm{rg}(u)$.
+
 :::
 
 ::: {.exercise}
+
 Soit $A \in \mathcal{M}_n(\mathbb{K})$ diagonalisable avec $A = PDP^{-1}$. Montrer que :
 
 1. $A^k = PD^kP^{-1}$ pour tout $k \in \mathbb{N}$.
 2. Si $A$ est inversible, $A^{-1} = PD^{-1}P^{-1}$.
 3. Pour tout polynôme $Q$, $Q(A) = PQ(D)P^{-1}$.
+
 :::
 
 ::: {.exercise}
+
 Soit $A \in \mathcal{M}_n(\mathbb{C})$. Montrer que $A$ est trigonalisable si et seulement si $\chi_A$ est scindé sur $\mathbb{C}$.
+
 :::
 
 ::: {.exercise}
+
 Soit $u \in \mathcal{L}(E)$ et $\lambda$ une valeur propre de $u$. Montrer que :
 
 1. $\lambda$ est racine de tout polynôme annulateur de $u$.
 2. $\lambda$ est racine du polynôme minimal.
 3. $\lambda$ est racine de $\chi_u$.
+
 :::
 
 ::: {.exercise}
+
 Soit $A \in \mathcal{M}_n(\mathbb{K})$ et $P_A$ son polynôme minimal. Montrer que :
 
 1. $P_A$ divise $\chi_A$ (Cayley-Hamilton).
 2. $A$ est diagonalisable si et seulement si $P_A$ est scindé à racines simples.
+
 :::
 
 ::: {.exercise}
+
 Soient $A, B \in \mathcal{M}_n(\mathbb{K})$ avec $AB = BA$. Montrer que si $\lambda$ est valeur propre de $A$, alors $E_\lambda(A)$ est stable par $B$.
+
 :::
 
 ::: {.exercise}
+
 Soit $A \in \mathcal{M}_n(\mathbb{K})$ nilpotente ($A^p = 0$ pour un certain $p$). Montrer que :
 
 1. $\chi_A(X) = X^n$.
 2. $A$ est trigonalisable.
 3. $A$ est diagonalisable si et seulement si $A = 0$.
+
 :::
 
 ::: {.exercise}
+
 Soit $A = \begin{pmatrix} 1 & 1 & 0 \\ 0 & 1 & 1 \\ 0 & 0 & 1 \end{pmatrix}$.
 
 1. Déterminer le polynôme caractéristique et le polynôme minimal de $A$.
 2. $A$ est-elle diagonalisable ? Trigonalisable ?
 3. Calculer $A^n$ pour tout $n \in \mathbb{N}$.
+
 :::
 
 # Cours {-}
 [**Chapitre 02 : Réduction des endomorphismes et des matrices carrées**](../cours/psi-chap02.qmd)
 
 # Navigation {-}
+
 ::: {.chap-nav}
+
 [TD 01 : Rappels et compléments](psi-chap01.qmd){.prev}
 [Menu PSI](psi.qmd){.home}
 [TD 03 : Topologie des espaces normés](psi-chap03.qmd){.next}
+
 :::

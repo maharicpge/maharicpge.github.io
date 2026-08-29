@@ -77,6 +77,7 @@ Trois cas se présentent alors :
 - les plans se coupent en une droite et il y a une infinité de solutions.
 
 ::: {.example}
+
 1. Le système $\begin{cases} 2x+3y-4z &= 7 \\ 4x+6y-8z &= -1 \end{cases}$ n'a pas de solution. En effet, en divisant par $2$ la seconde équation, on obtient le système équivalent $\begin{cases} 2x+3y-4z &= 7 \\ 2x+3y-4z &= -\frac12 \end{cases}$. Les deux lignes sont clairement incompatibles : aucun $(x,y,z)$ ne peut vérifier à la fois $2x+3y-4z=7$ et $2x+3y-4z=-\frac12$. L'ensemble des solutions est donc $\mathcal{S}=\varnothing$.
 2. Pour le système $\begin{cases} 2x+3y-4z &= 7 \\ 4x+6y-8z &= 14 \end{cases}$, les deux équations définissent le même plan ! Le système est donc équivalent à une seule équation : $2x+3y-4z=7$. Si on réécrit cette équation sous la forme $z=\frac12 x+\frac34 y-\frac74$, alors on peut décrire l'ensemble des solutions sous la forme :
 $$\mathcal{S}=\left\{(x,y,\tfrac12 x+\tfrac34 y-\tfrac74) \mid x,y\in\mathbb{R}\right\}.$$
@@ -85,6 +86,7 @@ $$\begin{cases} 7x+2y-2z &= 1 \\ 2x+3y+2z &= 1 \end{cases} \iff \begin{cases} z 
 Pour décrire l'ensemble des solutions, on peut choisir $x$ comme paramètre :
 $$\mathcal{S}=\left\{\left(x,\,-\tfrac95 x+\tfrac25,\,\tfrac{17}{10}x-\tfrac{1}{10}\right) \mid x\in\mathbb{R}\right\}.$$
 Géométriquement : nous avons trouvé une équation paramétrique de la droite définie par l'intersection des deux plans.
+
 :::
 
 Du point de vue du nombre de solutions, nous constatons qu'il n'y a que deux possibilités : aucune solution ou une infinité de solutions. Mais les deux derniers cas ci-dessus sont néanmoins très différents géométriquement. Si on considère trois plans dans l'espace, une autre possibilité apparaît : il se peut que les trois plans s'intersectent en un seul point.
@@ -100,11 +102,13 @@ $$x=\frac{\begin{vmatrix} e & b \\ f & d \end{vmatrix}}{\begin{vmatrix} a & b \\
 Notez que le dénominateur égale le déterminant pour les deux coordonnées et est donc non nul. Pour le numérateur de la première coordonnée $x$, on remplace la première colonne par le second membre ; pour la seconde coordonnée $y$, on remplace la seconde colonne par le second membre.
 
 ::: {.example}
+
 Résolvons le système $\begin{cases} tx-2y &= 1 \\ 3x+ty &= 1 \end{cases}$ suivant la valeur du paramètre $t\in\mathbb{R}$.
 
 Le déterminant associé au système est $\begin{vmatrix} t & -2 \\ 3 & t \end{vmatrix}=t^2+6$ et ne s'annule jamais. Il existe donc une unique solution $(x,y)$ et elle vérifie :
 $$x=\frac{\begin{vmatrix} 1 & -2 \\ 1 & t \end{vmatrix}}{t^2+6}=\frac{t+2}{t^2+6}, \qquad y=\frac{\begin{vmatrix} t & 1 \\ 3 & 1 \end{vmatrix}}{t^2+6}=\frac{t-3}{t^2+6}.$$
 Pour chaque $t$, l'ensemble des solutions est $\mathcal{S}=\left\{\left(\frac{t+2}{t^2+6},\frac{t-3}{t^2+6}\right)\right\}$.
+
 :::
 
 ## Résolution par inversion de matrice
@@ -120,6 +124,7 @@ et l'unique solution $X=\begin{pmatrix} x \\ y \end{pmatrix}$ du système est do
 $$X=A^{-1}Y.$$
 
 ::: {.example}
+
 Résolvons le système $\begin{cases} x+y &= 1 \\ x+t^2y &= t \end{cases}$ suivant la valeur du paramètre $t\in\mathbb{R}$.
 
 Le déterminant du système est $\begin{vmatrix} 1 & 1 \\ 1 & t^2 \end{vmatrix}=t^2-1$.
@@ -131,12 +136,15 @@ Pour chaque $t\neq\pm 1$, l'ensemble des solutions est $\mathcal{S}=\left\{\left
 **Deuxième cas : $t=1$.** Le système s'écrit alors $\begin{cases} x+y &= 1 \\ x+y &= 1 \end{cases}$ et les deux équations sont identiques. Il y a une infinité de solutions : $\mathcal{S}=\{(x,1-x) \mid x\in\mathbb{R}\}$.
 
 **Troisième cas : $t=-1$.** Le système s'écrit $\begin{cases} x+y &= 1 \\ x+y &= -1 \end{cases}$ ; les deux équations sont clairement incompatibles et donc $\mathcal{S}=\varnothing$.
+
 :::
 
 ::: {.exercise}
+
 1. Tracer les droites d'équations $\begin{cases} x-2y &= -1 \\ -x+3y &= 3 \end{cases}$ et résoudre le système de trois façons différentes : substitution, méthode de Cramer, inverse d'une matrice. Idem avec $\begin{cases} 2x-y &= 4 \\ 3x+3y &= -5 \end{cases}$.
 2. Résoudre suivant la valeur du paramètre $t\in\mathbb{R}$ : $\begin{cases} 4x-3y &= t \\ 2x-y &= t^2 \end{cases}$.
 3. Discuter et résoudre suivant la valeur du paramètre $t\in\mathbb{R}$ : $\begin{cases} tx-y &= 1 \\ x+(t-2)y &= -1 \end{cases}$. Idem avec $\begin{cases} (t-1)x+y &= 1 \\ 2x+ty &= -1 \end{cases}$.
+
 :::
 
 # Théorie des systèmes linéaires
@@ -144,28 +152,36 @@ Pour chaque $t\neq\pm 1$, l'ensemble des solutions est $\mathcal{S}=\left\{\left
 ## Définitions
 
 ::: {.definition}
+
 On appelle **équation linéaire** dans les variables (ou **inconnues**) $x_1,\ldots,x_p$ toute relation de la forme
 $$a_1x_1+\cdots+a_px_p=b,$$
 où $a_1,\ldots,a_p$ et $b$ sont des nombres réels donnés.
+
 :::
 
 ::: {.remark}
+
 - Il importe d'insister sur le fait que ces équations linéaires sont *implicites*, c'est-à-dire qu'elles décrivent des relations entre les variables, mais ne donnent pas directement les valeurs que peuvent prendre les variables.
 - *Résoudre* une équation signifie donc la rendre *explicite*, c'est-à-dire rendre plus apparentes les valeurs que les variables peuvent prendre.
 - On peut aussi considérer des équations linéaires de nombres rationnels ou de nombres complexes.
+
 :::
 
 Soit $n\geq 1$ un entier.
 
 ::: {.definition}
+
 Un **système de $n$ équations linéaires à $p$ inconnues** est une liste de $n$ équations linéaires.
+
 :::
 
 On écrit usuellement de tels systèmes en $n$ lignes placées les unes sous les autres.
 
 ::: {.example}
+
 Le système suivant a $2$ équations et $3$ inconnues :
 $$\begin{cases} x_1-3x_2+x_3 &= 1 \\ -2x_1+4x_2-3x_3 &= 9 \end{cases}$$
+
 :::
 
 La forme générale d'un système linéaire de $n$ équations à $p$ inconnues est la suivante :
@@ -176,21 +192,27 @@ Les nombres $a_{ij}$, $i=1,\ldots,n$, $j=1,\ldots,p$, sont les **coefficients** 
 Dans l'exemple précédent, on a $n=2$ (nombre d'équations = nombre de lignes), $p=3$ (nombre d'inconnues) et $a_{11}=1$, $a_{12}=-3$, $a_{13}=1$, $a_{21}=-2$, $a_{22}=4$, $a_{23}=-3$, $b_1=1$ et $b_2=9$.
 
 ::: {.definition}
+
 Une **solution** du système linéaire est une liste de $p$ nombres réels $(s_1,s_2,\ldots,s_p)$ (un $p$-uplet) tels que, si l'on substitue $s_1$ pour $x_1$, $s_2$ pour $x_2$, etc., dans le système linéaire, on obtient une égalité. L'**ensemble des solutions du système** est l'ensemble de tous ces $p$-uplets.
+
 :::
 
 ::: {.example}
+
 Le système
 $$\begin{cases} x_1-3x_2+x_3 &= 1 \\ -2x_1+4x_2-3x_3 &= 9 \end{cases}$$
 admet comme solution $(-18,-6,1)$, c'est-à-dire
 $$x_1=-18, \qquad x_2=-6, \qquad x_3=1.$$
 Par contre, $(7,2,0)$ ne satisfait que la première équation. Ce n'est donc pas une solution du système.
+
 :::
 
 En règle générale, on s'attache à déterminer l'ensemble des solutions d'un système linéaire. C'est ce que l'on appelle **résoudre** le système linéaire. Ceci amène à poser la définition suivante.
 
 ::: {.definition}
+
 On dit que deux systèmes linéaires sont **équivalents** s'ils ont le même ensemble de solutions.
+
 :::
 
 À partir de là, le jeu pour résoudre un système linéaire donné consistera à le transformer en un système équivalent dont la résolution sera plus simple que celle du système de départ. Nous verrons plus loin comment procéder de façon systématique pour arriver à ce but.
@@ -200,7 +222,9 @@ On dit que deux systèmes linéaires sont **équivalents** s'ils ont le même en
 Voici un résultat théorique important pour les systèmes linéaires.
 
 ::: {.theorem}
+
 Un système d'équations linéaires n'a soit aucune solution, soit une seule solution, soit une infinité de solutions.
+
 :::
 
 En particulier, si vous trouvez $2$ solutions différentes à un système linéaire, alors c'est que vous pouvez en trouver une infinité ! Un système linéaire qui n'a aucune solution est dit **incompatible**. La preuve de ce théorème sera vue dans un chapitre ultérieur (« Matrices »).
@@ -210,11 +234,13 @@ En particulier, si vous trouvez $2$ solutions différentes à un système linéa
 Un cas particulier important est celui des **systèmes homogènes**, pour lesquels $b_1=b_2=\cdots=b_n=0$, c'est-à-dire dont le second membre est nul. De tels systèmes sont toujours compatibles car ils admettent toujours la solution $s_1=s_2=\cdots=s_p=0$. Cette solution est appelée *solution triviale*. Géométriquement, dans le cas $2\times 2$, un système homogène correspond à deux droites qui passent par l'origine, $(0,0)$ étant donc toujours solution.
 
 ::: {.exercise}
+
 1. Écrire un système linéaire de $4$ équations et $3$ inconnues qui n'a aucune solution. Idem avec une infinité de solutions. Idem avec une solution unique.
 2. Résoudre le système à $n$ équations et $n$ inconnues dont les équations sont $(L_i)$ : $x_i-x_{i+1}=1$ pour $i=1,\ldots,n-1$ et $(L_n)$ : $x_n=1$.
 3. Résoudre les systèmes suivants :
 $$\begin{cases} x_1+2x_2+3x_3+4x_4 &= 0 \\ x_2+2x_3+3x_4 &= 9 \\ x_3+2x_4 &= 0 \end{cases} \quad \begin{cases} x_1+2x_2+3x_3 &= 1 \\ x_1+x_2+x_3 &= 2 \\ x_1-x_2+x_3 &= 3 \end{cases} \quad \begin{cases} x_1+x_2 &= 1 \\ x_2+x_3 &= 2 \\ x_3+x_4 &= 3 \\ x_1+2x_2+2x_3+x_4 &= 0 \end{cases}$$
 4. Montrer que si un système linéaire *homogène* a une solution $(x_1,\ldots,x_p)\neq(0,\ldots,0)$, alors il admet une infinité de solutions.
+
 :::
 
 # Résolution par la méthode du pivot de Gauss
@@ -222,6 +248,7 @@ $$\begin{cases} x_1+2x_2+3x_3+4x_4 &= 0 \\ x_2+2x_3+3x_4 &= 9 \\ x_3+2x_4 &= 0 \
 ## Systèmes échelonnés
 
 ::: {.definition}
+
 Un système est **échelonné** si :
 
 - le nombre de coefficients nuls commençant une ligne croît strictement ligne après ligne.
@@ -230,22 +257,27 @@ Il est **échelonné réduit** si en plus :
 
 - le premier coefficient non nul d'une ligne vaut $1$ ;
 - et c'est le seul élément non nul de sa colonne.
+
 :::
 
 ::: {.example}
+
 - $\begin{cases} 2x_1+3x_2+2x_3-x_4 &= 5 \\ -x_2-2x_3 &= 4 \\ 3x_4 &= 1 \end{cases}$ est échelonné (mais pas réduit).
 - $\begin{cases} 2x_1+3x_2+2x_3-x_4 &= 5 \\ -2x_3 &= 4 \\ x_3+x_4 &= 1 \end{cases}$ n'est pas échelonné (la dernière ligne commence avec la même variable que la ligne au-dessus).
+
 :::
 
 Il se trouve que les systèmes linéaires sous une forme échelonnée réduite sont particulièrement simples à résoudre.
 
 ::: {.example}
+
 Le système linéaire suivant à $3$ équations et $4$ inconnues est échelonné et réduit :
 $$\begin{cases} x_1+2x_3 &= 25 \\ x_2-2x_3 &= 16 \\ x_4 &= 1 \end{cases}$$
 Ce système se résout trivialement en
 $$\begin{cases} x_1 &= 25-2x_3 \\ x_2 &= 16+2x_3 \\ x_4 &= 1 \end{cases}$$
 En d'autres termes, pour toute valeur de $x_3$ réelle, les valeurs de $x_1$, $x_2$ et $x_4$ calculées ci-dessus fournissent une solution du système, et on les a ainsi toutes obtenues. On peut donc décrire entièrement l'ensemble des solutions :
 $$\mathcal{S}=\{(25-2x_3,\,16+2x_3,\,x_3,\,1) \mid x_3\in\mathbb{R}\}.$$
+
 :::
 
 ## Opérations sur les équations d'un système
@@ -259,6 +291,7 @@ Nous allons utiliser trois opérations élémentaires sur les équations (c'est-
 Ces trois opérations élémentaires ne changent pas les solutions d'un système linéaire ; autrement dit ces opérations transforment un système linéaire en un système linéaire équivalent.
 
 ::: {.example}
+
 Utilisons ces opérations élémentaires pour résoudre le système suivant :
 $$\begin{cases} x+y+7z &= -1 \\ 2x-y+5z &= -5 \\ -x-3y-9z &= -5 \end{cases}$$
 
@@ -280,6 +313,7 @@ On aboutit à un système réduit et échelonné :
 $$\begin{cases} x &= 2 & (L_1 \leftarrow L_1-L_2) \\ y &= 4 \\ z &= -1 \end{cases}$$
 
 On obtient ainsi $x=2$, $y=4$ et $z=-1$ et l'unique solution du système est $(2,4,-1)$.
+
 :::
 
 La méthode utilisée pour cet exemple est reprise et généralisée dans le paragraphe suivant.
@@ -323,10 +357,13 @@ $$\mathcal{S}=\{(4x_4-2,\,3x_4+3,\,-5x_4+4,\,x_4) \mid x_4\in\mathbb{R}\}.$$
 Le fait que l'on puisse toujours se ramener à un système échelonné réduit implique le résultat suivant :
 
 ::: {.theorem}
+
 Tout système homogène d'équations linéaires dont le nombre d'inconnues est strictement plus grand que le nombre d'équations a une infinité de solutions.
+
 :::
 
 ::: {.example}
+
 Considérons le système homogène
 $$\begin{cases} 3x_1+3x_2-2x_3-x_5 &= 0 \\ -x_1-x_2+x_3+3x_4+x_5 &= 0 \\ 2x_1+2x_2-x_3+2x_4+2x_5 &= 0 \\ x_3+8x_4+4x_5 &= 0 \end{cases}$$
 
@@ -338,9 +375,11 @@ $$x_1=-x_2-13x_5, \qquad x_3=-20x_5, \qquad x_4=2x_5,$$
 et l'ensemble des solutions :
 $$\mathcal{S}=\{(-x_2-13x_5,\,x_2,\,-20x_5,\,2x_5,\,x_5) \mid x_2,x_5\in\mathbb{R}\}$$
 qui est bien infini.
+
 :::
 
 ::: {.exercise}
+
 1. Écrire un système linéaire à $4$ équations et $5$ inconnues qui soit échelonné mais pas réduit. Idem avec échelonné, non réduit, dont tous les coefficients sont $0$ ou $+1$. Idem avec échelonné et réduit.
 2. Résoudre les systèmes échelonnés suivants :
 $$\begin{cases} 2x_1-x_2+x_4 &= 1 \\ x_2+x_3-2x_4 &= 3 \\ 2x_3+x_4 &= 4 \\ x_4 &= -2 \end{cases} \quad \begin{cases} x_1+x_2+x_4 &= 0 \\ x_2+x_3 &= 0 \\ 2x_3+x_4 &= 0 \end{cases} \quad \begin{cases} x_1+2x_2+x_4 &= 0 \\ 2x_3-3x_4 &= 0 \end{cases}$$
@@ -349,6 +388,7 @@ $$\begin{cases} 2x_1-x_2+x_4 &= 1 \\ x_2+x_3-2x_4 &= 3 \\ 2x_3+x_4 &= 4 \\ x_4 &
 $$\begin{cases} 2x+y+z &= 3 \\ x-y+3z &= 8 \\ x+2y-z &= -3 \end{cases} \qquad \begin{cases} 2x_1+4x_2-6x_3-2x_4 &= 2 \\ 3x_1+6x_2-7x_3+4x_4 &= 2 \\ 5x_1+10x_2-11x_3+6x_4 &= 3 \end{cases}$$
 5. Résoudre le système suivant, selon les valeurs de $a,b\in\mathbb{R}$ :
 $$\begin{cases} x+y-z &= a \\ -x+2z &= b \\ 2y+2z &= 4 \end{cases}$$
+
 :::
 
 # Document en PDF {-}
@@ -358,9 +398,11 @@ $$\begin{cases} x+y-z &= a \\ -x+2z &= b \\ 2y+2z &= 4 \end{cases}$$
 ## Navigation {-}
 
 ::: {.chap-nav}
+
 [Chapitre 06 : Équations différentielles linéaires](mpsi-chap06.qmd){.prev}
 
 [Menu MPSI](mpsi.qmd){.home}
 
 [Chapitre 08 : Structures algébriques](mpsi-chap08.qmd){.next}
+
 :::

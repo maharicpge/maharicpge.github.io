@@ -35,6 +35,7 @@ Ce chapitre a été réalisé conformément au programme marocain de mathématiq
 ## Ensemble des nombres complexes $\mathbb{C}$
 
 ::: {.definition}
+
 L'ensemble des **nombres complexes** noté $\mathbb{C}$ est l'ensemble des nombres $z$ de la forme :
 $$z=x+iy$$
 avec $(x,y)\in \mathbb{R}^2$ et $i^2=-1$.
@@ -42,28 +43,36 @@ avec $(x,y)\in \mathbb{R}^2$ et $i^2=-1$.
 1. L'écriture $z=x+iy$ s'appelle **écriture algébrique** (ou **cartésienne**) du nombre complexe $z$.
 2. Le réel $x$ s'appelle **partie réelle** du nombre complexe $z$ et elle sera notée $\mathcal{R}e(z)$.
 3. Le réel $y$ s'appelle **partie imaginaire** du nombre complexe $z$ et elle sera notée $\mathcal{I}m(z)$.
+
 :::
 
 ::: {.definition}
+
 On munit l'ensemble des nombres complexes $\mathbb{C}$ des deux opérations suivantes :
 
 $$\begin{cases} \forall (z,z')\in \mathbb{C}^2,\ z+z'=\left(\mathcal{R}e(z)+\mathcal{R}e(z')\right)+i\left(\mathcal{I}m(z)+\mathcal{I}m(z')\right)\\ \forall (z,z')\in \mathbb{C}^2,\ z\times z'=\left(\mathcal{R}e(z)\cdot\mathcal{R}e(z')-\mathcal{I}m(z)\cdot\mathcal{I}m(z')\right)+i\left(\mathcal{R}e(z)\cdot\mathcal{I}m(z')+\mathcal{R}e(z')\cdot\mathcal{I}m(z)\right)\end{cases}$$
+
 :::
 
 ::: {.proposition}
+
 Soient $(z,z')\in \mathbb{C}^2$ et $\lambda \in \mathbb{R}$. Alors on a :
 
 1. $z=0 \Longleftrightarrow \mathcal{R}e(z)=0 \text{ et } \mathcal{I}m(z)=0$
 2. $z=z' \Longleftrightarrow \mathcal{R}e(z)=\mathcal{R}e(z') \text{ et } \mathcal{I}m(z)=\mathcal{I}m(z')$
 3. $\mathcal{R}e(\lambda z)=\lambda \mathcal{R}e(z)\text{ et } \mathcal{R}e(z+z')=\mathcal{R}e(z)+\mathcal{R}e(z')$
 4. $\mathcal{I}m(\lambda z)=\lambda \mathcal{I}m(z)\text{ et } \mathcal{I}m(z+z')=\mathcal{I}m(z)+\mathcal{I}m(z')$
+
 :::
 
 ::: {.remark}
+
 Ce qui justifie l'unicité de l'écriture algébrique d'un nombre complexe et donne sens à la définition précédente.
+
 :::
 
 ::: {.example}
+
 Cherchons les nombres complexes $z$ tels que :
 $$z^2=1+i\sqrt{3}\ \ (\ast)$$
 
@@ -87,9 +96,11 @@ $$(x,y)\in\left\{\left(\frac{\sqrt{6}}{2},\frac{\sqrt{2}}{2}\right),\left(-\frac
 Inversement, ces valeurs de $z$ vérifient l'équation $(\ast)$ donc l'ensemble des solutions est :
 
 $$S=\left\{\frac{\sqrt{6}}{2}+i\frac{\sqrt{2}}{2},-\frac{\sqrt{6}}{2}-i\frac{\sqrt{2}}{2}\right\}$$
+
 :::
 
 ::: {.proposition}
+
 L'addition $+$ et la multiplication $\times$ vérifient les propriétés suivantes :
 
 1. **Associativité :**
@@ -112,16 +123,20 @@ avec $z=x+iy$.
 $$\forall (z,z',z'')\in \mathbb{C}^3,\ z\times (z'+z'')=z\times z'+ z\times z''$$
 
 Dans ce cas, on dit que $(\mathbb{C},+,\times)$ est un **corps**.
+
 :::
 
 ## Conjugué d'un nombre complexe
 
 ::: {.definition}
+
 Soit $z=x+iy\in \mathbb{C}$. On appelle **conjugué** de $z$ l'élément noté $\overline{z}$ et défini par :
 $$\overline{z}=x-iy$$
+
 :::
 
 ::: {.proposition}
+
 Soit $z\in \mathbb{C}$. Alors on a :
 
 1. $z+\overline{z}=2\mathcal{R}e(z)$
@@ -129,9 +144,11 @@ Soit $z\in \mathbb{C}$. Alors on a :
 3. $z=\overline{z}\Longleftrightarrow z\in \mathbb{R}$
 4. $z=-\overline{z} \Longleftrightarrow z\in i\mathbb{R}$
 5. $\overline{\overline{z}}=z$
+
 :::
 
 ::: {.proposition}
+
 Soit $(z,z')\in \mathbb{C}^2$. Alors on a :
 
 1. $\overline{z+z'}=\overline{z}+\overline{z'}$
@@ -139,27 +156,35 @@ Soit $(z,z')\in \mathbb{C}^2$. Alors on a :
 3. $\overline{z-z'}=\overline{z}-\overline{z'}$
 4. $\overline{\left(\frac{1}{z}\right)}=\frac{1}{\overline{z}}$ (avec $z\neq 0$)
 5. $\forall n\in\mathbb{Z},\ \overline{z^n}=\overline{z}^n$ (avec $z^0=1$ et $z\neq 0$ si $n\leq 0$)
+
 :::
 
 ::: {.remark}
+
 Soit $z=x+iy\in \mathbb{C}^*$. L'écriture algébrique de l'inverse de $z$ s'obtient en multipliant par le conjugué $\overline{z}=x-iy$ de $z$ comme suit :
 $$\frac{1}{z}=\frac{x-iy}{(x+iy)(x-iy)}=\frac{x}{x^2+y^2}-i\frac{y}{x^2+y^2}$$
+
 :::
 
 ::: {.example}
+
 Soit $z=\left(\frac{1+i}{2-i}\right)^2+\frac{1-7i}{4+3i}$. Écrivons $z$ sous forme algébrique :
 
 $$z=\frac{2i}{3-4i}+\frac{1-7i}{4+3i}=\frac{-2}{4+3i}+\frac{1-7i}{4+3i}=\frac{-1-7i}{4+3i}=-\frac{(1+7i)(4-3i)}{(4+3i)(4-3i)}=-\frac{25+25i}{25}=-1-i$$
+
 :::
 
 ## Module d'un nombre complexe
 
 ::: {.definition}
+
 Soit $z=x+iy\in \mathbb{C}$. On appelle **module** de $z$ le réel positif noté $|z|$ et défini par :
 $$|z|=\sqrt{z\cdot\overline{z}}=\sqrt{x^2+y^2}$$
+
 :::
 
 ::: {.proposition}
+
 Soit $(z,z')\in \mathbb{C}^2$. Alors on a :
 
 1. $|z|^2=z\cdot\overline{z}$
@@ -168,9 +193,11 @@ Soit $(z,z')\in \mathbb{C}^2$. Alors on a :
 4. $\left|\frac{1}{z}\right|=\frac{1}{|z|}$ (avec $z\neq 0$)
 5. $\left|\frac{z}{z'}\right|=\frac{|z|}{|z'|}$ (avec $z'\neq 0$)
 6. $\forall n\in\mathbb{Z},\ |z^n|=|z|^n$ (avec $z\neq 0$ si $n\leq 0$)
+
 :::
 
 ::: {.example}
+
 Soit $z$ un nombre complexe de module 1 et différent de 1. Montrons que $Z=\frac{z+1}{z-1}\in i\mathbb{R}$ :
 
 $$Z=\frac{z+1}{z-1}=\frac{(z+1)\overline{(z-1)}}{(z-1)\overline{(z-1)}}=\frac{(z+1)(\overline{z}-1)}{|z-1|^2}=\frac{|z|^2+\overline{z}-z-1}{|z-1|^2}$$
@@ -178,6 +205,7 @@ $$Z=\frac{z+1}{z-1}=\frac{(z+1)\overline{(z-1)}}{(z-1)\overline{(z-1)}}=\frac{(z
 Or $|z|=1$ et $\overline{z}-z=-2i\mathcal{I}m(z)$ donc :
 
 $$Z=\frac{-2i\mathcal{I}m(z)}{|z-1|^2}\in i\mathbb{R}$$
+
 :::
 
 ## Interprétation géométrique
@@ -192,6 +220,7 @@ On appelle **plan complexe** le plan rapporté à un repère orthonormé direct 
 6. Le point $M'$ d'affixe $\overline{z}$ est le symétrique du point $M$ par la symétrie d'axe $(O,\vec{u})$, donc la transformation $z\longmapsto \overline{z}$ dans le plan complexe est la symétrie axiale d'axe $(O,\vec{u})$.
 
 ::: {.proposition}
+
 Soit $A$ un point du plan complexe d'affixe $a$ et $r$ un réel strictement positif.
 
 1. L'ensemble des points $M(z)$ vérifiant $|z-a|=r$ est le **cercle** de centre $A(a)$ et de rayon $r$ :
@@ -202,33 +231,43 @@ $$D(A,r)=\left\{M(z)\ /\ |z-a|<r\right\}$$
 
 3. L'ensemble des points $M(z)$ vérifiant $|z-a|\leq r$ est le **disque fermé** de centre $A$ et de rayon $r$ :
 $$\overline{D}(A,r)=\left\{M(z)\ /\ |z-a|\leq r\right\}$$
+
 :::
 
 ::: {.theorem}
+
 Soit $(z,z')\in \mathbb{C}^2$. Alors on a :
 
 1. $\left|\mathcal{R}e(z)\right|\leq |z|\ \ \ ;\ \ \ \left|\mathcal{I}m(z)\right|\leq |z|$
 2. **Inégalité triangulaire :**
 $$|z+z'|\leq |z|+|z'|$$
 avec égalité si et seulement si $z=0$ ou $z'=\lambda z$ où $\lambda \in \mathbb{R}^+$.
+
 :::
 
 ::: {.remark}
+
 Ce théorème peut être généralisé à $n$ nombres complexes $z_1,\cdots,z_n$ comme suit :
 $$\left|z_1+\cdots +z_n\right|\leq |z_1|+\cdots +|z_n|$$
+
 :::
 
 ::: {.corollary}
+
 $$\forall (z,z')\in \mathbb{C}^2,\ \left||z|-|z'|\right|\leq |z-z'|\leq |z|+|z'|$$
+
 :::
 
 ::: {.exercise}
+
 Soient $z_1,\cdots,z_n$ des nombres complexes de modules 1. On pose $Z=\left(\sum_{k=1}^nz_k\right)\left(\sum_{k=1}^n\frac{1}{z_k}\right)$.
 
 Montrer que $Z$ est un réel tel que $|Z|\leq n^2$.
+
 :::
 
 ::: {.solution}
+
 Les $z_k$ sont de modules 1, donc $\overline{z_k}=\frac{1}{z_k}$. Donc :
 
 $$\overline{Z}=\overline{\left(\sum_{k=1}^nz_k\right)}\overline{\left(\sum_{k=1}^n\frac{1}{z_k}\right)}=\left(\sum_{k=1}^n\overline{z_k}\right)\left(\sum_{k=1}^n\overline{\frac{1}{z_k}}\right)=\left(\sum_{k=1}^n\frac{1}{z_k}\right)\left(\sum_{k=1}^nz_k\right)=Z$$
@@ -240,17 +279,20 @@ D'autre part, si on utilise l'inégalité triangulaire alors :
 $$|Z|=\left|\left(\sum_{k=1}^nz_k\right)\left(\sum_{k=1}^n\frac{1}{z_k}\right)\right|=\left|\sum_{k=1}^nz_k\right|\left|\sum_{k=1}^n\frac{1}{z_k}\right| \leq \left(\sum_{k=1}^n|z_k|\right)\left(\sum_{k=1}^n\frac{1}{|z_k|}\right) = \left(\sum_{k=1}^n1\right)\left(\sum_{k=1}^n1\right)=n^2$$
 
 D'où le résultat.
+
 :::
 
 ## Argument d'un nombre complexe non nul
 
 ::: {.definition}
+
 Soit $z=x+iy\in \mathbb{C}^*$. On appelle **argument** de $z$ toute mesure de l'angle orienté $(\vec{u},\overrightarrow{OM})$ et on le note $\operatorname{Arg}(z)$.
 
 Si $\theta$ est une mesure de l'angle $(\vec{u},\overrightarrow{OM})$ alors :
 $$\operatorname{Arg}(z)=\theta \ [2\pi]$$
 
 L'ensemble des arguments de $z$ est $\left\{\theta+2k\pi\ /\ k\in \mathbb{Z}\right\}$.
+
 :::
 
 ::: {.remark}
@@ -258,9 +300,11 @@ L'ensemble des arguments de $z$ est $\left\{\theta+2k\pi\ /\ k\in \mathbb{Z}\rig
 1. Le nombre complexe nul ne possède pas d'argument.
 2. On remarque aussi que :
 $$x=|z|\cos\theta \ \ ;\ \ y=|z|\sin\theta$$
+
 :::
 
 ::: {.proposition}
+
 Soit $z$ et $z'$ deux nombres complexes non nuls. Alors on a :
 
 1. $\operatorname{Arg}(\overline{z})=-\operatorname{Arg}(z)\ [2\pi]$
@@ -269,9 +313,11 @@ Soit $z$ et $z'$ deux nombres complexes non nuls. Alors on a :
 4. $\operatorname{Arg}\left(\frac{1}{z}\right)=-\operatorname{Arg}(z)\ [2\pi]$
 5. $\operatorname{Arg}\left(\frac{z}{z'}\right)=\operatorname{Arg}(z)-\operatorname{Arg}(z')\ [2\pi]$
 6. $\forall n\in\mathbb{Z},\ \operatorname{Arg}(z^n)=n\operatorname{Arg}(z)\ [2\pi]$
+
 :::
 
 ::: {.example}
+
 Déterminons le module et l'argument du nombre complexe $z=\sqrt{2+\sqrt{2}}+i\sqrt{2-\sqrt{2}}$ :
 
 $$|z|=\sqrt{\left(\sqrt{2+\sqrt{2}}\right)^2+\left(\sqrt{2-\sqrt{2}}\right)^2}=2$$
@@ -281,6 +327,7 @@ $$2\operatorname{Arg}(z)=\operatorname{Arg}(z^2)\ [2\pi]=\operatorname{Arg}\left
 Donc $\operatorname{Arg}(z)=\frac{\pi}{8}\ [\pi]$.
 
 Or $\mathcal{R}e(z),\ \mathcal{I}m(z)>0$, donc $\operatorname{Arg}(z)=\frac{\pi}{8}\ [2\pi]$.
+
 :::
 
 # Forme polaire — Racines n-ièmes — Équation du second degré — Réduction de $a\cos x+b\sin x$
@@ -293,6 +340,7 @@ $$\sum_{k=1}^nz_k=z_1+z_2+\cdots +z_n \ \ \ \text{(somme)}$$
 $$\prod_{k=1}^nz_k=z_1\times z_2\times \cdots \times z_n \ \ \ \text{(produit)}$$
 
 ::: {.definition}
+
 Les nombres complexes de module 1 sont les affixes des points du cercle unité $\mathscr{C}(O,1)$. Ils sont les nombres complexes $z$ de la forme :
 $$z=\cos\theta+i\sin\theta$$
 avec $\theta \in \mathbb{R}$.
@@ -300,18 +348,22 @@ avec $\theta \in \mathbb{R}$.
 Si on note $\mathbb{U}$ l'ensemble des nombres complexes de module 1 et on pose $e^{i\theta}=\cos\theta+i\sin\theta$ alors :
 
 $$\mathbb{U}=\left\{e^{i\theta}\ /\ \theta \in \mathbb{R}\right\}=\left\{e^{i\theta}\ /\ \theta \in [-\pi,\pi[\right\}$$
+
 :::
 
 ::: {.proposition}
+
 Soit $(\theta,\theta')\in \mathbb{R}^2$. Alors on a :
 
 1. $e^{i(\theta+\theta')}=e^{i\theta}\times e^{i\theta'}$
 2. $e^{i(\theta-\theta')}=\frac{e^{i\theta}}{e^{i\theta'}}$
 3. $\overline{e^{i\theta}}=e^{-i\theta}=\frac{1}{e^{i\theta}}$
 4. $|e^{i\theta}|=1$
+
 :::
 
 ::: {.proposition}
+
 Soit $(\theta,\theta')\in \mathbb{R}^2$. Alors on a :
 
 1. **Formule de Moivre :**
@@ -326,26 +378,34 @@ $$e^{i\theta}-e^{i\theta'}=2i\sin\left(\frac{\theta-\theta'}{2}\right)e^{i\frac{
 
 En particulier lorsque $\theta'=0\ [2\pi]$ :
 $$e^{i\theta}+1=2\cos\left(\frac{\theta}{2}\right)e^{i\frac{\theta}{2}} \ \ ;\ \ e^{i\theta}-1=2i\sin\left(\frac{\theta}{2}\right)e^{i\frac{\theta}{2}}$$
+
 :::
 
 ::: {.definition title="(Coefficients binomiaux)"}
+
 Soit $(n,p)\in \mathbb{N}^2$ tel que $0\leq p\leq n$. On définit $n$ factorielle $n!$ et le coefficient binomial $C_n^p$ par :
 $$n!=1\times 2\times \cdots \times n =\prod_{k=1}^nk \ \ ;\ \ C_n^p=\frac{n!}{p!(n-p)!}$$
+
 :::
 
 ::: {.proposition}
+
 $$C_n^{p}+C_n^{p+1}=C_{n+1}^{p+1}\ \ (p\leq n-1)\ \ ;\ \ C_n^p=\frac{p+1}{n+1}C_{n+1}^{p+1}$$
+
 :::
 
 ::: {.proposition title="(Formule du binôme de Newton)"}
+
 Soit $(a,b)\in \mathbb{C}^2$ et $n\in \mathbb{N}$. Alors on a :
 $$(a+b)^n=\sum_{p=0}^nC_n^pa^pb^{n-p}$$
+
 :::
 
 ::: {.exercise}
 
 1. Écrire $\cos 4x$ en fonction de $\cos x$
 2. Linéariser $\cos x\sin^3 x$ c'est-à-dire l'écrire en fonction des $\cos ax$ et $\sin bx$
+
 :::
 
 ::: {.solution}
@@ -370,26 +430,34 @@ $$\begin{aligned}
 &= \frac{-1}{2^4i}\left(e^{i4x}-e^{-i4x}\right)+\frac{1}{2^3i}\left(e^{i2x}-e^{-i2x}\right)\\
 &= \frac{-1}{8}\sin 4x +\frac{1}{4}\sin 2x
 \end{aligned}$$
+
 :::
 
 ## Forme polaire d'un nombre complexe non nul
 
 ::: {.definition}
+
 Soit $z\in \mathbb{C}^*$. On appelle **forme polaire** (ou **exponentielle**) de $z$ une écriture de la forme :
 $$z=\rho e^{i\theta}$$
 avec $(\rho,\theta)\in \mathbb{R}^+_*\times [-\pi,\pi[$.
+
 :::
 
 ::: {.theorem}
+
 $$\forall z\in \mathbb{C}^*,\ \exists !(\rho,\theta)\in \mathbb{R}^+_*\times [-\pi,\pi[,\ z=\rho e^{i\theta}$$
+
 :::
 
 ::: {.remark}
+
 Le théorème précédent est encore vrai si on remplace l'intervalle $[-\pi,\pi[$ par n'importe quel intervalle semi-ouvert d'amplitude $2\pi$, par exemple l'un des intervalles suivants :
 $$[0,2\pi[,\ [\pi,3\pi[,\ ]-2\pi,0],\ [-3\pi,-\pi[, \cdots \ \text{etc.}$$
+
 :::
 
 ::: {.proposition}
+
 Soit $(z,z')\in (\mathbb{C}^*)^2$. Alors on a :
 
 1. $z=z' \Longleftrightarrow |z|=|z'| \text{ et } \operatorname{Arg}(z)=\operatorname{Arg}(z')\ [2\pi]$
@@ -398,6 +466,7 @@ Soit $(z,z')\in (\mathbb{C}^*)^2$. Alors on a :
 4. $z\times z'=|z||z'|e^{i(\operatorname{Arg}(z)+\operatorname{Arg}(z'))}$
 5. $\frac{z}{z'}=\frac{|z|}{|z'|}e^{i(\operatorname{Arg}(z)-\operatorname{Arg}(z'))}$
 6. $\forall n\in \mathbb{Z},\ z^n=|z|^ne^{in\operatorname{Arg}(z)}$
+
 :::
 
 ## Racines n-ièmes de l'unité
@@ -408,23 +477,30 @@ $$z^n=1$$
 On note $\mathbb{U}_n$ l'ensemble des solutions de cette équation. Les éléments de $\mathbb{U}_n$ s'appellent aussi **racines n-ièmes de l'unité**.
 
 ::: {.theorem}
+
 $$\mathbb{U}_n=\left\{e^{i\frac{2k\pi}{n}}\ /\ 0\leq k\leq n-1\right\}$$
+
 :::
 
 ::: {.example}
+
 L'ensemble des solutions de l'équation $z^3=1$ est :
 $$\mathbb{U}_3=\left\{1,\ j=e^{i\frac{2\pi}{3}}=-\frac{1}{2}+i\frac{\sqrt{3}}{2},\ \overline{j}=j^2=e^{i\frac{4\pi}{3}}=-\frac{1}{2}-i\frac{\sqrt{3}}{2}\right\}$$
+
 :::
 
 ::: {.example}
+
 L'ensemble des solutions de l'équation $z^4=1$ est :
 $$\mathbb{U}_4=\left\{1,\ i,\ -i,\ -1\right\}$$
+
 :::
 
 ::: {.remark}
 
 1. La somme des racines n-ièmes de l'unité vaut 0.
 2. Les racines n-ièmes de l'unité forment un polygone régulier à $n$ côtés.
+
 :::
 
 ## Racines n-ièmes d'un nombre complexe
@@ -433,7 +509,9 @@ Dans ce paragraphe $n$ désigne un entier naturel non nul, $k$ un entier et $a\i
 $$z^n=a$$
 
 ::: {.theorem}
+
 $$S=\begin{cases}\{0\}, \text{ si } a=0\\ \left\{\sqrt[n]{|a|}e^{i\frac{2k\pi+\operatorname{Arg}(a)}{n}}\ /\ 0\leq k\leq n-1\right\}, \text{ sinon}\end{cases}$$
+
 :::
 
 ## Équation du second degré
@@ -444,20 +522,26 @@ $$az^2+bz+c=0$$
 On note $\Delta =b^2-4ac$ et $\delta$ une racine carrée de $\Delta$ (c'est-à-dire $\delta^2=\Delta$).
 
 ::: {.theorem}
+
 $$S=\left\{\frac{-b+\delta}{2a},\ \frac{-b-\delta}{2a}\right\}$$
+
 :::
 
 ::: {.example}
+
 Soit l'équation d'inconnue $z\in \mathbb{C}$ suivante :
 $$z^2-(5-14i)z-2(5i+12)=0$$
 
 On a $\Delta =(5-14i)^2+4\times 2(5i+12)=-25(3+4i)=\left(5i(2+i)\right)^2$, donc l'ensemble des solutions est :
 $$S=\left\{\frac{5-14i-5+10i}{2}=-2i,\ \frac{5-14i+5-10i}{2}=5-12i\right\}$$
+
 :::
 
 ::: {.proposition}
+
 L'équation $az^2+bz+c=0$ d'inconnue $z\in \mathbb{C}$ est équivalente au système d'inconnues $(z_1,z_2)\in \mathbb{C}^2$ suivant :
 $$\begin{cases}z_1+z_2=\frac{-b}{a}\\ z_1z_2=\frac{c}{a}\end{cases}$$
+
 :::
 
 ## Réduction de $a\cos x+b\sin x$
@@ -465,15 +549,18 @@ $$\begin{cases}z_1+z_2=\frac{-b}{a}\\ z_1z_2=\frac{c}{a}\end{cases}$$
 Dans ce paragraphe, $a$, $b$ et $x$ désignent des réels tels que $(a,b)\neq (0,0)$.
 
 ::: {.remark title="(Méthode de réduction)"}
+
 Le nombre complexe $a+ib$ est non nul, il existe alors $(\rho,\theta)\in \mathbb{R}^+_*\times [0,2\pi[$ tel que $a+ib=\rho e^{i\theta}$ avec $\rho =\sqrt{a^2+b^2}$. On aura alors :
 
 $$(a\cos x+b\sin x)+i(-a\sin x+b\cos x)=\rho e^{i\theta}e^{-ix}=\rho e^{i(\theta -x)}$$
 
 Par suite :
 $$a\cos x+b\sin x=\mathcal{R}e\left(\rho e^{i(\theta -x)}\right)=\rho\cos\left(\theta -x\right)$$
+
 :::
 
 ::: {.example}
+
 Résolvons l'équation d'inconnue $x$ suivante :
 $$(E) \ \ \ \cos x +\sin x =1$$
 
@@ -487,16 +574,20 @@ $$\Longleftrightarrow x =0\ [2\pi] \text{ ou } x=\frac{\pi}{2}\ [2\pi]$$
 
 D'où l'ensemble des solutions est :
 $$S=\left\{2k\pi,\ \frac{\pi}{2}+2k\pi\ /\ k\in \mathbb{Z} \right\}$$
+
 :::
 
 ## Calcul des sommes $\sum_{k=0}^n\cos(ak+b)$ et $\sum_{k=0}^n\sin(ak+b)$
 
 ::: {.proposition}
+
 Soit $z\in \mathbb{C}$. Alors on a :
 $$\sum_{k=0}^nz^k=\begin{cases}n+1,\text{ si } z=1\\\frac{1-z^{n+1}}{1-z},\text{ sinon}\end{cases}$$
+
 :::
 
 ::: {.remark title="(Calcul des sommes trigonométriques)"}
+
 On remarque que :
 $$\sum_{k=0}^n\cos(ak+b)=\mathcal{R}e\left(\sum_{k=0}^n e^{i(ak+b)}\right) \ \text{ et } \ \sum_{k=0}^n\sin(ak+b)=\mathcal{I}m\left(\sum_{k=0}^n e^{i(ak+b)}\right)$$
 
@@ -505,17 +596,22 @@ Donc il suffit de calculer la somme $\sum_{k=0}^n e^{i(ak+b)}$. On obtient :
 $$\sum_{k=0}^n\cos(ak+b)=\begin{cases}(n+1)\cos b,\text{ si } a=0\ [2\pi]\\\frac{\sin\left(\frac{a(n+1)}{2}\right)}{\sin\left(\frac{a}{2}\right)}\cos\left(\frac{an}{2}+b\right), \text{ sinon}\end{cases}$$
 
 $$\sum_{k=0}^n\sin(ak+b)=\begin{cases}(n+1)\sin b,\text{ si } a=0\ [2\pi]\\\frac{\sin\left(\frac{a(n+1)}{2}\right)}{\sin\left(\frac{a}{2}\right)}\sin\left(\frac{an}{2}+b\right), \text{ sinon}\end{cases}$$
+
 :::
 
 ## Exponentielle complexe
 
 ::: {.definition}
+
 Soit $z=x+iy\in \mathbb{C}$. On appelle **exponentielle** de $z$ le nombre complexe noté $e^z$ et défini par :
 $$e^z=e^xe^{iy}$$
+
 :::
 
 ::: {.remark}
+
 L'exponentielle d'un nombre complexe n'est jamais nulle.
+
 :::
 
 ::: {.proposition}
@@ -525,19 +621,24 @@ $$\prod_{k=1}^ne^{z_k}=e^{\sum_{k=1}^nz_k}$$
 
 2. Si $(z,z')\in \mathbb{C}^2$ alors :
 $$e^{z}=e^{z'} \Longleftrightarrow \exists k\in \mathbb{Z},\ z'=z+i2k\pi$$
+
 :::
 
 ::: {.remark title="(Résolution de l'équation $e^z=a$)"}
+
 Soit $a\in \mathbb{C}$. Il s'agit de résoudre l'équation d'inconnue $z\in \mathbb{C}$ suivante : $e^z=a$.
 
 1. Si $a=0$ alors l'équation n'admet pas de solutions : $S=\emptyset$.
 2. Sinon, $a$ possède une écriture polaire : $\exists ! (r,\alpha)\in \mathbb{R}^*_+\times [-\pi,\pi[,\ a=re^{i\alpha}$ et l'ensemble des solutions est :
 $$S=\left\{\ln r+i(\alpha +2k\pi)\ /\ k\in \mathbb{Z}\right\}$$
+
 :::
 
 ::: {.example}
+
 L'ensemble des solutions de l'équation $e^z=1+i=\sqrt{2}e^{i\frac{\pi}{4}}$ est :
 $$S=\left\{\frac{1}{2}\ln 2+i\left(\frac{\pi}{4}+2k\pi\right)\ /\ k\in \mathbb{Z}\right\}$$
+
 :::
 
 # Géométrie
@@ -545,12 +646,15 @@ $$S=\left\{\frac{1}{2}\ln 2+i\left(\frac{\pi}{4}+2k\pi\right)\ /\ k\in \mathbb{Z
 ## Caractérisation de l'alignement, l'orthogonalité et la cocyclicité
 
 ::: {.proposition}
+
 Soit $A$, $B$ et $M$ trois points distincts du plan complexe d'affixes respectifs $a$, $b$ et $z$. Alors on a :
 
 $$(\overrightarrow{MA},\overrightarrow{MB})=\operatorname{Arg}\left(\frac{b-z}{a-z}\right)\ [2\pi] \ \ ;\ \ \frac{MB}{MA}=\left|\frac{b-z}{a-z}\right|$$
+
 :::
 
 ::: {.corollary}
+
 Soit $A$, $B$, $C$ et $D$ des points distincts deux à deux du plan complexe d'affixes respectifs $a$, $b$, $c$ et $d$. Alors on a :
 
 1. $A$, $B$ et $C$ sont alignés $\Longleftrightarrow \frac{c-a}{b-a}\in \mathbb{R}$
@@ -558,30 +662,38 @@ Soit $A$, $B$, $C$ et $D$ des points distincts deux à deux du plan complexe d'a
 3. $ABC$ est un triangle isocèle droit en $A$ $\Longleftrightarrow \frac{c-a}{b-a}=\pm i$
 4. $ABC$ est un triangle équilatéral $\Longleftrightarrow \frac{c-a}{b-a}=e^{\pm i\frac{\pi}{3}}$
 5. $A$, $B$, $C$ et $D$ sont cocycliques ou alignés $\Longleftrightarrow \frac{c-a}{d-a}\div \frac{c-b}{d-b}\in \mathbb{R}$
+
 :::
 
 ## Transformations géométriques usuelles
 
 ::: {.definition title="(Translation)"}
+
 Soit $\vec{u}(u)$ un vecteur du plan complexe. On appelle **translation**, de vecteur $\vec{u}$, notée $t_{\vec{u}}$, la transformation du plan qui transforme chaque point $M(z)$ du plan complexe au point $M'(z')$ tel que :
 $$\overrightarrow{MM'}=\vec{u} \Longleftrightarrow z'-z=u$$
+
 :::
 
 ::: {.definition title="(Rotation)"}
+
 On appelle **rotation** de centre $\Omega(\omega)$ et d'angle $\theta$, notée $r_{(\Omega,\theta)}$, la transformation du plan qui transforme chaque point $M(z)$ au point $M'(z')$ tel que :
 $$\begin{cases}\Omega M'=\Omega M\\ \left(\overrightarrow{\Omega M},\overrightarrow{\Omega M'}\right)=\theta \ [2\pi]\end{cases} \Longleftrightarrow z'=e^{i\theta}(z-\omega)+\omega$$
 
 **Cas particulier :** Si $\theta =\pi \ [2\pi]$ alors $r_{(\Omega,\theta)}$ est la symétrie centrale de centre $\Omega$.
+
 :::
 
 ::: {.definition title="(Homothétie)"}
+
 On appelle **homothétie** de centre $\Omega(\omega)$ et de rapport $\lambda\in \mathbb{R}$, notée $h_{(\Omega,\lambda)}$, la transformation du plan qui transforme chaque point $M(z)$ au point $M'(z')$ tel que :
 $$\overrightarrow{\Omega M'}=\lambda \overrightarrow{\Omega M} \Longleftrightarrow z'=\lambda (z-\omega)+\omega$$
 
 **Cas particulier :** Si $\lambda =-1$ alors $h_{(\Omega,\lambda)}$ est la symétrie centrale de centre $\Omega$.
+
 :::
 
 ::: {.definition title="(Similitude directe)"}
+
 On appelle **similitude directe** de centre $\Omega$, d'angle $\theta$ et de rapport $\rho>0$, la composée $s$ de la rotation $r$ de centre $\Omega$ et d'angle $\theta$ et de l'homothétie $h$ de centre $\Omega$ et de rapport $\rho$. De plus, $r$ et $h$ commutent :
 $$s = h\circ r = r\circ h$$
 
@@ -592,13 +704,17 @@ $$\begin{cases}\Omega M'=\rho\Omega M\\ \left(\overrightarrow{\Omega M},\overrig
 
 1. Si $\rho =1$ alors $s$ est la rotation de centre $\Omega(\omega)$ et d'angle $\theta$.
 2. Si $\theta = 0\ [\pi]$ alors $s$ est l'homothétie de centre $\Omega(\omega)$ et de rapport $a$.
+
 :::
 
 ::: {.exercise}
+
 Soit $r_1$ la rotation de centre $A$ d'affixe $-1$ et d'angle $\frac{\pi}{3}$ et $r_2$ la rotation de centre $B$ d'affixe $j=e^{i\frac{2\pi}{3}}$ et d'angle $\frac{2\pi}{3}$. Déterminer la nature de $r_2\circ r_1$.
+
 :::
 
 ::: {.solution}
+
 Soit $M$ un point du plan complexe d'affixe $z$ et soit $M'$ d'affixe $z'$ l'image de $M$ par la transformation $r_2\circ r_1$. $z'$ vérifie alors :
 
 $$\begin{aligned}
@@ -608,6 +724,7 @@ z'=r_2\circ r_1(z)&=r_2\left(e^{i\frac{\pi}{3}}(z+1)-1\right)=j\left(e^{i\frac{\
 \end{aligned}$$
 
 C'est-à-dire $M'$ est l'image de $M$ par la rotation de centre $C$ d'affixe $\frac{j}{2}$ et d'angle $\pi$. D'où $r_2\circ r_1$ est la symétrie centrale de centre $C$ d'affixe $\frac{j}{2}$.
+
 :::
 
 ## Classification des transformations $f: z\longmapsto az+b$
@@ -625,38 +742,52 @@ $$\boxed{z'=a(z-\omega)+\omega}$$
    Dans ce cas, on peut distinguer les cas particuliers suivants :
    - Si $|a|=1$ alors $f$ est la rotation de centre $\Omega(\omega)$ et d'angle $\operatorname{Arg}(a)$.
    - Si $\operatorname{Arg}(a)=0\ [\pi]$ alors $f$ est l'homothétie de centre $\Omega(\omega)$ et de rapport $a$.
+
 :::
 
 ::: {.example}
+
 La transformation $z\longmapsto z+i$ est la translation de vecteur d'affixe $i$ puisque $z'=z+i \Longleftrightarrow z'-z=i$.
+
 :::
 
 ::: {.example}
+
 La transformation $z\longmapsto iz+2$ est la rotation de centre $\Omega$ d'affixe $1+i$ et d'angle $\frac{\pi}{2}$ puisque $z'=iz+2 \Longleftrightarrow z'=i\left(z-(1+i)\right)+(1+i)$.
+
 :::
 
 ::: {.example}
+
 La transformation $z\longmapsto 2z+2$ est l'homothétie de centre $\Omega$ d'affixe $-2$ et de rapport $2$ puisque $z'=2z+2 \Longleftrightarrow z'=2\left(z+2\right)-2$.
+
 :::
 
 ::: {.example}
+
 La transformation $z\longmapsto -z+2$ est la symétrie centrale de centre $\Omega$ d'affixe $1$ puisque $z'=-z+2 \Longleftrightarrow z'=-\left(z-1\right)+1$.
+
 :::
 
 ::: {.exercise}
+
 Soit $f$ la transformation du plan complexe qui à chaque point $M$ d'affixe $z$ associe le point $M'$ d'affixe :
 $$z'=(-1+i\sqrt{3})z-i\sqrt{3}$$
 
 1. Montrer que $f$ est une similitude directe dont on déterminera le centre, l'angle et le rapport.
 2. Montrer que $f$ est la composée d'une homothétie de centre $O$ dont on déterminera le rapport et d'une rotation, dont on déterminera le centre et l'angle.
+
 :::
 
 # Document en PDF {-}
 [Chapitre 02 : Nombres complexes](PDF/pcsi-chap02.pdf)
 
 ## Navigation {-}
+
 ::: {.chap-nav}
+
 [Chapitre 01 : Vocabulaire ensembliste et éléments de logique](pcsi-chap01.qmd){.prev}
 [Menu PCSI](pcsi.qmd){.home}
 [Chapitre 03 : Compléments de calcul algébrique](pcsi-chap03.qmd){.next}
+
 :::

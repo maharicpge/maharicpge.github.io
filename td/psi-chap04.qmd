@@ -19,20 +19,24 @@ filters:
 **PSI (2e année) — TD du Chapitre 04.** Fonctions continues par morceaux, intégrales généralisées sur $[a,+\infty[$, intégrabilité, intégrales généralisées sur un intervalle quelconque, intégrales absolument convergentes et fonctions intégrables.
 
 ::: {.exercise}
+
 Étudier la convergence des intégrales suivantes :
 
 1. $\int_1^{+\infty} \frac{dt}{t^\alpha}$ selon $\alpha \in \mathbb{R}$
 2. $\int_0^1 \frac{dt}{t^\alpha}$ selon $\alpha \in \mathbb{R}$
 3. $\int_0^{+\infty} e^{-\alpha t}\, dt$ selon $\alpha \in \mathbb{R}$
+
 :::
 
 ::: {.exercise}
+
 Étudier la nature des intégrales suivantes :
 
 1. $\int_1^{+\infty} \frac{\sin t}{t}\, dt$
 2. $\int_1^{+\infty} \frac{dt}{1+t^2}$
 3. $\int_0^1 \ln t\, dt$
 4. $\int_0^{+\infty} \frac{dt}{(1+t)^2}$
+
 :::
 
 **Indications :**
@@ -40,7 +44,9 @@ filters:
 - (3) $\int_0^1 \ln t\, dt = [t\ln t - t]_0^1 = -1$.
 
 ::: {.exercise}
+
 Montrer que $\int_0^{+\infty} \frac{\sin t}{t}\, dt$ converge mais pas absolument.
+
 :::
 
 **Indications :**
@@ -48,7 +54,9 @@ Montrer que $\int_0^{+\infty} \frac{\sin t}{t}\, dt$ converge mais pas absolumen
 - Non-convergence absolue : minorer $\int_1^{+\infty} \frac{|\sin t|}{t}\, dt$ en découpant en intervalles $[k\pi, (k+1)\pi]$.
 
 ::: {.exercise}
+
 Étudier la convergence de $\int_0^{+\infty} \frac{1 - \cos t}{t^\alpha}\, dt$ selon $\alpha \in \mathbb{R}$.
+
 :::
 
 **Indications :**
@@ -57,11 +65,13 @@ Montrer que $\int_0^{+\infty} \frac{\sin t}{t}\, dt$ converge mais pas absolumen
 - Conclusion : convergence ssi $1 < \alpha < 3$.
 
 ::: {.exercise}
+
 Calculer les intégrales suivantes :
 
 1. $\int_0^{+\infty} \frac{dt}{(1+t^2)^2}$
 2. $\int_0^{+\infty} t e^{-t}\, dt$
 3. $\int_0^{+\infty} t^2 e^{-t}\, dt$
+
 :::
 
 **Indications :**
@@ -70,14 +80,18 @@ Calculer les intégrales suivantes :
 - (3) Double IPP. Résultat : $2$.
 
 ::: {.exercise}
+
 Soit $f : [0, +\infty[ \to \mathbb{R}$ continue, positive et décroissante. Montrer que :
 $$\int_0^{+\infty} f(t)\, dt \text{ converge} \iff \sum_{n=0}^{+\infty} f(n) \text{ converge}$$
+
 :::
 
 **Indication :** Encadrer $f(k)$ par $\int_k^{k+1} f$ et $\int_{k-1}^k f$ grâce à la décroissance.
 
 ::: {.exercise}
+
 Montrer que $\int_0^{+\infty} e^{-t^2}\, dt = \frac{\sqrt{\pi}}{2}$.
+
 :::
 
 **Indications :**
@@ -86,19 +100,25 @@ Montrer que $\int_0^{+\infty} e^{-t^2}\, dt = \frac{\sqrt{\pi}}{2}$.
 - Passer en coordonnées polaires.
 
 ::: {.exercise}
+
 Étudier la convergence de $\int_0^{+\infty} \frac{e^{-t}}{t^\alpha}\, dt$ selon $\alpha \in \mathbb{R}$.
+
 :::
 
 **Indication :** En $0^+$ : $e^{-t} \sim 1$, convergence ssi $\alpha < 1$. En $+\infty$ : convergence pour tout $\alpha$.
 
 ::: {.exercise}
+
 Soit $f : [1, +\infty[ \to \mathbb{R}$ de classe $\mathcal{C}^1$ avec $\int_1^{+\infty} |f'(t)|\, dt$ convergente. Montrer que $f$ admet une limite finie en $+\infty$.
+
 :::
 
 **Indication :** Écrire $f(x) - f(1) = \int_1^x f'(t)\, dt$ et montrer que cette intégrale converge absolument.
 
 ::: {.exercise}
+
 Étudier la convergence absolue et la convergence simple de $\int_0^{+\infty} \frac{\sin t}{t^\alpha}\, dt$ selon $\alpha \in \mathbb{R}$.
+
 :::
 
 **Indications :**
@@ -110,8 +130,11 @@ Soit $f : [1, +\infty[ \to \mathbb{R}$ de classe $\mathcal{C}^1$ avec $\int_1^{+
 [**Chapitre 04 : Intégration des fonctions continues par morceaux sur un intervalle**](../cours/psi-chap04.qmd)
 
 # Navigation {-}
+
 ::: {.chap-nav}
+
 [TD 03 : Topologie des espaces normés](psi-chap03.qmd){.prev}
 [Menu PSI](psi.qmd){.home}
 [TD 05 : Fonctions vectorielles et arcs paramétrés](psi-chap05.qmd){.next}
+
 :::

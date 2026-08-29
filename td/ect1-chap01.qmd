@@ -19,36 +19,44 @@ filters:
 **ECT (1re année) — TD du Chapitre 01.** Connecteurs logiques, quantificateurs, raisonnements (récurrence, contraposée, absurde, disjonction des cas), ensembles, applications, injections, surjections, bijections.
 
 ::: {.exercise}
+
 Soient $P$, $Q$, $R$ trois propositions. Montrer que :
 
 1. $P \Rightarrow (Q \Rightarrow R)$ est équivalente à $(P \wedge Q) \Rightarrow R$.
 2. $\neg(P \wedge Q)$ est équivalente à $(\neg P) \vee (\neg Q)$ (lois de De Morgan).
 3. $P \Rightarrow Q$ est équivalente à $(\neg P) \vee Q$.
 4. La contraposée de $P \Rightarrow Q$ est $\neg Q \Rightarrow \neg P$.
+
 :::
 
 ::: {.exercise}
+
 Soient $P(x)$ et $Q(x)$ deux propositions dépendant de $x \in E$. Montrer que :
 
 1. $\forall x \in E,\; P(x) \wedge Q(x)$ équivaut à $(\forall x,\; P(x)) \wedge (\forall x,\; Q(x))$.
 2. $\exists x \in E,\; P(x) \vee Q(x)$ équivaut à $(\exists x,\; P(x)) \vee (\exists x,\; Q(x))$.
 3. $\neg(\forall x,\; P(x))$ équivaut à $\exists x,\; \neg P(x)$.
 4. $\forall x\; \exists y,\; R(x,y)$ n'équivaut pas en général à $\exists y\; \forall x,\; R(x,y)$. Donner un contre-exemple.
+
 :::
 
 ::: {.exercise}
+
 Montrer par récurrence que pour tout $n \in \mathbb{N}^*$ :
 
 1. $\sum_{k=1}^n k = \dfrac{n(n+1)}{2}$
 2. $\sum_{k=1}^n k^2 = \dfrac{n(n+1)(2n+1)}{6}$
 3. $2^n > n$
+
 :::
 
 ::: {.exercise}
+
 Montrer par l'absurde que :
 
 1. $\sqrt{2} \notin \mathbb{Q}$.
 2. Il existe une infinité de nombres premiers.
+
 :::
 
 Indications :
@@ -56,45 +64,55 @@ Indications :
 (2) Supposer $p_1, \ldots, p_n$ premiers. Poser $N = p_1 \cdots p_n + 1$.
 
 ::: {.exercise}
+
 Montrer par contraposée que :
 
 1. Si $n^2$ est pair, alors $n$ est pair.
 2. Si $ab$ est impair, alors $a$ et $b$ sont impairs.
+
 :::
 
 ::: {.exercise}
+
 Soient $A$, $B$, $C$ trois ensembles. Montrer que :
 
 1. $A \setminus (B \cup C) = (A \setminus B) \cap (A \setminus C)$
 2. $A \cap (B \setminus C) = (A \cap B) \setminus C$
 3. $\mathcal{P}(A) \cup \mathcal{P}(B) \subset \mathcal{P}(A \cup B)$ et que l'inclusion est stricte en général.
+
 :::
 
 Indication : $E = \{1,2\}$, $A = \{1\}$, $B = \{2\}$. Alors $\{1,2\} \in \mathcal{P}(A \cup B)$ mais $\{1,2\} \notin \mathcal{P}(A) \cup \mathcal{P}(B)$.
 
 ::: {.exercise}
+
 Soit $f : E \to F$ une application. Montrer que :
 
 1. $f$ est injective $\iff \forall A \in \mathcal{P}(E),\; f^{-1}(f(A)) = A$.
 2. $f$ est surjective $\iff \forall B \in \mathcal{P}(F),\; f(f^{-1}(B)) = B$.
+
 :::
 
 ::: {.exercise}
+
 Soient $f : E \to F$ et $g : F \to G$ deux applications. Montrer que :
 
 1. Si $f$ et $g$ sont injectives, alors $g \circ f$ est injective.
 2. Si $f$ et $g$ sont surjectives, alors $g \circ f$ est surjective.
 3. Si $g \circ f$ est injective, alors $f$ est injective.
 4. Si $g \circ f$ est surjective, alors $g$ est surjective.
+
 :::
 
 ::: {.exercise}
+
 Soit $f : \mathbb{R} \to \mathbb{R}$ définie par $f(x) = \dfrac{x}{1+|x|}$.
 
 1. Montrer que $f$ est bien définie sur $\mathbb{R}$.
 2. Montrer que $f$ est injective.
 3. Montrer que $f$ n'est pas surjective sur $\mathbb{R}$.
 4. Montrer que $f$ réalise une bijection de $\mathbb{R}$ sur $]-1, 1[$ et déterminer sa réciproque.
+
 :::
 
 Indications :
@@ -102,14 +120,19 @@ Indications :
 (4) Pour $y \in ]-1,1[$, résoudre $y = \frac{x}{1+|x|}$.
 
 ::: {.exercise}
+
 Soit $f : \mathbb{N} \to \mathbb{Z}$ définie par $f(n) = (-1)^n \left\lfloor \dfrac{n+1}{2} \right\rfloor$. Montrer que $f$ est bijective.
+
 :::
 
 # Cours {-}
 [**Chapitre 01 : Raisonnements, notions d'ensemble et d'application**](ect1-chap01.qmd)
 
 # Navigation {-}
+
 ::: {.chap-nav}
+
 [Menu ECT1](ect1.qmd){.home}
 [TD 02 : Calculs algébriques dans ℝ](ect1-chap02.qmd){.next}
+
 :::

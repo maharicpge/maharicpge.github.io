@@ -37,55 +37,71 @@ Dans tout ce chapitre, $\mathbb{K}$ désigne $\mathbb{R}$ ou $\mathbb{C}$.
 ## Définition
 
 ::: {.definition}
+
 Un **polynôme** à une indéterminée $X$ à coefficients dans $\mathbb{K}$ est une expression de la forme :
 $$P(X) = a_n X^n + a_{n-1} X^{n-1} + \cdots + a_1 X + a_0$$
 où $a_0, a_1, \ldots, a_n \in \mathbb{K}$. L'ensemble des polynômes à coefficients dans $\mathbb{K}$ est noté $\mathbb{K}[X]$.
+
 :::
 
 ::: {.definition}
+
 Soit $P \in \mathbb{K}[X]$.
 - Le **degré** de $P$, noté $\deg P$, est le plus grand entier $n$ tel que $a_n \neq 0$. Par convention, $\deg(0) = -\infty$.
 - Le coefficient $a_n$ est appelé **coefficient dominant**.
 - $P$ est dit **unitaire** si son coefficient dominant vaut $1$.
+
 :::
 
 ::: {.remarque}
+
 L'ensemble $\mathbb{K}_n[X]$ désigne l'ensemble des polynômes de degré inférieur ou égal à $n$.
+
 :::
 
 ## Opérations sur les polynômes
 
 ::: {.definition}
+
 Soient $P = \sum_{i=0}^n a_i X^i$ et $Q = \sum_{j=0}^m b_j X^j$ deux polynômes de $\mathbb{K}[X]$.
 
 - **Somme** : $P + Q = \sum_{i=0}^{\max(n,m)} (a_i + b_i) X^i$
 - **Produit** : $P \cdot Q = \sum_{k=0}^{n+m} c_k X^k$ où $c_k = \sum_{i+j=k} a_i b_j$
 - **Composition** : $P \circ Q = P(Q(X)) = a_n Q(X)^n + \cdots + a_1 Q(X) + a_0$
+
 :::
 
 ::: {.proposition title="(Opérations sur les degrés)"}
+
 Soient $P, Q \in \mathbb{K}[X]$ deux polynômes non nuls.
 
 - $\deg(P + Q) \leq \max(\deg P, \deg Q)$
 - $\deg(P \cdot Q) = \deg P + \deg Q$
 - Si $P$ est non nul : $\deg(P \circ Q) = \deg P \cdot \deg Q$
+
 :::
 
 ::: {.proposition title="(Formule du binôme de Newton)"}
+
 Soient $A, B \in \mathbb{K}[X]$ deux polynômes qui commutent (c'est-à-dire $AB = BA$). Alors pour tout $n \in \mathbb{N}$ :
 $$(A + B)^n = \sum_{k=0}^n \binom{n}{k} A^{n-k} B^k$$
+
 :::
 
 ::: {.theoreme title="(Structure d'anneau)"}
+
 $\mathbb{K}[X]$ muni de l'addition et du produit est un **anneau commutatif intègre**. En particulier, le produit de deux polynômes non nuls est non nul.
+
 :::
 
 ::: {.example}
+
 Soient $P = X^2 + 2X + 1$ et $Q = X - 1$.
 
 - $P + Q = X^2 + 3X$
 - $P \cdot Q = X^3 + X^2 - X - 1$
 - $\deg(P \cdot Q) = 2 + 1 = 3$
+
 :::
 
 # Division euclidienne
@@ -93,39 +109,51 @@ Soient $P = X^2 + 2X + 1$ et $Q = X - 1$.
 ## Théorème de la division euclidienne
 
 ::: {.theoreme title="(Division euclidienne)"}
+
 Soient $A, B \in \mathbb{K}[X]$ avec $B \neq 0$. Il existe un unique couple $(Q, R) \in \mathbb{K}[X]^2$ tel que :
 $$A = BQ + R \quad \text{et} \quad \deg R < \deg B$$
 $Q$ est appelé le **quotient** et $R$ le **reste** de la division euclidienne de $A$ par $B$.
+
 :::
 
 ::: {.definition}
+
 On dit que $B$ **divise** $A$ (ou que $A$ est un **multiple** de $B$, ou que $B$ est un **diviseur** de $A$), et on note $B \mid A$, si le reste de la division euclidienne de $A$ par $B$ est nul.
+
 :::
 
 ::: {.proposition}
+
 Soient $A, B, C \in \mathbb{K}[X]$.
 
 - $B \mid A$ et $B \mid C \implies B \mid (\lambda A + \mu C)$ pour tous $\lambda, \mu \in \mathbb{K}$
 - $A \mid B$ et $B \mid A \implies A = \lambda B$ pour un certain $\lambda \in \mathbb{K}^*$
 - $A \mid B$ et $B \mid C \implies A \mid C$
+
 :::
 
 ::: {.example}
+
 Divisons $A = X^4 + 2X^3 - X^2 + X + 1$ par $B = X^2 + 1$.
 
 Par division euclidienne :
 $$X^4 + 2X^3 - X^2 + X + 1 = (X^2 + 1)(X^2 + 2X - 2) + (3X + 1)$$
 Le quotient est $Q = X^2 + 2X - 2$ et le reste est $R = 3X + 1$.
+
 :::
 
 ::: {.proposition title="(Algorithme de Horner)"}
+
 Pour calculer la valeur $P(a)$ d'un polynôme $P = a_n X^n + \cdots + a_1 X + a_0$ en un point $a \in \mathbb{K}$, on utilise l'algorithme de Horner :
 $$P(a) = (\cdots((a_n \cdot a + a_{n-1}) \cdot a + a_{n-2}) \cdot a + \cdots + a_1) \cdot a + a_0$$
+
 :::
 
 ::: {.example}
+
 Pour $P = 2X^3 - X^2 + 3X + 1$ et $a = 2$ :
 $$P(2) = ((2 \cdot 2 - 1) \cdot 2 + 3) \cdot 2 + 1 = (5 \cdot 2 + 3) \cdot 2 + 1 = 37$$
+
 :::
 
 # Racines d'un polynôme
@@ -133,49 +161,65 @@ $$P(2) = ((2 \cdot 2 - 1) \cdot 2 + 3) \cdot 2 + 1 = (5 \cdot 2 + 3) \cdot 2 + 1
 ## Définition et caractérisation
 
 ::: {.definition}
+
 Soit $P \in \mathbb{K}[X]$ et $a \in \mathbb{K}$. On dit que $a$ est une **racine** (ou **zéro**) de $P$ si $P(a) = 0$.
+
 :::
 
 ::: {.theoreme title="(Caractérisation de la divisibilité par $(X-a)$)"}
+
 Soit $P \in \mathbb{K}[X]$ et $a \in \mathbb{K}$. Alors :
 $$P(a) = 0 \iff (X - a) \mid P$$
+
 :::
 
 ::: {.theoreme title="(Nombre de racines)"}
+
 Un polynôme non nul de degré $n$ possède au plus $n$ racines (comptées avec multiplicité).
+
 :::
 
 ::: {.example}
+
 Le polynôme $P = X^2 - 1 = (X-1)(X+1)$ possède exactement deux racines : $1$ et $-1$.
 
 Le polynôme $P = X^2 + 1$ ne possède aucune racine réelle, mais deux racines complexes : $i$ et $-i$.
+
 :::
 
 ## Multiplicité d'une racine
 
 ::: {.definition}
+
 Soit $P \in \mathbb{K}[X]$ non nul et $a \in \mathbb{K}$. On dit que $a$ est une racine de $P$ de **multiplicité** $m \geq 1$ si :
 $$(X - a)^m \mid P \quad \text{et} \quad (X - a)^{m+1} \nmid P$$
 Si $a$ n'est pas racine de $P$, on dit que $a$ est racine de multiplicité $0$.
+
 :::
 
 ::: {.example}
+
 Le polynôme $P = X^3 - 3X^2 + 3X - 1 = (X-1)^3$ possède la racine $1$ de multiplicité $3$.
 
 Le polynôme $P = X^2 - 1$ possède les racines $1$ et $-1$, chacune de multiplicité $1$.
+
 :::
 
 ## Polynôme scindé
 
 ::: {.definition}
+
 Un polynôme $P \in \mathbb{K}[X]$ de degré $n$ est dit **scindé** sur $\mathbb{K}$ s'il s'écrit :
 $$P(X) = \lambda (X - a_1)(X - a_2) \cdots (X - a_n)$$
 où $\lambda \in \mathbb{K}^*$ et $a_1, \ldots, a_n \in \mathbb{K}$.
+
 :::
 
 ::: {.theoreme title="(Relations entre coefficients et racines)"}
+
 Soit $P(X) = a_n X^n + \cdots + a_1 X + a_0$ un polynôme scindé de racines $a_1, \ldots, a_n$. Alors :
 $$\sum_{i=1}^n a_i = -\frac{a_{n-1}}{a_n} \quad \text{et} \quad \prod_{i=1}^n a_i = (-1)^n \frac{a_0}{a_n}$$
+
 :::
 
 # Dérivée formelle
@@ -183,59 +227,81 @@ $$\sum_{i=1}^n a_i = -\frac{a_{n-1}}{a_n} \quad \text{et} \quad \prod_{i=1}^n a_
 ## Définition et propriétés
 
 ::: {.definition}
+
 Soit $P = a_n X^n + a_{n-1} X^{n-1} + \cdots + a_1 X + a_0 \in \mathbb{K}[X]$. La **dérivée formelle** de $P$ est le polynôme :
 $$P'(X) = n a_n X^{n-1} + (n-1) a_{n-1} X^{n-2} + \cdots + a_1$$
+
 :::
 
 ::: {.proposition title="(Opérations sur les polynômes dérivés)"}
+
 Soient $P, Q \in \mathbb{K}[X]$ et $\lambda \in \mathbb{K}$.
 
 - $(\lambda P + Q)' = \lambda P' + Q'$
 - $(P \cdot Q)' = P' \cdot Q + P \cdot Q'$
 - **Formule de Leibniz** : $(P \cdot Q)^{(n)} = \sum_{k=0}^n \binom{n}{k} P^{(n-k)} Q^{(k)}$
+
 :::
 
 ::: {.proposition title="(Formule de Taylor polynomiale)"}
+
 Soit $P \in \mathbb{K}[X]$ de degré $n$ et $a \in \mathbb{K}$. Alors :
 $$P(X) = \sum_{k=0}^n \frac{P^{(k)}(a)}{k!} (X - a)^k$$
+
 :::
 
 ::: {.theoreme title="(Caractérisation de la multiplicité par les dérivées)"}
+
 Soit $P \in \mathbb{K}[X]$ non nul et $a \in \mathbb{K}$. Alors $a$ est racine de $P$ de multiplicité $m \geq 1$ si et seulement si :
 $$P(a) = P'(a) = \cdots = P^{(m-1)}(a) = 0 \quad \text{et} \quad P^{(m)}(a) \neq 0$$
+
 :::
 
 ::: {.example}
+
 Soit $P = X^3 - 3X^2 + 3X - 1$. On a $P(1) = 0$, $P'(1) = 3 - 6 + 3 = 0$, $P''(1) = 6 - 6 = 0$, $P'''(1) = 6 \neq 0$. Donc $1$ est racine de multiplicité $3$.
+
 :::
 
 # Théorème de d'Alembert-Gauss
 
 ::: {.theoreme title="(Théorème de d'Alembert-Gauss)"}
+
 Tout polynôme non constant à coefficients complexes possède au moins une racine complexe.
+
 :::
 
 ::: {.remarque}
+
 La démonstration de ce théorème est hors programme. Il admet des corollaires fondamentaux.
+
 :::
 
 ::: {.theoreme title="(Décomposition dans $\mathbb{C}[X]$)"}
+
 Tout polynôme non nul de $\mathbb{C}[X]$ de degré $n$ s'écrit de manière unique (à l'ordre près) :
 $$P(X) = \lambda (X - a_1)^{m_1} (X - a_2)^{m_2} \cdots (X - a_r)^{m_r}$$
 où $\lambda \in \mathbb{C}^*$, $a_1, \ldots, a_r$ sont les racines distinctes de $P$ et $m_i$ leurs multiplicités avec $\sum m_i = n$.
+
 :::
 
 ::: {.theoreme title="(Polynômes irréductibles de $\mathbb{C}[X]$)"}
+
 Les polynômes irréductibles de $\mathbb{C}[X]$ sont exactement les polynômes de degré $1$.
+
 :::
 
 ::: {.proposition title="(Caractérisation de la divisibilité dans $\mathbb{C}[X]$)"}
+
 Soient $P, Q \in \mathbb{C}[X]$ non nuls. Alors $Q \mid P$ si et seulement si toute racine de $Q$ est racine de $P$ avec une multiplicité au moins égale.
+
 :::
 
 ::: {.example title="(Factorisation de $X^n - 1$)"}
+
 Les racines $n$-ièmes de l'unité sont $\omega_k = e^{i\frac{2k\pi}{n}}$ pour $k = 0, 1, \ldots, n-1$. Donc :
 $$X^n - 1 = \prod_{k=0}^{n-1} \left(X - e^{i\frac{2k\pi}{n}}\right)$$
+
 :::
 
 # Factorisation dans $\mathbb{R}[X]$
@@ -243,24 +309,32 @@ $$X^n - 1 = \prod_{k=0}^{n-1} \left(X - e^{i\frac{2k\pi}{n}}\right)$$
 ## Polynômes irréductibles de $\mathbb{R}[X]$
 
 ::: {.theoreme title="(Polynômes irréductibles de $\mathbb{R}[X]$)"}
+
 Les polynômes irréductibles de $\mathbb{R}[X]$ sont :
 - les polynômes de degré $1$ ;
 - les polynômes de degré $2$ à discriminant strictement négatif.
+
 :::
 
 ::: {.theoreme title="(Décomposition dans $\mathbb{R}[X]$)"}
+
 Tout polynôme non nul de $\mathbb{R}[X]$ se décompose de manière unique (à l'ordre près) en produit de polynômes irréductibles de $\mathbb{R}[X]$.
+
 :::
 
 ::: {.proposition title="(Racines conjuguées)"}
+
 Si $P \in \mathbb{R}[X]$ possède une racine complexe non réelle $a + ib$, alors $\overline{a} = a - ib$ est aussi racine de $P$ avec la même multiplicité.
+
 :::
 
 ::: {.example}
+
 Le polynôme $P = X^4 + 1$ possède les racines complexes :
 $$e^{i\pi/4}, \quad e^{i3\pi/4}, \quad e^{i5\pi/4}, \quad e^{i7\pi/4}$$
 Sa factorisation dans $\mathbb{R}[X]$ est :
 $$X^4 + 1 = (X^2 - \sqrt{2}X + 1)(X^2 + \sqrt{2}X + 1)$$
+
 :::
 
 # Fractions rationnelles
@@ -268,35 +342,46 @@ $$X^4 + 1 = (X^2 - \sqrt{2}X + 1)(X^2 + \sqrt{2}X + 1)$$
 ## Définition
 
 ::: {.definition}
+
 Une **fraction rationnelle** à coefficients dans $\mathbb{K}$ est un quotient $\frac{P}{Q}$ où $P, Q \in \mathbb{K}[X]$ avec $Q \neq 0$. L'ensemble des fractions rationnelles est noté $\mathbb{K}(X)$.
+
 :::
 
 ::: {.definition}
+
 Soit $F = \frac{P}{Q}$ une fraction rationnelle.
 - Le **degré** de $F$ est $\deg F = \deg P - \deg Q$.
 - Les **zéros** de $F$ sont les racines de $P$.
 - Les **pôles** de $F$ sont les racines de $Q$ (après simplification éventuelle).
+
 :::
 
 ::: {.definition}
+
 La **fonction rationnelle** associée à $F = \frac{P}{Q}$ est la fonction $x \mapsto \frac{P(x)}{Q(x)}$ définie sur $\mathbb{K} \setminus \{x \in \mathbb{K} \mid Q(x) = 0\}$.
+
 :::
 
 ## Décomposition en éléments simples
 
 ::: {.theoreme title="(Décomposition en éléments simples sur $\mathbb{C}$)"}
+
 Toute fraction rationnelle $F \in \mathbb{C}(X)$ s'écrit de manière unique :
 $$F(X) = E(X) + \sum_{i=1}^r \sum_{k=1}^{m_i} \frac{\lambda_{i,k}}{(X - a_i)^k}$$
 où $E$ est la partie entière (polynôme), $a_1, \ldots, a_r$ sont les pôles distincts de $F$ de multiplicités $m_i$, et $\lambda_{i,k} \in \mathbb{C}$.
+
 :::
 
 ::: {.theoreme title="(Décomposition en éléments simples sur $\mathbb{R}$)"}
+
 Toute fraction rationnelle $F \in \mathbb{R}(X)$ s'écrit de manière unique :
 $$F(X) = E(X) + \sum_{i=1}^r \sum_{k=1}^{m_i} \frac{\lambda_{i,k}}{(X - a_i)^k} + \sum_{j=1}^s \sum_{k=1}^{n_j} \frac{\alpha_{j,k} X + \beta_{j,k}}{(X^2 + p_j X + q_j)^k}$$
 où les $X^2 + p_j X + q_j$ sont les facteurs irréductibles de degré $2$ du dénominateur.
+
 :::
 
 ::: {.example title="(Décomposition à pôles simples sur $\mathbb{C}$)"}
+
 Décomposons $F(X) = \frac{1}{(X-1)(X-2)(X-3)}$.
 
 On cherche :
@@ -309,50 +394,62 @@ $$B = \frac{1}{(2-1)(2-3)} = -1, \quad C = \frac{1}{(3-1)(3-2)} = \frac{1}{2}$$
 
 Donc :
 $$\frac{1}{(X-1)(X-2)(X-3)} = \frac{1}{2(X-1)} - \frac{1}{X-2} + \frac{1}{2(X-3)}$$
+
 :::
 
 ::: {.example title="(Décomposition sur $\mathbb{R}$)"}
+
 Décomposons $F(X) = \frac{1}{X^2 + 1}$.
 
 Le dénominateur $X^2 + 1$ est irréductible sur $\mathbb{R}$ (discriminant $-4 < 0$). On cherche :
 $$\frac{1}{X^2 + 1} = \frac{\alpha X + \beta}{X^2 + 1}$$
 Par identification : $\alpha = 0$, $\beta = 1$. Donc la décomposition est simplement $\frac{1}{X^2 + 1}$.
+
 :::
 
 ## Application au calcul de primitives
 
 ::: {.example title="(Primitives de fractions rationnelles)"}
+
 La décomposition en éléments simples permet de calculer les primitives.
 
 - $\int \frac{dx}{X - a} = \ln|X - a| + C$
 - $\int \frac{dx}{(X - a)^k} = \frac{1}{(1-k)(X-a)^{k-1}} + C$ pour $k \geq 2$
 - $\int \frac{dX}{X^2 + 1} = \arctan X + C$
 - $\int \frac{dX}{X^2 + pX + q} = \frac{1}{\sqrt{q - p^2/4}} \arctan\left(\frac{X + p/2}{\sqrt{q - p^2/4}}\right) + C$ si le discriminant est négatif
+
 :::
 
 ::: {.example}
+
 Calculons $\int \frac{dX}{X^2 - 1}$.
 
 On décompose : $\frac{1}{X^2 - 1} = \frac{1}{(X-1)(X+1)} = \frac{1}{2(X-1)} - \frac{1}{2(X+1)}$.
 
 Donc :
 $$\int \frac{dX}{X^2 - 1} = \frac{1}{2}\ln|X-1| - \frac{1}{2}\ln|X+1| + C = \frac{1}{2}\ln\left|\frac{X-1}{X+1}\right| + C$$
+
 :::
 
 ::: {.exercise}
+
 Décomposer en éléments simples et calculer les primitives :
 
 1. $\frac{X^2 + 1}{X^2 - 1}$
 2. $\frac{1}{X^3 - 1}$
 3. $\frac{X}{X^2 + X + 1}$
+
 :::
 
 # Document en PDF {-}
 [Chapitre 11 : Polynômes et fractions rationnelles](PDF/tsi1-chap11.pdf)
 
 ## Navigation {-}
+
 ::: {.chap-nav}
+
 [Chapitre 10 : Calcul matriciel et systèmes d'équations linéaires](tsi1-chap10.qmd){.prev}
 [Menu TSI1](tsi1.qmd){.home}
 [Chapitre 12 : Développements limités, calcul asymptotique](tsi1-chap12.qmd){.next}
+
 :::

@@ -37,6 +37,7 @@ Dans tout ce chapitre, $\mathbb{K}$ désigne $\mathbb{R}$ ou $\mathbb{C}$.
 ## Définitions
 
 ::: {.definition title="(Norme)"}
+
 Soit $E$ un $\mathbb{K}$-espace vectoriel. On appelle **norme** sur $E$ toute application $\|\cdot\| : E \to \mathbb{R}^+$ qui vérifie :
 
 1. **Séparation** : $\forall x \in E, \quad \|x\| = 0 \iff x = 0_E$
@@ -44,25 +45,31 @@ Soit $E$ un $\mathbb{K}$-espace vectoriel. On appelle **norme** sur $E$ toute ap
 3. **Inégalité triangulaire** : $\forall x, y \in E, \quad \|x + y\| \leq \|x\| + \|y\|$
 
 Un **espace vectoriel normé** (EVN) est un couple $(E, \|\cdot\|)$ où $E$ est un $\mathbb{K}$-espace vectoriel et $\|\cdot\|$ est une norme sur $E$.
+
 :::
 
 ::: {.definition title="(Distance associée à une norme)"}
+
 Soit $(E, \|\cdot\|)$ un EVN. La **distance associée** à la norme est l'application $d : E \times E \to \mathbb{R}^+$ définie par :
 $$d(x, y) = \|x - y\|$$
 
 Pour une partie $P$ non vide de $E$ et un vecteur $x \in E$, la **distance de $x$ à $P$** est :
 $$d(x, P) = \inf_{y \in P} d(x, y)$$
+
 :::
 
 ::: {.proposition title="(Propriétés de la distance)"}
+
 Soit $(E, \|\cdot\|)$ un EVN. Alors :
 
 1. $\forall x, y \in E, \quad d(x, y) = 0 \iff x = y$
 2. $\forall x, y \in E, \quad d(x, y) = d(y, x)$ (symétrie)
 3. $\forall x, y, z \in E, \quad d(x, z) \leq d(x, y) + d(y, z)$ (inégalité triangulaire)
+
 :::
 
 ::: {.definition title="(Boules et sphères)"}
+
 Soient $(E, \|\cdot\|)$ un EVN, $a \in E$ et $r > 0$.
 
 - La **boule ouverte** de centre $a$ et de rayon $r$ est :
@@ -73,35 +80,43 @@ $$\overline{B}(a, r) = \{x \in E \mid \|x - a\| \leq r\}$$
 
 - La **sphère** de centre $a$ et de rayon $r$ est :
 $$S(a, r) = \{x \in E \mid \|x - a\| = r\}$$
+
 :::
 
 ## Normes usuelles
 
 ::: {.definition title="(Normes usuelles sur $\mathbb{K}^n$)"}
+
 Sur $\mathbb{K}^n$, on définit les trois normes suivantes pour $x = (x_1, \ldots, x_n)$ :
 
 1. $\|x\|_1 = \sum_{k=1}^n |x_k|$
 2. $\|x\|_2 = \sqrt{\sum_{k=1}^n |x_k|^2}$
 3. $\|x\|_\infty = \max_{1 \leq k \leq n} |x_k|$
+
 :::
 
 ::: {.definition title="(Norme de la convergence uniforme)"}
+
 Si $X$ est un ensemble non vide, l'espace $\mathcal{B}(X, \mathbb{K})$ des fonctions bornées de $X$ dans $\mathbb{K}$ est un EVN pour la norme :
 $$\|f\|_\infty = \sup_{x \in X} |f(x)|$$
 
 Cette norme est appelée **norme de la convergence uniforme** (ou **norme infinie**).
+
 :::
 
 ::: {.definition title="(Normes de la convergence en moyenne)"}
+
 Sur l'espace $\mathcal{C}([a,b], \mathbb{K})$ des fonctions continues sur $[a,b]$ à valeurs dans $\mathbb{K}$, on définit :
 
 1. $\|f\|_1 = \int_a^b |f(t)|\, dt$ (convergence en moyenne)
 2. $\|f\|_2 = \left(\int_a^b |f(t)|^2\, dt\right)^{1/2}$ (convergence en moyenne quadratique)
+
 :::
 
 ## Normes produit
 
 ::: {.proposition title="(Normes produit)"}
+
 Soient $(E_1, \mathcal{N}_1), \ldots, (E_n, \mathcal{N}_n)$ des EVN. Alors les applications suivantes définissent des normes sur le produit cartésien $E = E_1 \times \cdots \times E_n$ :
 
 1. $\|x\|_1 = \sum_{k=1}^n \mathcal{N}_k(x_k)$
@@ -109,13 +124,16 @@ Soient $(E_1, \mathcal{N}_1), \ldots, (E_n, \mathcal{N}_n)$ des EVN. Alors les a
 3. $\|x\|_\infty = \max_{1 \leq k \leq n} \mathcal{N}_k(x_k)$
 
 Ces normes sont appelées **normes produit**.
+
 :::
 
 ::: {.example}
+
 Pour $x = ((1,2), (3,4)) \in \mathbb{R}^2 \times \mathbb{R}^2$ avec $\mathbb{R}^2$ muni de la norme $\|\cdot\|_2$ :
 $$\|x\|_1 = \sqrt{1+4} + \sqrt{9+16} = \sqrt{5} + 5$$
 $$\|x\|_2 = \sqrt{5 + 25} = \sqrt{30}$$
 $$\|x\|_\infty = \max(\sqrt{5}, 5) = 5$$
+
 :::
 
 # Suites d'éléments d'un EVN
@@ -123,59 +141,79 @@ $$\|x\|_\infty = \max(\sqrt{5}, 5) = 5$$
 ## Convergence et divergence
 
 ::: {.definition title="(Suites convergentes et divergentes)"}
+
 Soient $(E, \|\cdot\|)$ un EVN et $(u_n)_{n \in \mathbb{N}}$ une suite d'éléments de $E$.
 
 On dit que la suite $(u_n)$ **converge** vers $l \in E$ si :
 $$\forall \varepsilon > 0, \quad \exists N \in \mathbb{N}, \quad n \geq N \implies \|u_n - l\| < \varepsilon$$
 
 Dans le cas contraire, on dit que la suite $(u_n)$ **diverge**.
+
 :::
 
 ::: {.proposition title="(Unicité de la limite)"}
+
 Une suite convergente d'éléments d'un EVN possède une limite unique.
+
 :::
 
 ::: {.proposition title="(Opérations algébriques sur les limites)"}
+
 Soient $(E, \|\cdot\|)$ un EVN et $(u_n)$, $(v_n)$ deux suites d'éléments de $E$ convergeant respectivement vers $l$ et $l'$. Alors pour tous $\lambda, \mu \in \mathbb{K}$ :
 $$\lambda u_n + \mu v_n \xrightarrow[n \to +\infty]{} \lambda l + \mu l'$$
+
 :::
 
 ::: {.proposition title="(Caractère borné d'une suite convergente)"}
+
 Toute suite convergente d'éléments d'un EVN est bornée.
+
 :::
 
 ::: {.proposition title="(Suites extraites)"}
+
 Toute suite extraite d'une suite convergente est convergente et possède la même limite.
+
 :::
 
 ## Convergence dans un produit fini d'espaces normés
 
 ::: {.proposition title="(Convergence dans un produit fini)"}
+
 Soient $(E_1, \mathcal{N}_1), \ldots, (E_n, \mathcal{N}_n)$ des EVN. On munit $E = \prod_{i=1}^n E_i$ de l'une des normes produit $\|\cdot\|_i$ ($i \in \{1, 2, \infty\}$). Soit $(u_k)_{k \in \mathbb{N}} = (u_k^{(1)}, \ldots, u_k^{(n)})$ une suite d'éléments de $E$. Alors :
 $$(u_k) \to (l^{(1)}, \ldots, l^{(n)}) \iff \forall i \in \{1, \ldots, n\}, \quad (u_k^{(i)}) \to l^{(i)}$$
+
 :::
 
 ## Suites de Cauchy
 
 ::: {.definition title="(Suite de Cauchy)"}
+
 On dit qu'une suite $(u_n)_{n \in \mathbb{N}}$ d'éléments d'un EVN $(E, \|\cdot\|)$ est **de Cauchy** si :
 $$\forall \varepsilon > 0, \quad \exists N \in \mathbb{N}, \quad p, q \geq N \implies \|u_p - u_q\| < \varepsilon$$
+
 :::
 
 ::: {.proposition}
+
 Toute suite convergente est de Cauchy.
+
 :::
 
 ::: {.definition title="(Espace complet ou de Banach)"}
+
 On dira que $E$ est un **espace de Banach** (ou un **EVN complet**) si toute suite d'éléments de $E$ de Cauchy est convergente.
+
 :::
 
 ::: {.example}
+
 $\mathbb{R}$, $\mathbb{C}$, $\mathbb{R}^n$, $\mathbb{C}^n$ munis des normes usuelles sont des espaces de Banach.
 
 Plus généralement, un EVN de dimension finie est complet.
 
 $\mathbb{Q}$ muni de la valeur absolue n'est pas un espace de Banach.
+
 :::
 
 # Comparaison de normes
@@ -183,23 +221,30 @@ $\mathbb{Q}$ muni de la valeur absolue n'est pas un espace de Banach.
 ## Définition et propriétés
 
 ::: {.definition title="(Normes équivalentes)"}
+
 Soient $\mathcal{N}_1$ et $\mathcal{N}_2$ deux normes sur un $\mathbb{K}$-espace vectoriel $E$. On dit que $\mathcal{N}_1$ et $\mathcal{N}_2$ sont **équivalentes** s'il existe deux réels $a > 0$ et $b > 0$ tels que :
 $$\forall x \in E, \quad a \cdot \mathcal{N}_1(x) \leq \mathcal{N}_2(x) \leq b \cdot \mathcal{N}_1(x)$$
+
 :::
 
 ::: {.example}
+
 Dans $\mathbb{K}^n$, les trois normes $\|\cdot\|_1$, $\|\cdot\|_2$, $\|\cdot\|_\infty$ sont équivalentes.
+
 :::
 
 ::: {.proposition title="(Propriétés des normes équivalentes)"}
+
 Soient $\mathcal{N}_1$ et $\mathcal{N}_2$ deux normes équivalentes sur $E$. Alors :
 
 1. Une partie, une suite ou une fonction bornée pour $\mathcal{N}_1$ est bornée pour $\mathcal{N}_2$, et réciproquement.
 2. Toute suite convergente pour $\mathcal{N}_1$ est convergente pour $\mathcal{N}_2$, et réciproquement.
 3. Les deux normes $\mathcal{N}_1$ et $\mathcal{N}_2$ définissent la même topologie sur $E$ (c'est-à-dire les mêmes parties ouvertes et fermées).
+
 :::
 
 ::: {.example title="(Normes non équivalentes)"}
+
 Considérons l'espace vectoriel $E = \mathbb{R}[X]$. On définit sur $E$ les deux normes suivantes :
 $$\|P\|_\infty = \max_k |a_k| \quad \text{et} \quad \|P\|_h = \sum_{k=0}^{\deg(P)} \frac{|a_k|}{1+k}$$
 pour $P = \sum_{k=0}^{\deg(P)} a_k X^k$.
@@ -208,14 +253,17 @@ Considérons la suite $(P_n)$ de polynômes définie par $P_n = X^n$. On a :
 $$\|P_n\|_\infty = 1 \quad \text{et} \quad \|P_n\|_h = \frac{1}{n+1} \to 0$$
 
 Ces deux normes ne sont donc pas équivalentes.
+
 :::
 
 ::: {.remarque}
+
 Lorsqu'il y a équivalence des normes, travailler avec n'importe quelle norme ne change rien à :
 
 1. La définition des ouverts et des fermés de $E$ (propriétés topologiques).
 2. La convergence des suites d'éléments de $E$.
 3. Les limites des applications définies sur $E$ ou dans $E$.
+
 :::
 
 # Topologie d'un EVN
@@ -223,12 +271,14 @@ Lorsqu'il y a équivalence des normes, travailler avec n'importe quelle norme ne
 ## Ouverts et fermés
 
 ::: {.definition title="(Ouvert et fermé d'un EVN)"}
+
 Soit $(E, \|\cdot\|)$ un EVN.
 
 On appelle **ouvert** de $E$ toute partie $\mathcal{O}$ vide ou vérifiant :
 $$\forall x \in \mathcal{O}, \quad \exists r > 0, \quad B(x, r) \subset \mathcal{O}$$
 
 Une partie $F$ de $E$ est dite **fermée** si $\complement_E(F)$ est un ouvert de $E$.
+
 :::
 
 ::: {.example}
@@ -236,20 +286,24 @@ Une partie $F$ de $E$ est dite **fermée** si $\complement_E(F)$ est un ouvert d
 - Les boules ouvertes sont des ouverts.
 - Les boules fermées sont des fermés.
 - Les sphères sont des fermés.
+
 :::
 
 ::: {.proposition title="(Stabilité des ouverts et des fermés)"}
+
 Soit $(E, \|\cdot\|)$ un EVN.
 
 1. Toute réunion d'ouverts est un ouvert.
 2. Toute intersection finie d'ouverts est un ouvert.
 3. Toute intersection de fermés est un fermé.
 4. Toute réunion finie de fermés est un fermé.
+
 :::
 
 ## Point adhérent, adhérence, frontière
 
 ::: {.definition title="(Point adhérent, adhérence, frontière)"}
+
 Soient $(E, \|\cdot\|)$ un EVN et $A$ une partie de $E$.
 
 - Un point $a \in E$ est **adhérent** à $A$ si toute boule ouverte centrée en $a$ rencontre $A$ :
@@ -260,32 +314,43 @@ $$\forall \varepsilon > 0, \quad B(a, \varepsilon) \cap A \neq \varnothing$$
 - L'**intérieur** de $A$, noté $\mathrm{Int}(A)$ ou $\mathring{A}$, est l'ensemble des points $x$ tels qu'il existe $r > 0$ avec $B(x, r) \subset A$.
 
 - La **frontière** de $A$, notée $\mathrm{Fr}(A)$, est $\overline{A} \setminus \mathring{A}$.
+
 :::
 
 ::: {.proposition title="(Caractérisation séquentielle des points adhérents et des fermés)"}
+
 Soient $(E, \|\cdot\|)$ un EVN et $A$ une partie de $E$. Alors :
 
 1. $a \in \overline{A} \iff \exists (u_n)_n \subset A \; / \; u_n \xrightarrow[n \to +\infty]{} a$
 2. $A$ est fermée $\iff A = \overline{A}$
+
 :::
 
 ## Parties denses
 
 ::: {.definition title="(Parties denses)"}
+
 Soient $(E, \|\cdot\|)$ un EVN et $A$ une partie de $E$. $A$ est dite **dense** dans $E$ si :
 $$\forall x \in E, \quad \forall \varepsilon > 0, \quad B(x, \varepsilon) \cap A \neq \varnothing$$
+
 :::
 
 ::: {.proposition title="(Caractérisation des parties denses)"}
+
 $A$ est dense dans $E$ si et seulement si $\overline{A} = E$.
+
 :::
 
 ::: {.example}
+
 $\mathbb{Q}$ est dense dans $\mathbb{R}$. Plus généralement, $\mathbb{Q}^n$ est dense dans $\mathbb{R}^n$.
+
 :::
 
 ::: {.proposition title="(Continuité et densité)"}
+
 Deux applications continues qui coïncident sur une partie dense sont égales.
+
 :::
 
 # Étude locale et propriétés globales d'une application continue
@@ -293,76 +358,97 @@ Deux applications continues qui coïncident sur une partie dense sont égales.
 ## Limite en un point
 
 ::: {.definition title="(Limite en un point)"}
+
 Soient $(E, \|\cdot\|)$ et $(F, \|\cdot\|')$ deux EVN, $A$ une partie non vide de $E$, $f : A \to F$ une application et $a$ un point adhérent à $A$. On dit que $f$ admet pour limite $l \in F$ en $a$ si :
 $$\forall \varepsilon > 0, \quad \exists \delta > 0, \quad (x \in A \text{ et } \|x - a\| < \delta) \implies \|f(x) - l\|' < \varepsilon$$
+
 :::
 
 ## Continuité
 
 ::: {.definition title="(Continuité en un point et sur une partie)"}
+
 Soient $(E, \|\cdot\|)$ et $(F, \|\cdot\|')$ deux EVN, $A$ une partie non vide de $E$ et $f : A \to F$ une application.
 
 - $f$ est **continue en** $a \in A$ si :
 $$\forall \varepsilon > 0, \quad \exists \delta > 0, \quad (x \in A \text{ et } \|x - a\| < \delta) \implies \|f(x) - f(a)\|' < \varepsilon$$
 
 - $f$ est **continue sur** $A$ si elle est continue en tout point de $A$.
+
 :::
 
 ::: {.proposition title="(Caractérisation séquentielle de la continuité)"}
+
 $f$ est continue en $a$ si et seulement si pour toute suite $(x_n)_n$ d'éléments de $A$ convergeant vers $a$, la suite $(f(x_n))_n$ converge vers $f(a)$.
+
 :::
 
 ::: {.proposition title="(Opérations sur les applications continues)"}
 
 1. Toute combinaison linéaire d'applications continues est continue.
 2. La composée de deux applications continues est continue.
+
 :::
 
 ## Image réciproque d'un ouvert ou d'un fermé
 
 ::: {.proposition title="(Image réciproque d'un ouvert/fermé)"}
+
 Soient $(E, \|\cdot\|)$ et $(F, \|\cdot\|')$ deux EVN et $f : E \to F$ une application continue. Alors :
 
 1. Si $O$ est un ouvert de $F$, alors $f^{-1}(O)$ est un ouvert de $E$.
 2. Si $F$ est un fermé de $F$, alors $f^{-1}(F)$ est un fermé de $E$.
+
 :::
 
 ::: {.proposition}
+
 Si $f : E \to \mathbb{R}$ est continue, alors :
 
 - $\{x \in E \mid f(x) > 0\}$ et $\{x \in E \mid f(x) < 0\}$ sont des ouverts.
 - $\{x \in E \mid f(x) = 0\}$, $\{x \in E \mid f(x) \geq 0\}$, $\{x \in E \mid f(x) \leq 0\}$ sont des fermés.
+
 :::
 
 ## Applications lipschitziennes et uniformément continues
 
 ::: {.definition title="(Application lipschitzienne)"}
+
 Soient $(E, \|\cdot\|)$ et $(F, \|\cdot\|')$ deux EVN. Une application $f : E \to F$ est dite **lipschitzienne** s'il existe $K \geq 0$ tel que :
 $$\forall x, y \in E, \quad \|f(x) - f(y)\|' \leq K \|x - y\|$$
+
 :::
 
 ::: {.definition title="(Application uniformément continue)"}
+
 Une application $f : E \to F$ est dite **uniformément continue** si :
 $$\forall \varepsilon > 0, \quad \exists \delta > 0, \quad \forall x, y \in E, \quad \|x - y\| < \delta \implies \|f(x) - f(y)\|' < \varepsilon$$
+
 :::
 
 ::: {.proposition}
+
 Toute application lipschitzienne est uniformément continue. Toute application uniformément continue est continue.
+
 :::
 
 ::: {.example}
+
 L'application $x \mapsto d(x, B)$ où $B$ est une partie non vide d'un EVN $E$ est 1-lipschitzienne.
+
 :::
 
 ## Continuité des applications linéaires
 
 ::: {.proposition title="(Continuité des applications linéaires)"}
+
 Soient $(E, \|\cdot\|)$ et $(F, \|\cdot\|')$ deux EVN et $u : E \to F$ une application linéaire. Les assertions suivantes sont équivalentes :
 
 1. $u \in \mathcal{L}_c(E, F)$ (applications linéaires continues).
 2. $u$ est continue en $0_E$.
 3. Il existe $C \geq 0$ tel que : $\forall x \in E, \quad \|u(x)\|' \leq C \|x\|$.
 4. $u$ est uniformément continue.
+
 :::
 
 # EVN de dimension finie
@@ -370,72 +456,98 @@ Soient $(E, \|\cdot\|)$ et $(F, \|\cdot\|')$ deux EVN et $u : E \to F$ une appli
 ## Équivalence des normes en dimension finie
 
 ::: {.theorem title="(Admis)"}
+
 Soit $E$ un $\mathbb{K}$-espace vectoriel de dimension finie $n \in \mathbb{N}^*$ et $\mathcal{B} = (e_1, \ldots, e_n)$ une base de $E$.
 
 **Toutes les normes sur $E$ sont équivalentes.**
+
 :::
 
 ::: {.remarque}
+
 En dimension finie, l'étude topologique d'un EVN $E$ se ramène à celle de $\mathbb{K}^n$ muni d'une norme. Le théorème de l'équivalence des normes permet de ramener l'étude topologique à celle de l'espace $\mathbb{K}^n$ ($\mathbb{K} = \mathbb{R}$ ou $\mathbb{C}$) qui peut servir de cadre à la présentation des différentes notions (boules, ouverts, limite et continuité, ...).
+
 :::
 
 ## Propriétés topologiques en dimension finie
 
 ::: {.proposition}
+
 Dans un EVN de dimension finie :
 
 1. Toute partie fermée et bornée est compacte.
 2. Tout sous-espace vectoriel est fermé.
 3. Toute partie compacte est fermée et bornée.
+
 :::
 
 ## Continuité des applications multilinéaires
 
 ::: {.proposition title="(Continuité des applications multilinéaires)"}
+
 Soient $E_1, \ldots, E_p, F$ des EVN de dimension finie. Toute application $f : E_1 \times \cdots \times E_p \to F$ multilinéaire est continue.
+
 :::
 
 ::: {.example}
+
 Le déterminant est une forme multilinéaire et l'espace de départ $\mathbb{K}^n \times \cdots \times \mathbb{K}^n$ est de dimension finie $n^2$, donc il est continu.
+
 :::
 
 ## Parties compactes
 
 ::: {.definition title="(Partie compacte)"}
+
 Soit $(E, \|\cdot\|)$ un EVN. On dit qu'une partie $K$ de $E$ est **compacte** si toute suite d'éléments de $K$ admet une valeur d'adhérence dans $K$.
+
 :::
 
 ::: {.proposition title="(Produit de compacts)"}
+
 Soient $(E_1, \mathcal{N}_1), \ldots, (E_n, \mathcal{N}_n)$ des EVN. Pour tout $i \in \{1, \ldots, n\}$, $K_i$ est un compact de $E_i$. Posons $E = \prod_{i=1}^n E_i$ et munissons $E$ d'une norme produit $\mathcal{N}$. Alors $K_1 \times \cdots \times K_n$ est un compact de $E$.
+
 :::
 
 ::: {.proposition title="(Image d'un compact par une application continue)"}
+
 Soient $(E, \|\cdot\|)$ et $(F, \|\cdot\|')$ deux EVN, $f : E \to F$ une application continue et $K$ une partie compacte de $E$. Alors $f(K)$ est une partie compacte de $F$.
+
 :::
 
 ::: {.corollary title="(Théorème des bornes atteintes)"}
+
 Soient $(E, \|\cdot\|)$ un EVN et $f : E \to \mathbb{R}$ une application continue. Si $K$ est un compact de $E$, alors $f$ est bornée et atteint ses bornes sur $K$.
 
 En particulier, pour une application $f : [a,b] \to \mathbb{R}$ continue, $f$ est bornée et atteint ses bornes sur le segment $[a,b]$.
+
 :::
 
 ::: {.theorem title="(Théorème de Heine)"}
+
 Toute application continue sur une partie compacte est uniformément continue.
+
 :::
 
 ## Parties connexes par arcs
 
 ::: {.definition title="(Partie connexe par arcs)"}
+
 Soit $(E, \|\cdot\|)$ un EVN. On dit qu'une partie $A$ de $E$ est **connexe par arcs** si pour tous $a, b \in A$, il existe un chemin continu $\gamma : [0, 1] \to A$ tel que $\gamma(0) = a$ et $\gamma(1) = b$.
+
 :::
 
 ::: {.proposition}
+
 Soit $f : E \to F$ une application continue. Alors $f(A)$ est une partie connexe par arcs de $F$.
+
 :::
 
 ::: {.corollary title="(Théorème des valeurs intermédiaires)"}
+
 Soit $f : I \to \mathbb{R}$ une application continue et $(a,b) \in I^2$ tel que $a < b$. Posons $\alpha = \min\{f(a), f(b)\}$ et $\beta = \max\{f(a), f(b)\}$. Alors :
 $$\forall y \in [\alpha, \beta], \quad \exists x \in [a, b] \text{ tel que } y = f(x)$$
+
 :::
 
 ::: {.proposition title="(Cas des parties convexes et étoilées)"}
@@ -443,47 +555,65 @@ $$\forall y \in [\alpha, \beta], \quad \exists x \in [a, b] \text{ tel que } y =
 - Toute partie convexe est connexe par arcs.
 - Toute partie étoilée est connexe par arcs.
 - Les parties connexes par arcs de $\mathbb{R}$ sont les intervalles.
+
 :::
 
 # Exercices
 
 ::: {.exercise}
+
 Soient $(E, \|\cdot\|)$ un EVN et $(u_n)$ une suite d'éléments de $E$. Montrer que :
 
 1. Si $u_n \to l$, alors $\|u_n\| \to \|l\|$.
 2. La réciproque est fausse. Donner un contre-exemple.
+
 :::
 
 ::: {.exercise}
+
 Soient $(E, \|\cdot\|)$ un EVN et $B(a, r)$ une boule ouverte. Montrer que $B(a, r)$ est un ouvert.
+
 :::
 
 ::: {.exercise}
+
 Soient $\mathcal{N}_1$ et $\mathcal{N}_2$ deux normes équivalentes sur $E$. Montrer que les deux normes définissent la même topologie sur $E$.
+
 :::
 
 ::: {.exercise}
+
 Soient $(E, \|\cdot\|)$ et $(F, \|\cdot\|')$ deux EVN et $f : E \to F$ une application continue. Montrer que si $K$ est un compact de $E$, alors $f(K)$ est un compact de $F$.
+
 :::
 
 ::: {.exercise}
+
 Soient $(E, \|\cdot\|)$ un EVN de dimension finie et $F$ un sous-espace vectoriel de $E$. Montrer que $F$ est fermé.
+
 :::
 
 ::: {.exercise}
+
 Soient $E = \mathbb{R}[X]$ et $P_n = X^n$ pour tout $n \in \mathbb{N}$. Montrer que les normes $\|\cdot\|_\infty$ et $\|\cdot\|_h$ ne sont pas équivalentes sur $E$.
+
 :::
 
 ::: {.exercise}
+
 Soient $(E, \|\cdot\|)$ un EVN et $(u_n)$ une suite de Cauchy d'éléments de $E$. Montrer que $(u_n)$ est bornée.
+
 :::
 
 # Document en PDF {-}
 [Chapitre 03 : Topologie des espaces normés](PDF/psi-chap03.pdf)
 
 ## Navigation {-}
+
 ::: {.chap-nav}
+
 [Chapitre 02 : Réduction des endomorphismes et des matrices carrées](psi-chap02.qmd){.prev}
 [Menu PSI](psi.qmd){.home}
 [Chapitre 04 : Intégration](psi-chap04.qmd){.next}
+
 :::

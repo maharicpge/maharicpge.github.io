@@ -66,29 +66,39 @@ Dans cette section, on introduit les relations de comparaison entre fonctions ou
 Soit $(u_n)_{n\in\mathbb{N}}$ et $(v_n)_{n\in\mathbb{N}}$ deux suites réelles.
 
 ::: {.definition title="(Domination — notation $O$)"}
+
 On dit que $u_n$ est **dominée** par $v_n$, et on écrit $u_n = O(v_n)$, si :
 $$\exists M > 0, \; \exists N \in \mathbb{N}, \; \forall n \geq N, \; |u_n| \leq M|v_n|$$
+
 :::
 
 ::: {.definition title="(Négligeabilité — notation $o$)"}
+
 On dit que $u_n$ est **négligeable** devant $v_n$, et on écrit $u_n = o(v_n)$, si :
 $$\forall \varepsilon > 0, \; \exists N \in \mathbb{N}, \; \forall n \geq N, \; |u_n| \leq \varepsilon |v_n|$$
+
 :::
 
 ::: {.definition title="(Équivalence)"}
+
 On dit que $u_n$ est **équivalente** à $v_n$, et on écrit $u_n \sim v_n$, si :
 $$\frac{u_n}{v_n} \xrightarrow[n\to+\infty]{} 1$$
+
 :::
 
 ::: {.remarque}
+
 On a les implications suivantes :
 $$u_n = o(v_n) \implies u_n = O(v_n)$$
 $$u_n \sim v_n \implies u_n = O(v_n)$$
+
 :::
 
 ::: {.proposition title="(Liens entre les relations)"}
+
 Pour des suites $(u_n)$ et $(v_n)$ avec $v_n \neq 0$ à partir d'un certain rang :
 $$u_n \sim v_n \iff u_n = v_n + o(v_n)$$
+
 :::
 
 ## Relations $O$, $o$ et équivalence pour les fonctions
@@ -96,60 +106,78 @@ $$u_n \sim v_n \iff u_n = v_n + o(v_n)$$
 Soient $f$ et $g$ deux fonctions définies au voisinage d'un point $a$ (qui peut être un réel ou $\pm\infty$).
 
 ::: {.definition title="(Domination — notation $O$)"}
+
 On écrit $f(x) = O(g(x))$ quand $x \to a$ si :
 $$\exists M > 0, \; \exists \delta > 0, \; \forall x \in I \cap ]a-\delta, a+\delta[, \; |f(x)| \leq M|g(x)|$$
+
 :::
 
 ::: {.definition title="(Négligeabilité — notation $o$)"}
+
 On écrit $f(x) = o(g(x))$ quand $x \to a$ si :
 $$\forall \varepsilon > 0, \; \exists \delta > 0, \; \forall x \in I \cap ]a-\delta, a+\delta[, \; |f(x)| \leq \varepsilon |g(x)|$$
+
 :::
 
 ::: {.definition title="(Équivalence)"}
+
 On écrit $f(x) \sim g(x)$ quand $x \to a$ si :
 $$\frac{f(x)}{g(x)} \xrightarrow[x\to a]{} 1$$
+
 :::
 
 ## Propriétés des relations de comparaison
 
 ::: {.proposition title="(Règles usuelles)"}
+
 Soient $f$, $g$, $h$ des fonctions définies au voisinage de $a$.
 
 1. **Produit** : Si $f = O(g)$ et $h = O(h)$ alors $fh = O(gh)$.
 2. **Puissances** : Si $f \sim g$ alors $f^n \sim g^n$ pour tout $n \in \mathbb{N}^*$.
 3. **Transitivité** : Si $f = o(g)$ et $g = o(h)$ alors $f = o(h)$.
 4. Si $f \sim g$ alors $f = O(g)$ et $g = O(f)$.
+
 :::
 
 ::: {.proposition title="(Propriétés conservées par équivalence)"}
+
 Si $f(x) \sim g(x)$ quand $x \to a$ :
 
 1. **Signe** : Si $g(x) > 0$ au voisinage de $a$, alors $f(x) > 0$ au voisinage de $a$.
 2. **Limite** : Si $g(x) \to \ell$ alors $f(x) \to \ell$.
+
 :::
 
 ::: {.proposition title="(Obtention d'un équivalent par encadrement)"}
+
 Si $u_n$, $v_n$ et $w_n$ sont des suites réelles telles que :
 $$u_n \leq v_n \leq w_n \quad \text{pour } n \text{ assez grand}$$
 et si $u_n \sim w_n$, alors $v_n \sim u_n$ (et aussi $v_n \sim w_n$).
+
 :::
 
 ## Traduction des croissances comparées
 
 ::: {.proposition title="(Croissances comparées — fonctions)"}
+
 Pour tout $\alpha > 0$ et $\beta > 0$ :
 $$\ln x = o(x^\alpha) \quad (x \to +\infty), \qquad x^\alpha = o(e^{\beta x}) \quad (x \to +\infty)$$
 $$x^\alpha \ln x = o(1) \quad (x \to 0^+)$$
+
 :::
 
 ::: {.proposition title="(Croissances comparées — suites)"}
+
 Pour tout $\alpha > 0$ et $\beta > 0$ :
 $$(\ln n)^\beta = o(n^\alpha), \qquad n^\alpha = o(e^{\beta n}) \quad (n \to +\infty)$$
+
 :::
 
 ::: {.exercicecours}
+
 Montrer les relations suivantes :
 $$\lim_{x\to+\infty} \frac{\ln x}{x^\alpha} = 0, \qquad \lim_{x\to+\infty} \frac{x^\alpha}{e^x} = 0, \qquad \lim_{x\to 0^+} x^\alpha \ln x = 0$$
+
 :::
 
 # Formules de Taylor
@@ -157,28 +185,36 @@ $$\lim_{x\to+\infty} \frac{\ln x}{x^\alpha} = 0, \qquad \lim_{x\to+\infty} \frac
 ## Formule de Taylor avec reste intégral
 
 ::: {.theorem title="(Formule de Taylor avec reste intégral)"}
+
 Soit $f : I \to \mathbb{K}$ une fonction de classe $\mathcal{C}^{n+1}$ sur un intervalle $I$, et soient $a, x \in I$. Alors :
 $$f(x) = f(a) + f'(a)(x-a) + \frac{f''(a)}{2!}(x-a)^2 + \cdots + \frac{f^{(n)}(a)}{n!}(x-a)^n + \int_a^x \frac{f^{(n+1)}(t)}{n!}(x-t)^n \, dt$$
+
 :::
 
 ## Formule de Taylor-Lagrange
 
 ::: {.theorem title="(Formule de Taylor-Lagrange)"}
+
 Soit $f : I \to \mathbb{R}$ une fonction de classe $\mathcal{C}^{n+1}$ sur un intervalle $I$, et soient $a, x \in I$. Alors il existe $c$ entre $a$ et $x$ tel que :
 $$f(x) = f(a) + f'(a)(x-a) + \frac{f''(a)}{2!}(x-a)^2 + \cdots + \frac{f^{(n)}(a)}{n!}(x-a)^n + \frac{f^{(n+1)}(c)}{(n+1)!}(x-a)^{n+1}$$
+
 :::
 
 ## Formule de Taylor-Young
 
 ::: {.theorem title="(Formule de Taylor-Young)"}
+
 Soit $f : I \to \mathbb{K}$ une fonction de classe $\mathcal{C}^n$ sur un intervalle $I$, et soit $a \in I$. Alors :
 $$f(x) = f(a) + f'(a)(x-a) + \frac{f''(a)}{2!}(x-a)^2 + \cdots + \frac{f^{(n)}(a)}{n!}(x-a)^n + (x-a)^n \epsilon(x)$$
 où $\epsilon(x) \xrightarrow[x\to a]{} 0$.
+
 :::
 
 ::: {.remarque title="(Cas particulier : Taylor-Young en 0)"}
+
 En posant $a = 0$, la formule de Taylor-Young s'écrit :
 $$f(x) = f(0) + f'(0)x + f''(0)\frac{x^2}{2!} + \cdots + f^{(n)}(0)\frac{x^n}{n!} + x^n\epsilon(x)$$
+
 :::
 
 # Développements limités
@@ -186,48 +222,63 @@ $$f(x) = f(0) + f'(0)x + f''(0)\frac{x^2}{2!} + \cdots + f^{(n)}(0)\frac{x^n}{n!
 ## Définition et unicité
 
 ::: {.definition title="(Développement limité)"}
+
 Soit $f$ une fonction définie au voisinage de $a$. On dit que $f$ admet un **développement limité** (DL) à l'ordre $n$ au point $a$ s'il existe des constantes $a_0, a_1, \ldots, a_n \in \mathbb{K}$ et une fonction $\epsilon$ telle que $\epsilon(x) \xrightarrow[x\to a]{} 0$ et :
 $$f(x) = a_0 + a_1(x-a) + a_2(x-a)^2 + \cdots + a_n(x-a)^n + (x-a)^n\epsilon(x)$$
+
 :::
 
 ::: {.proposition title="(Unicité)"}
+
 Si $f$ admet un développement limité à l'ordre $n$ au point $a$, alors ce développement est unique.
+
 :::
 
 ::: {.remarque title="(Règle de troncature)"}
+
 Si $f$ admet un DL à l'ordre $n$ au point $a$, alors elle admet aussi un DL à tout ordre $k \leq n$, obtenu en tronquant le DL à l'ordre $k$.
+
 :::
 
 ## Caractérisation de la dérivabilité
 
 ::: {.proposition}
+
 $f$ est dérivable en $a$ si et seulement si $f$ admet un développement limité à l'ordre $1$ au point $a$. Dans ce cas :
 $$f(x) = f(a) + f'(a)(x-a) + (x-a)\epsilon(x), \quad \epsilon(x) \xrightarrow[x\to a]{} 0$$
+
 :::
 
 ## DL d'une fonction paire ou impaire
 
 ::: {.proposition}
+
 Si $f$ est paire et admet un DL à l'ordre $n$ en $0$, alors ce DL ne contient que des puissances paires de $x$.
 
 Si $f$ est impaire et admet un DL à l'ordre $n$ en $0$, alors ce DL ne contient que des puissances impaires de $x$.
+
 :::
 
 ## Forme normalisée
 
 ::: {.definition title="(Forme normalisée d'un DL)"}
+
 Si $f$ admet un DL à l'ordre $n$ en $a$ de la forme :
 $$f(x) = (x-a)^p(a_0 + a_1(x-a) + \cdots + a_n(x-a)^n + o((x-a)^n)), \quad a_0 \neq 0$$
 alors on dit que $p$ est l'**ordre** du DL et $a_0$ est le premier coefficient non nul.
+
 :::
 
 ::: {.proposition}
+
 Si $f(x) = a_0(x-a)^p + o((x-a)^p)$ avec $a_0 \neq 0$, alors $f(x) \sim a_0(x-a)^p$ quand $x \to a$, et le signe de $f$ au voisinage de $a$ est le signe de $a_0(x-a)^p$.
+
 :::
 
 # DL usuels à l'ordre $n$ en $0$
 
 ::: {.proposition title="(DL usuels en 0)"}
+
 Voici les développements limités usuels à retenir :
 
 $$e^x = 1 + x + \frac{x^2}{2!} + \frac{x^3}{3!} + \cdots + \frac{x^n}{n!} + o(x^n)$$
@@ -247,32 +298,45 @@ $$(1+x)^\alpha = 1 + \alpha x + \frac{\alpha(\alpha-1)}{2!}x^2 + \cdots + \frac{
 $$\arctan x = x - \frac{x^3}{3} + \frac{x^5}{5} - \cdots + (-1)^n\frac{x^{2n+1}}{2n+1} + o(x^{2n+1})$$
 
 $$\tan x = x + \frac{x^3}{3} + o(x^3)$$
+
 :::
 
 # Opérations sur les développements limités
 
 ::: {.proposition title="(Combinaison linéaire)"}
+
 Si $f$ et $g$ admettent des DL à l'ordre $n$ en $a$, alors pour tous $\alpha, \beta \in \mathbb{K}$, la fonction $\alpha f + \beta g$ admet un DL à l'ordre $n$ en $a$, obtenu par combinaison linéaire des DL.
+
 :::
 
 ::: {.proposition title="(Produit)"}
+
 Si $f$ et $g$ admettent des DL à l'ordre $n$ en $a$, alors $fg$ admet un DL à l'ordre $n$ en $a$, obtenu en multipliant les DL de $f$ et $g$ et en tronquant à l'ordre $n$.
+
 :::
 
 ::: {.proposition title="(Quotient)"}
+
 Si $f$ et $g$ admettent des DL à l'ordre $n$ en $a$ et si $g(x_0) \neq 0$, alors $\frac{f}{g}$ admet un DL à l'ordre $n$ en $a$.
+
 :::
 
 ::: {.proposition title="(Primitivation)"}
+
 Si $f$ admet un DL à l'ordre $n$ en $a$, alors toute primitive de $f$ admet un DL à l'ordre $n+1$ en $a$, obtenu en primitivant terme à terme le DL de $f$.
+
 :::
 
 ::: {.exercicecours}
+
 Calculer le DL à l'ordre $3$ en $0$ de $\ln(1+x)\cos x$.
+
 :::
 
 ::: {.exercicecours}
+
 Calculer le DL à l'ordre $2$ en $0$ de $\sqrt{1+x}\cos x$.
+
 :::
 
 # Applications des développements limités
@@ -280,62 +344,81 @@ Calculer le DL à l'ordre $2$ en $0$ de $\sqrt{1+x}\cos x$.
 ## Calcul de limites
 
 ::: {.proposition}
+
 Si $f(x) = a_0 + a_1(x-a) + \cdots + a_n(x-a)^n + o((x-a)^n)$, alors :
 $$\lim_{x\to a} f(x) = a_0$$
+
 :::
 
 ::: {.exercicecours}
+
 Calculer les limites suivantes en utilisant les DL :
 $$\lim_{x\to 0} \frac{\ln(1+x)}{x}, \qquad \lim_{x\to 0} \frac{e^x - 1}{x}, \qquad \lim_{x\to 0} \frac{1-\cos x}{x^2}$$
+
 :::
 
 ## Étude locale d'une fonction
 
 ::: {.proposition}
+
 Le DL à l'ordre $1$ de $f$ en $a$ donne l'équation de la tangente au graphe de $f$ au point d'abscisse $a$ :
 $$y = f(a) + f'(a)(x-a)$$
+
 :::
 
 ::: {.proposition title="(Position de la courbe par rapport à la tangente)"}
+
 Si $f$ admet un DL à l'ordre $n$ en $a$ de la forme :
 $$f(x) = f(a) + f'(a)(x-a) + a_k(x-a)^k + o((x-a)^k)$$
 avec $a_k \neq 0$ et $k \geq 2$ le plus petit entier tel que $a_k \neq 0$, alors :
 
 - Si $k$ est pair : la courbe reste d'un même côté de la tangente au voisinage de $a$ (au-dessus si $a_k > 0$, en dessous si $a_k < 0$).
 - Si $k$ est impair : la courbe traverse la tangente au point $a$.
+
 :::
 
 ## Branches infinies
 
 ::: {.proposition title="(Développement asymptotique)"}
+
 Si $f(x) = a_0 + a_1 x + a_2 x^2 + \cdots + a_n x^n + o(x^n)$ quand $x \to +\infty$, alors la droite $y = a_0 + a_1 x$ est une asymptote à la courbe de $f$ en $+\infty$ (si $a_1 \neq 0$).
+
 :::
 
 ## Condition pour un extremum local
 
 ::: {.proposition}
+
 Si $f$ admet un DL à l'ordre $2$ en $a$ de la forme :
 $$f(x) = f(a) + f'(a)(x-a) + \frac{f''(a)}{2}(x-a)^2 + o((x-a)^2)$$
 alors :
 
 - Si $f'(a) = 0$ et $f''(a) > 0$ : $f$ admet un minimum local en $a$.
 - Si $f'(a) = 0$ et $f''(a) < 0$ : $f$ admet un maximum local en $a$.
+
 :::
 
 ::: {.exercicecours}
+
 Étudier les extremums locaux de la fonction $f(x) = x^3 - 3x + 2$ en utilisant les DL.
+
 :::
 
 ::: {.exercicecours}
+
 Étudier la position de la courbe de $f(x) = e^x$ par rapport à sa tangente en $0$.
+
 :::
 
 # Document en PDF {-}
 [Chapitre 12 : Développements limités, calcul asymptotique](PDF/pcsi-chap12.pdf)
 
 ## Navigation {-}
+
 ::: {.chap-nav}
+
 [Chapitre 11 : Polynômes et fractions rationnelles](pcsi-chap11.qmd){.prev}
 [Menu PCSI1](pcsi.qmd){.home}
 [Chapitre 13 : Espaces vectoriels et applications linéaires](pcsi-chap13.qmd){.next}
+
 :::

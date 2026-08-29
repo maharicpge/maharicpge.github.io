@@ -19,62 +19,85 @@ filters:
 **MP (2e année) — TD du Chapitre 12.** Problème de Cauchy, structure de la solution, systèmes d'équations différentielles linéaires, méthode de la variation de la constante.
 
 ::: {.exercise}
+
 Résoudre le problème de Cauchy :
 $$\begin{cases} y' + y = e^x \\ y(0) = 1 \end{cases}$$
+
 :::
 
 ::: {.exercise}
+
 Montrer que l'équation $y' = f(t, y)$ avec $f$ continue admet une unique solution locale (théorème de Cauchy-Lipschitz, admis).
+
 :::
 
 ::: {.exercise}
+
 Soit $x' = a(t)x + b(t)$ une équation différentielle linéaire du premier ordre. Montrer que l'ensemble des solutions est un espace affine de dimension 1.
+
 :::
 
 ::: {.exercise}
+
 Résoudre le système :
 $$\begin{cases} x' = x + 2y \\ y' = 2x + y \end{cases}$$
+
 :::
 
 **Indication :** Poser $u = x+y$, $v = x-y$.
 
 ::: {.exercise}
+
 Résoudre le système $X' = AX$ avec $A = \begin{pmatrix} 1 & 1 \\ 0 & 1 \end{pmatrix}$.
+
 :::
 
 **Indication :** $A$ n'est pas diagonalisable. Utiliser $e^{tA} = e^t(I_2 + tN)$ où $N = A - I_2$.
 
 ::: {.exercise}
+
 Résoudre le système $X' = AX + B(t)$ par la méthode de variation de la constante :
 $$X(t) = e^{tA}X_0 + \int_0^t e^{(t-s)A} B(s)\, ds$$
+
 :::
 
 ::: {.exercise}
+
 Résoudre $y'' + 4y = \sin(2t)$ avec $y(0) = 1$, $y'(0) = 0$.
+
 :::
 
 **Indication :** Le second membre est solution de l'homogène. Chercher $y_p = t(A\cos 2t + B\sin 2t)$.
 
 ::: {.exercise}
+
 Soit $A \in \mathcal{M}_n(\mathbb{R})$ diagonalisable. Résoudre $X' = AX$ en diagonalisant $A$.
+
 :::
 
 ::: {.exercise}
+
 Montrer que si $A$ est diagonalisable avec $A = PDP^{-1}$, alors $e^{tA} = Pe^{tD}P^{-1}$.
+
 :::
 
 ::: {.exercise}
+
 Résoudre le système différentiel :
 $$\begin{cases} x' = 3x - y \\ y' = x + y \end{cases}$$
 avec $x(0) = 1$, $y(0) = 0$.
+
 :::
 
 # Cours {-}
 [**Chapitre 12 : Équations différentielles linéaires**](mp-chap12.qmd)
 
 # Navigation {-}
+
 ::: {.chap-nav}
+
 [TD 11 : Probabilités](mp-chap11.qmd){.prev}
 [Menu MP](mp.qmd){.home}
 [TD 13 : Fonctions holomorphes](mp-chap13.qmd){.next}
+
 :::

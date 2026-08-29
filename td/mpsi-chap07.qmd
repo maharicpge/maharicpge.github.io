@@ -19,6 +19,7 @@ filters:
 **MPSI (1re année) — TD du Chapitre 07.** Équations linéaires, systèmes linéaires, méthode du pivot de Gauss, systèmes échelonnés, systèmes homogènes.
 
 ::: {.exercise}
+
 Résoudre les systèmes suivants par la méthode du pivot de Gauss :
 
 1. $\begin{cases} 2x + y + z = 3 \\ x - y + 3z = 8 \\ x + 2y - z = -3 \end{cases}$
@@ -26,6 +27,7 @@ Résoudre les systèmes suivants par la méthode du pivot de Gauss :
 2. $\begin{cases} x + y + z = 1 \\ 2x + 2y + 2z = 3 \\ 3x + 3y + 3z = 4 \end{cases}$
 
 3. $\begin{cases} x + 2y + 3z = 6 \\ 2x + 4y + 6z = 12 \\ 3x + 6y + 9z = 18 \end{cases}$
+
 :::
 
 **Indications :**
@@ -34,13 +36,16 @@ Résoudre les systèmes suivants par la méthode du pivot de Gauss :
 - (3) Les trois équations sont proportionnelles : infinité de solutions.
 
 ::: {.exercise}
+
 Résoudre le système selon les valeurs de $a, b \in \mathbb{R}$ :
 $$\begin{cases} x + y - z = a \\ -x + 2z = b \\ 2y + 2z = 4 \end{cases}$$
+
 :::
 
 **Indication :** Échelonner et discuter selon les valeurs de $a$ et $b$.
 
 ::: {.exercise}
+
 Résoudre les systèmes échelonnés suivants :
 
 1. $\begin{cases} 2x_1 - x_2 + x_4 = 1 \\ x_2 + x_3 - 2x_4 = 3 \\ 2x_3 + x_4 = 4 \\ x_4 = -2 \end{cases}$
@@ -48,40 +53,51 @@ Résoudre les systèmes échelonnés suivants :
 2. $\begin{cases} x_1 + x_2 + x_4 = 0 \\ x_2 + x_3 = 0 \\ 2x_3 + x_4 = 0 \end{cases}$
 
 3. $\begin{cases} x_1 + 2x_2 + x_4 = 0 \\ 2x_3 - 3x_4 = 0 \end{cases}$
+
 :::
 
 **Indication :** Résoudre par remontée en identifiant les variables libres et les variables pivots.
 
 ::: {.exercise}
+
 Résoudre par la méthode du pivot de Gauss :
 $$\begin{cases} 2x_1 + 4x_2 - 6x_3 - 2x_4 = 2 \\ 3x_1 + 6x_2 - 7x_3 + 4x_4 = 2 \\ 5x_1 + 10x_2 - 11x_3 + 6x_4 = 3 \end{cases}$$
+
 :::
 
 **Indication :** Après échelonnement, identifier les variables libres et paramétrer l'ensemble des solutions.
 
 ::: {.exercise}
+
 Résoudre le système homogène :
 $$\begin{cases} x_1 + x_2 + x_3 + x_4 = 0 \\ 2x_1 + x_2 + x_3 = 0 \\ 3x_1 + 2x_2 + x_4 = 0 \end{cases}$$
+
 :::
 
 **Indication :** Le système a 3 équations et 4 inconnues. L'ensemble des solutions est un sous-espace vectoriel de dimension au moins 1.
 
 ::: {.exercise}
+
 Montrer que si un système linéaire homogène a une solution $(x_1, \ldots, x_p) \neq (0, \ldots, 0)$, alors il admet une infinité de solutions.
+
 :::
 
 **Indication :** Si $x$ est solution non nulle, alors $\lambda x$ est aussi solution pour tout $\lambda \in \mathbb{R}$.
 
 ::: {.exercise}
+
 Résoudre le système suivant par substitution :
 $$\begin{cases} 7x + 2y - 2z = 1 \\ 2x + 3y + 2z = 1 \end{cases}$$
+
 :::
 
 **Indication :** Exprimer $z$ en fonction de $x$ et $y$ à partir de la première équation, puis substituer dans la seconde.
 
 ::: {.exercise}
+
 Résoudre selon les valeurs de $t \in \mathbb{R}$ :
 $$\begin{cases} x + y = 1 \\ x + t^2 y = t \end{cases}$$
+
 :::
 
 **Indications :**
@@ -89,17 +105,21 @@ $$\begin{cases} x + y = 1 \\ x + t^2 y = t \end{cases}$$
 - Discuter les cas $t = 1$, $t = -1$ et $t \neq \pm 1$.
 
 ::: {.exercise}
+
 Écrire un système linéaire de 4 équations et 3 inconnues qui :
 
 1. n'a aucune solution ;
 2. a une infinité de solutions ;
 3. a une solution unique.
+
 :::
 
 **Indication :** Utiliser des équations proportionnelles ou incompatibles.
 
 ::: {.exercise}
+
 Résoudre le système à $n$ équations et $n$ inconnues dont les équations sont $(L_i) : x_i - x_{i+1} = 1$ pour $i = 1, \ldots, n-1$ et $(L_n) : x_n = 1$.
+
 :::
 
 **Indication :** Résoudre par remontée : $x_n = 1$, $x_{n-1} = 2$, ..., $x_1 = n$.
@@ -108,8 +128,11 @@ Résoudre le système à $n$ équations et $n$ inconnues dont les équations son
 [**Chapitre 07 : Systèmes linéaires**](../cours/mpsi-chap07.qmd)
 
 # Navigation {-}
+
 ::: {.chap-nav}
+
 [Chapitre 06 : Équations différentielles linéaires](mpsi-chap06.qmd){.prev}
 [Menu MPSI](mpsi.qmd){.home}
 [Chapitre 08 : Structures algébriques](mpsi-chap08.qmd){.next}
+
 :::

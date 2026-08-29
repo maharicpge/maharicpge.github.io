@@ -26,12 +26,15 @@ Ce chapitre a été réalisé conformément au programme marocain de mathématiq
 ## Définition
 
 ::: {.definition}
+
 Soit $E$ un ensemble non vide. Une **loi de composition interne** (LCI en abrégé) est une application :
 $$\top : E\times E \longrightarrow E$$
 On adopte une notation infixe : pour $(x,y)\in E\times E$, on notera $x\top y$ au lieu de $\top(x,y)$. On peut utiliser divers symboles tels que $\top,\times,+,\cdot,\circ,\otimes,\dotplus$…
+
 :::
 
 ::: {.example}
+
 - Opérations usuelles $+$ et $\times$ sur les ensembles de nombres $(\mathbb{N},\mathbb{Z},\mathbb{Q},\mathbb{R},\mathbb{C})$ ;
 - soit $n\in\mathbb{N}^*$ ; sur $\mathbb{K}^n$ ($\mathbb{K}=\mathbb{R}$ ou $\mathbb{C}$), on définit pour $x=(x_1,\cdots,x_n)$, $y=(y_1,\cdots,y_n)$ :
 $$x+y=(x_1+y_1,\cdots,x_n+y_n) \quad ; \quad x\times y=(x_1 y_1,\cdots,x_n y_n)$$
@@ -40,49 +43,64 @@ $$x+y=(x_1+y_1,\cdots,x_n+y_n) \quad ; \quad x\times y=(x_1 y_1,\cdots,x_n y_n)$
 - le produit vectoriel sur l'espace vectoriel de dimension 3 ;
 - si $X$ est un ensemble alors la composition $\circ$ est une loi de composition interne sur $\mathcal{F}(X,X)$ ;
 - sur l'ensemble des suites numériques $\mathbb{K}^{\mathbb{N}}$, on définit $(u_n)_n+(v_n)_n=(u_n+v_n)_n$.
+
 :::
 
 ## Vocabulaire
 
 ::: {.definition title="(Associativité)"}
+
 $\top$ est **associative** si et seulement si
 $$\forall a,b,c\in E,\ (a\top b)\top c=a\top(b\top c)$$
 Si c'est le cas, on se passe de parenthèses.
+
 :::
 
 ::: {.example}
+
 Les exemples de lois de composition interne précédentes sont toutes associatives sauf le produit vectoriel.
+
 :::
 
 ::: {.definition title="(Élément neutre)"}
+
 $e\in E$ est **élément neutre** pour $\top$ si et seulement si
 $$\forall x\in E,\ x\top e=e\top x=x$$
+
 :::
 
 Il ne peut exister qu'un seul neutre : en effet si $e_1$ et $e_2$ sont deux éléments neutres pour la loi $\top$, alors $e_1=e_1\top e_2=e_2$.
 
 ::: {.definition title="(Commutativité)"}
+
 Soient $a,b\in E$. On dit que $a$ et $b$ **commutent** (pour $\top$) si et seulement si $a\top b=b\top a$. La loi $\top$ est dite **commutative** si et seulement si $\forall a,b\in E,\ a\top b=b\top a$.
+
 :::
 
 ::: {.example}
+
 - $+$ et $\times$ sur les ensembles usuels $(\mathbb{N},\mathbb{Z},\mathbb{Q},\mathbb{R},\mathbb{C})$ et sur $\mathbb{K}^n$ sont commutatives ;
 - sur $E=\mathcal{F}(X,X)$, $\circ$ n'est pas commutative dès que $X$ a au moins deux éléments : en effet, supposons que $X$ possède deux éléments $a,b$ avec $a\neq b$ ; considérons $f : x\mapsto a$ et $g : x\mapsto b$ : on a $f\circ g(a)=a$ et $g\circ f(a)=b\neq a$, donc $g\circ f\neq f\circ g$ ;
 - l'addition des vecteurs est commutative, ainsi que $+$ sur $\mathbb{K}^{\mathbb{N}}$.
+
 :::
 
 ## Monoïdes
 
 ::: {.definition}
+
 Un **monoïde** est un couple $(E,\top)$ où $E$ est un ensemble (non vide) et $\top$ une loi de composition interne associative admettant un neutre sur $E$.
+
 :::
 
 ::: {.example}
+
 - $(\mathbb{N},+)$, $(\mathbb{N},\times)$, $(\mathbb{Z},+)$, $(\mathbb{R},+)$, $(\mathbb{R},\times)$ ;
 - $(\mathbb{K}^n,+)$ de neutre $(0,\cdots,0)$ ; $(\mathbb{K}^n,\times)$ de neutre $(1,\cdots,1)$ ;
 - $(\mathcal{F}(X,X),\circ)$ de neutre $\mathrm{Id}_X$ ;
 - $(\mathcal{F}(X,\mathbb{R}),\times)$ de neutre la fonction constante égale à 1 ; $(\mathcal{F}(X,\mathbb{R}),+)$ de neutre la fonction nulle ;
 - $(\mathbb{K}^{\mathbb{N}},+)$ de neutre la suite nulle.
+
 :::
 
 Un monoïde est dit **commutatif** lorsque $\top$ est commutative. Dans ce cas il est fréquent d'utiliser une notation additive $+$ pour remplacer $\top$ ; on note généralement $0_E$ le neutre de $+$ sur $E$.
@@ -90,7 +108,9 @@ Un monoïde est dit **commutatif** lorsque $\top$ est commutative. Dans ce cas i
 ## Éléments inversibles
 
 ::: {.definition}
+
 Soit $(E,\top)$ un monoïde, $e$ l'élément neutre de $\top$, et $x\in E$. $x$ est **inversible à gauche** (respectivement à droite) s'il existe $y\in E$ tel que $y\top x=e$ (respectivement $x\top y=e$). $x$ est **inversible** si $x$ admet un inverse à gauche et à droite.
+
 :::
 
 **Unicité.** Supposons $x$ inversible. Soient $y,z\in E$ avec $y\top x=x\top z=e$. Alors
@@ -98,53 +118,69 @@ $$y=y\top e=y\top(x\top z)=(y\top x)\top z=e\top z=z$$
 Donc $y=z$. Ceci prouve que si $x$ est inversible, ses inverses à gauche et à droite sont égaux. L'unique élément de $E$ tel que $y\top x=x\top y=e$ s'appelle **l'inverse de $x$** pour $\top$ et se note $x^{-1}$.
 
 ::: {.remark}
+
 Pour une loi additive on parle plutôt d'opposé et on note $-x$ au lieu de $x^{-1}$.
+
 :::
 
 ::: {.proposition}
+
 - Si $x$ est inversible, $x^{-1}$ aussi et $(x^{-1})^{-1}=x$ ;
 - si $x$ et $x'$ sont inversibles alors $x\top x'$ aussi et $(x\top x')^{-1}=x'^{-1}\top x^{-1}$.
+
 :::
 
 ## Éléments réguliers
 
 ::: {.definition}
+
 $x\in E$ est **régulier à gauche** si et seulement si $\forall y,z\in E,\ x\top y=x\top z\Rightarrow y=z$, et $x\in E$ est **régulier à droite** si et seulement si $\forall y,z\in E,\ y\top x=z\top x\Rightarrow y=z$. $x$ est **régulier** si et seulement si $x$ est régulier à droite et à gauche.
+
 :::
 
 ::: {.proposition}
+
 Si $x$ est inversible à gauche (respectivement à droite) alors $x$ est régulier à gauche (respectivement à droite). En particulier, si $x$ est inversible, alors $x$ est régulier.
+
 :::
 
 ::: {.proof}
+
 En effet, soit $x'$ un inverse de $x$ à gauche, et $y,z\in E$. Alors :
 $$x\top y=x\top z \Rightarrow x'\top(x\top y)=x'\top(x\top z) \Rightarrow (x'\top x)\top y=(x'\top x)\top z \Rightarrow e\top y=e\top z \Rightarrow y=z$$
+
 :::
 
 ::: {.remark title="(Piège !)"}
+
 La réciproque est fausse !
 
 - Si l'on considère $(\mathbb{N},\times)$, tout élément non nul est régulier mais le seul inversible de $(\mathbb{N},\times)$ est $1$.
 - Dans $(\mathbb{Z}/6\mathbb{Z},\dot\times)$, $\overline{2}\neq\overline{0}$ et $\overline{2}$ n'est pas régulier. En effet $\overline{2}\dot\times\overline{3}=\overline{2}\dot\times\overline{0}$ et $\overline{3}\neq\overline{0}$.
+
 :::
 
 ## Itérés d'un élément pour une loi dans un monoïde
 
 ::: {.definition}
+
 Soit $(E,\top)$ un monoïde de neutre $e$. On définit pour $n\in\mathbb{N}$, $x^n$ par :
 
 - $x^0=e$ ;
 - $\forall k\in\mathbb{N},\ x^{k+1}=x^k\top x$.
 
 Si $\top$ est commutative et notée de manière additive, on note $nx$ au lieu de $x^n$, qui se définit alors par $0x=0_E$ et $\forall k\in\mathbb{N},\ (k+1)x=kx+x$.
+
 :::
 
 ::: {.proposition}
+
 1. $\forall n,m\in\mathbb{N},\ \forall x\in E,\ x^{m+n}=x^m\top x^n=x^n\top x^m$ (en notation additive $(n+m)x=nx+mx$) ;
 2. $\forall m,n\in\mathbb{N},\ \forall x\in E,\ (x^n)^m=x^{nm}$ (en notation additive $m(nx)=(mn)x$) ;
 3. soient $x,y\in E$ tels que $x\top y=y\top x$ ; alors $\forall p,q\in\mathbb{N},\ x^p\top y^q=y^q\top x^p$ ;
 4. soient $x,y\in E$ tels que $x\top y=y\top x$ ; alors $\forall n\in\mathbb{N},\ (x\top y)^n=x^n\top y^n$ ;
 5. soit $x\in E$ inversible pour $\top$ ; pour $n\in\mathbb{N}^*$, on pose $x^{-n}=(x^{-1})^n$ ; on a les mêmes propriétés pour $m,n\in\mathbb{Z}$.
+
 :::
 
 Les démonstrations se font par récurrence et sont laissées en exercice.
@@ -154,16 +190,21 @@ Les démonstrations se font par récurrence et sont laissées en exercice.
 ## Définitions et exemples
 
 ::: {.definition}
+
 Un **groupe** est un monoïde $(G,\cdot)$ tel que tout élément de $G$ admet un inverse pour « $\cdot$ ». Le groupe $(G,\cdot)$ sera dit **commutatif** (ou **abélien**) si et seulement si « $\cdot$ » l'est.
+
 :::
 
 ::: {.proposition}
+
 Si $(E_1,\top_1),\cdots,(E_n,\top_n)$ sont des groupes alors $E=\prod_{k=1}^n E_k$ muni de la loi
 $$\forall x=(x_1,\cdots,x_n),y=(y_1,\cdots,y_n)\in E,\quad x\top y=(x_1\top_1 y_1,\cdots,x_n\top_n y_n)$$
 est un groupe. De plus, si les groupes $(E_k,\top_k)$ sont commutatifs alors $(E,\top)$ l'est aussi.
+
 :::
 
 ::: {.example}
+
 - $(\mathbb{Z},+)$, $(\mathbb{Q},+)$, $(\mathbb{R},+)$, $(\mathbb{C},+)$ sont des groupes commutatifs ;
 - $(\mathbb{K}^n,+)$ et $((\mathbb{K}^*)^n,\times)$ sont des groupes commutatifs ;
 - pour $n\in\mathbb{N}^*$, $(\mathbb{Z}/n\mathbb{Z},\dot+)$ est un groupe (commutatif) ;
@@ -172,16 +213,21 @@ est un groupe. De plus, si les groupes $(E_k,\top_k)$ sont commutatifs alors $(E
 - soit $X\neq\varnothing$ ; l'ensemble $\mathfrak{S}(X)$ des bijections de $X$ dans $X$ muni de $\circ$ est un groupe, non commutatif dès que $X$ possède trois éléments distincts ; en particulier, pour $n\in\mathbb{N}^*$, on note $S_n=\mathfrak{S}(\llbracket 1,n\rrbracket)$ : $(S_n,\circ)$ est appelé le **groupe symétrique**, non commutatif dès que $n\geq 3$ et fini de cardinal $n!$ ;
 - l'ensemble des $\overline{k}$ avec $k\wedge n=1$ muni de $\dot\times$ est un groupe commutatif fini ; par exemple $\mathcal{U}(\mathbb{Z}/12\mathbb{Z})=\{\overline{1},\overline{5},\overline{7},\overline{11}\}$ ;
 - $(\mathbb{K}^{\mathbb{N}},+)$ est un groupe commutatif.
+
 :::
 
 ::: {.remark}
+
 Soit $(G,\cdot)$ un groupe, $a\in G$. Alors $f_a : x\in G\mapsto x\cdot a$ est une permutation de $G$ (d'inverse $f_{a^{-1}}$).
+
 :::
 
 **Application.** Soit $G$ un groupe fini commutatif, $n=\mathrm{Card}(G)$. Alors $\forall x\in G,\ x^n=e$.
 
 ::: {.proof}
+
 Notons $G=\{x_0,x_1,\cdots,x_{n-1}\}$ et soit $p=x_0x_1\cdots x_{n-1}$. Soit $a\in G$ ; l'ensemble $\{ax_0,ax_1,\cdots,ax_{n-1}\}$ n'est autre que $G$ car $x\mapsto ax$ est une permutation de $G$. La loi de $G$ étant commutative, $p=(ax_0)(ax_1)\cdots(ax_{n-1})=a^np$. Or $p\in G$ et $p$ est inversible donc régulier, donc $a^n=pp^{-1}=e$.
+
 :::
 
 Ainsi, soit $n\in\mathbb{N}^*$ : pour $x\in\mathbb{Z}/n\mathbb{Z}$ muni de $\dot+$, $nx=\overline{0}$ ; pour $x\in\mathcal{U}(\mathbb{Z}/n\mathbb{Z})$ muni de $\dot\times$, $x^{\varphi(n)}=\overline{1}$. En particulier, si $n$ est premier, on retrouve le **petit théorème de Fermat** : $\forall a\in\mathbb{Z},\ n\nmid a \Rightarrow a^{n-1}\equiv 1\ [n]$.
@@ -189,33 +235,43 @@ Ainsi, soit $n\in\mathbb{N}^*$ : pour $x\in\mathbb{Z}/n\mathbb{Z}$ muni de $\dot
 ## Sous-groupes
 
 ::: {.definition}
+
 Soit $(G,\cdot)$ un groupe et $H\subset G$. On dit que $H$ est un **sous-groupe** de $G$ si :
 
 1. $H\neq\varnothing$ ;
 2. $\forall x,y\in H,\ x\cdot y\in H$ ;
 3. $\forall x\in H,\ x^{-1}\in H$.
+
 :::
 
 ::: {.remark}
+
 Soit $(G,\cdot)$ un groupe de neutre $e$.
 
 - Si $H$ est un sous-groupe de $G$, alors $e\in H$.
 - $H\subset G$ est un sous-groupe de $G$ si et seulement si : (1) $e\in H$ ; (2) $\forall x,y\in H,\ x^{-1}\cdot y\in H$.
 - En notation additive, $H$ est un sous-groupe de $(G,+)$ si et seulement si : $H\neq\varnothing$, $\forall x,y\in H,\ x+y\in H$ et $\forall x\in H,\ -x\in H$.
+
 :::
 
 ::: {.example}
+
 - $G$ et $\{e\}$ sont des sous-groupes de $G$ ;
 - $\mathbb{Z}$ est un sous-groupe de $(\mathbb{Q},+)$ ; $\mathbb{Q}$ est un sous-groupe de $(\mathbb{R},+)$ ; $\mathbb{R}$ est un sous-groupe de $(\mathbb{C},+)$ ;
 - $\mathbb{U}$ est un sous-groupe de $(\mathbb{C}^*,\times)$ ; pour tout $n\in\mathbb{N}^*$, $\mathbb{U}_n$ est un sous-groupe de $(\mathbb{C}^*,\times)$.
+
 :::
 
 ::: {.proposition}
+
 Une intersection quelconque de sous-groupes est un sous-groupe. En d'autres termes, soit $(G,\cdot)$ un groupe de neutre $e$, $I$ un ensemble non vide et $(H_i)_{i\in I}$ une famille de sous-groupes. Alors $\bigcap_{i\in I}H_i$ est un sous-groupe de $G$.
+
 :::
 
 ::: {.proof}
+
 Pour tout $i\in I$, $e\in H_i$ car $H_i$ est un sous-groupe. Soient $x,y\in\bigcap_{i\in I}H_i$ ; alors pour tout $i\in I$, $x\in H_i$ et $y\in H_i$ donc $x^{-1}\cdot y\in H_i$, d'où $x^{-1}\cdot y\in\bigcap_{i\in I}H_i$.
+
 :::
 
 ## Sous-groupes de $\mathbb{Z}$
@@ -223,20 +279,26 @@ Pour tout $i\in I$, $e\in H_i$ car $H_i$ est un sous-groupe. Soient $x,y\in\bigc
 Pour $n\in\mathbb{N}$ on note $n\mathbb{Z}=\{np\ /\ p\in\mathbb{Z}\}$ l'ensemble des multiples de $n$ dans $\mathbb{Z}$ ; $n\mathbb{Z}$ est un sous-groupe de $(\mathbb{Z},+)$.
 
 ::: {.theorem}
+
 Soit $H$ un sous-groupe de $(\mathbb{Z},+)$. Alors il existe $n\in\mathbb{N}$ tel que $H=n\mathbb{Z}$.
+
 :::
 
 ::: {.proof}
+
 Si $H=\{0\}$, alors $H=0\mathbb{Z}$. Si $H\neq\{0\}$, soit $x\in H$, $x\neq 0$ ; alors $-x\in H$, donc $H$ contient un entier naturel non nul, c'est-à-dire $H\cap\mathbb{N}^*\neq\varnothing$. Soit $n=\min(H\cap\mathbb{N}^*)$. Montrons que $H=n\mathbb{Z}$ :
 
 - $n\in H$ donc $2n\in H$ puis, par récurrence, $\forall k\in\mathbb{N},\ kn\in H$ ; de même $-n\in H$ donc $\forall k\in\mathbb{Z},\ kn\in H$. Ainsi $n\mathbb{Z}\subset H$.
 - Soit $m\in H$ ; il existe $(q,r)\in\mathbb{Z}^2$ tels que $m=nq+r$ et $0\leq r\leq n-1$. Or $nq\in n\mathbb{Z}$ et $r=m-nq\in H$ car $H$ est un sous-groupe. Si $r>0$, alors $r\in H\cap\mathbb{N}^*$ et $r<n$, ce qui contredit la définition de $n$. Donc $r=0$, donc $m=nq\in n\mathbb{Z}$, donc $H\subset n\mathbb{Z}$.
+
 :::
 
 ::: {.exercise}
+
 Soit $(a,b)\in\mathbb{Z}^2\smallsetminus\{(0,0)\}$. En utilisant la propriété montrée ci-dessus, montrer que :
 $$a\mathbb{Z}+b\mathbb{Z}=(a\wedge b)\mathbb{Z} \quad ; \quad a\mathbb{Z}\cap b\mathbb{Z}=(a\vee b)\mathbb{Z}$$
 où $a\wedge b$ désigne le pgcd de $a$ et $b$, et $a\vee b$ leur ppcm.
+
 :::
 
 ## Sous-groupe engendré par une partie
@@ -246,13 +308,17 @@ Soit $S\subset G$ ; considérons l'ensemble $\mathcal{F}$ des sous-groupes $H$ t
 Pour $x\in G$, on montre que $\langle x\rangle=\{x^k\ /\ k\in\mathbb{Z}\}$.
 
 ::: {.definition}
+
 On dit que $G$ est **monogène** s'il existe $x\in G$ tel que $G=\langle x\rangle$. On dit que $G$ est **cyclique** s'il est monogène et fini.
+
 :::
 
 ::: {.example}
+
 - $(\mathbb{Z},+)$ est monogène car $\mathbb{Z}=\langle 1\rangle=\langle -1\rangle$ ; $n\mathbb{Z}=\langle n\rangle$ dans $(\mathbb{Z},+)$ ;
 - $(\mathbb{U}_n,\times)$ est cyclique car $\mathbb{U}_n=\langle\omega\rangle$ où $\omega=e^{\frac{2i\pi}{n}}$ ;
 - $(\mathbb{Z}/n\mathbb{Z},\dot+)$ est cyclique car $\mathbb{Z}/n\mathbb{Z}=\langle\overline{1}\rangle$.
+
 :::
 
 **Conséquence.** Un groupe monogène est forcément commutatif ; donc un groupe non commutatif ne peut être monogène.
@@ -260,19 +326,24 @@ On dit que $G$ est **monogène** s'il existe $x\in G$ tel que $G=\langle x\rangl
 ## Morphismes de groupes
 
 ::: {.definition}
+
 Soient $(G,\cdot)$ et $(H,\star)$ deux groupes et $f : G\to H$. On dit que $f$ est un **morphisme** de groupes si et seulement si $\forall x,y\in G,\ f(x\cdot y)=f(x)\star f(y)$.
+
 :::
 
 ::: {.example}
+
 - $\ln$ est un morphisme de groupes de $(\mathbb{R}_+^*,\times)$ dans $(\mathbb{R},+)$ ; $\exp$ est un morphisme de $(\mathbb{R},+)$ dans $(\mathbb{R}_+^*,\times)$ ;
 - pour $\alpha\in\mathbb{R}$, $x\mapsto x^\alpha$ est un morphisme de $(\mathbb{R}_+^*,\times)$ dans $(\mathbb{R}_+^*,\times)$ ;
 - $z\mapsto|z|$ est un morphisme de $(\mathbb{C}^*,\times)$ dans $(\mathbb{R}_+^*,\times)$ ; $z\mapsto\overline{z}$ est un morphisme de $(\mathbb{C}^*,\times)$ dans $(\mathbb{C}^*,\times)$ ;
 - $t\mapsto e^{it}$ est un morphisme de $(\mathbb{R},+)$ dans $(\mathbb{U},\times)$.
+
 :::
 
 **Vocabulaire.** Un morphisme de groupes bijectif est appelé **isomorphisme** ; un morphisme de $G$ dans $G$ est un **endomorphisme** ; un endomorphisme bijectif est un **automorphisme**.
 
 ::: {.proposition}
+
 Soient $(G,\cdot)$ et $(H,\star)$ deux groupes et $f : G\to H$ un morphisme de groupes. Alors :
 
 1. $f(e_G)=e_H$ ;
@@ -280,11 +351,14 @@ Soient $(G,\cdot)$ et $(H,\star)$ deux groupes et $f : G\to H$ un morphisme de g
 3. soit $G_1$ un sous-groupe de $(G,\cdot)$ ; alors $f(G_1)$ est un sous-groupe de $(H,\star)$ ;
 4. soit $H_1$ un sous-groupe de $(H,\star)$ ; alors $f^{-1}(H_1)$ est un sous-groupe de $(G,\cdot)$ ; en particulier, $f^{-1}(\{e_H\})=\{x\in G\ /\ f(x)=e_H\}$ est un sous-groupe de $(G,\cdot)$ appelé **noyau** de $f$ et noté $\ker f$ ;
 5. $f$ est injective si et seulement si $\ker f=\{e_G\}$.
+
 :::
 
 ::: {.proposition title="(Composée de deux morphismes)"}
+
 1. Soient $(G,\cdot)$, $(H,\star)$ et $(L,\top)$ trois groupes et $f : G\to H$, $g : H\to L$ des morphismes de groupes. Alors $g\circ f$ est un morphisme de $(G,\cdot)$ dans $(L,\top)$.
 2. Soit $f : G\to H$ un isomorphisme de groupes. Alors $f^{-1}$ est un isomorphisme de $(H,\star)$ dans $(G,\cdot)$.
+
 :::
 
 **Application.** Soit $(G,\cdot)$ un groupe. On note $\mathrm{Aut}(G)$ l'ensemble des automorphismes de $G$. Alors $\mathrm{Aut}(G)$ est un sous-groupe de $(\mathfrak{S}(G),\circ)$.
@@ -294,6 +368,7 @@ Soient $(G,\cdot)$ et $(H,\star)$ deux groupes et $f : G\to H$ un morphisme de g
 ## Définitions, règles de calcul, exemples
 
 ::: {.definition}
+
 Un **anneau** est un triplet $(A,+,\times)$ où $A$ est un ensemble non vide, $+$ et $\times$ des lois de composition internes telles que :
 
 1. $(A,+)$ est un groupe commutatif de neutre $0_A$ (on parle de zéro de $A$) ;
@@ -301,18 +376,22 @@ Un **anneau** est un triplet $(A,+,\times)$ où $A$ est un ensemble non vide, $+
 3. $\times$ est distributive à gauche et à droite par rapport à $+$ : $\forall a,b,c\in A,\ (a+b)\times c=a\times c+b\times c$ et $c\times(a+b)=c\times a+c\times b$.
 
 L'anneau $(A,+,\times)$ est **commutatif** si et seulement si $\times$ est commutative.
+
 :::
 
 ::: {.example}
+
 - $(\mathbb{Z},+,\times)$, $(\mathbb{R},+,\times)$, $(\mathbb{C},+,\times)$ ;
 - $(\mathbb{K}^n,+,\times)$ est un anneau commutatif ;
 - si $X$ est un ensemble, $(\mathcal{F}(X,\mathbb{K}),+,\times)$ est un anneau ;
 - pour $n\in\mathbb{N}^*$, $(\mathbb{Z}/n\mathbb{Z},\dot+,\dot\times)$ est un anneau.
+
 :::
 
 **Vocabulaire.** Les éléments inversibles pour $\times$ s'appellent les **unités** de $A$, dont l'ensemble se note $\mathcal{U}(A)$ ; $(\mathcal{U}(A),\times)$ est un groupe appelé le **groupe des unités** de $A$. Par exemple, $\mathcal{U}(\mathbb{Z})=\{\pm1\}$, $\mathcal{U}(\mathbb{R})=\mathbb{R}^*$, $\mathcal{U}(\mathbb{Z}/n\mathbb{Z})=\{\overline{k}\ /\ k\in\llbracket 1,n\rrbracket \text{ et } k\wedge n=1\}$.
 
 ::: {.proposition title="(Règles de calcul)"}
+
 Soit $(A,+,\times)$ un anneau de neutres $0_A$ et $1_A$. Alors :
 
 1. **Élément absorbant :** $\forall x\in A,\ 0_A\times x=x\times 0_A=0_A$ (donc $0_A$ n'est jamais inversible, et on écarte systématiquement le cas trivial $1_A=0_A$) ;
@@ -323,110 +402,143 @@ Soit $(A,+,\times)$ un anneau de neutres $0_A$ et $1_A$. Alors :
 $$(a+b)^n=\sum_{k=0}^n \binom{n}{k}a^k b^{n-k}$$
 6. **Factorisation :** pour $a,b\in A$ tels que $a\times b=b\times a$, $\forall n\in\mathbb{N}^*$ :
 $$b^n-a^n=(b-a)\sum_{k=0}^{n-1}b^k a^{n-1-k}$$
+
 :::
 
 ::: {.remark title="(Piège !)"}
+
 Si $a\times b\neq b\times a$, la formule du binôme peut être fausse : pour $n=2$, $(a+b)^2=a^2+a\times b+b\times a+b^2$, et il y a égalité avec $a^2+2a\times b+b^2$ si et seulement si $a\times b=b\times a$.
+
 :::
 
 ## Anneaux intègres
 
 ::: {.definition}
+
 Un anneau $(A,+,\times)$ est **intègre** si et seulement si :
 
 1. $(A,+,\times)$ est commutatif ;
 2. $\forall x,y\in A,\ x\times y=0_A\Rightarrow x=0_A$ ou $y=0_A$.
+
 :::
 
 ::: {.example}
+
 - $(\mathbb{Z},+,\times)$ est un anneau intègre ;
 - $(\mathbb{Z}/6\mathbb{Z},\dot+,\dot\times)$ n'est pas intègre : $\overline{2}\dot\times\overline{3}=\overline{0}$ mais $\overline{2}\neq\overline{0}$ et $\overline{3}\neq\overline{0}$ ;
 - soit $n\in\mathbb{N}^*$ ; alors $(\mathbb{Z}/n\mathbb{Z},\dot+,\dot\times)$ est intègre si et seulement si $n$ est premier.
+
 :::
 
 ::: {.proof title="(ℤ/nℤ intègre ⟺ n premier)"}
+
 ($\Rightarrow$) Par contraposée : supposons que $n$ n'est pas premier ; alors $n=pq$ avec $p,q\in\llbracket 2,n-1\rrbracket$, d'où $\overline{0}=\overline{n}=\overline{p}\dot\times\overline{q}$ avec $\overline{p}\neq\overline{0}$ et $\overline{q}\neq\overline{0}$ : $\mathbb{Z}/n\mathbb{Z}$ n'est pas intègre.
 
 ($\Leftarrow$) Supposons $n$ premier, et soient $x,y\in\mathbb{Z}/n\mathbb{Z}$ avec $x\dot\times y=\overline{0}$. Il existe $k,l\in\llbracket 0,n-1\rrbracket$ tels que $x=\overline{k}$ et $y=\overline{l}$. Ainsi $\overline{0}=\overline{kl}$ donc $n\mid kl$. Or $n$ est premier donc $n\mid k$ ou $n\mid l$, donc $\overline{k}=\overline{0}$ ou $\overline{l}=\overline{0}$.
+
 :::
 
 ::: {.remark}
+
 Si $(A,+,\times)$ est intègre, alors tout élément non nul de $A$ est régulier pour $\times$ : si $a\neq 0_A$ et $a\times b=a\times c$, alors $a\times(b-c)=0$ donc $b-c=0$, c'est-à-dire $b=c$.
+
 :::
 
 ## Corps
 
 ::: {.definition}
+
 Un anneau commutatif $(\mathbb{K},+,\times)$ est un **corps** si et seulement si tout élément non nul est inversible par $\times$.
+
 :::
 
 ::: {.example}
+
 - $(\mathbb{Q},+,\times)$, $(\mathbb{R},+,\times)$, $(\mathbb{C},+,\times)$ sont des corps ;
 - tout corps est un anneau intègre : soit $(\mathbb{K},+,\times)$ un corps, $x,y\in\mathbb{K}$ avec $x\times y=0_\mathbb{K}$ ; si $x\neq 0_\mathbb{K}$, alors $x$ est inversible donc $x^{-1}\times x\times y=0_\mathbb{K}\Rightarrow y=0_\mathbb{K}$ ;
 - soit $n\in\mathbb{N}^*$ ; $(\mathbb{Z}/n\mathbb{Z},\dot+,\dot\times)$ est un corps si et seulement si $n$ est premier. Si $p$ est un nombre premier, on note en général $\mathbb{F}_p$ au lieu de $\mathbb{Z}/p\mathbb{Z}$.
+
 :::
 
 ## Sous-anneaux, sous-corps et morphismes d'anneaux
 
 ::: {.definition}
+
 Soit $(A,+,\times)$ un anneau et $B\subset A$. On dit que $B$ est un **sous-anneau** de $A$ si :
 
 1. $B$ est un sous-groupe de $(A,+)$ (i.e. $0_A\in B$ et $\forall x,y\in B,\ x-y\in B$) ;
 2. $B$ est stable par $\times$ : $\forall x,y\in B,\ x\times y\in B$ ;
 3. $1_A\in B$.
+
 :::
 
 ::: {.example}
+
 - $\mathbb{Z}$ est un sous-anneau de $\mathbb{C}$, et $\mathbb{Z}$ est l'unique sous-anneau de $\mathbb{Z}$ ;
 - $\mathbb{Z}[i]=\{a+ib\ /\ a,b\in\mathbb{Z}\}$ est un sous-anneau de $\mathbb{C}$ ;
 - $2\mathbb{Z}=\{2m\ /\ m\in\mathbb{Z}\}$ vérifie (1) et (2) mais pas (3) : ce n'est donc pas un sous-anneau.
+
 :::
 
 ::: {.proposition}
+
 Une intersection de sous-anneaux est un sous-anneau.
+
 :::
 
 ::: {.definition}
+
 Soit $(L,+,\times)$ un corps et $\mathbb{K}\subset L$. On dit que $\mathbb{K}$ est un **sous-corps** de $L$ si $\mathbb{K}$ est un sous-anneau de $L$ et $\forall x\in\mathbb{K}\smallsetminus\{0\},\ x^{-1}\in\mathbb{K}$.
+
 :::
 
 ::: {.example title="(ℚ[√5] est un sous-corps de ℝ)"}
+
 On pose $\mathbb{Q}[\sqrt{5}]=\{a+b\sqrt{5}\ /\ a,b\in\mathbb{Q}\}$.
 
 - $\mathbb{Q}\subset\mathbb{Q}[\sqrt{5}]$ ; la somme et le produit de deux éléments de $\mathbb{Q}[\sqrt{5}]$ sont dans $\mathbb{Q}[\sqrt{5}]$ : donc $\mathbb{Q}[\sqrt{5}]$ est un sous-anneau de $(\mathbb{R},+,\times)$.
 - Soit $x=a+b\sqrt{5}\in\mathbb{Q}[\sqrt{5}]\smallsetminus\{0\}$. Alors $a-b\sqrt{5}\neq 0$ (sinon $\sqrt{5}\in\mathbb{Q}$ ou $b=0$, cas tous deux impossibles), et :
 $$\frac{1}{x}=\frac{a-b\sqrt{5}}{a^2+5b^2}=\frac{a}{a^2+5b^2}-\frac{b}{a^2+5b^2}\sqrt{5}\in\mathbb{Q}[\sqrt{5}]$$
 Donc $\mathbb{Q}[\sqrt{5}]$ est un sous-corps de $\mathbb{R}$.
+
 :::
 
 ::: {.definition title="(Morphisme d'anneaux)"}
+
 Soient $(A,+,\times)$ et $(B,\dot+,\dot\times)$ deux anneaux. Alors $f : A\to B$ est un **morphisme d'anneaux** si :
 
 1. $f$ est un morphisme de groupes de $(A,+)$ dans $(B,\dot+)$ : $\forall x,y\in A,\ f(x+y)=f(x)\dot+f(y)$ ;
 2. $\forall x,y\in A,\ f(x\times y)=f(x)\dot\times f(y)$ ;
 3. $f(1_A)=1_B$.
+
 :::
 
 ::: {.remark}
+
 Soient $f : \mathbb{K}\to A$ un morphisme d'anneaux avec $\mathbb{K}$ un corps. Alors $f$ est injective : en effet, si $x\in\mathbb{K}\smallsetminus\{0_\mathbb{K}\}$, alors $1_A=f\left(x\times\frac{1}{x}\right)=f(x)f\left(\frac{1}{x}\right)$ donc $f(x)\neq 0_A$, d'où $\ker f=\{0_\mathbb{K}\}$. Autrement dit, $A$ contient (via $f$) une copie de $\mathbb{K}$.
+
 :::
 
 # L'anneau $\mathbb{Z}/n\mathbb{Z}$ : récapitulatif
 
 ::: {.proposition}
+
 Soit $n\in\mathbb{N}^*$.
 
 1. $(\mathbb{Z}/n\mathbb{Z},\dot+)$ est un groupe commutatif, cyclique d'ordre $n$, engendré par $\overline{1}$ ; en particulier $\forall x\in\mathbb{Z}/n\mathbb{Z},\ nx=\overline{0}$ ;
 2. $(\mathbb{Z}/n\mathbb{Z},\dot+,\dot\times)$ est un anneau commutatif ;
 3. $\overline{k}$ est inversible pour $\dot\times$ si et seulement si $k\wedge n=1$ ; ainsi $(\mathcal{U}(\mathbb{Z}/n\mathbb{Z}),\dot\times)$ est un groupe commutatif et, pour $x\in\mathcal{U}(\mathbb{Z}/n\mathbb{Z})$, $x^{\varphi(n)}=\overline{1}$ ;
 4. $\mathbb{Z}/n\mathbb{Z}$ est intègre, et même un corps, si et seulement si $n$ est premier (on note alors $\mathbb{F}_p$).
+
 :::
 
 ::: {.exercise}
+
 1. Montrer que $(\mathbb{Z}[i],+,\times)$ est un anneau (entiers de Gauss).
 2. Soit $H\subset\mathbb{C}^*$. Montrer que si $(H,\times)$ est un sous-groupe fini de $(\mathbb{C}^*,\times)$, alors il existe $n\in\mathbb{N}^*$ tel que $H=\mathbb{U}_n$.
 3. Soit $H\subset\mathbb{R}$. Montrer que si $H$ est un sous-groupe de $(\mathbb{R},+)$, alors soit il existe $\alpha\in\mathbb{R}$ tel que $H=\alpha\mathbb{Z}$, soit $H$ est dense dans $\mathbb{R}$. Application : montrer que toute fonction continue sur $\mathbb{R}$ admettant $1$ et $\sqrt{2}$ comme périodes est constante.
 4. Soit $\mathbb{K}=\mathbb{Q}[\sqrt{5}]$. Déterminer les morphismes d'anneaux de $\mathbb{K}$ dans $\mathbb{R}$.
+
 :::
 
 # Document en PDF {-}
@@ -436,9 +548,11 @@ Soit $n\in\mathbb{N}^*$.
 # Navigation {-}
 
 ::: {.chap-nav}
+
 [Chapitre 07 : Systèmes linéaires](mpsi-chap07.qmd){.prev}
 
 [Menu MPSI](mpsi.qmd){.home}
 
 [Chapitre 09 : Arithmétique dans $ℤ$](mpsi-chap09.qmd){.next}
+
 :::

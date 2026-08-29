@@ -37,14 +37,18 @@ Ce chapitre a été réalisé conformément au programme marocain de mathématiq
 Afin de réduire le domaine d'étude d'une fonction, on détermine ses symétries et ses périodicités.
 
 ::: {.definition}
+
 Soit $I$ un intervalle de $\mathbb{R}$ symétrique par rapport à $0$ et $f:I\to \mathbb{R}$ une fonction.
 
 - $f$ est **paire** si $\forall x\in I,\ f(-x)=f(x)$. Le graphe est symétrique par rapport à l'axe des ordonnées.
 - $f$ est **impaire** si $\forall x\in I,\ f(-x)=-f(x)$. Le graphe est symétrique par rapport à l'origine.
+
 :::
 
 ::: {.definition}
+
 Soit $f:\mathbb{R} \to \mathbb{R}$ une fonction et $T > 0$. La fonction $f$ est dite **périodique** de période $T$ si $\forall x\in\mathbb{R},\ f(x+T)=f(x)$. Le graphe est invariant par la translation de vecteur $T\vec{i}$.
+
 :::
 
 ## Tableau de variations et tracé du graphe
@@ -66,7 +70,9 @@ Le graphe de $f^{-1}$ est le symétrique du graphe de $f$ par rapport à la prem
 Les fonctions puissances, l'exponentielle réelle et les fonctions sinus et cosinus sont décrites en détail mais leur existence est admise ; leurs propriétés peuvent être démontrées en partie. On en déduit l'étude des autres fonctions usuelles.
 
 ::: {.definition title="(Fonction exponentielle)"}
+
 La fonction **exponentielle** $\exp : \mathbb{R} \to ]0,+\infty[$ est l'unique fonction dérivable sur $\mathbb{R}$ telle que $\exp' = \exp$ et $\exp(0)=1$. On note $e^x = \exp(x)$.
+
 :::
 
 ::: {.proposition title="(Propriétés de l'exponentielle)"}
@@ -76,10 +82,13 @@ La fonction **exponentielle** $\exp : \mathbb{R} \to ]0,+\infty[$ est l'unique f
 - $\forall x \in \mathbb{R},\ e^{-x} = \frac{1}{e^x}$.
 - $\forall x \in \mathbb{R},\ e^x > 0$.
 - $\lim_{x\to+\infty} e^x = +\infty$ et $\lim_{x\to-\infty} e^x = 0$.
+
 :::
 
 ::: {.definition title="(Fonction logarithme népérien)"}
+
 La fonction **logarithme népérien** $\ln : ]0,+\infty[ \to \mathbb{R}$ est la bijection réciproque de $\exp$. Elle est dérivable et $\ln'(x) = \frac{1}{x}$.
+
 :::
 
 ::: {.proposition title="(Propriétés du logarithme)"}
@@ -89,37 +98,46 @@ La fonction **logarithme népérien** $\ln : ]0,+\infty[ \to \mathbb{R}$ est la 
 - $\forall x > 0,\ \ln\left(\frac{1}{x}\right) = -\ln(x)$.
 - $\forall x > 0,\ \forall n \in \mathbb{Z},\ \ln(x^n) = n\ln(x)$.
 - $\lim_{x\to+\infty} \ln(x) = +\infty$ et $\lim_{x\to 0^+} \ln(x) = -\infty$.
+
 :::
 
 ::: {.definition title="(Fonctions puissances)"}
+
 Pour $\alpha \in \mathbb{R}$, la fonction puissance $x \mapsto x^\alpha$ est définie sur $]0,+\infty[$ par $x^\alpha = e^{\alpha \ln x}$.
 
 Pour $n \in \mathbb{N}^*$, la fonction $x \mapsto x^n$ est définie sur $\mathbb{R}$ tout entier.
+
 :::
 
 ::: {.proposition title="(Relations fonctionnelles)"}
+
 Pour $x,y > 0$ et $\alpha, \beta \in \mathbb{R}$ :
 
 - $(xy)^\alpha = x^\alpha y^\alpha$
 - $x^{\alpha+\beta} = x^\alpha x^\beta$
 - $(x^\alpha)^\beta = x^{\alpha\beta}$
+
 :::
 
 ::: {.definition title="(Logarithme en base $a$)"}
+
 Pour $a > 0$, $a \neq 1$, on définit le logarithme en base $a$ par :
 $$\log_a(x) = \frac{\ln(x)}{\ln(a)}$$
 
 En particulier, le logarithme décimal est $\log_{10}$ et le logarithme en base 2 est $\log_2$.
+
 :::
 
 ## Croissances comparées
 
 ::: {.proposition title="(Croissances comparées)"}
+
 Pour tout $\alpha > 0$ :
 
 $$\lim_{x\to+\infty} \frac{\ln(x)}{x^\alpha} = 0 \qquad \lim_{x\to+\infty} \frac{x^\alpha}{e^x} = 0 \qquad \lim_{x\to 0^+} x^\alpha \ln(x) = 0$$
 
 En particulier, au voisinage de $+\infty$ : $\ln(x) \ll x^\alpha \ll e^x$.
+
 :::
 
 # Fonctions trigonométriques circulaires et hyperboliques
@@ -135,19 +153,23 @@ Les fonctions $\sin$, $\cos$, $\tan$ sont $2\pi$-périodiques (sauf $\tan$ qui e
 | $\tan x$ | $1+\tan^2 x$ | $\pi$ |
 
 ::: {.proposition title="(Formules d'addition)"}
+
 Pour tout $a,b \in \mathbb{R}$ :
 
 - $\cos(a+b) = \cos a \cos b - \sin a \sin b$
 - $\sin(a+b) = \sin a \cos b + \cos a \sin b$
 - $\tan(a+b) = \frac{\tan a + \tan b}{1 - \tan a \tan b}$ (si défini)
+
 :::
 
 ## Fonctions hyperboliques
 
 ::: {.definition}
+
 Les fonctions hyperboliques sont définies par :
 
 $$\sinh(x) = \frac{e^x - e^{-x}}{2} \qquad \cosh(x) = \frac{e^x + e^{-x}}{2} \qquad \tanh(x) = \frac{\sinh(x)}{\cosh(x)}$$
+
 :::
 
 ::: {.proposition}
@@ -157,21 +179,28 @@ $$\sinh(x) = \frac{e^x - e^{-x}}{2} \qquad \cosh(x) = \frac{e^x + e^{-x}}{2} \qq
 - $\tanh'(x) = 1 - \tanh^2(x) = \frac{1}{\cosh^2(x)}$
 - $\cosh$ est paire, $\sinh$ est impaire.
 - $\cosh(x) \ge 1$ pour tout $x \in \mathbb{R}$.
+
 :::
 
 ## Fonction $\theta \mapsto e^{i\theta}$
 
 ::: {.definition}
+
 Pour $\theta \in \mathbb{R}$, on pose $e^{i\theta} = \cos\theta + i\sin\theta$.
+
 :::
 
 ::: {.proposition title="(Formules d'Euler)"}
+
 $$\cos\theta = \frac{e^{i\theta}+e^{-i\theta}}{2} \qquad \sin\theta = \frac{e^{i\theta}-e^{-i\theta}}{2i}$$
+
 :::
 
 ::: {.proposition title="(Formule de Moivre)"}
+
 Pour tout $\theta \in \mathbb{R}$ et $n \in \mathbb{Z}$ :
 $$(\cos\theta + i\sin\theta)^n = \cos(n\theta) + i\sin(n\theta)$$
+
 :::
 
 # Fonctions réciproques
@@ -179,45 +208,59 @@ $$(\cos\theta + i\sin\theta)^n = \cos(n\theta) + i\sin(n\theta)$$
 ## Fonctions réciproques circulaires
 
 ::: {.definition title="(arcsin)"}
+
 La fonction $\arcsin : [-1,1] \to \left[-\frac{\pi}{2},\frac{\pi}{2}\right]$ est la bijection réciproque de $\sin$ restreinte à $\left[-\frac{\pi}{2},\frac{\pi}{2}\right]$.
 
 $$\arcsin'(x) = \frac{1}{\sqrt{1-x^2}} \quad \text{pour } x \in ]-1,1[$$
+
 :::
 
 ::: {.definition title="(arccos)"}
+
 La fonction $\arccos : [-1,1] \to [0,\pi]$ est la bijection réciproque de $\cos$ restreinte à $[0,\pi]$.
 
 $$\arccos'(x) = -\frac{1}{\sqrt{1-x^2}} \quad \text{pour } x \in ]-1,1[$$
+
 :::
 
 ::: {.definition title="(arctan)"}
+
 La fonction $\arctan : \mathbb{R} \to \left]-\frac{\pi}{2},\frac{\pi}{2}\right[$ est la bijection réciproque de $\tan$ restreinte à $\left]-\frac{\pi}{2},\frac{\pi}{2}\right[$.
 
 $$\arctan'(x) = \frac{1}{1+x^2} \quad \text{pour } x \in \mathbb{R}$$
+
 :::
 
 ::: {.proposition}
+
 Pour tout $x \in [-1,1]$ : $\arcsin(x) + \arccos(x) = \frac{\pi}{2}$.
+
 :::
 
 ## Fonctions réciproques hyperboliques
 
 ::: {.definition title="(argsh)"}
+
 La fonction $\operatorname{argsh} : \mathbb{R} \to \mathbb{R}$ est la bijection réciproque de $\sinh$.
 
 $$\operatorname{argsh}'(x) = \frac{1}{\sqrt{1+x^2}} \quad \text{pour } x \in \mathbb{R}$$
+
 :::
 
 ::: {.definition title="(argcosh)"}
+
 La fonction $\operatorname{argcosh} : [1,+\infty[ \to [0,+\infty[$ est la bijection réciproque de $\cosh$ restreinte à $[0,+\infty[$.
 
 $$\operatorname{argcosh}'(x) = \frac{1}{\sqrt{x^2-1}} \quad \text{pour } x \in ]1,+\infty[$$
+
 :::
 
 ::: {.definition title="(argth)"}
+
 La fonction $\operatorname{argth} : ]-1,1[ \to \mathbb{R}$ est la bijection réciproque de $\tanh$.
 
 $$\operatorname{argth}'(x) = \frac{1}{1-x^2} \quad \text{pour } x \in ]-1,1[$$
+
 :::
 
 # Fonctions convexes
@@ -227,10 +270,12 @@ L'objectif de cette section est d'étudier les fonctions convexes d'une variable
 ## Définition et interprétation géométrique
 
 ::: {.definition}
+
 Une fonction $f : I \to \mathbb{R}$ est **convexe** sur l'intervalle $I$ si pour tout $(x,y) \in I^2$ et tout $\lambda \in [0,1]$ :
 $$f((1-\lambda)x + \lambda y) \le (1-\lambda)f(x) + \lambda f(y)$$
 
 Une fonction $f$ est **concave** si $-f$ est convexe.
+
 :::
 
 **Interprétation géométrique :** une fonction convexe est une fonction dont le graphe est « en dessous » de ses cordes. Autrement dit, le graphe de $f$ est en dessous de la corde reliant deux points quelconques du graphe.
@@ -246,51 +291,67 @@ $$\frac{f(x_2)-f(x_1)}{x_2-x_1} \le \frac{f(x_3)-f(x_2)}{x_3-x_2}$$
 3. **Caractérisation par la dérivée :** si $f$ est dérivable sur $I$, alors $f$ est convexe si et seulement si $f'$ est croissante sur $I$.
 
 4. **Caractérisation par la dérivée seconde :** si $f$ est deux fois dérivable sur $I$, alors $f$ est convexe si et seulement si $f''(x) \ge 0$ pour tout $x \in I$.
+
 :::
 
 ::: {.proposition title="(Position relative du graphe et de ses tangentes)"}
+
 Si $f$ est convexe et dérivable sur $I$, alors le graphe de $f$ est au-dessus de ses tangentes :
 $$\forall x, x_0 \in I,\quad f(x) \ge f(x_0) + f'(x_0)(x-x_0)$$
+
 :::
 
 ## Inégalité de Jensen
 
 ::: {.theorem title="(Inégalité de Jensen)"}
+
 Soit $f : I \to \mathbb{R}$ une fonction convexe. Soient $x_1, x_2, \ldots, x_n$ des points de $I$ et $\lambda_1, \lambda_2, \ldots, \lambda_n$ des éléments de $\mathbb{R}_+$ de somme 1. Alors :
 $$f\left(\sum_{i=1}^n \lambda_i x_i\right) \le \sum_{i=1}^n \lambda_i f(x_i)$$
+
 :::
 
 ::: {.remark}
+
 L'inégalité de Jensen généralise la définition de la convexité à un nombre quelconque de points. Elle est particulièrement utile pour obtenir des inégalités.
+
 :::
 
 ## Applications
 
 ::: {.proposition title="(Inégalité arithmético-géométrique)"}
+
 Pour tout $x_1, x_2, \ldots, x_n > 0$ :
 $$\left(\prod_{i=1}^n x_i\right)^{1/n} \le \frac{x_1 + x_2 + \cdots + x_n}{n}$$
 
 Cette inégalité se démontre en appliquant l'inégalité de Jensen à la fonction convexe $f(x) = -\ln(x)$ sur $]0,+\infty[$.
+
 :::
 
 ::: {.proposition title="(Inégalité de Cauchy-Schwarz)"}
+
 Pour tout $x_1, \ldots, x_n, y_1, \ldots, y_n \in \mathbb{R}$ :
 $$\left(\sum_{i=1}^n x_i y_i\right)^2 \le \left(\sum_{i=1}^n x_i^2\right)\left(\sum_{i=1}^n y_i^2\right)$$
+
 :::
 
 ::: {.proposition title="(Inégalité de Young)"}
+
 Pour tout $a,b > 0$ et $p,q > 1$ tels que $\frac{1}{p} + \frac{1}{q} = 1$ :
 $$ab \le \frac{a^p}{p} + \frac{b^q}{q}$$
 
 Cette inégalité se démontre en appliquant l'inégalité de Jensen à la fonction convexe $f(x) = e^x$.
+
 :::
 
 # Document en PDF {-}
 [Chapitre 08 : Fonctions usuelles, fonctions convexes](PDF/tsi1-chap08.pdf)
 
 ## Navigation {-}
+
 ::: {.chap-nav}
+
 [Chapitre 07 : Fonctions de la variable réelle, dérivation](tsi1-chap07.qmd){.prev}
 [Menu TSI1](tsi1.qmd){.home}
 [Chapitre 09 : Primitives et équations différentielles linéaires](tsi1-chap09.qmd){.next}
+
 :::

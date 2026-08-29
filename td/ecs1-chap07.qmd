@@ -19,73 +19,96 @@ filters:
 **ECS1 (1re année) — TD du Chapitre 07.** Espaces vectoriels, applications linéaires, théorème du rang, matrices, systèmes linéaires.
 
 ::: {.exercise}
+
 Montrer que $F = \{(x,y,z) \in \mathbb{R}^3 \mid x + 2y - z = 0\}$ est un sous-espace vectoriel de $\mathbb{R}^3$.
+
 :::
 
 ::: {.exercise}
+
 Soit $f : \mathbb{R}^2 \to \mathbb{R}^2$ définie par $f(x,y) = (x+y, x-y)$.
 
 1. Montrer que $f$ est linéaire.
 2. Déterminer $\ker f$ et $\mathrm{Im}(f)$.
 3. $f$ est-elle un isomorphisme ?
+
 :::
 
 ::: {.exercise}
+
 Résoudre par la méthode du pivot de Gauss :
 
 1. $\begin{cases} 2x + y = 5 \\ x - y = 1 \end{cases}$
 
 2. $\begin{cases} x + y + z = 6 \\ 2x - y + z = 3 \\ x + 2y - z = 2 \end{cases}$
+
 :::
 
 ::: {.exercise}
+
 Soit $A = \begin{pmatrix} 2 & 1 \\ 5 & 3 \end{pmatrix}$.
 
 1. Calculer $\det(A)$.
 2. Montrer que $A$ est inversible.
 3. Calculer $A^{-1}$.
+
 :::
 
 ::: {.exercise}
+
 Résoudre le système matriciel :
 $$\begin{pmatrix} 2 & 1 \\ 5 & 3 \end{pmatrix} \begin{pmatrix} x \\ y \end{pmatrix} = \begin{pmatrix} 1 \\ 4 \end{pmatrix}.$$
+
 :::
 
 ::: {.exercise}
+
 Soit $A = \begin{pmatrix} 1 & 1 \\ 0 & 1 \end{pmatrix}$.
 
 1. Calculer $A^2$ et $A^3$.
 2. Conjecturer une formule pour $A^n$.
 3. Démontrer cette formule par récurrence.
+
 :::
 
 ::: {.exercise}
+
 Résoudre le système :
 $$\begin{cases} x + 2y + 3z = 1 \\ 2x + 4y + 6z = 2 \\ 3x + 6y + 9z = 3 \end{cases}$$
+
 :::
 
 ::: {.exercise}
+
 Montrer que si $A$ et $B$ sont inversibles, alors $AB$ est inversible et $(AB)^{-1} = B^{-1}A^{-1}$.
+
 :::
 
 ::: {.exercise}
+
 Soit $f : \mathbb{R}_2[X] \to \mathbb{R}^2$ définie par $f(P) = (P(0), P(1))$.
 
 1. Montrer que $f$ est linéaire.
 2. Déterminer $\ker f$ et $\mathrm{Im}(f)$.
 3. Vérifier le théorème du rang.
+
 :::
 
 ::: {.exercise}
+
 Montrer que pour toutes matrices compatibles $A$ et $B$ : $(AB)^T = B^T A^T$.
+
 :::
 
 # Cours {-}
 [**Chapitre 07 : Algèbre linéaire et calcul matriciel**](ecs1-chap07.qmd)
 
 # Navigation {-}
+
 ::: {.chap-nav}
+
 [TD 06 : Intégration sur un segment](ecs1-chap06.qmd){.prev}
 [Menu ECS1](ecs1.qmd){.home}
 [TD 08 : Dénombrement](ecs1-chap08.qmd){.next}
+
 :::

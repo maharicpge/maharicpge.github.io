@@ -37,25 +37,31 @@ Dans tout ce chapitre, $X$ désigne un ensemble non vide, $I$ un intervalle de $
 ## Fonctions bornées
 
 ::: {.definition title="(Fonction bornée)"}
+
 Une fonction $f : X \to E$ est dite **bornée** si l'ensemble $\{f(x) \mid x \in X\}$ est borné dans $E$, c'est-à-dire s'il existe $M > 0$ tel que :
 $$\forall x \in X, \quad \|f(x)\| \leq M$$
 
 On note $\mathcal{B}(X, E)$ l'ensemble des fonctions bornées de $X$ dans $E$.
+
 :::
 
 ::: {.definition title="(Norme de la convergence uniforme)"}
+
 Pour $f \in \mathcal{B}(X, E)$, on définit :
 $$\|f\|_\infty = \sup_{x \in X} \|f(x)\|$$
 
 L'application $f \mapsto \|f\|_\infty$ est une norme sur $\mathcal{B}(X, E)$, appelée **norme de la convergence uniforme** (ou **norme infinie**).
+
 :::
 
 ::: {.proposition title="(Propriétés de la norme)"}
+
 Pour $f, g \in \mathcal{B}(X, E)$ et $\lambda \in \mathbb{K}$ :
 
 1. $\|f\|_\infty = 0 \iff f = 0$
 2. $\|\lambda f\|_\infty = |\lambda| \cdot \|f\|_\infty$
 3. $\|f + g\|_\infty \leq \|f\|_\infty + \|g\|_\infty$ (inégalité triangulaire)
+
 :::
 
 # Suites de fonctions
@@ -63,66 +69,86 @@ Pour $f, g \in \mathcal{B}(X, E)$ et $\lambda \in \mathbb{K}$ :
 ## Convergence simple
 
 ::: {.definition title="(Convergence simple)"}
+
 Soit $(f_n)_{n \geq 0}$ une suite de fonctions de $X$ dans $E$. On dit que la suite $(f_n)$ **converge simplement** vers une fonction $f : X \to E$ si :
 $$\forall x \in X, \quad f_n(x) \xrightarrow[n \to +\infty]{} f(x)$$
 
 Autrement dit, pour tout $x \in X$ et tout $\varepsilon > 0$, il existe $N \in \mathbb{N}$ (qui dépend de $x$ et de $\varepsilon$) tel que :
 $$n \geq N \implies \|f_n(x) - f(x)\| < \varepsilon$$
+
 :::
 
 ::: {.remark}
+
 La convergence simple est une convergence **point par point**. Pour chaque $x$, on a une suite numérique $(f_n(x))$ qui converge. Mais le rang à partir duquel la convergence a lieu peut dépendre de $x$.
+
 :::
 
 ::: {.example}
+
 La suite $f_n(x) = x^n$ sur $[0, 1]$ converge simplement vers la fonction :
 $$f(x) = \begin{cases} 0 & \text{si } 0 \leq x < 1 \\ 1 & \text{si } x = 1 \end{cases}$$
 
 En effet, pour $0 \leq x < 1$, $x^n \to 0$, et pour $x = 1$, $1^n = 1$.
+
 :::
 
 ## Convergence uniforme
 
 ::: {.definition title="(Convergence uniforme)"}
+
 Soit $(f_n)_{n \geq 0}$ une suite de fonctions de $X$ dans $E$. On dit que la suite $(f_n)$ **converge uniformément** vers une fonction $f : X \to E$ si :
 $$\forall \varepsilon > 0, \quad \exists N \in \mathbb{N}, \quad \forall n \geq N, \quad \forall x \in X, \quad \|f_n(x) - f(x)\| < \varepsilon$$
 
 Autrement dit, le rang $N$ ne dépend que de $\varepsilon$, pas de $x$.
+
 :::
 
 ::: {.remark}
+
 La convergence uniforme est plus forte que la convergence simple : on exige que la convergence ait lieu **uniformément** en $x$, c'est-à-dire avec le même rang $N$ pour tous les $x$.
+
 :::
 
 ::: {.proposition title="(Convergence uniforme en termes de norme)"}
+
 La suite $(f_n)$ converge uniformément vers $f$ si et seulement si :
 $$f_n - f \in \mathcal{B}(X, E) \text{ à partir d'un certain rang} \quad \text{et} \quad \|f_n - f\|_\infty \xrightarrow[n \to +\infty]{} 0$$
+
 :::
 
 ::: {.example}
+
 La suite $f_n(x) = \frac{x}{n}$ sur $\mathbb{R}$ converge uniformément vers $0$ sur tout intervalle borné $[a,b]$, mais pas sur $\mathbb{R}$ tout entier.
 
 Sur $\mathbb{R}$ : $\sup_{x \in \mathbb{R}} \left|\frac{x}{n}\right| = +\infty$, donc $\|f_n\|_\infty = +\infty$.
+
 :::
 
 ## Lien entre convergence simple et convergence uniforme
 
 ::: {.proposition}
+
 La convergence uniforme implique la convergence simple.
+
 :::
 
 ::: {.proof}
+
 Si $(f_n)$ converge uniformément vers $f$, alors pour tout $\varepsilon > 0$, il existe $N$ tel que pour tout $n \geq N$ et tout $x \in X$ :
 $$\|f_n(x) - f(x)\| < \varepsilon$$
 En particulier, pour tout $x$ fixé, on a $f_n(x) \to f(x)$.
+
 :::
 
 ::: {.example title="(Contre-exemple : convergence simple non uniforme)"}
+
 La suite $f_n(x) = x^n$ sur $[0,1]$ converge simplement vers :
 $$f(x) = \begin{cases} 0 & \text{si } 0 \leq x < 1 \\ 1 & \text{si } x = 1 \end{cases}$$
 
 Cette convergence n'est **pas uniforme**. En effet :
 $$\|f_n - f\|_\infty = \sup_{x \in [0,1]} |f_n(x) - f(x)| \geq \sup_{x \in [0,1)} x^n = 1$$
+
 :::
 
 # Séries de fonctions
@@ -130,54 +156,70 @@ $$\|f_n - f\|_\infty = \sup_{x \in [0,1]} |f_n(x) - f(x)| \geq \sup_{x \in [0,1)
 ## Convergence simple d'une série
 
 ::: {.definition title="(Convergence simple d'une série)"}
+
 Soit $(u_n)_{n \geq 0}$ une suite de fonctions de $X$ dans $E$. On appelle **série de fonctions** de terme général $u_n$ la suite $(S_n)_{n \geq 0}$ définie par :
 $$S_n = \sum_{k=0}^n u_k$$
 
 La série **converge simplement** sur $X$ si pour tout $x \in X$, la série numérique $\sum u_n(x)$ converge. La somme est :
 $$S(x) = \sum_{n=0}^{+\infty} u_n(x)$$
+
 :::
 
 ## Convergence uniforme d'une série
 
 ::: {.definition title="(Convergence uniforme d'une série)"}
+
 La série $\sum u_n$ **converge uniformément** sur $X$ vers $S$ si la suite $(S_n)$ des sommes partielles converge uniformément vers $S$ sur $X$.
+
 :::
 
 ::: {.proposition}
+
 La série $\sum u_n$ converge uniformément sur $X$ si et seulement si la suite des restes $(R_n)$ définie par :
 $$R_n(x) = \sum_{k=n+1}^{+\infty} u_k(x)$$
 converge uniformément vers $0$ sur $X$, c'est-à-dire :
 $$\|R_n\|_\infty \xrightarrow[n \to +\infty]{} 0$$
+
 :::
 
 ## Convergence normale
 
 ::: {.definition title="(Convergence normale)"}
+
 On dit que la série $\sum u_n$ **converge normalement** sur $X$ si la série numérique $\sum \|u_n\|_\infty$ converge, c'est-à-dire si :
 $$\sum_{n=0}^{+\infty} \sup_{x \in X} \|u_n(x)\| < +\infty$$
+
 :::
 
 ::: {.proposition title="(Convergence normale implique convergence uniforme)"}
+
 La convergence normale implique la convergence uniforme (et donc la convergence simple).
+
 :::
 
 ::: {.proof}
+
 Supposons que $\sum \|u_n\|_\infty$ converge. Pour tout $x \in X$ :
 $$\|u_n(x)\| \leq \|u_n\|_\infty$$
 Par le critère de comparaison, $\sum u_n(x)$ converge absolument. De plus, pour les restes :
 $$\|R_n(x)\| = \left\|\sum_{k=n+1}^{+\infty} u_k(x)\right\| \leq \sum_{k=n+1}^{+\infty} \|u_n(x)\| \leq \sum_{k=n+1}^{+\infty} \|u_k\|_\infty$$
 Donc $\|R_n\|_\infty \leq \sum_{k=n+1}^{+\infty} \|u_k\|_\infty \to 0$.
+
 :::
 
 ::: {.proposition title="(Critère de convergence normale)"}
+
 Pour établir la convergence normale d'une série de fonctions $\sum u_n$, il suffit de trouver une série numérique convergente $\sum \alpha_n$ telle que :
 $$\forall n \in \mathbb{N}, \quad \|u_n\|_\infty \leq \alpha_n$$
+
 :::
 
 ::: {.example}
+
 La série $\sum_{n=0}^{+\infty} \frac{x^n}{n!}$ converge normalement sur tout segment $[-A, A]$ car :
 $$\left\|\frac{x^n}{n!}\right\|_\infty \leq \frac{A^n}{n!}$$
 et la série $\sum \frac{A^n}{n!}$ converge (série entière de rayon infini).
+
 :::
 
 # Stabilité des propriétés par passage à la limite
@@ -185,12 +227,15 @@ et la série $\sum \frac{A^n}{n!}$ converge (série entière de rayon infini).
 ## Continuité de la limite
 
 ::: {.theorem title="(Théorème de continuité de la limite uniforme)"}
+
 Soit $(f_n)_{n \geq 0}$ une suite de fonctions de $X$ dans $E$ qui converge uniformément vers $f$ sur $X$. Si chaque $f_n$ est continue en un point $x_0 \in X$, alors $f$ est continue en $x_0$.
 
 En particulier, si chaque $f_n$ est continue sur $X$, alors $f$ est continue sur $X$.
+
 :::
 
 ::: {.proof}
+
 Soit $\varepsilon > 0$. Par convergence uniforme, il existe $N \in \mathbb{N}$ tel que pour tout $n \geq N$ et tout $x \in X$ :
 $$\|f_n(x) - f(x)\| < \frac{\varepsilon}{3}$$
 
@@ -199,50 +244,64 @@ $$\|f_N(x) - f_N(x_0)\| < \frac{\varepsilon}{3}$$
 
 Donc pour tout $x \in X$ avec $\|x - x_0\| < \delta$ :
 $$\|f(x) - f(x_0)\| \leq \|f(x) - f_N(x)\| + \|f_N(x) - f_N(x_0)\| + \|f_N(x_0) - f(x_0)\| < \frac{\varepsilon}{3} + \frac{\varepsilon}{3} + \frac{\varepsilon}{3} = \varepsilon$$
+
 :::
 
 ::: {.example title="(Contre-exemple : convergence simple ne préserve pas la continuité)"}
+
 La suite $f_n(x) = x^n$ sur $[0,1]$ est composée de fonctions continues mais converge simplement vers :
 $$f(x) = \begin{cases} 0 & \text{si } 0 \leq x < 1 \\ 1 & \text{si } x = 1 \end{cases}$$
 qui n'est pas continue en $x = 1$.
+
 :::
 
 ## Continuité de la somme d'une série
 
 ::: {.corollary title="(Continuité de la somme)"}
+
 Si la série $\sum u_n$ converge uniformément sur $X$ vers $S$ et si chaque $u_n$ est continue sur $X$, alors $S$ est continue sur $X$.
+
 :::
 
 ## Intégration de la limite
 
 ::: {.theorem title="(Interversion limite-intégrale)"}
+
 Soit $(f_n)_{n \geq 0}$ une suite de fonctions continues de $[a,b]$ dans $\mathbb{K}$ qui converge uniformément vers $f$ sur $[a,b]$. Alors $f$ est continue sur $[a,b]$ et :
 $$\int_a^b f(t)\, dt = \lim_{n \to +\infty} \int_a^b f_n(t)\, dt$$
+
 :::
 
 ::: {.proof}
+
 Par le théorème de continuité de la limite uniforme, $f$ est continue. Par l'inégalité triangulaire :
 $$\left|\int_a^b f(t)\, dt - \int_a^b f_n(t)\, dt\right| = \left|\int_a^b (f(t) - f_n(t))\, dt\right| \leq \int_a^b |f(t) - f_n(t)|\, dt \leq (b-a)\|f - f_n\|_\infty$$
 Comme $\|f - f_n\|_\infty \to 0$, on conclut.
+
 :::
 
 ::: {.corollary title="(Intégration terme à terme)"}
+
 Si la série $\sum u_n$ converge uniformément sur $[a,b]$ vers $S$ et si chaque $u_n$ est continue sur $[a,b]$, alors :
 $$\int_a^b S(t)\, dt = \sum_{n=0}^{+\infty} \int_a^b u_n(t)\, dt$$
+
 :::
 
 ## Dérivation de la limite
 
 ::: {.theorem title="(Dérivation de la limite)"}
+
 Soit $(f_n)_{n \geq 0}$ une suite de fonctions de classe $\mathcal{C}^1$ sur $I$ telles que :
 
 1. La suite $(f_n)$ converge simplement sur $I$ vers une fonction $f$.
 2. La suite $(f_n')$ converge uniformément sur tout segment contenu dans $I$ vers une fonction $g$.
 
 Alors $f$ est de classe $\mathcal{C}^1$ sur $I$ et $f' = g$.
+
 :::
 
 ::: {.corollary title="(Dérivation terme à terme)"}
+
 Soit $\sum u_n$ une série de fonctions de classe $\mathcal{C}^1$ sur $I$ telle que :
 
 1. La série $\sum u_n(x_0)$ converge en au moins un point $x_0 \in I$.
@@ -250,10 +309,13 @@ Soit $\sum u_n$ une série de fonctions de classe $\mathcal{C}^1$ sur $I$ telle 
 
 Alors la série $\sum u_n$ converge uniformément sur tout segment contenu dans $I$ vers une fonction $S$ de classe $\mathcal{C}^1$ sur $I$, et :
 $$S'(x) = \sum_{n=0}^{+\infty} u_n'(x)$$
+
 :::
 
 ::: {.remarque title="(Extension aux classes $\mathcal{C}^k$)"}
+
 Le théorème de dérivation s'étend aux fonctions de classe $\mathcal{C}^k$ : si les suites $(f_n^{(p)})$ convergent simplement pour $p = 0, \ldots, k-1$ et $(f_n^{(k)})$ converge uniformément sur tout segment, alors la limite est de classe $\mathcal{C}^k$ et $f^{(k)} = \lim f_n^{(k)}$.
+
 :::
 
 # Approximation uniforme
@@ -261,67 +323,92 @@ Le théorème de dérivation s'étend aux fonctions de classe $\mathcal{C}^k$ : 
 ## Théorème de Weierstrass
 
 ::: {.theorem title="(Théorème de Weierstrass, admis)"}
+
 Soit $f : [a,b] \to \mathbb{K}$ une fonction continue. Alors il existe une suite de polynômes $(P_n)_{n \geq 0}$ qui converge uniformément vers $f$ sur $[a,b]$.
+
 :::
 
 ::: {.remark}
+
 Ce théorème montre que les polynômes sont denses dans l'espace $\mathcal{C}([a,b], \mathbb{K})$ muni de la norme de la convergence uniforme. En d'autres termes, toute fonction continue sur un segment peut être approchée uniformément par des polynômes à une précision arbitraire.
+
 :::
 
 ::: {.remarque title="(Généralisation)"}
+
 Plus généralement, toute fonction continue sur un segment $[a,b]$ peut être approchée uniformément par :
 - des fonctions polynômiales (théorème de Weierstrass),
 - des sommes trigonométriques (théorème de Fejér),
 - des fonctions en escalier (en particulier, les fonctions continues par morceaux sont limites uniformes de fonctions en escalier).
+
 :::
 
 ## Exemples d'approximation
 
 ::: {.example}
+
 La suite des polynômes de Bernstein :
 $$B_n(f)(x) = \sum_{k=0}^n f\left(\frac{k}{n}\right) \binom{n}{k} x^k (1-x)^{n-k}$$
 converge uniformément vers $f$ sur $[0,1]$ pour toute fonction continue $f$.
+
 :::
 
 ::: {.example}
+
 La fonction $f(x) = |x|$ sur $[-1,1]$ peut être approchée uniformément par des polynômes, bien qu'elle ne soit pas dérivable en $0$.
+
 :::
 
 # Exercices
 
 ::: {.exercise}
+
 Étudier la convergence simple et uniforme de la suite $(f_n)$ définie sur $[0,1]$ par :
 $$f_n(x) = \frac{nx}{1 + n^2 x^2}$$
+
 :::
 
 ::: {.exercise}
+
 Étudier la convergence simple et uniforme de la suite $(f_n)$ définie sur $\mathbb{R}^+$ par :
 $$f_n(x) = \frac{x}{1 + nx}$$
+
 :::
 
 ::: {.exercise}
+
 Soit $(f_n)$ une suite de fonctions continues de $[0,1]$ dans $\mathbb{R}$ convergeant uniformément vers $f$. Montrer que si chaque $f_n$ est positive, alors $f$ est positive.
+
 :::
 
 ::: {.exercise}
+
 Étudier la convergence simple et uniforme de la série :
 $$\sum_{n=1}^{+\infty} \frac{x^n}{n} \quad \text{sur } [0, r] \text{ avec } 0 < r < 1$$
+
 :::
 
 ::: {.exercise}
+
 Montrer que la série $\sum_{n=0}^{+\infty} \frac{x^n}{n!}$ converge normalement sur tout segment de $\mathbb{R}$ et que sa somme est de classe $\mathcal{C}^\infty$.
+
 :::
 
 ::: {.exercise}
+
 Soit $(f_n)$ une suite de fonctions de classe $\mathcal{C}^1$ sur $[0,1]$ telle que $(f_n(0))$ converge et $(f_n')$ converge uniformément vers $g$ sur $[0,1]$. Montrer que $(f_n)$ converge uniformément vers une fonction $f$ de classe $\mathcal{C}^1$ et que $f' = g$.
+
 :::
 
 # Document en PDF {-}
 [Chapitre 06 : Suites et séries de fonctions](PDF/mp-chap06.pdf)
 
 ## Navigation {-}
+
 ::: {.chap-nav}
+
 [Chapitre 05 : Fonctions vectorielles d'une variable réelle, arcs paramétrés](mp-chap05.qmd){.prev}
 [Menu MP](mp.qmd){.home}
 [Chapitre 07 : Séries entières](mp-chap07.qmd){.next}
+
 :::

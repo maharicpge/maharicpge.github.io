@@ -19,78 +19,101 @@ filters:
 **ECS (2e année) — TD du Chapitre 03.** Produit scalaire, bases orthonormées, matrices symétriques, théorème spectral.
 
 ::: {.exercise}
+
 Montrer que les applications suivantes définissent des produits scalaires :
 
 1. Sur $\mathbb{R}^2$ : $\langle (x_1, x_2), (y_1, y_2) \rangle = x_1 y_1 + 2x_2 y_2$.
 2. Sur $\mathcal{C}([0,1], \mathbb{R})$ : $\langle f, g \rangle = \int_0^1 f(t)g(t)\, dt$.
 3. Sur $\mathcal{M}_n(\mathbb{R})$ : $\langle A, B \rangle = \mathrm{tr}(A^T B)$.
+
 :::
 
 ::: {.exercise}
+
 Appliquer le procédé de Gram-Schmidt à la famille $(e_1, e_2, e_3)$ avec $e_1 = (1,1,0)$, $e_2 = (1,0,1)$, $e_3 = (0,1,1)$ dans $\mathbb{R}^3$ muni du produit scalaire canonique.
+
 :::
 
 ::: {.exercise}
+
 Soit $A = \begin{pmatrix} 2 & 1 \\ 1 & 2 \end{pmatrix}$.
 
 1. Montrer que $A$ est symétrique.
 2. Diagonaliser $A$ orthogonalement.
 3. Déterminer une base orthonormée de vecteurs propres.
+
 :::
 
 ::: {.exercise}
+
 Soit $A = \begin{pmatrix} 1 & 1 & 1 \\ 1 & 1 & 1 \\ 1 & 1 & 1 \end{pmatrix}$.
 
 1. Montrer que $A$ est symétrique.
 2. Déterminer les valeurs propres et les sous-espaces propres.
 3. Diagonaliser $A$ orthogonalement.
+
 :::
 
 ::: {.exercise}
+
 Soit $A$ une matrice symétrique réelle. Montrer que :
 
 1. Toutes les valeurs propres de $A$ sont réelles.
 2. Les sous-espaces propres associés à des valeurs propres distinctes sont orthogonaux.
 3. Si $A$ est symétrique positive, alors toutes ses valeurs propres sont positives.
+
 :::
 
 ::: {.exercise}
+
 Soit $A = \begin{pmatrix} 3 & 1 & 0 \\ 1 & 2 & 1 \\ 0 & 1 & 3 \end{pmatrix}$.
 
 1. Montrer que $A$ est symétrique.
 2. Diagonaliser $A$ orthogonalement.
 3. Calculer $A^n$ pour tout $n \in \mathbb{N}$.
+
 :::
 
 ::: {.exercise}
+
 Soit $A$ une matrice symétrique réelle. Montrer que :
 
 1. $\mathrm{tr}(A^2) \geq 0$.
 2. $\mathrm{tr}(A^2) = 0$ si et seulement si $A = 0$.
+
 :::
 
 ::: {.exercise}
+
 Soit $A$ une matrice symétrique réelle définie positive.
 
 1. Montrer que $\mathrm{tr}(A) > 0$ et $\det(A) > 0$.
 2. Montrer que pour tout $x \neq 0$, $x^T A x > 0$.
+
 :::
 
 ::: {.exercise}
+
 Soit $A$ une matrice symétrique réelle de valeurs propres $\lambda_1 \leq \lambda_2 \leq \cdots \leq \lambda_n$. Montrer que pour tout $x \in \mathbb{R}^n$ de norme 1 :
 $$\lambda_1 \leq x^T A x \leq \lambda_n.$$
+
 :::
 
 ::: {.exercise}
+
 Soit $A$ une matrice symétrique réelle. Montrer que $A$ est symétrique positive si et seulement s'il existe une matrice $B$ telle que $A = B^T B$.
+
 :::
 
 # Cours {-}
 [**Chapitre 03 : Algèbre bilinéaire**](../cours/ecs2-chap03.qmd)
 
 # Navigation {-}
+
 ::: {.chap-nav}
+
 [TD 02 : Réduction des endomorphismes et matrices](ecs2-chap02.qmd){.prev}
 [Menu ECS2](ecs2.qmd){.home}
 [TD 04 : Séries numériques](ecs2-chap04.qmd){.next}
+
 :::

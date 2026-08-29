@@ -36,20 +36,25 @@ Dans ce chapitre, $\Omega$ désigne un ensemble fini non vide appelé **univers*
 ## Expérience aléatoire, univers, événements
 
 ::: {.definition title="(Expérience aléatoire)"}
+
 La théorie des probabilités permet l'étude de phénomènes ayant un aspect hasardeux, ou **aléatoire**. On appelle **expérience aléatoire** une expérience dont le résultat dépend du hasard.
 
 L'ensemble des issues (ou résultats observables) d'une expérience aléatoire est appelé **univers** et noté $\Omega$.
+
 :::
 
 ::: {.example}
+
 Voici quelques exemples d'expériences aléatoires :
 
 1. Lancer une pièce de monnaie : $\Omega = \{\text{pile}, \text{face}\}$.
 2. Lancer un dé à 6 faces : $\Omega = \{1, 2, 3, 4, 5, 6\}$.
 3. Tirer une boule d'une urne contenant $r$ boules rouges et $v$ boules vertes : $\Omega = \{\text{rouge}, \text{vert}\}$.
+
 :::
 
 ::: {.definition title="(Événement)"}
+
 Un **événement** est une partie de $\Omega$, c'est-à-dire un élément de $\mathcal{P}(\Omega)$.
 
 - L'événement $\Omega$ est l'**événement certain**.
@@ -58,44 +63,55 @@ Un **événement** est une partie de $\Omega$, c'est-à-dire un élément de $\m
 - $A \cap B$ est l'événement « $A$ et $B$ ».
 - $A \cup B$ est l'événement « $A$ ou $B$ ».
 - Deux événements $A$ et $B$ sont **incompatibles** si $A \cap B = \varnothing$.
+
 :::
 
 ::: {.definition title="(Système complet d'événements)"}
+
 Une famille $(A_i)_{i \in I}$ d'événements est un **système complet d'événements** si :
 
 1. Les événements sont deux à deux incompatibles : $\forall (i,j) \in I^2,\ i \neq j \implies A_i \cap A_j = \varnothing$
 2. Leur réunion est $\Omega$ : $\bigcup_{i \in I} A_i = \Omega$
 
 Autrement dit, les $A_i$ forment une **partition** de $\Omega$.
+
 :::
 
 ::: {.example}
+
 Si on lance un dé à 6 faces, la famille $(\{1\}, \{2\}, \{3\}, \{4\}, \{5\}, \{6\})$ est un système complet d'événements.
 
 La famille $(\{1,3,5\}, \{2,4,6\})$ (pair/impaire) est aussi un système complet d'événements.
+
 :::
 
 ## Tribu
 
 ::: {.definition title="(Tribu)"}
+
 Soit $T$ une partie de $\mathcal{P}(\Omega)$. On dit que $T$ est une **tribu** sur $\Omega$ si elle vérifie :
 
 1. $\Omega \in T$
 2. Si $A \in T$, alors $\overline{A} = \Omega \setminus A \in T$
 3. Si $(A_n)_{n \in \mathbb{N}}$ est une suite d'éléments de $T$, alors $\bigcup_{n \in \mathbb{N}} A_n \in T$
+
 :::
 
 ::: {.proposition title="(Propriétés d'une tribu)"}
+
 Soit $T$ une tribu sur $\Omega$. Alors :
 
 1. $\varnothing \in T$
 2. Pour toute suite finie $(A_i)_{1 \leq i \leq n}$ d'éléments de $T$, on a $\bigcup_{i=1}^n A_i \in T$
 3. Pour toute suite finie $(A_i)_{1 \leq i \leq n}$ d'éléments de $T$, on a $\bigcap_{i=1}^n A_i \in T$
 4. Pour tout couple $(A,B)$ d'éléments de $T$, on a $A \setminus B \in T$
+
 :::
 
 ::: {.remark title="(Cas fini)"}
+
 Dans le cadre de ce chapitre, $\Omega$ est fini. On prendra toujours $T = \mathcal{P}(\Omega)$, qui est la tribu la plus grande possible. La notion de tribu n'appelle aucun développement théorique dans ce cadre.
+
 :::
 
 # Espace probabilisé fini
@@ -103,6 +119,7 @@ Dans le cadre de ce chapitre, $\Omega$ est fini. On prendra toujours $T = \mathc
 ## Définition
 
 ::: {.definition title="(Probabilité)"}
+
 Une **probabilité** sur l'espace probabilisable $(\Omega, \mathcal{P}(\Omega))$ est une application $P : \mathcal{P}(\Omega) \to [0,1]$ qui vérifie :
 
 1. $P(\Omega) = 1$
@@ -110,31 +127,38 @@ Une **probabilité** sur l'espace probabilisable $(\Omega, \mathcal{P}(\Omega))$
 3. Pour toute suite $(A_n)_{n \in \mathbb{N}}$ croissante au sens de l'inclusion : $\lim_{n \to +\infty} P(A_n) = P\left(\bigcup_{n \in \mathbb{N}} A_n\right)$
 
 Le triplet $(\Omega, \mathcal{P}(\Omega), P)$ est appelé **espace probabilisé**.
+
 :::
 
 ::: {.example title="(Probabilité uniforme)"}
+
 Soit $\Omega = \llbracket 1, n \rrbracket$ et $T = \mathcal{P}(\Omega)$. On définit la **probabilité uniforme** (ou **équiprobabilité**) par :
 $$\forall k \in \Omega, \quad P(\{k\}) = \frac{1}{n}$$
 
 Alors pour toute partie $A$ de $\Omega$ :
 $$P(A) = \frac{\mathrm{Card}(A)}{n}$$
+
 :::
 
 ## Propriétés des probabilités
 
 ::: {.proposition}
+
 Soit $(\Omega, \mathcal{P}(\Omega), P)$ un espace probabilisé. Alors :
 
 1. $P(\varnothing) = 0$
 2. $P(\overline{A}) = 1 - P(A)$
 3. Si $A \subset B$, alors $P(A) \leq P(B)$ (croissance)
 4. $P(A \cup B) = P(A) + P(B) - P(A \cap B)$
+
 :::
 
 ::: {.proposition title="(Union finie)"}
+
 Pour toute suite finie $(A_k)_{1 \leq k \leq n}$ d'événements :
 $$P\left(\bigcup_{k=1}^n A_k\right) \leq \sum_{k=1}^n P(A_k)$$
 avec égalité si et seulement si les événements $A_k$ sont incompatibles deux à deux.
+
 :::
 
 # Probabilités conditionnelles
@@ -142,15 +166,20 @@ avec égalité si et seulement si les événements $A_k$ sont incompatibles deux
 ## Définition
 
 ::: {.definition title="(Probabilité conditionnelle)"}
+
 Soit $B$ un événement de probabilité $P(B) > 0$. La **probabilité conditionnelle** de $A$ sachant $B$ est définie par :
 $$P_B(A) = P(A|B) = \frac{P(A \cap B)}{P(B)}$$
+
 :::
 
 ::: {.proposition}
+
 L'application $P_B : A \mapsto P_B(A)$ est une probabilité sur $\mathcal{P}(\Omega)$.
+
 :::
 
 ::: {.example title="(Exemple de l'urne)"}
+
 Une urne contient $r$ boules rouges et $v$ boules vertes. On tire successivement et sans remise deux boules.
 
 Notons $A$ = « la première boule tirée est rouge » et $B$ = « la deuxième boule tirée est rouge ».
@@ -160,50 +189,65 @@ $$P(A) = \frac{r}{r+v}, \quad P(B|A) = \frac{r-1}{r+v-1}$$
 
 Donc :
 $$P(A \cap B) = P(A) \cdot P(B|A) = \frac{r}{r+v} \cdot \frac{r-1}{r+v-1}$$
+
 :::
 
 ## Formule des probabilités composées
 
 ::: {.theorem title="(Formule des probabilités composées)"}
+
 Soit $(A_k)_{1 \leq k \leq n}$ une famille d'événements telle que $P\left(\bigcap_{k=1}^{n-1} A_k\right) \neq 0$. Alors :
 $$P\left(\bigcap_{k=1}^n A_k\right) = P(A_1) \cdot P_{A_1}(A_2) \cdot P_{A_1 \cap A_2}(A_3) \cdots P_{A_1 \cap \cdots \cap A_{n-1}}(A_n)$$
+
 :::
 
 ## Formule des probabilités totales
 
 ::: {.theorem title="(Formule des probabilités totales)"}
+
 Soit $(A_k)_{1 \leq k \leq n}$ un système complet d'événements tel que $P(A_k) > 0$ pour tout $k$, et soit $B$ un événement. Alors :
 $$\boxed{P(B) = \sum_{k=1}^n P(B|A_k) \cdot P(A_k)}$$
+
 :::
 
 ::: {.proof}
+
 Les événements $B \cap A_k$ forment une partition de $B$ :
 $$B = \bigcup_{k=1}^n (B \cap A_k)$$
 Les $B \cap A_k$ étant deux à deux incompatibles :
 $$P(B) = \sum_{k=1}^n P(B \cap A_k) = \sum_{k=1}^n P(B|A_k) \cdot P(A_k)$$
+
 :::
 
 ::: {.example title="(Exemple de l'urne)"}
+
 On reprend l'exemple de l'urne. La famille $(A, \overline{A})$ forme un système complet d'événements. La probabilité que la deuxième boule tirée soit rouge est :
 $$P(B) = P(B|A)P(A) + P(B|\overline{A})P(\overline{A}) = \frac{r-1}{r+v-1} \cdot \frac{r}{r+v} + \frac{r}{r+v-1} \cdot \frac{v}{r+v} = \frac{r}{r+v}$$
+
 :::
 
 ## Formule de Bayes
 
 ::: {.theorem title="(Formule de Bayes)"}
+
 Soit $(A_k)_{1 \leq k \leq n}$ un système complet d'événements de probabilités non nulles et $B$ un événement avec $P(B) > 0$. Alors pour tout $j \in \{1, \ldots, n\}$ :
 $$\boxed{P(A_j|B) = \frac{P(B|A_j) \cdot P(A_j)}{\sum_{i=1}^n P(B|A_i) \cdot P(A_i)}}$$
+
 :::
 
 ::: {.proof}
+
 Par définition de la probabilité conditionnelle :
 $$P(A_j|B) = \frac{P(A_j \cap B)}{P(B)} = \frac{P(B|A_j) \cdot P(A_j)}{P(B)}$$
 En appliquant la formule des probabilités totales au dénominateur, on obtient le résultat.
+
 :::
 
 ::: {.example title="(Exemple de l'urne)"}
+
 On reprend l'exemple de l'urne. La probabilité que la première boule tirée soit rouge sachant que la deuxième est rouge est :
 $$P(A|B) = \frac{P(B|A) \cdot P(A)}{P(B|A) \cdot P(A) + P(B|\overline{A}) \cdot P(\overline{A})} = \frac{\frac{r-1}{r+v-1} \cdot \frac{r}{r+v}}{\frac{r}{r+v}} = \frac{r-1}{r+v-1}$$
+
 :::
 
 # Indépendance d'événements
@@ -211,28 +255,37 @@ $$P(A|B) = \frac{P(B|A) \cdot P(A)}{P(B|A) \cdot P(A) + P(B|\overline{A}) \cdot 
 ## Indépendance de deux événements
 
 ::: {.definition title="(Indépendance de deux événements)"}
+
 Deux événements $A$ et $B$ sont **indépendants** si :
 $$P(A \cap B) = P(A) \cdot P(B)$$
 
 Si $P(B) > 0$, l'indépendance s'écrit aussi : $P_B(A) = P(A)$.
+
 :::
 
 ::: {.proposition}
+
 Si $A$ et $B$ sont indépendants, alors $A$ et $\overline{B}$ sont indépendants, $\overline{A}$ et $B$ sont indépendants, $\overline{A}$ et $\overline{B}$ sont indépendants.
+
 :::
 
 ## Indépendance mutuelle
 
 ::: {.definition title="(Indépendance mutuelle)"}
+
 Les événements $A_1, \ldots, A_n$ sont **mutuellement indépendants** si pour toute partie $J$ de $\{1, \ldots, n\}$ :
 $$P\left(\bigcap_{i \in J} A_i\right) = \prod_{i \in J} P(A_i)$$
+
 :::
 
 ::: {.remarque}
+
 L'indépendance mutuelle implique l'indépendance deux à deux, mais la réciproque est fausse.
+
 :::
 
 ::: {.example title="(Exemple classique)"}
+
 On lance deux dés. Notons :
 - $A$ = « le premier dé donne un résultat pair »
 - $B$ = « le deuxième dé donne un résultat pair »
@@ -240,6 +293,7 @@ On lance deux dés. Notons :
 
 On vérifie que $A$, $B$ et $C$ sont indépendants deux à deux, mais ne sont pas mutuellement indépendants car :
 $$P(A \cap B \cap C) = P(A \cap B) = \frac{1}{4} \neq P(A) \cdot P(B) \cdot P(C) = \frac{1}{2} \cdot \frac{1}{2} \cdot \frac{1}{2} = \frac{1}{8}$$
+
 :::
 
 # Variables aléatoires réelles finies
@@ -247,86 +301,112 @@ $$P(A \cap B \cap C) = P(A \cap B) = \frac{1}{4} \neq P(A) \cdot P(B) \cdot P(C)
 ## Définition
 
 ::: {.definition title="(Variable aléatoire)"}
+
 Une **variable aléatoire réelle** est une application $X : \Omega \to \mathbb{R}$ telle que pour tout intervalle $I$ de $\mathbb{R}$ :
 $$X^{-1}(I) \in \mathcal{P}(\Omega)$$
 
 Dans le cas fini, cette condition est automatiquement vérifiée. On dit que $X$ est une variable aléatoire **discrète finie** si $X(\Omega)$ est fini.
+
 :::
 
 ::: {.remarque}
+
 On utilise les notations suivantes :
 - $\{X \in A\}$ ou $(X \in A)$ à la place de $X^{-1}(A)$
 - $P(X \in A)$, $P(X = x)$, $P(X \leq x)$
+
 :::
 
 ## Loi de probabilité
 
 ::: {.definition title="(Loi d'une variable aléatoire)"}
+
 Soit $X : \Omega \to \mathbb{R}$ une variable aléatoire discrète finie. La **loi de probabilité** de $X$ est la probabilité $P_X$ sur $(X(\Omega), \mathcal{P}(X(\Omega)))$ définie par :
 $$P_X(A) = P(X \in A) = P(X^{-1}(A))$$
 
 La loi de $X$ est entièrement déterminée par la liste des $P(X = x)$ pour $x \in X(\Omega)$.
+
 :::
 
 ::: {.proposition}
+
 Soit $X$ une variable aléatoire discrète finie et $D = X(\Omega)$. Alors :
 $$\sum_{x \in D} P(X = x) = 1$$
+
 :::
 
 ::: {.example}
+
 On lance un dé à 6 faces. Notons $X$ la variable aléatoire qui donne le résultat du lancer. Alors :
 $$P_X = \text{loi uniforme sur } \{1, 2, 3, 4, 5, 6\}$$
 $$\forall k \in \{1, \ldots, 6\}, \quad P(X = k) = \frac{1}{6}$$
+
 :::
 
 ## Espérance
 
 ::: {.definition title="(Espérance)"}
+
 Soit $X$ une variable aléatoire discrète finie. L'**espérance** de $X$ est :
 $$E(X) = \sum_{x \in X(\Omega)} x \cdot P(X = x)$$
+
 :::
 
 ::: {.proposition title="(Relation avec $\Omega$ fini)"}
+
 Si $\Omega$ est fini :
 $$E(X) = \sum_{\omega \in \Omega} P(\{\omega\}) \cdot X(\omega)$$
+
 :::
 
 ::: {.proposition title="(Propriétés de l'espérance)"}
+
 Soient $X$, $Y$ des variables aléatoires discrètes finies et $a, b \in \mathbb{R}$.
 
 1. **Linéarité** : $E(aX + bY) = aE(X) + bE(Y)$
 2. **Positivité** : Si $X \geq 0$, alors $E(X) \geq 0$
 3. **Croissance** : Si $X \leq Y$, alors $E(X) \leq E(Y)$
+
 :::
 
 ::: {.proposition title="(Formule de transfert)"}
+
 Soit $X$ une variable aléatoire discrète finie et $f : \mathbb{R} \to \mathbb{R}$ une fonction. Alors :
 $$E(f(X)) = \sum_{x \in X(\Omega)} P(X = x) \cdot f(x)$$
+
 :::
 
 ## Variance et écart-type
 
 ::: {.definition title="(Variance et écart-type)"}
+
 Soit $X$ une variable aléatoire discrète finie. La **variance** de $X$ est :
 $$V(X) = E\left((X - E(X))^2\right) = E(X^2) - (E(X))^2$$
 L'**écart-type** de $X$ est $\sigma(X) = \sqrt{V(X)}$.
+
 :::
 
 ::: {.proposition title="(Propriétés de la variance)"}
+
 Soit $X$ une variable aléatoire discrète finie et $a, b \in \mathbb{R}$.
 
 1. $V(aX + b) = a^2 V(X)$
 2. $V(X) \geq 0$
 3. $V(X) = 0$ si et seulement si $X$ est constante (presque sûrement)
+
 :::
 
 ::: {.definition title="(Variable aléatoire centrée réduite)"}
+
 Si $\sigma(X) > 0$, la variable aléatoire $\frac{X - E(X)}{\sigma(X)}$ est **centrée réduite**.
+
 :::
 
 ::: {.theorem title="(Inégalité de Bienaymé-Tchebychev)"}
+
 Soit $X$ une variable aléatoire discrète finie admettant un moment d'ordre 2. Alors pour tout $\varepsilon > 0$ :
 $$P(|X - E(X)| \geq \varepsilon) \leq \frac{V(X)}{\varepsilon^2}$$
+
 :::
 
 # Lois usuelles
@@ -334,72 +414,96 @@ $$P(|X - E(X)| \geq \varepsilon) \leq \frac{V(X)}{\varepsilon^2}$$
 ## Loi uniforme sur un segment d'entiers
 
 ::: {.definition title="(Loi uniforme)"}
+
 Soit $n \in \mathbb{N}^*$. On dit que $X$ suit la **loi uniforme** sur $\llbracket 1, n \rrbracket$, notée $X \hookrightarrow \mathcal{U}(\llbracket 1, n \rrbracket)$, si :
 $$\forall k \in \llbracket 1, n \rrbracket, \quad P(X = k) = \frac{1}{n}$$
+
 :::
 
 ::: {.proposition title="(Espérance et variance de la loi uniforme)"}
+
 Si $X \hookrightarrow \mathcal{U}(\llbracket 1, n \rrbracket)$ :
 $$E(X) = \frac{n+1}{2}, \quad V(X) = \frac{n^2 - 1}{12}$$
+
 :::
 
 ::: {.example}
+
 Si on lance un dé à 6 faces, la variable aléatoire $X$ donnant le résultat suit $\mathcal{U}(\llbracket 1, 6 \rrbracket)$ :
 $$E(X) = \frac{7}{2}, \quad V(X) = \frac{35}{12}$$
+
 :::
 
 ## Loi de Bernoulli
 
 ::: {.definition title="(Loi de Bernoulli)"}
+
 Soit $p \in [0, 1]$. On dit que $X$ suit la **loi de Bernoulli** de paramètre $p$, notée $X \hookrightarrow \mathcal{B}(p)$, si :
 $$P(X = 1) = p, \quad P(X = 0) = 1 - p = q$$
+
 :::
 
 ::: {.proposition title="(Espérance et variance de la loi de Bernoulli)"}
+
 Si $X \hookrightarrow \mathcal{B}(p)$ :
 $$E(X) = p, \quad V(X) = p(1-p) = pq$$
+
 :::
 
 ::: {.remark title="(Lien avec l'indicatrice)"}
+
 Une variable aléatoire de Bernoulli est l'indicatrice d'un événement : si $A$ est un événement de probabilité $p$, alors $X = \mathbb{1}_A$ suit $\mathcal{B}(p)$.
+
 :::
 
 ## Loi binomiale
 
 ::: {.definition title="(Loi binomiale)"}
+
 Soient $n \in \mathbb{N}^*$ et $p \in [0, 1]$. On dit que $X$ suit la **loi binomiale** de paramètres $n$ et $p$, notée $X \hookrightarrow \mathcal{B}(n, p)$, si :
 $$\forall k \in \{0, 1, \ldots, n\}, \quad P(X = k) = \binom{n}{k} p^k (1-p)^{n-k}$$
+
 :::
 
 ::: {.proposition title="(Espérance et variance de la loi binomiale)"}
+
 Si $X \hookrightarrow \mathcal{B}(n, p)$ :
 $$E(X) = np, \quad V(X) = np(1-p) = npq$$
+
 :::
 
 ::: {.remark title="(Interprétation)"}
+
 La loi binomiale modélise le nombre de succès lors de $n$ répétitions indépendantes d'une épreuve de Bernoulli de probabilité de succès $p$.
+
 :::
 
 ::: {.theorem title="(Somme de variables de Bernoulli indépendantes)"}
+
 Soient $X_1, \ldots, X_n$ des variables aléatoires mutuellement indépendantes qui suivent toutes la même loi de Bernoulli $\mathcal{B}(p)$. Alors :
 $$Z = X_1 + X_2 + \cdots + X_n \hookrightarrow \mathcal{B}(n, p)$$
+
 :::
 
 ::: {.proof}
+
 On montre que $Z$ est une variable aléatoire discrète et on calcule sa loi. Pour $k \in \{0, \ldots, n\}$ :
 $$P(Z = k) = \sum_{1 \leq i_1 < \cdots < i_k \leq n} P\left(X_{i_1} = \cdots = X_{i_k} = 1, X_{i_{k+1}} = \cdots = X_{i_n} = 0\right)$$
 Par indépendance :
 $$= \sum_{1 \leq i_1 < \cdots < i_k \leq n} p^k(1-p)^{n-k} = \binom{n}{k} p^k(1-p)^{n-k}$$
 Donc $Z \hookrightarrow \mathcal{B}(n, p)$.
+
 :::
 
 ::: {.example title="(Lancer de pièces)"}
+
 On lance 10 fois une pièce équilibrée. Notons $X$ le nombre de faces obtenues. Alors :
 $$X \hookrightarrow \mathcal{B}(10, 1/2)$$
 $$E(X) = 10 \times \frac{1}{2} = 5, \quad V(X) = 10 \times \frac{1}{2} \times \frac{1}{2} = 2{,}5$$
 
 La probabilité d'obtenir exactement 5 faces est :
 $$P(X = 5) = \binom{10}{5} \left(\frac{1}{2}\right)^{10} = \frac{252}{1024} \approx 0{,}246$$
+
 :::
 
 # Couples de variables aléatoires
@@ -407,108 +511,139 @@ $$P(X = 5) = \binom{10}{5} \left(\frac{1}{2}\right)^{10} = \frac{252}{1024} \app
 ## Définition et loi conjointe
 
 ::: {.definition title="(Couple de variables aléatoires)"}
+
 Soient $X$ et $Y$ deux variables aléatoires discrètes finies définies sur le même espace probabilisé $(\Omega, \mathcal{P}(\Omega), P)$. Le **couple** $(X, Y)$ est une variable aléatoire à valeurs dans $\mathbb{R}^2$.
 
 La **loi conjointe** de $(X, Y)$ est déterminée par :
 $$P(X = x, Y = y) = P(\{X = x\} \cap \{Y = y\}) \quad \text{pour tout } (x, y) \in X(\Omega) \times Y(\Omega)$$
+
 :::
 
 ## Lois marginales et conditionnelles
 
 ::: {.definition title="(Loi marginale)"}
+
 La **loi marginale** de $X$ est la loi de $X$ considérée seule :
 $$P(X = x) = \sum_{y \in Y(\Omega)} P(X = x, Y = y)$$
 
 De même pour la loi marginale de $Y$.
+
 :::
 
 ::: {.definition title="(Loi conditionnelle)"}
+
 Si $P(Y = y) > 0$, la **loi conditionnelle** de $X$ sachant $Y = y$ est :
 $$P(X = x | Y = y) = \frac{P(X = x, Y = y)}{P(Y = y)}$$
+
 :::
 
 ## Indépendance de deux variables aléatoires
 
 ::: {.definition title="(Indépendance de deux variables aléatoires)"}
+
 $X$ et $Y$ sont **indépendantes** si pour tous $x \in X(\Omega)$ et $y \in Y(\Omega)$ :
 $$P(X = x, Y = y) = P(X = x) \cdot P(Y = y)$$
+
 :::
 
 ::: {.proposition title="(Espérance d'un produit)"}
+
 Si $X$ et $Y$ sont indépendantes :
 $$E(XY) = E(X) \cdot E(Y)$$
+
 :::
 
 ::: {.proposition title="(Variance d'une somme)"}
+
 Si $X$ et $Y$ sont indépendantes :
 $$V(X + Y) = V(X) + V(Y)$$
+
 :::
 
 # Exercices
 
 ::: {.exercise}
+
 On lance deux dés. Calculer :
 
 1. La probabilité d'obtenir un total de 7.
 2. La probabilité d'obtenir au moins un 6.
 3. La probabilité d'obtenir deux résultats pairs.
+
 :::
 
 ::: {.exercise}
+
 Une urne contient 3 boules rouges et 2 boules vertes. On tire successivement et sans remise deux boules.
 
 1. Calculer la probabilité que les deux boules soient rouges.
 2. Calculer la probabilité que la deuxième boule soit rouge.
 3. Calculer la probabilité que la première boule soit rouge sachant que la deuxième est rouge.
+
 :::
 
 ::: {.exercise}
+
 Soient $A$ et $B$ deux événements tels que :
 $$P(A \cup B) = \frac{7}{8}, \quad P(A \cap B) = \frac{1}{4}, \quad P(\overline{A}) = \frac{5}{8}$$
 Calculer $P(A)$, $P(B)$ et $P(A \cap \overline{B})$.
+
 :::
 
 ::: {.exercise}
+
 On lance 5 fois une pièce équilibrée. Notons $X$ le nombre de faces obtenues.
 
 1. Quelle loi suit $X$ ?
 2. Calculer $E(X)$ et $V(X)$.
 3. Calculer $P(X = 3)$.
 4. Calculer $P(X \geq 4)$.
+
 :::
 
 ::: {.exercise}
+
 Soit $X \hookrightarrow \mathcal{B}(n, p)$. Montrer que :
 
 1. $\sum_{k=0}^n P(X = k) = 1$
 2. $E(X) = np$
 3. $V(X) = np(1-p)$
+
 :::
 
 ::: {.exercise}
+
 Soient $X$ et $Y$ deux variables aléatoires indépendantes avec $X \hookrightarrow \mathcal{B}(p)$ et $Y \hookrightarrow \mathcal{B}(q)$. Calculer $E(XY)$ et $V(X+Y)$.
+
 :::
 
 ::: {.exercise}
+
 Dans une usine, trois machines $M_1$, $M_2$, $M_3$ produisent respectivement 40%, 35% et 25% des pièces. Les taux de défaut sont respectivement 2%, 3% et 4%.
 
 1. Une pièce est choisie au hasard. Quelle est la probabilité qu'elle soit défectueuse ?
 2. Une pièce défectueuse est choisie. Quelle est la probabilité qu'elle ait été produite par $M_1$ ?
+
 :::
 
 ::: {.exercise}
+
 On lance un dé à 6 faces. Notons $X$ la variable aléatoire qui donne le résultat.
 
 1. Quelle loi suit $X$ ?
 2. Calculer $E(X)$ et $V(X)$.
 3. On pose $Y = X^2$. Calculer $E(Y)$.
+
 :::
 
 # Document en PDF {-}
 [Chapitre 18 : Probabilité sur un univers fini](PDF/tsi1-chap18.pdf)
 
 ## Navigation {-}
+
 ::: {.chap-nav}
+
 [Chapitre 17 : Dénombrement](tsi1-chap17.qmd){.prev}
 [Menu TSI1](tsi1.qmd){.home}
+
 :::

@@ -19,6 +19,7 @@ filters:
 **TSI (1re année) — TD du Chapitre 12.** Relations de comparaison ($O$, $o$, équivalence), développements limités, Taylor-Young, opérations, applications à l'étude locale des fonctions et des courbes.
 
 ::: {.exercise}
+
 Donner les DL à l'ordre indiqué en $0$ :
 
 1. $e^x$ à l'ordre 4
@@ -26,60 +27,82 @@ Donner les DL à l'ordre indiqué en $0$ :
 3. $\sin x$ à l'ordre 5
 4. $\cos x$ à l'ordre 4
 5. $\dfrac{1}{1-x}$ à l'ordre 3
+
 :::
 
 ::: {.exercise}
+
 Donner les équivalents simples en $0$ :
 
 1. $\sin x - x$
 2. $1 - \cos x$
 3. $\ln(1+x) - x$
 4. $e^x - 1 - x$
+
 :::
 
 ::: {.exercise}
+
 Déterminer les limites suivantes :
 
 1. $\lim_{x \to 0} \dfrac{e^x - 1 - x}{x^2}$
 2. $\lim_{x \to 0} \dfrac{\sin x - x}{x^3}$
 3. $\lim_{x \to 0} \dfrac{\tan x - \sin x}{x^3}$
+
 :::
 
 ::: {.exercise}
+
 Donner le DL de $\sqrt{1+x}$ à l'ordre 3 en $0$. En déduire $\sqrt{1{,}01}$.
+
 :::
 
 ::: {.exercise}
+
 Soit $f(x) = \dfrac{x - \sin x}{x - \tan x}$. Déterminer $\lim_{x \to 0} f(x)$.
+
 :::
 
 ::: {.exercise}
+
 Donner le DL de $e^x \cos x$ à l'ordre 3 en $0$.
+
 :::
 
 ::: {.exercise}
+
 Soit $f(x) = \dfrac{1}{1+x}$. Déterminer le DL de $f$ à l'ordre 3 et la position de la courbe par rapport à sa tangente en $0$.
+
 :::
 
 ::: {.exercise}
+
 Montrer que si $f(x) \sim g(x)$ en $0$ et $g(x) \neq 0$, alors $\dfrac{f(x)}{g(x)} \to 1$.
+
 :::
 
 ::: {.exercise}
+
 Donner le DL de $\ln(1+x+x^2)$ à l'ordre 3 en $0$.
+
 :::
 
 ::: {.exercise}
+
 Soit $f : \mathbb{R} \to \mathbb{R}$ de classe $\mathcal{C}^2$. Montrer par Taylor-Young :
 $$f(x) = f(0) + f'(0)x + \dfrac{f''(0)}{2}x^2 + o(x^2)$$
+
 :::
 
 # Cours {-}
 [**Chapitre 12 : Développements limités, calcul asymptotique**](../cours/tsi1-chap12.qmd)
 
 # Navigation {-}
+
 ::: {.chap-nav}
+
 [TD 11 : Polynômes et fractions rationnelles](tsi1-chap11.qmd){.prev}
 [Menu TSI1](tsi1.qmd){.home}
 [TD 13 : Espaces vectoriels](tsi1-chap13.qmd){.next}
+
 :::

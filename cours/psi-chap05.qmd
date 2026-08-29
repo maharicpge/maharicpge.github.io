@@ -37,53 +37,70 @@ Dans tout ce chapitre, $I$ désigne un intervalle non trivial de $\mathbb{R}$ et
 ## Limite et continuité
 
 ::: {.definition title="(Limite d'une fonction vectorielle)"}
+
 Soit $f : I \to E$ une fonction et $a$ un point adhérent à $I$. On dit que $f$ admet pour limite $l \in E$ en $a$ si :
 $$\forall \varepsilon > 0, \quad \exists \delta > 0, \quad (x \in I \text{ et } |x - a| < \delta) \implies \|f(x) - l\| < \varepsilon$$
 
 On note $\lim_{x \to a} f(x) = l$ ou $f(x) \xrightarrow[x \to a]{} l$.
+
 :::
 
 ::: {.definition title="(Continuité d'une fonction vectorielle)"}
+
 Soit $f : I \to E$ une fonction et $a \in I$. On dit que $f$ est **continue en** $a$ si :
 $$\lim_{x \to a} f(x) = f(a)$$
 
 $f$ est **continue sur** $I$ si elle est continue en tout point de $I$.
+
 :::
 
 ::: {.proposition title="(Caractérisation par les composantes)"}
+
 $f = (f_1, \ldots, f_m)$ est continue en $a$ si et seulement si toutes ses composantes $f_1, \ldots, f_m$ sont continues en $a$.
+
 :::
 
 ::: {.example}
+
 La fonction $f : \mathbb{R} \to \mathbb{R}^2$ définie par $f(t) = (\cos t, \sin t)$ est continue sur $\mathbb{R}$ car $\cos$ et $\sin$ sont continues sur $\mathbb{R}$.
+
 :::
 
 ## Dérivabilité
 
 ::: {.definition title="(Dérivabilité)"}
+
 Une fonction $f \in \mathcal{F}(I, E)$ avec $E = \mathbb{R}^m$ est dite **dérivable en** $a \in I$ si et seulement si :
 $$\Delta(x) = \frac{f(x) - f(a)}{x - a}$$
 admet une limite $l \in E$ quand $x \to a$.
 
 Si cette limite existe, on la note $f'(a)$ et on l'appelle **(vecteur) dérivée** de $f$ au point $a$.
+
 :::
 
 ::: {.remarque}
+
 Tout comme dans le cas des fonctions réelles à valeurs réelles, on pourrait définir la dérivée à droite et la dérivée à gauche d'une fonction $f \in \mathcal{F}(I, E)$.
+
 :::
 
 ::: {.proposition title="(Caractérisation par les composantes)"}
+
 $f = (f_1, \ldots, f_m)$ est dérivable en $a$ si et seulement si toutes ses composantes $f_1, \ldots, f_m$ sont dérivables en $a$. Dans ce cas :
 $$f'(a) = (f_1'(a), f_2'(a), \ldots, f_m'(a))$$
+
 :::
 
 ::: {.example}
+
 Pour $f(t) = (\cos t, \sin t)$, on a $f'(t) = (-\sin t, \cos t)$.
 
 Pour $g(t) = (t, t^2, t^3)$, on a $g'(t) = (1, 2t, 3t^2)$.
+
 :::
 
 ::: {.proposition title="(Formes équivalentes de la dérivabilité)"}
+
 $f$ est dérivable en $a$ si et seulement si l'une des conditions équivalentes suivantes est vérifiée :
 
 1. Le taux d'accroissement $\frac{f(x) - f(a)}{x - a}$ admet une limite finie quand $x \to a$.
@@ -91,21 +108,27 @@ $f$ est dérivable en $a$ si et seulement si l'une des conditions équivalentes 
 $$f(x) = f(a) + (x - a)v + (x - a)\varepsilon(x)$$
 
 Dans ce cas, $f'(a) = v$.
+
 :::
 
 ## Interprétation cinématique
 
 ::: {.remarque title="(Interprétation cinématique)"}
+
 Si $m = 2$ ou $3$, l'ensemble des points $f(t)$ décrit la **trajectoire** (ou le support) du mouvement d'un mobile dans le plan ou dans l'espace. Le vecteur $f'(t)$ correspond alors au **vecteur vitesse** et il est tangent à la trajectoire en le point $f(t)$.
+
 :::
 
 ::: {.definition title="(Vitesse instantanée)"}
+
 Soit $f : I \to \mathbb{R}^m$ une fonction dérivable en $t_0$. Le vecteur $f'(t_0)$ est appelé la **vitesse instantanée** du mobile à l'instant $t_0$.
+
 :::
 
 ## Fonctions de classe $\mathcal{C}^k$
 
 ::: {.definition title="(Fonction vectorielle de classe $\mathcal{C}^k$, de classe $\mathcal{C}^\infty$)"}
+
 Une fonction $f : I \to E$ est dite de **classe $\mathcal{C}^k$** sur $I$ si :
 
 1. $f$ est dérivable $k$ fois sur $I$.
@@ -114,41 +137,56 @@ Une fonction $f : I \to E$ est dite de **classe $\mathcal{C}^k$** sur $I$ si :
 On note $\mathcal{C}^k(I, E)$ l'ensemble des fonctions de classe $\mathcal{C}^k$ sur $I$.
 
 La fonction $f$ est dite de **classe $\mathcal{C}^\infty$** sur $I$ si $f$ est indéfiniment dérivable sur $I$.
+
 :::
 
 ::: {.proposition}
+
 L'ensemble $\mathcal{C}^k(I, E)$ des fonctions de classe $\mathcal{C}^k$ sur $I$ est un sous-espace vectoriel de $\mathcal{F}(I, E)$.
+
 :::
 
 ::: {.proposition title="(Caractérisation par les composantes)"}
+
 $f = (f_1, \ldots, f_m)$ est de classe $\mathcal{C}^k$ sur $I$ si et seulement si toutes ses composantes $f_1, \ldots, f_m$ sont de classe $\mathcal{C}^k$ sur $I$.
+
 :::
 
 ## Opérations sur les fonctions dérivables
 
 ::: {.proposition title="(Combinaison linéaire)"}
+
 Soient $f, g : I \to E$ dérivables en $a$ et $\lambda, \mu \in \mathbb{R}$. Alors $\lambda f + \mu g$ est dérivable en $a$ et :
 $$(\lambda f + \mu g)'(a) = \lambda f'(a) + \mu g'(a)$$
+
 :::
 
 ::: {.proposition title="(Produit par une fonction scalaire)"}
+
 Soient $f : I \to E$ dérivable en $a$ et $\varphi : I \to \mathbb{R}$ dérivable en $a$. Alors $\varphi \cdot f$ est dérivable en $a$ et :
 $$(\varphi \cdot f)'(a) = \varphi'(a) \cdot f(a) + \varphi(a) \cdot f'(a)$$
+
 :::
 
 ::: {.proposition title="(Dérivation de $f \circ \varphi$)"}
+
 Soient $f : I \to E$ dérivable en $u_0 \in I$ et $\varphi : J \to I$ dérivable en $t_0 \in J$ avec $\varphi(t_0) = u_0$. Alors $f \circ \varphi$ est dérivable en $t_0$ et :
 $$(f \circ \varphi)'(t_0) = \varphi'(t_0) \cdot f'(u_0)$$
+
 :::
 
 ::: {.proposition title="(Dérivation d'un produit scalaire)"}
+
 Soient $f, g : I \to E$ dérivables en $a$, où $E$ est un espace préhilbertien réel. Alors la fonction $t \mapsto \langle f(t), g(t) \rangle$ est dérivable en $a$ et :
 $$\frac{d}{dt}\langle f(t), g(t) \rangle \bigg|_{t=a} = \langle f'(a), g(a) \rangle + \langle f(a), g'(a) \rangle$$
+
 :::
 
 ::: {.corollary title="(Dérivation de la norme)"}
+
 Si $f : I \to E$ est dérivable en $a$ et $f(a) \neq 0_E$, alors $t \mapsto \|f(t)\|$ est dérivable en $a$ et :
 $$\frac{d}{dt}\|f(t)\| \bigg|_{t=a} = \frac{\langle f'(a), f(a) \rangle}{\|f(a)\|}$$
+
 :::
 
 # Intégration d'une fonction vectorielle sur un segment
@@ -156,56 +194,72 @@ $$\frac{d}{dt}\|f(t)\| \bigg|_{t=a} = \frac{\langle f'(a), f(a) \rangle}{\|f(a)\
 ## Définition
 
 ::: {.definition title="(Intégrale d'une fonction vectorielle continue par morceaux)"}
+
 Soit $f : [a,b] \to E$ une fonction continue par morceaux. On définit l'**intégrale** de $f$ sur $[a,b]$ par :
 $$\int_a^b f(t)\, dt = \left(\int_a^b f_1(t)\, dt, \int_a^b f_2(t)\, dt, \ldots, \int_a^b f_m(t)\, dt\right)$$
 où $f_1, \ldots, f_m$ sont les composantes de $f$ dans la base canonique de $E = \mathbb{R}^m$.
+
 :::
 
 ## Propriétés
 
 ::: {.proposition title="(Linéarité)"}
+
 Soient $f, g : [a,b] \to E$ continues par morceaux et $\lambda, \mu \in \mathbb{R}$. Alors :
 $$\int_a^b (\lambda f + \mu g)(t)\, dt = \lambda \int_a^b f(t)\, dt + \mu \int_a^b g(t)\, dt$$
+
 :::
 
 ::: {.proposition title="(Relation de Chasles)"}
+
 Pour tout $c \in [a,b]$ :
 $$\int_a^b f(t)\, dt = \int_a^c f(t)\, dt + \int_c^b f(t)\, dt$$
+
 :::
 
 ::: {.proposition title="(Inégalité triangulaire)"}
+
 $$\left\|\int_a^b f(t)\, dt\right\| \leq \int_a^b \|f(t)\|\, dt$$
+
 :::
 
 ::: {.example}
+
 Calculons $\int_0^{\pi/2} (\cos t, \sin t)\, dt$.
 
 $$\int_0^{\pi/2} \cos t\, dt = [\sin t]_0^{\pi/2} = 1, \quad \int_0^{\pi/2} \sin t\, dt = [-\cos t]_0^{\pi/2} = 1$$
 
 Donc :
 $$\int_0^{\pi/2} (\cos t, \sin t)\, dt = (1, 1)$$
+
 :::
 
 ## Théorème fondamental du calcul intégral
 
 ::: {.theorem title="(Théorème fondamental du calcul intégral)"}
+
 Soit $f : [a,b] \to E$ une fonction continue. La fonction :
 $$F(x) = \int_a^x f(t)\, dt$$
 est de classe $\mathcal{C}^1$ sur $[a,b]$ et $F' = f$.
+
 :::
 
 ## Intégration par parties
 
 ::: {.theorem title="(Intégration par parties)"}
+
 Soient $u : [a,b] \to E$ et $v : [a,b] \to \mathbb{R}$ de classe $\mathcal{C}^1$. Alors :
 $$\int_a^b u'(t) v(t)\, dt = [u(t) v(t)]_a^b - \int_a^b u(t) v'(t)\, dt$$
+
 :::
 
 ## Changement de variable
 
 ::: {.theorem title="(Changement de variable)"}
+
 Soient $\varphi \in \mathcal{C}^1([c,d], \mathbb{R})$ à valeurs dans $[a,b]$, $f \in \mathcal{C}([a,b], E)$. Alors :
 $$\int_a^b f(x)\, dx = \int_c^d f(\varphi(t)) \varphi'(t)\, dt$$
+
 :::
 
 # Inégalité des accroissements finis et formules de Taylor
@@ -213,40 +267,54 @@ $$\int_a^b f(x)\, dx = \int_c^d f(\varphi(t)) \varphi'(t)\, dt$$
 ## Inégalité des accroissements finis
 
 ::: {.theorem title="(Inégalité des accroissements finis)"}
+
 Soit $f : [a,b] \to E$ une fonction de classe $\mathcal{C}^1$. Alors :
 $$\|f(b) - f(a)\| \leq (b-a) \sup_{[a,b]} \|f'\|$$
+
 :::
 
 ::: {.remarque}
+
 Contrairement au cas des fonctions réelles à valeurs réelles, il n'existe pas de théorème des accroissements finis sous forme d'égalité pour les fonctions vectorielles. Seule l'inégalité est valable.
+
 :::
 
 ## Formules de Taylor
 
 ::: {.theorem title="(Formule de Taylor avec reste intégral)"}
+
 Soit $f : I \to E$ une fonction de classe $\mathcal{C}^{n+1}$ sur $I$. Alors pour tous $a, x \in I$ :
 $$f(x) = f(a) + f'(a)(x-a) + \frac{f''(a)}{2!}(x-a)^2 + \cdots + \frac{f^{(n)}(a)}{n!}(x-a)^n + \frac{1}{n!}\int_a^x (x-t)^n f^{(n+1)}(t)\, dt$$
+
 :::
 
 ::: {.theorem title="(Inégalité de Taylor-Lagrange)"}
+
 Soit $f : I \to E$ une fonction de classe $\mathcal{C}^{n+1}$ sur $I$. Alors pour tous $a, x \in I$ :
 $$\left\|f(x) - \sum_{k=0}^n \frac{f^{(k)}(a)}{k!}(x-a)^k\right\| \leq \frac{|x-a|^{n+1}}{(n+1)!} \sup_{[a,x]} \|f^{(n+1)}\|$$
+
 :::
 
 ::: {.theorem title="(Formule de Taylor-Young)"}
+
 Soit $f : I \to E$ une fonction $n$ fois dérivable en $a$. Alors :
 $$f(x) = f(a) + f'(a)(x-a) + \frac{f''(a)}{2!}(x-a)^2 + \cdots + \frac{f^{(n)}(a)}{n!}(x-a)^n + o((x-a)^n)$$
+
 :::
 
 ::: {.remarque}
+
 Le résultat de Taylor-Young est local, contrairement aux autres résultats. Les hypothèses des résultats globaux sont plus fortes.
+
 :::
 
 ## Application : variations d'une fonction
 
 ::: {.proposition title="(Application aux suites définies par récurrence)"}
+
 Soit $(u_n)$ une suite définie par récurrence $u_{n+1} = f(u_n)$ où $f$ est de classe $\mathcal{C}^1$. Si $f$ admet un point fixe $l$ et si $|f'(l)| < 1$, alors la suite $(u_n)$ converge vers $l$ avec une erreur majorée par :
 $$|u_n - l| \leq C |f'(l)|^n$$
+
 :::
 
 # Arcs paramétrés
@@ -254,9 +322,11 @@ $$|u_n - l| \leq C |f'(l)|^n$$
 ## Définitions
 
 ::: {.definition title="(Arc paramétré)"}
+
 On appelle **arc paramétré** un couple $\gamma = (I, \vec{F})$ où $I \subset \mathbb{R}$ est un intervalle et $\vec{F} : I \to E$ une application de classe $\mathcal{C}^k(I, E)$.
 
 Le **support** de l'arc paramétré est la courbe $\Gamma = \vec{F}(I) \subset E$.
+
 :::
 
 ::: {.remarque}
@@ -265,52 +335,66 @@ Le **support** de l'arc paramétré est la courbe $\Gamma = \vec{F}(I) \subset E
 - Si $E = \mathbb{R}^2$, on écrira $\vec{F}(t) = \begin{pmatrix} x(t) \\ y(t) \end{pmatrix}$ et les coordonnées de $M$ seront donc $\begin{pmatrix} x(t) \\ y(t) \end{pmatrix}$.
 - Si $E = \mathbb{R}^3$, on écrira $\vec{F}(t) = \begin{pmatrix} x(t) \\ y(t) \\ z(t) \end{pmatrix}$ et les coordonnées de $M$ seront donc $\begin{pmatrix} x(t) \\ y(t) \\ z(t) \end{pmatrix}$.
 - L'ensemble des points $M$ tel que $\overrightarrow{OM} = \vec{F}(t)$ est appelé le support de l'arc paramétré.
+
 :::
 
 ::: {.remarque title="(Interprétation cinématique)"}
+
 L'étude d'un arc paramétré peut s'interpréter ainsi :
 
 - $I$ est un intervalle de temps.
 - $M(t)$ est un point mobile du plan dont la position à l'instant $t \in I$ est donnée par $\overrightarrow{OM}(t) = \vec{F}(t)$.
 - Le support de l'arc paramétré $(I, \vec{F})$ est appelé trajectoire du mouvement.
+
 :::
 
 ## Points réguliers et stationnaires
 
 ::: {.definition title="(Point régulier, stationnaire)"}
+
 Un point $M = M(t_0)$ d'un arc paramétré est dit **régulier** lorsque $\vec{F}'(t_0) \neq \vec{0}$. Sinon, on dit que c'est un **point stationnaire**.
+
 :::
 
 ## Tangente en un point régulier
 
 ::: {.proposition title="(Tangente en un point régulier)"}
+
 Un arc paramétré possède une tangente en un point régulier $M(t_0)$, la droite passant par $M(t_0)$ dirigée par le vecteur $\vec{F}'(t_0)$.
+
 :::
 
 ::: {.proof}
+
 Notons $\vec{u} : I \setminus \{t_0\} \to \mathbb{R}^2$ définie par $\vec{u}(t) = \frac{\vec{F}(t) - \vec{F}(t_0)}{t - t_0}$.
 
 Pour $t \neq t_0$, le vecteur $\vec{u}(t)$ dirige la droite $(M(t_0)M(t))$ et $\vec{u}(t) \xrightarrow[t \to t_0]{} \vec{F}'(t_0) \neq \vec{0}$. Donc la droite passant par $M(t_0)$ dirigée par $\vec{F}'(t_0)$ est la tangente en $M(t_0)$.
+
 :::
 
 ## Normale à un arc paramétré plan
 
 ::: {.definition title="(Normale)"}
+
 Si $\gamma : I \to \mathbb{R}^2$ est un arc paramétré plan et $t_0$ un paramètre régulier, la **normale** à l'arc au point $\gamma(t_0)$ est la droite perpendiculaire à la tangente en ce point.
+
 :::
 
 ## Interprétation cinématique des dérivées d'ordre 1 et 2
 
 ::: {.remarque title="(Interprétation cinématique)"}
+
 Si $\vec{F} : I \to \mathbb{R}^m$ est un arc paramétré :
 
 - $\vec{F}'(t)$ est le **vecteur vitesse** à l'instant $t$.
 - $\vec{F}''(t)$ est le **vecteur accélération** à l'instant $t$.
+
 :::
 
 ## Étude d'une courbe paramétrée plane
 
 ::: {.proposition title="(Méthode d'étude)"}
+
 Pour étudier une courbe paramétrée plane $\gamma(t) = (x(t), y(t))$ :
 
 1. Déterminer le domaine de définition.
@@ -319,9 +403,11 @@ Pour étudier une courbe paramétrée plane $\gamma(t) = (x(t), y(t))$ :
 4. Étudier les points stationnaires.
 5. Étudier les branches infinies.
 6. Tracé sommaire de la courbe.
+
 :::
 
 ::: {.example}
+
 Étudions la courbe paramétrée :
 $$\begin{cases} x(t) = \tan t + \sin t \\ y(t) = \frac{1}{\cos t} \end{cases}$$
 
@@ -334,73 +420,93 @@ $$x'(t) = \frac{1}{\cos^2 t} + \cos t = \frac{1 + \cos^3 t}{\cos^2 t}$$
 $$y'(t) = \frac{\sin t}{\cos^2 t}$$
 
 On étudie les variations et on trace la courbe.
+
 :::
 
 # Méthode des rectangles et sommes de Riemann
 
 ::: {.proposition title="(Méthode des rectangles)"}
+
 Soit $f : [a,b] \to \mathbb{R}$ une fonction continue. La méthode des rectangles consiste à approximer l'intégrale $\int_a^b f(t)\, dt$ par des sommes de Riemann :
 $$\frac{b-a}{n} \sum_{k=0}^{n-1} f\left(a + k\frac{b-a}{n}\right) \xrightarrow[n \to +\infty]{} \int_a^b f(t)\, dt$$
+
 :::
 
 ::: {.proposition title="(Sommes de Riemann)"}
+
 Soit $f : [a,b] \to E$ une fonction continue par morceaux. Alors :
 $$\frac{b-a}{n} \sum_{k=0}^{n-1} f\left(a + k\frac{b-a}{n}\right) \xrightarrow[n \to +\infty]{} \int_a^b f(t)\, dt$$
+
 :::
 
 # Exercices
 
 ::: {.exercise}
+
 Soit $f : \mathbb{R} \to \mathbb{R}^2$ définie par $f(t) = (e^t \cos t, e^t \sin t)$.
 
 1. Calculer $f'(t)$ et $\|f'(t)\|$.
 2. Déterminer la tangente à la courbe au point $f(0)$.
 3. Calculer la longueur de l'arc entre $t = 0$ et $t = \ln 2$.
+
 :::
 
 ::: {.exercise}
+
 Soit $\gamma : [0, 2\pi] \to \mathbb{R}^2$ définie par $\gamma(t) = (\cos 2t, \sin 3t)$.
 
 1. Étudier la parité et la périodicité des composantes.
 2. Déterminer les points singuliers de l'arc.
 3. Calculer $\gamma'(t)$ et déterminer la tangente en un point régulier.
+
 :::
 
 ::: {.exercise}
+
 Soit $f : [0, 1] \to \mathbb{R}^3$ définie par $f(t) = (t, t^2, t^3)$.
 
 1. Calculer $f'(t)$ et $f''(t)$.
 2. Montrer que l'arc est régulier.
 3. Calculer la longueur de l'arc entre $t = 0$ et $t = 1$ (on pourra donner une valeur approchée).
+
 :::
 
 ::: {.exercise}
+
 Soient $f, g : I \to \mathbb{R}^3$ de classe $\mathcal{C}^1$. Montrer que :
 $$\frac{d}{dt}\langle f(t), g(t) \rangle = \langle f'(t), g(t) \rangle + \langle f(t), g'(t) \rangle$$
+
 :::
 
 ::: {.exercise}
+
 Soit $\gamma : [0, +\infty[ \to \mathbb{R}^2$ définie par $\gamma(t) = (t \cos t, t \sin t)$.
 
 1. Calculer $\gamma'(t)$ et montrer que l'arc est régulier.
 2. Calculer la longueur de l'arc entre $t = 0$ et $t = 2\pi$.
 3. Interpréter géométriquement la courbe (spirale d'Archimède).
+
 :::
 
 ::: {.exercise}
+
 Soit $\gamma : \mathbb{R} \to \mathbb{R}^2$ définie par $\gamma(t) = (3\cos t, 2\sin t)$.
 
 1. Montrer que l'arc décrit une ellipse.
 2. Calculer $\gamma'(t)$ et déterminer les points où la tangente est horizontale.
 3. Calculer la longueur de l'arc entre $t = 0$ et $t = \pi/2$.
+
 :::
 
 # Document en PDF {-}
 [Chapitre 05 : Fonctions vectorielles d'une variable réelle, notions sur les arcs paramétrés](PDF/psi-chap05.pdf)
 
 ## Navigation {-}
+
 ::: {.chap-nav}
+
 [Chapitre 04 : Intégration des fonctions continues par morceaux sur un intervalle](psi-chap04.qmd){.prev}
 [Menu PSI](psi.qmd){.home}
 [Chapitre 06 : Séries et suites de fonctions](psi-chap06.qmd){.next}
+
 :::

@@ -29,29 +29,39 @@ L'ensemble $\mathbb{R}$ est le cadre naturel de l'analyse. Ce qui le distingue d
 ## Rappels et propriétés
 
 ::: {.remark}
+
 On rappelle la chaîne d'inclusions :
 $$\mathbb{N}\subset\mathbb{Z}\subset\mathbb{Q}\subset\mathbb{R}$$
 où $\mathbb{Q}=\left\{\frac{p}{q}\,/\,(p,q)\in\mathbb{Z}\times\mathbb{N}^*\right\}$ est l'ensemble des nombres **rationnels**, et $\mathbb{R}\smallsetminus\mathbb{Q}$ l'ensemble des nombres **irrationnels**.
 
 L'ensemble $\mathbb{R}$ est un **corps totalement ordonné** : on peut y additionner, multiplier, comparer deux éléments, et toutes les règles usuelles du calcul s'y appliquent. Mais ce qui caractérifie $\mathbb{R}$ (et le distingue de $\mathbb{Q}$), c'est la propriété de la borne supérieure ci-dessous.
+
 :::
 
 ::: {.example}
+
 $\sqrt{2}$ est irrationnel :
 supposons par l'absurde que $\sqrt{2}\in\mathbb{Q}$, et écrivons $\sqrt{2}=\frac{p}{q}$ avec $(p,q)\in\mathbb{N}^*\times\mathbb{N}^*$ et la fraction irréductible. Alors $p^2=2q^2$, donc $p^2$ est pair, donc $p$ est pair (car le carré d'un impair est impair). Écrivons $p=2p'$ : alors $4p'^2=2q^2$, donc $q^2=2p'^2$, donc $q$ est pair aussi. Ceci contredit le fait que la fraction $\frac{p}{q}$ est irréductible. D'où $\sqrt{2}\notin\mathbb{Q}$.
+
 :::
 
 ::: {.theorem title="(Propriété d'Archimède)"}
+
 Pour tous réels $x$ et $y>0$, il existe un entier $n\in\mathbb{N}$ tel que $ny>x$. Autrement dit :
 $$\forall x>0,\ \exists n\in\mathbb{N}^*,\ \frac{1}{n}<x$$
+
 :::
 
 ::: {.proof}
+
 Supposons par l'absurde qu'il existe $x>0$ tel que $\forall n\in\mathbb{N}^*,\ \frac{1}{n}\geq x$, c'est-à-dire $nx\leq 1$. Alors $A=\{nx\,/\,n\in\mathbb{N}\}$ est une partie de $\mathbb{R}$ non vide et majorée par $1$ ; elle admet donc une borne supérieure $s=\sup A$. Par caractérisation de la borne supérieure avec $\varepsilon=x>0$, il existe $n\in\mathbb{N}$ tel que $s-x<nx$. Mais alors $(n+1)x=nx+x<s+x\leq s+? $ … plus simplement : $s-x<nx$ donne $(n+1)x<s+x$, or $nx\leq s$ ; en fait $s-x<nx\leq s$ montre que $(n+1)x\in A$ vérifie $(n+1)x>s-x+x$… en résumé : $(n+1)x>s$ contredit que $s$ majore $A$. D'où la propriété d'Archimède.
+
 :::
 
 ::: {.remark title="(Propriété du plus petit élément)"}
+
 Toute partie non vide de $\mathbb{Z}$ minorée admet un plus petit élément (et toute partie non vide de $\mathbb{N}$ admet un plus petit élément). C'est cette propriété qui permettra de démontrer la densité de $\mathbb{Q}$.
+
 :::
 
 # Supremum et infimum
@@ -59,80 +69,106 @@ Toute partie non vide de $\mathbb{Z}$ minorée admet un plus petit élément (et
 ## Majorant, minorant, partie bornée
 
 ::: {.definition}
+
 Soit $A$ une partie non vide de $\mathbb{R}$.
 
 1. On dit que $M\in\mathbb{R}$ est un **majorant** de $A$ si $\forall x\in A,\ x\leq M$. On dit que $A$ est **majorée**.
 2. On dit que $m\in\mathbb{R}$ est un **minorant** de $A$ si $\forall x\in A,\ m\leq x$. On dit que $A$ est **minorée**.
 3. On dit que $A$ est **bornée** si elle est à la fois majorée et minorée.
 4. Un **maximum** (resp. **minimum**) de $A$ est un majorant (resp. minorant) qui appartient à $A$.
+
 :::
 
 ::: {.example}
+
 Soit $A=]0,1[$.
 
 - Les majorants de $A$ sont les $M\geq 1$ ; $A$ n'admet pas de maximum.
 - Les minorants de $A$ sont les $m\leq 0$ ; $A$ n'admet pas de minimum.
 - $A$ est bornée.
+
 :::
 
 ::: {.example}
+
 Soit $A=\left\{\frac{1}{n}\,/\,n\in\mathbb{N}^*\right\}$. Alors $A$ admet un maximum $\max A=1$ (atteint en $n=1$), et $0$ est un minorant qui n'appartient pas à $A$ (donc pas de minimum).
+
 :::
 
 ## Supremum, infimum
 
 ::: {.definition}
+
 Soit $A$ une partie non vide de $\mathbb{R}$.
 
 1. Si $A$ est majorée, on appelle **borne supérieure** de $A$, notée $\sup A$, le plus petit des majorants de $A$.
 2. Si $A$ est minorée, on appelle **borne inférieure** de $A$, notée $\inf A$, le plus grand des minorants de $A$.
+
 :::
 
 ::: {.theorem title="(Propriété de la borne supérieure)"}
+
 Toute partie non vide de $\mathbb{R}$ majorée admet une borne supérieure dans $\mathbb{R}$. (De même, toute partie non vide minorée admet une borne inférieure.)
+
 :::
 
 ::: {.remark}
+
 Cette propriété est **fausse dans $\mathbb{Q}$** : par exemple $A=\{r\in\mathbb{Q}\,/\,r^2<2\}$ est non vide et majorée dans $\mathbb{Q}$, mais n'admet pas de borne supérieure dans $\mathbb{Q}$ (sa borne supérieure dans $\mathbb{R}$ est $\sqrt{2}\notin\mathbb{Q}$).
+
 :::
 
 ::: {.theorem title="(Caractérisation de la borne supérieure)"}
+
 Soit $A$ une partie non vide et majorée de $\mathbb{R}$, et $s\in\mathbb{R}$. Alors $s=\sup A$ si et seulement si :
 
 1. $\forall x\in A,\ x\leq s$ ;
 2. $\forall \varepsilon>0,\ \exists x\in A,\ s-\varepsilon<x$.
+
 :::
 
 ::: {.proof}
+
 ($\Rightarrow$) Si $s=\sup A$, alors (1) est vraie car $s$ est un majorant. Si (2) était fausse, il existerait $\varepsilon>0$ tel que $\forall x\in A,\ x\leq s-\varepsilon$ ; alors $s-\varepsilon$ serait un majorant de $A$ strictement plus petit que $s$, contredisant que $s$ est le plus petit majorant.
 
 ($\Leftarrow$) D'après (1), $s$ est un majorant de $A$. Soit $M$ un majorant quelconque de $A$. D'après (2), pour tout $\varepsilon>0$ il existe $x\in A$ tel que $s-\varepsilon<x\leq M$, donc $s\leq M+\varepsilon$. Ceci étant vrai pour tout $\varepsilon>0$, on obtient $s\leq M$. Donc $s$ est le plus petit des majorants : $s=\sup A$.
+
 :::
 
 ::: {.proposition title="(Supremum et maximum)"}
+
 Soit $A$ une partie non vide et majorée de $\mathbb{R}$. Alors :
 $$\sup A\in A \iff \sup A=\max A$$
+
 :::
 
 ::: {.proposition title="(Supremum d'une somme)"}
+
 Soient $A,B$ deux parties non vides et majorées de $\mathbb{R}$. On note $A+B=\{a+b\,/\,(a,b)\in A\times B\}$. Alors :
 $$\sup(A+B)=\sup A+\sup B$$
+
 :::
 
 ::: {.proof}
+
 Pour tout $(a,b)\in A\times B$, $a\leq\sup A$ et $b\leq\sup B$, donc $a+b\leq\sup A+\sup B$ : ainsi $\sup A+\sup B$ majore $A+B$. Soit $\varepsilon>0$ ; il existe $a\in A$ tel que $a>\sup A-\frac{\varepsilon}{2}$ et $b\in B$ tel que $b>\sup B-\frac{\varepsilon}{2}$ ; alors $a+b>\sup A+\sup B-\varepsilon$. D'après la caractérisation de la borne supérieure, $\sup(A+B)=\sup A+\sup B$.
+
 :::
 
 ::: {.exercise}
+
 Soient $A,B$ deux parties non vides et majorées de $\mathbb{R}$.
 
 1. Montrer que si $A\subset B$ alors $\sup A\leq\sup B$.
 2. Montrer que $\sup(A\cup B)=\max(\sup A,\sup B)$.
 3. Montrer que $\sup(A\times B)=\sup A\times\sup B$ lorsque $A,B\subset\mathbb{R}^*_+$.
+
 :::
 
 ::: {.example}
+
 $\sup\,]0,1[\,=1$ (pas de maximum) ; $\sup\left\{\frac{1}{n}\,/\,n\in\mathbb{N}^*\right\}=1=\max$ ; $\inf\left\{\frac{1}{n}\,/\,n\in\mathbb{N}^*\right\}=0$ (pas de minimum).
+
 :::
 
 # Intervalles
@@ -140,29 +176,39 @@ $\sup\,]0,1[\,=1$ (pas de maximum) ; $\sup\left\{\frac{1}{n}\,/\,n\in\mathbb{N}^
 ## Définition et exemples
 
 ::: {.definition}
+
 Une partie $I$ de $\mathbb{R}$ est un **intervalle** si :
 $$\forall (a,b)\in I^2,\ a\leq b \Longrightarrow [a,b]\subset I$$
+
 :::
 
 ::: {.example}
+
 - $\mathbb{R}$, $[a,b]$, $]a,b[$, $[a,b[$, $]a,b]$, $[a,+\infty[$, $]a,+\infty[$, $]-\infty,b]$, $]-\infty,b[$ sont des intervalles.
 - $\mathbb{Q}$, $\mathbb{Z}$, $\mathbb{R}\smallsetminus\{0\}$, $]0,1]\cup[2,3[$ ne sont **pas** des intervalles.
+
 :::
 
 ## Caractérisation des intervalles
 
 ::: {.theorem title="(Caractérisation des intervalles)"}
+
 Soit $I$ une partie non vide de $\mathbb{R}$. On pose $a=\inf I\in\mathbb{R}\cup\{-\infty\}$ et $b=\sup I\in\mathbb{R}\cup\{+\infty\}$. Alors $I$ est un intervalle si et seulement si $I$ est l'un des intervalles :
 $$]a,b[,\quad [a,b[,\quad ]a,b],\quad [a,b]$$
 (avec les conventions évidentes lorsque $a=-\infty$ ou $b=+\infty$).
+
 :::
 
 ::: {.proof title="(Sens direct, cas $I=]a,b[$ ou $[a,b[$ etc.)"}
+
 Soit $I$ un intervalle non vide borné, $a=\inf I$, $b=\sup I$. Montrons par exemple que si $a\notin I$ et $b\notin I$ alors $I=]a,b[$. Soit $x$ tel que $a<x<b$. Comme $x>b$ est impossible ($b$ majore $I$) et $x<a$ aussi, supposons $x\notin I$ avec $a<x<b$. Puisque $a=\inf I$, il existe $u\in I$ avec $a\leq u<x$ ; puisque $b=\sup I$, il existe $v\in I$ avec $x<v\leq b$. Alors $u\leq x\leq v$ avec $u,v\in I$ ; comme $I$ est un intervalle, $x\in I$, contradiction. Donc $]a,b[\subset I\subset]a,b[$, d'où $I=]a,b[$. Les autres cas se traitent de même.
+
 :::
 
 ::: {.remark}
+
 Autrement dit, les intervalles de $\mathbb{R}$ sont exactement les parties « sans trou ». C'est cette propriété qui caractérise $\mathbb{R}$ parmi les corps ordonnés : $\mathbb{Q}$ possède des « trous » (par exemple $\{r\in\mathbb{Q}\,/\,r^2<2\}$ est un intervalle « troué » de $\mathbb{Q}$).
+
 :::
 
 # Densité
@@ -170,44 +216,60 @@ Autrement dit, les intervalles de $\mathbb{R}$ sont exactement les parties « sa
 ## Définition
 
 ::: {.definition}
+
 Une partie $D$ de $\mathbb{R}$ est dite **dense** dans $\mathbb{R}$ si tout intervalle ouvert non vide de $\mathbb{R}$ contient un élément de $D$ :
 $$\forall (a,b)\in\mathbb{R}^2,\ a<b \Longrightarrow \exists d\in D,\ a<d<b$$
+
 :::
 
 ## Densité de $\mathbb{Q}$
 
 ::: {.theorem title="(Densité de $\mathbb{Q}$ dans $\mathbb{R}$)"}
+
 $\mathbb{Q}$ est dense dans $\mathbb{R}$ : tout intervalle ouvert non vide de $\mathbb{R}$ contient un nombre rationnel.
+
 :::
 
 ::: {.proof}
+
 Soient $a<b$ deux réels. Par la propriété d'Archimède appliquée à $\frac{1}{b-a}>0$, il existe $n\in\mathbb{N}^*$ tel que $\frac{1}{n}<b-a$. Considérons l'ensemble $K=\{k\in\mathbb{Z}\,/\,k>na\}$ : il est non vide (Archimède) et minoré par $na$, donc il admet un plus petit élément $k_0$ (propriété du plus petit élément de $\mathbb{Z}$). Alors $k_0-1\leq na<k_0$, d'où :
 $$a<\frac{k_0}{n}\leq a+\frac{1}{n}<a+(b-a)=b$$
 Ainsi $r=\frac{k_0}{n}\in\mathbb{Q}$ vérifie $a<r<b$. D'où la densité de $\mathbb{Q}$.
+
 :::
 
 ## Densité des irrationnels
 
 ::: {.theorem title="(Densité de $\mathbb{R}\smallsetminus\mathbb{Q}$)"}
+
 L'ensemble des nombres irrationnels est dense dans $\mathbb{R}$.
+
 :::
 
 ::: {.proof}
+
 Soient $a<b$. Par densité de $\mathbb{Q}$ appliquée à $a-\sqrt{2}<b-\sqrt{2}$, il existe $r\in\mathbb{Q}$ tel que $a-\sqrt{2}<r<b-\sqrt{2}$. Posons $x=r+\sqrt{2}$ : alors $a<x<b$. Si $x$ était rationnel, alors $\sqrt{2}=x-r$ serait rationnel, contradiction. Donc $x\in\mathbb{R}\smallsetminus\mathbb{Q}$ et $a<x<b$.
+
 :::
 
 ::: {.corollary}
+
 Entre deux réels distincts quelconques, il existe une infinité de nombres rationnels et une infinité de nombres irrationnels.
+
 :::
 
 ::: {.example}
+
 Entre $1$ et $2$ : $\frac{3}{2}\in\mathbb{Q}$ et $1+\frac{\sqrt{2}}{2}\in\mathbb{R}\smallsetminus\mathbb{Q}$ appartiennent à $]1,2[$.
+
 :::
 
 ::: {.exercise}
+
 1. Montrer que $\sqrt{2}+\sqrt{3}$ est irrationnel.
 2. Soit $x\in\mathbb{R}$. Montrer que $x=\sup\{r\in\mathbb{Q}\,/\,r\leq x\}$.
 3. Soient $a,b\in\mathbb{R}$ tels que $\forall r\in\mathbb{Q},\ (r\geq a\Rightarrow r\geq b)$. Montrer que $b\leq a$.
+
 :::
 
 Document en PDF {-}
@@ -217,9 +279,11 @@ Document en PDF {-}
 Navigation {-}
 
 ::: {.chap-nav}
+
 [Chapitre 15 : Groupe symétrique et déterminant](mpsi-chap15.qmd){.prev}
 
 [Menu MPSI](mpsi.qmd){.home}
 
 [Chapitre 17 :  Suites numériques](mpsi-chap17.qmd){.next}
+
 :::

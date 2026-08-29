@@ -19,12 +19,14 @@ filters:
 **MPSI (1re année) — TD du Chapitre 17.** Limites, convergence, suites adjacentes, suites récurrentes.
 
 ::: {.exercise}
+
 Étudier la convergence des suites suivantes et déterminer leur limite éventuelle :
 
 1. $u_n = \dfrac{2n^2 + 3n - 1}{n^2 + n + 1}$
 2. $u_n = \sqrt{n+1} - \sqrt{n}$
 3. $u_n = \dfrac{(-1)^n}{n+1}$
 4. $u_n = \left(1 + \dfrac{1}{n}\right)^n$
+
 :::
 
 **Indications :**
@@ -33,19 +35,23 @@ filters:
 - (4) Suite croissante majorée par $e$. Limite : $e$.
 
 ::: {.exercise}
+
 Soient $(u_n)$ et $(v_n)$ définies par $u_n = \sum_{k=1}^n \frac{1}{k}$ et $v_n = u_n + \frac{1}{n}$.
 
 1. Montrer que $(u_n)$ est croissante et $(v_n)$ est décroissante.
 2. Montrer que $(u_n)$ et $(v_n)$ sont adjacentes.
 3. En déduire qu'elles convergent vers la même limite.
+
 :::
 
 ::: {.exercise}
+
 Soit $(u_n)$ définie par $u_0 = 1$ et $u_{n+1} = \sqrt{2 + u_n}$.
 
 1. Montrer que $(u_n)$ est bien définie, croissante et majorée par 2.
 2. En déduire que $(u_n)$ converge.
 3. Déterminer $\lim u_n$.
+
 :::
 
 **Indications :**
@@ -53,18 +59,22 @@ Soit $(u_n)$ définie par $u_0 = 1$ et $u_{n+1} = \sqrt{2 + u_n}$.
 - (3) Si $\ell = \lim u_n$, alors $\ell = \sqrt{2 + \ell}$, donc $\ell^2 = 2 + \ell$, $\ell = 2$.
 
 ::: {.exercise}
+
 Soit $(u_n)$ définie par $u_0 = 0$ et $u_{n+1} = \dfrac{1}{2} u_n + 1$.
 
 1. Calculer $u_1, u_2, u_3$.
 2. Montrer que $v_n = u_n - 2$ est géométrique.
 3. En déduire $u_n$ en fonction de $n$ et $\lim u_n$.
+
 :::
 
 ::: {.exercise}
+
 Soit $f : [0, 1] \to [0, 1]$ définie par $f(x) = x^2$. On définit $u_{n+1} = f(u_n)$ avec $u_0 \in [0, 1]$.
 
 1. Montrer que $(u_n)$ est bien définie et à valeurs dans $[0, 1]$.
 2. Étudier la convergence selon la valeur de $u_0$.
+
 :::
 
 **Indications :**
@@ -72,6 +82,7 @@ Soit $f : [0, 1] \to [0, 1]$ définie par $f(x) = x^2$. On définit $u_{n+1} = f
 - Si $u_0 \in [0, 1[$, $u_n = u_0^{2^n} \to 0$.
 
 ::: {.exercise}
+
 Soient $(u_n)$ et $(v_n)$ définies par $u_0 = a > 0$, $v_0 = b > 0$ et :
 $$u_{n+1} = \frac{u_n + v_n}{2}, \quad v_{n+1} = \sqrt{u_n v_n}$$
 
@@ -79,50 +90,62 @@ $$u_{n+1} = \frac{u_n + v_n}{2}, \quad v_{n+1} = \sqrt{u_n v_n}$$
 2. Montrer que $(u_n)$ est décroissante et $(v_n)$ est croissante à partir du rang 1.
 3. Montrer que $(u_n)$ et $(v_n)$ sont adjacentes.
 4. Leur limite commune est appelée **moyenne arithmético-géométrique** de $a$ et $b$.
+
 :::
 
 ::: {.exercise}
+
 Soit $(u_n)$ définie par $u_0 > 0$ et $u_{n+1} = u_n + \dfrac{1}{u_n}$.
 
 1. Montrer que $(u_n)$ est strictement croissante.
 2. Montrer que $(u_n)$ diverge vers $+\infty$.
+
 :::
 
 **Indications :**
 - (2) Par l'absurde : si $u_n \to \ell$ fini, alors $\ell = \ell + \frac{1}{\ell}$, donc $\frac{1}{\ell} = 0$, contradiction.
 
 ::: {.exercise}
+
 Soit $(u_n)$ définie par $u_0 = 1$ et $u_{n+1} = 1 + \dfrac{1}{u_n}$.
 
 1. Calculer les premiers termes.
 2. Montrer que $u_{2n}$ et $u_{2n+1}$ sont adjacentes.
 3. Montrer que $(u_n)$ converge vers $\varphi = \dfrac{1 + \sqrt{5}}{2}$ (nombre d'or).
+
 :::
 
 ::: {.exercise}
+
 Soit $(u_n)$ une suite réelle vérifiant $u_{n+1} - u_n \to 0$.
 
 1. La suite $(u_n)$ converge-t-elle nécessairement ?
 2. Donner un contre-exemple.
 3. Montrer que si $(u_n)$ est monotone, alors elle converge ou tend vers $\pm \infty$.
+
 :::
 
 **Indication pour (2) :** $u_n = \sum_{k=1}^n \frac{1}{k}$ (série harmonique). $u_{n+1} - u_n = \frac{1}{n+1} \to 0$ mais $u_n \to +\infty$.
 
 ::: {.exercise}
+
 Soient $(u_n)$ une suite croissante et $(v_n)$ une suite décroissante telles que $u_n \leq v_n$ pour tout $n$.
 
 1. Montrer que $(u_n)$ et $(v_n)$ convergent.
 2. Montrer que $\lim u_n \leq \lim v_n$.
 3. Si $v_n - u_n \to 0$, montrer que les deux suites convergent vers la même limite (suites adjacentes).
+
 :::
 
 # Cours {-}
 [**Chapitre 17 : Suites numériques**](mpsi-chap17.qmd)
 
 # Navigation {-}
+
 ::: {.chap-nav}
+
 [Chapitre 16 : Nombres réels](mpsi-chap16.qmd){.prev}
 [Menu MPSI](mpsi.qmd){.home}
 [Chapitre 18 : Limites et continuité](mpsi-chap18.qmd){.next}
+
 :::

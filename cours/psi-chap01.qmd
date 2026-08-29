@@ -36,74 +36,98 @@ Dans tout ce chapitre, $\mathbb{K}$ désigne $\mathbb{R}$ ou $\mathbb{C}$.
 ## Produit d'espaces vectoriels
 
 ::: {.definition title="(Produit d'espaces vectoriels)"}
+
 Soient $E_1, E_2, \ldots, E_p$ des $\mathbb{K}$-espaces vectoriels. Le **produit** $E = E_1 \times E_2 \times \cdots \times E_p$ est muni d'une structure de $\mathbb{K}$-espace vectoriel par les lois :
 $$(x_1, \ldots, x_p) + (y_1, \ldots, y_p) = (x_1 + y_1, \ldots, x_p + y_p)$$
 $$\lambda \cdot (x_1, \ldots, x_p) = (\lambda x_1, \ldots, \lambda x_p)$$
+
 :::
 
 ::: {.proposition}
+
 Si $E_1, \ldots, E_p$ sont de dimensions finies, alors $E = E_1 \times \cdots \times E_p$ est de dimension finie et :
 $$\dim(E) = \dim(E_1) + \dim(E_2) + \cdots + \dim(E_p)$$
+
 :::
 
 ::: {.example}
+
 $\mathbb{K}^n = \mathbb{K} \times \mathbb{K} \times \cdots \times \mathbb{K}$ ($n$ fois) est un $\mathbb{K}$-espace vectoriel de dimension $n$.
+
 :::
 
 ## Somme de sous-espaces vectoriels
 
 ::: {.definition title="(Somme de sous-espaces)"}
+
 Soient $F_1, F_2, \ldots, F_p$ des sous-espaces vectoriels d'un $\mathbb{K}$-espace vectoriel $E$. La **somme** de ces sous-espaces est :
 $$F_1 + F_2 + \cdots + F_p = \{x_1 + x_2 + \cdots + x_p \mid x_i \in F_i\}$$
+
 :::
 
 ::: {.definition title="(Somme directe)"}
+
 La somme $F_1 + F_2 + \cdots + F_p$ est dite **directe**, notée $F_1 \oplus F_2 \oplus \cdots \oplus F_p$, si tout vecteur de cette somme s'écrit de manière unique comme somme d'un vecteur de chaque $F_i$.
 
 On a l'équivalence :
 $$F_1 + \cdots + F_p \text{ est directe} \iff \forall i, \; F_i \cap \sum_{j \neq i} F_j = \{0_E\}$$
+
 :::
 
 ::: {.proposition title="(Dimension d'une somme directe)"}
+
 Si $E = F_1 \oplus F_2 \oplus \cdots \oplus F_p$ avec chaque $F_i$ de dimension finie, alors :
 $$\dim(E) = \dim(F_1) + \dim(F_2) + \cdots + \dim(F_p)$$
+
 :::
 
 ::: {.proposition title="(Formule de Grassmann)"}
+
 Soient $F$ et $G$ deux sous-espaces vectoriels de dimension finie d'un $\mathbb{K}$-espace vectoriel $E$. Alors :
 $$\dim(F + G) = \dim(F) + \dim(G) - \dim(F \cap G)$$
+
 :::
 
 ::: {.definition title="(Supplémentaires)"}
+
 Deux sous-espaces vectoriels $F$ et $G$ de $E$ sont dits **supplémentaires** si :
 $$E = F \oplus G$$
+
 :::
 
 ::: {.proposition}
+
 Tout sous-espace vectoriel d'un espace vectoriel de dimension finie admet au moins un supplémentaire.
+
 :::
 
 ## Projecteurs et symétries
 
 ::: {.definition title="(Projecteur)"}
+
 Soient $F$ et $G$ deux sous-espaces vectoriels supplémentaires de $E$. La **projection** sur $F$ parallèlement à $G$ est l'application linéaire $p : E \to E$ définie par :
 $$\forall x = f + g \in E \text{ avec } (f, g) \in F \times G, \quad p(x) = f$$
 
 On a $p^2 = p$, $\mathrm{Im}(p) = F$ et $\ker(p) = G$.
+
 :::
 
 ::: {.definition title="(Symétrie)"}
+
 La **symétrie** par rapport à $F$ parallèlement à $G$ est l'application linéaire $s : E \to E$ définie par :
 $$\forall x = f + g \in E \text{ avec } (f, g) \in F \times G, \quad s(x) = f - g$$
 
 On a $s^2 = \mathrm{Id}_E$ et $s = 2p - \mathrm{Id}_E$.
+
 :::
 
 ::: {.proposition title="(Caractérisation)"}
+
 Soit $u \in \mathcal{L}(E)$.
 
 - $u$ est un projecteur si et seulement si $u^2 = u$.
 - $u$ est une symétrie si et seulement si $u^2 = \mathrm{Id}_E$.
+
 :::
 
 # Matrices par blocs et sous-espaces stables
@@ -111,60 +135,78 @@ Soit $u \in \mathcal{L}(E)$.
 ## Matrices par blocs
 
 ::: {.definition title="(Matrice par blocs)"}
+
 Une **matrice par blocs** est une matrice dont les coefficients sont regroupés en sous-matrices appelées **blocs**. Par exemple, si $A \in \mathcal{M}_{n,p}(\mathbb{K})$ et si on partitionne les lignes en deux groupes de tailles $n_1$ et $n_2$ ($n_1 + n_2 = n$) et les colonnes en deux groupes de tailles $p_1$ et $p_2$ ($p_1 + p_2 = p$), on peut écrire :
 $$A = \begin{pmatrix} A_{11} & A_{12} \\ A_{21} & A_{22} \end{pmatrix}$$
 où $A_{11} \in \mathcal{M}_{n_1, p_1}(\mathbb{K})$, $A_{12} \in \mathcal{M}_{n_1, p_2}(\mathbb{K})$, $A_{21} \in \mathcal{M}_{n_2, p_1}(\mathbb{K})$ et $A_{22} \in \mathcal{M}_{n_2, p_2}(\mathbb{K})$.
+
 :::
 
 ::: {.proposition title="(Opérations sur les matrices par blocs)"}
+
 Les opérations sur les matrices par blocs suivent les mêmes règles que les opérations sur les matrices usuelles, à condition que les tailles des blocs soient compatibles :
 
 - **Addition** : $(A + B)_{ij} = A_{ij} + B_{ij}$
 - **Multiplication** : $(AB)_{ij} = \sum_k A_{ik} B_{kj}$
+
 :::
 
 ::: {.example}
+
 Si $A = \begin{pmatrix} A_{11} & A_{12} \\ A_{21} & A_{22} \end{pmatrix}$ et $B = \begin{pmatrix} B_{11} & B_{12} \\ B_{21} & B_{22} \end{pmatrix}$, alors :
 $$AB = \begin{pmatrix} A_{11}B_{11} + A_{12}B_{21} & A_{11}B_{12} + A_{12}B_{22} \\ A_{21}B_{11} + A_{22}B_{21} & A_{21}B_{12} + A_{22}B_{22} \end{pmatrix}$$
+
 :::
 
 ## Sous-espaces stables
 
 ::: {.definition title="(Sous-espace stable)"}
+
 Soient $E$ un $\mathbb{K}$-espace vectoriel et $u \in \mathcal{L}(E)$. Un sous-espace vectoriel $F$ de $E$ est dit **stable par $u$** (ou **$u$-stable**) si :
 $$u(F) \subset F$$
 
 On parle alors de l'**endomorphisme induit** $u_F : F \to F$ défini par $u_F(x) = u(x)$ pour $x \in F$.
+
 :::
 
 ::: {.proposition title="(Matrice par blocs et stabilité)"}
+
 Soient $E$ un $\mathbb{K}$-espace vectoriel de dimension finie $n$, $F$ un sous-espace vectoriel de $E$ de dimension $p$, et $u \in \mathcal{L}(E)$.
 
 Si $F$ est stable par $u$ et si $\mathcal{B} = (e_1, \ldots, e_p, e_{p+1}, \ldots, e_n)$ est une base de $E$ adaptée à $F$ (c'est-à-dire $(e_1, \ldots, e_p)$ est une base de $F$), alors la matrice de $u$ dans la base $\mathcal{B}$ est de la forme :
 $$\mathrm{Mat}_{\mathcal{B}}(u) = \begin{pmatrix} A & C \\ 0 & D \end{pmatrix}$$
 où $A \in \mathcal{M}_p(\mathbb{K})$ est la matrice de l'endomorphisme induit $u_F$ dans la base $(e_1, \ldots, e_p)$.
+
 :::
 
 ::: {.proposition title="(Caractérisation par la matrice)"}
+
 Réciproquement, si la matrice de $u$ dans une base $\mathcal{B} = (e_1, \ldots, e_n)$ est de la forme :
 $$\mathrm{Mat}_{\mathcal{B}}(u) = \begin{pmatrix} A & C \\ 0 & D \end{pmatrix}$$
 alors $F = \mathrm{Vect}(e_1, \ldots, e_p)$ est stable par $u$.
+
 :::
 
 ::: {.proposition title="(Cas d'une décomposition en somme directe)"}
+
 Soient $F$ et $G$ deux sous-espaces vectoriels supplémentaires de $E$ stables par $u$. Si $\mathcal{B} = (e_1, \ldots, e_p, e_{p+1}, \ldots, e_n)$ est une base de $E$ adaptée à la décomposition $E = F \oplus G$, alors :
 $$\mathrm{Mat}_{\mathcal{B}}(u) = \begin{pmatrix} A & 0 \\ 0 & D \end{pmatrix}$$
 où $A$ est la matrice de $u_F$ et $D$ est la matrice de $u_G$.
+
 :::
 
 ::: {.example title="(Matrice d'un projecteur)"}
+
 Si $p$ est un projecteur sur $F$ parallèlement à $G$ avec $E = F \oplus G$, et si $\mathcal{B}$ est une base adaptée, alors :
 $$\mathrm{Mat}_{\mathcal{B}}(p) = \begin{pmatrix} I_p & 0 \\ 0 & 0 \end{pmatrix}$$
+
 :::
 
 ::: {.example title="(Matrice d'une symétrie)"}
+
 Si $s$ est une symétrie par rapport à $F$ parallèlement à $G$ avec $E = F \oplus G$, et si $\mathcal{B}$ est une base adaptée, alors :
 $$\mathrm{Mat}_{\mathcal{B}}(s) = \begin{pmatrix} I_p & 0 \\ 0 & -I_{n-p} \end{pmatrix}$$
+
 :::
 
 # Trace d'une matrice et d'un endomorphisme
@@ -172,54 +214,72 @@ $$\mathrm{Mat}_{\mathcal{B}}(s) = \begin{pmatrix} I_p & 0 \\ 0 & -I_{n-p} \end{p
 ## Trace d'une matrice carrée
 
 ::: {.definition title="(Trace d'une matrice)"}
+
 Soit $A = (a_{ij}) \in \mathcal{M}_n(\mathbb{K})$. La **trace** de $A$ est :
 $$\mathrm{tr}(A) = \sum_{i=1}^n a_{ii}$$
+
 :::
 
 ::: {.proposition title="(Propriétés de la trace)"}
+
 Soient $A, B \in \mathcal{M}_n(\mathbb{K})$ et $\lambda \in \mathbb{K}$.
 
 1. **Linéarité** : $\mathrm{tr}(\lambda A + B) = \lambda \mathrm{tr}(A) + \mathrm{tr}(B)$
 2. **Invariance par transposition** : $\mathrm{tr}({}^tA) = \mathrm{tr}(A)$
 3. **Trace d'un produit** : $\mathrm{tr}(AB) = \mathrm{tr}(BA)$
 4. **Trace de l'identité** : $\mathrm{tr}(I_n) = n$
+
 :::
 
 ::: {.proposition title="(Trace d'une matrice triangulaire)"}
+
 Si $A$ est une matrice triangulaire (supérieure ou inférieure), alors :
 $$\mathrm{tr}(A) = \sum_{i=1}^n a_{ii}$$
+
 :::
 
 ::: {.proposition title="(Trace d'une matrice diagonalisable)"}
+
 Si $A$ est diagonalisable avec $A = PDP^{-1}$ où $D = \mathrm{Diag}(\lambda_1, \ldots, \lambda_n)$, alors :
 $$\mathrm{tr}(A) = \lambda_1 + \lambda_2 + \cdots + \lambda_n$$
+
 :::
 
 ## Trace d'un endomorphisme
 
 ::: {.definition title="(Trace d'un endomorphisme)"}
+
 Soit $E$ un $\mathbb{K}$-espace vectoriel de dimension finie et $u \in \mathcal{L}(E)$. La **trace** de $u$ est :
 $$\mathrm{tr}(u) = \mathrm{tr}(\mathrm{Mat}_{\mathcal{B}}(u))$$
 où $\mathcal{B}$ est une base quelconque de $E$.
+
 :::
 
 ::: {.proposition title="(Indépendance de la base)"}
+
 La trace d'un endomorphisme ne dépend pas du choix de la base.
+
 :::
 
 ::: {.proof}
+
 Si $\mathcal{B}$ et $\mathcal{B}'$ sont deux bases de $E$, alors $\mathrm{Mat}_{\mathcal{B}'}(u) = P^{-1} \mathrm{Mat}_{\mathcal{B}}(u) P$ où $P$ est la matrice de passage. Donc :
 $$\mathrm{tr}(\mathrm{Mat}_{\mathcal{B}'}(u)) = \mathrm{tr}(P^{-1} \mathrm{Mat}_{\mathcal{B}}(u) P) = \mathrm{tr}(\mathrm{Mat}_{\mathcal{B}}(u) P P^{-1}) = \mathrm{tr}(\mathrm{Mat}_{\mathcal{B}}(u))$$
+
 :::
 
 ::: {.proposition title="(Trace et valeurs propres)"}
+
 Si $u$ est diagonalisable avec des valeurs propres $\lambda_1, \ldots, \lambda_n$ (comptées avec multiplicité), alors :
 $$\mathrm{tr}(u) = \lambda_1 + \lambda_2 + \cdots + \lambda_n$$
+
 :::
 
 ::: {.proposition title="(Trace et projecteur)"}
+
 Si $p$ est un projecteur de $E$, alors :
 $$\mathrm{tr}(p) = \mathrm{rg}(p) = \dim(\mathrm{Im}(p))$$
+
 :::
 
 # Polynômes d'endomorphismes et de matrices carrées
@@ -227,64 +287,84 @@ $$\mathrm{tr}(p) = \mathrm{rg}(p) = \dim(\mathrm{Im}(p))$$
 ## Morphisme d'évaluation
 
 ::: {.definition title="(Polynôme d'endomorphisme)"}
+
 Soit $u \in \mathcal{L}(E)$. Pour tout polynôme $P = \sum_{k=0}^d a_k X^k \in \mathbb{K}[X]$, on définit :
 $$P(u) = \sum_{k=0}^d a_k u^k$$
 où $u^0 = \mathrm{Id}_E$ et $u^k = u \circ u \circ \cdots \circ u$ ($k$ fois).
+
 :::
 
 ::: {.definition title="(Polynôme de matrice)"}
+
 Soit $A \in \mathcal{M}_n(\mathbb{K})$. Pour tout polynôme $P = \sum_{k=0}^d a_k X^k \in \mathbb{K}[X]$, on définit :
 $$P(A) = \sum_{k=0}^d a_k A^k$$
 où $A^0 = I_n$ et $A^k = A \cdot A \cdot \cdots \cdot A$ ($k$ fois).
+
 :::
 
 ::: {.proposition title="(Morphisme de $\mathbb{K}$-algèbres)"}
+
 L'application $\Phi_u : \mathbb{K}[X] \to \mathcal{L}(E)$ définie par $P \mapsto P(u)$ est un morphisme de $\mathbb{K}$-algèbres. De même, $\Phi_A : P \mapsto P(A)$ est un morphisme de $\mathbb{K}$-algèbres.
+
 :::
 
 ## Idéal annulateur et polynôme minimal
 
 ::: {.definition title="(Polynôme annulateur)"}
+
 Un polynôme $P \in \mathbb{K}[X]$ est dit **annulateur** de $u$ (resp. de $A$) si $P(u) = 0$ (resp. $P(A) = 0$).
 
 L'ensemble des polynômes annulateurs de $u$ est un idéal de $\mathbb{K}[X]$, appelé **idéal annulateur** de $u$.
+
 :::
 
 ::: {.theorem title="(Existence du polynôme minimal)"}
+
 Soit $E$ un $\mathbb{K}$-espace vectoriel de dimension finie et $u \in \mathcal{L}(E)$. Alors l'idéal annulateur de $u$ est non réduit à $\{0\}$.
 
 Il existe un unique polynôme unitaire $P_u \in \mathbb{K}[X]$ de plus petit degré annulant $u$, appelé **polynôme minimal** de $u$. On a :
 $$\{P \in \mathbb{K}[X] \mid P(u) = 0\} = P_u \cdot \mathbb{K}[X]$$
+
 :::
 
 ::: {.proposition title="(Lien entre polynôme minimal et valeurs propres)"}
+
 Si $\lambda$ est une valeur propre de $u$, alors $\lambda$ est une racine du polynôme minimal $P_u$.
+
 :::
 
 ::: {.proposition title="(Polynôme minimal d'une matrice diagonalisable)"}
+
 Si $A$ est diagonalisable avec des valeurs propres distinctes $\lambda_1, \ldots, \lambda_r$, alors :
 $$P_A(X) = \prod_{k=1}^r (X - \lambda_k)$$
+
 :::
 
 ::: {.example}
+
 Soit $A = \begin{pmatrix} 2 & 1 \\ 0 & 2 \end{pmatrix}$. Le polynôme caractéristique est $\chi_A(X) = (X-2)^2$.
 
 On vérifie que $A - 2I_2 = \begin{pmatrix} 0 & 1 \\ 0 & 0 \end{pmatrix} \neq 0$ mais $(A - 2I_2)^2 = 0$.
 
 Donc le polynôme minimal est $P_A(X) = (X-2)^2$.
+
 :::
 
 ## Théorème de Cayley-Hamilton
 
 ::: {.theorem title="(Théorème de Cayley-Hamilton)"}
+
 Soit $A \in \mathcal{M}_n(\mathbb{K})$ et $\chi_A$ son polynôme caractéristique. Alors :
 $$\chi_A(A) = 0$$
 
 Autrement dit, le polynôme caractéristique est un polynôme annulateur de $A$.
+
 :::
 
 ::: {.corollary}
+
 Le polynôme minimal $P_A$ divise le polynôme caractéristique $\chi_A$.
+
 :::
 
 # Interpolation de Lagrange
@@ -292,38 +372,49 @@ Le polynôme minimal $P_A$ divise le polynôme caractéristique $\chi_A$.
 ## Polynômes de Lagrange
 
 ::: {.definition title="(Polynômes de Lagrange)"}
+
 Soient $a_0, a_1, \ldots, a_n$ des éléments de $\mathbb{K}$ deux à deux distincts. Pour chaque $k \in \{0, 1, \ldots, n\}$, on définit le **polynôme de Lagrange** :
 $$L_k(X) = \prod_{\substack{j=0 \\ j \neq k}}^n \frac{X - a_j}{a_k - a_j}$$
+
 :::
 
 ::: {.proposition title="(Propriétés des polynômes de Lagrange)"}
+
 Les polynômes de Lagrange vérifient :
 
 1. $L_k \in \mathbb{K}_n[X]$ pour tout $k$.
 2. $L_k(a_j) = \delta_{k,j}$ (symbole de Kronecker) pour tous $k, j$.
 3. $\sum_{k=0}^n L_k(X) = 1$.
+
 :::
 
 ## Théorème d'interpolation de Lagrange
 
 ::: {.theorem title="(Théorème d'interpolation de Lagrange)"}
+
 Soient $a_0, a_1, \ldots, a_n$ des éléments de $\mathbb{K}$ deux à deux distincts et $b_0, b_1, \ldots, b_n$ des éléments de $\mathbb{K}$. Alors il existe un unique polynôme $P \in \mathbb{K}_n[X]$ tel que :
 $$P(a_k) = b_k \quad \text{pour tout } k \in \{0, 1, \ldots, n\}$$
 
 Ce polynôme est donné par la **formule d'interpolation de Lagrange** :
 $$\boxed{P(X) = \sum_{k=0}^n b_k L_k(X) = \sum_{k=0}^n b_k \prod_{\substack{j=0 \\ j \neq k}}^n \frac{X - a_j}{a_k - a_j}}$$
+
 :::
 
 ::: {.proof title="(Unicité)"}
+
 Si $P$ et $Q$ sont deux polynômes de $\mathbb{K}_n[X]$ vérifiant $P(a_k) = Q(a_k) = b_k$ pour tout $k$, alors $P - Q$ est un polynôme de degré $\leq n$ qui s'annule en $n+1$ points distincts. Donc $P - Q = 0$, c'est-à-dire $P = Q$.
+
 :::
 
 ::: {.proof title="(Existence)"}
+
 Le polynôme $P(X) = \sum_{k=0}^n b_k L_k(X)$ vérifie :
 $$P(a_j) = \sum_{k=0}^n b_k L_k(a_j) = \sum_{k=0}^n b_k \delta_{k,j} = b_j$$
+
 :::
 
 ::: {.example}
+
 Trouver le polynôme $P \in \mathbb{R}_2[X]$ tel que $P(0) = 1$, $P(1) = 2$ et $P(2) = 5$.
 
 Les polynômes de Lagrange sont :
@@ -333,62 +424,80 @@ $$L_2(X) = \frac{(X-0)(X-1)}{(2-0)(2-1)} = \frac{X(X-1)}{2}$$
 
 Donc :
 $$P(X) = 1 \cdot L_0(X) + 2 \cdot L_1(X) + 5 \cdot L_2(X) = X^2 + 1$$
+
 :::
 
 ## Lien avec le déterminant de Vandermonde
 
 ::: {.proposition title="(Déterminant de Vandermonde)"}
+
 Soient $a_0, a_1, \ldots, a_n$ des éléments de $\mathbb{K}$. Le déterminant de la matrice de Vandermonde :
 $$V = \begin{pmatrix} 1 & 1 & \cdots & 1 \\ a_0 & a_1 & \cdots & a_n \\ a_0^2 & a_1^2 & \cdots & a_n^2 \\ \vdots & \vdots & \ddots & \vdots \\ a_0^n & a_1^n & \cdots & a_n^n \end{pmatrix}$$
 est :
 $$\det(V) = \prod_{0 \leq i < j \leq n} (a_j - a_i)$$
+
 :::
 
 ::: {.corollary}
+
 La matrice de Vandermonde est inversible si et seulement si les $a_i$ sont deux à deux distincts. C'est une autre démonstration de l'unicité du polynôme d'interpolation.
+
 :::
 
 # Exercices
 
 ::: {.exercise}
+
 Soient $F = \{(x, y, z) \in \mathbb{R}^3 \mid x + y + z = 0\}$ et $G = \{(x, y, z) \in \mathbb{R}^3 \mid x = y = z\}$.
 
 1. Montrer que $F$ et $G$ sont des sous-espaces vectoriels de $\mathbb{R}^3$.
 2. Montrer que $\mathbb{R}^3 = F \oplus G$.
 3. Déterminer la matrice de la projection sur $F$ parallèlement à $G$ dans la base canonique.
+
 :::
 
 ::: {.exercise}
+
 Soit $A = \begin{pmatrix} 1 & 2 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 3 \end{pmatrix}$.
 
 1. Calculer $\mathrm{tr}(A)$ et $\det(A)$.
 2. $A$ est-elle diagonalisable ?
 3. Déterminer le polynôme minimal de $A$.
+
 :::
 
 ::: {.exercise}
+
 Soit $u \in \mathcal{L}(E)$ avec $\dim(E) = 3$ et $\mathrm{Mat}_{\mathcal{B}}(u) = \begin{pmatrix} 0 & 1 & 0 \\ 0 & 0 & 1 \\ 0 & 0 & 0 \end{pmatrix}$.
 
 1. Montrer que $u^3 = 0$ mais $u^2 \neq 0$.
 2. Déterminer le polynôme minimal de $u$.
 3. $u$ est-elle diagonalisable ?
+
 :::
 
 ::: {.exercise title="(Interpolation de Lagrange)"}
+
 Trouver le polynôme $P \in \mathbb{R}_3[X]$ tel que :
 $$P(0) = 1, \quad P(1) = 0, \quad P(2) = 1, \quad P(3) = 0$$
+
 :::
 
 ::: {.exercise}
+
 Soit $A \in \mathcal{M}_n(\mathbb{K})$ inversible. Montrer que $\mathrm{tr}(A^{-1}) = \frac{1}{\det(A)} \mathrm{tr}(\mathrm{Com}(A))$ où $\mathrm{Com}(A)$ est la comatrice de $A$.
+
 :::
 
 # Document en PDF {-}
 [Chapitre 01 : Rappels et compléments sur les espaces vectoriels, les endomorphismes et les matrices](PDF/psi-chap01.pdf)
 
 ## Navigation {-}
+
 ::: {.chap-nav}
+
 [Accueil](../index.qmd){.prev}
 [Menu PSI](psi.qmd){.home}
 [Chapitre 02 : Réduction des endomorphismes et des matrices](psi-chap02.qmd){.next}
+
 :::

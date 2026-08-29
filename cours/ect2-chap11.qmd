@@ -25,19 +25,24 @@ Ce chapitre a été réalisé conformément au programme marocain de mathématiq
 ## Définition
 
 ::: {.definition title="(Estimateur)"}
+
 Soit $(X_1, \ldots, X_n)$ un échantillon de $n$ variables aléatoires indépendantes de même loi dépendant d'un paramètre $\theta$. Un **estimateur** de $\theta$ est une statistique $T_n = g(X_1, \ldots, X_n)$.
+
 :::
 
 ::: {.example title="(Exemples d'estimateurs)"}
 
 1. $\overline{X}_n = \frac{1}{n} \sum_{k=1}^n X_k$ est un estimateur de $E(X_1)$.
 2. $S_n^2 = \frac{1}{n} \sum_{k=1}^n (X_k - \overline{X}_n)^2$ est un estimateur de $V(X_1)$.
+
 :::
 
 ## Estimateurs sans biais
 
 ::: {.definition title="(Estimateur sans biais)"}
+
 Un estimateur $T_n$ de $\theta$ est **sans biais** si $E(T_n) = \theta$ pour tout $\theta$.
+
 :::
 
 ::: {.proposition}
@@ -45,6 +50,7 @@ Un estimateur $T_n$ de $\theta$ est **sans biais** si $E(T_n) = \theta$ pour tou
 1. $\overline{X}_n$ est un estimateur sans biais de $E(X_1)$.
 2. $S_n^2 = \frac{1}{n} \sum_{k=1}^n (X_k - \overline{X}_n)^2$ est un estimateur **biaisé** de $V(X_1)$, avec $E(S_n^2) = \frac{n-1}{n} V(X_1)$.
 3. $s_n^2 = \frac{1}{n-1} \sum_{k=1}^n (X_k - \overline{X}_n)^2$ est un estimateur sans biais de $V(X_1)$.
+
 :::
 
 # Estimation par intervalle de confiance
@@ -52,17 +58,21 @@ Un estimateur $T_n$ de $\theta$ est **sans biais** si $E(T_n) = \theta$ pour tou
 ## Définition
 
 ::: {.definition title="(Intervalle de confiance)"}
+
 Un **intervalle de confiance** de niveau $1 - \alpha$ pour $\theta$ est un intervalle aléatoire $[T_n^-, T_n^+]$ tel que :
 $$P(T_n^- \leq \theta \leq T_n^+) \geq 1 - \alpha$$
+
 :::
 
 ## Intervalle de confiance pour une moyenne
 
 ::: {.theorem title="(Intervalle de confiance pour une moyenne)"}
+
 Soit $(X_1, \ldots, X_n)$ un échantillon de $n$ variables aléatoires indépendantes de même loi d'espérance $\mu$ et de variance $\sigma^2$ connue. Alors :
 $$\left[\overline{X}_n - \frac{\sigma z_{\alpha/2}}{\sqrt{n}}, \overline{X}_n + \frac{\sigma z_{\alpha/2}}{\sqrt{n}}\right]$$
 est un intervalle de confiance de niveau $1 - \alpha$ pour $\mu$, où $z_{\alpha/2}$ est le quantile de la loi normale centrée réduite :
 $$P(|Z| \leq z_{\alpha/2}) = 1 - \alpha \quad \text{avec } Z \hookrightarrow \mathcal{N}(0, 1)$$
+
 :::
 
 ::: {.example title="(Valeurs usuelles)"}
@@ -72,93 +82,119 @@ $$P(|Z| \leq z_{\alpha/2}) = 1 - \alpha \quad \text{avec } Z \hookrightarrow \ma
 | $90\%$ | $1.64$ |
 | $95\%$ | $1.96$ |
 | $99\%$ | $2.58$ |
+
 :::
 
 ## Intervalle de confiance pour une proportion
 
 ::: {.theorem title="(Intervalle de confiance pour une proportion)"}
+
 Soit $X \hookrightarrow \mathcal{B}(n, p)$ avec $n$ grand. Alors :
 $$\left[\frac{X}{n} - z_{\alpha/2}\sqrt{\frac{(X/n)(1 - X/n)}{n}}, \frac{X}{n} + z_{\alpha/2}\sqrt{\frac{(X/n)(1 - X/n)}{n}}\right]$$
 est un intervalle de confiance approché de niveau $1 - \alpha$ pour $p$.
+
 :::
 
 # Intervalle de confiance au seuil 90%
 
 ::: {.example title="(Seuil 90%)"}
+
 Pour un seuil de $90\%$, on a $z_{\alpha/2} = 1.64$. Donc l'intervalle de confiance pour une moyenne est :
 $$\left[\overline{X}_n - \frac{1.64 \sigma}{\sqrt{n}}, \overline{X}_n + \frac{1.64 \sigma}{\sqrt{n}}\right]$$
+
 :::
 
 # Intervalle de confiance au seuil 95%
 
 ::: {.example title="(Seuil 95%)"}
+
 Pour un seuil de $95\%$, on a $z_{\alpha/2} = 1.96$. Donc l'intervalle de confiance pour une moyenne est :
 $$\left[\overline{X}_n - \frac{1.96 \sigma}{\sqrt{n}}, \overline{X}_n + \frac{1.96 \sigma}{\sqrt{n}}\right]$$
+
 :::
 
 # Exercices
 
 ::: {.exercise}
+
 Soit $(X_1, \ldots, X_n)$ un échantillon de $n$ variables aléatoires indépendantes de même loi d'espérance $\mu$ et de variance $\sigma^2 = 4$ connue. On observe $\overline{X}_n = 10$ pour $n = 100$.
 
 1. Déterminer un intervalle de confiance de niveau $90\%$ pour $\mu$.
 2. Déterminer un intervalle de confiance de niveau $95\%$ pour $\mu$.
+
 :::
 
 ::: {.exercise}
+
 Soit $X \hookrightarrow \mathcal{B}(100, p)$. On observe $X = 45$.
 
 1. Déterminer un estimateur de $p$.
 2. Déterminer un intervalle de confiance de niveau $95\%$ pour $p$.
+
 :::
 
 ::: {.exercise}
+
 Soit $(X_1, \ldots, X_n)$ un échantillon de $n$ variables aléatoires indépendantes de même loi d'espérance $\mu$ et de variance $\sigma^2 = 9$ connue. On observe $\overline{X}_n = 15$ pour $n = 100$.
 
 1. Déterminer un intervalle de confiance de niveau $90\%$ pour $\mu$.
 2. Déterminer un intervalle de confiance de niveau $95\%$ pour $\mu$.
+
 :::
 
 ::: {.exercise}
+
 Soit $X \hookrightarrow \mathcal{B}(100, p)$. On observe $X = 60$.
 
 1. Déterminer un estimateur de $p$.
 2. Déterminer un intervalle de confiance de niveau $95\%$ pour $p$.
+
 :::
 
 ::: {.exercise}
+
 Soit $(X_1, \ldots, X_n)$ un échantillon de $n$ variables aléatoires indépendantes de même loi d'espérance $\mu$ et de variance $\sigma^2 = 16$ connue. On observe $\overline{X}_n = 20$ pour $n = 100$.
 
 1. Déterminer un intervalle de confiance de niveau $90\%$ pour $\mu$.
 2. Déterminer un intervalle de confiance de niveau $95\%$ pour $\mu$.
+
 :::
 
 ::: {.exercise}
+
 Soit $X \hookrightarrow \mathcal{B}(100, p)$. On observe $X = 30$.
 
 1. Déterminer un estimateur de $p$.
 2. Déterminer un intervalle de confiance de niveau $95\%$ pour $p$.
+
 :::
 
 ::: {.exercise}
+
 Soit $(X_1, \ldots, X_n)$ un échantillon de $n$ variables aléatoires indépendantes de même loi d'espérance $\mu$ et de variance $\sigma^2 = 25$ connue. On observe $\overline{X}_n = 25$ pour $n = 100$.
 
 1. Déterminer un intervalle de confiance de niveau $90\%$ pour $\mu$.
 2. Déterminer un intervalle de confiance de niveau $95\%$ pour $\mu$.
+
 :::
 
 ::: {.exercise}
+
 Soit $X \hookrightarrow \mathcal{B}(100, p)$. On observe $X = 50$.
 
 1. Déterminer un estimateur de $p$.
 2. Déterminer un intervalle de confiance de niveau $95\%$ pour $p$.
+
 :::
 
 # Document en PDF {-}
 [**Chapitre 11 : Estimation**](PDF/ect2-chap11.pdf)
 
 ## Navigation {-}
+
 ::: {.chap-nav}
+
 [Chapitre 10 : Convergences et approximations](ect2-chap10.qmd){.prev}
 [Menu ECT2](ect2.qmd){.home}
+
 :::

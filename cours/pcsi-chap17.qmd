@@ -45,82 +45,106 @@ Cette question a été étudiée depuis l'Antiquité (paradoxe de Zénon) et la 
 ## Définitions fondamentales
 
 ::: {.definition title="(Série associée à une suite)"}
+
 Soit $(u_k)_{k \geq 0}$ une suite de nombres complexes. On appelle **série de terme général** $u_k$, notée $\sum u_k$ ou $\sum_{k \geq 0} u_k$, la suite $(S_n)_{n \geq 0}$ définie par :
 $$S_n = \sum_{k=0}^n u_k$$
 Les $S_n$ sont appelés les **sommes partielles** de la série.
+
 :::
 
 ::: {.definition title="(Convergence et divergence)"}
+
 On dit que la série $\sum u_k$ **converge** si la suite $(S_n)_{n \geq 0}$ des sommes partielles converge vers une limite finie $S \in \mathbb{C}$. On note alors :
 $$S = \sum_{k=0}^{+\infty} u_k$$
 et $S$ est appelée la **somme** de la série.
 
 Si la suite $(S_n)$ diverge, on dit que la série $\sum u_k$ **diverge**.
+
 :::
 
 ::: {.definition title="(Reste d'une série convergente)"}
+
 Si la série $\sum u_k$ converge vers $S$, on appelle **reste d'ordre $n$** :
 $$R_n = S - S_n = \sum_{k=n+1}^{+\infty} u_k$$
 On a $R_n \xrightarrow[n \to +\infty]{} 0$.
+
 :::
 
 ## Divergence grossière
 
 ::: {.proposition title="(Condition nécessaire de convergence)"}
+
 Si la série $\sum u_k$ converge, alors :
 $$\lim_{k \to +\infty} u_k = 0$$
+
 :::
 
 ::: {.proof}
+
 On a $u_k = S_k - S_{k-1}$. Si $S_k \to S$ et $S_{k-1} \to S$, alors $u_k \to S - S = 0$.
+
 :::
 
 ::: {.remark title="(Divergence grossière)"}
+
 La contraposée de ce résultat est souvent utilisée :
 
 **Une série dont le terme général ne tend pas vers $0$ ne peut pas converger.**
 
 Par exemple les séries $\sum_{k \geq 1} \left(1 + \frac{1}{k}\right)$ et $\sum_{k \geq 1} k^2$ sont divergentes.
+
 :::
 
 ::: {.example}
+
 La série $\sum u_k$ de terme général :
 $$u_k = \begin{cases} 1 & \text{si } k = 2^\ell \text{ pour un certain } \ell \geq 0 \\ 0 & \text{sinon} \end{cases}$$
 diverge. En effet, même si les termes valant $1$ sont très rares, il y en a quand même une infinité !
+
 :::
 
 ## Linéarité
 
 ::: {.proposition title="(Linéarité)"}
+
 Si les séries $\sum a_k$ et $\sum b_k$ convergent, alors pour tous $\lambda, \mu \in \mathbb{C}$, la série $\sum (\lambda a_k + \mu b_k)$ converge et :
 $$\sum_{k=0}^{+\infty} (\lambda a_k + \mu b_k) = \lambda \sum_{k=0}^{+\infty} a_k + \mu \sum_{k=0}^{+\infty} b_k$$
+
 :::
 
 ::: {.example}
+
 $$\sum_{k=0}^{+\infty} \left(\frac{1}{2^k} + \frac{5}{3^k}\right) = \sum_{k=0}^{+\infty} \frac{1}{2^k} + 5\sum_{k=0}^{+\infty} \frac{1}{3^k} = \frac{1}{1-\frac{1}{2}} + 5 \cdot \frac{1}{1-\frac{1}{3}} = 2 + 5 \cdot \frac{3}{2} = \frac{19}{2}$$
+
 :::
 
 ::: {.proposition title="(Cas des suites complexes)"}
+
 Soit $(u_k)_{k \geq 0}$ une suite de nombres complexes. Pour tout $k$, notons $a_k = \mathrm{Re}(u_k)$ et $b_k = \mathrm{Im}(u_k)$. Alors :
 $$\sum u_k \text{ converge} \iff \sum a_k \text{ et } \sum b_k \text{ convergent}$$
 Et dans ce cas :
 $$\sum_{k=0}^{+\infty} u_k = \sum_{k=0}^{+\infty} a_k + i \sum_{k=0}^{+\infty} b_k$$
+
 :::
 
 # Séries géométriques
 
 ::: {.proposition title="(Série géométrique)"}
+
 Soit $q \in \mathbb{C}$. La série géométrique $\sum_{k \geq 0} q^k$ est convergente si et seulement si $|q| < 1$. On a alors :
 $$\boxed{\sum_{k=0}^{+\infty} q^k = 1 + q + q^2 + q^3 + \cdots = \frac{1}{1-q}}$$
+
 :::
 
 ::: {.proof}
+
 Considérons $S_n = 1 + q + q^2 + \cdots + q^n$.
 
 - Si $q = 1$ : $S_n = n + 1 \to +\infty$, la série diverge.
 - Si $q \neq 1$ : $S_n = \frac{1 - q^{n+1}}{1 - q}$.
   - Si $|q| < 1$ : $q^{n+1} \to 0$, donc $S_n \to \frac{1}{1-q}$.
   - Si $|q| \geq 1$ : $q^{n+1}$ ne tend pas vers $0$, donc la série diverge.
+
 :::
 
 ::: {.example}
@@ -130,10 +154,13 @@ Considérons $S_n = 1 + q + q^2 + \cdots + q^n$.
 2. $\sum_{n=0}^{+\infty} \frac{1}{3^{n+3}} = \sum_{n=0}^{+\infty} \frac{1}{3^3} \cdot \frac{1}{3^n} = \frac{1}{27} \cdot \frac{1}{1 - \frac{1}{3}} = \frac{1}{27} \cdot \frac{3}{2} = \frac{1}{18}$
 
 3. $\sum_{k=0}^{+\infty} (-1)^k \left(\frac{1}{2}\right)^{2k} = \sum_{k=0}^{+\infty} \left(-\frac{1}{4}\right)^k = \frac{1}{1 - (-\frac{1}{4})} = \frac{4}{5}$
+
 :::
 
 ::: {.remark title="(Séries convergentes)"}
+
 La convergence d'une série ne dépend pas de ses premiers termes : changer un nombre fini de termes d'une série ne change pas sa nature, convergente ou divergente.
+
 :::
 
 # Séries à termes positifs
@@ -149,9 +176,11 @@ Appliquons ceci aux séries $\sum u_k$ à **termes positifs**, c'est-à-dire $u_
 $$S_n - S_{n-1} = u_n \geq 0$$
 
 ::: {.proposition}
+
 Une série à termes positifs est une série convergente si et seulement si la suite des sommes partielles est majorée.
 
 Autrement dit, si et seulement s'il existe $M > 0$ tel que, pour tout $n \geq 0$, $S_n \leq M$.
+
 :::
 
 De plus, dans le cas de convergence, la somme de la série $S$ vérifie bien sûr $\lim S_n = S$, mais aussi $S_n \leq S$, pour tout $n$.
@@ -161,62 +190,80 @@ Les deux situations convergence/divergence sont possibles : $\sum_{k \geq 0} q^k
 ## Théorème de comparaison
 
 ::: {.theorem title="(Théorème de comparaison)"}
+
 Soient $\sum u_k$ et $\sum v_k$ deux séries à termes positifs ou nuls. On suppose qu'il existe $k_0 \geq 0$ tel que, pour tout $k \geq k_0$, $u_k \leq v_k$.
 
 - Si $\sum v_k$ converge alors $\sum u_k$ converge.
 - Si $\sum u_k$ diverge alors $\sum v_k$ diverge.
+
 :::
 
 ::: {.proof}
+
 Comme nous l'avons observé, la convergence ne dépend pas des premiers termes. Sans perte de généralité on peut donc supposer $k_0 = 0$. Notons $S_n = u_0 + \cdots + u_n$ et $S'_n = v_0 + \cdots + v_n$. Les suites $(S_n)$ et $(S'_n)$ sont croissantes, et de plus, pour tout $n \geq 0$, $S_n \leq S'_n$. Si la série $\sum v_k$ converge, alors la suite $(S'_n)$ converge. Soit $S'$ sa limite. La suite $(S_n)$ est croissante et majorée par $S'$, donc elle converge, et ainsi la série $\sum u_k$ converge aussi. Inversement, si la série $\sum u_k$ diverge, alors $(S_n) \to +\infty$, et comme $S'_n \geq S_n$, $(S'_n) \to +\infty$, donc $\sum v_k$ diverge.
+
 :::
 
 ::: {.example}
+
 La série $\sum_{k \geq 1} \frac{1}{k^2 + 1}$ converge car $\frac{1}{k^2 + 1} \leq \frac{1}{k^2}$ et $\sum \frac{1}{k^2}$ converge (série de Riemann avec $\alpha = 2 > 1$).
+
 :::
 
 ## Comparaison logarithmique et règle de d'Alembert
 
 ::: {.theorem title="(Règle de d'Alembert)"}
+
 Soit $\sum u_k$ une série à termes strictement positifs, telle que $\frac{u_{k+1}}{u_k}$ converge vers $\ell$.
 
 1. Si $\ell < 1$ alors $\sum u_k$ converge.
 2. Si $\ell > 1$ alors $\sum u_k$ diverge.
 3. Si $\ell = 1$ on ne peut pas conclure.
+
 :::
 
 ::: {.proof}
+
 - Si $\ell < 1$ : choisissons $q$ tel que $\ell < q < 1$. À partir d'un certain rang, $\frac{u_{k+1}}{u_k} \leq q$, donc $u_{k+1} \leq q u_k$. Par récurrence, $u_k \leq C q^k$ pour une constante $C$. Comme $\sum q^k$ converge (car $0 < q < 1$), par comparaison, $\sum u_k$ converge.
 
 - Si $\ell > 1$ : à partir d'un certain rang, $\frac{u_{k+1}}{u_k} \geq 1$, donc $u_{k+1} \geq u_k$. La suite $(u_k)$ est croissante à partir d'un certain rang et ne tend pas vers $0$, donc la série diverge.
+
 :::
 
 ::: {.example}
+
 La série $\sum_{k \geq 1} \frac{k^{100}}{k!}$ converge car :
 $$\frac{u_{k+1}}{u_k} = \frac{(k+1)^{100}}{(k+1)!} \cdot \frac{k!}{k^{100}} = \frac{(k+1)^{100}}{(k+1) k^{100}} = \left(\frac{k+1}{k}\right)^{100} \cdot \frac{1}{k+1} \to 0 < 1$$
+
 :::
 
 ## Comparaison série-intégrale
 
 ::: {.theorem title="(Comparaison série-intégrale)"}
+
 Soit $f : [0, +\infty[ \to \mathbb{R}^+$ une fonction continue, positive et décroissante. Alors :
 $$\int_0^{n+1} f(t)\, dt \leq \sum_{k=0}^n f(k) \leq f(0) + \int_0^n f(t)\, dt$$
 
 En particulier, la série $\sum f(k)$ et l'intégrale $\int_0^{+\infty} f(t)\, dt$ sont de même nature.
+
 :::
 
 ## Séries de Riemann
 
 ::: {.proposition title="(Séries de Riemann)"}
+
 La série $\sum_{k \geq 1} \frac{1}{k^\alpha}$ converge si et seulement si $\alpha > 1$.
+
 :::
 
 ::: {.proof}
+
 - Si $\alpha \leq 0$ : $\frac{1}{k^\alpha} \not\to 0$, donc la série diverge (divergence grossière).
 - Si $0 < \alpha \leq 1$ : $\frac{1}{k^\alpha} \geq \frac{1}{k}$, et $\sum \frac{1}{k}$ diverge, donc par comparaison, $\sum \frac{1}{k^\alpha}$ diverge.
 - Si $\alpha > 1$ : par comparaison série-intégrale avec $f(x) = \frac{1}{x^\alpha}$, on a :
 $$\int_1^{+\infty} \frac{dx}{x^\alpha} = \left[\frac{x^{1-\alpha}}{1-\alpha}\right]_1^{+\infty} = \frac{1}{\alpha - 1} < +\infty$$
 Donc la série converge.
+
 :::
 
 ::: {.example}
@@ -224,12 +271,15 @@ Donc la série converge.
 1. $\sum_{k \geq 1} \frac{1}{k^2}$ converge (car $\alpha = 2 > 1$).
 2. $\sum_{k \geq 1} \frac{1}{k}$ diverge (série harmonique, $\alpha = 1$).
 3. $\sum_{k \geq 1} \frac{1}{\sqrt{k}}$ diverge (car $\alpha = \frac{1}{2} < 1$).
+
 :::
 
 ::: {.example title="(Utilisation des équivalents)"}
+
 La série $\sum_{k \geq 1} \ln\left(1 + \frac{1}{\sqrt{k^3}}\right)$ est-elle convergente ?
 
 Comme $\ln\left(1 + \frac{1}{\sqrt{k^3}}\right) \sim \frac{1}{\sqrt{k^3}} = \frac{1}{k^{3/2}}$ et que la série de Riemann $\sum \frac{1}{k^{3/2}}$ converge (car $\frac{3}{2} > 1$), alors par le théorème des équivalents la série converge.
+
 :::
 
 # Séries à termes quelconques
@@ -237,10 +287,13 @@ Comme $\ln\left(1 + \frac{1}{\sqrt{k^3}}\right) \sim \frac{1}{\sqrt{k^3}} = \fra
 ## Séries alternées — Critère de Leibniz
 
 ::: {.definition title="(Série alternée)"}
+
 Soit $(u_k)_{k \geq 0}$ une suite qui vérifie $u_k \geq 0$. La série $\sum_{k \geq 0} (-1)^k u_k$ s'appelle une **série alternée**.
+
 :::
 
 ::: {.theorem title="(Critère de Leibniz)"}
+
 Supposons que $(u_k)_{k \geq 0}$ soit une suite qui vérifie :
 
 1. $u_k \geq 0$ pour tout $k \geq 0$,
@@ -248,16 +301,20 @@ Supposons que $(u_k)_{k \geq 0}$ soit une suite qui vérifie :
 3. et $\lim_{k \to +\infty} u_k = 0$.
 
 Alors la série alternée $\sum_{k=0}^{+\infty} (-1)^k u_k$ converge.
+
 :::
 
 ::: {.corollary title="(Encadrement de la somme et majoration du reste)"}
+
 Si la série alternée $\sum_{k=0}^{+\infty} (-1)^k u_k$ converge vers $S$ (avec les hypothèses du critère de Leibniz), alors :
 
 1. $S$ est comprise entre deux sommes partielles consécutives : $S_{2n} \leq S \leq S_{2n+1}$.
 2. Le reste vérifie : $|R_n| = |S - S_n| \leq u_{n+1}$.
+
 :::
 
 ::: {.example title="(Série harmonique alternée)"}
+
 La série $\sum_{k=0}^{+\infty} \frac{(-1)^k}{k+1} = 1 - \frac{1}{2} + \frac{1}{3} - \frac{1}{4} + \cdots$ converge par le critère de Leibniz car :
 
 - $u_k = \frac{1}{k+1} \geq 0$
@@ -265,24 +322,31 @@ La série $\sum_{k=0}^{+\infty} \frac{(-1)^k}{k+1} = 1 - \frac{1}{2} + \frac{1}{
 - $u_k \to 0$
 
 On admet que sa somme est $\ln 2$.
+
 :::
 
 ## Séries absolument convergentes
 
 ::: {.definition title="(Convergence absolue)"}
+
 On dit qu'une série $\sum_{k \geq 0} u_k$ de nombres réels (ou complexes) est **absolument convergente** si la série $\sum_{k \geq 0} |u_k|$ est convergente.
+
 :::
 
 ::: {.theorem}
+
 Toute série absolument convergente est convergente.
+
 :::
 
 ::: {.proof}
+
 Utilisons le critère de Cauchy. Soit $\sum u_k$ une série absolument convergente. La série $\sum |u_k|$ est convergente, donc la suite des restes $(R'_n)$ avec $R'_n = \sum_{k=n+1}^{+\infty} |u_k|$ est une suite qui tend vers $0$, donc en particulier c'est une suite de Cauchy. Pour tout $\varepsilon > 0$, il existe $N$ tel que pour tous $n > m \geq N$ :
 $$\sum_{k=m+1}^n |u_k| < \varepsilon$$
 Par l'inégalité triangulaire :
 $$\left|\sum_{k=m+1}^n u_k\right| \leq \sum_{k=m+1}^n |u_k| < \varepsilon$$
 Donc $(S_n)$ est une suite de Cauchy, donc converge.
+
 :::
 
 ::: {.example}
@@ -290,111 +354,151 @@ Donc $(S_n)$ est une suite de Cauchy, donc converge.
 1. La série $\sum_{k \geq 1} \frac{\cos k}{k^2}$ est absolument convergente. Car pour $u_k = \frac{\cos k}{k^2}$ on a $|u_k| \leq \frac{1}{k^2}$. Comme la série $\sum_{k \geq 1} \frac{1}{k^2}$ converge alors $\sum_{k \geq 1} |u_k|$ converge aussi.
 
 2. La série harmonique alternée $\sum_{k=0}^{+\infty} \frac{(-1)^k}{k+1}$ n'est pas absolument convergente. Car pour $v_k = \frac{(-1)^k}{k+1}$, la série $\sum_{k \geq 0} |v_k| = \sum_{k \geq 0} \frac{1}{k+1}$ diverge.
+
 :::
 
 ::: {.definition title="(Série semi-convergente)"}
+
 Une série, telle que la série harmonique alternée, qui est convergente, mais pas absolument convergente, s'appelle une série **semi-convergente**.
+
 :::
 
 ## Suites sommables
 
 ::: {.definition title="(Suite sommable)"}
+
 Une suite $(u_n)_{n \geq 0}$ est dite **sommable** si la série $\sum |u_n|$ converge. On note alors :
 $$\sum_{n=0}^{+\infty} u_n = \lim_{N \to +\infty} \sum_{n=0}^N u_n$$
+
 :::
 
 ::: {.remark}
+
 La notion de suite sommable est équivalente à celle de convergence absolue d'une série.
+
 :::
 
 # Permutation des termes
 
 ::: {.theorem title="(Permutation des termes)"}
+
 Soit $\sum_{k=0}^{+\infty} u_k$ une série absolument convergente et soit $S$ sa somme. Soit $\sigma : \mathbb{N} \to \mathbb{N}$ une bijection de l'ensemble des indices. Alors la série $\sum_{k=0}^{+\infty} u_{\sigma(k)}$ converge et :
 $$\sum_{k=0}^{+\infty} u_{\sigma(k)} = S$$
+
 :::
 
 ::: {.remark}
+
 La condition de convergence absolue est indispensable. Il se trouve que, pour une série convergente, mais pas absolument convergente, on peut permuter les termes pour obtenir n'importe quelle valeur !
+
 :::
 
 # Produit de Cauchy
 
 ::: {.definition title="(Produit de Cauchy)"}
+
 Soient $\sum_{i=0}^{+\infty} a_i$ et $\sum_{j=0}^{+\infty} b_j$ deux séries. Le **produit de Cauchy** de ces deux séries est la série $\sum_{k=0}^{+\infty} c_k$ où :
 $$c_k = \sum_{i=0}^k a_i b_{k-i} = \sum_{i+j=k} a_i b_j$$
+
 :::
 
 ::: {.theorem title="(Produit de Cauchy de deux séries absolument convergentes)"}
+
 Si les séries $\sum_{i=0}^{+\infty} a_i$ et $\sum_{j=0}^{+\infty} b_j$ de nombres réels (ou complexes) sont absolument convergentes, alors la série produit $\sum_{k=0}^{+\infty} c_k$ est absolument convergente et l'on a :
 $$\sum_{k=0}^{+\infty} c_k = \left(\sum_{i=0}^{+\infty} a_i\right) \times \left(\sum_{j=0}^{+\infty} b_j\right)$$
+
 :::
 
 ::: {.example}
+
 Soit $\sum_{i=0}^{+\infty} a_i$ une série absolument convergente et soit $\sum_{j=0}^{+\infty} b_j$ la série définie par $b_j = \frac{1}{2^j}$. La série $\sum b_j$ est absolument convergente. Notons :
 $$c_k = \sum_{i=0}^k a_i b_{k-i} = \sum_{i=0}^k a_i \times \frac{1}{2^{k-i}}$$
 Alors la série $\sum c_k$ converge absolument et :
 $$\sum_{k=0}^{+\infty} c_k = \left(\sum_{i=0}^{+\infty} a_i\right) \times \left(\sum_{j=0}^{+\infty} b_j\right) = 2 \sum_{i=0}^{+\infty} a_i$$
+
 :::
 
 ::: {.remark title="(Contre-exemple)"}
+
 Si les séries $\sum a_i$ et $\sum b_j$ ne sont pas absolument convergentes, mais seulement convergentes, alors la série de Cauchy peut être divergente.
 
 Soient $a_i = b_i = \frac{(-1)^i}{\sqrt{i+1}}, i \geq 0$. Alors $\sum a_i$ et $\sum b_j$ sont convergentes par le critère de Leibniz, mais ne sont pas absolument convergentes. On a :
 $$c_k = \sum_{i=0}^k a_i b_{k-i} = \sum_{i=0}^k \frac{(-1)^i}{\sqrt{i+1}} \cdot \frac{(-1)^{k-i}}{\sqrt{k-i+1}} = (-1)^k \sum_{i=0}^k \frac{1}{\sqrt{(i+1)(k-i+1)}}$$
 Cette série peut diverger.
+
 :::
 
 # Exercices
 
 ::: {.exercise}
+
 Calculer les sommes partielles $S_n$ de la série dont le terme général est $\frac{1}{4^k}$, commençant à $k=1$. Cette série est-elle convergente ? Si c'est possible, calculer la somme $S$ et les restes $R_n$.
+
 :::
 
 ::: {.exercise}
+
 Mêmes questions avec $\sum_{k \geq 0} (-1)^k$, $\sum_{k \geq 0} 3^k$, $\sum_{k \geq 1} \frac{1}{10^k}$, $\sum_{k \geq 2} \exp(-k)$.
+
 :::
 
 ::: {.exercise}
+
 Pourquoi les séries suivantes sont-elles divergentes ?
 
 $$\sum_{k \geq 1} \left(\frac{1}{k} + (-1)^k\right) \; ; \quad \sum_{k \geq 0} \frac{k}{k+1} \; ; \quad \sum_{k \geq 1} \frac{1}{2k} \; ; \quad \sum_{k \geq 1} k \cos(k) \; ; \quad \sum_{k \geq 1} \exp\left(\frac{1}{k}\right)$$
+
 :::
 
 ::: {.exercise}
+
 Calculer les sommes partielles de la série $\sum_{k \geq 1} \ln\left(1 - \frac{1}{k+1}\right)$. Cette série est-elle convergente ?
+
 :::
 
 ::: {.exercise}
+
 Montrer que $\sum_{k=0}^{+\infty} k^2 q^k = \frac{q^2 + q}{(1-q)^3}$ pour $|q| < 1$.
+
 :::
 
 ::: {.exercise}
+
 Est-ce que les séries suivantes sont convergentes ? Absolument convergentes ?
 
 $$\sum_{k \geq 2} \frac{(-1)^{k^3} e^{ik}}{k^2+k} \qquad \sum_{k \geq 1} \frac{(-1)^k}{\sqrt{k(k+1)}} \qquad \sum_{k \geq 1} \frac{\sqrt{k}}{(-1)^k \ln k}$$
+
 :::
 
 ::: {.exercise}
+
 Étudier les séries dont voici le terme général, par la règle du quotient de d'Alembert ou des racines de Cauchy :
 
 $$\frac{k^{100}}{k!} \qquad \frac{k!}{(2k)!} \qquad \frac{2 \cdot 4 \cdot 6 \cdots (2k)}{3 \cdot 5 \cdot 7 \cdots (2k+1)}$$
+
 :::
 
 ::: {.exercise}
+
 Justifier que la série $\sum_{k=2}^{+\infty} \frac{1}{k^2-1}$ est convergente. Décomposer $\frac{1}{k^2-1}$ en éléments simples. En déduire la somme de la série.
+
 :::
 
 ::: {.exercise}
+
 Écrire la série associée au développement décimal $0,99999\ldots$ Notons $S$ la somme de cette série. Calculer la série correspondant à $10 \cdot S$. Simplifier $10 \cdot S - S$. En déduire $S$. Retrouver cette valeur $S$ à l'aide d'une série géométrique.
+
 :::
 
 # Document en PDF {-}
 [Chapitre 17 : Séries numériques](PDF/pcsi-chap17.pdf)
 
 ## Navigation {-}
+
 ::: {.chap-nav}
+
 [Chapitre 16 : Intégration des fonctions continues sur un segment](pcsi-chap16.qmd){.prev}
 [Menu PCSI](pcsi.qmd){.home}
 [Chapitre 18 : Courbes planes](pcsi-chap18.qmd){.next}
+
 :::

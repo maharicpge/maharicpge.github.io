@@ -19,47 +19,57 @@ filters:
 **MPSI (1re année) — TD du Chapitre 12.** Structure d'espace vectoriel, sous-espaces vectoriels, sommes directes, familles libres et génératrices, bases, applications linéaires, noyau, image, isomorphismes, projecteurs et symétries.
 
 ::: {.exercise}
+
 Montrer que les ensembles suivants sont des $\mathbb{R}$-espaces vectoriels :
 
 1. L'ensemble des suites réelles $(u_n)_{n \in \mathbb{N}}$.
 2. L'ensemble $\mathcal{F}(\mathbb{R}, \mathbb{R})$ des fonctions de $\mathbb{R}$ dans $\mathbb{R}$.
 3. L'ensemble des fonctions paires (resp. impaires) de $\mathbb{R}$ dans $\mathbb{R}$.
 4. L'ensemble des solutions de l'équation différentielle $y'' + y = 0$.
+
 :::
 
 ::: {.exercise}
+
 Parmi les ensembles suivants, lesquels sont des sous-espaces vectoriels de $\mathbb{R}^3$ ?
 
 1. $F_1 = \{(x, y, z) \mid x + y + z = 0\}$
 2. $F_2 = \{(x, y, z) \mid x + y + z = 1\}$
 3. $F_3 = \{(x, y, z) \mid x^2 + y^2 = z^2\}$
 4. $F_4 = \{(x, y, z) \mid x = 2y = 3z\}$
+
 :::
 
 **Indication :** Vérifier : $0 \in F$, stabilité par addition et par multiplication scalaire. $F_2$ ne contient pas $0$ ; $F_3$ n'est pas stable par addition.
 
 ::: {.exercise}
+
 Soient $F = \mathrm{Vect}((1, 2, 3), (2, 4, 6))$ et $G = \mathrm{Vect}((1, 0, -1), (0, 1, 1))$ dans $\mathbb{R}^3$.
 
 1. Déterminer $\dim F$ et $\dim G$.
 2. Déterminer $F \cap G$ et $F + G$.
 3. La somme $F + G$ est-elle directe ?
+
 :::
 
 ::: {.exercise}
+
 Dans $\mathbb{R}^4$, on considère $F = \{(x_1, x_2, x_3, x_4) \mid x_1 + x_2 = x_3 + x_4\}$ et $G = \{(x_1, x_2, x_3, x_4) \mid x_1 - x_2 = x_3 - x_4\}$.
 
 1. Déterminer une base de $F$ et une base de $G$.
 2. Déterminer $F \cap G$ et $F + G$.
 3. $\mathbb{R}^4 = F \oplus G$ ?
+
 :::
 
 ::: {.exercise}
+
 Les familles suivantes sont-elles libres ? Sont-elles génératrices ?
 
 1. Dans $\mathbb{R}^3$ : $((1, 1, 0), (0, 1, 1), (1, 0, 1))$.
 2. Dans $\mathbb{R}^3$ : $((1, 2, 3), (4, 5, 6), (7, 8, 9))$.
 3. Dans $\mathbb{R}_2[X]$ : $(1, X, X^2, X^3)$.
+
 :::
 
 **Indications :**
@@ -67,19 +77,23 @@ Les familles suivantes sont-elles libres ? Sont-elles génératrices ?
 - (2) $L_3 = 2L_2 - L_1$, famille liée.
 
 ::: {.exercise}
+
 Soient $f : E \to F$ une application linéaire et $A \subset E$.
 
 1. Montrer que $f(A)$ est un sous-espace vectoriel de $F$ si $A$ est un sev de $E$.
 2. Montrer que $f^{-1}(B)$ est un sev de $E$ si $B$ est un sev de $F$.
 3. Montrer que $f(\mathrm{Vect}(A)) = \mathrm{Vect}(f(A))$.
+
 :::
 
 ::: {.exercise}
+
 Soit $f : \mathbb{R}^3 \to \mathbb{R}^3$ définie par $f(x, y, z) = (x + y, y + z, z + x)$.
 
 1. Montrer que $f$ est linéaire.
 2. Déterminer $\ker f$ et $\mathrm{Im}\, f$.
 3. $f$ est-elle injective ? Surjective ? Bijective ?
+
 :::
 
 **Indications :**
@@ -87,11 +101,13 @@ Soit $f : \mathbb{R}^3 \to \mathbb{R}^3$ définie par $f(x, y, z) = (x + y, y + 
 - En dimension finie, injective $\Rightarrow$ bijective (même dimension).
 
 ::: {.exercise}
+
 Soit $D : \mathbb{R}_n[X] \to \mathbb{R}_{n-1}[X]$ définie par $D(P) = P'$ (dérivation).
 
 1. Montrer que $D$ est linéaire.
 2. Déterminer $\ker D$ et $\mathrm{Im}\, D$.
 3. Vérifier le théorème du rang.
+
 :::
 
 **Indications :**
@@ -100,19 +116,23 @@ Soit $D : \mathbb{R}_n[X] \to \mathbb{R}_{n-1}[X]$ définie par $D(P) = P'$ (dé
 - (3) $\dim \mathbb{R}_n[X] = n + 1 = 1 + n = \dim \ker D + \dim \mathrm{Im}\, D$. ✓
 
 ::: {.exercise}
+
 Soient $p, q \in \mathcal{L}(E)$ tels que $p^2 = p$, $q^2 = q$ et $p + q = \mathrm{Id}_E$.
 
 1. Montrer que $p \circ q = q \circ p = 0$.
 2. Montrer que $E = \mathrm{Im}(p) \oplus \mathrm{Im}(q)$.
+
 :::
 
 **Indication :** $(p+q)^2 = p^2 + pq + qp + q^2 = p + pq + qp + q = \mathrm{Id}_E = p + q$, donc $pq + qp = 0$. Multiplier à gauche par $p$ : $p^2 q + pqp = 0 \Rightarrow pq + pqp = 0$, etc.
 
 ::: {.exercise}
+
 Soit $s \in \mathcal{L}(E)$ tel que $s^2 = \mathrm{Id}_E$ (symétrie).
 
 1. Montrer que $p = \frac{1}{2}(s + \mathrm{Id}_E)$ est un projecteur.
 2. En déduire que $E = \ker(s - \mathrm{Id}_E) \oplus \ker(s + \mathrm{Id}_E)$.
+
 :::
 
 **Indication :** $p^2 = \frac{1}{4}(s^2 + 2s + \mathrm{Id}_E) = \frac{1}{4}(\mathrm{Id}_E + 2s + \mathrm{Id}_E) = \frac{1}{2}(s + \mathrm{Id}_E) = p$.
@@ -121,8 +141,11 @@ Soit $s \in \mathcal{L}(E)$ tel que $s^2 = \mathrm{Id}_E$ (symétrie).
 [**Chapitre 12 : Espaces vectoriels et applications linéaires**](mpsi-chap12.qmd)
 
 # Navigation {-}
+
 ::: {.chap-nav}
+
 [Chapitre 11 : Fractions rationnelles](mpsi-chap11.qmd){.prev}
 [Menu MPSI](mpsi.qmd){.home}
 [Chapitre 13 : Dimension finie](mpsi-chap13.qmd){.next}
+
 :::

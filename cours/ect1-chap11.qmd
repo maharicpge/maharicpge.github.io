@@ -34,11 +34,15 @@ Ce chapitre a été réalisé conformément au programme marocain de mathématiq
 ## Définition
 
 ::: {.definition title="(Primitive)"}
+
 Une **primitive** d'une fonction $f : I \to \mathbb{R}$ est une fonction $F : I \to \mathbb{R}$ dérivable telle que $F' = f$ sur $I$.
+
 :::
 
 ::: {.proposition title="(Unicité à constante près)"}
+
 Si $F$ est une primitive de $f$ sur $I$, alors toutes les primitives de $f$ sont de la forme $F + C$ avec $C \in \mathbb{R}$.
+
 :::
 
 ::: {.proposition title="(Primitives usuelles)"}
@@ -51,13 +55,16 @@ Si $F$ est une primitive de $f$ sur $I$, alors toutes les primitives de $f$ sont
 | $\cos x$ | $\sin x$ |
 | $\sin x$ | $-\cos x$ |
 | $\frac{1}{1+x^2}$ | $\arctan x$ |
+
 :::
 
 ::: {.proposition title="(Opérations)"}
+
 Si $F$ est une primitive de $f$ et $G$ une primitive de $g$, alors :
 
 1. $F + G$ est une primitive de $f + g$.
 2. $\lambda F$ est une primitive de $\lambda f$.
+
 :::
 
 # Intégrale définie
@@ -65,13 +72,17 @@ Si $F$ est une primitive de $f$ et $G$ une primitive de $g$, alors :
 ## Définition
 
 ::: {.definition title="(Intégrale)"}
+
 Soit $f : [a,b] \to \mathbb{R}$ continue. L'**intégrale** de $f$ sur $[a,b]$ est :
 $$\int_a^b f(t)\, dt = F(b) - F(a)$$
 où $F$ est une primitive de $f$ sur $[a,b]$.
+
 :::
 
 ::: {.remarque}
+
 La valeur de $\int_a^b f(t)\, dt$ ne dépend pas du choix de la primitive $F$.
+
 :::
 
 ## Propriétés
@@ -83,72 +94,95 @@ La valeur de $\int_a^b f(t)\, dt$ ne dépend pas du choix de la primitive $F$.
 3. **Positivité** : si $f \geq 0$ sur $[a,b]$, alors $\int_a^b f \geq 0$
 4. **Croissance** : si $f \leq g$ sur $[a,b]$, alors $\int_a^b f \leq \int_a^b g$
 5. **Inégalité triangulaire** : $\left|\int_a^b f\right| \leq \int_a^b |f|$
+
 :::
 
 # Aire sous la courbe
 
 ::: {.proposition title="(Interprétation géométrique)"}
+
 Si $f \geq 0$ sur $[a,b]$, alors $\int_a^b f(t)\, dt$ est l'aire du domaine délimité par la courbe de $f$, l'axe des abscisses et les droites $x = a$ et $x = b$.
+
 :::
 
 # Intégration par parties
 
 ::: {.theorem title="(Intégration par parties)"}
+
 Soient $u$ et $v$ deux fonctions de classe $\mathcal{C}^1$ sur $[a,b]$. Alors :
 $$\int_a^b u(t) v'(t)\, dt = [u(t)v(t)]_a^b - \int_a^b u'(t) v(t)\, dt$$
+
 :::
 
 ::: {.example}
+
 Calculer $\int_0^1 t e^{-t}\, dt$.
 
 On pose $u(t) = t$ et $v'(t) = e^{-t}$, donc $u'(t) = 1$ et $v(t) = -e^{-t}$.
 $$\int_0^1 t e^{-t}\, dt = [-te^{-t}]_0^1 + \int_0^1 e^{-t}\, dt = -e^{-1} + [-e^{-t}]_0^1 = -e^{-1} + 1 - e^{-1} = 1 - 2e^{-1}$$
+
 :::
 
 # Exercices
 
 ::: {.exercise}
+
 Calculer les primitives suivantes :
 
 1. $\int x^3\, dx$
 2. $\int \frac{1}{x}\, dx$
 3. $\int e^{2x}\, dx$
 4. $\int \sin(3x)\, dx$
+
 :::
 
 ::: {.exercise}
+
 Calculer les intégrales suivantes :
 
 1. $\int_0^1 x^2\, dx$
 2. $\int_1^e \frac{dt}{t}$
 3. $\int_0^{\pi} \sin t\, dt$
+
 :::
 
 ::: {.exercise}
+
 Calculer par IPP :
 
 1. $\int_0^1 t^2 e^{-t}\, dt$
 2. $\int_1^e t \ln t\, dt$
+
 :::
 
 ::: {.exercise}
+
 Calculer l'aire du domaine délimité par la courbe de $f(x) = x^2$, l'axe des abscisses et les droites $x = 0$ et $x = 2$.
+
 :::
 
 ::: {.exercise}
+
 Montrer que $\int_a^b f(t)\, dt = -\int_b^a f(t)\, dt$.
+
 :::
 
 ::: {.exercise}
+
 Soit $f : [0,1] \to \mathbb{R}$ continue avec $f(x) \geq 0$. Montrer que si $\int_0^1 f(t)\, dt = 0$, alors $f = 0$ sur $[0,1]$.
+
 :::
 
 ::: {.exercise}
+
 Calculer $\int_0^1 t^n (1-t)^m\, dt$ pour $n, m \in \mathbb{N}$ par IPP itérées.
+
 :::
 
 ::: {.exercise}
+
 Soit $f : \mathbb{R} \to \mathbb{R}$ continue et $T$-périodique. Montrer que $\int_0^T f(t)\, dt = \int_a^{a+T} f(t)\, dt$ pour tout $a \in \mathbb{R}$.
+
 :::
 
 # Document en PDF {-}
@@ -157,7 +191,10 @@ Soit $f : \mathbb{R} \to \mathbb{R}$ continue et $T$-périodique. Montrer que $\
 
 
 ## Navigation {-}
+
 ::: {.chap-nav}
+
 [Chapitre 10 : Compléments de probabilités](ect1-chap10.qmd){.prev}
 [Menu ECT1](ect1.qmd){.home}
+
 :::

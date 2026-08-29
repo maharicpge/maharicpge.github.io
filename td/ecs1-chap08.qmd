@@ -19,63 +19,86 @@ filters:
 **ECS1 (1re année) — TD du Chapitre 08.** Cardinaux, arrangements, combinaisons, formules de Pascal et du binôme.
 
 ::: {.exercise}
+
 Combien y a-t-il de nombres à 4 chiffres distincts ?
+
 :::
 
 ::: {.exercise}
+
 De combien de façons peut-on choisir un comité de 3 personnes parmi 10 ?
+
 :::
 
 ::: {.exercise}
+
 Un code est formé de 3 lettres distinctes suivies de 2 chiffres distincts. Combien de codes peut-on former avec 26 lettres et 10 chiffres ?
+
 :::
 
 ::: {.exercise}
+
 Un sac contient 3 boules rouges et 5 boules noires. On tire 3 boules.
 
 1. Combien de tirages possibles ?
 2. Combien de tirages avec exactement 2 rouges ?
+
 :::
 
 ::: {.exercise}
+
 Montrer que $\binom{n}{k} = \binom{n}{n-k}$.
+
 :::
 
 ::: {.exercise}
+
 Soit $E$ un ensemble fini de cardinal $n$. Déterminer le nombre de couples $(A,B) \in \mathcal{P}(E)^2$ avec $A \subset B$.
+
 :::
 
 **Indication :** Chaque élément de $E$ a 3 choix : dans $A \cap B$, dans $B \setminus A$, ou dans $E \setminus B$. Résultat : $3^n$.
 
 ::: {.exercise}
+
 Montrer l'identité de Vandermonde :
 $$\sum_{k=0}^r \binom{n}{k}\binom{m}{r-k} = \binom{n+m}{r}.$$
+
 :::
 
 ::: {.exercise}
+
 Calculer $\displaystyle\sum_{k=0}^n \binom{n}{k}^2$.
+
 :::
 
 ::: {.exercise}
+
 Combien de mots de 5 lettres peut-on former avec les 26 lettres de l'alphabet si :
 
 1. Les répétitions sont autorisées ?
 2. Les lettres doivent être distinctes ?
+
 :::
 
 ::: {.exercise}
+
 On dispose de 8 personnes. De combien de façons peut-on les ranger :
 
 1. En file indienne ?
 2. Autour d'une table ronde ?
+
 :::
 
 # Cours {-}
 [**Chapitre 08 : Dénombrement**](ecs1-chap08.qmd)
 
 # Navigation {-}
+
 ::: {.chap-nav}
+
 [TD 07 : Algèbre linéaire et calcul matriciel](ecs1-chap07.qmd){.prev}
 [Menu ECS1](ecs1.qmd){.home}
 [TD 09 : Espaces probabilisés finis](ecs1-chap09.qmd){.next}
+
 :::

@@ -19,12 +19,14 @@ filters:
 **MPSI (1re année) — TD du Chapitre 04.** Formes algébrique et trigonométrique, exponentielle complexe, formules de Moivre et d'Euler, équations du second degré, racines $n$-ièmes.
 
 ::: {.exercise}
+
 Mettre sous forme algébrique $a + ib$ :
 
 1. $(2 + 3i)(1 - i)$
 2. $\dfrac{1 + i}{1 - i}$
 3. $(1 + i)^{10}$
 4. $\left(\dfrac{1 + i\sqrt{3}}{1 - i}\right)^6$
+
 :::
 
 **Indications :**
@@ -32,20 +34,24 @@ Mettre sous forme algébrique $a + ib$ :
 - (4) Mettre numérateur et dénominateur sous forme exponentielle.
 
 ::: {.exercise}
+
 Déterminer le module et un argument de :
 
 1. $z_1 = 1 + i$
 2. $z_2 = -1 + i\sqrt{3}$
 3. $z_3 = \dfrac{1 + i}{1 - i}$
 4. $z_4 = (1 + i)^n$ pour $n \in \mathbb{N}$
+
 :::
 
 ::: {.exercise}
+
 Résoudre dans $\mathbb{C}$ les équations :
 
 1. $z^2 + 1 = 0$
 2. $z^2 - 4z + 5 = 0$
 3. $z^2 + (2 - 3i)z + 5 - i = 0$
+
 :::
 
 **Indications :**
@@ -53,12 +59,14 @@ Résoudre dans $\mathbb{C}$ les équations :
 - (3) Chercher une racine évidente (essayer $z = i$, $z = 1+i$, etc.).
 
 ::: {.exercise}
+
 Résoudre dans $\mathbb{C}$ :
 
 1. $z^4 + z^2 + 1 = 0$
 2. $z^3 = 1$
 3. $z^4 = -1$
 4. $z^5 = 1 + i$
+
 :::
 
 **Indications :**
@@ -66,43 +74,55 @@ Résoudre dans $\mathbb{C}$ :
 - (3) $-1 = e^{i\pi}$, les solutions sont $e^{i(\pi + 2k\pi)/4}$ pour $k = 0, 1, 2, 3$.
 
 ::: {.exercise}
+
 Déterminer les racines $n$-ièmes de l'unité pour $n = 3$, $n = 4$ et $n = 6$. Les placer dans le plan complexe.
+
 :::
 
 **Indication :** Les racines $n$-ièmes de l'unité sont $e^{2ik\pi/n}$ pour $k = 0, 1, \ldots, n-1$.
 
 ::: {.exercise}
+
 Montrer que pour tout $n \in \mathbb{N}^*$ :
 $$1 + e^{2i\pi/n} + e^{4i\pi/n} + \cdots + e^{2i(n-1)\pi/n} = 0$$
+
 :::
 
 **Indication :** C'est une somme géométrique de raison $e^{2i\pi/n} \neq 1$.
 
 ::: {.exercise}
+
 Montrer les formules d'Euler et de Moivre :
 
 1. $\cos \theta = \dfrac{e^{i\theta} + e^{-i\theta}}{2}$ et $\sin \theta = \dfrac{e^{i\theta} - e^{-i\theta}}{2i}$.
 2. $\cos(n\theta) + i\sin(n\theta) = (\cos\theta + i\sin\theta)^n$ (Moivre).
 3. $\cos 3\theta = 4\cos^3\theta - 3\cos\theta$.
+
 :::
 
 ::: {.exercise}
+
 Soit $z \in \mathbb{C}$ avec $|z| = 1$. Montrer que $z + \frac{1}{z} \in \mathbb{R}$.
+
 :::
 
 **Indication :** Si $|z| = 1$, alors $\frac{1}{z} = \bar{z}$, donc $z + \frac{1}{z} = z + \bar{z} = 2\mathrm{Re}(z)$.
 
 ::: {.exercise}
+
 Montrer que pour tout $\theta \in \mathbb{R}$ :
 
 1. $\cos^2\theta = \dfrac{1 + \cos 2\theta}{2}$ et $\sin^2\theta = \dfrac{1 - \cos 2\theta}{2}$.
 2. $\cos\theta \cos\phi = \dfrac{\cos(\theta+\phi) + \cos(\theta-\phi)}{2}$.
 3. $\sin\theta \sin\phi = \dfrac{\cos(\theta-\phi) - \cos(\theta+\phi)}{2}$.
+
 :::
 
 ::: {.exercise}
+
 Soit $n \in \mathbb{N}^*$. Montrer que :
 $$\sum_{k=0}^n \binom{n}{k} \cos(k\theta) = 2^n \cos^n\left(\frac{\theta}{2}\right) \cos\left(\frac{n\theta}{2}\right)$$
+
 :::
 
 **Indications :**
@@ -114,8 +134,11 @@ $$\sum_{k=0}^n \binom{n}{k} \cos(k\theta) = 2^n \cos^n\left(\frac{\theta}{2}\rig
 [**Chapitre 04 : Nombres complexes et trigonométrie**](../cours/mpsi-chap04.qmd)
 
 # Navigation {-}
+
 ::: {.chap-nav}
+
 [TD 03 : Calcul algébrique](mpsi-chap03.qmd){.prev}
 [Menu MPSI](mpsi.qmd){.home}
 [TD 05 : Fonctions usuelles](mpsi-chap05.qmd){.next}
+
 :::

@@ -19,37 +19,45 @@ filters:
 **PCSI (1re année) — TD du Chapitre 05.** Modes de définition, limites, convergence, opérations sur les limites, théorèmes de convergence, suites adjacentes, suites extraites, suites arithmétiques, géométriques, arithmético-géométriques, suites récurrentes linéaires d'ordre 2.
 
 ::: {.exercise}
+
 Montrer que les suites suivantes convergent et déterminer leur limite :
 
 1. $u_n = \dfrac{2n+1}{3n-1}$
 2. $u_n = \dfrac{(-1)^n}{n}$
 3. $u_n = \dfrac{\sin n}{n}$
 4. $u_n = \dfrac{n^2+1}{n^3+n}$
+
 :::
 
 ::: {.exercise}
+
 Soit $(u_n)$ convergente de limite $\ell$. Montrer que :
 
 1. $(|u_n|)$ converge vers $|\ell|$.
 2. Si $u_n \geq 0$ pour tout $n$, alors $\ell \geq 0$.
 3. $(u_n^2)$ converge vers $\ell^2$.
+
 :::
 
 ::: {.exercise}
+
 Étudier les suites arithmétiques et géométriques :
 
 1. $u_n = 3 + 5n$ : limite ?
 2. $u_n = 2^n$ : limite ?
 3. $u_n = \left(\dfrac{1}{3}\right)^n$ : limite ?
 4. $u_n = (-2)^n$ : converge-t-elle ?
+
 :::
 
 ::: {.exercise}
+
 Soit $(u_n)$ définie par $u_0 = 1$ et $u_{n+1} = \dfrac{u_n + 2}{u_n + 1}$.
 
 1. Montrer que $u_n > 0$ pour tout $n$.
 2. Montrer que $(u_n)$ converge.
 3. Déterminer la limite.
+
 :::
 
 **Indications :**
@@ -57,47 +65,59 @@ Soit $(u_n)$ définie par $u_0 = 1$ et $u_{n+1} = \dfrac{u_n + 2}{u_n + 1}$.
 - (3) Si $\ell$ est la limite : $\ell = \frac{\ell+2}{\ell+1}$ donc $\ell^2 = 2$.
 
 ::: {.exercise}
+
 Soit $u_0 = 1$ et $u_{n+1} = \sqrt{u_n + 2}$.
 
 1. Montrer que $(u_n)$ est bien définie et positive.
 2. Montrer que $(u_n)$ est croissante et majorée par $2$.
 3. En déduire la convergence et calculer la limite.
+
 :::
 
 ::: {.exercise}
+
 Soient $(u_n)$ et $(v_n)$ deux suites adjacentes. Montrer qu'elles convergent vers la même limite.
+
 :::
 
 ::: {.exercise}
+
 Soient $(u_n)$ et $(v_n)$ définies par $u_0 = 1$, $v_0 = 2$ :
 $$u_{n+1} = \dfrac{u_n+v_n}{2}, \quad v_{n+1} = \sqrt{u_n v_n}$$
 
 1. Montrer que $u_n \leq v_n$ pour tout $n$.
 2. Montrer que $(u_n)$ est croissante et $(v_n)$ décroissante.
 3. Montrer qu'elles sont adjacentes.
+
 :::
 
 **Indication :** Utiliser l'inégalité arithmético-géométrique $\frac{a+b}{2} \geq \sqrt{ab}$.
 
 ::: {.exercise}
+
 Étudier la suite récurrente linéaire d'ordre 2 : $u_{n+2} = 5u_{n+1} - 6u_n$ avec $u_0 = 1$, $u_1 = 2$.
 
 1. Former l'équation caractéristique.
 2. Déterminer $u_n$ en fonction de $n$.
+
 :::
 
 **Indication :** Équation caractéristique $r^2 - 5r + 6 = 0$, racines $2$ et $3$. Donc $u_n = \lambda 2^n + \mu 3^n$.
 
 ::: {.exercise}
+
 Soit $u_0 \in ]0,1[$ et $u_{n+1} = u_n(1-u_n)$.
 
 1. Montrer que $0 < u_n < 1$ pour tout $n$.
 2. Montrer que $(u_n)$ est décroissante.
 3. Montrer que $u_n \to 0$.
+
 :::
 
 ::: {.exercise}
+
 Montrer que si $u_{n+1} - u_n \to 0$, la suite $(u_n)$ ne converge pas nécessairement.
+
 :::
 
 **Indication :** Contre-exemple : $u_n = \sqrt{n}$.
@@ -106,8 +126,11 @@ Montrer que si $u_{n+1} - u_n \to 0$, la suite $(u_n)$ ne converge pas nécessai
 [**Chapitre 05 : Suites numériques**](pcsi-chap05.qmd)
 
 # Navigation {-}
+
 ::: {.chap-nav}
+
 [TD 04 : Nombres entiers, rationnels et réels](pcsi-chap04.qmd){.prev}
 [Menu PCSI](pcsi.qmd){.home}
 [TD 06 : Fonctions de la variable réelle, limites et continuité](pcsi-chap06.qmd){.next}
+
 :::

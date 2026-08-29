@@ -36,56 +36,76 @@ Dans tout ce chapitre, $U$ désigne un ouvert de $\mathbb{R}^n$ et $f : U \to \m
 ## Définition
 
 ::: {.definition title="(Dérivée partielle)"}
+
 Soit $a = (a_1, \ldots, a_n) \in U$. La **dérivée partielle** de $f$ par rapport à $x_i$ en $a$ est, si elle existe :
 $$\frac{\partial f}{\partial x_i}(a) = \lim_{h \to 0} \frac{f(a_1, \ldots, a_i + h, \ldots, a_n) - f(a)}{h}$$
+
 :::
 
 ::: {.example}
+
 Soit $f(x, y) = x^2 y + e^{xy}$. Alors :
 $$\frac{\partial f}{\partial x}(x, y) = 2xy + ye^{xy}, \quad \frac{\partial f}{\partial y}(x, y) = x^2 + xe^{xy}$$
+
 :::
 
 ## Classes $\mathcal{C}^1$ et $\mathcal{C}^2$
 
 ::: {.definition title="(Classe $\mathcal{C}^1$)"}
+
 $f$ est de **classe $\mathcal{C}^1$** sur $U$ si toutes les dérivées partielles $\frac{\partial f}{\partial x_i}$ existent et sont continues sur $U$.
+
 :::
 
 ::: {.definition title="(Classe $\mathcal{C}^2$)"}
+
 $f$ est de **classe $\mathcal{C}^2$** sur $U$ si $f$ et ses dérivées partielles premières sont de classe $\mathcal{C}^1$.
+
 :::
 
 ::: {.theorem title="(Théorème de Schwarz)"}
+
 Si $f$ est de classe $\mathcal{C}^2$ sur $U$, alors pour tous $i, j$ :
 $$\frac{\partial^2 f}{\partial x_i \partial x_j} = \frac{\partial^2 f}{\partial x_j \partial x_i}$$
+
 :::
 
 # Gradient
 
 ::: {.definition title="(Gradient)"}
+
 Si $f$ est de classe $\mathcal{C}^1$ sur $U$, le **gradient** de $f$ en $a$ est :
 $$\nabla f(a) = \left(\frac{\partial f}{\partial x_1}(a), \ldots, \frac{\partial f}{\partial x_n}(a)\right)$$
+
 :::
 
 ::: {.proposition title="(Différentielle)"}
+
 Si $f$ est de classe $\mathcal{C}^1$ sur $U$, alors pour $a \in U$ et $h \in \mathbb{R}^n$ :
 $$f(a + h) = f(a) + \langle \nabla f(a), h \rangle + o(\|h\|)$$
+
 :::
 
 # Matrice hessienne
 
 ::: {.definition title="(Matrice hessienne)"}
+
 Si $f$ est de classe $\mathcal{C}^2$ sur $U$, la **matrice hessienne** de $f$ en $a$ est :
 $$H_f(a) = \left(\frac{\partial^2 f}{\partial x_i \partial x_j}(a)\right)_{1 \leq i, j \leq n}$$
+
 :::
 
 ::: {.proposition}
+
 Par le théorème de Schwarz, $H_f(a)$ est une matrice symétrique.
+
 :::
 
 ::: {.proposition title="(Développement limité à l'ordre 2)"}
+
 Si $f$ est de classe $\mathcal{C}^2$ sur $U$, alors :
 $$f(a + h) = f(a) + \langle \nabla f(a), h \rangle + \frac{1}{2} h^T H_f(a) h + o(\|h\|^2)$$
+
 :::
 
 # Extrema locaux
@@ -93,33 +113,42 @@ $$f(a + h) = f(a) + \langle \nabla f(a), h \rangle + \frac{1}{2} h^T H_f(a) h + 
 ## Définition
 
 ::: {.definition title="(Extremum local)"}
+
 $f$ admet un **maximum local** (resp. **minimum local**) en $a$ s'il existe un voisinage $V$ de $a$ tel que $f(x) \leq f(a)$ (resp. $f(x) \geq f(a)$) pour tout $x \in V$.
+
 :::
 
 ## Condition nécessaire
 
 ::: {.theorem title="(Condition d'ordre 1)"}
+
 Si $f$ est de classe $\mathcal{C}^1$ sur $U$ et admet un extremum local en $a \in U$, alors :
 $$\nabla f(a) = 0$$
 
 $a$ est alors appelé **point critique** de $f$.
+
 :::
 
 ::: {.remarque}
+
 La réciproque est fausse : $f(x, y) = x^2 - y^2$ vérifie $\nabla f(0, 0) = 0$ mais n'admet pas d'extremum en $(0,0)$ (point selle).
+
 :::
 
 ## Conditions suffisantes
 
 ::: {.theorem title="(Conditions d'ordre 2)"}
+
 Soit $f$ de classe $\mathcal{C}^2$ sur $U$ et $a \in U$ un point critique ($\nabla f(a) = 0$).
 
 1. Si $H_f(a)$ est **définie positive**, alors $f$ admet un **minimum local strict** en $a$.
 2. Si $H_f(a)$ est **définie négative**, alors $f$ admet un **maximum local strict** en $a$.
 3. Si $H_f(a)$ a des valeurs propres de signes opposés, alors $a$ est un **point selle**.
+
 :::
 
 ::: {.proposition title="(Critère pratique en dimension 2)"}
+
 Soit $f : U \subset \mathbb{R}^2 \to \mathbb{R}$ de classe $\mathcal{C}^2$ et $a = (x_0, y_0)$ un point critique. On pose :
 $$r = \frac{\partial^2 f}{\partial x^2}(a), \quad s = \frac{\partial^2 f}{\partial x \partial y}(a), \quad t = \frac{\partial^2 f}{\partial y^2}(a)$$
 
@@ -127,92 +156,119 @@ $$r = \frac{\partial^2 f}{\partial x^2}(a), \quad s = \frac{\partial^2 f}{\parti
 - Si $rt - s^2 > 0$ et $r < 0$ : maximum local.
 - Si $rt - s^2 < 0$ : point selle.
 - Si $rt - s^2 = 0$ : on ne peut pas conclure.
+
 :::
 
 # Extrema globaux
 
 ::: {.definition title="(Extremum global)"}
+
 $f$ admet un **maximum global** (resp. **minimum global**) en $a$ si $f(x) \leq f(a)$ (resp. $f(x) \geq f(a)$) pour tout $x \in U$.
+
 :::
 
 ::: {.methode title="(Recherche d'extrema globaux)"}
+
 Pour rechercher les extrema globaux de $f$ sur un domaine $K$ :
 
 1. Déterminer les points critiques de $f$ dans l'intérieur de $K$.
 2. Étudier la nature de ces points critiques.
 3. Étudier $f$ sur le bord de $K$.
 4. Comparer les valeurs de $f$ aux points critiques et sur le bord.
+
 :::
 
 ::: {.example}
+
 Soit $f(x, y) = x^2 + y^2 - 2x - 4y + 5$ sur $\mathbb{R}^2$.
 
 - $\nabla f(x, y) = (2x - 2, 2y - 4)$, donc le seul point critique est $(1, 2)$.
 - $H_f = \begin{pmatrix} 2 & 0 \\ 0 & 2 \end{pmatrix}$ est définie positive.
 - $f(1, 2) = 0$ est un minimum global.
+
 :::
 
 # Optimisation sous contrainte
 
 ::: {.methode title="(Méthode de Lagrange)"}
+
 Pour optimiser $f(x, y)$ sous la contrainte $g(x, y) = 0$ :
 
 1. Chercher les points où $\nabla f = \lambda \nabla g$ pour un certain $\lambda$ (multiplicateur de Lagrange).
 2. Vérifier les points ainsi obtenus.
+
 :::
 
 ::: {.example}
+
 Optimiser $f(x, y) = xy$ sous la contrainte $x^2 + y^2 = 1$.
 
 $\nabla f = (y, x)$ et $\nabla g = (2x, 2y)$. La condition $\nabla f = \lambda \nabla g$ donne :
 $$y = 2\lambda x, \quad x = 2\lambda y$$
 
 D'où $y = 4\lambda^2 y$, donc $\lambda = \pm 1/2$. Les points critiques sont $(\pm 1/\sqrt{2}, \pm 1/\sqrt{2})$ avec $f = \pm 1/2$.
+
 :::
 
 # Exercices
 
 ::: {.exercise}
+
 Soit $f(x, y) = x^2 y + e^{xy}$. Calculer $\frac{\partial f}{\partial x}$, $\frac{\partial f}{\partial y}$, $\frac{\partial^2 f}{\partial x^2}$, $\frac{\partial^2 f}{\partial x \partial y}$, $\frac{\partial^2 f}{\partial y^2}$.
+
 :::
 
 ::: {.exercise}
+
 Soit $f(x, y) = x^2 + y^2 - 2x - 4y + 5$.
 
 1. Déterminer les points critiques.
 2. Déterminer leur nature.
 3. $f$ admet-elle un extremum global ?
+
 :::
 
 ::: {.exercise}
+
 Soit $f(x, y) = x^3 + y^3 - 3xy$.
 
 1. Déterminer les points critiques.
 2. Déterminer leur nature.
+
 :::
 
 ::: {.exercise}
+
 Soit $f(x, y) = x^2 - y^2$. Montrer que $(0, 0)$ est un point selle.
+
 :::
 
 ::: {.exercise}
+
 Optimiser $f(x, y) = xy$ sous la contrainte $x + y = 1$.
+
 :::
 
 ::: {.exercise}
+
 Soit $f(x, y) = e^{-(x^2 + y^2)}$.
 
 1. Déterminer les points critiques.
 2. Déterminer leur nature.
 3. $f$ admet-elle un extremum global ?
+
 :::
 
 ::: {.exercise}
+
 Soit $f(x, y, z) = x^2 + y^2 + z^2 - 2x + 4y - 6z + 1$. Déterminer les extrema de $f$ sur $\mathbb{R}^3$.
+
 :::
 
 ::: {.exercise}
+
 Optimiser $f(x, y) = x^2 + y^2$ sous la contrainte $x^2 + y^2 = 1$.
+
 :::
 
 # Document en PDF {-}
@@ -222,6 +278,8 @@ Optimiser $f(x, y) = x^2 + y^2$ sous la contrainte $x^2 + y^2 = 1$.
 ## Navigation {-}
 
 ::: {.chap-nav}
+
 [Chapitre 10 : Estimation statistique](ecs2-chap10.qmd){.prev}
 [Menu ECS2](ecs2.qmd){.home}
+
 :::

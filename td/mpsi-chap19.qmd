@@ -19,35 +19,47 @@ filters:
 **MPSI (1re année) — TD du Chapitre 19.** Rolle, accroissements finis, classes $\mathcal{C}^k$.
 
 ::: {.exercise}
+
 Soit $f : [a, b] \to \mathbb{R}$ continue sur $[a,b]$ et dérivable sur $]a,b[$ avec $f(a) = f(b)$. Montrer qu'il existe $c \in ]a,b[$ tel que $f'(c) = 0$ (théorème de Rolle).
+
 :::
 
 **Indication :** Si $f$ est constante, c'est immédiat. Sinon, $f$ atteint un extremum en un point intérieur.
 
 ::: {.exercise}
+
 Soit $f : [a, b] \to \mathbb{R}$ continue sur $[a,b]$ et dérivable sur $]a,b[$. Montrer qu'il existe $c \in ]a,b[$ tel que :
 $$f(b) - f(a) = (b-a)f'(c)$$
+
 :::
 
 **Indication :** Appliquer Rolle à $g(x) = f(x) - f(a) - \frac{f(b)-f(a)}{b-a}(x-a)$.
 
 ::: {.exercise}
+
 Soit $f : \mathbb{R} \to \mathbb{R}$ dérivable avec $f'(x) \geq 0$ pour tout $x$. Montrer que $f$ est croissante.
+
 :::
 
 ::: {.exercise}
+
 Soit $f : ]a, b[ \to \mathbb{R}$ dérivable avec $f'(x) = 0$ pour tout $x$. Montrer que $f$ est constante.
+
 :::
 
 ::: {.exercise}
+
 Soit $f : \mathbb{R} \to \mathbb{R}$ de classe $\mathcal{C}^1$. Montrer que si $f'$ est bornée, alors $f$ est lipschitzienne.
+
 :::
 
 **Indication :** $|f(x) - f(y)| = |x-y| \cdot |f'(c)| \leq M|x-y|$ par les accroissements finis.
 
 ::: {.exercise}
+
 Soit $f : [0, 1] \to \mathbb{R}$ continue, dérivable sur $]0,1[$ avec $f(0) = 0$ et $f(1) = 1$. Montrer qu'il existe $c_1, c_2 \in ]0,1[$ distincts tels que :
 $$\frac{1}{f'(c_1)} + \frac{1}{f'(c_2)} = 2$$
+
 :::
 
 **Indications :**
@@ -55,22 +67,30 @@ $$\frac{1}{f'(c_1)} + \frac{1}{f'(c_2)} = 2$$
 - Appliquer le TAF sur $[0,a]$ et $[a,1]$.
 
 ::: {.exercise}
+
 Soit $f : \mathbb{R} \to \mathbb{R}$ de classe $\mathcal{C}^2$ avec $f''(x) \geq 0$ pour tout $x$. Montrer que $f$ est convexe.
+
 :::
 
 ::: {.exercise}
+
 Soit $f : [0, +\infty[ \to \mathbb{R}$ continue, dérivable sur $]0,+\infty[$ avec $f(0) = 0$ et $f'$ croissante. Montrer que $g(x) = f(x)/x$ est croissante sur $]0,+\infty[$.
+
 :::
 
 **Indication :** Calculer $g'(x) = \frac{xf'(x) - f(x)}{x^2}$ et montrer $xf'(x) \geq f(x)$.
 
 ::: {.exercise}
+
 Soit $f : \mathbb{R} \to \mathbb{R}$ de classe $\mathcal{C}^n$. Montrer par récurrence la formule de Leibniz :
 $$(fg)^{(n)} = \sum_{k=0}^n \binom{n}{k} f^{(k)} g^{(n-k)}$$
+
 :::
 
 ::: {.exercise}
+
 Soit $f : [a, b] \to \mathbb{R}$ continue sur $[a,b]$ et dérivable sur $]a,b[$ avec $f(a) < f(b)$. Montrer que pour tout $m \in ]f(a), f(b)[$, il existe $c \in ]a,b[$ tel que $f(c) = m$ (TVI pour $f$).
+
 :::
 
 **Indication :** Appliquer le TVI à $f$ sur $[a,b]$.
@@ -79,8 +99,11 @@ Soit $f : [a, b] \to \mathbb{R}$ continue sur $[a,b]$ et dérivable sur $]a,b[$ 
 [**Chapitre 19 : Dérivation**](../cours/mpsi-chap19.qmd)
 
 # Navigation {-}
+
 ::: {.chap-nav}
+
 [Chapitre 18 : Limites et continuité](mpsi-chap18.qmd){.prev}
 [Menu MPSI](mpsi.qmd){.home}
 [Chapitre 20 : Développements limités](mpsi-chap20.qmd){.next}
+
 :::

@@ -37,9 +37,11 @@ Dans toute la section, $\mathbb{K}$ désigne $\mathbb{R}$ ou $\mathbb{C}$.
 ## Ensemble $\mathcal{M}_{n,p}(\mathbb{K})$ des matrices
 
 ::: {.definition}
+
 Une **matrice** est un tableau rectangulaire d'éléments de $\mathbb{K}$. Une matrice à $n$ lignes et $p$ colonnes est dite de **taille** $n \times p$. Le coefficient situé à la $i$-ème ligne et à la $j$-ème colonne est noté $a_{i,j}$.
 
 On note $\mathcal{M}_{n,p}(\mathbb{K})$ l'ensemble des matrices à $n$ lignes et $p$ colonnes à coefficients dans $\mathbb{K}$.
+
 :::
 
 Une matrice $A \in \mathcal{M}_{n,p}(\mathbb{K})$ s'écrit :
@@ -47,7 +49,9 @@ Une matrice $A \in \mathcal{M}_{n,p}(\mathbb{K})$ s'écrit :
 $$A = \begin{pmatrix} a_{1,1} & a_{1,2} & \cdots & a_{1,p} \\ a_{2,1} & a_{2,2} & \cdots & a_{2,p} \\ \vdots & \vdots & \ddots & \vdots \\ a_{n,1} & a_{n,2} & \cdots & a_{n,p} \end{pmatrix} = (a_{i,j})_{\substack{1 \leq i \leq n \\ 1 \leq j \leq p}}$$
 
 ::: {.example}
+
 $A = \begin{pmatrix} 1 & -2 & 5 \\ 0 & 3 & 7 \end{pmatrix}$ est une matrice de taille $2 \times 3$.
+
 :::
 
 ::: {.definition title="(Matrices particulières)"}
@@ -63,13 +67,16 @@ $A = \begin{pmatrix} 1 & -2 & 5 \\ 0 & 3 & 7 \end{pmatrix}$ est une matrice de t
 - **Matrice triangulaire inférieure** : matrice carrée dont tous les coefficients au-dessus de la diagonale sont nuls ($a_{i,j} = 0$ si $i < j$).
 - **Matrice symétrique** : matrice carrée $A$ telle que $a_{i,j} = a_{j,i}$ pour tout $(i,j)$.
 - **Matrice antisymétrique** : matrice carrée $A$ telle que $a_{i,j} = -a_{j,i}$ pour tout $(i,j)$.
+
 :::
 
 ::: {.example}
+
 - $I_3 = \begin{pmatrix} 1 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 1 \end{pmatrix}$ est la matrice identité d'ordre $3$.
 - $\begin{pmatrix} 2 & 0 & 0 \\ 0 & 3 & 0 \\ 0 & 0 & 5 \end{pmatrix}$ est une matrice diagonale.
 - $\begin{pmatrix} 1 & 2 & 3 \\ 0 & 2 & 4 \\ 0 & 0 & 3 \end{pmatrix}$ est une matrice triangulaire supérieure.
 - $\begin{pmatrix} 1 & 2 \\ 2 & 3 \end{pmatrix}$ est une matrice symétrique.
+
 :::
 
 ## Opérations sur les matrices
@@ -77,107 +84,134 @@ $A = \begin{pmatrix} 1 & -2 & 5 \\ 0 & 3 & 7 \end{pmatrix}$ est une matrice de t
 ### Addition et multiplication par un scalaire
 
 ::: {.definition}
+
 Soient $A = (a_{i,j})$ et $B = (b_{i,j})$ deux matrices de $\mathcal{M}_{n,p}(\mathbb{K})$ et $\lambda \in \mathbb{K}$.
 
 - **Somme** : $A + B$ est la matrice $(a_{i,j} + b_{i,j})$.
 - **Multiplication par un scalaire** : $\lambda A$ est la matrice $(\lambda a_{i,j})$.
 - **Combinaison linéaire** : $\lambda A + \mu B$.
+
 :::
 
 ::: {.proposition}
+
 L'ensemble $\mathcal{M}_{n,p}(\mathbb{K})$ muni de l'addition et de la multiplication par un scalaire est un $\mathbb{K}$-espace vectoriel de dimension $n \times p$.
+
 :::
 
 ### Matrices élémentaires
 
 ::: {.definition}
+
 Les **matrices élémentaires** de $\mathcal{M}_{n,p}(\mathbb{K})$ sont les matrices $E_{i,j}$ ($1 \leq i \leq n$, $1 \leq j \leq p$) dont tous les coefficients sont nuls sauf le coefficient $(i,j)$ qui vaut $1$.
+
 :::
 
 ::: {.proposition}
+
 Toute matrice de $\mathcal{M}_{n,p}(\mathbb{K})$ est combinaison linéaire de matrices élémentaires :
 
 $$A = \sum_{i=1}^{n} \sum_{j=1}^{p} a_{i,j} E_{i,j}$$
+
 :::
 
 ### Symbole de Kronecker
 
 ::: {.definition}
+
 Le **symbole de Kronecker** $\delta_{i,j}$ est défini par :
 
 $$\delta_{i,j} = \begin{cases} 1 & \text{si } i = j \\ 0 & \text{si } i \neq j \end{cases}$$
 
 Les coefficients de la matrice identité sont $a_{i,j} = \delta_{i,j}$.
+
 :::
 
 ### Produit matriciel
 
 ::: {.definition}
+
 Soient $A \in \mathcal{M}_{n,p}(\mathbb{K})$ et $B \in \mathcal{M}_{p,q}(\mathbb{K})$. Le **produit matriciel** $AB$ est la matrice $C \in \mathcal{M}_{n,q}(\mathbb{K})$ dont les coefficients sont :
 
 $$c_{i,j} = \sum_{k=1}^{p} a_{i,k} b_{k,j}$$
 
 La $j$-ème colonne du produit $AB$ est le produit de $A$ par la $j$-ème colonne de $B$.
+
 :::
 
 ::: {.proposition title="(Propriétés du produit matriciel)"}
+
 Soient $A$, $B$, $C$ des matrices de tailles compatibles.
 
 1. **Associativité** : $(AB)C = A(BC)$.
 2. **Bilinéarité** : $A(B + C) = AB + AC$ et $(\lambda A)B = \lambda(AB)$.
 3. **Élément neutre** : $I_n A = A I_p = A$ pour $A \in \mathcal{M}_{n,p}(\mathbb{K})$.
 4. Le produit matriciel n'est **pas commutatif** en général : $AB \neq BA$.
+
 :::
 
 ::: {.example}
+
 $A = \begin{pmatrix} 1 & 2 \\ 3 & 4 \end{pmatrix}$ et $B = \begin{pmatrix} 0 & 1 \\ 1 & 0 \end{pmatrix}$.
 
 $AB = \begin{pmatrix} 2 & 1 \\ 4 & 2 \end{pmatrix}$ et $BA = \begin{pmatrix} 3 & 4 \\ 1 & 2 \end{pmatrix}$.
 
 Donc $AB \neq BA$.
+
 :::
 
 ::: {.remarque title="(Diviseurs de zéro)"}
+
 Il existe des matrices non nulles $A$ et $B$ telles que $AB = 0$. Par exemple :
 
 $$A = \begin{pmatrix} 1 & 0 \\ 0 & 0 \end{pmatrix}, \quad B = \begin{pmatrix} 0 & 0 \\ 1 & 0 \end{pmatrix} \implies AB = 0$$
+
 :::
 
 ### Formule du binôme de Newton pour les matrices
 
 ::: {.proposition}
+
 Si $A$ et $B$ sont deux matrices carrées de $\mathcal{M}_n(\mathbb{K})$ qui **commutent** ($AB = BA$), alors :
 
 $$(A + B)^n = \sum_{k=0}^{n} \binom{n}{k} A^{n-k} B^k$$
+
 :::
 
 ::: {.remarque title="(Puissances de matrices)"}
+
 Pour $A \in \mathcal{M}_n(\mathbb{K})$, on pose $A^0 = I_n$ et $A^{n+1} = A^n \cdot A$.
 
 - Si $A$ est diagonale de diagonale $(\lambda_1, \ldots, \lambda_n)$, alors $A^n$ est diagonale de diagonale $(\lambda_1^n, \ldots, \lambda_n^n)$.
 - Si $A$ est triangulaire supérieure (resp. inférieure), alors $A^n$ est aussi triangulaire supérieure (resp. inférieure).
+
 :::
 
 ### Transposée d'une matrice
 
 ::: {.definition}
+
 Soit $A = (a_{i,j}) \in \mathcal{M}_{n,p}(\mathbb{K})$. La **transposée** de $A$, notée ${}^tA$ (ou $A^T$), est la matrice de $\mathcal{M}_{p,n}(\mathbb{K})$ définie par :
 
 $$({}^tA)_{i,j} = a_{j,i}$$
 
 Autrement dit, la transposée s'obtient en échangeant les lignes et les colonnes.
+
 :::
 
 ::: {.proposition title="(Propriétés de la transposée)"}
+
 Soient $A, B$ des matrices de tailles compatibles et $\lambda \in \mathbb{K}$.
 
 1. ${}^t({}^tA) = A$
 2. ${}^t(A + B) = {}^tA + {}^tB$
 3. ${}^t(\lambda A) = \lambda \, {}^tA$
 4. ${}^t(AB) = {}^tB \, {}^tA$ (attention à l'inversion de l'ordre)
+
 :::
 
 ::: {.proposition title="(Caractérisation des matrices symétriques et antisymétriques)"}
+
 Soit $A \in \mathcal{M}_n(\mathbb{K})$.
 
 - $A$ est symétrique si et seulement si ${}^tA = A$.
@@ -185,11 +219,13 @@ Soit $A \in \mathcal{M}_n(\mathbb{K})$.
 - Toute matrice carrée $A$ se décompose de manière unique en somme d'une matrice symétrique et d'une matrice antisymétrique :
 
 $$A = \frac{A + {}^tA}{2} + \frac{A - {}^tA}{2}$$
+
 :::
 
 ### Opérations élémentaires sur les lignes et les colonnes
 
 ::: {.definition}
+
 Les **opérations élémentaires sur les lignes** d'une matrice sont :
 
 1. **Échange** : $L_i \leftrightarrow L_j$ ($i \neq j$)
@@ -197,15 +233,19 @@ Les **opérations élémentaires sur les lignes** d'une matrice sont :
 3. **Transvection** : $L_i \leftarrow L_i + \lambda L_j$ ($i \neq j$)
 
 Les opérations élémentaires sur les colonnes sont définies de manière analogue.
+
 :::
 
 ::: {.proposition}
+
 Chaque opération élémentaire sur les lignes (resp. colonnes) correspond à la multiplication à gauche (resp. à droite) par une matrice élémentaire inversible.
+
 :::
 
 ### Matrices inversibles
 
 ::: {.definition}
+
 Une matrice carrée $A \in \mathcal{M}_n(\mathbb{K})$ est dite **inversible** s'il existe une matrice $B \in \mathcal{M}_n(\mathbb{K})$ telle que :
 
 $$AB = BA = I_n$$
@@ -213,9 +253,11 @@ $$AB = BA = I_n$$
 La matrice $B$ est unique et est appelée l'**inverse** de $A$, notée $A^{-1}$.
 
 L'ensemble des matrices inversibles de $\mathcal{M}_n(\mathbb{K})$ est noté $\mathrm{GL}_n(\mathbb{K})$ et est appelé **groupe linéaire**.
+
 :::
 
 ::: {.proposition title="(Propriétés des matrices inversibles)"}
+
 Soient $A, B \in \mathrm{GL}_n(\mathbb{K})$.
 
 1. $(A^{-1})^{-1} = A$
@@ -223,20 +265,27 @@ Soient $A, B \in \mathrm{GL}_n(\mathbb{K})$.
 3. $(\lambda A)^{-1} = \frac{1}{\lambda} A^{-1}$ ($\lambda \neq 0$)
 4. $({}^tA)^{-1} = {}^t(A^{-1})$
 5. $A$ est inversible si et seulement si $A$ est inversible à gauche (resp. à droite).
+
 :::
 
 ::: {.proposition title="(Inverse d'une matrice diagonale)"}
+
 Une matrice diagonale $D = \mathrm{diag}(\lambda_1, \ldots, \lambda_n)$ est inversible si et seulement si tous les $\lambda_i$ sont non nuls. Dans ce cas :
 
 $$D^{-1} = \mathrm{diag}\left(\frac{1}{\lambda_1}, \ldots, \frac{1}{\lambda_n}\right)$$
+
 :::
 
 ::: {.proposition title="(Inverse d'une matrice triangulaire)"}
+
 Une matrice triangulaire (supérieure ou inférieure) est inversible si et seulement si tous ses coefficients diagonaux sont non nuls. Son inverse est aussi une matrice triangulaire (de même type).
+
 :::
 
 ::: {.proposition}
+
 Les opérations élémentaires sur les lignes préservent l'inversibilité. Le calcul de l'inverse d'une matrice peut se faire par opérations élémentaires sur la matrice augmentée $(A | I_n)$, qui se transforme en $(I_n | A^{-1})$.
+
 :::
 
 # Systèmes d'équations linéaires
@@ -244,6 +293,7 @@ Les opérations élémentaires sur les lignes préservent l'inversibilité. Le c
 ## Généralités
 
 ::: {.definition}
+
 Un **système linéaire** de $n$ équations à $p$ inconnues, à coefficients dans $\mathbb{K}$, est un système de la forme :
 
 $$\begin{cases} a_{1,1}x_1 + a_{1,2}x_2 + \cdots + a_{1,p}x_p = b_1 \\ a_{2,1}x_1 + a_{2,2}x_2 + \cdots + a_{2,p}x_p = b_2 \\ \vdots \\ a_{n,1}x_1 + a_{n,2}x_2 + \cdots + a_{n,p}x_p = b_n \end{cases}$$
@@ -253,9 +303,11 @@ où $a_{i,j}, b_i \in \mathbb{K}$. Les inconnues sont $x_1, \ldots, x_p \in \mat
 - Le système est **homogène** si tous les $b_i$ sont nuls.
 - Une **solution** du système est un $p$-uplet $(x_1, \ldots, x_p) \in \mathbb{K}^p$ vérifiant toutes les équations.
 - Un système est **compatible** s'il admet au moins une solution.
+
 :::
 
 ::: {.definition title="(Traduction matricielle)"}
+
 Le système linéaire s'écrit sous forme matricielle :
 
 $$AX = B$$
@@ -263,44 +315,56 @@ $$AX = B$$
 où $A \in \mathcal{M}_{n,p}(\mathbb{K})$ est la matrice des coefficients, $X = \begin{pmatrix} x_1 \\ \vdots \\ x_p \end{pmatrix}$ est le vecteur des inconnues, et $B = \begin{pmatrix} b_1 \\ \vdots \\ b_n \end{pmatrix}$ est le second membre.
 
 La **matrice augmentée** du système est notée $(A|B)$.
+
 :::
 
 ::: {.definition title="(Système homogène associé)"}
+
 Le **système homogène associé** au système $AX = B$ est le système :
 
 $$AX = 0$$
+
 :::
 
 ## Opérations élémentaires et systèmes équivalents
 
 ::: {.definition}
+
 Deux systèmes linéaires sont dits **équivalents** si on passe de l'un à l'autre par une suite finie d'opérations élémentaires sur les lignes. Deux systèmes équivalents ont le même ensemble de solutions.
 
 Deux matrices sont dites **équivalentes par lignes** si elles se déduisent l'une de l'autre par une suite finie d'opérations élémentaires sur les lignes. On note $A \sim_L A'$.
+
 :::
 
 ## Échelonnement et algorithme du pivot de Gauss-Jordan
 
 ::: {.definition title="(Matrice échelonnée par lignes)"}
+
 Une matrice $A \in \mathcal{M}_{n,p}(\mathbb{K})$ est dite **échelonnée par lignes** si elle vérifie :
 
 1. Si une ligne de $A$ est nulle, toutes les lignes suivantes le sont aussi.
 2. Quand deux lignes successives de $A$ sont non nulles, l'indice de colonne du premier terme non nul de la ligne supérieure est strictement inférieur à l'indice de colonne du premier terme non nul de la ligne inférieure.
 
 Le premier terme non nul de chaque ligne non nulle est appelé **pivot**.
+
 :::
 
 ::: {.definition title="(Matrice échelonnée réduite par lignes)"}
+
 Une matrice échelonnée par lignes est dite **échelonnée réduite par lignes** si elle est nulle ou si tous ses pivots sont égaux à $1$ et sont les seuls éléments non nuls de leur colonne.
+
 :::
 
 ::: {.theorem title="(Algorithme du pivot de Gauss-Jordan)"}
+
 En utilisant les opérations élémentaires sur les lignes (échanges, transvections, dilatations), on peut transformer toute matrice non nulle en une matrice échelonnée réduite par lignes.
 
 Mieux : toute matrice non nulle est équivalente par lignes à une **unique** matrice échelonnée réduite par lignes.
+
 :::
 
 ::: {.example}
+
 Échelonnons la matrice $A = \begin{pmatrix} 1 & 2 & 3 \\ 2 & 3 & 4 \\ 1 & 1 & 1 \end{pmatrix}$.
 
 $L_2 \leftarrow L_2 - 2L_1$ et $L_3 \leftarrow L_3 - L_1$ :
@@ -320,23 +384,29 @@ $L_1 \leftarrow L_1 - 2L_2$ :
 $$\begin{pmatrix} 1 & 0 & -1 \\ 0 & 1 & 2 \\ 0 & 0 & 0 \end{pmatrix}$$
 
 C'est la matrice échelonnée réduite par lignes.
+
 :::
 
 ## Résolution des systèmes linéaires
 
 ::: {.proposition title="(Condition de compatibilité)"}
+
 Le système linéaire $AX = B$ est compatible si et seulement si $B$ est combinaison linéaire des colonnes de $A$, c'est-à-dire si $B \in \mathrm{Im}(A)$.
+
 :::
 
 ::: {.proposition title="(Structure des solutions)"}
+
 Si le système $AX = B$ est compatible et si $X_0$ est une solution particulière, alors l'ensemble des solutions est :
 
 $$\{X_0 + Y \mid Y \in \mathrm{Ker}(A)\}$$
 
 Autrement dit, les solutions sont de la forme $X_0 + Y$ où $Y$ parcourt l'ensemble des solutions du système homogène associé $AX = 0$.
+
 :::
 
 ::: {.example}
+
 Résolvons le système :
 
 $$\begin{cases} x + 2y + 3z = 6 \\ 2x + 3y + 4z = 9 \\ x + y + z = 3 \end{cases}$$
@@ -354,52 +424,66 @@ $$\begin{cases} x - z = 0 \\ y + 2z = 3 \end{cases}$$
 Donc $z$ est libre, $x = z$ et $y = 3 - 2z$. Les solutions sont :
 
 $$\left\{ \begin{pmatrix} t \\ 3 - 2t \\ t \end{pmatrix} \mid t \in \mathbb{R} \right\} = \begin{pmatrix} 0 \\ 3 \\ 0 \end{pmatrix} + t \begin{pmatrix} 1 \\ -2 \\ 1 \end{pmatrix}$$
+
 :::
 
 ## Rang d'une matrice et d'un système linéaire
 
 ::: {.definition}
+
 Le **rang** d'une matrice $A \in \mathcal{M}_{n,p}(\mathbb{K})$, noté $\mathrm{rg}(A)$, est le nombre de pivots d'une matrice échelonnée par lignes équivalente à $A$.
 
 Le rang d'un système linéaire est le rang de sa matrice.
+
 :::
 
 ::: {.proposition title="(Théorème du rang pour les systèmes)"}
+
 Pour un système linéaire de $n$ équations à $p$ inconnues de rang $r$ :
 
 - L'ensemble des solutions du système homogène associé est un sous-espace vectoriel de $\mathbb{K}^p$ de dimension $p - r$.
 - Le système est compatible si et seulement si le rang de la matrice augmentée $(A|B)$ est égal au rang de $A$.
+
 :::
 
 ::: {.proposition title="(Cas des systèmes carrés)"}
+
 Pour un système carré $AX = B$ avec $A \in \mathcal{M}_n(\mathbb{K})$ :
 
 - $A$ est inversible si et seulement si $\mathrm{rg}(A) = n$.
 - Dans ce cas, le système admet une unique solution $X = A^{-1}B$.
+
 :::
 
 ## Application aux problèmes d'intersection en géométrie
 
 ::: {.example title="(Intersection de droites dans $\mathbb{R}^2$)"}
+
 Les droites $\mathcal{D}_1 : 2x + 3y = 5$ et $\mathcal{D}_2 : x - y = 1$ ont pour intersection la solution du système :
 
 $$\begin{cases} 2x + 3y = 5 \\ x - y = 1 \end{cases}$$
 
 Après résolution : $x = \frac{7}{5}$, $y = \frac{3}{5}$. Les droites sont sécantes.
+
 :::
 
 ::: {.example title="(Intersection de plans dans $\mathbb{R}^3$)"}
+
 Les plans $\mathcal{P}_1 : x + y + z = 1$, $\mathcal{P}_2 : x - y + z = 0$, $\mathcal{P}_3 : 2x + y + 2z = 1$ ont pour intersection la solution du système :
 
 $$\begin{cases} x + y + z = 1 \\ x - y + z = 0 \\ 2x + y + 2z = 1 \end{cases}$$
+
 :::
 
 # Document en PDF {-}
 [Chapitre 10 : Calcul matriciel et systèmes d'équations linéaires](PDF/pcsi-chap10.pdf)
 
 ## Navigation {-}
+
 ::: {.chap-nav}
+
 [Chapitre 09 : Primitives et équations différentielles linéaires](pcsi-chap09.qmd){.prev}
 [Menu PCSI](pcsi.qmd){.home}
 [Chapitre 11 : Polynômes et fractions rationnelles](pcsi-chap11.qmd){.next}
+
 :::

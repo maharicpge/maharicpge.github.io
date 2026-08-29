@@ -19,75 +19,98 @@ filters:
 **MP (2e année) — TD du Chapitre 05.** Dérivation, intégration sur un segment, arc paramétré de classe $\mathcal{C}^k$.
 
 ::: {.exercise}
+
 Soit $f : I \to \mathbb{R}^n$ une fonction vectorielle. Montrer que $f$ est dérivable en $a$ si et seulement si toutes ses composantes $f_1, \ldots, f_n$ sont dérivables en $a$, et dans ce cas :
 $$f'(a) = (f_1'(a), \ldots, f_n'(a))$$
+
 :::
 
 ::: {.exercise}
+
 Soit $f : I \to \mathbb{R}^2$ définie par $f(t) = (e^t \cos t, e^t \sin t)$.
 
 1. Calculer $f'(t)$ et $\|f'(t)\|$.
 2. Montrer que l'angle entre $f(t)$ et $f'(t)$ est constant.
 3. Calculer la longueur de l'arc entre $t = 0$ et $t = \ln 2$.
+
 :::
 
 ::: {.exercise}
+
 Soit $f : I \to E$ de classe $\mathcal{C}^1$ et $\varphi : J \to I$ de classe $\mathcal{C}^1$. Montrer que $f \circ \varphi$ est de classe $\mathcal{C}^1$ et :
 $$(f \circ \varphi)'(t) = \varphi'(t) \cdot f'(\varphi(t))$$
+
 :::
 
 ::: {.exercise}
+
 Soit $f : [a,b] \to E$ continue par morceaux. Montrer que :
 $$\left\|\int_a^b f(t)\, dt\right\| \leq \int_a^b \|f(t)\|\, dt$$
+
 :::
 
 ::: {.exercise}
+
 Soit $f : [a,b] \to E$ de classe $\mathcal{C}^1$. Montrer l'inégalité des accroissements finis :
 $$\|f(b) - f(a)\| \leq (b-a) \sup_{[a,b]} \|f'\|$$
+
 :::
 
 ::: {.exercise}
+
 Soit $\gamma : I \to \mathbb{R}^2$ définie par $\gamma(t) = (t - \sin t, 1 - \cos t)$ (cycloïde).
 
 1. Étudier la périodicité et les symétries.
 2. Déterminer les points stationnaires.
 3. Calculer la longueur d'une arche.
+
 :::
 
 ::: {.exercise}
+
 Soit $\gamma : I \to \mathbb{R}^3$ définie par $\gamma(t) = (a\cos t, a\sin t, bt)$ (hélice circulaire).
 
 1. Calculer $\gamma'(t)$ et $\|\gamma'(t)\|$.
 2. Montrer que la tangente fait un angle constant avec l'axe $(Oz)$.
 3. Calculer la longueur de l'hélice entre $t = 0$ et $t = 2\pi$.
+
 :::
 
 ::: {.exercise}
+
 Montrer la formule de Taylor avec reste intégral pour une fonction vectorielle $f : [a,b] \to E$ de classe $\mathcal{C}^{n+1}$ :
 $$f(b) = \sum_{k=0}^n \frac{f^{(k)}(a)}{k!}(b-a)^k + \frac{1}{n!}\int_a^b (b-t)^n f^{(n+1)}(t)\, dt$$
+
 :::
 
 ::: {.exercise}
+
 Soit $\gamma : I \to \mathbb{R}^2$ un arc paramétré régulier de classe $\mathcal{C}^2$. Montrer que si $\|\gamma'(t)\|$ est constant, alors $\gamma'(t) \perp \gamma''(t)$ pour tout $t$.
+
 :::
 
 **Indication :** Dériver $\|\gamma'(t)\|^2 = cte$.
 
 ::: {.exercise}
+
 Soit $\gamma : I \to \mathbb{R}^2$ définie par $\gamma(t) = (\cos 2t, \sin 3t)$.
 
 1. Étudier la périodicité et la parité.
 2. Réduire l'intervalle d'étude.
 3. Déterminer les points stationnaires.
 4. Tracer l'allure de la courbe.
+
 :::
 
 # Cours {-}
 [**Chapitre 05 : Fonctions vectorielles et arcs paramétrés**](mp-chap05.qmd)
 
 # Navigation {-}
+
 ::: {.chap-nav}
+
 [TD 04 : Séries dans un EVN](mp-chap04.qmd){.prev}
 [Menu MP](mp.qmd){.home}
 [TD 06 : Suites et séries de fonctions](mp-chap06.qmd){.next}
+
 :::

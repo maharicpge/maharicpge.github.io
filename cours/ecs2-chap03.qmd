@@ -36,21 +36,27 @@ Dans tout ce chapitre, $E$ désigne un $\mathbb{R}$-espace vectoriel de dimensio
 ## Définition
 
 ::: {.definition title="(Produit scalaire)"}
+
 Un **produit scalaire** sur $E$ est une application $\langle \cdot, \cdot \rangle : E \times E \to \mathbb{R}$ vérifiant :
 
 1. **Bilinéarité** : $\forall x, y, z \in E$, $\forall \lambda, \mu \in \mathbb{R}$ : $\langle \lambda x + \mu y, z \rangle = \lambda \langle x, z \rangle + \mu \langle y, z \rangle$.
 2. **Symétrie** : $\langle x, y \rangle = \langle y, x \rangle$.
 3. **Définie positive** : $\langle x, x \rangle \geq 0$ et $\langle x, x \rangle = 0 \iff x = 0$.
+
 :::
 
 ::: {.definition title="(Espace euclidien)"}
+
 Un $\mathbb{R}$-espace vectoriel de dimension finie muni d'un produit scalaire est un **espace euclidien**.
+
 :::
 
 ## Norme euclidienne
 
 ::: {.definition title="(Norme associée)"}
+
 Pour $x \in E$ : $\|x\| = \sqrt{\langle x, x \rangle}$.
+
 :::
 
 ::: {.proposition title="(Règles de calcul)"}
@@ -58,35 +64,46 @@ Pour $x \in E$ : $\|x\| = \sqrt{\langle x, x \rangle}$.
 1. $\|x + y\|^2 = \|x\|^2 + 2\langle x, y \rangle + \|y\|^2$
 2. $\|x - y\|^2 = \|x\|^2 - 2\langle x, y \rangle + \|y\|^2$
 3. $\langle x, y \rangle = \frac{1}{2}(\|x+y\|^2 - \|x\|^2 - \|y\|^2)$ (identité de polarisation)
+
 :::
 
 ## Inégalité de Cauchy-Schwarz
 
 ::: {.theorem title="(Cauchy-Schwarz)"}
+
 Pour tous $x, y \in E$ :
 $$|\langle x, y \rangle| \leq \|x\| \cdot \|y\|$$
 avec égalité si et seulement si $x$ et $y$ sont liés.
+
 :::
 
 ::: {.theorem title="(Minkowski)"}
+
 Pour tous $x, y \in E$ :
 $$\|x + y\| \leq \|x\| + \|y\|$$
+
 :::
 
 ## Théorème de Pythagore
 
 ::: {.theorem title="(Pythagore)"}
+
 $x \perp y \iff \|x + y\|^2 = \|x\|^2 + \|y\|^2$
+
 :::
 
 # Orthogonalité
 
 ::: {.definition title="(Orthogonalité)"}
+
 $x \perp y \iff \langle x, y \rangle = 0$.
+
 :::
 
 ::: {.definition title="(Orthogonal d'une partie)"}
+
 Pour $A \subset E$ : $A^\perp = \{y \in E \mid \forall x \in A, \langle x, y \rangle = 0\}$.
+
 :::
 
 ::: {.proposition}
@@ -94,128 +111,175 @@ Pour $A \subset E$ : $A^\perp = \{y \in E \mid \forall x \in A, \langle x, y \ra
 1. $A^\perp$ est un sous-espace vectoriel.
 2. $E^\perp = \{0\}$ et $\{0\}^\perp = E$.
 3. $A^\perp = (\mathrm{Vect}(A))^\perp$.
+
 :::
 
 ::: {.theorem title="(Supplémentaire orthogonal)"}
+
 Pour tout sous-espace vectoriel $F$ de $E$ :
 $$E = F \oplus F^\perp$$
+
 :::
 
 # Bases orthonormées
 
 ::: {.definition title="(Famille orthogonale, orthonormée)"}
+
 Une famille $(e_i)$ est **orthogonale** si $\langle e_i, e_j \rangle = 0$ pour $i \neq j$. Elle est **orthonormée** si de plus $\|e_i\| = 1$ pour tout $i$.
+
 :::
 
 ::: {.proposition}
+
 Toute famille orthogonale de vecteurs non nuls est libre.
+
 :::
 
 ## Procédé de Gram-Schmidt
 
 ::: {.theorem title="(Gram-Schmidt)"}
+
 Toute famille libre $(u_1, \ldots, u_n)$ peut être orthonormalisée en une famille orthonormée $(e_1, \ldots, e_n)$ telle que pour tout $k$ :
 $$\mathrm{Vect}(u_1, \ldots, u_k) = \mathrm{Vect}(e_1, \ldots, e_k)$$
+
 :::
 
 ::: {.corollary}
+
 Tout espace euclidien admet une base orthonormée.
+
 :::
 
 ## Expression dans une base orthonormée
 
 ::: {.proposition}
+
 Si $(e_1, \ldots, e_n)$ est une base orthonormée et $x = \sum x_i e_i$, $y = \sum y_i e_i$, alors :
 $$\langle x, y \rangle = \sum_{i=1}^n x_i y_i, \quad \|x\|^2 = \sum_{i=1}^n x_i^2$$
+
 :::
 
 # Projection orthogonale
 
 ::: {.definition title="(Projection orthogonale)"}
+
 La **projection orthogonale** sur $F$ est la projection sur $F$ associée à $E = F \oplus F^\perp$.
+
 :::
 
 ::: {.proposition title="(Formule)"}
+
 Si $(e_1, \ldots, e_p)$ est une base orthonormée de $F$, alors pour tout $x \in E$ :
 $$p_F(x) = \sum_{k=1}^p \langle x, e_k \rangle e_k$$
+
 :::
 
 ::: {.theorem title="(Meilleure approximation)"}
+
 Pour tout $x \in E$ :
 $$\|x - p_F(x)\| = \min_{y \in F} \|x - y\|$$
+
 :::
 
 # Matrices symétriques
 
 ::: {.definition title="(Matrice symétrique)"}
+
 $A \in \mathcal{M}_n(\mathbb{R})$ est **symétrique** si $A^T = A$.
+
 :::
 
 ::: {.proposition title="(Caractérisation matricielle)"}
+
 Soit $u$ un endomorphisme de $E$ euclidien et $\mathcal{B}$ une base orthonormée. Alors :
 $$u \text{ symétrique} \iff \mathrm{Mat}_{\mathcal{B}}(u) \text{ symétrique}$$
+
 :::
 
 ::: {.proposition title="(Sous-espaces propres orthogonaux)"}
+
 Si $u$ est symétrique et $\lambda \neq \mu$ deux valeurs propres de $u$, alors $E_\lambda(u) \perp E_\mu(u)$.
+
 :::
 
 # Théorème spectral
 
 ::: {.theorem title="(Théorème spectral)"}
+
 Soit $u$ un endomorphisme symétrique d'un espace euclidien $E$. Alors :
 
 1. Toutes les valeurs propres de $u$ sont réelles.
 2. $u$ est diagonalisable dans une base orthonormée.
+
 :::
 
 ::: {.theorem title="(Version matricielle)"}
+
 Soit $A \in \mathcal{S}_n(\mathbb{R})$. Il existe $P \in O_n(\mathbb{R})$ (orthogonale : $P^T P = I_n$) et $D$ diagonale réelle telles que :
 $$A = P D P^T$$
+
 :::
 
 ::: {.proposition title="(Matrices symétriques positives)"}
+
 $A \in \mathcal{S}_n(\mathbb{R})$ est **positive** (resp. **définie positive**) si :
 $$\forall x \in \mathbb{R}^n, \quad x^T A x \geq 0 \quad (\text{resp. } > 0 \text{ pour } x \neq 0)$$
 
 $A$ est symétrique positive si et seulement si toutes ses valeurs propres sont $\geq 0$ (resp. $> 0$).
+
 :::
 
 # Exercices
 
 ::: {.exercise}
+
 Montrer que $\langle (x_1, \ldots, x_n), (y_1, \ldots, y_n) \rangle = \sum x_i y_i$ définit un produit scalaire sur $\mathbb{R}^n$.
+
 :::
 
 ::: {.exercise}
+
 Soit $f : \mathbb{R} \to \mathbb{R}$ continue. Montrer que $\langle f, g \rangle = \int_0^1 f(t)g(t)\, dt$ définit un produit scalaire sur $\mathcal{C}([0,1], \mathbb{R})$.
+
 :::
 
 ::: {.exercise}
+
 Appliquer Gram-Schmidt à la famille $(1, X, X^2)$ dans $\mathbb{R}_2[X]$ muni de $\langle P, Q \rangle = \int_{-1}^1 P(t)Q(t)\, dt$.
+
 :::
 
 ::: {.exercise}
+
 Soit $A = \begin{pmatrix} 2 & 1 \\ 1 & 2 \end{pmatrix}$. Diagonaliser $A$ orthogonalement.
+
 :::
 
 ::: {.exercise}
+
 Soit $A = \begin{pmatrix} 3 & 1 & 1 \\ 1 & 3 & 1 \\ 1 & 1 & 3 \end{pmatrix}$.
 
 1. Calculer $\chi_A$.
 2. Diagonaliser $A$ orthogonalement.
+
 :::
 
 ::: {.exercise}
+
 Soit $A \in \mathcal{S}_n(\mathbb{R})$. Montrer que $\mathrm{tr}(A^2) \geq 0$.
+
 :::
 
 ::: {.exercise}
+
 Soit $A \in \mathcal{S}_n(\mathbb{R})$ définie positive. Montrer que $\mathrm{tr}(A) > 0$ et $\det(A) > 0$.
+
 :::
 
 ::: {.exercise}
+
 Soit $A \in \mathcal{S}_n(\mathbb{R})$. Montrer que $A$ est symétrique positive si et seulement si ses valeurs propres sont $\geq 0$.
+
 :::
 
 # Document en PDF {-}
@@ -225,7 +289,9 @@ Soit $A \in \mathcal{S}_n(\mathbb{R})$. Montrer que $A$ est symétrique positive
 ## Navigation {-}
 
 ::: {.chap-nav}
+
 [Chapitre 02 : Réduction des endomorphismes](ecs2-chap02.qmd){.prev}
 [Menu ECS2](ecs2.qmd){.home}
 [Chapitre 04 : Séries numériques](ecs2-chap04.qmd){.next}
+
 :::

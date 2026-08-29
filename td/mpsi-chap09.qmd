@@ -19,7 +19,9 @@ filters:
 **MPSI (1re année) — TD du Chapitre 09.** Divisibilité, division euclidienne, PGCD, PPCM, théorèmes de Bézout et de Gauss, nombres premiers, valuation $p$-adique, congruences.
 
 ::: {.exercise}
+
 Calculer $1234 \wedge 567$ par l'algorithme d'Euclide. En déduire des entiers $u, v$ tels que $1234u + 567v = 1234 \wedge 567$. Calculer $1234 \vee 567$.
+
 :::
 
 **Indications :**
@@ -30,18 +32,22 @@ Calculer $1234 \wedge 567$ par l'algorithme d'Euclide. En déduire des entiers $
 - Remonter les divisions pour trouver $u$ et $v$.
 
 ::: {.exercise}
+
 Soient $a, b \in \mathbb{Z}^2 \setminus \{(0,0)\}$. Montrer que :
 $$a\mathbb{Z} + b\mathbb{Z} = (a \wedge b)\mathbb{Z} \quad \text{et} \quad a\mathbb{Z} \cap b\mathbb{Z} = (a \vee b)\mathbb{Z}$$
+
 :::
 
 **Indication :** Utiliser le théorème de Bézout pour la première égalité. Pour la seconde, montrer que $a\mathbb{Z} \cap b\mathbb{Z}$ est un sous-groupe de $\mathbb{Z}$ contenant $ab$.
 
 ::: {.exercise}
+
 Résoudre dans $\mathbb{Z}$ les congruences suivantes :
 
 1. $3x \equiv 7 \pmod{11}$
 2. $6x \equiv 4 \pmod{10}$
 3. $x^2 \equiv 1 \pmod{8}$
+
 :::
 
 **Indications :**
@@ -50,32 +56,42 @@ Résoudre dans $\mathbb{Z}$ les congruences suivantes :
 - (3) Tester $x = 0, 1, \ldots, 7$.
 
 ::: {.exercise}
+
 Résoudre le système de congruences (théorème des restes chinois) :
 $$\begin{cases} x \equiv 2 \pmod{3} \\ x \equiv 3 \pmod{5} \\ x \equiv 2 \pmod{7} \end{cases}$$
+
 :::
 
 **Indication :** Chercher $x = 2 + 3k$, puis imposer $2 + 3k \equiv 3 \pmod{5}$, etc.
 
 ::: {.exercise}
+
 Montrer que $2^{11} - 1 = 2047$ n'est pas premier.
+
 :::
 
 **Indication :** Vérifier que $2047 = 23 \times 89$.
 
 ::: {.exercise}
+
 Montrer qu'il existe une infinité de nombres premiers (raisonnement d'Euclide).
+
 :::
 
 **Indication :** Supposer $p_1, \ldots, p_n$ premiers. Poser $N = p_1 \cdots p_n + 1$. Montrer qu'aucun $p_i$ ne divise $N$.
 
 ::: {.exercise}
+
 Soit $p$ un nombre premier. Montrer que si $p \mid ab$ avec $a, b \in \mathbb{Z}$, alors $p \mid a$ ou $p \mid b$ (lemme de Gauss).
+
 :::
 
 **Indication :** Si $p \nmid a$, alors $p \wedge a = 1$ (car $p$ premier). Par le théorème de Gauss, $p \mid b$.
 
 ::: {.exercise}
+
 Déterminer $v_2(1000!)$ et $v_5(100!)$. En déduire le nombre de zéros terminaux de $100!$.
+
 :::
 
 **Indications :**
@@ -83,7 +99,9 @@ Déterminer $v_2(1000!)$ et $v_5(100!)$. En déduire le nombre de zéros termina
 - Le nombre de zéros terminaux de $n!$ est $v_5(n!)$.
 
 ::: {.exercise}
+
 Montrer que pour tout premier $p$ et tout $a \in \mathbb{Z}$ : $a^p \equiv a \pmod{p}$ (petit théorème de Fermat).
+
 :::
 
 **Indications :**
@@ -91,19 +109,25 @@ Montrer que pour tout premier $p$ et tout $a \in \mathbb{Z}$ : $a^p \equiv a \pm
 - Sinon, utiliser le fait que $\{a, 2a, \ldots, (p-1)a\} \equiv \{1, 2, \ldots, p-1\} \pmod{p}$.
 
 ::: {.exercise}
+
 Montrer que $n^5 - n$ est divisible par $30$ pour tout $n \in \mathbb{Z}$.
+
 :::
 
 **Indication :** $30 = 2 \times 3 \times 5$. Utiliser le petit théorème de Fermat pour $p = 2, 3, 5$.
 
 ::: {.exercise}
+
 Soit $n \in \mathbb{N}^*$. Montrer que $n^7 - n$ est divisible par $42$.
+
 :::
 
 **Indication :** $42 = 2 \times 3 \times 7$. Utiliser le petit théorème de Fermat.
 
 ::: {.exercise}
+
 Calculer $2^{1000} \pmod{11}$.
+
 :::
 
 **Indication :** $2^{10} \equiv 1 \pmod{11}$ par le petit théorème de Fermat. Donc $2^{1000} = (2^{10})^{100} \equiv 1 \pmod{11}$.
@@ -112,8 +136,11 @@ Calculer $2^{1000} \pmod{11}$.
 [Chapitre 09 : Arithmétique dans ℤ](../cours/mpsi-chap09.qmd)
 
 # Navigation {-}
+
 ::: {.chap-nav}
+
 [Chapitre 08 : Structures algébriques](mpsi-chap08.qmd){.prev}
 [Menu MPSI](mpsi.qmd){.home}
 [Chapitre 10 : Polynômes](mpsi-chap10.qmd){.next}
+
 :::

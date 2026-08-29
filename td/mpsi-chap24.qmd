@@ -19,64 +19,82 @@ filters:
 **MPSI (1re année) — TD du Chapitre 24.** Cardinal, listes, arrangements, combinaisons.
 
 ::: {.exercise}
+
 Déterminer le cardinal des ensembles suivants :
 
 1. L'ensemble des listes de longueur $p$ à valeurs dans un ensemble de cardinal $n$.
 2. L'ensemble des arrangements de $p$ éléments parmi $n$ (avec $p \leq n$).
 3. L'ensemble des combinaisons de $p$ éléments parmi $n$.
+
 :::
 
 ::: {.exercise}
+
 Combien y a-t-il de :
 
 1. Nombres de 4 chiffres distincts ?
 2. Nombres de 4 chiffres (non nécessairement distincts) ?
 3. Nombres pairs de 4 chiffres distincts ?
+
 :::
 
 ::: {.exercise}
+
 Un code est formé de 3 lettres distinctes suivies de 2 chiffres distincts. Combien de codes peut-on former avec 26 lettres et 10 chiffres ?
+
 :::
 
 ::: {.exercise}
+
 Soit $n \geq 2$. Montrer que :
 
 1. $\displaystyle\sum_{k=0}^n \binom{n}{k} = 2^n$
 2. $\displaystyle\sum_{k=0}^n (-1)^k \binom{n}{k} = 0$
 3. $\displaystyle\sum_{k=0}^n k\binom{n}{k} = n \cdot 2^{n-1}$
+
 :::
 
 **Indication :** Utiliser le binôme de Newton avec $(1+1)^n$, $(1-1)^n$ et la dérivée de $(1+x)^n$.
 
 ::: {.exercise}
+
 De combien de façons peut-on choisir un comité de 3 personnes parmi 10 ? De combien de façons si l'une des personnes est présidente ?
+
 :::
 
 ::: {.exercise}
+
 On dispose de 5 boules rouges et 7 boules bleues. De combien de façons peut-on en choisir 4 ?
+
 :::
 
 **Indication :** $\binom{12}{4}$ si les boules sont distinguables. Sinon, décomposer selon le nombre de rouges.
 
 ::: {.exercise}
+
 Montrer la formule du binôme de Newton par récurrence :
 $$(a+b)^n = \sum_{k=0}^n \binom{n}{k} a^k b^{n-k}$$
+
 :::
 
 ::: {.exercise}
+
 Un sac contient 3 boules rouges et 5 boules noires. On tire simultanément 3 boules.
 
 1. Combien de tirages possibles ?
 2. Combien de tirages avec exactement 2 boules rouges ?
 3. Combien de tirages avec au moins une boule rouge ?
+
 :::
 
 ::: {.exercise}
+
 Soit $E$ un ensemble fini de cardinal $n$. Déterminer le nombre :
 
 1. De parties de $E$.
 2. De couples $(A, B) \in \mathcal{P}(E)^2$ avec $A \subset B$.
 3. De triplets $(A, B, C) \in \mathcal{P}(E)^3$ avec $A \cap B \cap C = \varnothing$.
+
 :::
 
 **Indications :**
@@ -84,8 +102,10 @@ Soit $E$ un ensemble fini de cardinal $n$. Déterminer le nombre :
 - (3) Chaque élément a 7 choix (tout sauf être dans les trois). Résultat : $7^n$.
 
 ::: {.exercise}
+
 Montrer l'identité de Vandermonde :
 $$\sum_{k=0}^r \binom{n}{k}\binom{m}{r-k} = \binom{n+m}{r}$$
+
 :::
 
 **Indication :** Compter les façons de choisir $r$ éléments parmi $n+m$ en séparant selon le nombre choisi parmi les $n$.
@@ -94,8 +114,11 @@ $$\sum_{k=0}^r \binom{n}{k}\binom{m}{r-k} = \binom{n+m}{r}$$
 [**Chapitre 24 : Dénombrement**](mpsi-chap24.qmd)
 
 # Navigation {-}
+
 ::: {.chap-nav}
+
 [Chapitre 23 : Séries numériques](mpsi-chap23.qmd){.prev}
 [Menu MPSI](mpsi.qmd){.home}
 [Chapitre 25 : Espaces probabilisés finis](mpsi-chap25.qmd){.next}
+
 :::

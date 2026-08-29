@@ -29,6 +29,7 @@ Dans la suite, $\mathbb{K}$ désigne $\mathbb{R}$ ou $\mathbb{C}$, sauf mention 
 ## Définition et exemples
 
 ::: {.definition}
+
 Un **espace vectoriel** sur $\mathbb{K}$ est un triplet $(E,+,\cdot)$ où :
 
 - $E$ est un ensemble non vide dont les éléments sont appelés **vecteurs** ;
@@ -44,30 +45,37 @@ tel que :
 5. $\forall x\in E,\ 1_{\mathbb{K}}\cdot x=x$.
 
 Les éléments de $\mathbb{K}$ sont appelés **scalaires**.
+
 :::
 
 ::: {.example}
+
 1. $E=\mathbb{K}^3$ muni des lois usuelles est un $\mathbb{K}$-espace vectoriel de neutre $0_{\mathbb{K}^3}=(0,0,0)$.
 2. Plus généralement, $\mathbb{K}^n$ est un $\mathbb{K}$-espace vectoriel.
 3. $(\mathbb{K}[X],+,\cdot)$ est un espace vectoriel.
 4. Si $X$ est un ensemble non vide, $(\mathcal{F}(X,\mathbb{K}),+,\cdot)$ est un $\mathbb{K}$-espace vectoriel ; en particulier, l'ensemble des suites numériques $\mathbb{K}^{\mathbb{N}}$ est un espace vectoriel.
 5. Si $\mathbb{L}$ est un corps et $\mathbb{K}$ un sous-corps de $\mathbb{L}$, alors $(\mathbb{L},+,\cdot)$ est un $\mathbb{K}$-espace vectoriel : ainsi $\mathbb{C}$ est un $\mathbb{R}$-espace vectoriel et un $\mathbb{Q}$-espace vectoriel.
+
 :::
 
 ## Règles de calcul
 
 ::: {.proposition}
+
 Soit $(E,+,\cdot)$ un $\mathbb{K}$-espace vectoriel.
 
 1. Pour $x\in E$, l'application $\lambda\mapsto\lambda\cdot x$ est un morphisme de groupes de $(\mathbb{K},+)$ dans $(E,+)$ ; en particulier $0_{\mathbb{K}}\cdot x=0_E$, et $\forall\lambda\in\mathbb{K},\ \forall n\in\mathbb{Z},\ (n\lambda)\cdot x=n(\lambda\cdot x)$ ; en prenant $\lambda=1$ et $n=-1$ : $-1_{\mathbb{K}}\cdot x=-x$.
 2. Pour $\lambda\in\mathbb{K}$, l'application $x\mapsto\lambda\cdot x$ est un endomorphisme de groupes de $(E,+)$ : $\lambda\cdot 0_E=0_E$ ; de plus $\lambda\cdot(nx)=n(\lambda\cdot x)$, d'où $\lambda\cdot(-x)=-\lambda\cdot x$.
 3. Pour $\lambda\in\mathbb{K}$ et $x\in E$ : $\lambda\cdot x=0_E \iff \lambda=0_{\mathbb{K}} \text{ ou } x=0_E$.
 4. **Distributivité étendue :** $\left(\sum_{i=1}^n\lambda_i\right)\cdot x=\sum_{i=1}^n(\lambda_i\cdot x)$ et $\lambda\cdot\left(\sum_{i=1}^n x_i\right)=\sum_{i=1}^n(\lambda\cdot x_i)$.
+
 :::
 
 ::: {.proof title="(du point 3)"}
+
 Si $\lambda\cdot x=0_E$ avec $\lambda\neq 0_{\mathbb{K}}$, alors :
 $$x=1_{\mathbb{K}}\cdot x=\left(\lambda\frac{1}{\lambda}\right)\cdot x=\frac{1}{\lambda}(\lambda\cdot x)=\frac{1}{\lambda}\cdot 0_E=0_E.$$
+
 :::
 
 # Combinaisons linéaires, familles libres, génératrices, bases
@@ -75,63 +83,83 @@ $$x=1_{\mathbb{K}}\cdot x=\left(\lambda\frac{1}{\lambda}\right)\cdot x=\frac{1}{
 ## Combinaisons linéaires
 
 ::: {.definition}
+
 Soient $n\in\mathbb{N}^*$ et $x_1,\ldots,x_n\in E$. Une **combinaison linéaire** de $x_1,\ldots,x_n$ est une expression de la forme
 $$\sum_{i=1}^n\alpha_i x_i \quad \text{avec } \alpha_1,\ldots,\alpha_n\in\mathbb{K}.$$
 On remarque que $\sum_{i=1}^n 0_{\mathbb{K}}\, x_i=0_E$.
+
 :::
 
 ## Familles libres et liées
 
 ::: {.definition}
+
 Soit $n\in\mathbb{N}^*$. La famille $(x_1,\ldots,x_n)$ est **libre** si :
 $$\forall(\alpha_1,\ldots,\alpha_n)\in\mathbb{K}^n,\ \sum_{i=1}^n\alpha_i x_i=0_E \Rightarrow \alpha_1=\alpha_2=\cdots=\alpha_n=0_{\mathbb{K}}.$$
 Lorsqu'elle n'est pas libre, on dit qu'elle est **liée** : il existe $(\alpha_1,\ldots,\alpha_n)\neq(0,\ldots,0)$ tel que $\sum_{i=1}^n\alpha_i x_i=0_E$ (relation de dépendance linéaire non triviale).
+
 :::
 
 ::: {.remark}
+
 - Si l'un des $x_i$ est nul, la famille est liée.
 - Si l'un des $x_i$ est combinaison linéaire des autres, la famille est liée.
 - Réciproquement, si la famille est liée, l'un des $x_i$ est combinaison linéaire des autres. Autrement dit : $(x_1,\ldots,x_n)$ est liée si et seulement si l'un des $x_i$ est combinaison linéaire des autres ; par contraposée, elle est libre si et seulement si aucun des $x_i$ n'est combinaison linéaire des autres.
+
 :::
 
 ::: {.example}
+
 1. Soit $x\in E$ ; on note $\mathbb{K}x=\{\alpha\cdot x\ /\ \alpha\in\mathbb{K}\}$. Si $x\neq 0_E$, $\mathbb{K}x$ est la **droite vectorielle** engendrée par $x$ ; $y$ est **colinéaire** à $x$ si $y\in\mathbb{K}x$. Pour $x,y\neq 0_E$ : $(x,y)$ est liée si et seulement si $y$ est colinéaire à $x$.
 2. Dans $E=\mathbb{R}^3$, la famille $((1,2,1),(1,-1,1),(2,1,3))$ est **libre** : en écrivant $\alpha x+\beta y+\gamma z=0$, le pivot de Gauss donne $\alpha=\beta=\gamma=0$.
 3. Dans $E=\mathbb{R}^3$, la famille $((1,1,1),(1,-1,2),(1,3,\lambda))$ est libre si et seulement si $\lambda\neq 0$ (le pivot donne $2\lambda\gamma=0$).
 4. Dans $\mathbb{K}[X]$, toute famille de polynômes échelonnée en degrés ($0\leq\deg P_1<\cdots<\deg P_n$) est libre ; en particulier $(X^k)_{0\leq k\leq n}$ est libre.
 5. Dans $\mathcal{F}(\mathbb{R},\mathbb{R})$ : la famille $(t\mapsto e^{\alpha_k t})$ avec $\alpha_1<\cdots<\alpha_r$ est libre (faire tendre $t\to-\infty$) ; la famille $(\cos(kt))_{k\in\mathbb{N}}$ est libre (intégrer contre $\cos(lt)$ sur $[0,2\pi]$) ; la famille $(\cos^k t)_{k\in\mathbb{N}}$ est libre.
+
 :::
 
 ## Familles génératrices
 
 ::: {.definition}
+
 La famille $(x_1,\ldots,x_n)$ est **génératrice** (ou **engendre** $E$) si tout vecteur de $E$ est combinaison linéaire de $x_1,\ldots,x_n$.
+
 :::
 
 ::: {.example}
+
 $(X^n)_{n\in\mathbb{N}}$ est une famille génératrice de $\mathbb{K}[X]$ ; d'après la formule de Taylor, $\forall a\in\mathbb{K}$, $((X-a)^n)_{n\in\mathbb{N}}$ est aussi génératrice.
+
 :::
 
 ## Bases et coordonnées
 
 ::: {.definition}
+
 Une famille $(x_i)_{i\in I}$ est une **base** de $E$ si elle est à la fois libre et génératrice.
+
 :::
 
 ::: {.example}
+
 1. La famille canonique $(e_1,\ldots,e_n)$ est une base de $\mathbb{K}^n$, appelée **base canonique**.
 2. $(1_{\mathbb{K}})$ est une base de $\mathbb{K}$ ; $(1,i)$ est une base du $\mathbb{R}$-espace vectoriel $\mathbb{C}$.
 3. $(X^n)_{n\in\mathbb{N}}$ est une base de $\mathbb{K}[X]$.
 4. $(x,y)$ est une base de $\mathbb{K}^2$ si et seulement si $\alpha\delta-\beta\gamma\neq 0$, où $x=(\alpha,\beta)$ et $y=(\gamma,\delta)$.
 5. Dans $\mathbb{R}^3$, $((1,1,1),(1,0,2),(2,1,-1))$ est une base.
+
 :::
 
 ::: {.proposition title="(Coordonnées)"}
+
 Si $E$ admet une base $\mathcal{B}=(e_1,\ldots,e_n)$, alors pour tout $x\in E$, il existe un unique $n$-uplet $(\alpha_1,\ldots,\alpha_n)\in\mathbb{K}^n$ tel que $x=\sum_{i=1}^n\alpha_i e_i$. On l'appelle le $n$-uplet des **coordonnées** de $x$ dans $\mathcal{B}$.
+
 :::
 
 ::: {.proof title="(unicité)"}
+
 L'existence est assurée car $\mathcal{B}$ est génératrice. Si $x=\sum\alpha_i e_i=\sum\beta_i e_i$, alors $\sum(\alpha_i-\beta_i)e_i=0_E$ ; or $\mathcal{B}$ est libre donc $\forall i,\ \alpha_i-\beta_i=0$.
+
 :::
 
 # Sous-espaces vectoriels
@@ -139,53 +167,70 @@ L'existence est assurée car $\mathcal{B}$ est génératrice. Si $x=\sum\alpha_i
 ## Définition, critère réduit, intersection
 
 ::: {.definition}
+
 Soit $E$ un $\mathbb{K}$-espace vectoriel et $F\subset E$. On dit que $F$ est un **sous-espace vectoriel** de $E$ si :
 
 1. $F$ est un sous-groupe de $(E,+)$ ;
 2. $\forall\lambda\in\mathbb{K},\ \forall x\in F,\ \lambda\cdot x\in F$.
+
 :::
 
 ::: {.proposition title="(Critère réduit)"}
+
 $F\subset E$ est un sous-espace vectoriel si et seulement si $F\neq\varnothing$ et $\forall x,y\in F,\ \forall\alpha\in\mathbb{K},\ \alpha x+y\in F$.
+
 :::
 
 ::: {.example}
+
 1. $\{0_E\}$ et $E$ sont des sous-espaces vectoriels de $E$.
 2. $\mathbb{K}_n[X]=\{P\in\mathbb{K}[X]\ /\ \deg P\leq n\}$ est un sous-espace vectoriel de $\mathbb{K}[X]$.
 3. $\mathcal{C}(I,\mathbb{R})$, $\mathcal{D}(I,\mathbb{R})$, $\mathcal{C}^\infty(I,\mathbb{R})$, l'ensemble des fonctions paires, l'ensemble des fonctions impaires sont des sous-espaces vectoriels de $\mathcal{F}(I,\mathbb{R})$.
 4. L'ensemble des suites convergentes, ainsi que l'ensemble des suites de limite $0$, sont des sous-espaces vectoriels de $\mathbb{C}^{\mathbb{N}}$.
 5. L'ensemble des solutions $\mathrm{Sol}(S)$ d'un système linéaire **homogène** de $n$ équations à $p$ inconnues est un sous-espace vectoriel de $\mathbb{K}^p$ ; en particulier, $\{x\in\mathbb{K}^p\ /\ a_1x_1+\cdots+a_px_p=0\}$ est un sous-espace vectoriel.
+
 :::
 
 ::: {.proposition}
+
 Une intersection quelconque de sous-espaces vectoriels est un sous-espace vectoriel.
+
 :::
 
 ## Sous-espace engendré par une partie
 
 ::: {.definition}
+
 L'intersection de tous les sous-espaces vectoriels contenant $\{x_1,\ldots,x_n\}$ est le plus petit sous-espace vectoriel contenant $x_1,\ldots,x_n$ ; on le note $\mathrm{Vect}(x_1,\ldots,x_n)$ et on l'appelle le **sous-espace engendré** par la famille. C'est l'ensemble des combinaisons linéaires de $x_1,\ldots,x_n$.
+
 :::
 
 ::: {.remark}
+
 Si $x_n\in\mathrm{Vect}(x_1,\ldots,x_{n-1})$, alors $\mathrm{Vect}(x_1,\ldots,x_n)=\mathrm{Vect}(x_1,\ldots,x_{n-1})$. En particulier, pour $x\neq 0_E$, $\mathrm{Vect}(x)=\mathbb{K}x$.
+
 :::
 
 ::: {.example}
+
 1. Dans $\mathbb{R}^3$, $F=\mathrm{Vect}((1,1,-1),(2,1,1))$ est le plan d'équation cartésienne $-2x+3y+z=0$.
 2. Le sous-espace de $\mathbb{R}^3$ d'équations $x-2y+z=0$ et $2x-y+3z=0$ est $\mathrm{Vect}((5,1,-3))$.
 3. Le sous-espace d'équation $x+y-z=0$ est $\mathrm{Vect}((-1,1,0),(1,0,1))$.
+
 :::
 
 ## Sommes, sommes directes, supplémentaires
 
 ::: {.definition}
+
 Soient $F_1,\ldots,F_n$ des sous-espaces vectoriels de $E$. L'ensemble
 $$F_1+\cdots+F_n=\{x_1+\cdots+x_n\ /\ (x_1,\ldots,x_n)\in F_1\times\cdots\times F_n\}$$
 est un sous-espace vectoriel de $E$, appelé **somme** des $F_i$ ; c'est aussi $\mathrm{Vect}\left(\bigcup_{i=1}^n F_i\right)$.
+
 :::
 
 ::: {.theorem title="(Sommes directes)"}
+
 Les assertions suivantes sont équivalentes :
 
 1. $\forall(x_1,\ldots,x_n)\in F_1\times\cdots\times F_n,\ \sum_{i=1}^n x_i=0_E \Rightarrow \forall i,\ x_i=0_E$ ;
@@ -193,20 +238,27 @@ Les assertions suivantes sont équivalentes :
 3. $\forall j,\ F_j\cap\sum_{i\neq j}F_i=\{0_E\}$.
 
 Lorsqu'elles sont vérifiées, on dit que la somme est **directe** et on écrit $F_1\oplus\cdots\oplus F_n$.
+
 :::
 
 ::: {.remark}
+
 Pour deux sous-espaces, $F+G$ est directe si et seulement si $F\cap G=\{0_E\}$. Cette condition ne se généralise pas : dans $\mathbb{R}^2$, pour $F=\mathrm{Vect}((1,0))$, $G=\mathrm{Vect}((0,1))$, $H=\mathrm{Vect}((1,1))$, on a $F\cap G=G\cap H=F\cap H=\{0\}$ mais $F+G+H$ n'est pas directe car $(1,1)-(1,0)-(0,1)=(0,0)$.
+
 :::
 
 ::: {.example}
+
 1. $(x_1,\ldots,x_n)$ est libre si et seulement si la somme $\sum_{i=1}^n\mathbb{K}x_i$ est directe.
 2. Dans $\mathcal{F}(\mathbb{R},\mathbb{R})$, si $\mathcal{P}$ désigne les fonctions paires et $\mathcal{I}$ les fonctions impaires, alors $\mathbb{R}^{\mathbb{R}}=\mathcal{P}\oplus\mathcal{I}$ (analyse-synthèse : $g(x)=\frac{f(x)+f(-x)}{2}$, $h(x)=\frac{f(x)-f(-x)}{2}$).
 3. Si $F=\mathrm{Vect}(x_1,\ldots,x_m)$ et $G=\mathrm{Vect}(y_1,\ldots,y_n)$, alors $F+G$ est directe si et seulement si la famille recollée $(x_1,\ldots,x_m,y_1,\ldots,y_n)$ est libre.
+
 :::
 
 ::: {.definition}
+
 Les sous-espaces $F_1,\ldots,F_n$ sont **supplémentaires** si $\bigoplus_{i=1}^n F_i=E$. Pour deux sous-espaces : $E=F\oplus G \iff F\cap G=\{0_E\}$ et $F+G=E$.
+
 :::
 
 # Applications linéaires
@@ -214,40 +266,51 @@ Les sous-espaces $F_1,\ldots,F_n$ sont **supplémentaires** si $\bigoplus_{i=1}^
 ## Définition et exemples
 
 ::: {.definition}
+
 Soient $E,F$ deux $\mathbb{K}$-espaces vectoriels et $f:E\to F$. On dit que $f$ est **linéaire** si :
 
 1. $f$ est un morphisme de groupes de $(E,+)$ dans $(F,+)$ ;
 2. $\forall x\in E,\ \forall\alpha\in\mathbb{K},\ f(\alpha x)=\alpha f(x)$.
 
 On note $\mathcal{L}(E,F)$ l'ensemble des applications linéaires de $E$ dans $F$ ; si $E=F$, on note $\mathcal{L}(E)$ et ses éléments sont appelés **endomorphismes**.
+
 :::
 
 ::: {.proposition title="(Critère plus léger)"}
+
 $f$ est linéaire si et seulement si $\forall\alpha\in\mathbb{K},\ \forall x,y\in E,\ f(\alpha x+y)=\alpha f(x)+f(y)$.
+
 :::
 
 ::: {.example}
+
 1. Si $\mathcal{B}=(e_1,\ldots,e_n)$ est la base canonique de $\mathbb{K}^n$, la $i$-ème forme coordonnée $e_i^*:x=\sum\alpha_j e_j\mapsto\alpha_i$ est linéaire.
 2. $f\mapsto\int_a^b f$ est linéaire de $\mathcal{C}([a,b],\mathbb{R})$ dans $\mathbb{R}$.
 3. $u\mapsto\lim u$ est $\mathbb{C}$-linéaire sur l'espace des suites complexes convergentes.
 4. $P\mapsto P'$ est un endomorphisme de $\mathbb{K}[X]$.
 5. Les applications $\mathbb{R}$-linéaires de $\mathbb{C}$ dans $\mathbb{C}$ sont celles du type $\varphi_{a,b}:z\mapsto az+b\overline{z}$.
 6. Les applications $\mathbb{K}$-linéaires de $\mathbb{K}$ dans $\mathbb{K}$ sont celles du type $x\mapsto ax$.
+
 :::
 
 ## Relations avec les bases
 
 ::: {.theorem}
+
 Soit $E$ un espace vectoriel admettant une base finie $\mathcal{B}=(e_1,\ldots,e_p)$, $V$ un espace vectoriel et $v_1,\ldots,v_p\in V$. Il existe une **unique** application linéaire $f:E\to V$ telle que $\forall i,\ f(e_i)=v_i$. En particulier, deux applications linéaires qui coïncident sur une base sont égales.
+
 :::
 
 ::: {.example title="(Homothéties)"}
+
 Pour $\lambda\in\mathbb{K}$, $h_\lambda:x\mapsto\lambda x$ est un endomorphisme de $E$ appelé **homothétie** de rapport $\lambda$ ; $h_0$ est l'application nulle et $h_1=\mathrm{Id}_E$.
+
 :::
 
 ## Noyau, image, injectivité, surjectivité
 
 ::: {.proposition}
+
 Soit $f\in\mathcal{L}(E,F)$.
 
 1. $f(0_E)=0_F$ et $f$ conserve les combinaisons linéaires : $f\left(\sum_{k=1}^n\lambda_k x_k\right)=\sum_{k=1}^n\lambda_k f(x_k)$.
@@ -256,32 +319,43 @@ Soit $f\in\mathcal{L}(E,F)$.
 4. $f$ est injective si et seulement si $\ker f=\{0_E\}$.
 5. Si $f$ est injective, elle transforme toute famille libre en famille libre ; si $E$ admet une base finie $\mathcal{B}$ : $f$ injective $\iff f(\mathcal{B})$ libre.
 6. $f$ est surjective si et seulement si l'image d'une famille génératrice est génératrice.
+
 :::
 
 ::: {.proposition title="(Composition, isomorphismes)"}
+
 1. Si $f\in\mathcal{L}(E,F)$ et $g\in\mathcal{L}(F,G)$, alors $g\circ f\in\mathcal{L}(E,G)$.
 2. Si $f$ est une application linéaire bijective (**isomorphisme**), alors $f^{-1}$ est linéaire, donc isomorphisme de $F$ dans $E$.
 3. L'ensemble $\mathrm{Aut}(E)$ des automorphismes de $E$ est un sous-groupe de $(\mathfrak{S}(E),\circ)$.
+
 :::
 
 ## Opérations sur les applications linéaires
 
 ::: {.proposition}
+
 Muni de $(f+g)(x)=f(x)+g(x)$ et $(\alpha\cdot f)(x)=\alpha f(x)$, l'ensemble $\mathcal{L}(E,F)$ est un $\mathbb{K}$-espace vectoriel. De plus, $(\mathcal{L}(E),+,\circ,\cdot)$ est une $\mathbb{K}$-**algèbre** (anneau, espace vectoriel, et $\forall\alpha,\ (\alpha f)\circ g=f\circ(\alpha g)=\alpha(f\circ g)$).
+
 :::
 
 ## Projecteurs et symétries
 
 ::: {.definition}
+
 Soit $f\in\mathcal{L}(E)$. On dit que $f$ est un **projecteur** si $f\circ f=f$ ; on dit que $f$ est une **symétrie** si $f\circ f=\mathrm{Id}_E$.
+
 :::
 
 ::: {.example title="(Exemple standard)"}
+
 Si $E=F\oplus G$, tout $x\in E$ s'écrit de façon unique $x=x_F+x_G$. La projection $p_{F,G}:x\mapsto x_F$ est un projecteur : $F=\mathrm{Im}\,p_{F,G}=\ker(p_{F,G}-\mathrm{Id}_E)$ et $G=\ker p_{F,G}$. La symétrie $s_{F,G}:x\mapsto x_F-x_G$ vérifie $F=\{x\ /\ s(x)=x\}$ et $G=\ker(s_{F,G}+\mathrm{Id}_E)$.
+
 :::
 
 ::: {.theorem title="(Forme générique)"}
+
 Si $p$ est un projecteur de $E$, alors $E=\mathrm{Im}\,p\oplus\ker p$ et $p$ est la projection sur $\mathrm{Im}\,p$ parallèlement à $\ker p$. Si $s$ est une symétrie, alors pour $F=\ker(s-\mathrm{Id}_E)$ et $G=\ker(s+\mathrm{Id}_E)$, on a $E=F\oplus G$ et $s=s_{F,G}$.
+
 :::
 
 # Document en PDF {-}
@@ -291,9 +365,11 @@ Si $p$ est un projecteur de $E$, alors $E=\mathrm{Im}\,p\oplus\ker p$ et $p$ est
 # Navigation {-}
 
 ::: {.chap-nav}
+
 [Chapitre 11 : Fractions rationnelles](mpsi-chap11.qmd){.prev}
 
 [Menu MPSI](mpsi.qmd){.home}
 
 [Chapitre 13 : Dimension finie](mpsi-chap13.qmd){.next}
+
 :::

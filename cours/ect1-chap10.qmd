@@ -34,8 +34,10 @@ Ce chapitre a été réalisé conformément au programme marocain de mathématiq
 ## Définition
 
 ::: {.definition title="(Coefficient binomial)"}
+
 Pour $n, k \in \mathbb{N}$ avec $k \leq n$ :
 $$\binom{n}{k} = \frac{n!}{k!(n-k)!}$$
+
 :::
 
 ::: {.proposition title="(Propriétés)"}
@@ -44,17 +46,22 @@ $$\binom{n}{k} = \frac{n!}{k!(n-k)!}$$
 2. $\binom{n}{k} = \binom{n}{n-k}$ (symétrie)
 3. $\binom{n+1}{k} = \binom{n}{k} + \binom{n}{k-1}$ (formule de Pascal)
 4. $\sum_{k=0}^n \binom{n}{k} = 2^n$
+
 :::
 
 ## Binôme de Newton
 
 ::: {.theorem title="(Binôme de Newton)"}
+
 Pour tout $n \in \mathbb{N}$ et tous $a, b \in \mathbb{R}$ :
 $$(a + b)^n = \sum_{k=0}^n \binom{n}{k} a^k b^{n-k}$$
+
 :::
 
 ::: {.example}
+
 $(a+b)^3 = a^3 + 3a^2b + 3ab^2 + b^3$.
+
 :::
 
 # Lois usuelles finies
@@ -62,84 +69,114 @@ $(a+b)^3 = a^3 + 3a^2b + 3ab^2 + b^3$.
 ## Loi uniforme
 
 ::: {.definition title="(Loi uniforme)"}
+
 $X$ suit la **loi uniforme** sur $\{1, 2, \ldots, n\}$, notée $X \hookrightarrow \mathcal{U}(\{1, \ldots, n\})$, si :
 $$P(X = k) = \frac{1}{n} \quad \text{pour tout } k \in \{1, \ldots, n\}$$
+
 :::
 
 ::: {.proposition title="(Espérance et variance)"}
+
 $$E(X) = \frac{n+1}{2}, \qquad V(X) = \frac{n^2-1}{12}$$
+
 :::
 
 ## Loi de Bernoulli
 
 ::: {.definition title="(Loi de Bernoulli)"}
+
 $X$ suit la **loi de Bernoulli** de paramètre $p \in [0,1]$, notée $X \hookrightarrow \mathcal{B}(p)$, si :
 $$P(X = 1) = p, \qquad P(X = 0) = 1-p = q$$
+
 :::
 
 ::: {.proposition title="(Espérance et variance)"}
+
 $$E(X) = p, \qquad V(X) = p(1-p) = pq$$
+
 :::
 
 ## Loi binomiale
 
 ::: {.definition title="(Loi binomiale)"}
+
 $X$ suit la **loi binomiale** de paramètres $n$ et $p$, notée $X \hookrightarrow \mathcal{B}(n,p)$, si :
 $$P(X = k) = \binom{n}{k} p^k (1-p)^{n-k}, \qquad k \in \{0, 1, \ldots, n\}$$
 
 $X$ compte le nombre de succès dans $n$ expériences de Bernoulli indépendantes de probabilité de succès $p$.
+
 :::
 
 ::: {.proposition title="(Espérance et variance)"}
+
 $$E(X) = np, \qquad V(X) = np(1-p)$$
+
 :::
 
 ::: {.proof title="(Démonstration)"}
+
 On écrit $X = X_1 + \cdots + X_n$ où les $X_i$ sont indépendantes et suivent $\mathcal{B}(p)$. Par linéarité de l'espérance :
 $$E(X) = \sum_{i=1}^n E(X_i) = np$$
 Par indépendance :
 $$V(X) = \sum_{i=1}^n V(X_i) = np(1-p)$$
+
 :::
 
 # Exercices
 
 ::: {.exercise}
+
 Calculer :
 
 1. $\binom{10}{3}$
 2. $\sum_{k=0}^{10} \binom{10}{k}$
 3. $\sum_{k=0}^{10} (-1)^k \binom{10}{k}$
+
 :::
 
 ::: {.exercise}
+
 Développer $(2x + 1)^5$ en utilisant le binôme de Newton.
+
 :::
 
 ::: {.exercise}
+
 On lance un dé équilibré. Soit $X$ le résultat. Déterminer la loi de $X$, $E(X)$ et $V(X)$.
+
 :::
 
 ::: {.exercise}
+
 On lance 3 fois une pièce équilibrée. Soit $X$ le nombre de piles.
 
 1. Déterminer la loi de $X$.
 2. Calculer $E(X)$ et $V(X)$.
+
 :::
 
 ::: {.exercise}
+
 Soit $X \hookrightarrow \mathcal{B}(n,p)$. Montrer que $\sum_{k=0}^n P(X = k) = 1$.
+
 :::
 
 ::: {.exercise}
+
 Soient $X \hookrightarrow \mathcal{B}(n,p)$ et $Y \hookrightarrow \mathcal{B}(m,p)$ indépendantes. Montrer que $X + Y \hookrightarrow \mathcal{B}(n+m,p)$.
+
 :::
 
 ::: {.exercise}
+
 Montrer la formule de Pascal par un argument combinatoire.
+
 :::
 
 ::: {.exercise}
+
 Soit $X \hookrightarrow \mathcal{B}(10, 0{,}3)$. Calculer $P(X = 3)$, $E(X)$ et $V(X)$.
+
 :::
 
 # Document en PDF {-}
@@ -148,8 +185,11 @@ Soit $X \hookrightarrow \mathcal{B}(10, 0{,}3)$. Calculer $P(X = 3)$, $E(X)$ et 
 
 
 ## Navigation {-}
+
 ::: {.chap-nav}
+
 [Chapitre 09 : Compléments d'analyse](ect1-chap09.qmd){.prev}
 [Menu ECT1](ect1.qmd){.home}
 [Chapitre 11 : Primitives et intégration](ect1-chap11.qmd){.next}
+
 :::

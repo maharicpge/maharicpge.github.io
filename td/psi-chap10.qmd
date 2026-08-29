@@ -19,56 +19,79 @@ filters:
 **PSI (2e année) — TD du Chapitre 10.** Ensembles dénombrables et familles sommables, espaces probabilisés, variables aléatoires et lois (discrètes et à densité), espérance et moments, fonctions génératrices, inégalités et théorèmes limites.
 
 ::: {.exercise}
+
 Soit $(u_i)_{i \in I}$ une famille de nombres complexes indexée par un ensemble dénombrable. Montrer que la famille est sommable si et seulement si pour toute bijection $\varphi : \mathbb{N} \to I$, la série $\sum u_{\varphi(n)}$ est absolument convergente.
+
 :::
 
 ::: {.exercise}
+
 Soit $X \hookrightarrow \mathcal{B}(n,p)$. Montrer que $E(X) = np$ et $V(X) = np(1-p)$.
+
 :::
 
 ::: {.exercise}
+
 Soit $X \hookrightarrow \mathcal{P}(\lambda)$.
 
 1. Déterminer la fonction génératrice $G_X(s)$.
 2. En déduire $E(X)$ et $V(X)$.
+
 :::
 
 ::: {.exercise}
+
 Soit $X$ une variable aléatoire positive admettant une espérance. Montrer l'inégalité de Markov : $P(X \geq a) \leq \dfrac{E(X)}{a}$ pour tout $a > 0$.
+
 :::
 
 ::: {.exercise}
+
 Soit $X$ une variable aléatoire admettant une variance. Montrer l'inégalité de Bienaymé-Tchebychev :
 $$P(|X - E(X)| \geq \varepsilon) \leq \frac{V(X)}{\varepsilon^2}$$
+
 :::
 
 ::: {.exercise}
+
 Soient $X$ et $Y$ indépendantes avec $X \hookrightarrow \mathcal{P}(\lambda_1)$ et $Y \hookrightarrow \mathcal{P}(\lambda_2)$. Montrer que $X+Y \hookrightarrow \mathcal{P}(\lambda_1 + \lambda_2)$.
+
 :::
 
 ::: {.exercise}
+
 Soit $(X_n)$ une suite de variables aléatoires avec $X_n \hookrightarrow \mathcal{B}(n, \lambda/n)$. Montrer que $X_n \xrightarrow{\mathcal{L}} \mathcal{P}(\lambda)$.
+
 :::
 
 ::: {.exercise}
+
 Soit $(X_n)$ une suite de variables aléatoires mutuellement indépendantes de même loi admettant un moment d'ordre 2. Montrer la loi faible des grands nombres :
 $$\frac{1}{n}\sum_{k=1}^n X_k \xrightarrow{P} E(X_1)$$
+
 :::
 
 ::: {.exercise}
+
 Soit $X \hookrightarrow \mathcal{E}(\lambda)$ (loi exponentielle). Montrer que $E(X) = \frac{1}{\lambda}$ et $V(X) = \frac{1}{\lambda^2}$.
+
 :::
 
 ::: {.exercise}
+
 On lance $n$ fois un dé équilibré. Soit $S_n$ la somme des résultats. Utiliser le théorème de la limite centrée pour approcher $P(S_n \leq 3{,}2n)$ pour $n$ grand.
+
 :::
 
 # Cours {-}
 [**Chapitre 10 : Probabilités**](../cours/psi-chap10.qmd)
 
 # Navigation {-}
+
 ::: {.chap-nav}
+
 [TD 09 : Intégrales dépendant d'un paramètre](psi-chap09.qmd){.prev}
 [Menu PSI](psi.qmd){.home}
 [TD 11 : Équations différentielles linéaires](psi-chap11.qmd){.next}
+
 :::

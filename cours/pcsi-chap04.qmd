@@ -35,62 +35,81 @@ Ce chapitre a été réalisé conformément au programme marocain de mathématiq
 ## Divisibilité dans $\mathbb{Z}$
 
 ::: {.definition}
+
 Soient $a$ et $b$ deux entiers relatifs avec $a \neq 0$. On dit que $a$ **divise** $b$, ou que $b$ est **divisible** par $a$, s'il existe un entier relatif $q$ tel que $b = aq$. On note alors $a \mid b$.
 
 On note $D(b)$ l'ensemble des diviseurs positifs de $b$ et $\mathcal{M}(a)$ l'ensemble des multiples positifs de $a$.
+
 :::
 
 ::: {.proposition}
+
 Voici quelques propriétés élémentaires de la divisibilité :
 
 1. Tout entier $a \in \mathbb{Z}^*$ divise $0$ et est divisible par $1$ et par lui-même.
 2. Si $a \mid b$ et $b \mid c$ alors $a \mid c$ (transitivité).
 3. Soit $m$ un entier non nul, $a \mid b \iff ma \mid mb$.
 4. Si $a \mid b$ et $a \mid c$, alors $a \mid (bx + cy)$ pour tous entiers $x, y$. En particulier, $a \mid (b-c)$ et $a \mid (b+c)$.
+
 :::
 
 ::: {.definition title="(Entiers associés)"}
+
 Deux entiers $a$ et $b$ sont dits **associés** si $b = \pm a$, c'est-à-dire si $a \mid b$ et $b \mid a$.
+
 :::
 
 ::: {.exercise}
+
 Soient $x, y$ des entiers. Montrer que $3x+2y$ est divisible par $7$ si et seulement si $4x+5y$ l'est aussi.
+
 :::
 
 ## Division euclidienne
 
 ::: {.theorem title="(Théorème de la division euclidienne)"}
+
 Soit $b$ un entier strictement positif. Pour tout entier relatif $a$, il existe un unique couple d'entiers $(q, r)$ tel que :
 $$a = bq + r \quad \text{avec} \quad 0 \leq r < b$$
 L'entier $q$ est appelé le **quotient** et $r$ le **reste** de la division euclidienne de $a$ par $b$.
+
 :::
 
 ::: {.remark}
+
 Le théorème de la division euclidienne est fondamental car il permet de raisonner par disjonction des cas sur le reste $r$ de la division par un entier $n$ fixé.
+
 :::
 
 ::: {.exercise}
+
 1. Soit $a$ un entier quelconque. Déterminer le reste de la division euclidienne de $a^2$ par $4$.
 2. Montrer que $n^3-n$ est divisible à la fois par $2$ et par $3$ pour tout $n \in \mathbb{N}$.
+
 :::
 
 ## PGCD et Algorithme d'Euclide
 
 ::: {.definition}
+
 Un entier divisant à la fois les entiers $a$ et $b$ (non tous deux nuls) est appelé **diviseur commun** de $a$ et $b$. Le plus grand entier strictement positif parmi ces diviseurs communs est appelé le **plus grand commun diviseur** de $a$ et $b$, noté $\operatorname{pgcd}(a,b)$ ou $a \wedge b$.
 
 On dit que $a$ et $b$ sont **premiers entre eux** si $\operatorname{pgcd}(a,b)=1$.
+
 :::
 
 ::: {.proposition}
+
 On a les propriétés suivantes :
 
 1. Pour tout entier $c$, $\operatorname{pgcd}(a,b) = \operatorname{pgcd}(a, b+ac) = \operatorname{pgcd}(a+bc, b)$.
 2. Si $r$ est le reste de la division euclidienne de $a$ par $b$, alors $\operatorname{pgcd}(a,b) = \operatorname{pgcd}(b,r)$.
 3. $D(a) \cap D(b) = D(a \wedge b)$.
+
 :::
 
 ::: {.theorem title="(Algorithme d'Euclide)"}
+
 L'algorithme d'Euclide permet de calculer le PGCD de deux entiers $a$ et $b$ ($a>b>0$) par divisions euclidiennes successives :
 $$\begin{aligned}
 a &= bq_1 + r_1 & (0 \leq r_1 < b) \\
@@ -101,21 +120,27 @@ r_{n-2} &= r_{n-1} q_n + r_n & (0 \leq r_n < r_{n-1}) \\
 r_{n-1} &= r_n q_{n+1} + 0
 \end{aligned}$$
 Le dernier reste non nul $r_n$ est égal à $\operatorname{pgcd}(a,b)$.
+
 :::
 
 ## Identité de Bézout et Lemme de Gauss
 
 ::: {.corollary title="(Identité de Bézout)"}
+
 Si $d = \operatorname{pgcd}(a,b)$, alors il existe deux entiers relatifs $u$ et $v$ tels que :
 $$au + bv = d$$
 En particulier, $a$ et $b$ sont premiers entre eux si et seulement s'il existe $(u,v) \in \mathbb{Z}^2$ tels que $au+bv=1$.
+
 :::
 
 ::: {.remark}
+
 Les entiers $u$ et $v$ ne sont pas uniques. Ils peuvent être trouvés en « remontant » l'algorithme d'Euclide.
+
 :::
 
 ::: {.example}
+
 Déterminons le PGCD de $75$ et $55$ et des coefficients de Bézout :
 $$\begin{aligned}
 75 &= 55 \times 1 + 20 \\
@@ -126,47 +151,62 @@ $$\begin{aligned}
 Donc $\operatorname{pgcd}(75,55)=5$. En remontant :
 $$5 = 20 - 15 \times 1 = 20 - (55 - 20 \times 2) = 75 \times 3 + 55 \times (-4)$$
 Donc $u=3$ et $v=-4$.
+
 :::
 
 ::: {.theorem title="(Lemme de Gauss)"}
+
 Soient $a, b, c$ trois entiers tels que $\operatorname{pgcd}(a,b)=1$. Alors :
 $$a \mid bc \implies a \mid c$$
+
 :::
 
 ::: {.theorem title="(Lemme d'Euclide)"}
+
 Soient $a, b, c$ trois entiers tels que $\operatorname{pgcd}(a,b)=1$. Alors :
 $$a \mid c \text{ et } b \mid c \implies ab \mid c$$
+
 :::
 
 ## Nombres premiers et Valuation p-adique
 
 ::: {.definition}
+
 Un entier naturel $p > 1$ est dit **premier** s'il possède exactement deux diviseurs naturels : $1$ et $p$.
+
 :::
 
 ::: {.proposition}
+
 Soient $a, b \in \mathbb{Z}$ et $p$ un nombre premier. Alors :
 $$p \mid ab \iff p \mid a \text{ ou } p \mid b$$
+
 :::
 
 ::: {.theorem title="(Théorème fondamental de l'arithmétique)"}
+
 Tout entier naturel non nul $n$ se décompose de façon unique en produit de nombres premiers :
 $$n = \prod_{p \in \mathcal{P}} p^{v_p(n)}$$
 où $\mathcal{P}$ est l'ensemble des nombres premiers et $v_p(n)$ est le plus grand entier naturel $m$ tel que $p^m \mid n$. L'entier $v_p(n)$ est appelé la **valuation p-adique** de $n$.
+
 :::
 
 ::: {.proposition title="(Propriétés de la valuation)"}
+
 Soit $(a,b) \in (\mathbb{N}^*)^2$. Alors :
 
 1. $\forall p \in \mathcal{P},\ v_p(ab) = v_p(a) + v_p(b)$
 2. $a \mid b \iff \forall p \in \mathcal{P},\ v_p(a) \leq v_p(b)$
 3. $\operatorname{pgcd}(a,b) = \prod_{p \in \mathcal{P}} p^{\min(v_p(a), v_p(b))}$
 4. $\operatorname{ppcm}(a,b) = \prod_{p \in \mathcal{P}} p^{\max(v_p(a), v_p(b))}$
+
 :::
 
 ::: {.exercise}
+
 1. Calculer $v_2(54), v_3(54), v_5(54)$. Décomposer $54$ en produit de nombres premiers.
 2. Soient $p,q \in \mathcal{P}$ et $k \in \mathbb{N}$. Calculer $v_p(q^k)$.
+
 :::
 
 # Nombres rationnels et réels
@@ -174,22 +214,29 @@ Soit $(a,b) \in (\mathbb{N}^*)^2$. Alors :
 ## Ensemble $\mathbb{Q}$ des nombres rationnels
 
 ::: {.definition}
+
 Un nombre **rationnel** est un nombre qui peut s'écrire sous la forme $\frac{p}{q}$ où $p \in \mathbb{Z}$ et $q \in \mathbb{N}^*$. L'ensemble des rationnels est noté $\mathbb{Q}$.
 
 La **forme irréductible** d'un rationnel est son écriture $\frac{p}{q}$ avec $\operatorname{pgcd}(p,q)=1$ et $q>0$.
+
 :::
 
 ::: {.exercise}
+
 Soit $p$ un nombre premier. Montrer que $\sqrt{p} \notin \mathbb{Q}$.
+
 :::
 
 ## Ensemble $\mathbb{R}$ des nombres réels
 
 ::: {.remark}
+
 La construction de $\mathbb{R}$ (par suites de Cauchy ou coupures de Dedekind) est hors programme. On admet que $\mathbb{R}$ est un corps commutatif totalement ordonné contenant $\mathbb{Q}$ et vérifiant l'axiome de la borne supérieure.
+
 :::
 
 ::: {.proposition title="(Propriétés de l'ordre dans $\mathbb{R}$)"}
+
 Pour tous $x,y,z,t \in \mathbb{R}$ :
 
 1. $x \leq y \text{ et } z \leq t \implies x+z \leq y+t$
@@ -197,34 +244,45 @@ Pour tous $x,y,z,t \in \mathbb{R}$ :
 3. Si $z,t \geq 0$ : $x \leq y \text{ et } z \leq t \implies xz \leq yt$
 4. $x \leq y \implies -y \leq -x$
 5. Si $x,y > 0$ : $x \leq y \implies \frac{1}{y} \leq \frac{1}{x}$
+
 :::
 
 ::: {.definition title="(Valeur absolue)"}
+
 Soit $x \in \mathbb{R}$. On définit la valeur absolue de $x$ par :
 $$|x| = \max(-x, x) = \begin{cases} -x & \text{si } x \leq 0 \\ x & \text{sinon} \end{cases}$$
+
 :::
 
 ::: {.proposition}
+
 Soient $x,y \in \mathbb{R}$. Alors :
 
 1. $\max(x,y) = \frac{|y-x|+(x+y)}{2}$
 2. $\min(x,y) = \frac{(x+y)-|y-x|}{2}$
 3. **Inégalité triangulaire :** $\big||x|-|y|\big| \leq |x \pm y| \leq |x|+|y|$
+
 :::
 
 ::: {.theorem title="(Propriété d'Archimède)"}
+
 $$\forall y \in \mathbb{R},\ \forall x > 0,\ \exists n \in \mathbb{N},\ nx > y$$
+
 :::
 
 ::: {.definition title="(Partie entière)"}
+
 Pour tout $x \in \mathbb{R}$, il existe un unique entier $p \in \mathbb{Z}$ tel que $p \leq x < p+1$. Cet entier est appelé la **partie entière** de $x$ et est noté $\lfloor x \rfloor$ ou $E(x)$.
+
 :::
 
 ::: {.proposition title="(Propriétés de la partie entière)"}
+
 1. $\forall x \in \mathbb{R},\ \forall n \in \mathbb{Z},\ \lfloor x \rfloor = n \iff n \leq x < n+1$
 2. $\forall n \in \mathbb{Z},\ \lfloor n \rfloor = n$
 3. $\forall x \in \mathbb{R},\ \forall n \in \mathbb{Z},\ \lfloor x+n \rfloor = \lfloor x \rfloor + n$
 4. $\forall x,y \in \mathbb{R},\ \lfloor x \rfloor + \lfloor y \rfloor \leq \lfloor x+y \rfloor$
+
 :::
 
 # Bornes supérieures et inférieures
@@ -232,87 +290,114 @@ Pour tout $x \in \mathbb{R}$, il existe un unique entier $p \in \mathbb{Z}$ tel 
 ## Parties majorées, minorées
 
 ::: {.definition}
+
 Soit $A$ une partie non vide de $\mathbb{R}$.
 
 1. $A$ est **majorée** s'il existe $M \in \mathbb{R}$ tel que $\forall x \in A,\ x \leq M$. Un tel $M$ est un **majorant**.
 2. $A$ est **minorée** s'il existe $m \in \mathbb{R}$ tel que $\forall x \in A,\ m \leq x$. Un tel $m$ est un **minorant**.
 3. Le **plus grand élément** de $A$ (s'il existe) est noté $\max A$.
 4. Le **plus petit élément** de $A$ (s'il existe) est noté $\min A$.
+
 :::
 
 ::: {.example}
+
 1. $E = ]0,1]$ : $\max E = 1$, pas de minimum, $\inf E = 0$.
 2. $F = \mathbb{Q} \cap [\sqrt{2}, +\infty[$ : pas de minimum, pas de maximum, $\inf F = \sqrt{2}$.
 3. Un segment $[a,b]$ admet $\min = a$ et $\max = b$.
+
 :::
 
 ## Borne supérieure et borne inférieure
 
 ::: {.definition}
+
 Soit $X$ une partie non vide de $\mathbb{R}$.
 
 1. La **borne supérieure** de $X$, notée $\sup X$, est le plus petit des majorants de $X$ (si elle existe).
 2. La **borne inférieure** de $X$, notée $\inf X$, est le plus grand des minorants de $X$ (si elle existe).
+
 :::
 
 ::: {.theorem title="(Axiome de la borne supérieure)"}
+
 Toute partie non vide de $\mathbb{R}$ majorée admet une borne supérieure. Toute partie non vide minorée admet une borne inférieure.
+
 :::
 
 ::: {.remark}
+
 1. Un ensemble qui admet une borne supérieure n'admet pas forcément de plus grand élément.
 2. Si $X$ admet un plus grand élément, alors $\max X = \sup X$.
 3. Dans la droite achevée $\overline{\mathbb{R}} = \mathbb{R} \cup \{-\infty, +\infty\}$, toute partie non vide possède une borne supérieure et une borne inférieure.
+
 :::
 
 ::: {.theorem title="(Caractérisation de la borne supérieure)"}
+
 Soient $X$ une partie non vide de $\mathbb{R}$ et $\alpha \in \mathbb{R}$. Alors :
 $$\sup X = \alpha \iff \begin{cases} \forall x \in X,\ x \leq \alpha \\ \forall \varepsilon > 0,\ \exists x_\varepsilon \in X,\ \alpha - \varepsilon < x_\varepsilon \end{cases}$$
+
 :::
 
 ::: {.example}
+
 Soit $G = \left\{ \frac{1}{n} - \frac{1}{m} \mid (n,m) \in (\mathbb{N}^*)^2 \right\}$.
 
 - **Borne inférieure :** Pour tout $(n,m)$, $\frac{1}{n} - \frac{1}{m} \geq -1$. De plus, pour $n=1$ et $m \to +\infty$, $\frac{1}{1}-\frac{1}{m} \to 1$... Non, prenons $n \to +\infty$ et $m=1$ : $\frac{1}{n}-1 \to -1$. Donc $\inf G = -1$.
 - **Borne supérieure :** Pour tout $(n,m)$, $\frac{1}{n} - \frac{1}{m} \leq 1$. De plus, pour $m \to +\infty$ et $n=1$, $\frac{1}{1}-\frac{1}{m} \to 1$. Donc $\sup G = 1$.
+
 :::
 
 ::: {.exercise}
+
 Déterminer, quand elles existent, les bornes supérieures et inférieures des ensembles suivants :
 
 1. $A = \left\{ \frac{1}{n} + (-1)^n \mid n \in \mathbb{N}^* \right\}$
 2. $B = \mathbb{Q} \cap [\sqrt{2}, 2]$
 3. $C = \left\{ \frac{1}{m} + \frac{1}{n} \mid (m,n) \in (\mathbb{N}^*)^2 \right\}$
+
 :::
 
 # Densité dans $\mathbb{R}$
 
 ::: {.definition}
+
 Une partie $X$ de $\mathbb{R}$ est dite **dense** dans $\mathbb{R}$ si :
 $$\forall y \in \mathbb{R},\ \forall \varepsilon > 0,\ \exists x \in X,\ |y-x| < \varepsilon$$
+
 :::
 
 ::: {.proposition}
+
 Soit $X$ une partie de $\mathbb{R}$. Les assertions suivantes sont équivalentes :
 
 1. $X$ est dense dans $\mathbb{R}$.
 2. $\forall (y_1, y_2) \in \mathbb{R}^2,\ y_1 < y_2 \implies \exists x \in X,\ y_1 < x < y_2$.
+
 :::
 
 ::: {.theorem}
+
 Les ensembles $\mathbb{Q}$ et $\mathbb{R} \setminus \mathbb{Q}$ sont denses dans $\mathbb{R}$.
+
 :::
 
 ::: {.exercise title="(Densité des décimaux)"}
+
 Montrer que l'ensemble $\mathbb{D} = \{ q \cdot 10^{-p} \mid (p,q) \in \mathbb{N} \times \mathbb{Z} \}$ est dense dans $\mathbb{R}$.
+
 :::
 
 # Document en PDF {-}
 [Chapitre 04 : Nombres entiers, rationnels et réels](PDF/pcsi-chap04.pdf)
 
 ## Navigation {-}
+
 ::: {.chap-nav}
+
 [Chapitre 03 : Compléments de calcul algébrique](pcsi-chap03.qmd){.prev}
 [Menu PCSI](pcsi.qmd){.home}
 [Chapitre 05 : Suites numériques](pcsi-chap05.qmd){.next}
+
 :::

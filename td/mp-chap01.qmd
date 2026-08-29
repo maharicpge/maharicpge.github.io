@@ -19,73 +19,93 @@ filters:
 **MP (2e année) — TD du Chapitre 01.** Groupes, anneaux et corps, anneau $\mathbb{K}[X]$, $\mathbb{K}$-algèbres.
 
 ::: {.exercise}
+
 Soit $(G, \star)$ un groupe. Montrer que :
 
 1. L'élément neutre est unique.
 2. Tout élément a un unique symétrique.
 3. $\forall a, b \in G,\; (a \star b)^{-1} = b^{-1} \star a^{-1}$.
+
 :::
 
 ::: {.exercise}
+
 Soit $(A, +, \times)$ un anneau. Montrer que :
 
 1. $\forall a \in A,\; 0_A \times a = 0_A$.
 2. $\forall a, b \in A,\; (-a) \times b = -(a \times b)$.
 3. Si $A$ est intègre, alors $ab = 0 \implies a = 0$ ou $b = 0$.
+
 :::
 
 ::: {.exercise}
+
 Montrer que $\mathbb{Z}/n\mathbb{Z}$ est un corps si et seulement si $n$ est premier.
+
 :::
 
 **Indication :** Si $n$ est premier, tout $\bar{k} \neq \bar{0}$ est inversible par Bézout. Si $n$ est composé, $n = ab$ avec $1 < a, b < n$ donne des diviseurs de zéro.
 
 ::: {.exercise}
+
 Soit $\mathbb{K}[X]$ l'anneau des polynômes à coefficients dans $\mathbb{K}$. Montrer que :
 
 1. $\mathbb{K}[X]$ est un anneau intègre.
 2. La division euclidienne existe et est unique dans $\mathbb{K}[X]$.
 3. $\mathbb{K}[X]$ est un anneau euclidien.
+
 :::
 
 ::: {.exercise}
+
 Soit $A$ une $\mathbb{K}$-algèbre. Montrer que :
 
 1. $\mathcal{L}(E)$ est une $\mathbb{K}$-algèbre pour tout $\mathbb{K}$-espace vectoriel $E$.
 2. $\mathcal{M}_n(\mathbb{K})$ est une $\mathbb{K}$-algèbre.
 3. $\mathbb{K}[X]$ est une $\mathbb{K}$-algèbre.
+
 :::
 
 ::: {.exercise}
+
 Soit $A$ un anneau et $a \in A$. Montrer que :
 
 1. Si $a$ est nilpotent ($a^n = 0$ pour un certain $n$), alors $1 - a$ est inversible.
 2. Si $a$ est idempotent ($a^2 = a$), alors $a$ et $1-a$ sont idempotents.
+
 :::
 
 **Indication :** Pour (1), $(1-a)^{-1} = 1 + a + a^2 + \cdots + a^{n-1}$.
 
 ::: {.exercise}
+
 Montrer que le centre d'un anneau $A$, défini par $Z(A) = \{a \in A \mid \forall x \in A,\; ax = xa\}$, est un sous-anneau de $A$.
+
 :::
 
 ::: {.exercise}
+
 Soient $P, Q \in \mathbb{K}[X]$. Montrer que :
 
 1. $P \wedge Q = 1$ si et seulement s'il existe $U, V \in \mathbb{K}[X]$ tels que $UP + VQ = 1$.
 2. Si $P$ est irréductible et $P \mid QR$, alors $P \mid Q$ ou $P \mid R$.
+
 :::
 
 ::: {.exercise}
+
 Soit $\varphi : A \to B$ un morphisme d'anneaux. Montrer que :
 
 1. $\ker \varphi$ est un idéal de $A$.
 2. $\mathrm{Im}(\varphi)$ est un sous-anneau de $B$.
 3. Si $\varphi$ est surjectif, alors $B$ est commutatif si $A$ l'est.
+
 :::
 
 ::: {.exercise}
+
 Soit $E$ un $\mathbb{K}$-espace vectoriel de dimension finie. Montrer que $\mathcal{L}(E)$ est une $\mathbb{K}$-algèbre non commutative si $\dim E \geq 2$.
+
 :::
 
 **Indication :** Donner deux matrices $2 \times 2$ qui ne commutent pas.
@@ -94,7 +114,10 @@ Soit $E$ un $\mathbb{K}$-espace vectoriel de dimension finie. Montrer que $\math
 [**Chapitre 01 : Structures algébriques**](mp-chap01.qmd)
 
 # Navigation {-}
+
 ::: {.chap-nav}
+
 [Menu MP](mp.qmd){.home}
 [TD 02 : Espaces vectoriels normés](mp-chap02.qmd){.next}
+
 :::

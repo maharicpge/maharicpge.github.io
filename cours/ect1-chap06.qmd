@@ -34,9 +34,11 @@ Ce chapitre a été réalisé conformément au programme marocain de mathématiq
 ## Expérience aléatoire et univers
 
 ::: {.definition title="(Expérience aléatoire)"}
+
 Une **expérience aléatoire** est une expérience dont le résultat dépend du hasard. L'ensemble de tous les résultats possibles est appelé **univers** et noté $\Omega$.
 
 Un **événement** est une partie de $\Omega$. L'événement $\Omega$ est l'événement certain, $\varnothing$ est l'événement impossible.
+
 :::
 
 ::: {.example}
@@ -44,34 +46,43 @@ Un **événement** est une partie de $\Omega$. L'événement $\Omega$ est l'év�
 1. Lancer un dé à 6 faces : $\Omega = \{1, 2, 3, 4, 5, 6\}$.
 2. Lancer une pièce : $\Omega = \{\text{pile}, \text{face}\}$.
 3. Tirer une boule dans une urne : $\Omega = \{B_1, B_2, \ldots, B_n\}$.
+
 :::
 
 ## Probabilités sur un univers fini
 
 ::: {.definition title="(Probabilité sur un univers fini)"}
+
 Soit $\Omega$ un ensemble fini. Une **probabilité** sur $\Omega$ est une application $P : \mathcal{P}(\Omega) \to [0,1]$ vérifiant :
 
 1. $P(\Omega) = 1$.
 2. Pour tous événements incompatibles $A$ et $B$ ($A \cap B = \varnothing$) : $P(A \cup B) = P(A) + P(B)$.
+
 :::
 
 ::: {.proposition title="(Probabilité d'un événement)"}
+
 Si $\Omega = \{\omega_1, \ldots, \omega_n\}$ et $P(\omega_i) = p_i$, alors pour tout événement $A = \{\omega_{i_1}, \ldots, \omega_{i_k}\}$ :
 $$P(A) = p_{i_1} + \cdots + p_{i_k}$$
+
 :::
 
 ::: {.definition title="(Équiprobabilité)"}
+
 Si tous les éléments de $\Omega$ ont la même probabilité, on parle d'**équiprobabilité**. Dans ce cas, pour tout événement $A$ :
 $$P(A) = \frac{\mathrm{card}(A)}{\mathrm{card}(\Omega)}$$
+
 :::
 
 ::: {.proposition title="(Propriétés des probabilités)"}
+
 Pour tous événements $A$, $B$ :
 
 1. $P(\varnothing) = 0$
 2. $P(\overline{A}) = 1 - P(A)$
 3. $P(A \cup B) = P(A) + P(B) - P(A \cap B)$
 4. Si $A \subset B$, alors $P(A) \leq P(B)$
+
 :::
 
 # Probabilités conditionnelles
@@ -79,37 +90,51 @@ Pour tous événements $A$, $B$ :
 ## Définition
 
 ::: {.definition title="(Probabilité conditionnelle)"}
+
 Soit $B$ un événement avec $P(B) > 0$. La **probabilité de $A$ sachant $B$** est :
 $$P(A \mid B) = \frac{P(A \cap B)}{P(B)}$$
+
 :::
 
 ::: {.proposition title="(Formule des probabilités composées)"}
+
 $$P(A \cap B) = P(A) \cdot P(A \mid B) = P(B) \cdot P(B \mid A)$$
+
 :::
 
 ::: {.theorem title="(Formule des probabilités totales)"}
+
 Soient $B_1, \ldots, B_n$ un système complet d'événements (deux à deux incompatibles et de réunion $\Omega$) avec $P(B_i) > 0$. Alors pour tout événement $A$ :
 $$P(A) = \sum_{i=1}^n P(B_i) \cdot P(A \mid B_i)$$
+
 :::
 
 ::: {.theorem title="(Formule de Bayes)"}
+
 Avec les mêmes hypothèses :
 $$P(B_i \mid A) = \frac{P(B_i) \cdot P(A \mid B_i)}{\sum_{j=1}^n P(B_j) \cdot P(A \mid B_j)}$$
+
 :::
 
 # Indépendance
 
 ::: {.definition title="(Indépendance de deux événements)"}
+
 $A$ et $B$ sont **indépendants** si :
 $$P(A \cap B) = P(A) \cdot P(B)$$
+
 :::
 
 ::: {.proposition}
+
 Si $A$ et $B$ sont indépendants et $P(B) > 0$, alors $P(A \mid B) = P(A)$.
+
 :::
 
 ::: {.proposition}
+
 Si $A$ et $B$ sont indépendants, alors $A$ et $\overline{B}$ sont indépendants.
+
 :::
 
 # Variables aléatoires réelles
@@ -117,35 +142,45 @@ Si $A$ et $B$ sont indépendants, alors $A$ et $\overline{B}$ sont indépendants
 ## Définition
 
 ::: {.definition title="(Variable aléatoire)"}
+
 Une **variable aléatoire réelle** sur $\Omega$ fini est une application $X : \Omega \to \mathbb{R}$. L'ensemble des valeurs prises par $X$ est $X(\Omega) = \{x_1, \ldots, x_n\}$.
+
 :::
 
 ::: {.definition title="(Loi d'une variable aléatoire)"}
+
 La **loi** de $X$ est la donnée des probabilités $P(X = x_i)$ pour tout $x_i \in X(\Omega)$. On a :
 $$\sum_{i=1}^n P(X = x_i) = 1$$
+
 :::
 
 ## Espérance
 
 ::: {.definition title="(Espérance)"}
+
 L'**espérance** de $X$ est :
 $$E(X) = \sum_{i=1}^n x_i \cdot P(X = x_i)$$
+
 :::
 
 ::: {.proposition title="(Linéarité de l'espérance)"}
+
 Pour toutes variables aléatoires $X$, $Y$ et tout $\lambda \in \mathbb{R}$ :
 
 1. $E(\lambda X + Y) = \lambda E(X) + E(Y)$
 2. Si $X \geq 0$, alors $E(X) \geq 0$
+
 :::
 
 ## Variance
 
 ::: {.definition title="(Variance)"}
+
 La **variance** de $X$ est :
 $$V(X) = E((X - E(X))^2) = E(X^2) - (E(X))^2$$
 
 L'**écart-type** est $\sigma(X) = \sqrt{V(X)}$.
+
 :::
 
 ::: {.proposition title="(Propriétés)"}
@@ -153,50 +188,67 @@ L'**écart-type** est $\sigma(X) = \sqrt{V(X)}$.
 1. $V(X) \geq 0$
 2. $V(aX + b) = a^2 V(X)$
 3. $V(X) = 0 \iff X$ est constante
+
 :::
 
 # Exercices
 
 ::: {.exercise}
+
 On lance deux dés équilibrés. Calculer :
 
 1. $P(\text{somme} = 7)$
 2. $P(\text{au moins un } 6)$
 3. $P(\text{somme} \geq 10)$
+
 :::
 
 ::: {.exercise}
+
 Une urne contient 5 boules rouges et 3 noires. On tire 2 boules sans remise. Calculer la probabilité de tirer 2 boules rouges.
+
 :::
 
 ::: {.exercise}
+
 Une maladie touche 1\% de la population. Un test a une sensibilité de 0,95 et une spécificité de 0,95. Calculer $P(\text{malade} \mid \text{test positif})$.
+
 :::
 
 ::: {.exercise}
+
 Soit $X$ la variable aléatoire donnant le résultat du lancer d'un dé équilibré.
 
 1. Déterminer la loi de $X$.
 2. Calculer $E(X)$ et $V(X)$.
+
 :::
 
 ::: {.exercise}
+
 On lance 3 fois une pièce équilibrée. Soit $X$ le nombre de piles obtenus.
 
 1. Déterminer la loi de $X$.
 2. Calculer $E(X)$ et $V(X)$.
+
 :::
 
 ::: {.exercise}
+
 Soient $X$ et $Y$ deux variables aléatoires indépendantes avec $X \hookrightarrow \mathcal{B}(n,p)$ et $Y \hookrightarrow \mathcal{B}(m,p)$. Montrer que $X + Y \hookrightarrow \mathcal{B}(n+m,p)$.
+
 :::
 
 ::: {.exercise}
+
 Montrer que si $X$ et $Y$ sont indépendantes, alors $E(XY) = E(X)E(Y)$.
+
 :::
 
 ::: {.exercise}
+
 Soit $X$ une variable aléatoire avec $E(X) = 3$ et $V(X) = 4$. Calculer $E(2X + 1)$ et $V(2X + 1)$.
+
 :::
 
 # Document en PDF {-}
@@ -207,7 +259,9 @@ Soit $X$ une variable aléatoire avec $E(X) = 3$ et $V(X) = 4$. Calculer $E(2X +
 ## Navigation {-}
 
 ::: {.chap-nav}
+
 [Chapitre 05 : Dérivabilité, convexité](ect1-chap05.qmd){.prev}
 [Menu ECT1](ect1.qmd){.home}
 [Chapitre 07 : Statistique descriptive univariée](ect1-chap07.qmd){.next}
+
 :::

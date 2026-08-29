@@ -34,14 +34,18 @@ Ce chapitre a été réalisé conformément au programme marocain de mathématiq
 ## Définition
 
 ::: {.definition title="(Expérience aléatoire, univers, événement)"}
+
 Une **expérience aléatoire** a un ensemble de résultats possibles appelé **univers** $\Omega$. Un **événement** est une partie de $\Omega$.
+
 :::
 
 ::: {.definition title="(Probabilité sur un univers fini)"}
+
 Une **probabilité** sur $\Omega$ fini est une application $P : \mathcal{P}(\Omega) \to [0,1]$ vérifiant :
 
 1. $P(\Omega) = 1$.
 2. Si $A \cap B = \varnothing$, alors $P(A \cup B) = P(A) + P(B)$.
+
 :::
 
 ::: {.proposition title="(Propriétés)"}
@@ -49,104 +53,149 @@ Une **probabilité** sur $\Omega$ fini est une application $P : \mathcal{P}(\Ome
 1. $P(\varnothing) = 0$.
 2. $P(\overline{A}) = 1 - P(A)$.
 3. $P(A \cup B) = P(A) + P(B) - P(A \cap B)$.
+
 :::
 
 ::: {.definition title="(Équiprobabilité)"}
+
 Si tous les éléments de $\Omega$ ont la même probabilité, alors $P(A) = \frac{|A|}{|\Omega|}$.
+
 :::
 
 # Probabilités conditionnelles
 
 ::: {.definition title="(Probabilité conditionnelle)"}
+
 Si $P(B) > 0$ :
 $$P(A \mid B) = \frac{P(A \cap B)}{P(B)}$$
+
 :::
 
 ::: {.proposition title="(Formule des probabilités composées)"}
+
 $P(A \cap B) = P(A) \cdot P(A \mid B) = P(B) \cdot P(B \mid A)$.
+
 :::
 
 ::: {.theorem title="(Formule des probabilités totales)"}
+
 Soient $B_1, \ldots, B_n$ un système complet d'événements (deux à deux incompatibles, de réunion $\Omega$) avec $P(B_i) > 0$. Alors :
 $$P(A) = \sum_{i=1}^n P(B_i) \cdot P(A \mid B_i)$$
+
 :::
 
 ::: {.theorem title="(Formule de Bayes)"}
+
 $$P(B_i \mid A) = \frac{P(B_i) \cdot P(A \mid B_i)}{\sum_{j=1}^n P(B_j) \cdot P(A \mid B_j)}$$
+
 :::
 
 # Indépendance
 
 ::: {.definition title="(Indépendance)"}
+
 $A$ et $B$ sont **indépendants** si $P(A \cap B) = P(A) \cdot P(B)$.
+
 :::
 
 ::: {.proposition}
+
 Si $A$ et $B$ sont indépendants et $P(B) > 0$, alors $P(A \mid B) = P(A)$.
+
 :::
 
 ::: {.proposition}
+
 Si $A$ et $B$ sont indépendants, alors $A$ et $\overline{B}$ sont indépendants.
+
 :::
 
 # Variables aléatoires finies
 
 ::: {.definition title="(Variable aléatoire)"}
+
 Une **variable aléatoire réelle** sur $\Omega$ fini est une application $X : \Omega \to \mathbb{R}$.
+
 :::
 
 ::: {.definition title="(Loi d'une variable aléatoire)"}
+
 La **loi** de $X$ est la donnée des $P(X = x_i)$ pour $x_i \in X(\Omega)$. On a $\sum_i P(X = x_i) = 1$.
+
 :::
 
 ::: {.definition title="(Espérance)"}
+
 $$E(X) = \sum_i x_i \cdot P(X = x_i)$$
+
 :::
 
 ::: {.definition title="(Variance)"}
+
 $$V(X) = E((X - E(X))^2) = E(X^2) - (E(X))^2$$
+
 :::
 
 ::: {.proposition title="(Linéarité)"}
+
 $E(\lambda X + \mu Y) = \lambda E(X) + \mu E(Y)$.
+
 :::
 
 ::: {.proposition}
+
 $V(\lambda X + \mu) = \lambda^2 V(X)$.
+
 :::
 
 # Exercices
 
 ::: {.exercise}
+
 On lance deux dés équilibrés. Calculer $P(\text{somme} = 7)$, $P(\text{au moins un } 6)$.
+
 :::
 
 ::: {.exercise}
+
 Une urne contient 5 boules rouges et 3 noires. On tire 2 boules sans remise. Calculer $P(\text{2 rouges})$.
+
 :::
 
 ::: {.exercise}
+
 Une maladie touche $2\%$ de la population. Un test a une sensibilité de $0{,}95$ et une spécificité de $0{,}95$. Calculer $P(\text{malade} \mid \text{test positif})$.
+
 :::
 
 ::: {.exercise}
+
 Soit $X$ le résultat du lancer d'un dé équilibré. Déterminer $E(X)$ et $V(X)$.
+
 :::
 
 ::: {.exercise}
+
 On lance 3 fois une pièce équilibrée. Soit $X$ le nombre de piles. Déterminer la loi de $X$, $E(X)$, $V(X)$.
+
 :::
 
 ::: {.exercise}
+
 Soient $X$ et $Y$ indépendantes. Montrer que $E(XY) = E(X)E(Y)$.
+
 :::
 
 ::: {.exercise}
+
 Soient $A$ et $B$ avec $P(A) = 0{,}4$, $P(B) = 0{,}5$, $P(A \cap B) = 0{,}2$. Calculer $P(A \mid B)$. $A$ et $B$ sont-ils indépendants ?
+
 :::
 
 ::: {.exercise}
+
 Une urne contient 4 boules blanches et 6 noires. On tire 3 boules sans remise. Soit $X$ le nombre de blanches. Déterminer la loi de $X$.
+
 :::
 
 # Document en PDF {-}
@@ -156,7 +205,9 @@ Une urne contient 4 boules blanches et 6 noires. On tire 3 boules sans remise. S
 ## Navigation {-}
 
 ::: {.chap-nav}
+
 [Chapitre 08 : Dénombrement](ecs1-chap08.qmd){.prev}
 [Menu ECS1](ecs1.qmd){.home}
 [Chapitre 10 : Variables aléatoires finies](ecs1-chap10.qmd){.next}
+
 :::

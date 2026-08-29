@@ -19,71 +19,91 @@ filters:
 **PCSI (1re année) — TD du Chapitre 08.** $\exp$, $\ln$, puissances, trigonométrie circulaire et hyperbolique, fonctions réciproques, convexité, inégalité de Jensen, applications.
 
 ::: {.exercise}
+
 Montrer que pour tout $x \in \mathbb{R}$ :
 
 1. $e^x \geq 1 + x$
 2. $\ln x \leq x - 1$ pour $x > 0$
 3. $\ln x \leq \sqrt{x}$ pour $x > 0$
+
 :::
 
 ::: {.exercise}
+
 Résoudre dans $\mathbb{R}$ :
 
 1. $e^x = 3$
 2. $\ln x + \ln(x-1) = \ln 2$
 3. $e^{2x} - 3e^x + 2 = 0$
+
 :::
 
 ::: {.exercise}
+
 Montrer que pour tout $x \in \mathbb{R}$ :
 
 1. $\cosh^2 x - \sinh^2 x = 1$
 2. $\cosh(x+y) = \cosh x \cosh y + \sinh x \sinh y$
 3. $\tanh x = \dfrac{e^{2x}-1}{e^{2x}+1}$
+
 :::
 
 ::: {.exercise}
+
 Montrer que pour tout $x \in ]-1,1[$ :
 
 1. $\arcsin x + \arccos x = \dfrac{\pi}{2}$
 2. $\dfrac{d}{dx}\arcsin x = \dfrac{1}{\sqrt{1-x^2}}$
+
 :::
 
 **Indication :** Poser $g(x) = \arcsin x + \arccos x$, montrer $g' = 0$ puis calculer $g(0)$.
 
 ::: {.exercise}
+
 Montrer que pour tout $n \in \mathbb{N}^*$ :
 $$\left(1+\dfrac{1}{n}\right)^n < e < \left(1+\dfrac{1}{n}\right)^{n+1}$$
+
 :::
 
 **Indication :** Prendre le logarithme et utiliser $\frac{x}{1+x} < \ln(1+x) < x$.
 
 ::: {.exercise}
+
 Soit $f : \mathbb{R} \to \mathbb{R}$ convexe. Montrer l'inégalité de Jensen : pour tout $\lambda \in [0,1]$ :
 $$f(\lambda x + (1-\lambda)y) \leq \lambda f(x) + (1-\lambda)f(y)$$
+
 :::
 
 ::: {.exercise}
+
 Montrer que $\ln$ est concave sur $]0,+\infty[$ et en déduire :
 $$\ln\!\left(\dfrac{a+b}{2}\right) \geq \dfrac{\ln a + \ln b}{2}$$
+
 :::
 
 ::: {.exercise}
+
 Étudier les fonctions suivantes (domaine, dérivée, variations, limites) :
 
 1. $f(x) = x e^{-x}$
 2. $f(x) = \dfrac{\ln x}{x}$
 3. $f(x) = x - \ln x$ sur $]0,+\infty[$
+
 :::
 
 ::: {.exercise}
+
 Résoudre : $\arctan x + \arctan(2x) = \dfrac{\pi}{4}$.
+
 :::
 
 **Indication :** Prendre la tangente et utiliser $\tan(a+b) = \frac{\tan a + \tan b}{1-\tan a \tan b}$.
 
 ::: {.exercise}
+
 Montrer que pour tout $x > 0$ : $\arctan x + \arctan\dfrac{1}{x} = \dfrac{\pi}{2}$.
+
 :::
 
 **Indication :** Dériver la fonction $g(x) = \arctan x + \arctan(1/x)$ et calculer $g(1)$.
@@ -92,8 +112,11 @@ Montrer que pour tout $x > 0$ : $\arctan x + \arctan\dfrac{1}{x} = \dfrac{\pi}{2
 [**Chapitre 08 : Fonctions usuelles, fonctions convexes**](pcsi-chap08.qmd)
 
 # Navigation {-}
+
 ::: {.chap-nav}
+
 [TD 07 : Dérivation](pcsi-chap07.qmd){.prev}
 [Menu PCSI](pcsi.qmd){.home}
 [TD 09 : Primitives et équations différentielles linéaires](pcsi-chap09.qmd){.next}
+
 :::

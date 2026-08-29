@@ -27,46 +27,61 @@ Ce chapitre a été réalisé conformément au programme marocain de mathématiq
 ## Négligeabilité et définition
 
 ::: {.definition title="(Négligeabilité)"}
+
 Soient $f,g$ deux fonctions définies au voisinage d'un point $a$ (qui peut être fini ou $\pm\infty$), avec $g$ ne s'annulant pas au voisinage de $a$. On dit que $f$ est **négligeable** devant $g$ au voisinage de $a$, et on note $f=\underset{a}{o}(g)$, si :
 $$\lim_{x\to a}\frac{f(x)}{g(x)}=0.$$
 En particulier, $f=\underset{a}{o}(1)$ signifie $\lim_{x\to a}f(x)=0$.
+
 :::
 
 ::: {.remark}
+
 - En $a$ fini, $f=\underset{a}{o}(1)$ équivaut à $\lim_{x\to a}f=0$ ; $f=\underset{a}{o}(x-a)$ signifie que $f$ s'annule « plus vite » que $x-a$.
 - Propriétés : $\underset{a}{o}(1)+\underset{a}{o}(1)=\underset{a}{o}(1)$ ; $g\cdot\underset{a}{o}(1)=\underset{a}{o}(g)$ ; $\underset{a}{o}(g)+\underset{a}{o}(g)=\underset{a}{o}(g)$.
+
 :::
 
 ::: {.definition title="(Développement limité)"}
+
 Soit $f$ une fonction définie au voisinage d'un point $a\in\mathbb{R}$ et $n\in\mathbb{N}$. On dit que $f$ **admet un développement limité** (DL) en $a$ à l'ordre $n$ s'il existe des réels $a_0,a_1,\cdots,a_n$ tels que :
 $$f(x)=a_0+a_1(x-a)+a_2(x-a)^2+\cdots+a_n(x-a)^n+\underset{a}{o}\left((x-a)^n\right).$$
 Le polynôme $a_0+a_1(x-a)+\cdots+a_n(x-a)^n$ est la **partie régulière** du DL, et $\underset{a}{o}\left((x-a)^n\right)$ le **reste**.
+
 :::
 
 ::: {.proposition title="(Unicité du DL)"}
+
 Si $f$ admet un DL en $a$ à l'ordre $n$, alors ce DL est unique.
+
 :::
 
 ::: {.remark}
+
 - Si $f$ admet un DL en $a$ à l'ordre $n$, elle en admet un à tout ordre $k\leq n$ (on tronque).
 - Si $f$ admet un DL en $a$, alors $f$ est continue en $a$ et $a_0=f(a)$ ; si $n\geq 1$, $f$ est dérivable en $a$ et $a_1=f'(a)$. La réciproque est fausse en général.
+
 :::
 
 ## Formule de Taylor-Young
 
 ::: {.theorem title="(Taylor-Young)"}
+
 Soit $I$ un intervalle ouvert, $a\in I$ et $n\in\mathbb{N}$. Si $f$ est de classe $\mathcal{C}^n$ sur $I$, alors $f$ admet un DL en $a$ à l'ordre $n$, donné par :
 $$f(x)=\sum_{k=0}^{n}\frac{f^{(k)}(a)}{k!}(x-a)^k+\underset{a}{o}\left((x-a)^n\right)$$
 c'est-à-dire $f(x)=f(a)+f'(a)(x-a)+\frac{f''(a)}{2!}(x-a)^2+\cdots+\frac{f^{(n)}(a)}{n!}(x-a)^n+\underset{a}{o}\left((x-a)^n\right)$.
+
 :::
 
 ::: {.proof}
+
 Par récurrence sur $n$ (ou par intégration par parties itérée à partir de la formule de Taylor avec reste intégral) ; le point clé est que le reste $R_n(x)=f(x)-\sum_{k=0}^n\frac{f^{(k)}(a)}{k!}(x-a)^k$ vérifie $\lim_{x\to a}\frac{R_n(x)}{(x-a)^n}=0$.
+
 :::
 
 ## Développements limités usuels (à connaître par cœur)
 
 ::: {.proposition title="(DL usuels en  $0$)"} 
+
 $$e^x=1+x+\frac{x^2}{2!}+\cdots+\frac{x^n}{n!}+\underset{0}{o}(x^n)$$
 $$\cos x=1-\frac{x^2}{2!}+\frac{x^4}{4!}-\cdots+(-1)^n\frac{x^{2n}}{(2n)!}+\underset{0}{o}(x^{2n+1})$$
 $$\sin x=x-\frac{x^3}{3!}+\frac{x^5}{5!}-\cdots+(-1)^n\frac{x^{2n+1}}{(2n+1)!}+\underset{0}{o}(x^{2n+2})$$
@@ -74,31 +89,40 @@ $$\ln(1+x)=x-\frac{x^2}{2}+\frac{x^3}{3}-\cdots+(-1)^{n-1}\frac{x^n}{n}+\underse
 $$(1+x)^{\alpha}=1+\alpha x+\frac{\alpha(\alpha-1)}{2!}x^2+\cdots+\frac{\alpha(\alpha-1)\cdots(\alpha-n+1)}{n!}x^n+\underset{0}{o}(x^n)$$
 $$\frac{1}{1-x}=1+x+x^2+\cdots+x^n+\underset{0}{o}(x^n)\qquad \frac{1}{1+x}=1-x+x^2-\cdots+(-1)^nx^n+\underset{0}{o}(x^n)$$
 $$\sqrt{1+x}=1+\frac{x}{2}-\frac{x^2}{8}+\underset{0}{o}(x^2)\qquad \tan x=x+\frac{x^3}{3}+\frac{2x^5}{15}+\underset{0}{o}(x^5)$$
+
 :::
 
 ## Opérations sur les DL
 
 ::: {.proposition}
+
 Si $f$ admet un DL en $a$ à l'ordre $n$ de partie régulière $P(x)$ et $g$ un DL en $a$ à l'ordre $n$ de partie régulière $Q(x)$, alors :
 
 - **Somme :** $f+g$ admet un DL en $a$ à l'ordre $n$ de partie régulière $P+Q$ ;
 - **Produit :** $fg$ admet un DL en $a$ à l'ordre $n$ de partie régulière le polynôme $P\times Q$ tronqué à l'ordre $n$ ;
 - **Quotient :** si $g(a)\neq 0$, $\frac{f}{g}$ admet un DL en $a$ à l'ordre $n$ obtenu en développant $\frac{1}{g}= \frac{1}{g(a)}\cdot\frac{1}{1+u}$ avec $u=\underset{a}{o}(1)$ ;
 - **Composition :** si $g$ admet un DL en $b$ et $f$ un DL en $a$ avec $f(a)=b$, alors $g\circ f$ admet un DL en $a$ obtenu par composition des parties régulières tronquées.
+
 :::
 
 ::: {.example}
+
 DL de $f(x)=e^x\cos x$ en $0$ à l'ordre $3$ : on a $e^x=1+x+\frac{x^2}{2}+\frac{x^3}{6}+\underset{0}{o}(x^3)$ et $\cos x=1-\frac{x^2}{2}+\underset{0}{o}(x^3)$. En ne gardant que les termes d'ordre $\leq 3$ :
 $$e^x\cos x=\left(1+x+\frac{x^2}{2}+\frac{x^3}{6}\right)\left(1-\frac{x^2}{2}\right)+\underset{0}{o}(x^3)=1+x-\frac{x^3}{3}+\underset{0}{o}(x^3).$$
+
 :::
 
 ::: {.example}
+
 DL de $f(x)=\frac{1}{1+x}$ en $0$ à l'ordre $2$ : $\frac{1}{1+x}=1-x+x^2+\underset{0}{o}(x^2)$. DL de $\ln(1+x)$ à l'ordre $3$ : $\ln(1+x)=x-\frac{x^2}{2}+\frac{x^3}{3}+\underset{0}{o}(x^3)$. Donc :
 $$\frac{\ln(1+x)}{1+x}=\left(x-\frac{x^2}{2}+\frac{x^3}{3}\right)(1-x+x^2)+\underset{0}{o}(x^3)=x-\frac{3x^2}{2}+\frac{11x^3}{6}+\underset{0}{o}(x^3).$$
+
 :::
 
 ::: {.example title="(DL en un point quelconque)"}
+
 Pour obtenir un DL de $f$ en $a$, on pose $x=a+h$ et on cherche un DL en $h=0$. Par exemple, DL de $f(x)=\sqrt{x}$ en $a=1$ : $\sqrt{1+h}=1+\frac{h}{2}-\frac{h^2}{8}+\underset{0}{o}(h^2)$, donc $\sqrt{x}=1+\frac{x-1}{2}-\frac{(x-1)^2}{8}+\underset{1}{o}\left((x-1)^2\right)$.
+
 :::
 
 # Équivalents
@@ -106,32 +130,42 @@ Pour obtenir un DL de $f$ en $a$, on pose $x=a+h$ et on cherche un DL en $h=0$. 
 ## Définition et propriétés
 
 ::: {.definition}
+
 Soient $f,g$ deux fonctions définies au voisinage d'un point $a$, avec $g$ ne s'annulant pas au voisinage de $a$. On dit que $f$ est **équivalente** à $g$ au voisinage de $a$, et on note $f\underset{a}{\sim}g$, si :
 $$\lim_{x\to a}\frac{f(x)}{g(x)}=1 \qquad \text{i.e.} \qquad f=g\left(1+\underset{a}{o}(1)\right) \qquad \text{i.e.} \qquad f-g=\underset{a}{o}(g).$$
+
 :::
 
 ::: {.proposition title="(Propriétés)"}
+
 - La relation $\sim$ est une relation d'équivalence (réflexive, symétrique, transitive).
 - **Compatibilité avec le produit et le quotient :** si $f\underset{a}{\sim}g$ et $f_1\underset{a}{\sim}g_1$, alors $ff_1\underset{a}{\sim}gg_1$ et $\frac{f}{f_1}\underset{a}{\sim}\frac{g}{g_1}$.
 - **Puissances :** si $f\underset{a}{\sim}g$, alors $f^n\underset{a}{\sim}g^n$ pour $n\in\mathbb{Z}$.
 - **Attention :** l'équivalence n'est **pas** compatible avec la somme ni avec la composition en général : si $f\sim g$ et $f_1\sim g_1$, on ne peut pas conclure $f+f_1\sim g+g_1$ (sauf si les limites des équivalents ne sont pas opposées).
+
 :::
 
 ## Équivalents usuels
 
 ::: {.proposition title="(Équivalents usuels en $0$)"}
+
 $$\sin x\underset{0}{\sim}x \qquad \tan x\underset{0}{\sim}x \qquad \ln(1+x)\underset{0}{\sim}x \qquad e^x-1\underset{0}{\sim}x$$
 $$(1+x)^{\alpha}-1\underset{0}{\sim}\alpha x \qquad \sqrt{1+x}-1\underset{0}{\sim}\frac{x}{2} \qquad \cos x-1\underset{0}{\sim}-\frac{x^2}{2}$$
 En $+\infty$ : $\ln x\underset{+\infty}{=}\underset{+\infty}{o}(x)$ (le logarithme est négligeable devant toute puissance), et $x^{\alpha}\underset{+\infty}{=}\underset{+\infty}{o}(e^x)$.
+
 :::
 
 ::: {.example}
+
 - En $0$ : $\ln(1+x)+\sin x\underset{0}{\sim}2x$ (car $\ln(1+x)\sim x$ et $\sin x\sim x$, les équivalents s'ajoutent car ils sont de même signe).
 - En $+\infty$ : $x^2+3x\underset{+\infty}{\sim}x^2$ ; $\sqrt{x^2+3x}\underset{+\infty}{\sim}x$ ; $e^x+x^2\underset{+\infty}{\sim}e^x$.
+
 :::
 
 ::: {.remark title="(Piège classique)"}
+
 On ne peut pas additionner des équivalents lorsque les limites s'annulent : par exemple $\left(x+\frac{1}{x}\right)-x\underset{+\infty}{\sim}\frac{1}{x}$ mais on ne peut pas écrire $x+\frac1x\sim x$ puis soustraire $x$. Il faut alors passer par un DL.
+
 :::
 
 # Applications analytiques et géométriques
@@ -139,57 +173,77 @@ On ne peut pas additionner des équivalents lorsque les limites s'annulent : par
 ## Calcul de limites
 
 ::: {.example}
+
 Calculer $\lim_{x\to 0}\frac{\ln(1+x)-x}{x^2}$ : avec le DL $\ln(1+x)=x-\frac{x^2}{2}+\underset{0}{o}(x^2)$, on obtient $\frac{\ln(1+x)-x}{x^2}=-\frac12+\underset{0}{o}(1)$, donc la limite vaut $-\frac12$.
+
 :::
 
 ::: {.example}
+
 Calculer $\lim_{x\to 0}\left(\frac{1}{x}-\frac{1}{\sin x}\right)$ : on réduit au même dénominateur : $\frac{\sin x-x}{x\sin x}$. Avec $\sin x=x-\frac{x^3}{6}+\underset{0}{o}(x^3)$ et $x\sin x\underset{0}{\sim}x^2$ :
 $$\frac{\sin x-x}{x\sin x}\underset{0}{\sim}\frac{-\frac{x^3}{6}}{x^2}=-\frac{x}{6}\underset{0}{\longrightarrow}0.$$
+
 :::
 
 ::: {.example}
+
 Calculer $\lim_{x\to+\infty}\left(\sqrt{x^2+3x}-x\right)$ : on factorise : $\sqrt{x^2+3x}=x\sqrt{1+\frac3x}=x\left(1+\frac{3}{2x}-\frac{9}{8x^2}+\underset{+\infty}{o}\left(\frac{1}{x^2}\right)\right)=x+\frac32-\frac{9}{8x}+\underset{+\infty}{o}\left(\frac1x\right)$. Donc $\sqrt{x^2+3x}-x\underset{+\infty}{\longrightarrow}\frac32$.
+
 :::
 
 ## Tangente et position de la courbe par rapport à la tangente
 
 ::: {.proposition}
+
 Soit $f$ admettant un DL en $a$ à l'ordre $n\geq 1$ : $f(x)=a_0+a_1(x-a)+a_2(x-a)^2+\cdots+\underset{a}{o}\left((x-a)^n\right)$. Alors la courbe $\mathcal{C}_f$ admet en $a$ une tangente $(T)$ d'équation $y=a_0+a_1(x-a)$. Si $k\geq 2$ est le premier indice avec $a_k\neq 0$, alors la position de $\mathcal{C}_f$ par rapport à $(T)$ au voisinage de $a$ est donnée par le signe de $a_k(x-a)^k$ :
 
 - si $k$ est **pair**, la courbe reste du côté du signe de $a_k$ (point de contact) ;
 - si $k$ est **impair**, la courbe **traverse** la tangente (point d'inflexion).
+
 :::
 
 ::: {.example}
+
 Soit $f(x)=\frac{e^x}{1+x}$. DL en $0$ à l'ordre $2$ : $e^x=1+x+\frac{x^2}{2}+\underset{0}{o}(x^2)$ et $\frac{1}{1+x}=1-x+x^2+\underset{0}{o}(x^2)$, donc $f(x)=1+\frac{x^2}{2}+\underset{0}{o}(x^2)$. La tangente en $0$ est $y=1$ (horizontale) et, comme $\frac{x^2}{2}>0$, la courbe est **au-dessus** de sa tangente au voisinage de $0$.
+
 :::
 
 ::: {.example}
+
 Soit $f(x)=\sin x$. DL en $0$ à l'ordre $3$ : $\sin x=x-\frac{x^3}{6}+\underset{0}{o}(x^3)$. La tangente en $0$ est $y=x$ ; comme le premier terme non nul après la partie linéaire est $-\frac{x^3}{6}$ (ordre impair), la courbe **traverse** sa tangente en $0$ (au-dessus pour $x<0$, au-dessous pour $x>0$).
+
 :::
 
 ## Asymptotes
 
 ::: {.proposition}
+
 Si $f$ admet un DL en $+\infty$ (resp. $-\infty$) de la forme $f(x)=ax+b+\frac{c}{x}+\underset{+\infty}{o}\left(\frac1x\right)$ avec $c\neq 0$, alors la droite $y=ax+b$ est une **asymptote** à $\mathcal{C}_f$ en $+\infty$, et la position de la courbe par rapport à cette asymptote est donnée par le signe de $\frac{c}{x}$.
+
 :::
 
 ::: {.example}
+
 Pour $f(x)=\sqrt{x^2+3x}$ en $+\infty$ (voir l'exemple ci-dessus) : $f(x)=x+\frac32-\frac{9}{8x}+\underset{+\infty}{o}\left(\frac1x\right)$. Donc la droite $y=x+\frac32$ est asymptote à $\mathcal{C}_f$ en $+\infty$ et, comme $-\frac{9}{8x}<0$ pour $x>0$, la courbe est **au-dessous** de son asymptote au voisinage de $+\infty$.
+
 :::
 
 ::: {.exercise}
+
 1. Donner les DL en $0$ à l'ordre $3$ de : $\frac{1}{1-x^2}$ ; $\sqrt{1+x}+\sqrt{1-x}$ ; $e^x\sin x$ ; $\tan x$.
 2. Calculer les limites : $\lim_{x\to 0}\frac{e^x-1-x}{x^2}$ ; $\lim_{x\to 0}\frac{1-\cos x}{x^2}$ ; $\lim_{x\to 0}\left(\frac{1}{x}-\frac{1}{\ln(1+x)}\right)$.
 3. Donner un équivalent en $0$ de : $\sin x-\tan x$ ; $\ln(1+x)-\frac{x}{1+x}$ ; puis en $+\infty$ de $\sqrt{x^2+x}-\sqrt{x^2+1}$.
 4. Étudier la tangente en $0$ et la position de la courbe par rapport à la tangente pour $f(x)=x-\ln(1+x)$ et $f(x)=e^x-x$.
+
 :::
 
 ::: {.solution}
+
 1. $\frac{1}{1-x^2}=1+x^2+\underset{0}{o}(x^3)$ ; $\sqrt{1+x}+\sqrt{1-x}=2-\frac{x^2}{4}+\underset{0}{o}(x^3)$ ; $e^x\sin x=x+x^2+\frac{x^3}{3}+\underset{0}{o}(x^3)$ ; $\tan x=x+\frac{x^3}{3}+\underset{0}{o}(x^3)$.
 2. $\frac{e^x-1-x}{x^2}\to\frac12$ ; $\frac{1-\cos x}{x^2}\to\frac12$ ; $\frac{1}{x}-\frac{1}{\ln(1+x)}\underset{0}{\sim}-\frac{1}{x}+\frac{1}{x-\frac{x^2}{2}}\to-\frac12$.
 3. $\sin x-\tan x\underset{0}{\sim}-\frac{x^3}{2}$ ; $\ln(1+x)-\frac{x}{1+x}\underset{0}{\sim}\frac{x^2}{2}$ ; $\sqrt{x^2+x}-\sqrt{x^2+1}\underset{+\infty}{\sim}\frac12$.
 4. $x-\ln(1+x)=\frac{x^2}{2}+\underset{0}{o}(x^2)$ : tangente $y=0$, courbe au-dessus ; $e^x-x=1+\frac{x^2}{2}+\underset{0}{o}(x^2)$ : tangente $y=1$, courbe au-dessus.
+
 :::
 
 # Document en PDF {-}
@@ -199,9 +253,11 @@ Pour $f(x)=\sqrt{x^2+3x}$ en $+\infty$ (voir l'exemple ci-dessus) : $f(x)=x+\fra
 ## Navigation {-}
 
 ::: {.chap-nav}
+
 [Chapitre 19 : Dérivation](mpsi-chap19.qmd){.prev}
 
 [Menu MPSI](mpsi.qmd){.home}
 
 [Chapitre 21 :  Intégration sur un segment](mpsi-chap21.qmd){.next}
+
 :::

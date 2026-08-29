@@ -29,76 +29,106 @@ Dans ce chapitre, $\mathbb{K}$ désigne un corps (on peut penser à $\mathbb{Q}$
 ## Définitions et premiers exemples
 
 ::: {.definition}
+
 Une **permutation** de $\{1,2,\ldots,n\}$ est une bijection de $\{1,2,\ldots,n\}$ dans lui-même. L'ensemble des permutations, muni de la composition des applications, est un groupe noté $(\mathcal{S}_n,\circ)$, appelé **groupe symétrique**. On décrit une permutation par le tableau de ses images :
 $$\sigma=\begin{pmatrix}1&2&\cdots&n\\ \sigma(1)&\sigma(2)&\cdots&\sigma(n)\end{pmatrix}$$
+
 :::
 
 ::: {.lemma}
+
 Le cardinal de $\mathcal{S}_n$ est $n!$.
+
 :::
 
 ::: {.proof}
+
 L'image de $1$ admet $n$ choix, l'image de $2$ admet $n-1$ choix (elle doit différer de l'image de $1$), etc. ; l'image de $n$ n'admet qu'une seule possibilité. Au total : $n\times(n-1)\times\cdots\times 2\times 1=n!$ bijections.
+
 :::
 
 ::: {.example}
+
 La permutation $f=\begin{pmatrix}1&2&3&4&5&6&7\\3&7&5&4&6&1&2\end{pmatrix}$ est la bijection définie par $f(1)=3$, $f(2)=7$, $f(3)=5$, $f(4)=4$, $f(5)=6$, $f(6)=1$, $f(7)=2$.
 
 - **Composition :** on superpose les tableaux ; par exemple, avec $g=\begin{pmatrix}1&2&3&4&5&6&7\\4&3&2&1&7&5&6\end{pmatrix}$, on obtient $g\circ f=\begin{pmatrix}1&2&3&4&5&6&7\\2&6&7&1&5&4&3\end{pmatrix}$.
 - **Inverse :** on échange les deux lignes puis on réordonne : $f^{-1}=\begin{pmatrix}1&2&3&4&5&6&7\\6&7&1&4&3&5&2\end{pmatrix}$.
+
 :::
 
 ::: {.lemma}
+
 Pour $n\geq 3$, le groupe $\mathcal{S}_n$ n'est pas commutatif.
+
 :::
 
 ::: {.example title="(Le groupe $\mathcal{S}_3$)"}
+
 $\mathcal{S}_3=\{\operatorname{id},\ \tau_1=(1\ 2),\ \tau_2=(1\ 3),\ \tau_3=(2\ 3),\ \sigma=(1\ 2\ 3),\ \sigma^{-1}=(1\ 3\ 2)\}$ a $3!=6$ éléments. On a par exemple $\tau_1\circ\sigma=\tau_2$ mais $\sigma\circ\tau_1=\tau_3$ : le groupe n'est pas commutatif.
+
 :::
 
 ## Décomposition en cycles
 
 ::: {.definition}
+
 Un **cycle** de longueur $p$ est une permutation $\sigma$ pour laquelle il existe $k_1,\cdots,k_p$ deux à deux distincts tels que $\sigma(k_i)=k_{i+1}$ pour $1\leq i<p$, $\sigma(k_p)=k_1$ et $\sigma(k)=k$ si $k\notin\{k_1,\cdots,k_p\}$ ; on le note $(k_1\ k_2\ \cdots\ k_p)$. Un cycle de longueur $2$ s'appelle une **transposition**. Le **support** d'un cycle est l'ensemble des éléments non fixés.
+
 :::
 
 ::: {.example}
+
 - $\sigma=\begin{pmatrix}1&2&3&4&5&6&7&8\\1&8&3&5&2&6&7&4\end{pmatrix}$ est le cycle $(2\ 8\ 4\ 5)$ (les éléments $1,3,6,7$ sont fixes) ; on a $\sigma^{-1}=(5\ 4\ 8\ 2)$.
 - $f=\begin{pmatrix}1&2&3&4&5&6&7\\7&2&5&4&6&3&1\end{pmatrix}$ n'est pas un cycle ; il se décompose en cycles à supports disjoints : $f=(1\ 7)\circ(3\ 5\ 6)$.
+
 :::
 
 ::: {.theorem}
+
 Toute permutation de $\mathcal{S}_n$ se décompose en une composition de cycles à supports disjoints ; cette décomposition est unique (à l'ordre près des facteurs et à l'écriture de chaque cycle près).
+
 :::
 
 ::: {.example}
+
 La décomposition de $f=\begin{pmatrix}1&2&3&4&5&6&7&8\\5&2&1&8&3&7&6&4\end{pmatrix}$ est $(1\ 5\ 3)\circ(4\ 8)\circ(6\ 7)$.
+
 :::
 
 ::: {.theorem}
+
 Toute permutation de $\mathcal{S}_n$ se décompose en un produit de transpositions.
+
 :::
 
 ## Signature d'une permutation
 
 ::: {.definition}
+
 Soit $\sigma\in\mathcal{S}_n$. On dit que $\sigma$ présente une **inversion** en $(i,j)$ (avec $i<j$) si $\sigma(i)>\sigma(j)$. On note $N(\sigma)$ le nombre d'inversions et on appelle **signature** de $\sigma$ le nombre :
 $$\varepsilon(\sigma)=(-1)^{N(\sigma)}=\begin{cases}+1 & \text{si } N(\sigma) \text{ est pair}\\ -1 & \text{si } N(\sigma) \text{ est impair}\end{cases}$$
+
 :::
 
 ::: {.example}
+
 Pour $\sigma=\begin{pmatrix}1&2&3&4&5&6&7\\3&4&7&1&2&6&5\end{pmatrix}$, on compte $N(\sigma)=9$ inversions, donc $\varepsilon(\sigma)=-1$. On a aussi la formule utile :
 $$\varepsilon(\sigma)=\prod_{i<j}\frac{\sigma(j)-\sigma(i)}{j-i}$$
+
 :::
 
 ::: {.theorem}
+
 Pour $\sigma,\sigma'\in\mathcal{S}_n$, on a $\varepsilon(\sigma\circ\sigma')=\varepsilon(\sigma)\,\varepsilon(\sigma')$ : la signature est un morphisme de groupes de $(\mathcal{S}_n,\circ)$ dans $(\{+1,-1\},\times)$.
+
 :::
 
 ::: {.proposition}
+
 1. La signature d'une transposition vaut $-1$ ; celle d'un $p$-cycle vaut $(-1)^{p-1}$.
 2. Si $\sigma$ est produit de $k$ transpositions, alors $\varepsilon(\sigma)=(-1)^k$ : la parité de $k$ ne dépend pas de la décomposition. On dit que $\sigma$ est **paire** (resp. **impaire**) si $\varepsilon(\sigma)=+1$ (resp. $-1$).
 3. L'ensemble $A_n$ des permutations paires est un sous-groupe de $\mathcal{S}_n$, appelé **groupe alterné**, et $\operatorname{Card}A_n=\frac{n!}{2}$.
+
 :::
 
 # Déterminants en dimensions 2 et 3
@@ -106,8 +136,10 @@ Pour $\sigma,\sigma'\in\mathcal{S}_n$, on a $\varepsilon(\sigma\circ\sigma')=\va
 ## Dimension 2
 
 ::: {.definition}
+
 Le déterminant d'une matrice $2\times 2$ est :
 $$\det\begin{pmatrix}a&b\\c&d\end{pmatrix}=ad-bc$$
+
 :::
 
 C'est le produit des éléments de la diagonale principale moins le produit des éléments de l'autre diagonale.
@@ -115,20 +147,26 @@ C'est le produit des éléments de la diagonale principale moins le produit des 
 ## Dimension 3 et règle de Sarrus
 
 ::: {.definition}
+
 Pour $A=(a_{ij})\in\mathcal{M}_3(\mathbb{K})$ :
 $$\det A=a_{11}a_{22}a_{33}+a_{12}a_{23}a_{31}+a_{13}a_{21}a_{32}-a_{31}a_{22}a_{13}-a_{32}a_{23}a_{11}-a_{33}a_{21}a_{12}$$
 **Règle de Sarrus :** on recopie les deux premières colonnes à droite de la matrice, puis on additionne les produits de trois termes suivant les diagonales descendantes et on soustrait ceux suivant les diagonales montantes. **Attention :** cette méthode ne s'applique pas aux matrices de taille supérieure à $3$.
+
 :::
 
 ::: {.example}
+
 $$\det\begin{pmatrix}2&1&0\\1&-1&3\\3&2&1\end{pmatrix}=\underbrace{2\times(-1)\times1}_{-2}+\underbrace{1\times3\times3}_{9}+\underbrace{0\times1\times2}_{0}-\underbrace{3\times(-1)\times0}_{0}-\underbrace{2\times3\times2}_{12}-\underbrace{1\times1\times1}_{1}=-6$$
+
 :::
 
 ## Interprétation géométrique
 
 ::: {.proposition}
+
 1. L'aire du parallélogramme défini par $v_1=\begin{pmatrix}a\\c\end{pmatrix}$ et $v_2=\begin{pmatrix}b\\d\end{pmatrix}$ est $\mathcal{A}=\big|\det(v_1,v_2)\big|$.
 2. Le volume du parallélépipède défini par trois vecteurs de $\mathbb{R}^3$ est $\mathcal{V}=\big|\det(v_1,v_2,v_3)\big|$.
+
 :::
 
 # Définition générale du déterminant
@@ -138,122 +176,166 @@ $$\det\begin{pmatrix}2&1&0\\1&-1&3\\3&2&1\end{pmatrix}=\underbrace{2\times(-1)\t
 Soit $E$ un $\mathbb{K}$-espace vectoriel de dimension $n$ muni d'une base $\mathcal{B}=(e_1,\cdots,e_n)$.
 
 ::: {.theorem title="(Existence et unicité)"}
+
 Il existe une unique application $\det_{\mathcal{B}}:E^n\longrightarrow\mathbb{K}$, appelée **déterminant** dans la base $\mathcal{B}$, telle que :
 
 1. elle est **$n$-linéaire** : linéaire par rapport à chaque vecteur, les autres étant fixés ;
 2. elle est **alternée** : nulle dès que deux vecteurs sont égaux ;
 3. $\det_{\mathcal{B}}(e_1,\cdots,e_n)=1$.
+
 :::
 
 ::: {.theorem title="(Formule par les permutations)"}
+
 Si $x_j=\sum_{i=1}^n a_{ij}e_i$ pour $1\leq j\leq n$, alors :
 $$\det_{\mathcal{B}}(x_1,\cdots,x_n)=\sum_{\sigma\in\mathcal{S}_n}\varepsilon(\sigma)\prod_{j=1}^n a_{\sigma(j),j}=\sum_{\sigma\in\mathcal{S}_n}\varepsilon(\sigma)\prod_{i=1}^n a_{i,\sigma(i)}$$
+
 :::
 
 ::: {.proposition title="(Propriétés immédiates)"}
+
 1. $\det(x_{\sigma(1)},\cdots,x_{\sigma(n)})=\varepsilon(\sigma)\det(x_1,\cdots,x_n)$ ; en particulier, échanger deux vecteurs change le signe du déterminant ;
 2. le déterminant est nul dès que la famille est liée (deux vecteurs égaux, un vecteur nul…) ;
 3. ajouter à un vecteur une combinaison linéaire des autres ne change pas le déterminant ;
 4. multiplier un vecteur par $\lambda$ multiplie le déterminant par $\lambda$.
+
 :::
 
 ::: {.corollary}
+
 Une famille de $n$ vecteurs d'un espace de dimension $n$ est une base (i.e. une famille libre) si et seulement si son déterminant est non nul.
+
 :::
 
 # Déterminant d'un endomorphisme
 
 ::: {.definition}
+
 Soit $f\in\mathcal{L}(E)$ avec $\dim E=n$ et $\mathcal{B}$ une base de $E$. On appelle **déterminant de $f$** le scalaire :
 $$\det f=\det_{\mathcal{B}}\big(f(e_1),\cdots,f(e_n)\big)$$
 Cette valeur ne dépend pas du choix de la base $\mathcal{B}$.
+
 :::
 
 ::: {.proof title="(Indépendance de la base)"}
+
 Si $\mathcal{B}'$ est une autre base et $P$ la matrice de passage de $\mathcal{B}$ à $\mathcal{B}'$, alors $\det_{\mathcal{B}'}f=\det P^{-1}\cdot\det_{\mathcal{B}}f\cdot\det P=\det_{\mathcal{B}}f$, puisque $\det P^{-1}\det P=1$.
+
 :::
 
 ::: {.proposition}
+
 $f$ est un automorphisme de $E$ si et seulement si $\det f\neq 0$.
+
 :::
 
 ::: {.example}
+
 - $\det(\operatorname{id}_E)=1$ ; $\det(h_\lambda)=\lambda^n$ pour l'homothétie de rapport $\lambda$.
 - Soit $f:\mathbb{R}_2[X]\to\mathbb{R}_2[X],\ P\mapsto P(0)X^2+P'(0)X+\frac12 P''(0)$ ; sa matrice dans la base canonique est $A=\begin{pmatrix}0&0&1\\0&1&0\\1&0&0\end{pmatrix}$, donc $\det f=\det A=-1\neq 0$ : $f$ est un automorphisme.
+
 :::
 
 # Déterminant d'une matrice
 
 ::: {.definition}
+
 Le **déterminant** d'une matrice carrée $A$ est le déterminant de la famille de ses vecteurs colonnes dans la base canonique : $\det A=\det(C_1,\cdots,C_n)$. On le note aussi $|A|$ ou $\begin{vmatrix}a_{11}&\cdots&a_{1n}\\ \vdots&&\vdots\\ a_{n1}&\cdots&a_{nn}\end{vmatrix}$.
+
 :::
 
 ::: {.theorem title="(Propriétés fondamentales)"}
+
 1. $\det(AB)=\det A\cdot\det B$ ;
 2. $\det(A^T)=\det A$ ;
 3. $A$ est inversible si et seulement si $\det A\neq 0$, et alors $\det(A^{-1})=\frac{1}{\det A}$ ;
 4. le déterminant d'une matrice triangulaire (supérieure ou inférieure) est le produit de ses termes diagonaux ;
 5. le déterminant est invariant par les opérations élémentaires $L_i\leftarrow L_i+\lambda L_j$ ; il est multiplié par $\lambda$ par $L_i\leftarrow\lambda L_i$ et changé de signe par $L_i\leftrightarrow L_j$.
+
 :::
 
 ::: {.example}
+
 Deux matrices semblables ont même déterminant : si $B=P^{-1}AP$ avec $P\in\mathrm{GL}_n(\mathbb{K})$, alors $\det B=\det P^{-1}\det A\det P=\det A$.
+
 :::
 
 ::: {.remark}
+
 Ces propriétés fournissent la méthode pratique de calcul : on échelonne la matrice par opérations élémentaires en suivant leurs effets sur le déterminant, jusqu'à une matrice triangulaire dont le déterminant est immédiat.
+
 :::
 
 # Cofacteurs, comatrice, formules de Cramer
 
 ::: {.definition}
+
 Soit $A=(a_{ij})\in\mathcal{M}_n(\mathbb{K})$. On note $A_{ij}$ la matrice extraite obtenue en supprimant la ligne $i$ et la colonne $j$ ; le **cofacteur** de $A$ relatif à $a_{ij}$ est $C_{ij}=(-1)^{i+j}\det A_{ij}$ ; la **comatrice** est $\operatorname{Com}(A)=(C_{ij})$. Les signes suivent le schéma d'un échiquier : $+,-,+,\cdots$
+
 :::
 
 ::: {.theorem title="(Inverse par la comatrice)"}
+
 Soit $A$ inversible, de comatrice $C$. Alors :
 $$A^{-1}=\frac{1}{\det A}\,C^T$$
+
 :::
 
 ::: {.example}
+
 Pour $A=\begin{pmatrix}1&1&0\\0&1&1\\1&0&1\end{pmatrix}$ : $\det A=2$ et $C=\begin{pmatrix}1&1&-1\\-1&1&1\\1&-1&1\end{pmatrix}$, d'où $A^{-1}=\frac12\begin{pmatrix}1&-1&1\\1&1&-1\\-1&1&1\end{pmatrix}$.
+
 :::
 
 ::: {.theorem title="(Règle de Cramer)"}
+
 Soit $AX=Y$ un système de $n$ équations à $n$ inconnues avec $\det A\neq 0$. Alors l'unique solution est donnée par :
 $$x_i=\frac{\det A_i}{\det A}$$
 où $A_i$ est la matrice $A$ dont la $i$-ème colonne est remplacée par le second membre $Y$.
+
 :::
 
 ::: {.example}
+
 Pour le système $\begin{cases}x_1+x_3=1\\x_2+2x_3=0\\x_1-x_2+x_3=3\end{cases}$, on a $\det A=-2$ et la méthode de Cramer (ou le pivot) donne la solution unique $(-18,-6,1)$… par exemple, pour le système $\begin{cases}x+2y=5\\3x-y=1\end{cases}$ : $x=\frac{\begin{vmatrix}5&2\\1&-1\end{vmatrix}}{\begin{vmatrix}1&2\\3&-1\end{vmatrix}}=\frac{-7}{-7}=1$, $y=\frac{\begin{vmatrix}1&5\\3&1\end{vmatrix}}{-7}=\frac{-14}{-7}=2$.
+
 :::
 
 # Rang et déterminants remarquables
 
 ::: {.theorem}
+
 Le rang d'une matrice $A\in\mathcal{M}_{n,p}(\mathbb{K})$ est le plus grand entier $r$ tel qu'il existe un mineur d'ordre $r$ extrait de $A$ non nul. Une matrice et sa transposée ont même rang.
+
 :::
 
 ::: {.proposition title="(Déterminant de Vandermonde)"}
+
 $$V_n(t_1,\cdots,t_n)=\begin{vmatrix}1&t_1&t_1^2&\cdots&t_1^{n-1}\\ 1&t_2&t_2^2&\cdots&t_2^{n-1}\\ \vdots&\vdots&\vdots&&\vdots\\ 1&t_n&t_n^2&\cdots&t_n^{n-1}\end{vmatrix}=\prod_{1\leq i<j\leq n}(t_j-t_i)$$
+
 :::
 
 ::: {.example}
+
 $\begin{vmatrix}1&1&1\\1&2&3\\1&4&9\end{vmatrix}=(2-1)(3-1)(3-2)=2\neq 0$ : la famille $(1+X+X^2,\ 1+2X+4X^2,\ 1+3X+9X^2)$ est une base de $\mathbb{R}_2[X]$.
+
 :::
 
 ::: {.proposition title="(Déterminant de Cauchy)"}
+
 Pour $(\alpha_i),(\beta_j)$ tels que $\alpha_i+\beta_j\neq 0$ :
 $$\det\left(\frac{1}{\alpha_i+\beta_j}\right)_{1\leq i,j\leq n}=\frac{\prod_{1\leq i<j\leq n}(\alpha_j-\alpha_i)(\beta_j-\beta_i)}{\prod_{1\leq i,j\leq n}(\alpha_i+\beta_j)}$$
 En prenant $\alpha_i=i$ et $\beta_j=j-1$, on obtient le déterminant de la matrice de Hilbert : $\det H_n=\frac{\left(\prod_{k=1}^n k!\right)^3}{n!^3\prod_{k=n}^{2n-1}k!}$.
+
 :::
 
 ::: {.exercise}
+
 1. Calculer $\det\begin{pmatrix}1&2\\-1&3\end{pmatrix}$, $\det\begin{pmatrix}1&2&3\\1&4&6\\1&4&4\end{pmatrix}$ et $\det\begin{pmatrix}1&0&6\\3&4&15\\5&6&21\end{pmatrix}$.
 2. Montrer que si $A\in\mathcal{M}_n(\mathbb{K})$ est antisymétrique et inversible, alors $n$ est pair.
 3. Calculer le déterminant de la famille $\big(1+X+X^2,\ 1+2X+4X^2,\ 1+3X+9X^2\big)$ dans $\mathbb{R}_2[X]$ et en déduire que c'est une base.
 4. Décomposer en cycles à supports disjoints $\sigma=\begin{pmatrix}1&2&3&4&5&6&7\\5&7&2&6&1&4&3\end{pmatrix}$, puis calculer $\sigma^2$, $\sigma^3$ et sa signature.
+
 :::
 
 # Document en PDF {-}
@@ -263,9 +345,11 @@ En prenant $\alpha_i=i$ et $\beta_j=j-1$, on obtient le déterminant de la matri
 # Navigation {-}
 
 ::: {.chap-nav}
+
 [Chapitre 14 : Matrices](mpsi-chap14.qmd){.prev}
 
 [Menu MPSI](mpsi.qmd){.home}
 
 [Chapitre 16 : Nombres réels](mpsi-chap16.qmd){.next}
+
 :::

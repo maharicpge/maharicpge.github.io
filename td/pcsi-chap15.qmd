@@ -19,58 +19,81 @@ filters:
 **PCSI (1re année) — TD du Chapitre 15.** Produit scalaire, norme associée, Cauchy-Schwarz, orthogonalité, bases orthonormales, Gram-Schmidt, projection orthogonale, distance à un sous-espace, produit vectoriel en dimension 3.
 
 ::: {.exercise}
+
 Montrer que $\langle x, y \rangle = \sum_{k=1}^n x_k y_k$ définit un produit scalaire sur $\mathbb{R}^n$.
+
 :::
 
 ::: {.exercise}
+
 Montrer l'inégalité de Cauchy-Schwarz : $|\langle x, y \rangle| \leq \|x\| \cdot \|y\|$.
+
 :::
 
 **Indication :** Étudier $P(\lambda) = \|x + \lambda y\|^2 \geq 0$.
 
 ::: {.exercise}
+
 Appliquer Gram-Schmidt à $(1, X, X^2)$ dans $\mathbb{R}_2[X]$ muni de $\langle P, Q \rangle = \int_{-1}^1 P(t)Q(t)\, dt$.
+
 :::
 
 ::: {.exercise}
+
 Soient $x, y \in E$ avec $\|x\| = 3$, $\|y\| = 4$, $\langle x, y \rangle = 6$. Calculer $\|x+y\|$, $\|x-y\|$ et l'angle entre $x$ et $y$.
+
 :::
 
 ::: {.exercise}
+
 Soit $F$ un sous-espace vectoriel de $E$ euclidien. Montrer que :
 
 1. $F^\perp$ est un sous-espace vectoriel.
 2. $F \cap F^\perp = \{0\}$.
 3. $E = F \oplus F^\perp$.
+
 :::
 
 ::: {.exercise}
+
 Déterminer la projection orthogonale de $x = (1,2,3)$ sur le plan $F = \{(x,y,z) \mid x + y + z = 0\}$.
+
 :::
 
 ::: {.exercise}
+
 Soit $E$ euclidien et $(e_1, \ldots, e_n)$ une base orthonormée. Montrer que :
 $$x = \sum_{k=1}^n \langle x, e_k \rangle e_k \quad \text{et} \quad \|x\|^2 = \sum_{k=1}^n \langle x, e_k \rangle^2$$
+
 :::
 
 ::: {.exercise}
+
 Soit $u \in \mathcal{L}(E)$ avec $\langle u(x), u(y) \rangle = \langle x, y \rangle$ pour tous $x, y$. Montrer que $u$ conserve la norme.
+
 :::
 
 ::: {.exercise}
+
 Soient $u = (1, 2, 3)$ et $v = (4, 5, 6)$ dans $\mathbb{R}^3$. Calculer $u \wedge v$ et vérifier que $u \wedge v$ est orthogonal à $u$ et $v$.
+
 :::
 
 ::: {.exercise}
+
 Montrer que $\langle P, Q \rangle = P(0)Q(0) + P(1)Q(1)$ définit un produit scalaire sur $\mathbb{R}_1[X]$ mais pas sur $\mathbb{R}_2[X]$.
+
 :::
 
 # Cours {-}
 [**Chapitre 15 : Espaces préhilbertiens réels**](pcsi-chap15.qmd)
 
 # Navigation {-}
+
 ::: {.chap-nav}
+
 [TD 14 : Matrices et déterminants](pcsi-chap14.qmd){.prev}
 [Menu PCSI](pcsi.qmd){.home}
 [TD 16 : Intégration des fonctions continues sur un segment](pcsi-chap16.qmd){.next}
+
 :::

@@ -19,60 +19,83 @@ filters:
 **MP (2e année) — TD du Chapitre 04.** Convergence, convergence absolue, reste, séries d'éléments d'une $\mathbb{K}$-algèbre normée, famille sommable de nombres complexes, critère de comparaison, théorème de sommation par paquets, critère de sommabilité, produit de Cauchy.
 
 ::: {.exercise}
+
 Soit $(E, \|\cdot\|)$ un EVN et $\sum u_n$ une série à valeurs dans $E$. Montrer que si $\sum u_n$ converge, alors $u_n \to 0$.
+
 :::
 
 ::: {.exercise}
+
 Montrer qu'une série absolument convergente dans un EVN de dimension finie est convergente.
+
 :::
 
 **Indication :** Utiliser le critère de Cauchy et l'inégalité triangulaire.
 
 ::: {.exercise}
+
 Soit $\sum u_n$ une série convergente de somme $S$. Montrer que le reste $R_n = \sum_{k=n+1}^{+\infty} u_k$ tend vers $0$.
+
 :::
 
 ::: {.exercise}
+
 Soit $A$ une $\mathbb{K}$-algèbre normée de dimension finie. Montrer que si $\|a\| < 1$, alors la série géométrique $\sum a^n$ converge et :
 $$\sum_{n=0}^{+\infty} a^n = (e - a)^{-1}$$
+
 :::
 
 **Indication :** Montrer d'abord que $e - a$ est inversible (série de Neumann), puis montrer la convergence de la série.
 
 ::: {.exercise}
+
 Soit $(u_i)_{i \in I}$ une famille de nombres complexes indexée par un ensemble dénombrable. Montrer que la famille est sommable si et seulement si pour toute bijection $\varphi : \mathbb{N} \to I$, la série $\sum u_{\varphi(n)}$ est absolument convergente.
+
 :::
 
 ::: {.exercise}
+
 Soient $(u_i)_{i \in I}$ et $(v_i)_{i \in I}$ deux familles sommables. Montrer que $(u_i + v_i)_{i \in I}$ est sommable et :
 $$\sum_{i \in I} (u_i + v_i) = \sum_{i \in I} u_i + \sum_{i \in I} v_i$$
+
 :::
 
 ::: {.exercise}
+
 Soit $I = I_1 \cup I_2$ avec $I_1 \cap I_2 = \varnothing$ et $(u_i)_{i \in I}$ une famille sommable. Montrer le théorème de sommation par paquets :
 $$\sum_{i \in I} u_i = \sum_{i \in I_1} u_i + \sum_{i \in I_2} u_i$$
+
 :::
 
 ::: {.exercise}
+
 Soient $\sum a_n$ et $\sum b_n$ deux séries absolument convergentes. Montrer que le produit de Cauchy $\sum c_n$ avec $c_n = \sum_{k=0}^n a_k b_{n-k}$ est absolument convergent et :
 $$\sum_{n=0}^{+\infty} c_n = \left(\sum_{n=0}^{+\infty} a_n\right)\left(\sum_{n=0}^{+\infty} b_n\right)$$
+
 :::
 
 ::: {.exercise}
+
 Montrer que $\sum_{n=0}^{+\infty} \frac{1}{n!} = e$ en utilisant le produit de Cauchy de $\sum \frac{x^n}{n!}$ par elle-même.
+
 :::
 
 ::: {.exercise}
+
 Soit $(u_n)$ une suite d'éléments d'un EVN telle que $\sum \|u_n\|$ converge. Montrer que $\sum u_n$ converge et :
 $$\left\|\sum_{n=0}^{+\infty} u_n\right\| \leq \sum_{n=0}^{+\infty} \|u_n\|$$
+
 :::
 
 # Cours {-}
 [**Chapitre 04 : Séries dans un EVN et familles sommables**](mp-chap04.qmd)
 
 # Navigation {-}
+
 ::: {.chap-nav}
+
 [TD 03 : Réduction des endomorphismes](mp-chap03.qmd){.prev}
 [Menu MP](mp.qmd){.home}
 [TD 05 : Fonctions vectorielles et arcs paramétrés](mp-chap05.qmd){.next}
+
 :::

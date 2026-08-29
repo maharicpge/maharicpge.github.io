@@ -19,59 +19,82 @@ filters:
 **TSI (1re année) — TD du Chapitre 15.** Matrice d'une application linéaire, changements de bases, matrices semblables, rang d'une matrice, retour sur les systèmes linéaires.
 
 ::: {.exercise}
+
 Soit $f : \mathbb{R}^2 \to \mathbb{R}^2$, $f(x,y) = (x+y, x-y)$.
 
 1. Déterminer la matrice de $f$ dans la base canonique.
 2. Soit $\mathcal{B}' = ((1,1),(1,-1))$. Déterminer la matrice de $f$ dans $\mathcal{B}'$.
+
 :::
 
 ::: {.exercise}
+
 Soient $\mathcal{B} = (e_1, e_2, e_3)$ la base canonique de $\mathbb{R}^3$ et $\mathcal{B}' = (e_1, e_1+e_2, e_1+e_2+e_3)$.
 
 1. Déterminer la matrice de passage $P$ de $\mathcal{B}$ à $\mathcal{B}'$.
 2. Déterminer $P^{-1}$.
+
 :::
 
 ::: {.exercise}
+
 Montrer que deux matrices semblables ont même rang.
+
 :::
 
 ::: {.exercise}
+
 Soit $A = \begin{pmatrix} 1 & 2 & 3 \\ 2 & 5 & 3 \\ 1 & 0 & 8 \end{pmatrix}$. Calculer $A^{-1}$ par Gauss-Jordan.
+
 :::
 
 ::: {.exercise}
+
 Résoudre le système :
 $$\begin{cases} x + y + z = 6 \\ 2x - y + z = 3 \\ x + y - 2z = -1 \end{cases}$$
 en utilisant la matrice inverse.
+
 :::
 
 ::: {.exercise}
+
 Soit $A \in \mathcal{M}_{n,p}(\mathbb{R})$. Montrer que $\mathrm{rg}(A) = \mathrm{rg}(A^T)$.
+
 :::
 
 ::: {.exercise}
+
 Soit $f : \mathbb{R}^3 \to \mathbb{R}^2$, $f(x,y,z) = (x+y, y-z)$. Déterminer $\mathrm{rg}(f)$ et vérifier le théorème du rang.
+
 :::
 
 ::: {.exercise}
+
 Soit $A \in \mathcal{M}_n(\mathbb{R})$ inversible. Montrer que $\mathrm{rg}(AB) = \mathrm{rg}(B)$ pour toute matrice $B$.
+
 :::
 
 ::: {.exercise}
+
 Soit $A = \begin{pmatrix} 2 & 1 \\ 0 & 2 \end{pmatrix}$. Calculer $A^n$ pour tout $n \in \mathbb{N}$.
+
 :::
 
 ::: {.exercise}
+
 Soient $A, B \in \mathcal{M}_n(\mathbb{R})$ semblables. Montrer que $\det(A) = \det(B)$ et $\mathrm{tr}(A) = \mathrm{tr}(B)$.
+
 :::
 
 # Cours {-}
 [**Chapitre 15 : Représentations matricielles**](../cours/tsi1-chap15.qmd)
 
 # Navigation {-}
+
 ::: {.chap-nav}
+
 [TD 14 : Applications linéaires](tsi1-chap14.qmd){.prev}
 [Menu TSI1](tsi1.qmd){.home}
 [TD 16 : Intégration des fonctions continues sur un segment](tsi1-chap16.qmd){.next}
+
 :::

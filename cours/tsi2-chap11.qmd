@@ -36,6 +36,7 @@ Dans tout ce chapitre, $I$ désigne un intervalle de $\mathbb{R}$, $E$ un espace
 ## Équation différentielle et solution
 
 ::: {.definition title="(Équation différentielle et solution)"}
+
 Soit $U$ un ouvert de $\mathbb{R} \times E$ et $f : U \to E$ une application continue. On considère l'**équation différentielle** :
 $$x' = f(t, x)$$
 
@@ -43,41 +44,54 @@ Une **solution** de cette équation est un couple $(J, x)$ où $J$ est un interv
 $$\forall t \in J, \quad (t, x(t)) \in U \quad \text{et} \quad x'(t) = f(t, x(t))$$
 
 On appelle **courbe intégrale** de l'équation le graphe paramétré $t \mapsto (t, x(t))$.
+
 :::
 
 ::: {.example title="(Équations à variables séparables)"}
+
 Un cas particulier important est celui des équations à variables séparables : $E = \mathbb{R}$ et $f(t, u) = a(t)b(u)$ où $a$ et $b$ sont des fonctions continues.
 
 Une telle équation $x' = a(t)b(x)$ se résout en cherchant des solutions de la forme $x(t) = g(t)$ où $g$ satisfait :
 $$\frac{g'(t)}{b(g(t))} = a(t)$$
+
 :::
 
 ## Problème de Cauchy
 
 ::: {.definition title="(Problème de Cauchy)"}
+
 Soit $(t_0, x_0) \in U$. Le **problème de Cauchy** associé à l'équation $x' = f(t, x)$ avec la condition initiale $x(t_0) = x_0$ consiste à trouver une solution $x$ définie sur un intervalle $J$ contenant $t_0$ et vérifiant :
 $$x'(t) = f(t, x(t)) \quad \text{et} \quad x(t_0) = x_0$$
+
 :::
 
 ::: {.theorem title="(Théorème de Cauchy-Lipschitz, admis)"}
+
 Soient $f : U \to E$ une application continue et $(t_0, x_0) \in U$. Alors il existe un intervalle ouvert $J$ contenant $t_0$ et une unique solution $x : J \to E$ du problème de Cauchy :
 $$\begin{cases} x'(t) = f(t, x(t)) \\ x(t_0) = x_0 \end{cases}$$
+
 :::
 
 ::: {.remarque}
+
 Le théorème de Cauchy-Lipschitz est admis et n'est pas le point central du paragraphe. Il est présenté pour préparer les élèves au cas non linéaire qui sera traité dans les cursus post classes préparatoires. Il peut aussi servir à éclairer les résultats du cas linéaire en montrant leurs spécificités.
+
 :::
 
 ## Méthode d'Euler
 
 ::: {.definition title="(Méthode d'Euler)"}
+
 Pour rechercher des solutions approchées de l'équation $x' = f(t, x)$ avec $x(t_0) = x_0$, la **méthode d'Euler** consiste à construire une suite $(x_n)$ par récurrence :
 $$x_{n+1} = x_n + h \cdot f(t_n, x_n)$$
 où $h > 0$ est le pas de la méthode et $t_n = t_0 + nh$.
+
 :::
 
 ::: {.remarque}
+
 Les élèves doivent savoir appliquer la méthode d'Euler à des exemples simples pour obtenir des solutions approchées.
+
 :::
 
 # Équations différentielles linéaires scalaires d'ordre 1
@@ -85,17 +99,21 @@ Les élèves doivent savoir appliquer la méthode d'Euler à des exemples simple
 ## Définition et structure
 
 ::: {.definition title="(Équation différentielle linéaire du premier ordre)"}
+
 Une **équation différentielle linéaire du premier ordre** est une équation de la forme :
 $$a(x)y' + b(x)y = c(x)$$
 où $a, b, c$ sont des fonctions continues sur un intervalle $I$, avec $a$ non identiquement nulle.
 
 L'**équation homogène associée** est :
 $$a(x)y' + b(x)y = 0$$
+
 :::
 
 ::: {.definition title="(Solution)"}
+
 Une fonction $f$ est **solution** de l'équation sur $I$ si $f$ est définie et dérivable sur $I$ et :
 $$\forall x \in I, \quad a(x)f'(x) + b(x)f(x) = c(x)$$
+
 :::
 
 ::: {.proposition title="(Structure de l'ensemble des solutions)"}
@@ -103,11 +121,13 @@ $$\forall x \in I, \quad a(x)f'(x) + b(x)f(x) = c(x)$$
 1. L'ensemble des solutions sur un intervalle $I$ de l'équation homogène $(H) : a(x)y' + b(x)y = 0$ est un sous-espace vectoriel du $\mathbb{K}$-espace vectoriel $\mathcal{F}(I, \mathbb{K})$ (éventuellement réduit à $\{0\}$).
 
 2. Si l'équation linéaire du premier ordre complète $(E) : a(x)y' + b(x)y = c(x)$ admet une solution $f_0$ sur $I$, alors les solutions sur $I$ de $(E)$ sont exactement les fonctions $f = f_0 + \varphi$, où $\varphi$ décrit le $\mathbb{K}$-espace vectoriel des solutions sur $I$ de $(H)$.
+
 :::
 
 ## Résolution de l'équation homogène
 
 ::: {.theorem title="(Résolution de l'équation homogène du premier ordre)"}
+
 Soit $(H) : a(x)y' + b(x)y = 0$ une équation linéaire du premier ordre homogène et soit $I$ un intervalle sur lequel $a$ et $b$ sont continues et $a$ ne s'annule pas. Alors :
 
 1. En notant $G$ une primitive quelconque sur $I$ de $-\frac{b}{a}$, les solutions sur $I$ de $(H)$ sont les fonctions de la forme $x \mapsto \lambda e^{G(x)}$, où $\lambda$ décrit $\mathbb{K}$.
@@ -115,31 +135,38 @@ Soit $(H) : a(x)y' + b(x)y = 0$ une équation linéaire du premier ordre homogè
 2. Si une solution de $(H)$ sur $I$ s'annule en un point, elle est nulle.
 
 3. Le $\mathbb{K}$-espace vectoriel des solutions de $(H)$ sur $I$ est de dimension 1, toute solution non nulle de $(H)$ en constitue donc une base.
+
 :::
 
 ::: {.example title="(Cas particulier : coefficients constants)"}
+
 Pour l'équation $ay' + by = 0$ avec $a \neq 0$ et $b$ constants, les solutions sur $\mathbb{R}$ sont :
 $$x \mapsto \lambda e^{-\frac{b}{a}x}, \quad \lambda \in \mathbb{K}$$
+
 :::
 
 ## Recherche d'une solution particulière
 
 ::: {.proposition title="(Méthode de variation de la constante)"}
+
 Pour chercher une solution particulière de l'équation complète $(E) : a(x)y' + b(x)y = c(x)$, on peut utiliser la **méthode de variation de la constante** :
 
 1. Résoudre l'équation homogène $(H)$ pour obtenir une solution non nulle $\varphi_1(x) = e^{G(x)}$.
 2. Chercher une solution de $(E)$ sous la forme $f_0(x) = \lambda(x) \varphi_1(x)$.
 3. En substituant dans $(E)$, on obtient une équation différentielle pour $\lambda'(x)$, que l'on peut intégrer.
+
 :::
 
 ## Théorème de Cauchy pour les équations du premier ordre
 
 ::: {.theorem title="(Existence et unicité)"}
+
 Soit $(E) : a(x)y' + b(x)y = c(x)$ une équation différentielle linéaire du premier ordre, et soit $I$ un intervalle sur lequel $a, b, c$ sont continues, et $a$ ne s'annule pas. Alors :
 
 1. $(E)$ admet une infinité de solutions sur $I$.
 2. Si $\varphi_1$ désigne une solution non nulle de l'équation homogène associée $(H)$, et si $f_0$ désigne une des solutions de $(E)$, alors l'ensemble des solutions de $(E)$ sur $I$ est l'ensemble des $f_0 + \lambda \varphi_1$, où $\lambda$ décrit $\mathbb{K}$.
 3. Pour tout couple $(x_0, y_0) \in I \times \mathbb{K}$, il existe une et une seule solution de $(E)$ sur $I$ qui prend la valeur $y_0$ en $x_0$.
+
 :::
 
 # Équations différentielles linéaires scalaires d'ordre 2
@@ -147,12 +174,14 @@ Soit $(E) : a(x)y' + b(x)y = c(x)$ une équation différentielle linéaire du pr
 ## Définition et structure
 
 ::: {.definition title="(Équation différentielle linéaire du second ordre)"}
+
 Une **équation différentielle linéaire du second ordre** est une équation de la forme :
 $$a(x)y'' + b(x)y' + c(x)y = d(x)$$
 où $a, b, c, d$ sont des fonctions continues sur un intervalle $I$, avec $a$ non identiquement nulle.
 
 Une fonction deux fois dérivable sur $I$ est **solution** de cette équation sur $I$ si et seulement si :
 $$\forall x \in I, \quad a(x)f''(x) + b(x)f'(x) + c(x)f(x) = d(x)$$
+
 :::
 
 ::: {.proposition title="(Structure de l'ensemble des solutions)"}
@@ -160,28 +189,34 @@ $$\forall x \in I, \quad a(x)f''(x) + b(x)f'(x) + c(x)f(x) = d(x)$$
 1. L'ensemble des solutions sur un intervalle $I$ de l'équation homogène $(H) : a(x)y'' + b(x)y' + c(x)y = 0$ est un sous-espace vectoriel du $\mathbb{K}$-espace vectoriel $\mathcal{F}(I, \mathbb{K})$ (éventuellement réduit à $\{0\}$).
 
 2. Si l'équation linéaire du second ordre complète $(E) : a(x)y'' + b(x)y' + c(x)y = d(x)$ admet une solution $f_0$ sur $I$, alors les solutions sur $I$ de $(E)$ sont exactement les fonctions $f = f_0 + \varphi$, où $\varphi$ décrit l'espace vectoriel des solutions sur $I$ de $(H)$.
+
 :::
 
 ## Équations à coefficients constants
 
 ::: {.definition title="(Équation à coefficients constants)"}
+
 On s'intéresse aux équations à coefficients constants, c'est-à-dire aux équations pour lesquelles les fonctions $a, b, c$ sont constantes (avec $a \neq 0$). On aura donc à étudier une équation du type :
 $$ay'' + by' + cy = d(x)$$
 avec $(a, b, c) \in \mathbb{K}^* \times \mathbb{K} \times \mathbb{K}$.
+
 :::
 
 ## Résolution de l'équation homogène à coefficients constants
 
 ::: {.definition title="(Équation caractéristique)"}
+
 Soit $(H) : ay'' + by' + cy = 0$ avec $a, b, c \in \mathbb{K}$ et $a \neq 0$. On cherche les solutions du type $x \mapsto e^{rx}$ où $r \in \mathbb{K}$.
 
 En substituant dans l'équation, on obtient l'équivalence :
 $$x \mapsto e^{rx} \text{ est solution de } (H) \iff r \text{ est solution de } ar^2 + br + c = 0$$
 
 Cette équation $ar^2 + br + c = 0$ s'appelle l'**équation caractéristique** associée à l'équation différentielle $(H)$.
+
 :::
 
 ::: {.theorem title="(Résolution de l'équation homogène à coefficients constants)"}
+
 Soit $(H) : ay'' + by' + cy = 0$ une équation différentielle linéaire d'ordre 2 à coefficients (complexes) constants. Alors les solutions complexes de $(H)$ sur $I$ forment un $\mathbb{C}$-espace vectoriel de dimension 2.
 
 Plus précisément, si on note $(C)$ l'équation $ar^2 + br + c = 0$, on a :
@@ -189,35 +224,46 @@ Plus précisément, si on note $(C)$ l'équation $ar^2 + br + c = 0$, on a :
 1. Si $(C)$ admet deux racines distinctes $\alpha, \beta$, alors cet espace est engendré par les fonctions $x \mapsto e^{\alpha x}$ et $x \mapsto e^{\beta x}$.
 
 2. Si $(C)$ admet une racine double $\alpha$, alors cet espace est engendré par les fonctions $x \mapsto e^{\alpha x}$ et $x \mapsto x e^{\alpha x}$.
+
 :::
 
 ::: {.remarque title="(Cas réel)"}
+
 Dans le cas où $a, b, c \in \mathbb{R}$ et l'équation caractéristique admet deux racines complexes conjuguées $\alpha \pm i\omega$, les solutions réelles sont de la forme :
 $$x \mapsto e^{\alpha x}(\lambda \cos(\omega x) + \mu \sin(\omega x)), \quad \lambda, \mu \in \mathbb{R}$$
 
 ou encore :
 $$x \mapsto r e^{\alpha x} \cos(\omega x + \varphi), \quad (r, \varphi) \in \mathbb{R}^+ \times [0, 2\pi[$$
+
 :::
 
 ::: {.example title="(Cas particulier : $y'' + \omega^2 y = 0$)"}
+
 L'équation $y'' + \omega^2 y = 0$ a pour équation caractéristique $r^2 + \omega^2 = 0$, de racines $\pm i\omega$. Les solutions réelles sont :
 $$x \mapsto \lambda \cos(\omega x) + \mu \sin(\omega x), \quad \lambda, \mu \in \mathbb{R}$$
+
 :::
 
 ## Recherche d'une solution particulière
 
 ::: {.proposition title="(Second membre de forme exponentielle)"}
+
 Pour l'équation $ay'' + by' + cy = Q(x)e^{\lambda x}$ où $Q$ est un polynôme, on cherche une solution particulière de la forme :
 $$y_p(x) = x^m R(x) e^{\lambda x}$$
 où $R$ est un polynôme de même degré que $Q$ et $m$ est la multiplicité de $\lambda$ comme racine de l'équation caractéristique.
+
 :::
 
 ::: {.proposition title="(Second membre trigonométrique)"}
+
 Pour les équations $ay'' + by' + cy = Q(x)e^{\lambda x}\cos(\omega x)$ ou $ay'' + by' + cy = Q(x)e^{\lambda x}\sin(\omega x)$, il suffit de prendre une solution réelle ou imaginaire d'une solution de $ay'' + by' + cy = Q(x)e^{(\lambda+i\omega)x}$.
+
 :::
 
 ::: {.remarque}
+
 Toutes ces considérations valent aussi, après adaptation, pour les équations différentielles linéaires d'ordre 1 à coefficients constants.
+
 :::
 
 # Systèmes différentiels linéaires
@@ -225,78 +271,100 @@ Toutes ces considérations valent aussi, après adaptation, pour les équations 
 ## Définition et traduction matricielle
 
 ::: {.definition title="(Système différentiel linéaire)"}
+
 Une **équation différentielle linéaire** à valeurs vectorielles est une équation de la forme :
 $$x'(t) = a(t)(x(t)) + b(t)$$
 où $a$ est une application continue de $I$ dans $\mathcal{L}(E)$ et $b$ une application continue de $I$ dans $E$.
 
 L'**équation homogène associée** est :
 $$x'(t) = a(t)(x(t))$$
+
 :::
 
 ::: {.definition title="(Traduction matricielle)"}
+
 Si $\mathcal{B}$ est une base de $E$ et $A(t) = \mathrm{Mat}_{\mathcal{B}}(a(t))$, le système s'écrit :
 $$X' = A(t)X + B(t)$$
 où $X = \mathrm{Mat}_{\mathcal{B}}(x)$ et $B(t) = \mathrm{Mat}_{\mathcal{B}}(b(t))$.
+
 :::
 
 ## Principe de superposition
 
 ::: {.proposition title="(Principe de superposition)"}
+
 Soient $x_1$ et $x_2$ deux solutions de l'équation homogène $x' = a(t)x$. Alors pour tous $\lambda, \mu \in \mathbb{K}$, la fonction $\lambda x_1 + \mu x_2$ est aussi une solution de l'équation homogène.
 
 Autrement dit, l'ensemble des solutions de l'équation homogène est un sous-espace vectoriel de $\mathcal{C}^1(I, E)$.
+
 :::
 
 ## Théorème de Cauchy linéaire
 
 ::: {.theorem title="(Théorème de Cauchy linéaire)"}
+
 Soient $a : I \to \mathcal{L}(E)$ et $b : I \to E$ des applications continues. Alors pour tout $(t_0, x_0) \in I \times E$, le problème de Cauchy :
 $$\begin{cases} x'(t) = a(t)(x(t)) + b(t) \\ x(t_0) = x_0 \end{cases}$$
 admet une unique solution globale définie sur $I$.
+
 :::
 
 ::: {.proposition title="(Mise sous forme intégrale)"}
+
 La solution du problème de Cauchy peut être mise sous forme intégrale :
 $$x(t) = x_0 + \int_{t_0}^t \left(a(s)(x(s)) + b(s)\right)\, ds$$
+
 :::
 
 ## Systèmes homogènes à coefficients constants
 
 ::: {.definition title="(Système différentiel homogène à coefficients constants)"}
+
 Un **système différentiel linéaire homogène à coefficients constants** est une équation de la forme :
 $$x'(t) = a(x(t)), \quad a \in \mathcal{L}(E)$$
 
 Si $\mathcal{B}$ est une base de $E$ et $A = \mathrm{Mat}_{\mathcal{B}}(a)$, le système s'écrit :
 $$X' = AX$$
+
 :::
 
 ## Exponentielle d'un endomorphisme et d'une matrice
 
 ::: {.definition title="(Exponentielle d'un endomorphisme et d'une matrice)"}
+
 Soit $a \in \mathcal{L}(E)$. L'**exponentielle** de $a$ est définie par :
 $$\exp(a) = e^a = \sum_{k=0}^{+\infty} \frac{a^k}{k!}$$
 La série converge normalement.
+
 :::
 
 ::: {.theorem title="(Résolution du problème de Cauchy)"}
+
 Soient $x_0 \in E$ et $a \in \mathcal{L}(E)$. La solution globale du problème de Cauchy :
 $$\begin{cases} x'(t) = a(x(t)) \\ x(t_0) = x_0 \end{cases}$$
 est définie sur $\mathbb{R}$ par :
 $$t \mapsto \exp((t - t_0)a)(x_0) = e^{(t-t_0)a}(x_0)$$
+
 :::
 
 ::: {.proposition title="(Traduction matricielle)"}
+
 Si $A = \mathrm{Mat}_{\mathcal{B}}(a)$, la solution du système $X' = AX$ avec $X(t_0) = X_0$ est :
 $$X(t) = e^{(t-t_0)A} X_0$$
+
 :::
 
 ::: {.example title="(Cas diagonalisable)"}
+
 Si $A$ est diagonalisable : $A = PDP^{-1}$ avec $D = \mathrm{Diag}(\lambda_1, \ldots, \lambda_n)$, alors :
 $$e^{tA} = P \, \mathrm{Diag}(e^{\lambda_1 t}, \ldots, e^{\lambda_n t}) \, P^{-1}$$
+
 :::
 
 ::: {.remarque title="(Exemples de calculs explicites)"}
+
 On se limite aux deux cas : $a$ diagonalisable ou $\dim E \leq 3$.
+
 :::
 
 # Méthode de variation des constantes
@@ -304,90 +372,119 @@ On se limite aux deux cas : $a$ diagonalisable ou $\dim E \leq 3$.
 ## Système fondamental de solutions
 
 ::: {.definition title="(Système fondamental de solutions)"}
+
 Soit $x' = a(t)x$ une équation différentielle linéaire homogène. Un **système fondamental de solutions** est une famille de solutions $(x_1, \ldots, x_n)$ telle que pour tout $t_0 \in I$, la famille $(x_1(t_0), \ldots, x_n(t_0))$ soit une base de $E$.
+
 :::
 
 ::: {.proposition title="(Caractérisation)"}
+
 Une famille $(x_1, \ldots, x_n)$ de solutions de $x' = a(t)x$ est un système fondamental de solutions si et seulement si :
 $$\forall t_0 \in I, \quad (x_1(t_0), \ldots, x_n(t_0)) \text{ est une base de } E$$
+
 :::
 
 ## Méthode de variation des constantes
 
 ::: {.theorem title="(Variation des constantes)"}
+
 Soit $(x_1, \ldots, x_n)$ un système fondamental de solutions de l'équation homogène $x' = a(t)x$. Pour résoudre l'équation complète $x' = a(t)x + b(t)$, on cherche une solution de la forme :
 $$x(t) = \lambda_1(t) x_1(t) + \lambda_2(t) x_2(t) + \cdots + \lambda_n(t) x_n(t)$$
 
 En substituant dans l'équation et en imposant la condition :
 $$\lambda_1'(t) x_1(t) + \lambda_2'(t) x_2(t) + \cdots + \lambda_n'(t) x_n(t) = 0$$
 on obtient un système linéaire en $\lambda_1', \ldots, \lambda_n'$ dont la résolution permet de déterminer les $\lambda_i$.
+
 :::
 
 ::: {.remarque}
+
 Dans les exercices pratiques, on se limite au cas de la dimension 2.
+
 :::
 
 ## Cas des systèmes à coefficients constants
 
 ::: {.proposition title="(Expression intégrale des solutions)"}
+
 Pour un système différentiel à coefficients constants $X' = AX + B(t)$, la solution est donnée par :
 $$X(t) = e^{(t-t_0)A} X_0 + \int_{t_0}^t e^{(t-s)A} B(s)\, ds$$
+
 :::
 
 ## Adaptation aux équations scalaires du second ordre
 
 ::: {.proposition title="(Adaptation aux équations scalaires du second ordre)"}
+
 Pour une équation scalaire du second ordre $y'' + ay' + by = f(t)$ avec $a, b \in \mathbb{K}$ constants, la méthode de variation des constantes s'applique en cherchant une solution de la forme :
 $$y(t) = \lambda_1(t) y_1(t) + \lambda_2(t) y_2(t)$$
 où $(y_1, y_2)$ est un système fondamental de solutions de l'équation homogène.
+
 :::
 
 # Exercices
 
 ::: {.exercise}
+
 Résoudre le système différentiel :
 $$\begin{cases} x' = x + y \\ y' = x - y \end{cases}$$
 en diagonalisant la matrice $A = \begin{pmatrix} 1 & 1 \\ 1 & -1 \end{pmatrix}$.
+
 :::
 
 ::: {.exercise}
+
 Résoudre l'équation différentielle $y'' + 4y = \cos(2t)$ en utilisant la méthode de variation des constantes.
+
 :::
 
 ::: {.exercise}
+
 Soit $A = \begin{pmatrix} 1 & 1 \\ 0 & 1 \end{pmatrix}$. Calculer $e^{tA}$ et résoudre le système $X' = AX$ avec $X(0) = \begin{pmatrix} 1 \\ 0 \end{pmatrix}$.
+
 :::
 
 ::: {.exercise}
+
 Résoudre l'équation différentielle $y' - 2y = e^{3t}$ avec $y(0) = 1$ en utilisant la transformée de Laplace.
+
 :::
 
 ::: {.exercise}
+
 Soit $A \in \mathcal{M}_3(\mathbb{R})$ diagonalisable avec $P^{-1}AP = \mathrm{Diag}(1, 2, 3)$. Résoudre le système $X' = AX$ avec $X(0) = P \begin{pmatrix} 1 \\ 1 \\ 1 \end{pmatrix}$.
+
 :::
 
 ::: {.exercise title="(Équation de Bessel)"}
+
 On considère l'équation différentielle :
 $$x^2 y'' + xy' + (x^2 - 1)y = 0$$
 
 1. Chercher une solution développable en série entière $y(x) = \sum_{n=0}^{+\infty} a_n x^n$.
 2. Déterminer la relation de récurrence sur les coefficients $a_n$.
+
 :::
 
 ::: {.exercise title="(Problème de raccordement)"}
+
 On considère l'équation différentielle :
 $$xy' + y = e^x$$
 
 1. Résoudre l'équation sur $]0, +\infty[$.
 2. Étudier le comportement des solutions en $0^+$.
+
 :::
 
 # Document en PDF {-}
 [Chapitre 11 : Équations différentielles linéaires](PDF/tsi2-chap11.pdf)
 
 ## Navigation {-}
+
 ::: {.chap-nav}
+
 [Chapitre 10 : Séries de Fourier](tsi2-chap10.qmd){.prev}
 [Menu TSI](tsi2.qmd){.home}
 [Chapitre 12 : Fonctions de plusieurs variables](tsi2-chap12.qmd){.prev}
+
 :::

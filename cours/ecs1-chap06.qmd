@@ -32,11 +32,15 @@ Ce chapitre a été réalisé conformément au programme marocain de mathématiq
 # Primitives
 
 ::: {.definition title="(Primitive)"}
+
 $F$ est une **primitive** de $f$ sur $I$ si $F' = f$ sur $I$.
+
 :::
 
 ::: {.proposition title="(Unicité à constante près)"}
+
 Toutes les primitives de $f$ sur un intervalle $I$ sont de la forme $F + C$ avec $C \in \mathbb{R}$.
+
 :::
 
 ::: {.proposition title="(Primitives usuelles)"}
@@ -50,14 +54,17 @@ Toutes les primitives de $f$ sur un intervalle $I$ sont de la forme $F + C$ avec
 | $\sin x$ | $-\cos x$ |
 | $\frac{1}{1+x^2}$ | $\arctan x$ |
 | $\frac{1}{\sqrt{1-x^2}}$ | $\arcsin x$ |
+
 :::
 
 # Intégrale définie
 
 ::: {.definition title="(Intégrale)"}
+
 Soit $f : [a,b] \to \mathbb{R}$ continue. L'**intégrale** de $f$ sur $[a,b]$ est :
 $$\int_a^b f(t)\, dt = F(b) - F(a)$$
 où $F$ est une primitive de $f$.
+
 :::
 
 ::: {.proposition title="(Propriétés)"}
@@ -67,83 +74,112 @@ où $F$ est une primitive de $f$.
 3. **Positivité** : $f \geq 0 \Rightarrow \int_a^b f \geq 0$.
 4. **Croissance** : $f \leq g \Rightarrow \int_a^b f \leq \int_a^b g$.
 5. **Inégalité triangulaire** : $\left|\int_a^b f\right| \leq \int_a^b |f|$.
+
 :::
 
 # Intégration par parties
 
 ::: {.theorem title="(IPP)"}
+
 Soient $u, v \in \mathcal{C}^1([a,b])$. Alors :
 $$\int_a^b u(t)v'(t)\, dt = [u(t)v(t)]_a^b - \int_a^b u'(t)v(t)\, dt$$
+
 :::
 
 ::: {.example}
+
 $\int_0^1 t e^{-t}\, dt = [-te^{-t}]_0^1 + \int_0^1 e^{-t}\, dt = -e^{-1} + 1 - e^{-1} = 1 - 2e^{-1}$.
+
 :::
 
 # Changement de variable
 
 ::: {.theorem title="(Changement de variable)"}
+
 Soit $\varphi : [\alpha, \beta] \to [a,b]$ de classe $\mathcal{C}^1$ et $f$ continue sur $[a,b]$. Alors :
 $$\int_a^b f(x)\, dx = \int_\alpha^\beta f(\varphi(t))\varphi'(t)\, dt$$
+
 :::
 
 ::: {.example}
+
 $\int_0^1 \sqrt{1-x^2}\, dx$. Poser $x = \sin\theta$ : $\int_0^{\pi/2} \cos^2\theta\, d\theta = \frac{\pi}{4}$.
+
 :::
 
 # Sommes de Riemann
 
 ::: {.theorem title="(Sommes de Riemann)"}
+
 Si $f : [a,b] \to \mathbb{R}$ est continue, alors :
 $$\lim_{n \to +\infty} \frac{b-a}{n}\sum_{k=0}^{n-1} f\left(a + k\frac{b-a}{n}\right) = \int_a^b f(t)\, dt$$
+
 :::
 
 ::: {.example}
+
 $\lim_{n \to +\infty} \frac{1}{n}\sum_{k=1}^n \frac{1}{1 + (k/n)^2} = \int_0^1 \frac{dx}{1+x^2} = \frac{\pi}{4}$.
+
 :::
 
 # Exercices
 
 ::: {.exercise}
+
 Calculer :
 
 1. $\int_0^1 x^2\, dx$
 2. $\int_1^e \frac{dt}{t}$
 3. $\int_0^\pi \sin t\, dt$
+
 :::
 
 ::: {.exercise}
+
 Calculer par IPP :
 
 1. $\int_0^1 t^2 e^{-t}\, dt$
 2. $\int_1^e t \ln t\, dt$
+
 :::
 
 ::: {.exercise}
+
 Calculer par changement de variable :
 
 1. $\int_0^1 \frac{dt}{\sqrt{1-t^2}}$
 2. $\int_0^1 t\sqrt{1-t^2}\, dt$
+
 :::
 
 ::: {.exercise}
+
 Calculer l'aire du domaine délimité par $f(x) = x^2$, l'axe des abscisses et $x = 0$, $x = 2$.
+
 :::
 
 ::: {.exercise}
+
 Calculer $\lim_{n \to +\infty} \sum_{k=1}^n \frac{1}{n+k}$.
+
 :::
 
 ::: {.exercise}
+
 Montrer que si $f : [0,1] \to \mathbb{R}$ est continue, positive et $\int_0^1 f(t)\, dt = 0$, alors $f = 0$.
+
 :::
 
 ::: {.exercise}
+
 Soit $f$ continue et $T$-périodique. Montrer que $\int_a^{a+T} f(t)\, dt = \int_0^T f(t)\, dt$ pour tout $a$.
+
 :::
 
 ::: {.exercise}
+
 Calculer $\int_0^1 t^n(1-t)^n\, dt$ par IPP itérées.
+
 :::
 
 # Document en PDF {-}
@@ -153,7 +189,9 @@ Calculer $\int_0^1 t^n(1-t)^n\, dt$ par IPP itérées.
 ## Navigation {-}
 
 ::: {.chap-nav}
+
 [Chapitre 05 : Fonctions réelles d'une variable](ecs1-chap05.qmd){.prev}
 [Menu ECS1](ecs1.qmd){.home}
 [Chapitre 07 : Algèbre linéaire et calcul matriciel](ecs1-chap07.qmd){.next}
+
 :::

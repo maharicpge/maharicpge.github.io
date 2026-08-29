@@ -34,14 +34,17 @@ Ce chapitre a été réalisé conformément au programme marocain de mathématiq
 ## Corps des nombres réels
 
 ::: {.definition title="(Corps des réels)"}
+
 $\mathbb{R}$ est un **corps commutatif** muni des opérations $+$ et $\times$, c'est-à-dire :
 
 - $(\mathbb{R}, +)$ est un groupe commutatif d'élément neutre $0$.
 - $(\mathbb{R}^*, \times)$ est un groupe commutatif d'élément neutre $1$.
 - La multiplication est distributive sur l'addition.
+
 :::
 
 ::: {.proposition title="(Inégalités dans ℝ)"}
+
 Pour tous $a, b, c \in \mathbb{R}$ :
 
 1. $a \leq b \iff a + c \leq b + c$
@@ -49,75 +52,95 @@ Pour tous $a, b, c \in \mathbb{R}$ :
 3. $a \leq b$ et $c < 0 \implies ac \geq bc$
 4. $a \leq b$ et $c \leq d \implies a + c \leq b + d$
 5. $0 \leq a \leq b$ et $0 \leq c \leq d \implies ac \leq bd$
+
 :::
 
 ::: {.remarque}
+
 On ne peut pas additionner deux inégalités de sens contraire. On ne peut pas multiplier deux inégalités sans vérifier les signes.
+
 :::
 
 ## Puissances
 
 ::: {.definition title="(Puissances entières)"}
+
 Pour $a \in \mathbb{R}$ et $n \in \mathbb{N}^*$ :
 $$a^n = \underbrace{a \times a \times \cdots \times a}_{n \text{ fois}}, \qquad a^0 = 1$$
 
 Pour $a \neq 0$ et $n \in \mathbb{N}^*$ : $a^{-n} = \dfrac{1}{a^n}$.
+
 :::
 
 ::: {.proposition title="(Règles de calcul)"}
+
 Pour $a, b \in \mathbb{R}$ et $m, n \in \mathbb{Z}$ :
 
 1. $a^m \times a^n = a^{m+n}$
 2. $(a^m)^n = a^{mn}$
 3. $(ab)^n = a^n b^n$
 4. $\dfrac{a^m}{a^n} = a^{m-n}$ (si $a \neq 0$)
+
 :::
 
 ## Valeur absolue
 
 ::: {.definition title="(Valeur absolue)"}
+
 Pour $x \in \mathbb{R}$, la **valeur absolue** de $x$ est :
 $$|x| = \begin{cases} x & \text{si } x \geq 0 \\ -x & \text{si } x < 0 \end{cases}$$
+
 :::
 
 ::: {.proposition title="(Propriétés de la valeur absolue)"}
+
 Pour tous $x, y \in \mathbb{R}$ :
 
 1. $|x| \geq 0$ et $|x| = 0 \iff x = 0$
 2. $|xy| = |x| \cdot |y|$
 3. $|x + y| \leq |x| + |y|$ (inégalité triangulaire)
 4. $|x - y| \geq ||x| - |y||$
+
 :::
 
 ::: {.proposition title="(Caractérisation)"}
+
 Pour $a \geq 0$ :
 
 - $|x| \leq a \iff -a \leq x \leq a$
 - $|x| \geq a \iff x \leq -a$ ou $x \geq a$
+
 :::
 
 ## Propriété d'Archimède
 
 ::: {.theorem title="(Propriété d'Archimède)"}
+
 Pour tout $x \in \mathbb{R}$, il existe $n \in \mathbb{N}$ tel que $n > x$.
 
 Autrement dit, $\mathbb{N}$ n'est pas majoré dans $\mathbb{R}$.
+
 :::
 
 ::: {.proposition title="(Conséquences)"}
 
 1. Pour tout $\varepsilon > 0$, il existe $n \in \mathbb{N}^*$ tel que $\frac{1}{n} < \varepsilon$.
 2. Pour tout $x \in \mathbb{R}$, il existe un unique $p \in \mathbb{Z}$ tel que $p \leq x < p+1$ (partie entière).
+
 :::
 
 ## Partie entière
 
 ::: {.definition title="(Partie entière)"}
+
 Pour $x \in \mathbb{R}$, la **partie entière** de $x$, notée $\lfloor x \rfloor$ ou $E(x)$, est l'unique entier $p$ tel que $p \leq x < p+1$.
+
 :::
 
 ::: {.example}
+
 $\lfloor 3,7 \rfloor = 3$, $\lfloor -2,3 \rfloor = -3$, $\lfloor 5 \rfloor = 5$.
+
 :::
 
 # Systèmes linéaires $2 \times 2$
@@ -125,82 +148,108 @@ $\lfloor 3,7 \rfloor = 3$, $\lfloor -2,3 \rfloor = -3$, $\lfloor 5 \rfloor = 5$.
 ## Définition
 
 ::: {.definition title="(Système linéaire $2 \times 2$)"}
+
 Un **système linéaire** de 2 équations à 2 inconnues est de la forme :
 $$\begin{cases} ax + by = s \\ cx + dy = t \end{cases}$$
 où $a, b, c, d, s, t \in \mathbb{R}$ sont donnés et $x, y \in \mathbb{R}$ sont les inconnues.
+
 :::
 
 ## Résolution
 
 ::: {.methode title="(Méthode de résolution)"}
+
 Pour résoudre le système $\begin{cases} ax + by = s \\ cx + dy = t \end{cases}$ :
 
 1. Calculer le déterminant $\Delta = ad - bc$.
 2. Si $\Delta \neq 0$ : le système a une solution unique :
 $$x = \frac{sd - bt}{ad - bc}, \qquad y = \frac{at - sc}{ad - bc}$$
 3. Si $\Delta = 0$ : le système n'a pas de solution ou une infinité de solutions.
+
 :::
 
 ::: {.example}
+
 Résoudre $\begin{cases} 2x + 3y = 7 \\ x - y = 1 \end{cases}$.
 
 $\Delta = 2 \times (-1) - 3 \times 1 = -5 \neq 0$. Le système a une solution unique :
 $$x = \frac{7 \times (-1) - 3 \times 1}{-5} = \frac{-10}{-5} = 2$$
 $$y = \frac{2 \times 1 - 7 \times 1}{-5} = \frac{-5}{-5} = 1$$
+
 :::
 
 ::: {.example title="(Cas particulier)"}
+
 Résoudre $\begin{cases} x + y = 2 \\ 2x + 2y = 4 \end{cases}$.
 
 $\Delta = 1 \times 2 - 1 \times 2 = 0$. Les deux équations sont proportionnelles. Le système a une infinité de solutions : $\{(x, 2-x) \mid x \in \mathbb{R}\}$.
+
 :::
 
 ::: {.example title="(Cas incompatible)"}
+
 Résoudre $\begin{cases} x + y = 2 \\ x + y = 3 \end{cases}$.
 
 $\Delta = 0$. Les deux équations sont incompatibles. Le système n'a pas de solution.
+
 :::
 
 # Exercices
 
 ::: {.exercise}
+
 Résoudre les inéquations suivantes :
 
 1. $|2x - 3| \leq 5$
 2. $|x + 1| > |x - 2|$
 3. $x^2 - 5x + 6 \leq 0$
+
 :::
 
 ::: {.exercise}
+
 Montrer que pour tout $x \in \mathbb{R}$ : $|x| + |x-1| \geq 1$.
+
 :::
 
 ::: {.exercise}
+
 Soit $a \in \mathbb{R}^*$. Montrer que $a + \frac{1}{a} \geq 2$ si $a > 0$ et $a + \frac{1}{a} \leq -2$ si $a < 0$.
+
 :::
 
 ::: {.exercise}
+
 Résoudre les systèmes suivants :
 
 1. $\begin{cases} 3x + 2y = 12 \\ x - y = 1 \end{cases}$
 2. $\begin{cases} 2x - y = 3 \\ 4x - 2y = 6 \end{cases}$
 3. $\begin{cases} x + 2y = 5 \\ 2x + 4y = 8 \end{cases}$
+
 :::
 
 ::: {.exercise}
+
 Soit $x \in \mathbb{R}$. Montrer que $\lfloor x \rfloor \leq x < \lfloor x \rfloor + 1$ et $x - 1 < \lfloor x \rfloor \leq x$.
+
 :::
 
 ::: {.exercise}
+
 Montrer que pour tous $a, b \in \mathbb{R}^+$ : $\sqrt{ab} \leq \dfrac{a+b}{2}$ (inégalité arithmético-géométrique).
+
 :::
 
 ::: {.exercise}
+
 Soit $n \in \mathbb{N}^*$. Montrer que $\sum_{k=1}^n \frac{1}{k(k+1)} = 1 - \frac{1}{n+1}$.
+
 :::
 
 ::: {.exercise}
+
 Résoudre dans $\mathbb{R}$ : $|x - 1| + |x + 2| = 5$.
+
 :::
 
 # Document en PDF {-}
@@ -210,7 +259,9 @@ Résoudre dans $\mathbb{R}$ : $|x - 1| + |x + 2| = 5$.
 ## Navigation {-}
 
 ::: {.chap-nav}
+
 [Chapitre 01 : Raisonnements, notions d'ensemble et d'application](ect1-chap01.qmd){.prev}
 [Menu ECT1](ect1.qmd){.home}
 [Chapitre 03 : Exemples de suites réelles, polynômes](ect1-chap03.qmd){.next}
+
 :::

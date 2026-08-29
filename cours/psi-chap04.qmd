@@ -37,25 +37,31 @@ Dans tout ce chapitre, $\mathbb{K}$ désigne $\mathbb{R}$ ou $\mathbb{C}$. On no
 ## Subdivision d'un segment
 
 ::: {.definition title="(Subdivision)"}
+
 Une **subdivision** du segment $[a,b]$ est une suite finie $(x_0, x_1, \ldots, x_n)$, où $n \in \mathbb{N}^*$, telle que :
 $$a = x_0 < x_1 < x_2 < \cdots < x_n = b$$
 
 Le **pas** de la subdivision est le réel $\max_{i \in \{1, \ldots, n\}} (x_i - x_{i-1})$.
 
 La subdivision est dite **régulière** si la quantité $x_i - x_{i-1}$ est constante.
+
 :::
 
 ## Continuité par morceaux sur un segment
 
 ::: {.definition title="(Continuité par morceaux sur un segment)"}
+
 Soit $f \in \mathcal{F}([a,b], \mathbb{K})$. La fonction $f$ est **continue par morceaux** sur $[a,b]$ si :
 
 1. Il existe une subdivision $\pi = (x_i)_{i \in \{0, \ldots, n\}}$ de $[a,b]$ telle que pour tout $i \in \{0, \ldots, n-1\}$, la restriction $f|_{]x_i, x_{i+1}[}$ soit continue.
 2. $f$ admet des limites finies à droite et à gauche en tout point de $[a,b]$.
+
 :::
 
 ::: {.definition title="(Continuité par morceaux sur un intervalle)"}
+
 Soit $f \in \mathcal{F}(I, \mathbb{K})$. La fonction $f$ est **continue par morceaux** sur $I$ si pour tout $(x,y) \in I^2$ tel que $x < y$, la fonction $f$ est continue par morceaux sur $[x,y]$.
+
 :::
 
 ::: {.example}
@@ -64,24 +70,33 @@ Soit $f \in \mathcal{F}(I, \mathbb{K})$. La fonction $f$ est **continue par morc
 2. La fonction partie entière $x \mapsto E(x)$ est continue par morceaux sur $\mathbb{R}$. En effet, sur tout segment $[a,b]$, les seuls points de discontinuité sont les entiers $k \in [a,b] \cap \mathbb{Z}$ (en nombre fini), et $E$ admet des limites finies à gauche et à droite en chaque entier.
 3. La fonction en escalier définie sur $[0,3]$ par $f(x) = 1$ si $x \in [0,1[$, $f(x) = 2$ si $x \in [1,2[$ et $f(x) = 3$ si $x \in [2,3]$ est continue par morceaux.
 4. La fonction $f : \mathbb{R} \to \mathbb{R}$ définie par $f(x) = \sin(1/x)$ si $x \neq 0$ et $f(0) = 0$ n'est **pas** continue par morceaux sur un intervalle contenant $0$, car elle n'admet pas de limite finie en $0^+$ ni en $0^-$.
+
 :::
 
 ::: {.remarque}
+
 Des fonctions aussi simples que la fonction inverse et la fonction logarithme ne sont pas continues par morceaux sur $[0,1]$ quand bien même on les prolonge artificiellement en $0$ car le prolongement ne pourra jamais se faire par continuité. L'exigence de prolongement par continuité de la définition n'est pas anodine.
+
 :::
 
 ## Propriétés des fonctions continues par morceaux
 
 ::: {.proposition title="(Structure)"}
+
 L'ensemble des fonctions continues par morceaux sur $[a,b]$ est un sous-espace vectoriel de l'ensemble des fonctions de $[a,b]$ dans $\mathbb{K}$ stable par multiplication et par passage à la valeur absolue.
+
 :::
 
 ::: {.proposition title="(Caractère borné)"}
+
 Toute fonction continue par morceaux sur $[a,b]$ est bornée et possède donc une norme infinie $\|f\|_\infty$.
+
 :::
 
 ::: {.remarque}
+
 Bornée oui... MAIS ELLE N'ATTEINT PAS FORCÉMENT SES BORNES !
+
 :::
 
 # Intégrale d'une fonction continue par morceaux sur un segment
@@ -89,13 +104,16 @@ Bornée oui... MAIS ELLE N'ATTEINT PAS FORCÉMENT SES BORNES !
 ## Fonctions en escalier
 
 ::: {.definition title="(Fonction en escalier, subdivision adaptée)"}
+
 On dit qu'une fonction $f : [a,b] \to \mathbb{C}$ est **en escalier** si pour une certaine subdivision $(x_0, \ldots, x_n)$ de $[a,b]$, dite **adaptée** à $f$ :
 $$f \text{ est constante sur } ]x_i, x_{i+1}[ \text{ pour tout } i \in \{0, \ldots, n-1\}$$
 
 Cette définition ne garantit nullement l'unicité de la subdivision adaptée $(x_0, \ldots, x_n)$ et elle n'impose aucune valeur à $f$ en $x_0, \ldots, x_n$.
+
 :::
 
 ::: {.proposition title="(Propriétés élémentaires des fonctions en escalier)"}
+
 Soient $f : [a,b] \to \mathbb{C}$ et $g : [a,b] \to \mathbb{C}$ deux fonctions en escalier et $\lambda, \mu \in \mathbb{C}$.
 
 - **Ajout de points à une subdivision adaptée** : Lorsqu'on ajoute un nombre fini de points à une subdivision de $[a,b]$ adaptée à $f$, le résultat est encore une subdivision de $[a,b]$ adaptée à $f$.
@@ -103,39 +121,49 @@ Soient $f : [a,b] \to \mathbb{C}$ et $g : [a,b] \to \mathbb{C}$ deux fonctions e
 - **Opérations sur les fonctions en escalier** : La réunion d'une subdivision de $[a,b]$ adaptée à $f$ et d'une subdivision de $[a,b]$ adaptée à $g$ est une subdivision de $[a,b]$ adaptée à $f$ ET à $g$.
 
 Les fonctions $|f|$, $\mathrm{Re}(f)$, $\mathrm{Im}(f)$, $\lambda f + \mu g$ et $fg$ sont elles aussi en escalier sur $[a,b]$.
+
 :::
 
 ## Intégrale d'une fonction en escalier
 
 ::: {.definition-theoreme title="(Intégrale d'une fonction en escalier)"}
+
 Soient $f : [a,b] \to \mathbb{C}$ en escalier et $(x_0, \ldots, x_n)$ une subdivision de $[a,b]$ adaptée à $f$. Si $y_i$ désigne pour tout $i \in \{0, \ldots, n-1\}$ la valeur de $f$ sur $]x_i, x_{i+1}[$, le nombre complexe :
 $$\sum_{i=0}^{n-1} y_i (x_{i+1} - x_i)$$
 ne dépend pas de la subdivision $(x_0, \ldots, x_n)$ choisie.
 
 On l'appelle l'**intégrale** de $f$ sur $[a,b]$, notée $\int_{[a,b]} f$ ou $\int_a^b f(t)\, dt$.
+
 :::
 
 ::: {.remarque}
+
 On définit ici directement l'intégrale d'une fonction en escalier COMPLEXE. Une telle intégrale ne peut bien sûr pas être interprétée en termes d'« aire sous la courbe », fût-elle algébrique.
+
 :::
 
 ## Approximation uniforme
 
 ::: {.theorem title="(Approximation uniforme d'une fonction continue par morceaux par des fonctions en escalier)"}
+
 Toute fonction continue par morceaux sur $[a,b]$ à valeurs dans $\mathbb{K}$ est la limite uniforme d'une suite de fonctions en escalier sur $[a,b]$ à valeurs dans $\mathbb{K}$.
+
 :::
 
 ## Intégrale d'une fonction continue par morceaux
 
 ::: {.definition-theoreme title="(Intégrale d'une fonction continue par morceaux)"}
+
 Soit $f \in \mathcal{CM}([a,b], \mathbb{K})$. Pour toute suite de fonctions en escalier $(\varphi_p)_{p \in \mathbb{N}}$ sur $[a,b]$ qui converge uniformément vers $f$, la suite $\left(\int_{[a,b]} \varphi_p\right)_{p \in \mathbb{N}}$ converge et sa limite ne dépend pas du choix de $(\varphi_p)_{p \in \mathbb{N}}$.
 
 Cette limite est appelée l'**intégrale** de $f$ sur $[a,b]$, notée $\int_{[a,b]} f$ ou $\int_a^b f(t)\, dt$.
+
 :::
 
 ## Propriétés de l'intégrale
 
 ::: {.theorem title="(Propriétés de l'intégrale d'une fonction continue par morceaux)"}
+
 Soient $f, g \in \mathcal{CM}([a,b], \mathbb{K})$.
 
 1. **Linéarité** : Pour tous $\lambda, \mu \in \mathbb{K}$ :
@@ -153,35 +181,46 @@ En particulier, si $f$ est réelle, son intégrale sur $[a,b]$ est un réel.
 
 5. **Modification d'un nombre fini de valeurs** : Si $f$ et $g$ sont égales sur $[a,b]$ sauf en un nombre fini de points :
 $$\int_{[a,b]} f = \int_{[a,b]} g$$
+
 :::
 
 ::: {.proposition title="(Croissance)"}
+
 Si $f, g \in \mathcal{CM}([a,b], \mathbb{R})$ et si pour tout $x \in [a,b]$, $f(x) \leq g(x)$, alors :
 $$\int_{[a,b]} f \leq \int_{[a,b]} g$$
+
 :::
 
 ::: {.proposition title="(Positivité stricte)"}
+
 Soit $f$ une fonction continue sur $[a,b]$ à valeurs positives. Alors $f \equiv 0$ si et seulement si $\int_a^b f(t)\, dt = 0$.
+
 :::
 
 ::: {.remarque}
+
 Ce résultat est faux en général si la fonction est continue par morceaux.
+
 :::
 
 ## Inégalité de Cauchy-Schwarz
 
 ::: {.theorem title="(Inégalité de Cauchy-Schwarz)"}
+
 Soit $(f, g) \in \mathcal{CM}([a,b], \mathbb{R})^2$. Alors :
 $$\left|\int_{[a,b]} fg\right| \leq \sqrt{\int_{[a,b]} f^2} \cdot \sqrt{\int_{[a,b]} g^2}$$
 
 De plus, lorsque $f$ et $g$ sont continues sur $[a,b]$, il y a égalité si et seulement si $f$ et $g$ sont colinéaires.
+
 :::
 
 ## Sommes de Riemann
 
 ::: {.proposition title="(Sommes de Riemann)"}
+
 Soit $f : [a,b] \to \mathbb{K}$ une fonction continue par morceaux. Alors :
 $$\frac{b-a}{n} \sum_{k=0}^{n-1} f\left(a + k\frac{b-a}{n}\right) \xrightarrow[n \to +\infty]{} \int_a^b f(t)\, dt$$
+
 :::
 
 # Intégration et dérivation
@@ -189,45 +228,57 @@ $$\frac{b-a}{n} \sum_{k=0}^{n-1} f\left(a + k\frac{b-a}{n}\right) \xrightarrow[n
 ## Primitives
 
 ::: {.definition-theoreme title="(Primitives, unicité à constante additive près)"}
+
 Soit $f : I \to \mathbb{K}$ une fonction. On dit qu'une fonction $F : I \to \mathbb{K}$ est UNE **primitive** de $f$ sur $I$ si $F$ est dérivable sur $I$ de dérivée $f$.
 
 Deux primitives d'une même fonction diffèrent d'une constante.
+
 :::
 
 ## Théorème fondamental du calcul intégral
 
 ::: {.theorem title="(Théorème fondamental du calcul intégral)"}
+
 Soit $f$ une fonction continue sur $I$ et $a \in I$. La fonction :
 $$x \mapsto \int_a^x f(t)\, dt$$
 est une primitive de $f$ sur $I$. C'est l'unique primitive de $f$ qui s'annule en $a$.
 
 De plus, pour toute primitive $G$ de $f$ sur $I$ :
 $$G(x) = G(a) + \int_a^x f(t)\, dt$$
+
 :::
 
 ## Inégalité des accroissements finis
 
 ::: {.theorem title="(Inégalité des accroissements finis)"}
+
 Si $f$ est de classe $\mathcal{C}^1$ sur le segment $[a,b]$, alors :
 $$|f(b) - f(a)| \leq (b-a) \sup_{[a,b]} |f'|$$
+
 :::
 
 ## Intégration par parties
 
 ::: {.theorem title="(Intégration par parties ou IPP)"}
+
 Soient $u, v \in \mathcal{C}^1(I, \mathbb{K})$ et $a, b \in I$. Alors :
 $$\int_a^b u' v = [uv]_a^b - \int_a^b u v'$$
+
 :::
 
 ## Changement de variable
 
 ::: {.theorem title="(Changement de variable)"}
+
 Soient $\varphi \in \mathcal{C}^1(I, \mathbb{R})$ à valeurs dans $J$, $f \in \mathcal{C}(J, \mathbb{K})$ et $a, b \in I$. Alors :
 $$\int_a^b f(\varphi(t)) \varphi'(t)\, dt = \int_{\varphi(a)}^{\varphi(b)} f(x)\, dx$$
+
 :::
 
 ::: {.remarque title="(Intérêt d'un changement de variable affine)"}
+
 Un changement de variable affine permet d'exploiter la périodicité et les symétries, ou pour se ramener au cas où l'intervalle d'intégration est $[0,1]$ ou $[-1,1]$.
+
 :::
 
 ## Intégrales d'une fonction paire/impaire/périodique
@@ -240,6 +291,7 @@ Un changement de variable affine permet d'exploiter la périodicité et les sym�
 
 2. **Fonctions périodiques** : Pour toute fonction $f \in \mathcal{CM}(\mathbb{R}, \mathbb{K})$ $T$-périodique :
 $$\int_a^{a+T} f(x)\, dx = \int_0^T f(x)\, dx$$
+
 :::
 
 # Intégrales généralisées sur $[a, +\infty[$
@@ -247,30 +299,40 @@ $$\int_a^{a+T} f(x)\, dx = \int_0^T f(x)\, dx$$
 ## Définition
 
 ::: {.definition title="(Convergence d'une intégrale généralisée sur $[a, b[$)"}
+
 Soit $f \in \mathcal{CM}([a, b[, \mathbb{K})$. L'intégrale généralisée $\int_a^b f(t)\, dt$ **converge** si la fonction $x \mapsto \int_a^x f(t)\, dt$ possède une limite finie lorsque $x$ tend vers $b$.
 
 Dans ce cas, on pose :
 $$\int_a^b f(t)\, dt = \lim_{x \to b^-} \int_a^x f(t)\, dt$$
+
 :::
 
 ::: {.definition title="(Convergence d'une intégrale généralisée sur $[a, +\infty[$)"}
+
 Soit $f \in \mathcal{CM}([a, +\infty[, \mathbb{K})$. L'intégrale généralisée $\int_a^{+\infty} f(t)\, dt$ **converge** si la fonction $x \mapsto \int_a^x f(t)\, dt$ possède une limite finie lorsque $x \to +\infty$.
+
 :::
 
 ## Propriétés
 
 ::: {.proposition title="(Intégrale faussement impropre)"}
+
 Soit $f$ une fonction continue par morceaux sur le segment $[a,b]$. Alors les intégrales de $f$ sur $[a,b]$, $]a,b]$, $]a,b[$ et $[a,b[$ sont égales.
+
 :::
 
 ::: {.proposition title="(Linéarité)"}
+
 Soit $\lambda \in \mathbb{K}$. Si $\int_a^b f(t)\, dt$ et $\int_a^b g(t)\, dt$ convergent, alors $\int_a^b (f(t) + \lambda g(t))\, dt$ converge et :
 $$\int_a^b (f(t) + \lambda g(t))\, dt = \int_a^b f(t)\, dt + \lambda \int_a^b g(t)\, dt$$
+
 :::
 
 ::: {.proposition title="(Relation de Chasles)"}
+
 On suppose que $\int_a^b f(t)\, dt$ converge et $c \in ]a,b[$. Alors $\int_a^c f(t)\, dt$ et $\int_c^b f(t)\, dt$ convergent et :
 $$\int_a^b f(t)\, dt = \int_a^c f(t)\, dt + \int_c^b f(t)\, dt$$
+
 :::
 
 ## Intégrales de référence
@@ -282,16 +344,21 @@ $$\int_1^{+\infty} \frac{dt}{t^\alpha} = \frac{1}{\alpha - 1}$$
 
 2. **Intégrales de Riemann sur $]0, 1]$** : $\int_0^1 \frac{dt}{t^\alpha}$ converge si et seulement si $\alpha < 1$. Alors :
 $$\int_0^1 \frac{dt}{t^\alpha} = \frac{1}{1-\alpha}$$
+
 :::
 
 ::: {.proposition title="(Fonction exponentielle)"}
+
 $\int_0^{+\infty} e^{-\alpha t}\, dt$ converge si et seulement si $\alpha > 0$. Alors :
 $$\int_0^{+\infty} e^{-\alpha t}\, dt = \frac{1}{\alpha}$$
+
 :::
 
 ::: {.proposition title="(Fonction logarithme)"}
+
 $\int_0^1 \ln(t)\, dt$ converge. De plus :
 $$\int_0^1 \ln(t)\, dt = -1$$
+
 :::
 
 # Intégrales généralisées sur un intervalle quelconque
@@ -299,6 +366,7 @@ $$\int_0^1 \ln(t)\, dt = -1$$
 ## Définitions
 
 ::: {.definition title="(Convergence sur un intervalle quelconque)"}
+
 Dans tout ce paragraphe, $I$ désigne un intervalle de $\mathbb{R}$ d'extrémités $a$ et $b$, où $-\infty \leq a < b \leq +\infty$.
 
 - Si $I = [a, b[$ : L'intégrale généralisée $\int_a^b f(t)\, dt$ converge si $x \mapsto \int_a^x f(t)\, dt$ possède une limite finie lorsque $x \to b^-$.
@@ -306,18 +374,23 @@ Dans tout ce paragraphe, $I$ désigne un intervalle de $\mathbb{R}$ d'extrémit�
 - Si $I = ]a, b]$ : L'intégrale généralisée $\int_a^b f(t)\, dt$ converge si $x \mapsto \int_x^b f(t)\, dt$ possède une limite finie lorsque $x \to a^+$.
 
 - Si $I = ]a, b[$ : L'intégrale généralisée $\int_a^b f(t)\, dt$ converge s'il existe $c \in ]a,b[$ tel que $\int_a^c f(t)\, dt$ et $\int_c^b f(t)\, dt$ soient convergentes.
+
 :::
 
 ## Fonctions à valeurs réelles
 
 ::: {.proposition title="(Positivité)"}
+
 Si $f \geq 0$ sur $I$ et si $\int_a^b f(t)\, dt$ converge, alors :
 $$\int_a^b f(t)\, dt \geq 0$$
+
 :::
 
 ::: {.proposition title="(Croissance)"}
+
 Si $f \leq g$ sur $I$ et si les deux intégrales convergent, alors :
 $$\int_a^b f(t)\, dt \leq \int_a^b g(t)\, dt$$
+
 :::
 
 # Convergence absolue et fonctions intégrables
@@ -325,37 +398,49 @@ $$\int_a^b f(t)\, dt \leq \int_a^b g(t)\, dt$$
 ## Convergence absolue
 
 ::: {.definition title="(Convergence absolue)"}
+
 L'intégrale $\int_a^b f(t)\, dt$ est **absolument convergente** si l'intégrale $\int_a^b |f(t)|\, dt$ est convergente.
+
 :::
 
 ::: {.theorem title="(Absolue convergence implique convergence)"}
+
 Si l'intégrale $\int_a^b f(t)\, dt$ est absolument convergente, alors elle est convergente. La fonction $f$ est alors **intégrable** sur $I$. La valeur de son intégrale sera notée $\int_a^b f(t)\, dt$ ou $\int_I f(t)\, dt$ ou $\int_I f$.
+
 :::
 
 ::: {.theorem title="(Inégalité triangulaire)"}
+
 Si $\int_a^b f(t)\, dt$ est absolument convergente, alors :
 $$\left|\int_a^b f(t)\, dt\right| \leq \int_a^b |f(t)|\, dt$$
+
 :::
 
 ::: {.theorem}
+
 Soit $f : I \to \mathbb{K}$ une fonction continue et intégrable sur $I$. Si $\int_I |f| = 0$, alors $f \equiv 0$ sur $I$.
+
 :::
 
 ## Théorème de comparaison
 
 ::: {.theorem title="(Théorème de comparaison)"}
+
 On suppose que $I = [a, b[$.
 
 1. Si $|f| \leq |g|$ sur $I$ et $g$ est intégrable sur $I$, alors $f$ est intégrable sur $I$.
 2. Si $f = O_b(g)$ et $g$ est intégrable sur $I$, alors $f$ est intégrable sur $I$.
 3. Si $f(t) \sim_b g(t)$, alors $f$ est intégrable sur $I$ si et seulement si $g$ est intégrable sur $I$.
+
 :::
 
 ::: {.proposition title="(Comparaison par domination)"}
+
 Soient $f, g \in \mathcal{CM}([a,b[, \mathbb{R}^+)$ telles que $0 \leq f(t) \leq g(t)$ au voisinage de $b$.
 
 1. Si $\int_a^b g(t)\, dt$ converge, alors $\int_a^b f(t)\, dt$ converge.
 2. Si $\int_a^b f(t)\, dt$ diverge, alors $\int_a^b g(t)\, dt$ diverge.
+
 :::
 
 # Méthodes de calcul
@@ -363,24 +448,30 @@ Soient $f, g \in \mathcal{CM}([a,b[, \mathbb{R}^+)$ telles que $0 \leq f(t) \leq
 ## Primitives
 
 ::: {.theorem title="(Primitive)"}
+
 Soit $f$ une fonction continue sur $[a,b[$ possédant une primitive $F$. Alors $\int_a^b f(t)\, dt$ converge si et seulement si $F$ possède une limite finie en $b$. Si ces propriétés sont vérifiées :
 $$\int_a^b f(t)\, dt = \lim_{x \to b^-} F(x) - F(a)$$
+
 :::
 
 ## Intégration par parties
 
 ::: {.theorem title="(Intégration par parties)"}
+
 Soient $f$ et $g$ deux fonctions de classe $\mathcal{C}^1$ sur $I$. Si la fonction $fg$ a une limite finie en $a$ et en $b$, alors les intégrales $\int_a^b f'(t)g(t)\, dt$ et $\int_a^b f(t)g'(t)\, dt$ sont de même nature. Si ces quantités sont convergentes, en notant :
 $$[f(t)g(t)]_a^b = \lim_{x \to b^-} (f(x)g(x)) - \lim_{x \to a^+} (f(x)g(x))$$
 on obtient la relation :
 $$\int_a^b f'(t)g(t)\, dt = [f(t)g(t)]_a^b - \int_a^b f(t)g'(t)\, dt$$
+
 :::
 
 ## Changement de variable
 
 ::: {.theorem title="(Changement de variable)"}
+
 Soit $\varphi : I \to J$ une bijection de classe $\mathcal{C}^1$. Alors :
 $$\int_I f(x)\, dx = \int_{\varphi^{-1}(I)} f(\varphi(t)) \varphi'(t)\, dt$$
+
 :::
 
 # Espaces fonctionnels
@@ -392,64 +483,86 @@ $$\int_I f(x)\, dx = \int_{\varphi^{-1}(I)} f(\varphi(t)) \varphi'(t)\, dt$$
 1. L'ensemble des fonctions continues par morceaux intégrables sur $I$, à valeurs dans $\mathbb{K}$, est noté $\mathcal{L}^1(I, \mathbb{K})$.
 
 2. L'ensemble des fonctions continues par morceaux sur $I$, à valeurs dans $\mathbb{K}$, de carré intégrable, c'est-à-dire pour lesquelles $|f|^2$ est intégrable sur $I$, est noté $\mathcal{L}^2(I, \mathbb{K})$.
+
 :::
 
 ::: {.theorem title="(Structure d'espace vectoriel)"}
+
 $\mathcal{L}^1(I, \mathbb{K})$ et $\mathcal{L}^2(I, \mathbb{K})$ sont des $\mathbb{K}$-espaces vectoriels.
+
 :::
 
 # Exercices
 
 ::: {.exercise}
+
 Donner des exemples de fonctions continues par morceaux. Montrer que toute fonction continue par morceaux est bornée. Ses bornes sont-elles nécessairement atteintes ?
+
 :::
 
 ::: {.exercise}
+
 Montrer que la fonction définie sur $\mathbb{R}^+$ par $f(x) = x \lfloor 1/x \rfloor$ si $x \neq 0$ et $f(0) = 1$, n'est pas continue par morceaux sur $\mathbb{R}^+$.
+
 :::
 
 ::: {.exercise}
+
 Montrer que $\int_1^{+\infty} \frac{dx}{1+x^\alpha}$ converge si et seulement si $\alpha > 1$.
+
 :::
 
 ::: {.exercise}
+
 Montrer que, si $f$ est continue par morceaux, positive et décroissante sur $\mathbb{R}^+$, alors :
 $$\int_0^{+\infty} f(x)\, dx \text{ converge} \iff \sum f(n) \text{ converge}$$
+
 :::
 
 ::: {.exercise}
+
 Étudier l'intégrabilité des fonctions suivantes :
 
 1. $t \mapsto \frac{\sin(t)}{t^2}$ sur $[1, +\infty[$
 2. $t \mapsto t\cos(t)$ et $t \mapsto \frac{1}{t}$ sur $]0, +\infty[$
 3. $t \mapsto \frac{1}{1-t^2}$ sur $[0, 1[$
+
 :::
 
 ::: {.exercise title="(Fonction Gamma d'Euler)"}
+
 Pour tout nombre réel $x$, on pose, sous réserve d'existence :
 $$\Gamma(x) = \int_0^{+\infty} t^{x-1} e^{-t}\, dt$$
 
 1. Montrer que $\Gamma(x)$ existe pour tout $x > 0$.
 2. Montrer que $\Gamma(x+1) = x\Gamma(x)$ pour tout $x > 0$.
 3. En déduire que $\Gamma(n+1) = n!$ pour tout $n \in \mathbb{N}$.
+
 :::
 
 ::: {.exercise}
+
 Soit $\alpha > 1$. Montrer que l'intégrale $\int_0^{+\infty} \frac{\sin(x)}{1+x^\alpha}\, dx$ est absolument convergente.
+
 :::
 
 ::: {.exercise}
+
 Déterminer une fonction $f$ qui appartienne à $\mathcal{L}^1(]0,1], \mathbb{R})$ mais pas à $\mathcal{L}^2(]0,1], \mathbb{R})$.
 
 Déterminer une fonction $f$ qui appartienne à $\mathcal{L}^2([1,+\infty[, \mathbb{R})$ mais pas à $\mathcal{L}^1([1,+\infty[, \mathbb{R})$.
+
 :::
 
 # Document en PDF {-}
 [Chapitre 04 : Intégration des fonctions continues par morceaux sur un intervalle](PDF/psi-chap04.pdf)
 
 ## Navigation {-}
+
 ::: {.chap-nav}
+
 [Chapitre 03 : Topologie des espaces normés](psi-chap03.qmd){.prev}
 [Menu PSI](psi.qmd){.home}
 [Chapitre 05 : Fonctions vectorielles](psi-chap05.qmd){.next}
+
 :::

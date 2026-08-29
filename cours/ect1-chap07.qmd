@@ -34,17 +34,21 @@ Ce chapitre a été réalisé conformément au programme marocain de mathématiq
 ## Population, individus, caractère
 
 ::: {.definition title="(Population, individus, caractère)"}
+
 - Une **population** est un ensemble d'individus (objets d'une étude statistique).
 - Un **individu** est un élément de la population.
 - Un **caractère** est une propriété étudiée sur la population. Il peut être :
   - **qualitatif** (couleur, profession, etc.)
   - **quantitatif** (taille, salaire, etc.)
+
 :::
 
 ## Données groupées en classes
 
 ::: {.definition title="(Données groupées)"}
+
 Pour une série statistique quantitative, on peut regrouper les données en **classes** $[a_i, a_{i+1}[$ avec des **effectifs** $n_i$ et des **fréquences** $f_i = \frac{n_i}{n}$.
+
 :::
 
 # Indicateurs de position
@@ -52,36 +56,44 @@ Pour une série statistique quantitative, on peut regrouper les données en **cl
 ## Moyenne
 
 ::: {.definition title="(Moyenne)"}
+
 La **moyenne** d'une série statistique $(x_i)_{1 \leq i \leq n}$ est :
 $$\bar{x} = \frac{1}{n}\sum_{i=1}^n x_i$$
 
 Pour des données groupées avec effectifs $n_i$ :
 $$\bar{x} = \frac{1}{n}\sum_{i} n_i c_i$$
 où $c_i$ est le centre de la classe $i$-ème.
+
 :::
 
 ::: {.proposition title="(Propriétés de la moyenne)"}
 
 1. $\sum_{i=1}^n (x_i - \bar{x}) = 0$
 2. Si $y_i = ax_i + b$, alors $\bar{y} = a\bar{x} + b$.
+
 :::
 
 ## Médiane
 
 ::: {.definition title="(Médiane)"}
+
 La **médiane** $m$ est une valeur qui partage la population en deux groupes d'effectifs égaux : 50\% des données sont inférieures à $m$ et 50\% sont supérieures à $m$.
+
 :::
 
 ::: {.methode title="(Calcul de la médiane)"}
 
 - Si $n$ est impair : $m = x_{(n+1)/2}$ (la valeur centrale).
 - Si $n$ est pair : $m = \frac{x_{(n/2)} + x_{(n/2+1)}}{2}$.
+
 :::
 
 ## Mode
 
 ::: {.definition title="(Mode)"}
+
 Le **mode** est la valeur la plus fréquente (celle qui a le plus grand effectif ou la plus grande fréquence).
+
 :::
 
 # Indicateurs de dispersion
@@ -89,21 +101,25 @@ Le **mode** est la valeur la plus fréquente (celle qui a le plus grand effectif
 ## Variance et écart-type
 
 ::: {.definition title="(Variance)"}
+
 La **variance** d'une série statistique est :
 $$V = \frac{1}{n}\sum_{i=1}^n (x_i - \bar{x})^2 = \frac{1}{n}\sum_{i=1}^n x_i^2 - \bar{x}^2$$
 
 L'**écart-type** est $\sigma = \sqrt{V}$.
+
 :::
 
 ::: {.proposition title="(Propriétés)"}
 
 1. $V \geq 0$.
 2. Si $y_i = ax_i + b$, alors $V_y = a^2 V_x$ et $\sigma_y = |a|\sigma_x$.
+
 :::
 
 ## Quartiles
 
 ::: {.definition title="(Quartiles)"}
+
 Les **quartiles** sont les valeurs $Q_1$, $Q_2$, $Q_3$ qui partagent la population en 4 groupes d'effectifs égaux :
 
 - $Q_1$ : 25\% des données sont inférieures à $Q_1$.
@@ -111,26 +127,32 @@ Les **quartiles** sont les valeurs $Q_1$, $Q_2$, $Q_3$ qui partagent la populati
 - $Q_3$ : 75\% des données sont inférieures à $Q_3$.
 
 L'**écart interquartile** est $Q_3 - Q_1$.
+
 :::
 
 ## Déciles
 
 ::: {.definition title="(Déciles)"}
+
 Les **déciles** $D_1, D_2, \ldots, D_9$ sont les valeurs qui partagent la population en 10 groupes d'effectifs égaux. $D_k$ est tel que $k \times 10\%$ des données sont inférieures à $D_k$.
+
 :::
 
 # Exercices
 
 ::: {.exercise}
+
 Les notes de 10 élèves sont : 8, 12, 10, 15, 9, 11, 14, 7, 13, 10.
 
 1. Calculer la moyenne.
 2. Déterminer la médiane.
 3. Déterminer le mode.
 4. Calculer la variance et l'écart-type.
+
 :::
 
 ::: {.exercise}
+
 La distribution des salaires dans une entreprise est donnée par :
 
 | Classe | $[1000, 2000[$ | $[2000, 3000[$ | $[3000, 4000[$ | $[4000, 5000[$ |
@@ -140,34 +162,47 @@ La distribution des salaires dans une entreprise est donnée par :
 1. Calculer le salaire moyen.
 2. Déterminer la classe modale.
 3. Estimer la médiane.
+
 :::
 
 ::: {.exercise}
+
 Soit une série statistique avec $n = 20$ valeurs rangées par ordre croissant. Déterminer $Q_1$, $Q_2$, $Q_3$.
+
 :::
 
 ::: {.exercise}
+
 Montrer que $\sum_{i=1}^n (x_i - \bar{x})^2 = \sum_{i=1}^n x_i^2 - n\bar{x}^2$.
+
 :::
 
 ::: {.exercise}
+
 Les tailles de 8 personnes sont : 160, 165, 170, 172, 175, 178, 180, 185 cm.
 
 1. Calculer la moyenne et l'écart-type.
 2. Si on ajoute 5 cm à chaque taille, comment changent la moyenne et l'écart-type ?
+
 :::
 
 ::: {.exercise}
+
 Soit une série de $n$ valeurs avec moyenne $\bar{x}$ et variance $V$. Si on remplace chaque $x_i$ par $y_i = 2x_i + 3$, déterminer la moyenne et la variance de la nouvelle série.
+
 :::
 
 ::: {.exercise}
+
 Les déciles d'une distribution sont $D_1 = 10$, $D_2 = 15$, $\ldots$, $D_9 = 50$. Interpréter $D_5$ et $D_7$.
+
 :::
 
 ::: {.exercise}
+
 Montrer que la variance peut s'écrire :
 $$V = \frac{1}{2n^2}\sum_{i=1}^n \sum_{j=1}^n (x_i - x_j)^2$$
+
 :::
 
 # Document en PDF {-}
@@ -177,7 +212,9 @@ $$V = \frac{1}{2n^2}\sum_{i=1}^n \sum_{j=1}^n (x_i - x_j)^2$$
 ## Navigation {-}
 
 ::: {.chap-nav}
+
 [Chapitre 06 : Probabilité sur un univers fini](ect1-chap06.qmd){.prev}
 [Menu ECT1](ect1.qmd){.home}
 [Chapitre 08 : Systèmes d'équations linéaires et calcul matriciel](ect1-chap08.qmd){.next}
+
 :::

@@ -34,10 +34,13 @@ Ce chapitre a été réalisé conformément au programme marocain de mathématiq
 ## Propositions et connecteurs
 
 ::: {.definition title="(Proposition)"}
+
 Une **proposition** est un énoncé mathématique qui est soit vrai, soit faux. On les note $P$, $Q$, $R$, etc.
+
 :::
 
 ::: {.definition title="(Connecteurs logiques)"}
+
 Soient $P$ et $Q$ deux propositions.
 
 | Connecteur | Notation | Lecture |
@@ -47,53 +50,68 @@ Soient $P$ et $Q$ deux propositions.
 | Disjonction | $P \vee Q$ | « $P$ ou $Q$ » |
 | Implication | $P \Rightarrow Q$ | « si $P$ alors $Q$ » |
 | Équivalence | $P \Leftrightarrow Q$ | « $P$ si et seulement si $Q$ » |
+
 :::
 
 ::: {.proposition title="(Propriétés fondamentales)"}
+
 Pour toutes propositions $P$, $Q$ :
 
 1. $P \Rightarrow Q$ est équivalente à $(\neg Q) \Rightarrow (\neg P)$ (contraposée).
 2. $\neg(P \wedge Q)$ est équivalente à $(\neg P) \vee (\neg Q)$ (De Morgan).
 3. $\neg(P \vee Q)$ est équivalente à $(\neg P) \wedge (\neg Q)$.
+
 :::
 
 ## Quantificateurs
 
 ::: {.definition title="(Quantificateurs)"}
+
 Soit $E$ un ensemble et $P(x)$ une proposition dépendant de $x \in E$.
 
 - $\forall x \in E,\; P(x)$ : « pour tout $x$ de $E$, $P(x)$ ».
 - $\exists x \in E,\; P(x)$ : « il existe un $x$ de $E$ tel que $P(x)$ ».
+
 :::
 
 ::: {.proposition title="(Négation)"}
+
 $$\neg(\forall x \in E,\; P(x)) \iff \exists x \in E,\; \neg P(x)$$
 $$\neg(\exists x \in E,\; P(x)) \iff \forall x \in E,\; \neg P(x)$$
+
 :::
 
 ## Méthodes de raisonnement
 
 ::: {.methode title="(Récurrence)"}
+
 Pour montrer $P(n)$ pour tout $n \geq n_0$ :
 
 1. **Initialisation** : montrer $P(n_0)$.
 2. **Hérédité** : supposer $P(n)$ et montrer $P(n+1)$.
 3. **Conclusion** : par récurrence, $P(n)$ pour tout $n \geq n_0$.
+
 :::
 
 ::: {.methode title="(Contraposée)"}
+
 Pour montrer $P \Rightarrow Q$, on montre $\neg Q \Rightarrow \neg P$.
+
 :::
 
 ::: {.methode title="(Absurde)"}
+
 Pour montrer $P$, on suppose $\neg P$ et on aboutit à une contradiction.
+
 :::
 
 ::: {.methode title="(Analyse-synthèse)"}
+
 Pour résoudre un problème d'existence et d'unicité :
 
 - **Analyse** : supposer la solution existante et en déduire sa forme nécessaire.
 - **Synthèse** : vérifier que l'objet construit est bien solution.
+
 :::
 
 # Ensembles
@@ -101,6 +119,7 @@ Pour résoudre un problème d'existence et d'unicité :
 ## Opérations
 
 ::: {.definition title="(Opérations sur les ensembles)"}
+
 Soient $A$, $B$ deux ensembles.
 
 - $A \cup B = \{x \mid x \in A \text{ ou } x \in B\}$
@@ -108,14 +127,19 @@ Soient $A$, $B$ deux ensembles.
 - $A \setminus B = \{x \mid x \in A \text{ et } x \notin B\}$
 - $\overline{A} = E \setminus A$ (complémentaire dans $E$)
 - $A \times B = \{(a,b) \mid a \in A,\; b \in B\}$
+
 :::
 
 ::: {.proposition title="(Lois de De Morgan)"}
+
 $$\overline{A \cup B} = \overline{A} \cap \overline{B} \qquad \text{et} \qquad \overline{A \cap B} = \overline{A} \cup \overline{B}$$
+
 :::
 
 ::: {.definition title="(Ensemble des parties)"}
+
 $\mathcal{P}(E)$ désigne l'ensemble de tous les sous-ensembles de $E$. Si $\mathrm{card}(E) = n$, alors $\mathrm{card}(\mathcal{P}(E)) = 2^n$.
+
 :::
 
 # Applications
@@ -123,110 +147,144 @@ $\mathcal{P}(E)$ désigne l'ensemble de tous les sous-ensembles de $E$. Si $\mat
 ## Définitions
 
 ::: {.definition title="(Application)"}
+
 Une **application** $f : E \to F$ associe à tout $x \in E$ un unique élément $f(x) \in F$.
 
 - $E$ est l'**ensemble de départ**.
 - $F$ est l'**ensemble d'arrivée**.
 - $f(A) = \{f(x) \mid x \in A\}$ est l'**image** de $A \subset E$.
 - $f^{-1}(B) = \{x \in E \mid f(x) \in B\}$ est l'**image réciproque** de $B \subset F$.
+
 :::
 
 ## Injection, surjection, bijection
 
 ::: {.definition title="(Injection)"}
+
 $f : E \to F$ est **injective** si :
 $$\forall x, x' \in E,\quad f(x) = f(x') \implies x = x'$$
 
 Autrement dit, tout élément de $F$ admet au plus un antécédent.
+
 :::
 
 ::: {.definition title="(Surjection)"}
+
 $f : E \to F$ est **surjective** si :
 $$\forall y \in F,\quad \exists x \in E,\quad f(x) = y$$
 
 Autrement dit, tout élément de $F$ admet au moins un antécédent.
+
 :::
 
 ::: {.definition title="(Bijection)"}
+
 $f : E \to F$ est **bijective** si elle est injective et surjective. Tout élément de $F$ admet un unique antécédent. On note $f^{-1} : F \to E$ la bijection réciproque.
+
 :::
 
 ::: {.proposition title="(Propriétés)"}
+
 Soient $f : E \to F$ et $g : F \to G$.
 
 1. $f$ et $g$ injectives $\implies$ $g \circ f$ injective.
 2. $f$ et $g$ surjectives $\implies$ $g \circ f$ surjective.
 3. $f$ et $g$ bijectives $\implies$ $g \circ f$ bijective, avec $(g \circ f)^{-1} = f^{-1} \circ g^{-1}$.
 4. $f$ bijective $\iff$ $f$ admet une application réciproque.
+
 :::
 
 ::: {.proposition title="(Caractérisation ensembliste)"}
+
 Soit $f : E \to F$.
 
 - $f$ injective $\iff$ $\forall A \subset E,\; f^{-1}(f(A)) = A$.
 - $f$ surjective $\iff$ $\forall B \subset F,\; f(f^{-1}(B)) = B$.
+
 :::
 
 ::: {.example}
+
 Soit $f : \mathbb{R} \to \mathbb{R}$ définie par $f(x) = 2x - 3$.
 
 - **Injective** : $f(x) = f(x') \Rightarrow 2x = 2x' \Rightarrow x = x'$. ✓
 - **Surjective** : pour tout $y$, $x = \frac{y+3}{2}$ vérifie $f(x) = y$. ✓
 - Donc $f$ est bijective et $f^{-1}(y) = \frac{y+3}{2}$.
+
 :::
 
 ::: {.example}
+
 Soit $g : \mathbb{R} \to \mathbb{R}$ définie par $g(x) = x^2$.
 
 - $g$ n'est **pas injective** : $g(1) = g(-1) = 1$.
 - $g$ n'est **pas surjective** : $-1$ n'a pas d'antécédent.
 - Mais $g : [0, +\infty[ \to [0, +\infty[$ est bijective, de réciproque $x \mapsto \sqrt{x}$.
+
 :::
 
 ::: {.example title="(Application exponentielle)"}
+
 $\exp : \mathbb{R} \to ]0, +\infty[$ est une bijection, de réciproque $\ln : ]0, +\infty[ \to \mathbb{R}$.
+
 :::
 
 # Exercices
 
 ::: {.exercise}
+
 Nier les propositions suivantes :
 
 1. $\forall x \in \mathbb{R},\; x^2 \geq 0$.
 2. $\exists x \in \mathbb{R},\; x^2 = -1$.
 3. $\forall \varepsilon > 0,\; \exists N \in \mathbb{N},\; \forall n \geq N,\; |u_n - \ell| < \varepsilon$.
+
 :::
 
 ::: {.exercise}
+
 Montrer par récurrence que pour tout $n \in \mathbb{N}^*$ : $\sum_{k=1}^n k = \frac{n(n+1)}{2}$.
+
 :::
 
 ::: {.exercise}
+
 Montrer par l'absurde que $\sqrt{2} \notin \mathbb{Q}$.
+
 :::
 
 ::: {.exercise}
+
 Montrer par contraposée que si $n^2$ est pair, alors $n$ est pair.
+
 :::
 
 ::: {.exercise}
+
 Soient $A$, $B$, $C$ trois ensembles. Montrer que $A \cap (B \cup C) = (A \cap B) \cup (A \cap C)$.
+
 :::
 
 ::: {.exercise}
+
 Soit $f : \mathbb{R} \to \mathbb{R}$ définie par $f(x) = \dfrac{x}{1+|x|}$.
 
 1. Montrer que $f$ est injective.
 2. Montrer que $f$ n'est pas surjective.
 3. Montrer que $f : \mathbb{R} \to ]-1,1[$ est bijective et déterminer $f^{-1}$.
+
 :::
 
 ::: {.exercise}
+
 Soit $f : E \to F$ une application. Montrer que $f$ est injective si et seulement si $f^{-1}(f(A)) = A$ pour tout $A \subset E$.
+
 :::
 
 ::: {.exercise}
+
 Soit $f : \mathbb{N} \to \mathbb{Z}$ définie par $f(n) = (-1)^n \lfloor n/2 \rfloor$. Montrer que $f$ est bijective.
+
 :::
 
 # Document en PDF {-}
@@ -236,6 +294,8 @@ Soit $f : \mathbb{N} \to \mathbb{Z}$ définie par $f(n) = (-1)^n \lfloor n/2 \rf
 ## Navigation {-}
 
 ::: {.chap-nav}
+
 [Menu ECS1](ecs1.qmd){.home}
 [Chapitre 02 : Calcul algébrique](ecs1-chap02.qmd){.next}
+
 :::

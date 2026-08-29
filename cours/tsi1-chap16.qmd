@@ -45,7 +45,9 @@ Pour construire l'intégrale d'une fonction continue, on commence par augmenter 
 Par densité, la notion d'intégrale d'une fonction en escalier va être étendue aux fonctions continues par morceaux. En particulier, les fonctions continues auront ainsi chacune une intégrale.
 
 ::: {.remarque}
+
 Ce qui est assez cocasse dans cette affaire de densité, c'est que l'intersection de $\mathcal{C}([a,b], \mathbb{C})$ et de l'ensemble des fonctions en escalier sur $[a,b]$ est toute petite, c'est juste l'ensemble des fonctions constantes. La construction de l'intégrale consiste donc à transporter un concept d'un premier endroit vers un deuxième qui n'a presque rien à voir avec le premier. Vive la densité !
+
 :::
 
 # Subdivision d'un segment et fonctions en escalier
@@ -53,45 +55,59 @@ Ce qui est assez cocasse dans cette affaire de densité, c'est que l'intersectio
 ## Subdivision d'un segment
 
 ::: {.definition}
+
 Une **subdivision** du segment $[a,b]$ est une suite finie de réels $\sigma = (x_0, x_1, \ldots, x_n)$ telle que :
 $$a = x_0 < x_1 < x_2 < \cdots < x_n = b$$
 Le **pas** de la subdivision est $\delta(\sigma) = \max_{0 \leq k \leq n-1}(x_{k+1} - x_k)$.
+
 :::
 
 ::: {.remarque}
+
 On parle de **subdivision à pas régulière** lorsque tous les intervalles $[x_k, x_{k+1}]$ ont même longueur, c'est-à-dire lorsque $x_k = a + k\frac{b-a}{n}$ pour $k \in \{0, 1, \ldots, n\}$.
+
 :::
 
 ## Fonctions en escalier
 
 ::: {.definition}
+
 Une fonction $f : [a,b] \to \mathbb{C}$ est dite **en escalier** s'il existe une subdivision $\sigma = (x_0, x_1, \ldots, x_n)$ de $[a,b]$ telle que $f$ soit constante sur chaque intervalle $]x_k, x_{k+1}[$ pour $k \in \{0, 1, \ldots, n-1\}$.
 
 Une telle subdivision est dite **adaptée** à $f$.
+
 :::
 
 ::: {.example}
+
 La fonction indicatrice $\mathbb{1}_{\{1\}}$ sur $[0,2]$ est en escalier.
+
 :::
 
 ::: {.proposition title="(Propriétés des fonctions en escalier)"}
+
 L'ensemble des fonctions en escalier sur $[a,b]$ à valeurs dans $\mathbb{K}$ est un sous-espace vectoriel de $\mathbb{K}^{[a,b]}$.
 
 De plus, la réunion d'une subdivision adaptée à $f$ et d'une subdivision adaptée à $g$ est une subdivision adaptée à $f$ ET à $g$.
+
 :::
 
 ## Fonctions continues par morceaux
 
 ::: {.definition}
+
 Une fonction $f : [a,b] \to \mathbb{C}$ est dite **continue par morceaux** sur $[a,b]$ s'il existe une subdivision $\sigma = (x_0, x_1, \ldots, x_n)$ de $[a,b]$ telle que pour tout $k \in \{0, 1, \ldots, n-1\}$, la restriction de $f$ à $]x_k, x_{k+1}[$ soit continue et **prolongeable par continuité** en $x_k$ et $x_{k+1}$.
 
 L'ensemble des fonctions continues par morceaux sur $[a,b]$ à valeurs dans $\mathbb{K}$ est noté $\mathrm{CM}([a,b], \mathbb{K})$.
+
 :::
 
 ::: {.proposition}
+
 Toute fonction en escalier et toute fonction continue sont continues par morceaux.
 
 $\mathrm{CM}([a,b], \mathbb{K})$ est à la fois un sous-espace vectoriel et un sous-anneau de $\mathbb{K}^{[a,b]}$.
+
 :::
 
 # Approximation des fonctions continues par des fonctions en escalier
@@ -99,11 +115,14 @@ $\mathrm{CM}([a,b], \mathbb{K})$ est à la fois un sous-espace vectoriel et un s
 ## Théorème de densité
 
 ::: {.theorem title="(Approximation par une fonction en escalier)"}
+
 Soit $f : [a,b] \to \mathbb{K}$ une fonction continue. Alors pour tout $\varepsilon > 0$, il existe une fonction en escalier $\varphi : [a,b] \to \mathbb{K}$ telle que :
 $$\forall t \in [a,b], \quad |f(t) - \varphi(t)| \leq \varepsilon$$
+
 :::
 
 ::: {.proof}
+
 La fonction $f$ est continue sur le segment $[a,b]$, qui est compact. D'après le théorème de Heine, $f$ est uniformément continue sur $[a,b]$. Donc pour tout $\varepsilon > 0$, il existe $\alpha > 0$ tel que pour tous $x, y \in [a,b]$ :
 $$|x-y| < \alpha \implies |f(x) - f(y)| < \varepsilon$$
 
@@ -114,11 +133,14 @@ On définit $\varphi$ sur $[a,b]$ par : pour tout $i \in \{0, 1, \ldots, n-1\}$ 
 Par construction, $\varphi$ est en escalier sur $[a,b]$. De plus, pour tout $x \in [x_i, x_{i+1}]$ :
 $$|\varphi(x) - f(x)| = |f(x_i) - f(x)| \leq \varepsilon$$
 car $|x - x_i| \leq x_{i+1} - x_i = \frac{b-a}{n} < \alpha$.
+
 :::
 
 ::: {.corollary}
+
 Dans le cas $\mathbb{K} = \mathbb{R}$, on parvient ainsi à construire un couple de fonctions en escalier $\varphi$ et $\psi$ qui encadrent $f$ à $\varepsilon$ près sur $[a,b]$ :
 $$\varphi \leq f \leq \psi \quad \text{et} \quad 0 \leq \psi - \varphi \leq \varepsilon$$
+
 :::
 
 # Construction de l'intégrale
@@ -126,32 +148,41 @@ $$\varphi \leq f \leq \psi \quad \text{et} \quad 0 \leq \psi - \varphi \leq \var
 ## Intégrale d'une fonction en escalier
 
 ::: {.definition-theoreme title="(Intégrale d'une fonction en escalier)"}
+
 Soient $f : [a,b] \to \mathbb{C}$ en escalier et $\sigma = (x_0, x_1, \ldots, x_n)$ une subdivision de $[a,b]$ adaptée à $f$. Si $y_i$ désigne pour tout $i \in \{0, 1, \ldots, n-1\}$ la valeur de $f$ sur $]x_i, x_{i+1}[$, le nombre complexe :
 $$\sum_{i=0}^{n-1} y_i (x_{i+1} - x_i)$$
 ne dépend pas de la subdivision $\sigma$ choisie. On l'appelle l'**intégrale** de $f$ sur $[a,b]$, notée :
 $$\int_{[a,b]} f = \int_a^b f(t)\, dt$$
+
 :::
 
 ::: {.remarque}
+
 On définit ici directement l'intégrale d'une fonction en escalier COMPLEXE. Une telle intégrale ne peut bien sûr pas être interprétée en termes d'« aire sous la courbe », fût-elle algébrique.
+
 :::
 
 ::: {.theorem title="(Deux propriétés de l'intégrale d'une fonction en escalier)"}
+
 Soient $f, g : [a,b] \to \mathbb{C}$ en escalier et $\lambda, \mu \in \mathbb{C}$.
 
 1. **Linéarité** : $\int_{[a,b]} (\lambda f + \mu g) = \lambda \int_{[a,b]} f + \mu \int_{[a,b]} g$
 2. **Inégalité triangulaire** : $\left|\int_{[a,b]} f\right| \leq \int_{[a,b]} |f| \leq (b-a)\|f\|_\infty$
+
 :::
 
 ## Intégrale d'une fonction continue par morceaux
 
 ::: {.definition}
+
 Soit $f : [a,b] \to \mathbb{C}$ continue par morceaux. On définit l'intégrale de $f$ sur $[a,b]$ par :
 $$\int_a^b f(t)\, dt = \lim_{p \to +\infty} \int_a^b \varphi_p(t)\, dt$$
 où $(\varphi_p)_{p \in \mathbb{N}}$ est une suite de fonctions en escalier sur $[a,b]$ convergeant uniformément vers $f$.
+
 :::
 
 ::: {.theorem title="(Propriétés de l'intégrale d'une fonction continue par morceaux)"}
+
 Soient $f, g \in \mathrm{CM}([a,b], \mathbb{C})$.
 
 1. **Linéarité** : Pour tous $\lambda, \mu \in \mathbb{C}$ : $\int_{[a,b]} (\lambda f + \mu g) = \lambda \int_{[a,b]} f + \mu \int_{[a,b]} g$
@@ -159,27 +190,34 @@ Soient $f, g \in \mathrm{CM}([a,b], \mathbb{C})$.
 3. **Relation de Chasles** : Pour tout $c \in [a,b]$ : $\int_{[a,b]} f = \int_{[a,c]} f + \int_{[c,b]} f$
 4. **Lien avec parties réelle et imaginaire** : $\int_{[a,b]} f = \int_{[a,b]} \mathrm{Re}(f) + i\int_{[a,b]} \mathrm{Im}(f)$
 5. **Modification d'un nombre fini de valeurs** : Si $f$ et $g$ sont égales sauf en un nombre fini de points, alors $\int_{[a,b]} f = \int_{[a,b]} g$.
+
 :::
 
 ::: {.theorem title="(Propriétés pour les fonctions réelles)"}
+
 Soient $f, g \in \mathrm{CM}([a,b], \mathbb{R})$.
 
 1. **Positivité** : Si $f \geq 0$, alors $\int_{[a,b]} f \geq 0$.
 2. **Croissance** : Si $f \leq g$, alors $\int_{[a,b]} f \leq \int_{[a,b]} g$.
 3. **Positivité stricte** : Si $f$ est positive sur $[a,b]$, strictement en au moins un point de continuité, et si $a < b$, alors $\int_{[a,b]} f > 0$.
+
 :::
 
 ## Extension de la notation
 
 ::: {.definition}
+
 On étend la notation $\int_a^b f(t)\, dt$ au cas où $b \leq a$ par :
 $$\int_a^b f(t)\, dt = -\int_b^a f(t)\, dt \quad \text{si } b \leq a$$
 En particulier, $\int_a^a f(t)\, dt = 0$.
+
 :::
 
 ::: {.proposition title="(Valeur moyenne)"}
+
 La **valeur moyenne** d'une fonction continue par morceaux $f$ sur $[a,b]$ est :
 $$\frac{1}{b-a} \int_a^b f(t)\, dt$$
+
 :::
 
 # Primitives et théorème fondamental du calcul intégral
@@ -187,11 +225,14 @@ $$\frac{1}{b-a} \int_a^b f(t)\, dt$$
 ## Primitives
 
 ::: {.definition}
+
 Soit $f : I \to \mathbb{K}$ une fonction continue sur un intervalle $I$. Une **primitive** de $f$ sur $I$ est une fonction $F : I \to \mathbb{K}$ dérivable sur $I$ telle que :
 $$\forall x \in I, \quad F'(x) = f(x)$$
+
 :::
 
 ::: {.proposition title="(Table des primitives usuelles)"}
+
 Les primitives des fonctions usuelles sont :
 
 | Fonction $f(x)$ | Primitive $F(x)$ |
@@ -207,13 +248,17 @@ Les primitives des fonctions usuelles sont :
 | $\cosh x$ | $\sinh x$ |
 | $\frac{1}{1+x^2}$ | $\arctan x$ |
 | $\frac{1}{\sqrt{1-x^2}}$ | $\arcsin x$ |
+
 :::
 
 ::: {.remarque}
+
 Les élèves doivent savoir utiliser les primitives de $x \mapsto e^{\lambda x}$ pour calculer celles de $x \mapsto e^{ax}\cos(bx)$ et $x \mapsto e^{ax}\sin(bx)$. Ils doivent aussi savoir calculer les primitives d'une fonction du type $x \mapsto \frac{1}{ax^2 + bx + c}$.
+
 :::
 
 ::: {.example}
+
 Calculons les primitives de $x \mapsto e^{2x}\cos(3x)$.
 
 On utilise la formule :
@@ -221,18 +266,22 @@ $$\int e^{ax}\cos(bx)\, dx = \frac{e^{ax}}{a^2+b^2}(a\cos(bx) + b\sin(bx)) + C$$
 
 Donc :
 $$\int e^{2x}\cos(3x)\, dx = \frac{e^{2x}}{4+9}(2\cos(3x) + 3\sin(3x)) + C = \frac{e^{2x}}{13}(2\cos(3x) + 3\sin(3x)) + C$$
+
 :::
 
 ::: {.example}
+
 Calculons les primitives de $x \mapsto \frac{1}{x^2 + x + 1}$.
 
 On a $x^2 + x + 1 = (x + \frac{1}{2})^2 + \frac{3}{4}$. En posant $u = \frac{2x+1}{\sqrt{3}}$ :
 $$\int \frac{dx}{x^2 + x + 1} = \int \frac{dx}{(x+\frac{1}{2})^2 + \frac{3}{4}} = \frac{2}{\sqrt{3}}\arctan\left(\frac{2x+1}{\sqrt{3}}\right) + C$$
+
 :::
 
 ## Théorème fondamental du calcul intégral
 
 ::: {.theorem title="(Théorème fondamental du calcul intégral)"}
+
 Soit $f : I \to \mathbb{K}$ une fonction continue sur un intervalle $I$ et $a \in I$. Alors :
 
 1. La fonction $x \mapsto \int_a^x f(t)\, dt$ est une primitive de $f$ sur $I$. C'est l'unique primitive de $f$ qui s'annule en $a$.
@@ -243,9 +292,11 @@ $$G(x) = G(a) + \int_a^x f(t)\, dt, \quad x \in I$$
 3. Pour tous $a, b \in I$ :
 $$\int_a^b f(t)\, dt = G(b) - G(a)$$
 où $G$ est une primitive quelconque de $f$ sur $I$.
+
 :::
 
 ::: {.proof title="(Dérivabilité de $x \mapsto \int_a^x f(t)\, dt$)"}
+
 Soit $x \in I$ et $h \in \mathbb{R}$ tel que $x+h \in I$. On a :
 $$\frac{1}{h}\left(\int_a^{x+h} f(t)\, dt - \int_a^x f(t)\, dt\right) = \frac{1}{h}\int_x^{x+h} f(t)\, dt$$
 
@@ -254,23 +305,29 @@ $$m_h \leq \frac{1}{h}\int_x^{x+h} f(t)\, dt \leq M_h$$
 
 Quand $h \to 0$, par continuité de $f$, $m_h \to f(x)$ et $M_h \to f(x)$. Par le théorème des gendarmes :
 $$\lim_{h \to 0} \frac{1}{h}\int_x^{x+h} f(t)\, dt = f(x)$$
+
 :::
 
 ::: {.example}
+
 La fonction $x \mapsto \int_0^x e^{t^2}\, dt$ est dérivable sur $\mathbb{R}$ et sa dérivée est $x \mapsto e^{x^2}$.
+
 :::
 
 ::: {.example}
+
 La fonction $\varphi(x) = \int_0^1 e^{xt^2}\, dt$ est définie et dérivable sur $\mathbb{R}^*_+$ de dérivée $\varphi'(x) = \frac{e^x}{2x} - \frac{1}{2x}\int_0^1 e^{xt^2}\, dt$.
 
 En effet, pour tout $x > 0$ :
 $$\varphi(x) = \frac{1}{\sqrt{x}}\int_0^{\sqrt{x}} e^{u^2}\, du$$
 En posant $F(y) = \int_0^y e^{u^2}\, du$, on a $\varphi(x) = \frac{F(\sqrt{x})}{\sqrt{x}}$.
+
 :::
 
 ## Intégrales d'une fonction paire / impaire / périodique
 
 ::: {.theorem title="(Intégrales d'une fonction paire / impaire / périodique)"}
+
 Soit $f \in \mathrm{CM}([-a,a], \mathbb{C})$.
 
 - Si $f$ est **paire** : $\int_{-a}^a f(x)\, dx = 2\int_0^a f(x)\, dx$
@@ -278,6 +335,7 @@ Soit $f \in \mathrm{CM}([-a,a], \mathbb{C})$.
 
 Si $f$ est $T$-périodique et continue par morceaux sur $\mathbb{R}$ :
 $$\int_a^{a+T} f(t)\, dt = \int_0^T f(t)\, dt \quad \text{pour tout } a \in \mathbb{R}$$
+
 :::
 
 # Intégration par parties et changement de variable
@@ -285,30 +343,39 @@ $$\int_a^{a+T} f(t)\, dt = \int_0^T f(t)\, dt \quad \text{pour tout } a \in \mat
 ## Intégration par parties (IPP)
 
 ::: {.theorem title="(Intégration par parties ou IPP)"}
+
 Soient $u, v \in \mathcal{C}^1(I, \mathbb{C})$ et $a, b \in I$. Alors :
 $$\boxed{\int_a^b u'(t)v(t)\, dt = [u(t)v(t)]_a^b - \int_a^b u(t)v'(t)\, dt}$$
+
 :::
 
 ::: {.proof}
+
 Comme $u$ et $v$ sont de classe $\mathcal{C}^1$, les fonctions $(uv)'$, $u'v$ et $uv'$ sont continues. D'après le théorème fondamental du calcul intégral et par linéarité de l'intégrale :
 $$[uv]_a^b = \int_a^b (uv)'(t)\, dt = \int_a^b (u'v + uv')(t)\, dt = \int_a^b u'(t)v(t)\, dt + \int_a^b u(t)v'(t)\, dt$$
+
 :::
 
 ::: {.example}
+
 Calculons $\int_0^1 xe^x\, dx$.
 
 Posons $u(x) = x$ et $v(x) = e^x$, donc $u'(x) = 1$ et $v'(x) = e^x$. Alors :
 $$\int_0^1 xe^x\, dx = [xe^x]_0^1 - \int_0^1 e^x\, dx = e - [e^x]_0^1 = e - (e-1) = 1$$
+
 :::
 
 ::: {.example}
+
 Calculons $\int_0^\pi t\sin t\, dt$.
 
 Posons $u(t) = t$ et $v'(t) = \sin t$, donc $u'(t) = 1$ et $v(t) = -\cos t$. Alors :
 $$\int_0^\pi t\sin t\, dt = [-t\cos t]_0^\pi - \int_0^\pi (-\cos t)\, dt = \pi + [\sin t]_0^\pi = \pi$$
+
 :::
 
 ::: {.example title="(IPP délicat)"}
+
 Calculons $\int_0^{2\pi} \frac{1-\cos x}{x^2}\, dx$.
 
 Les fonctions $x \mapsto \frac{1-\cos x}{x^2}$ et $x \mapsto \frac{\sin x}{x}$ sont continues sur $]0, 2\pi]$ et prolongeables par continuité en $0$ par les valeurs $\frac{1}{2}$ et $1$ respectivement, donc les intégrales sont bien définies.
@@ -317,24 +384,31 @@ Formellement, par IPP :
 $$\int_u^{2\pi} (1-\cos x) \cdot \frac{1}{x^2}\, dx = \left[(1-\cos x) \cdot \left(-\frac{1}{x}\right)\right]_u^{2\pi} + \int_u^{2\pi} \sin x \cdot \frac{1}{x}\, dx$$
 
 Hélas, la fonction $x \mapsto -\frac{1}{x}$ n'est pas de classe $\mathcal{C}^1$ sur $[0, 2\pi]$, elle l'est seulement sur $]0, 2\pi]$. On procède donc par passage à la limite quand $u \to 0^+$.
+
 :::
 
 ## Changement de variable
 
 ::: {.theorem title="(Changement de variable)"}
+
 Soient $\varphi \in \mathcal{C}^1(I, \mathbb{R})$ à valeurs dans $J$, $f \in \mathcal{C}(J, \mathbb{C})$ et $a, b \in I$. Alors :
 $$\boxed{\int_a^b f(\varphi(t))\varphi'(t)\, dt = \int_{\varphi(a)}^{\varphi(b)} f(x)\, dx}$$
+
 :::
 
 ::: {.example}
+
 Calculons $\int_0^1 \frac{x}{1+x^2}\, dx$.
 
 Posons $t = 1 + x^2$, donc $dt = 2x\, dx$. Quand $x = 0$, $t = 1$ ; quand $x = 1$, $t = 2$. Donc :
 $$\int_0^1 \frac{x}{1+x^2}\, dx = \frac{1}{2}\int_1^2 \frac{dt}{t} = \frac{1}{2}[\ln t]_1^2 = \frac{\ln 2}{2}$$
+
 :::
 
 ::: {.remarque title="(Intérêt du changement de variable affine)"}
+
 Un changement de variable affine $x = a + (b-a)t$ permet de se ramener à l'intervalle $[0,1]$. Il est aussi utile pour exploiter la périodicité et les symétries d'une fonction.
+
 :::
 
 # Inégalité des accroissements finis et formule de Taylor
@@ -342,32 +416,41 @@ Un changement de variable affine $x = a + (b-a)t$ permet de se ramener à l'inte
 ## Inégalité des accroissements finis
 
 ::: {.theorem title="(Inégalité des accroissements finis)"}
+
 Si $f$ est continue et de classe $\mathcal{C}^1$ sur le segment $[a,b]$, alors :
 $$\left|f(b) - f(a)\right| \leq (b-a)\sup_{[a,b]}|f'|$$
+
 :::
 
 ::: {.proof}
+
 D'après le théorème fondamental du calcul intégral :
 $$f(b) - f(a) = \int_a^b f'(t)\, dt$$
 Par l'inégalité triangulaire :
 $$|f(b) - f(a)| = \left|\int_a^b f'(t)\, dt\right| \leq \int_a^b |f'(t)|\, dt \leq (b-a)\sup_{[a,b]}|f'|$$
+
 :::
 
 ## Formule de Taylor avec reste intégral
 
 ::: {.theorem title="(Formule de Taylor avec reste intégral)"}
+
 Soit $f : I \to \mathbb{C}$ une fonction de classe $\mathcal{C}^{n+1}$ sur un intervalle $I$. Alors pour tous $a, x \in I$ :
 $$f(x) = f(a) + f'(a)(x-a) + \frac{f''(a)}{2!}(x-a)^2 + \cdots + \frac{f^{(n)}(a)}{n!}(x-a)^n + \frac{1}{n!}\int_a^x (x-t)^n f^{(n+1)}(t)\, dt$$
+
 :::
 
 ## Inégalité de Taylor-Lagrange
 
 ::: {.theorem title="(Inégalité de Taylor-Lagrange)"}
+
 Si $f$ est de classe $\mathcal{C}^{n+1}$ sur $[a,b]$, alors :
 $$\left|f(b) - \sum_{k=0}^n \frac{f^{(k)}(a)}{k!}(b-a)^k\right| \leq \frac{(b-a)^{n+1}}{(n+1)!}\sup_{[a,b]}|f^{(n+1)}|$$
+
 :::
 
 ::: {.example title="(Développement limité de l'exponentielle)"}
+
 La fonction $t \mapsto e^{zt}$ est de classe $\mathcal{C}^\infty$ sur $[0,1]$ et pour tous $n \in \mathbb{N}$ et $t \in [0,1]$ :
 $$|f^{(n+1)}(t)| = |z|^{n+1}e^{t\,\mathrm{Re}(z)} \leq |z|^{n+1}e^{|\mathrm{Re}(z)|}$$
 
@@ -375,6 +458,7 @@ D'après l'inégalité de Taylor-Lagrange :
 $$\left|e^z - \sum_{k=0}^n \frac{z^k}{k!}\right| \leq \frac{|z|^{n+1}}{(n+1)!}e^{|\mathrm{Re}(z)|}$$
 
 On conclut par encadrement.
+
 :::
 
 # Sommes de Riemann et intégration numérique
@@ -382,82 +466,107 @@ On conclut par encadrement.
 ## Sommes de Riemann
 
 ::: {.theorem title="(Sommes de Riemann ou méthode des rectangles)"}
+
 Pour toute fonction $f \in \mathrm{CM}([a,b], \mathbb{C})$ :
 $$\int_a^b f(x)\, dx = \lim_{n \to +\infty} \frac{b-a}{n}\sum_{k=0}^{n-1} f\left(a + k\frac{b-a}{n}\right) = \lim_{n \to +\infty} \frac{b-a}{n}\sum_{k=1}^{n} f\left(a + k\frac{b-a}{n}\right)$$
+
 :::
 
 ::: {.example}
+
 Calculons $\lim_{n \to +\infty} \sum_{k=1}^n \frac{1}{n+k}$.
 
 Par continuité de $x \mapsto \frac{1}{1+x}$ sur $[0,1]$ :
 $$\sum_{k=1}^n \frac{1}{n+k} = \frac{1}{n}\sum_{k=1}^n \frac{1}{1 + k/n} \xrightarrow[n \to +\infty]{} \int_0^1 \frac{dt}{1+t} = \ln 2$$
+
 :::
 
 ::: {.example}
+
 Calculons $\lim_{n \to +\infty} \frac{1}{n}\sum_{k=0}^{n-1} \sin\left(\frac{k\pi}{n}\right)$.
 
 Par continuité de $\sin$ sur $[0,\pi]$ :
 $$\frac{1}{n}\sum_{k=0}^{n-1} \sin\left(\frac{k\pi}{n}\right) = \frac{1}{\pi}\sum_{k=0}^{n-1} \sin\left(\frac{k\pi}{n}\right)\frac{\pi}{n} \xrightarrow[n \to +\infty]{} \frac{1}{\pi}\int_0^\pi \sin t\, dt = \frac{2}{\pi}$$
+
 :::
 
 ## Méthode des trapèzes
 
 ::: {.theorem title="(Méthode des trapèzes)"}
+
 Pour toute fonction $f \in \mathrm{CM}([a,b], \mathbb{C})$ :
 $$\int_a^b f(x)\, dx = \lim_{n \to +\infty} \frac{b-a}{n}\sum_{k=0}^{n-1} \frac{f\left(a + k\frac{b-a}{n}\right) + f\left(a + (k+1)\frac{b-a}{n}\right)}{2}$$
+
 :::
 
 ::: {.remarque}
+
 La méthode des trapèzes est en général plus précise que la méthode des rectangles pour un même nombre de subdivisions.
+
 :::
 
 # Exercices
 
 ::: {.exercise}
+
 Calculer les intégrales suivantes :
 
 1. $\int_0^1 \frac{dx}{1+x^2}$
 2. $\int_0^{\pi/2} \sin^2 x\, dx$
 3. $\int_1^e x\ln x\, dx$
 4. $\int_0^1 \frac{dx}{\sqrt{1-x^2}}$
+
 :::
 
 ::: {.exercise}
+
 Calculer $\int_0^{2\pi} e^{ix}\, dx$ de deux manières différentes :
 
 1. En utilisant une primitive directe.
 2. En séparant partie réelle et partie imaginaire.
+
 :::
 
 ::: {.exercise}
+
 Montrer que pour tout $n \in \mathbb{N}^*$ :
 $$\int_0^1 x^n(1-x)^n\, dx = \frac{(n!)^2}{(2n+1)!}$$
+
 :::
 
 ::: {.exercise}
+
 Soit $f : [0,1] \to \mathbb{R}$ continue. Montrer que :
 $$\int_0^1 f(x)\, dx = \int_0^1 f(1-x)\, dx$$
+
 :::
 
 ::: {.exercise}
+
 Soit $f : \mathbb{R} \to \mathbb{R}$ continue et $T$-périodique. Montrer que :
 $$\int_0^{nT} f(t)\, dt = n\int_0^T f(t)\, dt \quad \text{pour tout } n \in \mathbb{N}$$
+
 :::
 
 ::: {.exercise}
+
 Calculer les sommes suivantes en reconnaissant des sommes de Riemann :
 
 1. $\lim_{n \to +\infty} \sum_{k=1}^n \frac{1}{n+k}$
 2. $\lim_{n \to +\infty} \frac{1}{n}\sum_{k=0}^{n-1} e^{k/n}$
 3. $\lim_{n \to +\infty} \frac{1}{n}\sum_{k=0}^{n-1} \frac{1}{1 + (k/n)^2}$
+
 :::
 
 # Document en PDF {-}
 [Chapitre 16 : Intégration des fonctions continues sur un segment](PDF/tsi1-chap16.pdf)
 
 ## Navigation {-}
+
 ::: {.chap-nav}
+
 [Chapitre 15 : Représentations matricielles](tsi1-chap15.qmd){.prev}
 [Menu TSI1](tsi1.qmd){.home}
 [Chapitre 17 : Dénombrement](tsi1-chap17.qmd){.next}
+
 :::

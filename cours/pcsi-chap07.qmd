@@ -37,23 +37,31 @@ Dans ce chapitre, $\mathbb{K}$ désigne $\mathbb{R}$ ou $\mathbb{C}$. Les foncti
 ## Dérivée en un point
 
 ::: {.definition}
+
 Soit $f : I \to \mathbb{K}$ une fonction et $x_0 \in I$. On dit que $f$ est **dérivable en $x_0$** si le taux d'accroissement $\frac{f(x)-f(x_0)}{x-x_0}$ admet une limite finie lorsque $x$ tend vers $x_0$. Cette limite est appelée **nombre dérivé** de $f$ en $x_0$ et notée $f'(x_0)$. Ainsi :
 $$f'(x_0)= \lim_{x\to x_0} \frac{f(x)-f(x_0)}{x-x_0}$$
+
 :::
 
 ::: {.definition}
+
 $f$ est **dérivable sur $I$** si elle est dérivable en tout point de $I$. La fonction $x \mapsto f'(x)$ est la **fonction dérivée** de $f$, notée $f'$ ou $\frac{df}{dx}$.
+
 :::
 
 ::: {.example}
+
 La fonction $f(x)=x^2$ est dérivable en tout $x_0 \in \mathbb{R}$ car :
 $$\frac{x^2-x_0^2}{x-x_0} = x+x_0 \xrightarrow[x \to x_0]{} 2x_0.$$
 Donc $f'(x)=2x$.
+
 :::
 
 ::: {.example}
+
 Montrons que la dérivée de $f(x)=\sin x$ est $f'(x)=\cos x$. En utilisant $\sin p-\sin q = 2\sin \frac{p-q}{2}\cos\frac{p+q}{2}$ et $\frac{\sin u}{u} \to 1$ quand $u \to 0$ :
 $$\frac{\sin x - \sin x_0}{x-x_0} = \frac{\sin \frac{x-x_0}{2}}{\frac{x-x_0}{2}} \cdot \cos \frac{x+x_0}{2} \xrightarrow[x\to x_0]{} 1 \cdot \cos x_0.$$
+
 :::
 
 ## Tangente
@@ -64,21 +72,29 @@ $$y = (x-x_0) f'(x_0) + f(x_0)$$
 ## Autres écritures de la dérivée
 
 ::: {.proposition}
+
 \label{prop:ecrideriv}
 $f$ est dérivable en $x_0$ si et seulement s'il existe $\ell \in \mathbb{K}$ (qui sera $f'(x_0)$) et une fonction $\epsilon : I \to \mathbb{R}$ telle que $\epsilon(x) \xrightarrow[x\to x_0]{} 0$ avec :
 $$f(x)=f(x_0)+(x-x_0) \ell + (x-x_0) \epsilon(x).$$
+
 :::
 
 ::: {.proposition}
+
 Si $f$ est dérivable en $x_0$ alors $f$ est continue en $x_0$. Si $f$ est dérivable sur $I$ alors $f$ est continue sur $I$.
+
 :::
 
 ::: {.remark}
+
 La réciproque est **fausse** : la fonction valeur absolue est continue en $0$ mais n'y est pas dérivable. Il y a une demi-tangente à droite (pente $+1$) et une demi-tangente à gauche (pente $-1$), mais elles ont des directions différentes.
+
 :::
 
 ::: {.remark}
+
 On définit de même la **dérivabilité à gauche** et **à droite** en $x_0$. $f$ est dérivable en $x_0$ si et seulement si elle est dérivable à gauche et à droite en $x_0$ avec $f_g'(x_0)=f_d'(x_0)$.
+
 :::
 
 # Calcul des dérivées
@@ -86,6 +102,7 @@ On définit de même la **dérivabilité à gauche** et **à droite** en $x_0$. 
 ## Somme, produit, quotient
 
 ::: {.proposition}
+
 \label{operation}
 Soient $f,g : I \to \mathbb{K}$ deux fonctions dérivables sur $I$. Pour tout $x \in I$ :
 
@@ -94,6 +111,7 @@ Soient $f,g : I \to \mathbb{K}$ deux fonctions dérivables sur $I$. Pour tout $x
 -   $(f \times g)'(x) = f'(x)g(x)+f(x)g'(x)$
 -   $\left(\frac{1}{f}\right)'(x)=-\frac{f'(x)}{f(x)^2}$ (si $f(x) \neq 0$)
 -   $\left(\frac{f}{g}\right)'(x)=\frac{f'(x)g(x)-f(x)g'(x)}{g(x)^2}$ (si $g(x) \neq 0$)
+
 :::
 
 ## Dérivée de fonctions usuelles
@@ -111,31 +129,41 @@ Soient $f,g : I \to \mathbb{K}$ deux fonctions dérivables sur $I$. Pour tout $x
 | $\tan x$ | $1+\tan^2 x = \frac{1}{\cos^2 x}$ | $\mathbb{R} \setminus \{\frac{\pi}{2}+k\pi\}$ |
 
 ::: {.remark}
+
 Pour dériver $x \mapsto a^x$ ($a>0$), il faut écrire $a^x = e^{x\ln a}$, d'où $(a^x)' = \ln(a) \cdot a^x$.
+
 :::
 
 ## Composition
 
 ::: {.proposition}
+
 \label{composition}
 Si $f$ est dérivable en $x$ et $g$ est dérivable en $f(x)$ alors $g\circ f$ est dérivable en $x$ de dérivée :
 $$(g \circ f)'(x) = g'(f(x)) \cdot f'(x)$$
+
 :::
 
 ::: {.corollary}
+
 Soit $f : I \to J$ dérivable et bijective de bijection réciproque $f^{-1} : J \to I$. Si $f'$ ne s'annule pas sur $I$ alors $f^{-1}$ est dérivable et pour tout $y \in J$ :
 $$(f^{-1})'(y)= \frac{1}{f'(f^{-1}(y))}$$
+
 :::
 
 ## Dérivées successives et classes $\mathcal{C}^k$
 
 ::: {.definition}
+
 Si $f'$ est dérivable, on note $f''=(f')'$ la **dérivée seconde**. Plus généralement, $f^{(0)} = f$ et $f^{(n+1)} = (f^{(n)})'$. Si $f^{(n)}$ existe, $f$ est **$n$ fois dérivable**. Si de plus $f^{(n)}$ est continue, $f$ est de **classe $\mathcal{C}^n$**. Si $f$ est $\mathcal{C}^n$ pour tout $n$, elle est de classe $\mathcal{C}^\infty$.
+
 :::
 
 ::: {.theorem title="(Formule de Leibniz)"}
+
 Si $f$ et $g$ sont $n$ fois dérivables sur $I$ :
 $$(f \cdot g)^{(n)} = \sum_{k=0}^n \binom{n}{k} f^{(n-k)} \cdot g^{(k)}$$
+
 :::
 
 # Extremum local, théorème de Rolle
@@ -143,22 +171,29 @@ $$(f \cdot g)^{(n)} = \sum_{k=0}^n \binom{n}{k} f^{(n-k)} \cdot g^{(k)}$$
 ## Extremum local
 
 ::: {.definition}
+
 -   $x_0$ est un **point critique** de $f$ si $f'(x_0)=0$.
 -   $f$ admet un **maximum local** (resp. **minimum local**) en $x_0$ s'il existe un intervalle ouvert $J$ contenant $x_0$ tel que $f(x) \leq f(x_0)$ (resp. $f(x) \geq f(x_0)$) pour tout $x \in I \cap J$.
+
 :::
 
 ::: {.theorem}
+
 \label{th:extremum}
 Soit $I$ un intervalle ouvert et $f : I \to \mathbb{R}$ dérivable. Si $f$ admet un extremum local en $x_0 \in I$, alors $f'(x_0)=0$.
+
 :::
 
 ::: {.remark}
+
 La réciproque est fausse : $f(x)=x^3$ vérifie $f'(0)=0$ mais $0$ n'est pas un extremum local. Attention aussi aux extrémités d'un intervalle fermé où $f'(a)$ et $f'(b)$ ne sont pas nécessairement nulles.
+
 :::
 
 ## Théorème de Rolle
 
 ::: {.theorem title="(Théorème de Rolle)"}
+
 \label{th:rolle}
 Soit $f:[a,b] \to \mathbb{R}$ telle que :
 -   $f$ est continue sur $[a,b]$,
@@ -166,6 +201,7 @@ Soit $f:[a,b] \to \mathbb{R}$ telle que :
 -   $f(a)=f(b)$.
 
 Alors il existe $c \in ]a,b[$ tel que $f'(c)=0$.
+
 :::
 
 Interprétation géométrique : il existe au moins un point du graphe où la tangente est horizontale.
@@ -175,40 +211,54 @@ Interprétation géométrique : il existe au moins un point du graphe où la tan
 ## Énoncé et conséquences
 
 ::: {.theorem title="(Théorème des accroissements finis)"}
+
 Soit $f:[a,b] \to \mathbb{R}$ continue sur $[a,b]$ et dérivable sur $]a,b[$. Il existe $c \in ]a,b[$ tel que :
 $$f(b)-f(a)= f'(c)(b-a)$$
+
 :::
 
 ::: {.theorem title="(Limite de la dérivée)"}
+
 Soit $f: I \to \mathbb{K}$ continue sur $I$ et dérivable sur $I \setminus \{x_0\}$. Si $f'(x) \xrightarrow[x\to x_0]{} \ell \in \mathbb{K}$, alors $f$ est dérivable en $x_0$ et $f'(x_0)=\ell$ (donc $f'$ est continue en $x_0$).
+
 :::
 
 ::: {.corollary}
+
 Soit $f:[a,b] \to \mathbb{R}$ continue sur $[a,b]$ et dérivable sur $]a,b[$.
 -   $\forall x \in ]a,b[, f'(x) \geq 0 \iff f$ est croissante.
 -   $\forall x \in ]a,b[, f'(x) > 0 \implies f$ est strictement croissante.
 -   $\forall x \in ]a,b[, f'(x) = 0 \iff f$ est constante.
+
 :::
 
 ::: {.remark}
+
 La réciproque de "$f'(x)>0 \implies f$ strictement croissante" est fausse ($x \mapsto x^3$ est strictement croissante mais sa dérivée s'annule en 0).
+
 :::
 
 ## Inégalité des accroissements finis
 
 ::: {.corollary title="(Inégalité des accroissements finis)"}
+
 Soit $f : I \to \mathbb{K}$ dérivable sur un intervalle ouvert $I$. S'il existe $M$ tel que $|f'(x)| \leq M$ pour tout $x \in I$, alors :
 $$\forall x,y \in I, \quad |f(x)-f(y)| \leq M |x-y|$$
+
 :::
 
 ::: {.remark}
+
 Cette inégalité est valable pour les fonctions à valeurs dans $\mathbb{C}$ (contrairement au TAF). Une fonction dérivable à dérivée bornée est **lipschitzienne**.
+
 :::
 
 ## Règle de l'Hospital
 
 ::: {.corollary title="(Règle de l'Hospital)"}
+
 Soient $f,g : I \to \mathbb{R}$ dérivables, $x_0 \in I$ avec $f(x_0)=g(x_0)=0$ et $g'(x) \neq 0$ sur $I \setminus \{x_0\}$. Si $\lim_{x\to x_0} \frac{f'(x)}{g'(x)} = \ell \in \mathbb{R}$, alors $\lim_{x\to x_0} \frac{f(x)}{g(x)} = \ell$.
+
 :::
 
 # Suites récurrentes
@@ -218,35 +268,48 @@ Soient $f,g : I \to \mathbb{R}$ dérivables, $x_0 \in I$ avec $f(x_0)=g(x_0)=0$ 
 L'étude des suites récurrentes permet d'introduire la notion de vitesse de convergence. Sur des exemples, on met en évidence divers comportements (convergence lente, géométrique, quadratique).
 
 ::: {.definition}
+
 Un intervalle $J$ est **stable** par $f$ si $f(J) \subset J$. Un réel $\alpha$ est un **point fixe** de $f$ si $f(\alpha)=\alpha$.
+
 :::
 
 ::: {.proposition}
+
 Si $(u_n)$ converge vers $\alpha$ et si $f$ est continue en $\alpha$, alors $\alpha$ est un point fixe de $f$.
+
 :::
 
 ::: {.remark}
+
 Pour étudier la monotonie de $(u_n)$, on étudie le signe de $f(x)-x$ et on utilise la croissance éventuelle de $f$ :
 -   Si $f$ est croissante sur un intervalle stable $J$, alors $(u_n)$ est monotone.
 -   Si $f$ est décroissante, $(u_{2n})$ et $(u_{2n+1})$ sont monotones de sens opposés.
+
 :::
 
 ::: {.proposition title="(Vitesse de convergence)"}
+
 Soit $\alpha$ un point fixe de $f$ et $(u_n)$ définie par $u_{n+1}=f(u_n)$ convergeant vers $\alpha$.
 -   Si $|f'(x)| \leq k < 1$ au voisinage de $\alpha$ (**contractante**), la convergence est **géométrique** : $|u_n-\alpha| \leq C k^n$.
 -   Si $f'(\alpha)=0$ et $f''$ est bornée au voisinage de $\alpha$, la convergence est **quadratique** : $|u_{n+1}-\alpha| \leq C |u_n-\alpha|^2$.
+
 :::
 
 ::: {.example title="(Méthode de Newton)"}
+
 Pour résoudre $g(x)=0$ avec $g$ de classe $\mathcal{C}^2$ et $g'(\alpha) \neq 0$, on utilise $f(x)=x-\frac{g(x)}{g'(x)}$. On vérifie que $f(\alpha)=\alpha$ et $f'(\alpha)=0$, ce qui assure une convergence quadratique vers $\alpha$ si $u_0$ est assez proche de $\alpha$.
+
 :::
 
 # Document en PDF {-}
 [Chapitre 07 : Fonctions de la variable réelle, dérivation](PDF/pcsi-chap07.pdf)
 
 ## Navigation {-}
+
 ::: {.chap-nav}
+
 [Chapitre 06 : Fonctions de la variable réelle, limites et continuité](pcsi-chap06.qmd){.prev}
 [Menu PCSI](pcsi.qmd){.home}
 [Chapitre 08 : Fonctions usuelles, fonctions convexes](pcsi-chap08.qmd){.next}
+
 :::

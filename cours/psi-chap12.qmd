@@ -36,96 +36,128 @@ Dans tout ce chapitre, $E = \mathbb{R}^p$ et $F = \mathbb{R}^n$ sont des espaces
 ## Dérivée selon un vecteur
 
 ::: {.definition title="(Application partielle en un point selon un vecteur)"}
+
 Soit $a \in \Omega$ et $h \in E \setminus \{0\}$. Comme $\Omega$ est ouvert, il existe $\delta > 0$ tel que pour tout $t \in ]-\delta, \delta[$, $a + th \in \Omega$. On peut donc définir l'**application partielle de $f$ en $a$ selon le vecteur $h$** :
 $$f_{a,h} : ]-\delta, \delta[ \to F, \quad t \mapsto f(a + th)$$
+
 :::
 
 ::: {.definition title="(Dérivée selon un vecteur)"}
+
 On dit que $f$ admet une **dérivée en $a$ selon le vecteur $h$** si l'application partielle $f_{a,h}$ est dérivable en $0$. On note alors :
 $$D_h f(a) = f_{a,h}'(0) = \lim_{t \to 0} \frac{f(a + th) - f(a)}{t}$$
+
 :::
 
 ::: {.proposition title="(Caractérisation par les composantes)"}
+
 Soit $f = (f_1, \ldots, f_n)$ avec $f_i : \Omega \to \mathbb{R}$. Alors $f$ admet une dérivée en $a$ selon $h$ si et seulement si toutes les composantes $f_i$ admettent une dérivée en $a$ selon $h$. Dans ce cas :
 $$D_h f(a) = \sum_{i=1}^n (D_h f_i)(a) \cdot v_i$$
+
 :::
 
 ## Dérivées partielles
 
 ::: {.definition title="(Dérivée partielle)"}
+
 On dit que $f$ est **partiellement dérivable en $a$ selon la variable $x_j$** si $f$ admet une dérivée en $a$ selon le vecteur $e_j$ de la base $\mathcal{B}_E$. On note :
 $$\frac{\partial f}{\partial x_j}(a) = \partial_j f(a) = D_{e_j} f(a) = \lim_{t \to 0} \frac{f(a + t e_j) - f(a)}{t}$$
+
 :::
 
 ::: {.example}
+
 Pour $f(x, y) = x^2 y + e^{xy}$ définie sur $\mathbb{R}^2$ :
 $$\frac{\partial f}{\partial x}(x, y) = 2xy + y e^{xy}, \quad \frac{\partial f}{\partial y}(x, y) = x^2 + x e^{xy}$$
+
 :::
 
 ::: {.proposition title="(Dérivée selon tout vecteur pour une fonction $\mathcal{C}^1$)"}
+
 Si $f : \Omega \to \mathbb{R}$ est de classe $\mathcal{C}^1$ sur l'ouvert $\Omega$, alors pour tout point $a \in \Omega$ et tout vecteur non nul $h = (h_1, \ldots, h_p) \in \mathbb{R}^p$, $f$ admet une dérivée selon le vecteur $h$ au point $a$ et :
 $$D_h f(a) = \sum_{k=1}^p h_k \frac{\partial f}{\partial x_k}(a)$$
+
 :::
 
 ## Différentielle
 
 ::: {.definition title="(Différentielle)"}
+
 On dit que $f : \Omega \to F$ est **différentiable en $a$** s'il existe une application linéaire $L \in \mathcal{L}(E, F)$ telle que :
 $$f(a + h) = f(a) + L(h) + o(\|h\|) \quad \text{quand } h \to 0$$
 
 L'application linéaire $L$, si elle existe, est unique. On l'appelle la **différentielle** de $f$ en $a$ et on la note $df(a)$ ou $d_a f$.
+
 :::
 
 ::: {.proposition title="(Différentiabilité implique continuité)"}
+
 Si $f$ est différentiable en $a$, alors $f$ est continue en $a$.
+
 :::
 
 ::: {.proposition title="(Différentiabilité et dérivées selon les vecteurs)"}
+
 Si $f$ est différentiable en $a$, alors $f$ admet une dérivée en $a$ selon tout vecteur $h \neq 0$ et :
 $$D_h f(a) = df(a)(h)$$
+
 :::
 
 ::: {.proposition title="(Différentiabilité et dérivées partielles)"}
+
 Si $f$ est différentiable en $a$, alors $f$ possède en $a$ une dérivée partielle selon chacune de ses variables et :
 $$df(a)(e_j) = \frac{\partial f}{\partial x_j}(a)$$
 
 De plus, pour tout $h = (h_1, \ldots, h_p) \in E$ :
 $$df(a)(h) = \sum_{j=1}^p h_j \frac{\partial f}{\partial x_j}(a)$$
+
 :::
 
 ::: {.remarque}
+
 La réciproque est fausse : l'existence des dérivées partielles n'implique pas la différentiabilité.
+
 :::
 
 ## Matrice Jacobienne
 
 ::: {.definition title="(Matrice Jacobienne)"}
+
 Si $f$ est différentiable en $a$, la **matrice Jacobienne** de $f$ en $a$, notée $J_f(a)$, est la matrice de $df(a)$ dans les bases $\mathcal{B}_E$ et $\mathcal{B}_F$ :
 $$J_f(a) = \begin{pmatrix} \frac{\partial f_1}{\partial x_1}(a) & \cdots & \frac{\partial f_1}{\partial x_p}(a) \\ \vdots & \ddots & \vdots \\ \frac{\partial f_n}{\partial x_1}(a) & \cdots & \frac{\partial f_n}{\partial x_p}(a) \end{pmatrix}$$
+
 :::
 
 ## Vecteur Gradient
 
 ::: {.definition title="(Gradient)"}
+
 Soit $f : \Omega \to \mathbb{R}$ une fonction numérique différentiable en $a$. Le **gradient** de $f$ en $a$ est le vecteur :
 $$\nabla f(a) = \left(\frac{\partial f}{\partial x_1}(a), \ldots, \frac{\partial f}{\partial x_p}(a)\right)$$
 
 Alors pour tout accroissement $h = (h_1, \ldots, h_p)$ :
 $$D_h f(a) = df(a)(h) = \langle \nabla f(a), h \rangle$$
+
 :::
 
 ## Définition des fonctions de classe $\mathcal{C}^1$
 
 ::: {.definition title="(Fonction de classe $\mathcal{C}^1$)"}
+
 On dit que $f : \Omega \to F$ est de **classe $\mathcal{C}^1$** sur $\Omega$ si toutes les dérivées partielles $\frac{\partial f_i}{\partial x_j}$ existent et sont continues sur $\Omega$.
+
 :::
 
 ::: {.proposition}
+
 Une fonction de classe $\mathcal{C}^1$ sur $\Omega$ est différentiable en tout point de $\Omega$.
+
 :::
 
 ::: {.proposition title="(Caractérisation des fonctions de classe $\mathcal{C}^1$)"}
+
 Soit $f : \Omega \to \mathbb{R}$ une fonction numérique. Alors $f$ est de classe $\mathcal{C}^1$ sur $\Omega$ si et seulement si les $p$ fonctions dérivées partielles $\frac{\partial f}{\partial x_j}$, $j \in \{1, \ldots, p\}$, sont définies et continues sur $\Omega$.
+
 :::
 
 ## Opérations sur les fonctions de classe $\mathcal{C}^1$
@@ -139,11 +171,14 @@ $$d(fg)(a) = g(a) \, df(a) + f(a) \, dg(a)$$
 
 3. **Quotient** : Si $f, g : \Omega \to \mathbb{R}$ sont de classe $\mathcal{C}^1$ et $g$ ne s'annule pas sur $\Omega$, alors $\frac{f}{g}$ est de classe $\mathcal{C}^1$ et :
 $$d\left(\frac{f}{g}\right)(a) = \frac{g(a) \, df(a) - f(a) \, dg(a)}{(g(a))^2}$$
+
 :::
 
 ::: {.proposition title="(Composition par bilinéarité)"}
+
 Soient $G$ et $H$ deux espaces sur $\mathbb{R}$ de dimensions finies, $B$ une application bilinéaire de $F \times G$ dans $H$, et $f : \Omega \to F$, $g : \Omega \to G$ de classe $\mathcal{C}^1$. Alors $B(f, g)$ est de classe $\mathcal{C}^1$ et :
 $$d(B(f,g))(a) \cdot h = B(df(a) \cdot h, g(a)) + B(f(a), dg(a) \cdot h)$$
+
 :::
 
 # Règle de la chaîne et composition
@@ -151,39 +186,51 @@ $$d(B(f,g))(a) \cdot h = B(df(a) \cdot h, g(a)) + B(f(a), dg(a) \cdot h)$$
 ## Différentielle d'une composée
 
 ::: {.proposition title="(Différentielle d'une composée)"}
+
 Soient $f : \Omega \subset E \to F$ et $g : \Omega' \subset F \to G$ avec $f(\Omega) \subset \Omega'$.
 
 Si $f$ est différentiable en $a \in \Omega$ et $g$ est différentiable en $b = f(a)$, alors $h = g \circ f$ est différentiable en $a$ et :
 $$dh(a) = d(g \circ f)(a) = dg(f(a)) \circ df(a)$$
+
 :::
 
 ::: {.proposition title="(Jacobienne d'une composée)"}
+
 Si $f$ est différentiable en $a$ et $g$ en $b = f(a)$ :
 $$J_h(a) = J_{g \circ f}(a) = J_g(f(a)) \times J_f(a)$$
+
 :::
 
 ## Règle de la chaîne
 
 ::: {.proposition title="(Règle de la chaîne)"}
+
 Soient $f : \Omega \subset \mathbb{R}^p \to \mathbb{R}^n$ et $g : \Omega' \subset \mathbb{R}^n \to \mathbb{R}^m$ deux fonctions de classe $\mathcal{C}^1$. On pose $h = g \circ f$. Alors $h$ est de classe $\mathcal{C}^1$ et pour tout $j \in \{1, \ldots, p\}$ :
 $$\frac{\partial h}{\partial x_j}(a) = \sum_{i=1}^n \frac{\partial g}{\partial y_i}(f(a)) \cdot \frac{\partial f_i}{\partial x_j}(a)$$
+
 :::
 
 ::: {.example title="(Cas particulier : $E = \mathbb{R}$)"}
+
 Si $f : I \to \Omega'$ est de classe $\mathcal{C}^1$ sur un intervalle $I$ de $\mathbb{R}$ et $g : \Omega' \to \mathbb{R}$ est de classe $\mathcal{C}^1$, alors $h = g \circ f$ est de classe $\mathcal{C}^1$ et :
 $$h'(t) = \sum_{i=1}^n \frac{\partial g}{\partial y_i}(f(t)) \cdot f_i'(t)$$
+
 :::
 
 ## Interprétation géométrique en termes de tangentes
 
 ::: {.proposition title="(Interprétation géométrique)"}
+
 Soit $\gamma : I \to \Omega$ un arc paramétré de classe $\mathcal{C}^1$ et $f : \Omega \to F$ une application de classe $\mathcal{C}^1$. Alors $f \circ \gamma$ est de classe $\mathcal{C}^1$ et :
 $$(f \circ \gamma)'(t) = df(\gamma(t)) \cdot \gamma'(t)$$
+
 :::
 
 ::: {.remarque title="(Cas particulier fondamental)"}
+
 En prenant $\gamma(t) = a + th$, on obtient :
 $$D_h f(a) = \frac{d}{dt} f(a + th) \bigg|_{t=0} = df(a)(h)$$
+
 :::
 
 # Applications géométriques
@@ -191,42 +238,52 @@ $$D_h f(a) = \frac{d}{dt} f(a + th) \bigg|_{t=0} = df(a)(h)$$
 ## Tangente à une courbe
 
 ::: {.definition title="(Vecteur tangent)"}
+
 Soit $\gamma : I \to \mathbb{R}^n$ un arc paramétré de classe $\mathcal{C}^1$ et $a = \gamma(t_0)$. Le vecteur $\gamma'(t_0)$ est appelé **vecteur tangent** à la courbe $\gamma$ au point $a$.
 
 Si $\gamma'(t_0) \neq 0$, la droite passant par $a$ et dirigée par $\gamma'(t_0)$ est la **tangente** à la courbe au point $a$.
+
 :::
 
 ## Plan tangent à une surface
 
 ::: {.definition title="(Plan tangent)"}
+
 Soient $f \in \mathcal{C}^1(\Omega, \mathbb{R})$ et $\Sigma$ la surface d'équation $f(M) = 0$. On appelle **plan tangent** en le point régulier $M_0 \in \Sigma$ le plan passant par ce point et orthogonal à $\nabla f(M_0)$.
+
 :::
 
 ::: {.proposition title="(Équation du plan tangent)"}
+
 Avec les notations précédentes, une équation du plan tangent à $\Sigma$ en $M_0$ est :
 $$\langle \nabla f(M_0), M \rangle = \langle \nabla f(M_0), M_0 \rangle$$
 
 Autrement dit, si $M_0 = (x_0, y_0, z_0)$, l'équation du plan tangent est :
 $$\frac{\partial f}{\partial x}(M_0)(x - x_0) + \frac{\partial f}{\partial y}(M_0)(y - y_0) + \frac{\partial f}{\partial z}(M_0)(z - z_0) = 0$$
+
 :::
 
 ::: {.example}
+
 Soit $f(x, y) = x^2 + y^2$. Le graphe de $f$ est la surface $\Sigma : z = x^2 + y^2$.
 
 Au point $M_0 = (1, 1, 2)$, on a $\nabla f(1, 1) = (2, 2)$.
 
 L'équation du plan tangent est :
 $$2(x - 1) + 2(y - 1) - (z - 2) = 0 \iff z = 2x + 2y - 2$$
+
 :::
 
 ## Vecteurs tangents au graphe d'une fonction
 
 ::: {.proposition}
+
 Soit $f : \Omega \subset \mathbb{R}^2 \to \mathbb{R}$ différentiable et $X$ le graphe de $f$, c'est-à-dire la partie de $\mathbb{R}^3$ définie par :
 $$X = \{(x, y, z) \mid (x, y) \in \Omega \text{ et } z = f(x, y)\}$$
 
 Les vecteurs tangents à $X$ en $(a, b, c) \in X$ constituent le plan d'équation :
 $$\frac{\partial f}{\partial x}(a, b) \cdot x + \frac{\partial f}{\partial y}(a, b) \cdot y - z = 0$$
+
 :::
 
 # Applications de classe $\mathcal{C}^2$
@@ -234,70 +291,88 @@ $$\frac{\partial f}{\partial x}(a, b) \cdot x + \frac{\partial f}{\partial y}(a,
 ## Définition
 
 ::: {.definition title="(Dérivées partielles d'ordre 2)"}
+
 Soit $U \subset \mathbb{R}^2$ un ouvert et $f : U \to \mathbb{R}$ une fonction numérique de classe $\mathcal{C}^1(U, \mathbb{R})$. On peut donc définir les fonctions dérivées partielles :
 $$\frac{\partial f}{\partial x} : U \to \mathbb{R}, \quad a \mapsto \frac{\partial f}{\partial x}(a) \quad \text{et} \quad \frac{\partial f}{\partial y} : U \to \mathbb{R}, \quad a \mapsto \frac{\partial f}{\partial y}(a)$$
 
 Si ces fonctions sont elles-mêmes dérivables, on obtient les **dérivées partielles d'ordre 2** :
 $$\frac{\partial^2 f}{\partial x^2}, \quad \frac{\partial^2 f}{\partial y^2}, \quad \frac{\partial^2 f}{\partial x \partial y}, \quad \frac{\partial^2 f}{\partial y \partial x}$$
+
 :::
 
 ::: {.definition title="(Fonction de classe $\mathcal{C}^2$)"}
+
 $f$ est de **classe $\mathcal{C}^2$** si et seulement si $f$ et ses $p$ dérivées partielles $\frac{\partial f}{\partial x_j}$ sont de classe $\mathcal{C}^1$, c'est-à-dire si les $p^2$ applications $\frac{\partial}{\partial x_k}\left(\frac{\partial f}{\partial x_j}\right)$ sont définies et continues sur $\Omega$.
+
 :::
 
 ## Théorème de Schwarz
 
 ::: {.theorem title="(Théorème de Schwarz)"}
+
 Si $f$ est de classe $\mathcal{C}^2$ sur $\Omega$, alors pour tout $(j, k) \in \{1, \ldots, p\}^2$ :
 $$\frac{\partial^2 f}{\partial x_j \partial x_k} = \frac{\partial^2 f}{\partial x_k \partial x_j}$$
 
 Autrement dit, les opérateurs $\partial_j$ et $\partial_k$ commutent.
+
 :::
 
 ::: {.remarque}
+
 Plus généralement, si $f$ est de classe $\mathcal{C}^k$, pour toute permutation $\sigma$ de $\{1, \ldots, k\}$ et pour tout $(i_1, \ldots, i_k) \in \{1, \ldots, p\}^k$ :
 $$\frac{\partial^k f}{\partial x_{i_1} \cdots \partial x_{i_k}} = \frac{\partial^k f}{\partial x_{i_{\sigma(1)}} \cdots \partial x_{i_{\sigma(k)}}}$$
+
 :::
 
 ## Développement limité à l'ordre 2
 
 ::: {.proposition title="(Développement limité à l'ordre 2)"}
+
 Soit $f : \Omega \to \mathbb{R}$ une fonction de classe $\mathcal{C}^2$ sur $\Omega$. Alors pour tout $a \in \Omega$ et tout $h$ assez petit :
 $$f(a + h) = f(a) + df(a)(h) + \frac{1}{2} d^2 f(a)(h, h) + o(\|h\|^2)$$
 
 où $d^2 f(a)(h, h)$ est la forme quadratique associée à la différentielle seconde :
 $$d^2 f(a)(h, h) = \sum_{j,k=1}^p \frac{\partial^2 f}{\partial x_j \partial x_k}(a) h_j h_k$$
+
 :::
 
 ## Exemples d'équations aux dérivées partielles
 
 ::: {.example title="(Changement de variable linéaire)"}
+
 Soit $\varphi : \mathbb{R}^2 \to \mathbb{R}^2$ définie par $\varphi(u, v) = (au + bv, cu + dv)$ avec $ad - bc \neq 0$. Alors $\varphi$ est un isomorphisme de classe $\mathcal{C}^\infty$.
 
 Si $f : \mathbb{R}^2 \to \mathbb{R}$ est de classe $\mathcal{C}^2$ et $g(u, v) = f(au + bv, cu + dv)$, alors $g$ est de classe $\mathcal{C}^2$ et :
 $$\frac{\partial g}{\partial u}(u, v) = a \frac{\partial f}{\partial x}(au + bv, cu + dv) + c \frac{\partial f}{\partial y}(au + bv, cu + dv)$$
 $$\frac{\partial g}{\partial v}(u, v) = b \frac{\partial f}{\partial x}(au + bv, cu + dv) + d \frac{\partial f}{\partial y}(au + bv, cu + dv)$$
+
 :::
 
 ::: {.example title="(Changement de variable en coordonnées polaires)"}
+
 On pose $x = r\cos\theta$ et $y = r\sin\theta$. Alors :
 $$\frac{\partial F}{\partial r}(r, \theta) = \cos\theta \frac{\partial f}{\partial x}(r\cos\theta, r\sin\theta) + \sin\theta \frac{\partial f}{\partial y}(r\cos\theta, r\sin\theta)$$
 $$\frac{\partial F}{\partial \theta}(r, \theta) = -r\sin\theta \frac{\partial f}{\partial x}(r\cos\theta, r\sin\theta) + r\cos\theta \frac{\partial f}{\partial y}(r\cos\theta, r\sin\theta)$$
+
 :::
 
 ::: {.example title="(Équation aux dérivées partielles du premier ordre)"}
+
 Résoudre l'équation $\frac{\partial f}{\partial x} = 0$ sur $\mathbb{R}^2$.
 
 On a $\frac{\partial f}{\partial x} = 0$ si et seulement s'il existe $h : \mathbb{R} \to \mathbb{R}$ de classe $\mathcal{C}^1$ telle que :
 $$\forall (x, y) \in \mathbb{R}^2, \quad f(x, y) = h(y)$$
+
 :::
 
 ::: {.example title="(Équation des ondes)"}
+
 Résoudre l'équation des ondes $\frac{\partial^2 f}{\partial x^2} - \frac{\partial^2 f}{\partial y^2} = 0$ en utilisant un changement de variable linéaire.
 
 En posant $u = x + y$ et $v = x - y$, on obtient $\frac{\partial^2 f}{\partial u \partial v} = 0$, dont les solutions sont de la forme :
 $$f(u, v) = \varphi(u) + \psi(v)$$
 où $\varphi$ et $\psi$ sont des fonctions de classe $\mathcal{C}^2$.
+
 :::
 
 # Extremums d'une fonction de $\mathbb{R}^n$ dans $\mathbb{R}$
@@ -305,64 +380,83 @@ où $\varphi$ et $\psi$ sont des fonctions de classe $\mathcal{C}^2$.
 ## Définitions
 
 ::: {.definition title="(Extremum local)"}
+
 Soit $f : \Omega \to \mathbb{R}$ une fonction numérique. On dit que $f$ admet un **maximum local** (resp. **minimum local**) en $a \in \Omega$ s'il existe un voisinage $V$ de $a$ dans $\Omega$ tel que :
 $$\forall x \in V, \quad f(x) \leq f(a) \quad (\text{resp. } f(x) \geq f(a))$$
 
 On dit que $f$ admet un **extremum local** en $a$ si $f$ admet un maximum local ou un minimum local en $a$.
+
 :::
 
 ::: {.definition title="(Extremum global)"}
+
 On dit que $f$ admet un **maximum global** (resp. **minimum global**) en $a \in \Omega$ si :
 $$\forall x \in \Omega, \quad f(x) \leq f(a) \quad (\text{resp. } f(x) \geq f(a))$$
+
 :::
 
 ::: {.definition title="(Point critique)"}
+
 On dit que $a \in \Omega$ est un **point critique** de $f$ si $f$ est différentiable en $a$ et :
 $$df(a) = 0 \quad \text{c'est-à-dire} \quad \nabla f(a) = 0$$
+
 :::
 
 ## Théorème d'ordre 1
 
 ::: {.theorem title="(Condition nécessaire d'ordre 1)"}
+
 Soit $f : \Omega \to \mathbb{R}$ une fonction de classe $\mathcal{C}^1$ sur $\Omega$. Si $f$ admet un extremum local en $a \in \Omega$, alors :
 $$df(a) = 0 \quad \text{c'est-à-dire} \quad \nabla f(a) = 0$$
+
 :::
 
 ::: {.proof}
+
 Soit $h \in E$ un vecteur non nul. Comme $\Omega$ est ouvert, il existe $\delta > 0$ tel que pour tout $t \in ]-\delta, \delta[$, $a + th \in \Omega$. La fonction :
 $$\varphi(t) = f(a + th)$$
 admet un extremum local en $t = 0$. Comme $\varphi$ est dérivable en $0$, on a $\varphi'(0) = 0$, c'est-à-dire $df(a)(h) = 0$. Ceci étant vrai pour tout $h$, on a $df(a) = 0$.
+
 :::
 
 ## Étude au second ordre
 
 ::: {.proposition title="(Condition suffisante d'ordre 2)"}
+
 Soit $f : \Omega \to \mathbb{R}$ une fonction de classe $\mathcal{C}^2$ sur un ouvert $\Omega$ de $\mathbb{R}^n$. Si $a \in \Omega$ est un point critique ($\nabla f(a) = 0$), alors :
 
 1. Si la matrice hessienne $H_f(a)$ est **définie positive**, $f$ admet un minimum local strict en $a$.
 2. Si la matrice hessienne $H_f(a)$ est **définie négative**, $f$ admet un maximum local strict en $a$.
+
 :::
 
 ::: {.definition title="(Matrice hessienne)"}
+
 La **matrice hessienne** de $f$ en $a$ est la matrice :
 $$H_f(a) = \left(\frac{\partial^2 f}{\partial x_i \partial x_j}(a)\right)_{1 \leq i, j \leq n}$$
+
 :::
 
 ::: {.remarque}
+
 Si la matrice hessienne $H_f(a)$ n'est ni définie positive ni définie négative, on ne peut pas conclure. Le point $a$ peut être un **point selle**.
+
 :::
 
 ## Méthode d'étude des extremums globaux
 
 ::: {.proposition title="(Méthode d'étude)"}
+
 Pour étudier les extremums globaux d'une fonction $f$ sur un domaine $K$ :
 
 1. **Étudier $f$ sur l'intérieur de $K$** : déterminer les points critiques de $f$ sur $\mathring{K}$ et leur nature.
 2. **Étudier $f$ sur le bord de $K$** : restreindre $f$ au bord de $K$ et étudier les extremums de ces restrictions.
 3. **Comparer les valeurs** : comparer les valeurs de $f$ aux points critiques intérieurs et sur le bord.
+
 :::
 
 ::: {.example}
+
 On considère le domaine $\Delta = \{(x, y) \in \mathbb{R}^2 \mid -1 \leq x \leq y \leq 1\}$ et la fonction $f$ définie sur $\Delta$ par $f(x, y) = (y - x)^3 + 6xy$. Déterminer son maximum et son minimum global.
 
 **Étape 1** : Le domaine $\Delta$ est un triangle. La fonction $f$ est de classe $\mathcal{C}^1$ sur l'intérieur $\mathring{\Delta} = \{(x, y) \in \mathbb{R}^2 \mid -1 < x < y < 1\}$.
@@ -375,53 +469,73 @@ $$\frac{\partial f}{\partial x}(x, y) = 6y - 3(y - x)^2, \quad \frac{\partial f}
 **Étape 4** : On étudie la restriction de $f$ sur les trois segments qui forment le bord du domaine.
 
 **Étape 5** : On compare les valeurs et on conclut.
+
 :::
 
 # Exercices
 
 ::: {.exercise}
+
 Soit $f(x, y) = x^2 y + e^{xy}$. Calculer $\frac{\partial f}{\partial x}$, $\frac{\partial f}{\partial y}$ et $\nabla f$.
+
 :::
 
 ::: {.exercise}
+
 Soit $f(x, y) = \sqrt{x^2 + y^2}$. Montrer que $f$ n'est pas différentiable en $(0,0)$.
+
 :::
 
 ::: {.exercise}
+
 Soit $f(x, y, z) = x^2 + y^2 - z^2$. Déterminer les points critiques de $f$ et leur nature.
+
 :::
 
 ::: {.exercise}
+
 Résoudre l'équation aux dérivées partielles :
 $$\frac{\partial f}{\partial x} + 2\frac{\partial f}{\partial y} = 0$$
 en utilisant un changement de variable linéaire.
+
 :::
 
 ::: {.exercise}
+
 Soit $f(x, y) = x^2 y + \sin(xy)$. Calculer $\frac{\partial^2 f}{\partial x \partial y}$ et $\frac{\partial^2 f}{\partial y \partial x}$. Vérifier le théorème de Schwarz.
+
 :::
 
 ::: {.exercise title="(Extremums)"}
+
 Soit $f(x, y) = x^2 + y^2 - 2x - 4y + 5$.
 
 1. Déterminer les points critiques de $f$.
 2. Déterminer la nature de chaque point critique.
 3. $f$ admet-elle un extremum global ? Si oui, lequel ?
+
 :::
 
 ::: {.exercise title="(Plan tangent)"}
+
 Soit $f(x, y) = x^2 + y^2$. Déterminer l'équation du plan tangent au graphe de $f$ au point $(1, 1, 2)$.
+
 :::
 
 ::: {.exercise title="(Équation des ondes)"}
+
 Résoudre l'équation des ondes $\frac{\partial^2 f}{\partial x^2} - \frac{\partial^2 f}{\partial y^2} = 0$ en utilisant le changement de variable $u = x + y$, $v = x - y$.
+
 :::
 
 # Document en PDF {-}
 [Chapitre 12 : Calcul différentiel](PDF/psi-chap12.pdf)
 
 ## Navigation {-}
+
 ::: {.chap-nav}
+
 [Chapitre 11 : Équations différentielles linéaires](psi-chap11.qmd){.prev}
 [Menu PSI](psi.qmd){.home}
+
 :::

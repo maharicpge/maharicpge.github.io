@@ -43,30 +43,39 @@ Les notions d'orientation du plan et celle de base orthonormale directe sont adm
 ## Repères et coordonnées dans le plan
 
 ::: {.definition}
+
 Soit $O$ un point du plan et $(\vec{e}_1, \vec{e}_2)$ une famille libre de vecteurs du plan. Le couple $(O; \vec{e}_1, \vec{e}_2)$ est appelé **repère** du plan. Tout point $M$ du plan s'écrit de manière unique :
 $$\overrightarrow{OM} = x\vec{e}_1 + y\vec{e}_2$$
 Le couple $(x, y)$ est appelé **coordonnées cartésiennes** de $M$ dans ce repère.
+
 :::
 
 ::: {.definition}
+
 Un repère $(O; \vec{e}_1, \vec{e}_2)$ est dit :
 - **orthogonal** si $\vec{e}_1 \cdot \vec{e}_2 = 0$ ;
 - **orthonormé** (ou orthonormal) si de plus $\|\vec{e}_1\| = \|\vec{e}_2\| = 1$ ;
 - **orthonormé direct** si de plus la base $(\vec{e}_1, \vec{e}_2)$ est directe (c'est-à-dire que $\vec{e}_2$ est obtenu en faisant tourner $\vec{e}_1$ d'un angle $+\frac{\pi}{2}$).
+
 :::
 
 ::: {.remark}
+
 Le **changement de repère** est une technique fondamentale. Si $(O; \vec{e}_1, \vec{e}_2)$ et $(O'; \vec{e}'_1, \vec{e}'_2)$ sont deux repères du plan, alors les coordonnées d'un point $M$ dans les deux repères sont liées par une relation linéaire.
+
 :::
 
 ## Coordonnées polaires
 
 ::: {.definition}
+
 Soit $(\vec{e}_1, \vec{e}_2)$ la base canonique de $\mathbb{R}^2$ et $\theta \in \mathbb{R}$. Le **repère polaire** $(\vec{u}(\theta), \vec{v}(\theta))$ du plan euclidien $\mathbb{R}^2$ est défini par :
 $$\vec{u}(\theta) = (\cos\theta)\vec{e}_1 + (\sin\theta)\vec{e}_2 \quad ; \quad \vec{v}(\theta) = -(\sin\theta)\vec{e}_1 + (\cos\theta)\vec{e}_2$$
+
 :::
 
 ::: {.definition}
+
 Soit $M$ un point du plan muni d'un repère orthonormé direct $(O; \vec{e}_1, \vec{e}_2)$. Les **coordonnées polaires** de $M$ sont le couple $(\rho, \theta)$ où :
 - $\rho = OM = \|\overrightarrow{OM}\| \geq 0$ est la **distance** de $M$ à $O$ ;
 - $\theta$ est une **mesure de l'angle** $(\vec{e}_1, \overrightarrow{OM})$.
@@ -76,213 +85,288 @@ $$\boxed{\begin{cases} x = \rho \cos\theta \\ y = \rho \sin\theta \end{cases}}$$
 
 Réciproquement, si $(x, y) \neq (0, 0)$ :
 $$\rho = \sqrt{x^2 + y^2} \quad ; \quad \cos\theta = \frac{x}{\rho} \quad ; \quad \sin\theta = \frac{y}{\rho}$$
+
 :::
 
 ::: {.example}
+
 Le point $M$ de coordonnées polaires $\left(2, \frac{\pi}{3}\right)$ a pour coordonnées cartésiennes :
 $$x = 2\cos\frac{\pi}{3} = 2 \times \frac{1}{2} = 1 \quad ; \quad y = 2\sin\frac{\pi}{3} = 2 \times \frac{\sqrt{3}}{2} = \sqrt{3}$$
 Donc $M$ a pour coordonnées cartésiennes $(1, \sqrt{3})$.
+
 :::
 
 ::: {.exercise}
+
 Déterminer les coordonnées polaires du point $M(1, -\sqrt{3})$.
+
 :::
 
 ::: {.solution}
+
 On a $\rho = \sqrt{1^2 + (-\sqrt{3})^2} = \sqrt{1 + 3} = 2$.
 De plus, $\cos\theta = \frac{1}{2}$ et $\sin\theta = -\frac{\sqrt{3}}{2}$, donc $\theta = -\frac{\pi}{3}\ [2\pi]$.
 Les coordonnées polaires de $M$ sont $\left(2, -\frac{\pi}{3}\right)$.
+
 :::
 
 ## Systèmes de points pondérés et barycentres
 
 ::: {.definition}
+
 Soient $A_1, A_2, \ldots, A_n$ des points du plan et $\alpha_1, \alpha_2, \ldots, \alpha_n$ des réels tels que $\sum_{i=1}^n \alpha_i \neq 0$. Le couple $\{(A_i, \alpha_i)\}_{1 \leq i \leq n}$ est appelé **système de points pondérés**. Le point $G$ défini par :
 $$\overrightarrow{OG} = \frac{1}{\sum_{i=1}^n \alpha_i} \sum_{i=1}^n \alpha_i \overrightarrow{OA_i}$$
 (où $O$ est un point quelconque du plan) est appelé **barycentre** du système. Ce point est indépendant du choix de $O$.
+
 :::
 
 ::: {.remark}
+
 - Si tous les coefficients sont égaux ($\alpha_1 = \alpha_2 = \cdots = \alpha_n$), le barycentre est appelé **isobarycentre**.
 - L'isobarycentre de deux points est leur **milieu**.
 - L'isobarycentre de trois points est le **centre de gravité** du triangle.
+
 :::
 
 ::: {.proposition}
+
 Les coordonnées du barycentre $G$ dans un repère du plan sont :
 $$\boxed{x_G = \frac{\sum_{i=1}^n \alpha_i x_i}{\sum_{i=1}^n \alpha_i} \quad ; \quad y_G = \frac{\sum_{i=1}^n \alpha_i y_i}{\sum_{i=1}^n \alpha_i}}$$
+
 :::
 
 ::: {.example}
+
 L'isobarycentre de deux points $A(x_A, y_A)$ et $B(x_B, y_B)$ est le milieu $M$ de $[AB]$ :
 $$x_M = \frac{x_A + x_B}{2} \quad ; \quad y_M = \frac{y_A + y_B}{2}$$
+
 :::
 
 ## Produit scalaire dans le plan
 
 ::: {.definition title="(Définition géométrique)"}
+
 Soient $\vec{u}$ et $\vec{v}$ deux vecteurs du plan. Le **produit scalaire** de $\vec{u}$ et $\vec{v}$ est défini par :
 $$\vec{u} \cdot \vec{v} = \begin{cases} \|\vec{u}\| \|\vec{v}\| \cos(\widehat{\vec{u}, \vec{v}}) & \text{si } \vec{u} \neq \vec{0} \text{ et } \vec{v} \neq \vec{0} \\ 0 & \text{sinon} \end{cases}$$
+
 :::
 
 ::: {.remark}
+
 Le produit scalaire peut être interprété en termes de **projection orthogonale** : si $\vec{u} \neq \vec{0}$, alors $\vec{u} \cdot \vec{v} = \|\vec{u}\| \times \overline{OH}$ où $H$ est le projeté orthogonal de l'extrémité de $\vec{v}$ sur la droite dirigée par $\vec{u}$.
+
 :::
 
 ::: {.proposition title="(Propriétés du produit scalaire)"}
+
 Le produit scalaire vérifie les propriétés suivantes :
 1. **Symétrie** : $\vec{u} \cdot \vec{v} = \vec{v} \cdot \vec{u}$
 2. **Bilinéarité** : pour tous $\vec{u}, \vec{v}, \vec{w}$ et tout $\lambda \in \mathbb{R}$ :
 $$(\vec{u} + \vec{v}) \cdot \vec{w} = \vec{u} \cdot \vec{w} + \vec{v} \cdot \vec{w} \quad ; \quad (\lambda \vec{u}) \cdot \vec{v} = \lambda (\vec{u} \cdot \vec{v})$$
 3. **Positivité** : $\vec{u} \cdot \vec{u} = \|\vec{u}\|^2 \geq 0$ avec égalité ssi $\vec{u} = \vec{0}$
+
 :::
 
 ::: {.proposition title="(Expression dans une base orthonormée directe)"}
+
 Dans une base orthonormée directe $(\vec{e}_1, \vec{e}_2)$, si $\vec{u} = x\vec{e}_1 + y\vec{e}_2$ et $\vec{v} = x'\vec{e}_1 + y'\vec{e}_2$, alors :
 $$\boxed{\vec{u} \cdot \vec{v} = xx' + yy'}$$
+
 :::
 
 ::: {.definition}
+
 Deux vecteurs $\vec{u}$ et $\vec{v}$ sont dits **orthogonaux** si $\vec{u} \cdot \vec{v} = 0$. On note $\vec{u} \perp \vec{v}$.
+
 :::
 
 ::: {.example}
+
 Les vecteurs $\vec{u} = 3\vec{e}_1 + 2\vec{e}_2$ et $\vec{v} = -4\vec{e}_1 + 6\vec{e}_2$ sont orthogonaux car :
 $$\vec{u} \cdot \vec{v} = 3 \times (-4) + 2 \times 6 = -12 + 12 = 0$$
+
 :::
 
 ::: {.exercise}
+
 Déterminer une mesure de l'angle non orienté entre les vecteurs $\vec{u} = \vec{e}_1 + \vec{e}_2$ et $\vec{v} = \vec{e}_1 - \vec{e}_2$.
+
 :::
 
 ::: {.solution}
+
 On a $\vec{u} \cdot \vec{v} = 1 \times 1 + 1 \times (-1) = 0$. Donc les vecteurs sont orthogonaux et l'angle entre eux est $\frac{\pi}{2}$.
+
 :::
 
 ## Déterminant de deux vecteurs dans le plan
 
 ::: {.definition title="(Déterminant dans une b.o.n.d.)"}
+
 Dans une base orthonormée directe $(\vec{e}_1, \vec{e}_2)$, le **déterminant** de deux vecteurs $\vec{u} = x\vec{e}_1 + y\vec{e}_2$ et $\vec{v} = x'\vec{e}_1 + y'\vec{e}_2$ est défini par :
 $$[\vec{u}, \vec{v}] = \det(\vec{u}, \vec{v}) = xy' - x'y$$
+
 :::
 
 ::: {.proposition title="(Propriétés du déterminant)"}
+
 Le déterminant vérifie les propriétés suivantes :
 1. **Bilinéarité** : $[\vec{u} + \vec{v}, \vec{w}] = [\vec{u}, \vec{w}] + [\vec{v}, \vec{w}]$ et $[\lambda \vec{u}, \vec{v}] = \lambda [\vec{u}, \vec{v}]$
 2. **Antisymétrie** : $[\vec{u}, \vec{v}] = -[\vec{v}, \vec{u}]$
 3. $[\vec{u}, \vec{v}] = \|\vec{u}\| \|\vec{v}\| \sin(\widehat{\vec{u}, \vec{v}})$ si $\vec{u}$ et $\vec{v}$ sont non nuls ; sinon $[\vec{u}, \vec{v}] = 0$
+
 :::
 
 ::: {.proposition title="(Caractérisation de la colinéarité)"}
+
 Deux vecteurs $\vec{u}$ et $\vec{v}$ sont **colinéaires** si et seulement si :
 $$[\vec{u}, \vec{v}] = 0$$
+
 :::
 
 ::: {.remark title="(Interprétation géométrique)"}
+
 La valeur absolue $|[\vec{u}, \vec{v}]|$ représente l'**aire géométrique** du parallélogramme construit sur $\vec{u}$ et $\vec{v}$. Le déterminant $[\vec{u}, \vec{v}]$ lui-même est l'**aire algébrique** (orientée) de ce parallélogramme.
+
 :::
 
 ::: {.example}
+
 Soient $\vec{u} = 2\vec{e}_1 + 3\vec{e}_2$ et $\vec{v} = -1\vec{e}_1 + 4\vec{e}_2$. Alors :
 $$[\vec{u}, \vec{v}] = 2 \times 4 - (-1) \times 3 = 8 + 3 = 11$$
 L'aire du parallélogramme construit sur $\vec{u}$ et $\vec{v}$ est $11$.
+
 :::
 
 ## Droites du plan
 
 ::: {.definition}
+
 Une **droite** $\mathcal{D}$ du plan est définie par :
 - un point $A$ et un **vecteur directeur** $\vec{u} \neq \vec{0}$ : $\mathcal{D} = \{M \mid \overrightarrow{AM} = t\vec{u},\ t \in \mathbb{R}\}$ ;
 - ou par une **équation cartésienne** : $ax + by + c = 0$ avec $(a, b) \neq (0, 0)$.
+
 :::
 
 ::: {.proposition}
+
 Soit $\mathcal{D}$ la droite d'équation cartésienne $ax + by + c = 0$. Alors :
 - un **vecteur directeur** de $\mathcal{D}$ est $\vec{u} = -b\vec{e}_1 + a\vec{e}_2$ ;
 - un **vecteur normal** à $\mathcal{D}$ est $\vec{n} = a\vec{e}_1 + b\vec{e}_2$.
+
 :::
 
 ::: {.proposition title="(Intersection de deux droites)"}
+
 Soient $\mathcal{D}_1 : a_1 x + b_1 y + c_1 = 0$ et $\mathcal{D}_2 : a_2 x + b_2 y + c_2 = 0$ deux droites du plan.
 - Si $a_1 b_2 - a_2 b_1 \neq 0$, les droites sont sécantes en un unique point.
 - Si $a_1 b_2 - a_2 b_1 = 0$ et les équations ne sont pas proportionnelles, les droites sont parallèles.
 - Si les équations sont proportionnelles, les droites sont confondues.
+
 :::
 
 ::: {.example}
+
 Les droites $\mathcal{D}_1 : 2x + y - 1 = 0$ et $\mathcal{D}_2 : x - 3y + 2 = 0$ sont sécantes car $2 \times (-3) - 1 \times 1 = -7 \neq 0$.
 Leur point d'intersection est la solution du système :
 $$\begin{cases} 2x + y = 1 \\ x - 3y = -2 \end{cases}$$
 On trouve $x = \frac{1}{7}$ et $y = \frac{5}{7}$.
+
 :::
 
 ::: {.proposition title="(Projeté orthogonal et distance)"}
+
 Soit $\mathcal{D} : ax + by + c = 0$ une droite du plan et $M(x_0, y_0)$ un point.
 - Le **projeté orthogonal** de $M$ sur $\mathcal{D}$ est le point $H$ de $\mathcal{D}$ tel que $\overrightarrow{MH} \perp \mathcal{D}$.
 - La **distance** de $M$ à $\mathcal{D}$ est :
 $$\boxed{d(M, \mathcal{D}) = \frac{|ax_0 + by_0 + c|}{\sqrt{a^2 + b^2}}}$$
+
 :::
 
 ::: {.example}
+
 La distance du point $M(1, 2)$ à la droite $\mathcal{D} : 3x + 4y - 5 = 0$ est :
 $$d(M, \mathcal{D}) = \frac{|3 \times 1 + 4 \times 2 - 5|}{\sqrt{3^2 + 4^2}} = \frac{|3 + 8 - 5|}{5} = \frac{6}{5}$$
+
 :::
 
 ## Cercles du plan
 
 ::: {.definition}
+
 Le **cercle** $\mathscr{C}$ de centre $\Omega(a, b)$ et de rayon $r > 0$ est l'ensemble des points $M(x, y)$ tels que :
 $$\boxed{(x - a)^2 + (y - b)^2 = r^2}$$
+
 :::
 
 ::: {.proposition title="(Équation générale d'un cercle)"}
+
 Une équation de la forme $x^2 + y^2 + \alpha x + \beta y + \gamma = 0$ représente un cercle si et seulement si $\alpha^2 + \beta^2 - 4\gamma > 0$. Dans ce cas, le centre est $\Omega\left(-\frac{\alpha}{2}, -\frac{\beta}{2}\right)$ et le rayon est $r = \frac{1}{2}\sqrt{\alpha^2 + \beta^2 - 4\gamma}$.
+
 :::
 
 ::: {.example}
+
 L'équation $x^2 + y^2 - 4x + 6y - 12 = 0$ représente un cercle. On a :
 $$\alpha = -4,\ \beta = 6,\ \gamma = -12$$
 Centre : $\Omega\left(\frac{4}{2}, -\frac{6}{2}\right) = (2, -3)$.
 Rayon : $r = \frac{1}{2}\sqrt{16 + 36 + 48} = \frac{1}{2}\sqrt{100} = 5$.
+
 :::
 
 ::: {.proposition title="(Représentation paramétrique d'un cercle)"}
+
 Le cercle de centre $\Omega(a, b)$ et de rayon $r$ admet pour représentation paramétrique :
 $$\begin{cases} x = a + r\cos\theta \\ y = b + r\sin\theta \end{cases} \quad \theta \in [0, 2\pi[$$
+
 :::
 
 ::: {.exercise}
+
 Donner l'équation du cercle de centre $\Omega(1, -2)$ passant par le point $A(4, 2)$.
+
 :::
 
 ::: {.solution}
+
 Le rayon est $r = \Omega A = \sqrt{(4-1)^2 + (2-(-2))^2} = \sqrt{9 + 16} = 5$.
 L'équation du cercle est : $(x-1)^2 + (y+2)^2 = 25$, soit $x^2 + y^2 - 2x + 4y - 20 = 0$.
+
 :::
 
 ## Transformations affines du plan
 
 ::: {.definition title="(Translation)"}
+
 Soit $\vec{u}$ un vecteur du plan. La **translation** de vecteur $\vec{u}$ est la transformation qui à tout point $M$ associe le point $M'$ tel que $\overrightarrow{MM'} = \vec{u}$.
 En coordonnées : si $M(x, y)$ alors $M'(x + u_1, y + u_2)$ où $\vec{u} = u_1 \vec{e}_1 + u_2 \vec{e}_2$.
+
 :::
 
 ::: {.definition title="(Rotation)"}
+
 Soit $\Omega$ un point du plan et $\theta \in \mathbb{R}$. La **rotation** de centre $\Omega$ et d'angle $\theta$ est la transformation qui à tout point $M$ associe le point $M'$ tel que :
 $$\Omega M' = \Omega M \quad \text{et} \quad (\widehat{\overrightarrow{\Omega M}, \overrightarrow{\Omega M'}}) = \theta$$
+
 :::
 
 ::: {.definition title="(Homothétie)"}
+
 Soit $\Omega$ un point du plan et $\lambda \in \mathbb{R}^*$. L'**homothétie** de centre $\Omega$ et de rapport $\lambda$ est la transformation qui à tout point $M$ associe le point $M'$ tel que :
 $$\overrightarrow{\Omega M'} = \lambda \overrightarrow{\Omega M}$$
+
 :::
 
 ::: {.definition title="(Réflexion)"}
+
 Soit $\mathcal{D}$ une droite du plan. La **réflexion** d'axe $\mathcal{D}$ est la transformation qui à tout point $M$ associe le point $M'$ tel que $\mathcal{D}$ soit la médiatrice de $[MM']$.
+
 :::
 
 ::: {.remark}
+
 Les élèves doivent connaître divers modes de représentation de ces transformations : modes géométrique et analytique. Ces transformations sont des **transformations affines**, c'est-à-dire qu'elles conservent l'alignement et le barycentre.
+
 :::
 
 # Cas de l'espace
@@ -292,225 +376,302 @@ La notion d'orientation de l'espace et celle de base orthonormale directe sont a
 ## Repères et coordonnées dans l'espace
 
 ::: {.definition}
+
 Soit $O$ un point de l'espace et $(\vec{e}_1, \vec{e}_2, \vec{e}_3)$ une famille libre de vecteurs de l'espace. Le triplet $(O; \vec{e}_1, \vec{e}_2, \vec{e}_3)$ est appelé **repère** de l'espace. Tout point $M$ s'écrit de manière unique :
 $$\overrightarrow{OM} = x\vec{e}_1 + y\vec{e}_2 + z\vec{e}_3$$
 Le triplet $(x, y, z)$ est appelé **coordonnées cartésiennes** de $M$.
+
 :::
 
 ::: {.definition}
+
 Un repère $(O; \vec{e}_1, \vec{e}_2, \vec{e}_3)$ est dit :
 - **orthogonal** si les vecteurs sont deux à deux orthogonaux ;
 - **orthonormé** si de plus $\|\vec{e}_1\| = \|\vec{e}_2\| = \|\vec{e}_3\| = 1$ ;
 - **orthonormé direct** si de plus la base est directe.
+
 :::
 
 ::: {.remark}
+
 On peut introduire le vocabulaire relatif à l'algèbre linéaire : famille libre, famille liée, vecteurs linéairement indépendants, vecteurs colinéaires, vecteurs coplanaires.
+
 :::
 
 ## Produit scalaire dans l'espace
 
 ::: {.definition title="(Définition géométrique)"}
+
 Soient $\vec{u}$ et $\vec{v}$ deux vecteurs de l'espace. Le **produit scalaire** est défini par :
 $$\vec{u} \cdot \vec{v} = \begin{cases} \|\vec{u}\| \|\vec{v}\| \cos(\widehat{\vec{u}, \vec{v}}) & \text{si } \vec{u} \neq \vec{0} \text{ et } \vec{v} \neq \vec{0} \\ 0 & \text{sinon} \end{cases}$$
+
 :::
 
 ::: {.proposition title="(Propriétés)"}
+
 Le produit scalaire dans l'espace vérifie les mêmes propriétés que dans le plan : symétrie, bilinéarité, positivité.
+
 :::
 
 ::: {.proposition title="(Expression dans une base orthonormée)"}
+
 Dans une base orthonormée $(\vec{e}_1, \vec{e}_2, \vec{e}_3)$, si $\vec{u} = x\vec{e}_1 + y\vec{e}_2 + z\vec{e}_3$ et $\vec{v} = x'\vec{e}_1 + y'\vec{e}_2 + z'\vec{e}_3$, alors :
 $$\boxed{\vec{u} \cdot \vec{v} = xx' + yy' + zz'}$$
+
 :::
 
 ## Produit vectoriel dans l'espace
 
 ::: {.definition title="(Définition géométrique)"}
+
 Soient $\vec{u}$ et $\vec{v}$ deux vecteurs de l'espace. Le **produit vectoriel** de $\vec{u}$ et $\vec{v}$, noté $\vec{u} \wedge \vec{v}$ ou $\vec{u} \times \vec{v}$, est défini par :
 - si $\vec{u}$ et $\vec{v}$ sont colinéaires : $\vec{u} \wedge \vec{v} = \vec{0}$ ;
 - sinon : $\vec{u} \wedge \vec{v}$ est le vecteur de norme $\|\vec{u}\| \|\vec{v}\| |\sin(\widehat{\vec{u}, \vec{v}})|$, orthogonal à la fois à $\vec{u}$ et $\vec{v}$, et tel que la base $(\vec{u}, \vec{v}, \vec{u} \wedge \vec{v})$ soit directe.
+
 :::
 
 ::: {.proposition title="(Propriétés du produit vectoriel)"}
+
 1. **Bilinéarité** : $(\vec{u} + \vec{v}) \wedge \vec{w} = \vec{u} \wedge \vec{w} + \vec{v} \wedge \vec{w}$ et $(\lambda \vec{u}) \wedge \vec{v} = \lambda (\vec{u} \wedge \vec{v})$
 2. **Antisymétrie** : $\vec{u} \wedge \vec{v} = -\vec{v} \wedge \vec{u}$
 3. $\vec{u} \wedge \vec{v} = \vec{0}$ si et seulement si $\vec{u}$ et $\vec{v}$ sont colinéaires
+
 :::
 
 ::: {.proposition title="(Expression dans une b.o.n.d.)"}
+
 Dans une base orthonormée directe $(\vec{e}_1, \vec{e}_2, \vec{e}_3)$, si $\vec{u} = x\vec{e}_1 + y\vec{e}_2 + z\vec{e}_3$ et $\vec{v} = x'\vec{e}_1 + y'\vec{e}_2 + z'\vec{e}_3$, alors :
 $$\boxed{\vec{u} \wedge \vec{v} = (yz' - z'y)\vec{e}_1 + (zx' - xz')\vec{e}_2 + (xy' - yx')\vec{e}_3}$$
+
 :::
 
 ::: {.example}
+
 Soient $\vec{u} = \vec{e}_1 + 2\vec{e}_2 + 3\vec{e}_3$ et $\vec{v} = 4\vec{e}_1 + 5\vec{e}_2 + 6\vec{e}_3$. Alors :
 $$\vec{u} \wedge \vec{v} = (2 \times 6 - 3 \times 5)\vec{e}_1 + (3 \times 4 - 1 \times 6)\vec{e}_2 + (1 \times 5 - 2 \times 4)\vec{e}_3 = -3\vec{e}_1 + 6\vec{e}_2 - 3\vec{e}_3$$
+
 :::
 
 ::: {.exercise}
+
 Montrer que les vecteurs $\vec{u} = 2\vec{e}_1 - \vec{e}_2 + \vec{e}_3$ et $\vec{v} = -4\vec{e}_1 + 2\vec{e}_2 - 2\vec{e}_3$ sont colinéaires.
+
 :::
 
 ::: {.solution}
+
 On constate que $\vec{v} = -2\vec{u}$, donc $\vec{u}$ et $\vec{v}$ sont colinéaires.
 On peut aussi vérifier que $\vec{u} \wedge \vec{v} = \vec{0}$ :
 $$\vec{u} \wedge \vec{v} = ((-1)(-2) - (1)(2))\vec{e}_1 + ((1)(-4) - (2)(-2))\vec{e}_2 + ((2)(2) - (-1)(-4))\vec{e}_3 = 0\vec{e}_1 + 0\vec{e}_2 + 0\vec{e}_3 = \vec{0}$$
+
 :::
 
 ## Produit mixte dans l'espace
 
 ::: {.definition}
+
 Soient $\vec{u}$, $\vec{v}$ et $\vec{w}$ trois vecteurs de l'espace. Le **produit mixte** de ces trois vecteurs est défini par :
 $$[\vec{u}, \vec{v}, \vec{w}] = (\vec{u} \wedge \vec{v}) \cdot \vec{w}$$
+
 :::
 
 ::: {.remark title="(Interprétation géométrique)"}
+
 La valeur absolue $|[\vec{u}, \vec{v}, \vec{w}]|$ représente le **volume du parallélépipède** construit sur les vecteurs $\vec{u}$, $\vec{v}$ et $\vec{w}$.
+
 :::
 
 ::: {.proposition title="(Propriétés du produit mixte)"}
+
 1. **Trilinéarité** : le produit mixte est linéaire par rapport à chacune de ses trois variables.
 2. **Antisymétrie** : $[\vec{u}, \vec{v}, \vec{w}] = -[\vec{v}, \vec{u}, \vec{w}] = -[\vec{u}, \vec{w}, \vec{v}] = -[\vec{w}, \vec{v}, \vec{u}]$
 3. $[\vec{u}, \vec{v}, \vec{w}] = 0$ si et seulement si $\vec{u}$, $\vec{v}$ et $\vec{w}$ sont **coplanaires**.
+
 :::
 
 ::: {.proposition title="(Expression dans une b.o.n.d.)"}
+
 Dans une base orthonormée directe $(\vec{e}_1, \vec{e}_2, \vec{e}_3)$, si $\vec{u} = x\vec{e}_1 + y\vec{e}_2 + z\vec{e}_3$, $\vec{v} = x'\vec{e}_1 + y'\vec{e}_2 + z'\vec{e}_3$ et $\vec{w} = x''\vec{e}_1 + y''\vec{e}_2 + z''\vec{e}_3$, alors :
 $$[\vec{u}, \vec{v}, \vec{w}] = \begin{vmatrix} x & x' & x'' \\ y & y' & y'' \\ z & z' & z'' \end{vmatrix}$$
+
 :::
 
 ::: {.example}
+
 Les vecteurs $\vec{u} = \vec{e}_1$, $\vec{v} = \vec{e}_2$ et $\vec{w} = \vec{e}_3$ sont coplanaires si et seulement si :
 $$[\vec{e}_1, \vec{e}_2, \vec{e}_3] = 1 \neq 0$$
 Donc ils ne sont pas coplanaires (ce qui est cohérent avec le fait qu'ils forment une base).
+
 :::
 
 ::: {.exercise}
+
 Montrer que les vecteurs $\vec{u} = \vec{e}_1 + \vec{e}_2$, $\vec{v} = \vec{e}_2 + \vec{e}_3$ et $\vec{w} = \vec{e}_1 + \vec{e}_3$ ne sont pas coplanaires.
+
 :::
 
 ::: {.solution}
+
 On calcule le produit mixte :
 $$[\vec{u}, \vec{v}, \vec{w}] = \begin{vmatrix} 1 & 0 & 1 \\ 1 & 1 & 0 \\ 0 & 1 & 1 \end{vmatrix} = 1(1 - 0) - 0 + 1(1 - 0) = 1 + 1 = 2 \neq 0$$
 Donc les trois vecteurs ne sont pas coplanaires.
+
 :::
 
 ## Plans de l'espace
 
 ::: {.definition}
+
 Un **plan** $\mathcal{P}$ de l'espace peut être défini par :
 - un point $A$ et deux vecteurs non colinéaires $\vec{u}$ et $\vec{v}$ : $\mathcal{P} = \{M \mid \overrightarrow{AM} = t\vec{u} + s\vec{v},\ (t, s) \in \mathbb{R}^2\}$ (représentation paramétrique) ;
 - un point $A$ et un **vecteur normal** $\vec{n} \neq \vec{0}$ : $\mathcal{P} = \{M \mid \overrightarrow{AM} \cdot \vec{n} = 0\}$ ;
 - trois points non alignés.
+
 :::
 
 ::: {.proposition title="(Équation cartésienne d'un plan)"}
+
 Un plan de vecteur normal $\vec{n} = a\vec{e}_1 + b\vec{e}_2 + c\vec{e}_3$ passant par $A(x_A, y_A, z_A)$ a pour équation cartésienne :
 $$\boxed{a(x - x_A) + b(y - y_A) + c(z - z_A) = 0}$$
 soit $ax + by + cz + d = 0$ avec $d = -(ax_A + by_A + cz_A)$.
+
 :::
 
 ::: {.example}
+
 Le plan passant par $A(1, 2, 3)$ et de vecteur normal $\vec{n} = 2\vec{e}_1 - \vec{e}_2 + 3\vec{e}_3$ a pour équation :
 $$2(x - 1) - (y - 2) + 3(z - 3) = 0 \iff 2x - y + 3z - 9 = 0$$
+
 :::
 
 ::: {.proposition title="(Projeté orthogonal et distance à un plan)"}
+
 Soit $\mathcal{P} : ax + by + cz + d = 0$ un plan de l'espace et $M(x_0, y_0, z_0)$ un point.
 - Le **projeté orthogonal** de $M$ sur $\mathcal{P}$ est le point $H$ de $\mathcal{P}$ tel que $\overrightarrow{MH} \perp \mathcal{P}$.
 - La **distance** de $M$ à $\mathcal{P}$ est :
 $$\boxed{d(M, \mathcal{P}) = \frac{|ax_0 + by_0 + cz_0 + d|}{\sqrt{a^2 + b^2 + c^2}}}$$
+
 :::
 
 ::: {.example}
+
 La distance du point $M(1, 0, 2)$ au plan $\mathcal{P} : x + 2y - z + 3 = 0$ est :
 $$d(M, \mathcal{P}) = \frac{|1 + 0 - 2 + 3|}{\sqrt{1 + 4 + 1}} = \frac{2}{\sqrt{6}} = \frac{\sqrt{6}}{3}$$
+
 :::
 
 ## Droites de l'espace
 
 ::: {.definition}
+
 Une **droite** $\mathcal{D}$ de l'espace peut être définie par :
 - un point $A$ et un **vecteur directeur** $\vec{u} \neq \vec{0}$ : $\mathcal{D} = \{M \mid \overrightarrow{AM} = t\vec{u},\ t \in \mathbb{R}\}$ ;
 - deux points distincts $A$ et $B$ ;
 - l'intersection de deux plans non parallèles.
+
 :::
 
 ::: {.proposition title="(Représentation paramétrique d'une droite)"}
+
 La droite passant par $A(x_A, y_A, z_A)$ et dirigée par $\vec{u} = u_1 \vec{e}_1 + u_2 \vec{e}_2 + u_3 \vec{e}_3$ a pour représentation paramétrique :
 $$\begin{cases} x = x_A + t u_1 \\ y = y_A + t u_2 \\ z = z_A + t u_3 \end{cases} \quad t \in \mathbb{R}$$
+
 :::
 
 ::: {.proposition title="(Intersection de deux plans)"}
+
 Soient $\mathcal{P}_1 : a_1 x + b_1 y + c_1 z + d_1 = 0$ et $\mathcal{P}_2 : a_2 x + b_2 y + c_2 z + d_2 = 0$ deux plans non parallèles. Leur intersection est une droite $\mathcal{D}$.
 Un **vecteur directeur** de $\mathcal{D}$ est $\vec{u} = \vec{n}_1 \wedge \vec{n}_2$ où $\vec{n}_1$ et $\vec{n}_2$ sont des vecteurs normaux respectifs à $\mathcal{P}_1$ et $\mathcal{P}_2$.
+
 :::
 
 ::: {.example}
+
 Soient $\mathcal{P}_1 : x + y + z = 1$ et $\mathcal{P}_2 : x - y + z = 0$.
 Les vecteurs normaux sont $\vec{n}_1 = (1, 1, 1)$ et $\vec{n}_2 = (1, -1, 1)$.
 Un vecteur directeur de la droite d'intersection est :
 $$\vec{u} = \vec{n}_1 \wedge \vec{n}_2 = (1 \times 1 - 1 \times (-1), 1 \times 1 - 1 \times 1, 1 \times (-1) - 1 \times 1) = (2, 0, -2)$$
+
 :::
 
 ::: {.proposition title="(Distance d'un point à une droite)"}
+
 Soit $\mathcal{D}$ une droite de l'espace passant par $A$ et dirigée par $\vec{u}$. La distance d'un point $M$ à $\mathcal{D}$ est :
 $$\boxed{d(M, \mathcal{D}) = \frac{\|\overrightarrow{AM} \wedge \vec{u}\|}{\|\vec{u}\|}}$$
+
 :::
 
 ::: {.example}
+
 La distance du point $M(1, 2, 3)$ à la droite $\mathcal{D}$ passant par $A(0, 0, 0)$ et dirigée par $\vec{u} = \vec{e}_1 + \vec{e}_2 + \vec{e}_3$ est :
 $$\overrightarrow{AM} = \vec{e}_1 + 2\vec{e}_2 + 3\vec{e}_3$$
 $$\overrightarrow{AM} \wedge \vec{u} = (2 - 3)\vec{e}_1 + (3 - 1)\vec{e}_2 + (1 - 2)\vec{e}_3 = -\vec{e}_1 + 2\vec{e}_2 - \vec{e}_3$$
 $$d(M, \mathcal{D}) = \frac{\sqrt{1 + 4 + 1}}{\sqrt{3}} = \frac{\sqrt{6}}{\sqrt{3}} = \sqrt{2}$$
+
 :::
 
 ## Sphères
 
 ::: {.definition}
+
 La **sphère** $\mathscr{S}$ de centre $\Omega(a, b, c)$ et de rayon $r > 0$ est l'ensemble des points $M(x, y, z)$ tels que :
 $$\boxed{(x - a)^2 + (y - b)^2 + (z - c)^2 = r^2}$$
+
 :::
 
 ::: {.proposition title="(Équation générale d'une sphère)"}
+
 Une équation de la forme $x^2 + y^2 + z^2 + \alpha x + \beta y + \gamma z + \delta = 0$ représente une sphère si et seulement si $\alpha^2 + \beta^2 + \gamma^2 - 4\delta > 0$. Dans ce cas, le centre est $\Omega\left(-\frac{\alpha}{2}, -\frac{\beta}{2}, -\frac{\gamma}{2}\right)$ et le rayon est $r = \frac{1}{2}\sqrt{\alpha^2 + \beta^2 + \gamma^2 - 4\delta}$.
+
 :::
 
 ::: {.example}
+
 L'équation $x^2 + y^2 + z^2 - 2x + 4y - 6z + 5 = 0$ représente une sphère. On a :
 $$\alpha = -2,\ \beta = 4,\ \gamma = -6,\ \delta = 5$$
 Centre : $\Omega(1, -2, 3)$.
 Rayon : $r = \frac{1}{2}\sqrt{4 + 16 + 36 - 20} = \frac{1}{2}\sqrt{34}$.
+
 :::
 
 ::: {.proposition title="(Intersection d'une sphère et d'un plan)"}
+
 L'intersection d'une sphère et d'un plan est :
 - **vide** si la distance du centre de la sphère au plan est strictement supérieure au rayon ;
 - un **point** (plan tangent) si cette distance est égale au rayon ;
 - un **cercle** si cette distance est strictement inférieure au rayon.
+
 :::
 
 ::: {.example}
+
 La sphère $\mathscr{S} : x^2 + y^2 + z^2 = 4$ (centre $O$, rayon $2$) et le plan $\mathcal{P} : z = 1$ ont une intersection qui est un cercle.
 En effet, la distance de $O$ à $\mathcal{P}$ est $1 < 2$. L'intersection est le cercle de centre $(0, 0, 1)$ et de rayon $\sqrt{4 - 1} = \sqrt{3}$.
+
 :::
 
 ::: {.exercise}
+
 Donner l'équation de la sphère de centre $\Omega(1, -1, 2)$ passant par le point $A(3, 0, 4)$.
+
 :::
 
 ::: {.solution}
+
 Le rayon est $r = \Omega A = \sqrt{(3-1)^2 + (0-(-1))^2 + (4-2)^2} = \sqrt{4 + 1 + 4} = 3$.
 L'équation de la sphère est : $(x-1)^2 + (y+1)^2 + (z-2)^2 = 9$, soit $x^2 + y^2 + z^2 - 2x + 2y - 4z - 3 = 0$.
+
 :::
 
 ## Document en PDF {-}
 [Chapitre 04 : Géométrie élémentaire du plan et de l'espace](PDF/tsi1-chap04.pdf)
 
 # Navigation {-}
+
 ::: {.chap-nav}
+
 [Chapitre 03 : Compléments de calcul algébrique](tsi1-chap03.qmd){.prev}
 [Menu TSI1](tsi1.qmd){.home}
 [Chapitre 05 : Nombres réels et suites numériques](tsi1-chap05.qmd){.next}
+
 :::

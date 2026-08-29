@@ -19,12 +19,14 @@ filters:
 **MPSI (1re année) — TD du Chapitre 18.** Limites, continuité, TVI, bornes atteintes, continuité uniforme (Heine).
 
 ::: {.exercise}
+
 Calculer les limites suivantes :
 
 1. $\lim_{x \to 0} \dfrac{\sin x}{x}$
 2. $\lim_{x \to 0} \dfrac{1 - \cos x}{x^2}$
 3. $\lim_{x \to +\infty} (\sqrt{x^2 + 1} - x)$
 4. $\lim_{x \to 0^+} x^x$
+
 :::
 
 **Indications :**
@@ -33,35 +35,47 @@ Calculer les limites suivantes :
 - (4) $x^x = e^{x \ln x}$, et $x \ln x \to 0$. Limite : 1.
 
 ::: {.exercise}
+
 Soit $f : [0, 1] \to [0, 1]$ continue. Montrer que $f$ admet au moins un point fixe (i.e. $\exists c \in [0, 1], f(c) = c$).
+
 :::
 
 **Indication :** Appliquer le TVI à $g(x) = f(x) - x$ sur $[0, 1]$. $g(0) \geq 0$ et $g(1) \leq 0$.
 
 ::: {.exercise}
+
 Soit $f : [0, 1] \to [0, 1]$ continue. Montrer que $f$ est bornée et atteint ses bornes.
+
 :::
 
 **Indication :** Théorème des bornes atteintes : une fonction continue sur un segment est bornée et atteint ses bornes.
 
 ::: {.exercise}
+
 Soit $f : \mathbb{R} \to \mathbb{R}$ continue et telle que $\lim_{x \to +\infty} f(x) = \lim_{x \to -\infty} f(x) = +\infty$. Montrer que $f$ admet un minimum global.
+
 :::
 
 **Indication :** Pour $M > f(0)$, il existe $A > 0$ tel que $|x| > A \Rightarrow f(x) > M$. Donc le minimum de $f$ sur $[-A, A]$ est le minimum global.
 
 ::: {.exercise}
+
 Soit $f : [a, b] \to \mathbb{R}$ continue avec $f(a) \cdot f(b) < 0$. Montrer qu'il existe $c \in ]a, b[$ tel que $f(c) = 0$.
+
 :::
 
 ::: {.exercise}
+
 Soit $f : \mathbb{R} \to \mathbb{R}$ continue et périodique. Montrer que $f$ est bornée.
+
 :::
 
 **Indication :** $f$ est bornée sur $[0, T]$ (segment, continue), donc sur $\mathbb{R}$ par périodicité.
 
 ::: {.exercise}
+
 Soit $f : ]0, 1[ \to \mathbb{R}$ continue. Montrer que si $f$ est uniformément continue sur $]0, 1[$, alors $f$ peut être prolongée par continuité en $0$ et en $1$.
+
 :::
 
 **Indications :**
@@ -70,7 +84,9 @@ Soit $f : ]0, 1[ \to \mathbb{R}$ continue. Montrer que si $f$ est uniformément 
 - Montrer que $\lim_{x \to 0^+} f(x) = \ell$.
 
 ::: {.exercise}
+
 Montrer que $f : x \mapsto \sqrt{x}$ est uniformément continue sur $[0, +\infty[$ mais que $g : x \mapsto x^2$ ne l'est pas.
+
 :::
 
 **Indications :**
@@ -78,16 +94,20 @@ Montrer que $f : x \mapsto \sqrt{x}$ est uniformément continue sur $[0, +\infty
 - Pour $g$ : prendre $x_n = n + \frac{1}{n}$ et $y_n = n$. $|x_n - y_n| = \frac{1}{n} \to 0$ mais $|x_n^2 - y_n^2| = 2 + \frac{1}{n^2} \not\to 0$.
 
 ::: {.exercise}
+
 Soit $f : [a, b] \to \mathbb{R}$ continue. Montrer que $f$ est uniformément continue sur $[a, b]$ (théorème de Heine).
+
 :::
 
 **Indication :** Par l'absurde. S'il existe $\varepsilon > 0$ tel que $\forall n, \exists x_n, y_n$ avec $|x_n - y_n| < \frac{1}{n}$ et $|f(x_n) - f(y_n)| \geq \varepsilon$. Par compacité de $[a,b]$, extraire une sous-suite convergente.
 
 ::: {.exercise}
+
 Soit $f : \mathbb{R} \to \mathbb{R}$ continue et telle que $\lim_{|x| \to +\infty} f(x) = 0$.
 
 1. Montrer que $f$ est bornée.
 2. Montrer que $f$ est uniformément continue sur $\mathbb{R}$.
+
 :::
 
 **Indications :**
@@ -95,19 +115,24 @@ Soit $f : \mathbb{R} \to \mathbb{R}$ continue et telle que $\lim_{|x| \to +\inft
 - (2) $f$ est UC sur $[-A-1, A+1]$ (Heine), et hors de cet intervalle, $|f(x) - f(y)| \leq |f(x)| + |f(y)| < 2\varepsilon$.
 
 ::: {.exercise}
+
 Soit $f : \mathbb{R} \to \mathbb{R}$ vérifiant $|f(x) - f(y)| \leq k |x - y|$ pour tout $x, y$ avec $k \in [0, 1[$.
 
 1. Montrer que $f$ est uniformément continue.
 2. Soit $u_0 \in \mathbb{R}$ et $u_{n+1} = f(u_n)$. Montrer que $|u_{n+1} - u_n| \leq k^n |u_1 - u_0|$.
 3. En déduire que $(u_n)$ converge vers l'unique point fixe de $f$.
+
 :::
 
 # Cours {-}
 [**Chapitre 18 : Limites et continuité**](mpsi-chap18.qmd)
 
 # Navigation {-}
+
 ::: {.chap-nav}
+
 [Chapitre 17 : Suites numériques](mpsi-chap17.qmd){.prev}
 [Menu MPSI](mpsi.qmd){.home}
 [Chapitre 19 : Dérivation](mpsi-chap19.qmd){.next}
+
 :::

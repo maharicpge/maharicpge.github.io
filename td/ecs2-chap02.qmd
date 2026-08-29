@@ -19,104 +19,131 @@ filters:
 **ECS (2e année) — TD du Chapitre 02.** Valeurs propres, vecteurs propres, diagonalisation, trigonalisation, polynômes annulateurs.
 
 ::: {.exercise}
+
 Soit $A = \begin{pmatrix} 4 & 1 \\ 2 & 3 \end{pmatrix}$.
 
 1. Calculer le polynôme caractéristique $\chi_A$.
 2. Déterminer les valeurs propres et les sous-espaces propres.
 3. $A$ est-elle diagonalisable ? Si oui, trouver $P$ et $D$ telles que $A = PDP^{-1}$.
 4. En déduire $A^n$ pour tout $n \in \mathbb{N}$.
+
 :::
 
 ::: {.exercise}
+
 Soit $A = \begin{pmatrix} 2 & 1 & 0 \\ 0 & 2 & 0 \\ 0 & 0 & 3 \end{pmatrix}$.
 
 1. Calculer $\chi_A$ et les valeurs propres.
 2. Déterminer les sous-espaces propres.
 3. $A$ est-elle diagonalisable ? Trigonalisable ?
 4. Déterminer le polynôme minimal de $A$.
+
 :::
 
 ::: {.exercise}
+
 Soit $A = \begin{pmatrix} 1 & 2 & 2 \\ 2 & 1 & 2 \\ 2 & 2 & 1 \end{pmatrix}$.
 
 1. Calculer $\chi_A$ et les valeurs propres.
 2. Déterminer les sous-espaces propres.
 3. Diagonaliser $A$ et en déduire $A^n$ pour tout $n \in \mathbb{N}$.
+
 :::
 
 ::: {.exercise}
+
 Soit $u \in \mathcal{L}(E)$ tel que $u^3 = u$.
 
 1. Montrer que $u$ est diagonalisable.
 2. Déterminer les valeurs propres possibles de $u$.
 3. Montrer que $E = \ker(u) \oplus \ker(u - \mathrm{Id}_E) \oplus \ker(u + \mathrm{Id}_E)$.
+
 :::
 
 ::: {.exercise}
+
 Soit $A = \begin{pmatrix} 1 & 1 & 0 \\ 0 & 1 & 1 \\ 0 & 0 & 1 \end{pmatrix}$.
 
 1. Montrer que $A$ est trigonalisable mais pas diagonalisable.
 2. Déterminer le polynôme minimal de $A$.
 3. Calculer $A^n$ pour tout $n \in \mathbb{N}$.
+
 :::
 
 ::: {.exercise}
+
 Soit $A \in \mathcal{M}_n(\mathbb{R})$ inversible et diagonalisable, avec $A = PDP^{-1}$.
 
 1. Montrer que $A^{-1}$ est diagonalisable.
 2. Exprimer $A^{-1}$ en fonction de $D$.
 3. Si les valeurs propres de $A$ sont $\lambda_1, \ldots, \lambda_n$, quelles sont celles de $A^{-1}$ ?
+
 :::
 
 ::: {.exercise}
+
 Soit $A = \begin{pmatrix} 3 & -1 \\ 1 & 1 \end{pmatrix}$.
 
 1. Calculer $\chi_A$ et montrer que $A$ n'est pas diagonalisable sur $\mathbb{R}$.
 2. Montrer que $A$ est trigonalisable.
 3. Calculer $A^n$ pour tout $n \in \mathbb{N}$.
+
 :::
 
 ::: {.exercise}
+
 Soit $A \in \mathcal{M}_n(\mathbb{R})$ nilpotente d'indice $k$ ($A^k = 0$ et $A^{k-1} \neq 0$).
 
 1. Montrer que la seule valeur propre de $A$ est $0$.
 2. Montrer que $A$ est diagonalisable si et seulement si $A = 0$.
 3. Montrer que $\mathrm{tr}(A) = 0$ et $\det(A) = 0$.
+
 :::
 
 ::: {.exercise}
+
 Soit $A = \begin{pmatrix} 0 & 1 & 1 \\ 1 & 0 & 1 \\ 1 & 1 & 0 \end{pmatrix}$.
 
 1. Calculer $\chi_A$ et les valeurs propres.
 2. Déterminer les sous-espaces propres.
 3. Diagonaliser $A$ et calculer $A^n$.
+
 :::
 
 ::: {.exercise}
+
 Soit $A \in \mathcal{M}_2(\mathbb{R})$. Montrer que $A$ est diagonalisable si et seulement si l'une des conditions suivantes est vérifiée :
 
 1. $A$ est scalaire ($A = \lambda I_2$).
 2. $\chi_A$ est scindé à racines simples.
+
 :::
 
 ::: {.exercise}
+
 Soit $A = \begin{pmatrix} 1 & a \\ 0 & 1 \end{pmatrix}$ avec $a \in \mathbb{R}$.
 
 1. Pour quelles valeurs de $a$ la matrice $A$ est-elle diagonalisable ?
 2. Calculer $A^n$ pour tout $n \in \mathbb{N}$.
 3. Déterminer le polynôme minimal de $A$ selon les valeurs de $a$.
+
 :::
 
 ::: {.exercise}
+
 Résoudre la suite récurrente $u_{n+2} = 5u_{n+1} - 6u_n$ avec $u_0 = 1$ et $u_1 = 3$ en diagonalisant la matrice compagnon.
+
 :::
 
 # Cours {-}
 [**Chapitre 02 : Réduction des endomorphismes et matrices**](../cours/ecs2-chap02.qmd)
 
 # Navigation {-}
+
 ::: {.chap-nav}
+
 [TD 01 : Algèbre linéaire (compléments)](ecs2-chap01.qmd){.prev}
 [Menu ECS2](ecs2.qmd){.home}
 [TD 03 : Algèbre bilinéaire](ecs2-chap03.qmd){.next}
+
 :::

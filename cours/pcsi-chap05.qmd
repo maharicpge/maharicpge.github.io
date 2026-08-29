@@ -37,12 +37,15 @@ Dans tout ce chapitre, $\mathbb{K}$ désigne $\mathbb{R}$ ou $\mathbb{C}$.
 ## Définitions et modes de définition
 
 ::: {.definition}
+
 Une **suite numérique** (réelle ou complexe) est une famille $(u_n)_{n\in \mathbb{N}}$ d'éléments de $\mathbb{K}$ indexée par $\mathbb{N}$ (parfois par $\mathbb{N}^*$, ou par $\mathbb{N}\setminus\{0,\dots, n_0-1\}$). Il s'agit donc d'une fonction de $\mathbb{N}$ dans $\mathbb{K}$.
 
 $u_n$ s'appelle le **terme général** de la suite $(u_n)_{n\in \mathbb{N}}$.
+
 :::
 
 ::: {.example}
+
 Voici quelques exemples de suites :
 
 1.  $(2)_{n\in \mathbb{N}},\ \left(\frac{1}{n}\right)_{n\in \mathbb{N}^*},\ \left(\sin(n)\right)_{n\in \mathbb{N}},\ \left(e^{in\frac{\pi}{2}}\right)_{n\in \mathbb{N}},\ \left(\frac{1}{\sqrt{n^2-3n+2}}\right)_{n\geq 3},\ (i^n)_{n\in \mathbb{N}}$
@@ -53,25 +56,32 @@ Voici quelques exemples de suites :
 4.  $(F_n)_{n\geq 0}$ définie par $F_0=1$, $F_1=1$ et la relation $F_{n+2}=F_{n+1}+F_n$ pour $n\in \mathbb{N}$ (suite de Fibonacci). Les premiers termes sont $1$, $1$, $2$, $3$, $5$, $8$, $13$, \ldots Chaque terme est la somme des deux précédents.
 5.  La suite harmonique $(h_n)_{n\in \mathbb{N}^*}$ dont le terme général est défini par :
     $$\forall n\in \mathbb{N}^*,\ h_n=\sum_{k=1}^n\frac{1}{k}$$
+
 :::
 
 ## Suites bornées, stationnaires
 
 ::: {.definition}
+
 Soit $(u_n)_{n\in \mathbb{N}}\subset \mathbb{K}$ une suite. On dit que la suite $(u_n)_{n\in \mathbb{N}}$ est **bornée** si :
 $$\exists M >0,\ \forall n\in \mathbb{N},\ |u_n|\leq M$$
+
 :::
 
 ::: {.definition}
+
 Soit $(u_n)_{n\in \mathbb{N}}\subset \mathbb{K}$ une suite. On dit que la suite $(u_n)_{n\in \mathbb{N}}$ est **stationnaire** si :
 $$\exists N\in \mathbb{N}, \forall n\in \mathbb{N},\ (n\geq N\implies u_n=u_{n+1})$$
+
 :::
 
 ::: {.proposition}
+
 Soit $(u_n)_{n\in \mathbb{N}}$ une suite réelle. Les assertions suivantes sont équivalentes :
 
 1.  La suite $(u_n)_{n\in \mathbb{N}}$ est stationnaire.
 2.  Il existe un rang $N\in \mathbb{N}$ tel que la suite $(u_n)_{n\geq N}$ est constante.
+
 :::
 
 # Convergence et divergence
@@ -79,74 +89,99 @@ Soit $(u_n)_{n\in \mathbb{N}}$ une suite réelle. Les assertions suivantes sont 
 ## Limite finie et infinie
 
 ::: {.definition}
+
 Soit $(u_n)_{n\in \mathbb{N}}\subset \mathbb{K}$ une suite. On dit que $(u_n)_{n\in \mathbb{N}}$ est **convergente** si et seulement si :
 $$\exists l\in \mathbb{K}, \forall \varepsilon >0, \exists N\in \mathbb{N},\forall n\in \mathbb{N}\ (n\geq N\implies |u_n-l| <\varepsilon)$$
 On dit, dans ce cas, que la suite $(u_n)_{n\in \mathbb{N}}$ converge vers $l$, ou que $l$ est **limite** (finie) de la suite $(u_n)_{n\in \mathbb{N}}$ et on note $\lim_{n\rightarrow +\infty}u_n=l$ (ou $u_n \underset{n\rightarrow +\infty}{\longrightarrow}l$).
 
 Sinon, on dit que la suite $(u_n)_{n\in \mathbb{N}}$ est **divergente**.
+
 :::
 
 ::: {.remark}
+
 La suite $(u_n)_{n\in \mathbb{N}}$ converge vers 0 si et seulement si la suite $(|u_n|)_{n\in \mathbb{N}}$ converge vers 0.
+
 :::
 
 ::: {.definition title="(Limite infinie)"}
+
 Soit $(u_n)_{n\in \mathbb{N}}$ une suite réelle. On dit que $(u_n)_{n\in \mathbb{N}}$ **diverge** vers $+\infty$ (respectivement vers $-\infty$) et on écrit $\lim_{n\rightarrow +\infty}u_n=+\infty$ (respectivement $\lim_{n\rightarrow +\infty}u_n=-\infty$) si et seulement si :
 $$\forall M\in \mathbb{R}, \exists N\in \mathbb{N}, \forall n\in \mathbb{N},\ (n\geq N \implies u_n\geq M)$$
 (respectivement $\forall M\in \mathbb{R}, \exists N\in \mathbb{N}, \forall n\in \mathbb{N},\ (n\geq N \implies u_n\leq M)$).
+
 :::
 
 ## Propriétés fondamentales
 
 ::: {.theorem title="(Unicité de la limite)"}
+
 La limite (finie ou infinie) d'une suite réelle, si elle existe, est unique.
+
 :::
 
 ::: {.proposition}
+
 Soient $(u_n)_{n\in \mathbb{N}}\subset \mathbb{K}$ une suite et $l\in \mathbb{K}$. Si la suite $(u_n)_{n\in \mathbb{N}}$ converge vers $l$ alors la suite $(|u_n|)_{n\in \mathbb{N}}$ converge vers $|l|$.
+
 :::
 
 ::: {.remark}
+
 La réciproque est fausse. Il suffit de considérer la suite $(i^n)_{n\in \mathbb{N}}$.
+
 :::
 
 ::: {.proposition}
+
 Toute suite convergente est bornée.
+
 :::
 
 ::: {.remark}
+
 La réciproque est fausse. Il suffit de considérer la suite de terme général $u_n=(-1)^{n}$.
+
 :::
 
 ::: {.proposition}
+
 Soient $(u_n)_{n\in \mathbb{N}},(v_n)_{n\in \mathbb{N}}\subset \mathbb{K}$ deux suites telles que :
 
 1.  $(u_n)_{n\in \mathbb{N}}$ est bornée
 2.  $(v_n)_{n\in \mathbb{N}}$ converge vers 0
 
 Alors la suite $(u_n v_n)_{n\in \mathbb{N}}$ converge vers 0.
+
 :::
 
 ## Suites extraites
 
 ::: {.definition}
+
 Soit $(u_n)_{n\in \mathbb{N}}\subset\mathbb{K}$ une suite. On appelle **suite extraite** (ou **sous-suite**) de la suite $(u_n)_{n\in \mathbb{N}}$ toute suite $(v_n)_{n\in \mathbb{N}}$ définie par :
 $$\forall n\in \mathbb{N},\ v_n=u_{\varphi(n)}$$
 avec $\varphi : \mathbb{N} \longrightarrow \mathbb{N}$ une application strictement croissante.
+
 :::
 
 ::: {.proposition}
+
 $(u_n)_{n\in \mathbb{N}}$ converge vers une limite $l\in \mathbb{K}$ si et seulement si toutes ses suites extraites convergent vers $l$.
+
 :::
 
 ::: {.remark}
 
 1.  Une technique pour montrer qu'une suite est divergente est d'avoir une suite extraite divergente ou bien deux suites extraites convergentes qui ne convergent pas vers la même limite. Par exemple, la suite $((-1)^n)_{n\in \mathbb{N}}$ est divergente puisqu'elle admet deux suites extraites qui n'ont pas la même limite.
 2.  Attention, plusieurs suites extraites d'une suite $(u_n)_{n\in \mathbb{N}}$, qui convergent vers une même limite $l\in \mathbb{K}$, **n'impliquent pas** que la suite $(u_n)_{n\in \mathbb{N}}$ converge.
+
 :::
 
 ::: {.proposition}
+
 Si les deux suites extraites $(u_{2n})_{n\in \mathbb{N}}$ et $(u_{2n+1})_{n\in \mathbb{N}}$ convergent vers la même limite $l\in \mathbb{K}$ alors la suite $(u_{n})_{n\in \mathbb{N}}$ converge vers $l$.
+
 :::
 
 # Suites réelles
@@ -156,70 +191,88 @@ Dans tout ce paragraphe, $\mathbb{K}=\mathbb{R}$.
 ## Monotonie et limites
 
 ::: {.definition}
+
 Soit $(u_n)_{n\in \mathbb{N}}$ une suite réelle.
 
 1.  On dit que la suite est **croissante** (resp. **décroissante**) si $\forall n\in \mathbb{N},\ u_{n}\leq u_{n+1}$ (resp. $u_{n+1}\leq u_{n}$).
 2.  On dit que la suite est **monotone** si elle est croissante ou décroissante.
+
 :::
 
 ::: {.theorem title="(Opérations sur les limites)"}
+
 Soient $(u_n)_{n\in \mathbb{N}}$ et $(v_n)_{n\in \mathbb{N}}$ deux suites réelles admettant deux limites respectives $l$ et $l'$ de $\overline{\mathbb{R}}$.
 
 1.  Si $l$ et $l'$ sont finies, alors pour tous $\alpha, \beta\in \mathbb{R}$, $(\alpha u_n+\beta v_n ) \to \alpha l+\beta l'$ et $(u_n v_n) \to l l'$. Si $l\neq 0$, $(1/u_n) \to 1/l$.
 2.  Si $l=\pm\infty$ et $l'\in \overline{\mathbb{R}}\setminus\{0\}$ alors $u_n v_n \to \pm\infty$ (règle des signes).
 3.  Si $l=\pm\infty$ alors $(1/u_n) \to 0$.
+
 :::
 
 ::: {.theorem title="(Théorème des gendarmes)"}
+
 Soient $(u_n)_{n\in \mathbb{N}}$, $(v_n)_{n\in \mathbb{N}}$, $(w_n)_{n\in \mathbb{N}}$ trois suites réelles et $l\in \mathbb{R}$ telles que :
 
 1.  $u_n,w_n\underset{n\rightarrow +\infty}{\longrightarrow} l$
 2.  $\exists N\in \mathbb{N}, \forall n\geq N,\ u_n\leq v_n\leq w_n$
 
 Alors la suite $(v_n)_{n\in \mathbb{N}}$ converge vers $l$.
+
 :::
 
 ::: {.theorem title="(Théorème de divergence par majoration ou minoration)"}
+
 Soient $(u_n)_{n\in \mathbb{N}}$ et $(v_n)_{n\in \mathbb{N}}$ deux suites réelles telles que :
 
 1.  $(v_n)_{n\in \mathbb{N}}$ diverge vers $+\infty$ (resp. vers $-\infty$)
 2.  $\exists N\in \mathbb{N}, \forall n\geq N,\ v_n\leq u_n$ (resp. $u_n\leq v_n$)
 
 Alors la suite $(u_n)_{n\in \mathbb{N}}$ diverge vers $+\infty$ (resp. vers $-\infty$).
+
 :::
 
 ::: {.theorem title="(Théorème de la limite monotone)"}
+
 Soit $(u_n)_{n\in \mathbb{N}}$ une suite réelle croissante (respectivement décroissante).
 
 1.  Si $(u_n)_{n\in \mathbb{N}}$ est majorée (respectivement minorée) alors elle est convergente et on a :
     $$u_n \underset{n\rightarrow +\infty}{\longrightarrow } \sup\{u_n/\ n\in \mathbb{N}\} \quad (\text{resp. } \inf\{u_n/\ n\in \mathbb{N}\})$$
 2.  Si $(u_n)_{n\in \mathbb{N}}$ est non majorée (respectivement non minorée) alors elle diverge vers $+\infty$ (respectivement vers $-\infty$).
+
 :::
 
 ## Suites adjacentes
 
 ::: {.definition}
+
 Soit $(u_n)_{n\in \mathbb{N}}$ et $(v_n)_{n\in \mathbb{N}}$ deux suites réelles. On dit qu'elles sont **adjacentes** si et seulement si :
 
 1.  l'une est croissante et l'autre décroissante ;
 2.  $v_n-u_n \underset{n\rightarrow +\infty}{\longrightarrow }0$.
+
 :::
 
 ::: {.theorem}
+
 Si $(u_n)_{n\in \mathbb{N}}$ et $(v_n)_{n\in \mathbb{N}}$ sont deux suites réelles adjacentes (avec $(u_n)_{n\in \mathbb{N}}$ croissante et $(v_n)_{n\in \mathbb{N}}$ décroissante) alors :
 
 1.  $(u_n)_{n\in \mathbb{N}}$ et $(v_n)_{n\in \mathbb{N}}$ convergent vers la même limite $l\in \mathbb{R}$.
 2.  $\forall n\in \mathbb{N},\ u_n\leq l\leq v_n$.
+
 :::
 
 ::: {.remark}
+
 Une technique pour montrer qu'une suite réelle $(u_n)_{n\in \mathbb{N}}$ est convergente est de montrer que ses suites extraites $(u_{2n})_{n\in \mathbb{N}}$ et $(u_{2n+1})_{n\in \mathbb{N}}$ sont adjacentes.
+
 :::
 
 ## Théorème de Bolzano-Weierstrass
 
 ::: {.theorem title="(de Bolzano-Weierstrass)"}
+
 De toute suite réelle bornée, on peut extraire une suite convergente.
+
 :::
 
 # Suites usuelles et récurrentes
@@ -227,52 +280,66 @@ De toute suite réelle bornée, on peut extraire une suite convergente.
 ## Suite arithmétique
 
 ::: {.definition}
+
 On dit que la suite $(u_n)_{n\in \mathbb{N}}$ est une suite **arithmétique** de terme initial $u_0\in \mathbb{K}$ et de raison $r\in \mathbb{K}$ si elle vérifie la relation récurrente suivante :
 $$\forall n\in \mathbb{N},\ u_{n+1}=u_n+r$$
+
 :::
 
 ::: {.proposition}
+
 Si $(u_n)_{n\in \mathbb{N}}$ est une suite arithmétique de terme initial $u_0\in \mathbb{K}$ et de raison $r\in \mathbb{K}$ alors :
 
 1.  $\forall n\in \mathbb{N},\ u_n=u_0+nr$
 2.  $(u_n)_{n\in \mathbb{N}}$ converge si et seulement si $r=0$
 3.  $\forall m,n\in \mathbb{N}\ (m\leq n),\ \sum_{k=m}^nu_k=(n-m+1)u_0+\frac{r(n-m+1)(n+m)}{2}$
 4.  Si la suite est réelle, elle est croissante si $r\geq 0$ et décroissante sinon.
+
 :::
 
 ## Suite géométrique
 
 ::: {.definition}
+
 On dit que la suite $(u_n)_{n\in \mathbb{N}}$ est une suite **géométrique** de terme initial $u_0\in \mathbb{K}$ et de raison $q\in \mathbb{K}$ si elle vérifie la relation récurrente suivante :
 $$\forall n\in \mathbb{N},\ u_{n+1}=qu_n$$
+
 :::
 
 ::: {.proposition}
+
 Si $(u_n)_{n\in \mathbb{N}}$ est une suite géométrique de terme initial $u_0\in \mathbb{K}$ et de raison $q\in \mathbb{K}$ alors :
 
 1.  $\forall n\in \mathbb{N},\ u_n=q^nu_0$
 2.  $\forall m,n\in \mathbb{N}\ (m\leq n),\ \sum_{k=m}^nu_k=\begin{cases}u_0\frac{q^m-q^{n+1}}{1-q}, &\text{si } q\neq 1\\ u_0(n-m+1), &\text{sinon} \end{cases}$
 3.  Si la suite est réelle positive, elle est croissante si $q\geq 1$ et décroissante si $0\leq q\leq 1$.
+
 :::
 
 ## Suite arithmético-géométrique
 
 ::: {.definition}
+
 Soit $(a,b)\in \mathbb{C}^2$. On dit que $(u_n)_{n\in \mathbb{N}}$ est une suite **arithmético-géométrique** si elle est définie comme suit :
 $$\begin{cases} u_0\in\mathbb{K}\\ \forall n\in \mathbb{N},\ u_{n+1}=au_n+b\end{cases}$$
+
 :::
 
 ::: {.proposition}
+
 $$\forall n\in \mathbb{N},\ u_n=\begin{cases} u_0+nb, &\text{si } a=1\\ a^n\left(u_0-\frac{b}{1-a}\right)+\frac{b}{1-a}, & \text{sinon}\end{cases}$$
+
 :::
 
 ## Suite récurrente linéaire d'ordre 2
 
 ::: {.definition}
+
 Soit $(a,b)\in \mathbb{C}^2$. On dit que $(u_n)_{n\in \mathbb{N}}$ est une suite **récurrente linéaire d'ordre 2** si elle vérifie la relation récurrente suivante :
 $$\forall n\in \mathbb{N},\ u_{n+2}=au_{n+1}+bu_n \quad (*)$$
 On associe à la relation récurrente $(*)$ l'équation, dite **équation caractéristique**, suivante :
 $$r^2-ar-b=0$$
+
 :::
 
 ::: {.proposition}
@@ -289,15 +356,20 @@ $$r^2-ar-b=0$$
     -   Si l'équation caractéristique admet deux solutions distinctes conjuguées $r=\rho e^{i\theta}$ et $\overline{r}$ alors : $\forall n\in \mathbb{N},\ u_n=\alpha \rho^n\cos(n\theta)+\beta \rho^n\sin(n\theta)$
     
     où $(\alpha,\beta)\in \mathbb{R}^2$.
+
 :::
 
 # Document en PDF {-}
 [Chapitre 05 : Suites numériques](PDF/pcsi-chap05.pdf)
 
 ## Navigation {-}
+
 ::: {.chap-nav}
+
 [Chapitre 04 : Fonctions réelles d'une variable, dérivation](pcsi-chap04.qmd){.prev}
 [Menu PCSI](pcsi.qmd){.home}
 [Chapitre 06 : Fonctions usuelles, fonctions convexes](pcsi-chap06.qmd){.next}
+
 :::
+
 ```

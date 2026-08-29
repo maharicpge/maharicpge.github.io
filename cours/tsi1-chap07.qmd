@@ -57,23 +57,30 @@ Dans ce chapitre nous allons donc définir ce qu'est la dérivée d'une fonction
 ## Dérivée en un point
 
 ::: {.definition}
+
 Soit $I$ un intervalle ouvert de $\mathbb{R}$ et $f : I \to \mathbb{K}$ une fonction. Soit $x_0 \in I$. On dit que $f$ est \defi{dérivable en $x_0$} si le taux d'accroissement $\frac{f(x)-f(x_0)}{x-x_0}$ a une limite finie lorsque $x$ tend vers $x_0$.
 
 La limite s'appelle alors le **nombre dérivé** de $f$ en $x_0$ et est noté $f'(x_0)$. Ainsi :
 $$f'(x_0)= \lim_{x\to x_0} \frac{f(x)-f(x_0)}{x-x_0}$$
+
 :::
 
 ::: {.definition}
+
 $f$ est **dérivable sur $I$** si $f$ est dérivable en tout point $x_0 \in I$. La fonction $x \mapsto f'(x)$ est la **fonction dérivée** de $f$, elle se note $f'$ ou $\frac{df}{dx}$.
+
 :::
 
 ::: {.example}
+
 La fonction définie par $f(x)=x^2$ est dérivable en tout point $x_0 \in \mathbb{R}$. En effet :
 $$\frac{f(x)-f(x_0)}{x-x_0} = \frac{x^2-x_0^2}{x-x_0} = \frac{(x-x_0)(x+x_0)}{x-x_0}=x+x_0 \xrightarrow[x \to x_0]{} 2x_0.$$
 On a même montré que le nombre dérivé de $f$ en $x_0$ est $2x_0$, autrement dit : $f'(x)=2x$.
+
 :::
 
 ::: {.example}
+
 Montrons que la dérivée de $f(x)=\sin x$ est $f'(x)=\cos x$.
 
 Nous allons utiliser les deux assertions suivantes :
@@ -85,6 +92,7 @@ Pour $x_0$ quelconque on écrit :
 $$\frac{f(x)-f(x_0)}{x-x_0} = \frac{\sin x - \sin x_0}{x-x_0} = \frac{\sin \frac{x-x_0}{2}}{\frac{x-x_0}{2}} \cdot \cos \frac{x+x_0}{2}.$$
 
 Lorsque $x\to x_0$ alors d'une part $\cos \frac{x+x_0}{2}\to \cos x_0$ et d'autre part en posant $u=\frac{x-x_0}{2}$ alors $u\to 0$ et on a $\frac {\sin u}u \to 1$. Ainsi $\frac{f(x)-f(x_0)}{x-x_0} \to \cos x_0$ et donc $f'(x)=\cos x$.
+
 :::
 
 ## Tangente
@@ -100,34 +108,43 @@ $$\boxed{y = (x-x_0) f'(x_0) + f(x_0)}$$
 ## Autres écritures de la dérivée
 
 ::: {.proposition}
+
 Voici deux autres formulations de la dérivabilité de $f$ en $x_0$.
 
 1. $f$ est dérivable en $x_0$ si et seulement si $\displaystyle \lim_{h\to 0} \frac{f(x_0+h)-f(x_0)}{h}$ existe et est finie.
 
 2. $f$ est dérivable en $x_0$ si et seulement s'il existe $\ell \in \mathbb{R}$ (qui sera $f'(x_0)$) et une fonction $\epsilon : I \to \mathbb{R}$ telle que $\epsilon(x) \xrightarrow[x\to x_0]{} 0$ avec :
 $$f(x)=f(x_0)+(x-x_0) \ell + (x-x_0) \epsilon(x).$$
+
 :::
 
 ::: {.proposition}
+
 Soit $I$ un intervalle ouvert, $x_0 \in I$ et soit $f : I \to \mathbb{R}$ une fonction.
 
 - Si $f$ est dérivable en $x_0$ alors $f$ est continue en $x_0$.
 - Si $f$ est dérivable sur $I$ alors $f$ est continue sur $I$.
+
 :::
 
 ::: {.remark}
+
 La réciproque est **fausse** : par exemple, la fonction valeur absolue est continue en $0$ mais n'est pas dérivable en $0$. En effet, le taux d'accroissement de $f(x)=|x|$ en $x_0=0$ vérifie :
 $$\frac{f(x)-f(0)}{x-0} = \frac{|x|}{x}=\begin{cases} +1 & \text{ si } x>0 \\ -1 & \text{ si } x < 0 \end{cases}$$
 Il y a bien une limite à droite (qui vaut $+1$), une limite à gauche (qui vaut $-1$) mais elles ne sont pas égales : il n'y a pas de limite en $0$. Ainsi $f$ n'est pas dérivable en $x=0$.
+
 :::
 
 ::: {.remark}
+
 $f$ est dérivable en $x_0$ si et seulement si elle est dérivable en $x_0$ à gauche et à droite et on a : $f_g'(x_0)=f_d'(x_0)$.
+
 :::
 
 ## Somme, produit, quotient
 
 ::: {.proposition}
+
 Soient $f,g : I \to \mathbb{R}$ deux fonctions dérivables sur $I$. Alors pour tout $x \in I$ :
 
 - $(f+g)'(x) = f'(x)+g'(x)$
@@ -135,6 +152,7 @@ Soient $f,g : I \to \mathbb{R}$ deux fonctions dérivables sur $I$. Alors pour t
 - $(f \times g)'(x) = f'(x)g(x)+f(x)g'(x)$
 - $\displaystyle\left(\frac{1}{f}\right)'(x)=-\frac{f'(x)}{f(x)^2}$ (si $f(x)\neq 0$)
 - $\displaystyle\left(\frac{f}{g}\right)'(x)=\frac{f'(x)g(x)-f(x)g'(x)}{g(x)^2}$ (si $g(x)\neq 0$)
+
 :::
 
 ## Dérivée de fonctions usuelles
@@ -166,29 +184,38 @@ Le tableau de gauche est un résumé des principales formules à connaître. Le 
 | $\tan u$ | $u'(1+\tan^2 u) = \frac{u'}{\cos^2 u}$ |
 
 ::: {.remark}
+
 Si vous devez dériver une fonction avec un exposant dépendant de $x$ il faut absolument repasser à la forme exponentielle. Par exemple si $f(x)= 2^x$ alors on réécrit d'abord $f(x)=e^{x\ln 2}$ pour pouvoir calculer $f'(x)=\ln 2 \cdot e^{x\ln 2} = \ln 2 \cdot 2^x$.
+
 :::
 
 ## Composition
 
 ::: {.proposition}
+
 Si $f$ est dérivable en $x$ et $g$ est dérivable en $f(x)$ alors $g\circ f$ est dérivable en $x$ de dérivée :
 
 $$\boxed{\big( g \circ f \big)'(x) = g'\big( f(x) \big) \cdot f'(x)}$$
+
 :::
 
 ::: {.example}
+
 Calculons la dérivée de $\ln(1+x^2)$. Nous avons $g(x)=\ln(x)$ avec $g'(x) = \frac 1x$ ; et $f(x)=1+x^2$ avec $f'(x) = 2x$. Alors la dérivée de $\ln(1+x^2)=g\circ f(x)$ est :
 $$\big( g \circ f \big)'(x) = g'\big( f(x) \big) \cdot f'(x) = g'\big( 1+x^2 \big) \cdot 2x = \frac{2x}{1+x^2}.$$
+
 :::
 
 ::: {.corollaire}
+
 Soit $I$ un intervalle ouvert. Soit $f : I \to J$ dérivable et bijective dont on note $f^{-1} : J \to I$ la bijection réciproque. Si $f'$ ne s'annule pas sur $I$ alors $f^{-1}$ est dérivable et on a pour tout $x \in J$ :
 
 $$\boxed{\displaystyle \big(f^{-1}\big)'(x)= \frac{1}{f'\big( f^{-1}(x) \big)}}$$
+
 :::
 
 ::: {.example}
+
 Soit $f : \mathbb{R} \to \mathbb{R}$ la fonction définie par $f(x)=x+\exp(x)$. Étudions $f$ en détail.
 
 1. $f$ est dérivable car $f$ est la somme de deux fonctions dérivables. En particulier $f$ est continue.
@@ -201,11 +228,13 @@ $$g'(x) = \frac{1}{f'\big( g(x) \big)} = \frac{1}{1+\exp\big( g(x) \big)}.$$
 
 Pour cette fonction $f$ particulière on peut préciser davantage : comme $f\big( g(x)\big) = x$ alors $g(x)+\exp\big( g(x) \big)=x$ donc $\exp\big( g(x) \big)=x-g(x)$. Cela conduit à :
 $$g'(x) = \frac{1}{1+x -g(x)}.$$
+
 :::
 
 ## Dérivées successives
 
 ::: {.definition}
+
 Soit $f : I \to \mathbb{R}$ une fonction dérivable et soit $f'$ sa dérivée. Si la fonction $f' : I \to \mathbb{R}$ est aussi dérivable on note $f''=(f')'$ la **dérivée seconde** de $f$. Plus généralement on note :
 $$f^{(0)} = f, \quad f^{(1)} = f', \quad f^{(2)} = f'' \quad \text{ et } \quad f^{(n+1)} = \big(f^{(n)}\big)'$$
 
@@ -214,22 +243,28 @@ Si la dérivée $n$-ième $f^{(n)}$ existe on dit que $f$ est **$n$ fois dériva
 Alors $\mathcal{C}^0(I,\mathbb{K})$ est l'ensemble des fonctions continues sur $I$.
 
 Si $f$ est une fonction de classe $\mathcal{C}^n$ sur $I$ pour tout $n\in \mathbb{N}$, on dit qu'elle est de **classe $\mathcal{C}^{\infty}$**.
+
 :::
 
 ::: {.remark}
+
 On remarque :
 
 1. $\mathcal{C}^{n+1}(I,\mathbb{K})\subset \mathcal{C}^n(I,\mathbb{K})$
 2. $\mathcal{C}^{\infty}(I,\mathbb{K})=\bigcap_{n\in \mathbb{N}}\mathcal{C}^n(I,\mathbb{K})$
+
 :::
 
 ::: {.theorem title="(Formule de Leibniz)"}
+
 Soient $f$ et $g$ deux fonctions $n$ fois dérivables. Alors :
 
 $$\big( f \cdot g \big)^{(n)} = \sum_{k=0}^n \binom{n}{k} \ f^{(n-k)} \cdot g^{(k)}$$
+
 :::
 
 ::: {.example}
+
 Calculons les dérivées $n$-ème de $\exp(x) \cdot (x^2+1)$ pour tout $n \ge 0$.
 
 Notons $f(x)=\exp(x)$ alors $f'(x)=\exp(x)$, $f''(x)=\exp(x)$,..., $f^{(k)}(x)=\exp(x)$. Notons $g(x)=x^2+1$ alors $g'(x)=2x$, $g''(x)=2$ et pour $k\ge 3$, $g^{(k)}(x)=0$.
@@ -242,19 +277,24 @@ $$\big( f \cdot g \big)^{(n)}(x) = \exp(x) \cdot (x^2+1) + \binom{n}{1}\ \exp(x)
 
 Que l'on peut aussi écrire :
 $$\big( f \cdot g \big)^{(n)}(x) = \exp(x) \cdot \Big(x^2 + 2nx + n(n-1)+1 \Big).$$
+
 :::
 
 ::: {.remark}
+
 Les propositions sur les opérations sur les fonctions dérivables et la composition sont encore valables pour les fonctions de classe $\mathcal{C}^n$.
+
 :::
 
 ::: {.theorem title="(Théorème de prolongement par classe $\mathcal{C}^n$)"}
+
 Soit $n\in \mathbb{N}^*$, et soit $f: I\longrightarrow \mathbb{K}$ une fonction telle que :
 
 1. $f$ est de classe $\mathcal{C}^n$ sur $I\smallsetminus\{x_0\}$
 2. Pour tout $k\in\llbracket 0,n\rrbracket$, $f^{(k)}(x)$ admet une limite finie en $x_0$
 
 Alors $f$ admet un prolongement de classe $\mathcal{C}^n$ sur $I$. Autrement dit, $f$ est prolongeable par continuité et son prolongement est de classe $\mathcal{C}^n$ sur $I$.
+
 :::
 
 # Extremum local, théorème de Rolle
@@ -262,24 +302,31 @@ Alors $f$ admet un prolongement de classe $\mathcal{C}^n$ sur $I$. Autrement dit
 ## Extremum local
 
 ::: {.definition}
+
 Soit $f : I \to \mathbb{R}$ une fonction définie sur un intervalle $I$.
 
 - On dit que $x_0$ est un **point critique** de $f$ si $f'(x_0)=0$.
 - On dit que $f$ admet un **maximum local en $x_0$** (resp. un **minimum local en $x_0$**) s'il existe un intervalle ouvert $J$ contenant $x_0$ tel que pour tout $x\in I \cap J$ : $f(x) \le f(x_0)$ (resp. $f(x) \ge f(x_0)$).
 - On dit que $f$ admet un **extremum local en $x_0$** si $f$ admet un maximum local ou un minimum local en ce point.
+
 :::
 
 ::: {.theorem}
+
 Soit $I$ un intervalle ouvert et $f : I \to \mathbb{R}$ une fonction dérivable. Si $f$ admet un maximum local (ou un minimum local) en $x_0$ alors $f'(x_0)=0$.
+
 :::
 
 ::: {.remark}
+
 La réciproque est **fausse**. Par exemple la fonction $f : \mathbb{R} \to \mathbb{R}$, définie par $f(x)= x^3$ vérifie $f'(0)=0$ mais $x_0=0$ n'est ni maximum local ni un minimum local.
+
 :::
 
 ## Théorème de Rolle
 
 ::: {.theorem title="(Théorème de Rolle)"}
+
 Soit $f:[a,b] \to \mathbb{R}$ telle que :
 
 - $f$ est continue sur $[a,b]$,
@@ -287,50 +334,64 @@ Soit $f:[a,b] \to \mathbb{R}$ telle que :
 - $f(a)=f(b)$.
 
 Alors il existe $c \in ]a,b[$ tel que $f'(c)=0$.
+
 :::
 
 **Interprétation géométrique :** il existe au moins un point du graphe de $f$ où la tangente est horizontale.
 
 ::: {.proof}
+
 Tout d'abord, si $f$ est constante sur $[a,b]$ alors n'importe quel $c\in]a,b[$ convient.
 
 Sinon il existe $x_0 \in [a,b]$ tel que $f(x_0) \neq f(a)$. Supposons par exemple $f(x_0) > f(a)$. Alors $f$ est continue sur l'intervalle fermé et borné $[a,b]$, donc elle admet un maximum en un point $c\in[a,b]$. Mais $f(c) \ge f(x_0) > f(a)$ donc $c \neq a$. De même comme $f(a)=f(b)$ alors $c \neq b$. Ainsi $c\in ]a,b[$.
 
 En $c$, $f$ est donc dérivable et admet un maximum (local) donc $f'(c)=0$.
+
 :::
 
 ::: {.example}
+
 Soit $P(X) = (X-\alpha_1)(X-\alpha_2)\cdots(X-\alpha_n)$ un polynôme ayant $n$ racines réelles différentes : $\alpha_1< \alpha_2 < \cdots < \alpha_n$.
 
 Montrons que $P'$ a $n-1$ racines distinctes. On considère $P$ comme une fonction polynomiale $x \mapsto P(x)$. $P$ est une fonction continue et dérivable sur $\mathbb{R}$. Comme $P(\alpha_1)=0=P(\alpha_2)$ alors par le théorème de Rolle il existe $c_1 \in ]\alpha_1,\alpha_2[$ tel que $P'(c_1)=0$. Plus généralement, pour $1 \le k \le n-1$, comme $P(\alpha_k)=0=P(\alpha_{k+1})$ alors le théorème de Rolle implique l'existence de $c_k \in ]\alpha_k,\alpha_{k+1}[$ tel que $P'(c_k)=0$. Nous avons bien trouvé $n-1$ racines de $P'$ : $c_1< c_2 < \cdots < c_{n-1}$.
+
 :::
 
 # Théorème des accroissements finis
 
 ::: {.theorem title="(Théorème des accroissements finis)"}
+
 Soit $f:[a,b] \to \mathbb{R}$ une fonction continue sur $[a,b]$ et dérivable sur $]a,b[$. Il existe $c\in]a,b[$ tel que :
 
 $$\boxed{f(b)-f(a)= f'(c) \; (b-a)}$$
+
 :::
 
 **Interprétation géométrique :** il existe au moins un point du graphe de $f$ où la tangente est parallèle à la droite $(AB)$ où $A=(a,f(a))$ et $B=(b,f(b))$.
 
 ::: {.remark}
+
 Le théorème de Rolle et le théorème des accroissements finis ne sont pas valables pour des fonctions à valeurs dans $\mathbb{C}$ comme le montre l'exemple de la fonction d'expression $f(x)=e^{ix}$ sur le segment $[0,2\pi]$.
+
 :::
 
 ::: {.theorem title="(de la limite de la dérivée)"}
+
 Soit $f: I\longrightarrow \mathbb{K}$ une fonction continue, et dérivable sur $I\smallsetminus\{x_0\}$, et soit $l$ un élément de $\overline{\mathbb{R}}$ si $\mathbb{K}=\mathbb{R}$ et sinon, $l$ est un élément de $\mathbb{C}$. Alors :
 $$f'(x)\underset{x\to x_0}{\longrightarrow} l\implies \frac{f(x)-f(x_0)}{x-x_0}\underset{x\to x_0}{\longrightarrow} l$$
+
 :::
 
 ::: {.corollaire}
+
 Si $l\in \mathbb{K}$, alors, d'après le théorème de la limite de la dérivée, $f$ est dérivable en $x_0$ et $f'$ est continue en $x_0$.
+
 :::
 
 ## Fonction croissante et dérivée
 
 ::: {.corollaire}
+
 Soit $f:[a,b] \to \mathbb{R}$ une fonction continue sur $[a,b]$ et dérivable sur $]a,b[$.
 
 1. $\forall x \in ]a,b[ \quad f'(x) \ge 0 \iff$ $f$ est croissante ;
@@ -338,44 +399,57 @@ Soit $f:[a,b] \to \mathbb{R}$ une fonction continue sur $[a,b]$ et dérivable su
 3. $\forall x \in ]a,b[ \quad f'(x) = 0 \iff$ $f$ est constante ;
 4. $\forall x \in ]a,b[ \quad f'(x) > 0 \implies$ $f$ est strictement croissante ;
 5. $\forall x \in ]a,b[ \quad f'(x) < 0 \implies$ $f$ est strictement décroissante.
+
 :::
 
 ::: {.remark}
+
 La réciproque au point (4) (et aussi au (5)) est fausse. Par exemple la fonction $x \mapsto x^3$ est strictement croissante et pourtant sa dérivée s'annule en $0$.
+
 :::
 
 ## Inégalité des accroissements finis
 
 ::: {.corollaire title="(Inégalité des accroissements finis)"}
+
 Soit $f : I \to \mathbb{R}$ une fonction dérivable sur un intervalle $I$ ouvert. S'il existe une constante $M$ telle que pour tout $x \in I$, $\big|f'(x)\big| \le M$ alors :
 
 $$\boxed{\forall x,y \in I \qquad \big| f(x)-f(y) \big| \le M |x-y|}$$
+
 :::
 
 ::: {.remark}
+
 L'inégalité des accroissements finis est encore valable pour les fonctions à valeurs dans $\mathbb{C}$ même si le théorème des accroissements ne peut pas leur être appliqué. Elle peut être établie en utilisant l'intégration.
+
 :::
 
 ::: {.example}
+
 Soit $f(x)=\sin(x)$. Comme $f'(x)=\cos x$ alors $|f'(x)| \le 1$ pour tout $x\in \mathbb{R}$. L'inégalité des accroissements finis s'écrit alors :
 $$\text{pour tout } x,y \in \mathbb{R} \qquad |\sin x - \sin y | \le |x-y|.$$
 
 En particulier si l'on fixe $y=0$ alors on obtient $|\sin x| \le |x|$ ce qui est particulièrement intéressant pour $x$ proche de $0$.
+
 :::
 
 ::: {.example}
+
 Soit $f(x)=\sqrt{x}$. Appliquer le théorème des accroissements finis sur l'intervalle $[100,101]$. En déduire l'encadrement $10+\frac{1}{22} \le \sqrt{101} \le 10 + \frac{1}{20}$.
+
 :::
 
 ## Règle de l'Hospital
 
 ::: {.corollaire title="(Règle de l'Hospital)"}
+
 Soient $f,g : I \to \mathbb{R}$ deux fonctions dérivables et soit $x_0\in I$. On suppose que :
 
 - $f(x_0)=g(x_0)=0$,
 - $\forall x \in I\setminus\{x_0\} \quad g'(x)\neq 0$.
 
 Si $\displaystyle \lim_{x\to x_0} \frac{f'(x)}{g'(x)} = \ell \quad (\in \mathbb{R})$ alors $\displaystyle \lim_{x\to x_0} \frac{f(x)}{g(x)} = \ell.$
+
 :::
 
 # Suites récurrentes
@@ -383,51 +457,68 @@ Si $\displaystyle \lim_{x\to x_0} \frac{f'(x)}{g'(x)} = \ell \quad (\in \mathbb{
 L'étude des suites récurrentes est l'occasion d'introduire la notion de vitesse de convergence. Sur des exemples, on mettra en évidence divers comportements (convergence lente, géométrique, quadratique) en explicitant le nombre d'itérations nécessaires pour obtenir une précision donnée.
 
 ::: {.definition}
+
 Un intervalle $J$ est **stable** par une fonction $f$ si $f(J) \subset J$. Un réel $\alpha$ est un **point fixe** de $f$ si $f(\alpha)=\alpha$.
+
 :::
 
 ::: {.definition title="(Suite définie par récurrence)"}
+
 Une suite $(u_n)_{n\in\mathbb{N}}$ est définie par récurrence si elle est définie par :
 $$\begin{cases} u_0 \in \mathbb{R} \\ \forall n \in \mathbb{N},\ u_{n+1} = f(u_n) \end{cases}$$
 où $f$ est une fonction définie sur un intervalle $I$ stable.
+
 :::
 
 ::: {.proposition}
+
 Si $(u_n)_{n\in\mathbb{N}}$ converge vers $\alpha$ et si $f$ est continue en $\alpha$ alors $\alpha$ est un point fixe de $f$, c'est-à-dire $f(\alpha)=\alpha$.
+
 :::
 
 ::: {.remark}
+
 Pour l'étude de la monotonie de $(u_n)$, on soulignera l'intérêt, d'une part, de l'étude du signe de $x \mapsto f(x)-x$, et, d'autre part, de l'utilisation de la croissance éventuelle de $f$.
 
 Si $f$ est croissante sur $I$ stable, alors $(u_n)$ est monotone. Si $f$ est décroissante, $(u_{2n})$ et $(u_{2n+1})$ sont monotones de sens opposés.
+
 :::
 
 ::: {.definition title="(Fonction contractante)"}
+
 Une fonction $f : I \to I$ est dite **contractante** s'il existe $k \in [0,1[$ tel que pour tout $x,y \in I$ :
 $$|f(x)-f(y)| \le k|x-y|$$
+
 :::
 
 ::: {.proposition title="(Algorithme de recherche du point fixe)"}
+
 Si $f : I \to I$ est contractante de rapport $k \in [0,1[$, alors $f$ admet un unique point fixe $\alpha \in I$ et la suite $(u_n)$ définie par $u_0 \in I$ et $u_{n+1}=f(u_n)$ converge vers $\alpha$. De plus :
 $$|u_n - \alpha| \le \frac{k^n}{1-k}|u_1-u_0|$$
 
 La convergence est **géométrique** de raison $k$.
+
 :::
 
 ::: {.proposition title="(Méthode de Newton)"}
+
 Soit $g$ une fonction deux fois dérivable sur un intervalle $I$ et $\alpha \in I$ une racine simple de $g$ (c'est-à-dire $g(\alpha)=0$ et $g'(\alpha)\neq 0$). On considère la fonction :
 $$f(x) = x - \frac{g(x)}{g'(x)}$$
 
 Alors $f(\alpha)=\alpha$ et $f'(\alpha)=0$. Si $u_0$ est suffisamment proche de $\alpha$, la suite définie par $u_{n+1}=f(u_n)$ converge vers $\alpha$ avec une convergence **quadratique** :
 $$|u_{n+1}-\alpha| \le C|u_n-\alpha|^2$$
+
 :::
 
 # Document en PDF {-}
 [Chapitre 07 : Fonctions de la variable réelle, dérivation](PDF/tsi1-chap07.pdf)
 
 ## Navigation {-}
+
 ::: {.chap-nav}
+
 [Chapitre 06 : Fonctions de la variable réelle, limites et continuité](tsi1-chap06.qmd){.prev}
 [Menu TSI1](tsi1.qmd){.home}
 [Chapitre 08 : Fonctions usuelles, fonctions convexes](tsi1-chap08.qmd){.next}
+
 :::

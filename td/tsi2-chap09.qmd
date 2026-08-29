@@ -19,58 +19,81 @@ filters:
 **TSI (2e année) — TD du Chapitre 09.** Produits scalaires, orthogonalité, projection orthogonale, matrices orthogonales, isométries vectorielles (plan et espace), matrices symétriques réelles, théorème spectral.
 
 ::: {.exercise}
+
 Montrer l'inégalité de Cauchy-Schwarz : $|\langle x, y \rangle| \leq \|x\| \cdot \|y\|$ et préciser le cas d'égalité.
+
 :::
 
 ::: {.exercise}
+
 Soit $F$ un sous-espace vectoriel de dimension finie d'un espace préhilbertien $E$. Montrer que $E = F \oplus F^\perp$.
+
 :::
 
 ::: {.exercise}
+
 Soit $E$ un espace euclidien et $u$ un vecteur non nul. Soient $p$ la projection orthogonale sur $H = u^\perp$ et $s$ la symétrie orthogonale par rapport à $H$.
 
 1. Montrer que $\forall x \in E, \quad p(x) = x - \frac{\langle x, u \rangle}{\|u\|^2} u$.
 2. Montrer que $\forall x \in E, \quad s(x) = x - 2\frac{\langle x, u \rangle}{\|u\|^2} u$.
+
 :::
 
 ::: {.exercise}
+
 Appliquer Gram-Schmidt à $(1, X, X^2)$ dans $\mathbb{R}_2[X]$ muni de $\langle P, Q \rangle = \int_{-1}^1 P(t)Q(t)\, dt$.
+
 :::
 
 ::: {.exercise}
+
 Soit $u$ un endomorphisme orthogonal d'un espace euclidien. Montrer que :
 
 1. $u$ conserve le produit scalaire.
 2. $\det(u) \in \{-1, 1\}$.
 3. Si $F$ est stable par $u$, alors $F^\perp$ est stable par $u$.
+
 :::
 
 ::: {.exercise}
+
 Soit $E$ un espace euclidien de dimension 2. Montrer que toute isométrie directe est une rotation et que toute isométrie indirecte est une réflexion.
+
 :::
 
 ::: {.exercise}
+
 Soit $E$ un espace euclidien de dimension 3. Montrer que toute isométrie directe est soit l'identité, soit une rotation autour d'un axe.
+
 :::
 
 ::: {.exercise}
+
 Soit $f$ un endomorphisme symétrique d'un espace euclidien. Montrer que les sous-espaces propres associés à des valeurs propres distinctes sont orthogonaux.
+
 :::
 
 ::: {.exercise}
+
 Soit $u$ un endomorphisme symétrique d'un espace euclidien. Montrer que $u$ est diagonalisable dans une base orthonormée (théorème spectral).
+
 :::
 
 ::: {.exercise}
+
 Soit $A \in \mathcal{S}_n(\mathbb{R})$ une matrice symétrique réelle. Montrer qu'il existe une matrice orthogonale $P$ et une matrice diagonale $D$ telles que $A = PDP^{-1} = PDP^T$.
+
 :::
 
 # Cours {-}
 [**Chapitre 09 : Espaces préhilbertiens réels. Endomorphismes des espaces euclidiens**](../cours/tsi2-chap09.qmd)
 
 # Navigation {-}
+
 ::: {.chap-nav}
+
 [TD 08 : Espaces probabilisés](tsi2-chap08.qmd){.prev}
 [Menu TSI](tsi2.qmd){.home}
 [TD 10 : Séries de Fourier](tsi2-chap10.qmd){.next}
+
 :::

@@ -19,6 +19,7 @@ filters:
 **ECS (2e année) — TD du Chapitre 08.** Lois conjointes, marginales, conditionnelles, covariance, corrélation linéaire.
 
 ::: {.exercise}
+
 Soit $(X, Y)$ un couple de variables aléatoires discrètes de loi conjointe :
 
 | $X \setminus Y$ | 0 | 1 |
@@ -29,88 +30,110 @@ Soit $(X, Y)$ un couple de variables aléatoires discrètes de loi conjointe :
 1. Déterminer les lois marginales de $X$ et $Y$.
 2. $X$ et $Y$ sont-elles indépendantes ?
 3. Calculer $E(X)$, $E(Y)$, $\mathrm{Cov}(X, Y)$.
+
 :::
 
 ::: {.exercise}
+
 Soit $(X, Y)$ un couple de variables aléatoires de densité conjointe :
 $$f_{X,Y}(x, y) = \begin{cases} c(x + y) & 0 \leq x \leq 1, 0 \leq y \leq 1 \\ 0 & \text{sinon} \end{cases}$$
 
 1. Déterminer $c$.
 2. Déterminer les densités marginales de $X$ et $Y$.
 3. $X$ et $Y$ sont-elles indépendantes ?
+
 :::
 
 ::: {.exercise}
+
 Soit $(X, Y)$ un couple de variables aléatoires de densité conjointe :
 $$f_{X,Y}(x, y) = \begin{cases} e^{-y} & 0 \leq x \leq y \\ 0 & \text{sinon} \end{cases}$$
 
 1. Vérifier que $f_{X,Y}$ est une densité.
 2. Déterminer les densités marginales de $X$ et $Y$.
 3. $X$ et $Y$ sont-elles indépendantes ?
+
 :::
 
 ::: {.exercise}
+
 Soit $(X, Y)$ un couple de variables aléatoires avec $V(X) = 4$, $V(Y) = 9$ et $\mathrm{Cov}(X, Y) = 3$.
 
 1. Calculer $\rho(X, Y)$.
 2. Calculer $V(X + Y)$ et $V(X - Y)$.
 3. Calculer $V(2X + 3Y)$.
+
 :::
 
 ::: {.exercise}
+
 Soit $(X, Y)$ un couple de variables aléatoires de densité conjointe :
 $$f_{X,Y}(x, y) = \begin{cases} 2 & 0 \leq x \leq y \leq 1 \\ 0 & \text{sinon} \end{cases}$$
 
 1. Vérifier que $f_{X,Y}$ est une densité.
 2. Déterminer les densités marginales.
 3. Calculer $E(X)$, $E(Y)$, $E(XY)$ et $\mathrm{Cov}(X, Y)$.
+
 :::
 
 ::: {.exercise}
+
 Soit $(X, Y)$ un couple de variables aléatoires indépendantes suivant chacune la loi uniforme sur $[0, 1]$.
 
 1. Déterminer la densité conjointe de $(X, Y)$.
 2. Déterminer la densité de $X + Y$.
 3. Calculer $E(X + Y)$ et $V(X + Y)$.
+
 :::
 
 ::: {.exercise}
+
 Soit $(X, Y)$ un couple de variables aléatoires indépendantes suivant chacune la loi exponentielle de paramètre $\lambda$.
 
 1. Déterminer la densité de $X + Y$.
 2. Calculer $E(X + Y)$ et $V(X + Y)$.
+
 :::
 
 ::: {.exercise}
+
 Soit $(X, Y)$ un couple de variables aléatoires avec $E(X) = 2$, $E(Y) = 3$, $V(X) = 1$, $V(Y) = 4$ et $\mathrm{Cov}(X, Y) = 1$.
 
 1. Calculer $\rho(X, Y)$.
 2. Calculer $V(2X - 3Y + 5)$.
 3. Calculer $E(XY)$.
+
 :::
 
 ::: {.exercise}
+
 Soit $(X, Y)$ un couple de variables aléatoires de densité conjointe :
 $$f_{X,Y}(x, y) = \begin{cases} \frac{1}{\pi} & x^2 + y^2 \leq 1 \\ 0 & \text{sinon} \end{cases}$$
 
 1. Vérifier que $f_{X,Y}$ est une densité.
 2. Déterminer les densités marginales.
 3. Calculer $\mathrm{Cov}(X, Y)$.
+
 :::
 
 ::: {.exercise}
+
 Soit $(X, Y)$ un couple de variables aléatoires indépendantes suivant chacune la loi normale $\mathcal{N}(0, 1)$.
 
 1. Montrer que $X + Y \hookrightarrow \mathcal{N}(0, 2)$.
 2. Déterminer la densité de $X^2 + Y^2$.
+
 :::
 
 # Cours {-}
 [**Chapitre 08 : Vecteurs aléatoires**](../cours/ecs2-chap08.qmd)
 
 # Navigation {-}
+
 ::: {.chap-nav}
+
 [TD 07 : Variables aléatoires à densité](ecs2-chap07.qmd){.prev}
 [Menu ECS2](ecs2.qmd){.home}
 [TD 09 : Convergences et approximations](ecs2-chap09.qmd){.next}
+
 :::

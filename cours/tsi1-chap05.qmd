@@ -39,36 +39,49 @@ Dans tout ce chapitre, $\mathbb{K}$ désigne $\mathbb{R}$ ou $\mathbb{C}$.
 Les nombres réels sont supposés connus ; on rappelle leurs propriétés fondamentales sans adopter un point de vue axiomatique.
 
 ::: {.definition title="(Corps totalement ordonné)"}
+
 $\mathbb{R}$ est un corps commutatif totalement ordonné. On peut utiliser les quantificateurs pour formuler certaines propriétés des réels (notamment celles relatives à l'ordre) et obtenir leurs négations.
+
 :::
 
 ::: {.example title="(Exemples de majoration et de minoration)"}
+
 Exemples de majoration et de minoration de sommes, de produits et de quotients. Utilisation de factorisations et de tableaux de signes. Résolution d'inéquations.
+
 :::
 
 ::: {.definition title="(Valeur absolue)"}
+
 Soit $x \in \mathbb{R}$. La **valeur absolue** de $x$ est définie par :
 $$|x| = \begin{cases} x & \text{si } x \geq 0 \\ -x & \text{si } x < 0 \end{cases}$$
+
 :::
 
 ::: {.proposition title="(Inégalités triangulaires)"}
+
 Soient $x, y \in \mathbb{R}$. Alors :
 $$\big||x| - |y|\big| \leq |x+y| \leq |x| + |y|$$
 Interprétation sur la droite réelle : $|x-a| \leq \varepsilon$ signifie que $x$ appartient à l'intervalle $[a-\varepsilon, a+\varepsilon]$.
+
 :::
 
 ::: {.proposition title="(Propriété d'Archimède)"}
+
 $$\forall y \in \mathbb{R},\ \forall x > 0,\ \exists n \in \mathbb{N},\ nx > y$$
 En particulier, $\forall y \in \mathbb{R},\ \exists n \in \mathbb{N},\ n > y$.
+
 :::
 
 ::: {.definition title="(Partie entière)"}
+
 Pour tout $x \in \mathbb{R}$, il existe un unique entier $p \in \mathbb{Z}$ tel que $p \leq x < p+1$. Cet entier est appelé **partie entière** de $x$ et noté $\lfloor x \rfloor$. Les **approximations décimales** à la précision $10^{-n}$ par défaut et par excès en découlent directement.
+
 :::
 
 ## Majorant, minorant, borne supérieure et inférieure
 
 ::: {.definition}
+
 Soit $A$ une partie non vide de $\mathbb{R}$.
 
 - $A$ est **majorée** s'il existe $M \in \mathbb{R}$ tel que $\forall x \in A,\ x \leq M$.
@@ -77,28 +90,37 @@ Soit $A$ une partie non vide de $\mathbb{R}$.
 - Le **plus petit élément** (minimum) de $A$, s'il existe, est noté $\min A$.
 
 Une partie $X$ de $\mathbb{R}$ est un **intervalle** si, et seulement si, pour tous $a, b \in X$ tels que $a \leq b$, on a $[a,b] \subset X$. Un **segment** est un intervalle admettant un plus petit et un plus grand élément.
+
 :::
 
 ::: {.definition title="(Borne supérieure et inférieure)"}
+
 Soit $X$ une partie non vide de $\mathbb{R}$.
 
 - La **borne supérieure** de $X$, notée $\sup X$, est le plus petit des majorants de $X$ (si elle existe).
 - La **borne inférieure** de $X$, notée $\inf X$, est le plus grand des minorants de $X$ (si elle existe).
+
 :::
 
 ::: {.theorem title="(Axiome de la borne supérieure)"}
+
 Toute partie non vide majorée (resp. minorée) de $\mathbb{R}$ admet une borne supérieure (resp. inférieure).
 
 Ce résultat est admis.
+
 :::
 
 ::: {.proposition title="(Caractérisation de la borne supérieure)"}
+
 Soit $X$ une partie non vide majorée de $\mathbb{R}$ et $\alpha \in \mathbb{R}$. Alors :
 $$\sup X = \alpha \iff \begin{cases} \forall x \in X,\ x \leq \alpha \\ \forall \varepsilon > 0,\ \exists x_\varepsilon \in X,\ \alpha - \varepsilon < x_\varepsilon \end{cases}$$
+
 :::
 
 ::: {.exercise}
+
 Soit $X$ une partie non vide majorée de $\mathbb{R}$. Montrer que si $X$ admet un plus grand élément, alors $\max X = \sup X$.
+
 :::
 
 # Suites numériques
@@ -106,6 +128,7 @@ Soit $X$ une partie non vide majorée de $\mathbb{R}$. Montrer que si $X$ admet 
 ## Mode de définition d'une suite
 
 ::: {.definition}
+
 Une **suite numérique** (réelle ou complexe) est une famille $(u_n)_{n \in \mathbb{N}}$ d'éléments de $\mathbb{K}$ indexée par $\mathbb{N}$. Il s'agit d'une fonction de $\mathbb{N}$ dans $\mathbb{K}$. Le terme $u_n$ est appelé **terme général** de la suite.
 
 On distingue trois modes de définition :
@@ -114,20 +137,24 @@ On distingue trois modes de définition :
 - **Par récurrence** : $u_0$ donné et $u_{n+1} = f(u_n)$.
 
 L'étude des suites récurrentes générales sera abordée après celle de la dérivation.
+
 :::
 
 ## Opérations sur les suites
 
 ::: {.proposition}
+
 On définit les opérations suivantes sur les suites :
 - **Combinaison linéaire** : $(\alpha u + \beta v)_n = \alpha u_n + \beta v_n$
 - **Produit** : $(u \cdot v)_n = u_n \cdot v_n$
 - **Quotient** : $\left(\frac{u}{v}\right)_n = \frac{u_n}{v_n}$ (si $v_n \neq 0$)
+
 :::
 
 ## Suite majorée, minorée, bornée, monotone
 
 ::: {.definition}
+
 Soit $(u_n)_{n \in \mathbb{N}}$ une suite réelle.
 
 - $(u_n)$ est **majorée** s'il existe $M \in \mathbb{R}$ tel que $\forall n \in \mathbb{N},\ u_n \leq M$.
@@ -137,34 +164,44 @@ Soit $(u_n)_{n \in \mathbb{N}}$ une suite réelle.
 - $(u_n)$ est **croissante** (resp. **décroissante**) si $\forall n,\ u_n \leq u_{n+1}$ (resp. $u_{n+1} \leq u_n$).
 - $(u_n)$ est **strictement croissante** (resp. **strictement décroissante**) si $\forall n,\ u_n < u_{n+1}$ (resp. $u_{n+1} < u_n$).
 - $(u_n)$ est **monotone** si elle est croissante ou décroissante.
+
 :::
 
 ## Limite finie ou infinie d'une suite
 
 ::: {.definition}
+
 Soit $(u_n)_{n \in \mathbb{N}}$ une suite à valeurs dans $\mathbb{K}$ et $\ell \in \mathbb{K}$. On dit que $(u_n)$ **converge** vers $\ell$, et on note $\lim_{n \to +\infty} u_n = \ell$ ou $u_n \underset{n \to +\infty}{\longrightarrow} \ell$, si :
 $$\forall \varepsilon > 0,\ \exists N \in \mathbb{N},\ \forall n \geq N,\ |u_n - \ell| < \varepsilon$$
 On dit aussi que $u_n$ **tend vers** $\ell$ lorsque $n$ tend vers $+\infty$.
 
 On dit que $(u_n)$ **diverge vers $+\infty$** (resp. vers $-\infty$) si :
 $$\forall M \in \mathbb{R},\ \exists N \in \mathbb{N},\ \forall n \geq N,\ u_n \geq M \quad (\text{resp. } u_n \leq M)$$
+
 :::
 
 ::: {.theorem title="(Unicité de la limite)"}
+
 La limite d'une suite (finie ou infinie), si elle existe, est unique.
+
 :::
 
 ::: {.proposition}
+
 Toute suite convergente est bornée.
+
 :::
 
 ::: {.remark}
+
 La réciproque est fausse. Il suffit de considérer la suite de terme général $u_n = (-1)^n$.
+
 :::
 
 ## Opérations sur les limites
 
 ::: {.theorem title="(Opérations sur les limites)"}
+
 Soient $(u_n)$ et $(v_n)$ deux suites réelles admettant des limites respectives $\ell$ et $\ell'$.
 
 1. Si $\ell$ et $\ell'$ sont finies, alors pour tous $\alpha, \beta \in \mathbb{R}$ : $(\alpha u_n + \beta v_n) \to \alpha \ell + \beta \ell'$ et $u_n v_n \to \ell \ell'$. Si $\ell \neq 0$, alors $\frac{1}{u_n} \to \frac{1}{\ell}$.
@@ -174,23 +211,29 @@ Soient $(u_n)$ et $(v_n)$ deux suites réelles admettant des limites respectives
 **Produit d'une suite bornée et d'une suite de limite nulle :** le produit est de limite nulle.
 
 **Exemples de formes indéterminées :** $+\infty - \infty$, $0 \times \infty$, $\frac{0}{0}$, $\frac{\infty}{\infty}$.
+
 :::
 
 ::: {.proposition title="(Stabilité des inégalités larges par passage à la limite)"}
+
 Si $u_n \leq v_n$ pour tout $n$ assez grand et si $(u_n)$ et $(v_n)$ convergent vers $\ell$ et $\ell'$ respectivement, alors $\ell \leq \ell'$.
 
 En particulier, si $(u_n)$ converge vers $\ell > 0$, alors $u_n > 0$ à partir d'un certain rang. Plus précisément : $u_n \in \left]\frac{\ell}{2}, \frac{3\ell}{2}\right[$ pour $n$ assez grand.
+
 :::
 
 ::: {.theorem title="(Théorème de convergence par encadrement)"}
+
 Soient $(u_n)$, $(v_n)$, $(w_n)$ trois suites réelles telles que :
 1. $u_n \to \ell$ et $w_n \to \ell$ ;
 2. $\exists N \in \mathbb{N},\ \forall n \geq N,\ u_n \leq v_n \leq w_n$.
 
 Alors $(v_n)$ converge vers $\ell$.
+
 :::
 
 ::: {.theorem title="(Théorèmes de divergence par minoration ou majoration)"}
+
 Soient $(u_n)$ et $(v_n)$ deux suites réelles telles que :
 1. $(v_n)$ diverge vers $+\infty$ (resp. vers $-\infty$) ;
 2. $\exists N \in \mathbb{N},\ \forall n \geq N,\ v_n \leq u_n$ (resp. $u_n \leq v_n$).
@@ -198,88 +241,112 @@ Soient $(u_n)$ et $(v_n)$ deux suites réelles telles que :
 Alors $(u_n)$ diverge vers $+\infty$ (resp. vers $-\infty$).
 
 **Utilisation :** une majoration de la forme $|u_n - \ell| \leq v_n$, où $(v_n)$ converge vers $0$, implique que $(u_n)$ converge vers $\ell$.
+
 :::
 
 ::: {.theorem title="(Théorème de la limite monotone)"}
+
 Soit $(u_n)$ une suite réelle croissante (resp. décroissante).
 
 1. Si $(u_n)$ est majorée (resp. minorée), alors elle converge et :
 $$u_n \underset{n \to +\infty}{\longrightarrow} \sup\{u_n / n \in \mathbb{N}\} \quad \left(\text{resp. } \inf\{u_n / n \in \mathbb{N}\}\right)$$
 2. Si $(u_n)$ est non majorée (resp. non minorée), alors elle diverge vers $+\infty$ (resp. vers $-\infty$).
+
 :::
 
 ## Théorème des suites adjacentes
 
 ::: {.definition title="(Suites adjacentes)"}
+
 Soient $(u_n)$ et $(v_n)$ deux suites réelles. On dit qu'elles sont **adjacentes** si :
 1. L'une est croissante et l'autre décroissante ;
 2. $v_n - u_n \underset{n \to +\infty}{\longrightarrow} 0$.
+
 :::
 
 ::: {.theorem}
+
 Si $(u_n)$ et $(v_n)$ sont adjacentes (avec $(u_n)$ croissante et $(v_n)$ décroissante), alors :
 1. $(u_n)$ et $(v_n)$ convergent vers la même limite $\ell \in \mathbb{R}$ ;
 2. $\forall n \in \mathbb{N},\ u_n \leq \ell \leq v_n$.
 
 L'intérêt algorithmique de cette notion réside dans la résolution approchée par dichotomie d'une équation du type $f(x) = 0$.
+
 :::
 
 ## Suites extraites
 
 ::: {.definition}
+
 Soit $(u_n)_{n \in \mathbb{N}}$ une suite. On appelle **suite extraite** (ou **sous-suite**) toute suite $(v_n)_{n \in \mathbb{N}}$ définie par $v_n = u_{\varphi(n)}$ où $\varphi : \mathbb{N} \to \mathbb{N}$ est strictement croissante.
+
 :::
 
 ::: {.proposition}
+
 Si $(u_n)$ possède une limite, toutes ses suites extraites possèdent la même limite.
 
 En particulier, si $(u_{2n})$ et $(u_{2n+1})$ tendent vers $\ell$, alors $(u_n)$ tend vers $\ell$.
 
 **Utilisation pour montrer la divergence :** si deux suites extraites ont des limites différentes, la suite est divergente.
+
 :::
 
 ## Suites arithmétiques et géométriques
 
 ::: {.definition}
+
 On dit que $(u_n)$ est une suite **arithmétique** de terme initial $u_0 \in \mathbb{K}$ et de raison $r \in \mathbb{K}$ si :
 $$\forall n \in \mathbb{N},\ u_{n+1} = u_n + r$$
 On dit que $(u_n)$ est une suite **géométrique** de terme initial $u_0 \in \mathbb{K}$ et de raison $q \in \mathbb{K}$ si :
 $$\forall n \in \mathbb{N},\ u_{n+1} = q u_n$$
+
 :::
 
 ::: {.proposition}
+
 Si $(u_n)$ est arithmétique de terme initial $u_0$ et de raison $r$, alors :
 $$\forall n \in \mathbb{N},\ u_n = u_0 + nr$$
 Si $(u_n)$ est géométrique de terme initial $u_0$ et de raison $q$, alors :
 $$\forall n \in \mathbb{N},\ u_n = q^n u_0$$
+
 :::
 
 ::: {.proposition title="(Sommes usuelles)"}
+
 Pour $n \in \mathbb{N}^*$ et $q \in \mathbb{R}$ :
 $$\sum_{k=1}^n k = \frac{n(n+1)}{2}, \quad \sum_{k=1}^n k^2 = \frac{n(n+1)(2n+1)}{6}, \quad \sum_{k=1}^n k^3 = \left(\frac{n(n+1)}{2}\right)^2$$
 $$\sum_{k=0}^n q^k = \begin{cases} n+1 & \text{si } q = 1 \\ \frac{1-q^{n+1}}{1-q} & \text{si } q \neq 1 \end{cases}$$
+
 :::
 
 ## Suites arithmético-géométriques
 
 ::: {.definition}
+
 Pour les suites $(u_n)$ vérifiant une relation de récurrence du type $u_{n+1} = a u_n + b$, où $a \in \mathbb{C} \setminus \{1\}$ et $b \in \mathbb{C}$, on recherche une solution constante puis on détermine les solutions en se ramenant au cas d'une suite géométrique.
+
 :::
 
 ## Suites récurrentes linéaires d'ordre 2
 
 ::: {.definition}
+
 Pour les suites $(u_n)$ vérifiant une relation de récurrence linéaire homogène d'ordre 2 du type $u_{n+2} = \alpha u_{n+1} + \beta u_n$, où $(\alpha, \beta) \in \mathbb{C}^2$, on recherche une solution de la forme $(\lambda^n)$ puis on détermine les solutions en considérant la suite $(u_{n+1} - \lambda u_n)$ pour se ramener au cas d'une suite géométrique. L'équation $r^2 - \alpha r - \beta = 0$ est appelée **équation caractéristique**.
 
 Si $\alpha$ et $\beta$ sont réels, on décrit les solutions réelles.
+
 :::
 
 # Document en PDF {-}
 [Chapitre 05 : Nombres réels et suites numériques](PDF/tsi1-chap05.pdf)
 
 ## Navigation {-}
+
 ::: {.chap-nav}
+
 [Chapitre 04 : Géométrie élémentaire du plan et de l'espace](tsi1-chap04.qmd){.prev}
 [Menu TSI1](tsi1.qmd){.home}
 [Chapitre 06 : Fonctions de la variable réelle, limites et continuité](tsi1-chap06.qmd){.next}
+
 :::

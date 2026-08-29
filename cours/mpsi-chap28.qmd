@@ -29,20 +29,27 @@ Ce chapitre a été réalisé conformément au programme marocain de mathématiq
 La courbe $C$ est l'ensemble des points $M$ ou $M(t)$ tels que $\overrightarrow{OM}=\overrightarrow{F}(t)$ de coordonnées $(x(t),y(t))$ ou $(x(t),y(t),z(t))$, $t\in I$. On suppose au minimum que $\overrightarrow{F}$ est continue sur cet intervalle.
 
 ::: {.definition}
+
 $M_0(t_0)\in C$, on dit que $C$ admet une **tangente** en $M_0$ $\iff$ la droite $(M_0M)$, avec $M=M(t)$, a une limite quand $M\to M_0$, c'est-à-dire quand $t\to t_0$. Cette droite est alors la tangente à $C$ en $M_0$.
 
 On parlera éventuellement de **demi-tangente** si on a une limite à droite ou une limite à gauche.
+
 :::
 
 ::: {.definition}
+
 Un point $M_0(t_0)\in C$ est **régulier** $\iff$ $\overrightarrow{F}\,'(t_0)\neq\overrightarrow{0}$. Un point non régulier est un point **stationnaire**.
+
 :::
 
 ::: {.theorem}
+
 En un point $M_0(t_0)$ régulier, la courbe $C$ admet une tangente dirigée par $\overrightarrow{F}\,'(t_0)$.
+
 :::
 
 ::: {.proof}
+
 On fait la démonstration pour une courbe plane, c'est exactement la même pour une courbe paramétrée de l'espace. $\dfrac{\overrightarrow{M_0M}}{\|\overrightarrow{M_0M}\|}$ a pour coordonnées :
 $$\frac{t-t_0}{\|\overrightarrow{M_0M}\|}\begin{pmatrix}\dfrac{x(t)-x(t_0)}{t-t_0}\\[1ex]\dfrac{y(t)-y(t_0)}{t-t_0}\end{pmatrix}$$
 Or
@@ -50,6 +57,7 @@ $$\lim_{t\to t_0}\frac{t-t_0}{\|\overrightarrow{M_0M}\|}=\frac{\pm1}{\sqrt{x'(t_
 donc
 $$\lim_{t\to t_0}\frac{1}{\|\overrightarrow{M_0M}\|}\begin{pmatrix}x(t)-x(t_0)\\ y(t)-y(t_0)\end{pmatrix}=\frac{\pm1}{\sqrt{x'(t_0)^2+y'(t_0)^2}}\begin{pmatrix}x'(t_0)\\ y'(t_0)\end{pmatrix}$$
 Ce qui assure le résultat.
+
 :::
 
 ## Étude locale d'une courbe plane
@@ -57,8 +65,10 @@ Ce qui assure le résultat.
 On appelle encore $p$ le rang de dérivation du premier vecteur dérivé non nul, $\overrightarrow{F}^{\,(p)}(t_0)\neq\overrightarrow{0}$, et $q$ le rang du premier vecteur dérivé non colinéaire à $\overrightarrow{F}^{\,(p)}(t_0)$, sous réserve bien sûr que $\overrightarrow{F}$ soit de classe suffisante. $\left(\overrightarrow{F}^{\,(p)}(t_0),\overrightarrow{F}^{\,(q)}(t_0)\right)$ est ainsi une famille libre.
 
 ::: {.definition}
+
 On dit que $M_0$ est **birégulier** $\iff$ $p=1$ et $q=2$. Dans tous les cas, on obtient l'allure locale de la courbe en faisant un développement limité à l'ordre $q$ de $\overrightarrow{F}$ :
 $$\overrightarrow{M_0M}=\overrightarrow{F}(t)-\overrightarrow{F}(t_0)=\frac{(t-t_0)^p}{p!}(1+o(t-t_0))\overrightarrow{F}^{\,(p)}(t_0)+\frac{(t-t_0)^q}{q!}\overrightarrow{F}^{\,(q)}(t_0)+(t-t_0)^q\vec{\varepsilon}(t-t_0)$$
+
 :::
 
 Dans la base $\left(\overrightarrow{F}^{\,(p)}(t_0),\overrightarrow{F}^{\,(q)}(t_0)\right)$, les coordonnées de $\overrightarrow{M_0M}$ sont équivalentes à $\dfrac{(t-t_0)^p}{p!}$ et $\dfrac{(t-t_0)^q}{q!}$ quand $t\to t_0$. On travaille donc dans le repère $\left(M_0,\overrightarrow{F}^{\,(p)}(t_0),\overrightarrow{F}^{\,(q)}(t_0)\right)$, tout se décide alors suivant la parité de $p$ et $q$ :
@@ -71,10 +81,12 @@ Dans la base $\left(\overrightarrow{F}^{\,(p)}(t_0),\overrightarrow{F}^{\,(q)}(t
 | $p$ pair | $q$ pair | point de rebroussement de 2e espèce |
 
 ::: {.remark}
+
 \sauteligne
 - En un point birégulier, la concavité est tournée vers $\overrightarrow{F}^{\,''}(t_0)$.
 - $\lim_{t\to t_0}\dfrac{y'(t)}{x'(t)}$ quand elle existe, est toujours la pente de la tangente à la courbe au point considéré.
 - Quand la pente de la tangente, donnée par $\overrightarrow{F}^{\,(p)}(t_0)$ ou par $\lim_{t\to t_0}\dfrac{y'(t)}{x'(t)}$ est nulle ou infinie, c'est-à-dire quand la tangente est horizontale ou verticale, la recherche de $q$ est inutile puisque les variations de $x(t)$ et $y(t)$ permettent alors de déterminer le type de point.
+
 :::
 
 ## Branches infinies
@@ -99,15 +111,19 @@ On dit que $C$ admet une **branche infinie** quand $x(t)$ ou $y(t)$ tendent vers
 ## Lignes de niveau
 
 ::: {.definition}
+
 On se donne une fonction $F:\mathbb{R}^2\to\mathbb{R}$. Pour $\lambda\in\mathbb{R}$, la **ligne de niveau** $\lambda$ de $F$ est l'ensemble :
 $$\mathcal{C}_\lambda=\{(x,y)\in\mathbb{R}^2\,/\,F(x,y)=\lambda\}$$
+
 :::
 
 ## Tangente en un point non singulier
 
 ::: {.theorem}
+
 Soit $M_0=(x_0,y_0)$ un point de $\mathcal{C}_\lambda$ non singulier (c'est-à-dire $\overrightarrow{\nabla}F(M_0)\neq\overrightarrow{0}$). Alors $\mathcal{C}_\lambda$ admet une tangente en $M_0$, normale à $\overrightarrow{\nabla}F(M_0)$. Son équation est :
 $$\frac{\partial F}{\partial x}(M_0)(x-x_0)+\frac{\partial F}{\partial y}(M_0)(y-y_0)=0$$
+
 :::
 
 ## Paramétrer une ligne de niveau
@@ -121,9 +137,11 @@ Pour étudier une ligne de niveau, il est souvent utile de la paramétrer. Les d
 ## Courbes en coordonnées polaires
 
 ::: {.definition}
+
 $C$ la courbe définie en coordonnées polaires par $\rho=f(\theta)=\rho(\theta)$, $\theta\in I$, $C$ est l'ensemble des points $M$ dont les coordonnées vérifient :
 $$\begin{cases}x=\rho(\theta)\cos\theta\\ y=\rho(\theta)\sin\theta\end{cases}\quad \text{avec } \theta\in I$$
 On prendra toujours l'application $\rho$ au moins de classe $\mathcal{C}^1$ sur $I$.
+
 :::
 
 ## Ensemble d'étude
@@ -144,19 +162,25 @@ Dans chaque cas, on peut réduire l'intervalle d'étude.
 ## Tangente
 
 ::: {.theorem}
+
 $C$ la courbe définie en coordonnées polaires par $\rho=\rho(\theta)$ avec $\rho$ de classe $\mathcal{C}^1$ au voisinage de $\theta_0$. Alors $C$ admet une tangente en $M_0(\theta_0)$ définie par :
 $$\tan V=\frac{\rho}{\rho'}$$
 avec $V$ l'angle, orienté, entre le rayon vecteur et la tangente. En un point où $\rho(\theta_0)=0$, la tangente à la courbe est la droite $\theta=\theta_0$.
+
 :::
 
 ::: {.corollary}
+
 Si de plus $\rho(\theta_0)=0$, alors $V=0$. Conclusion : dans tous les cas, l'équation de la tangente dans le repère local $(M_0,\vec{u}_r,\vec{u}_\theta)$ est $Y=\tan V\,X$.
+
 :::
 
 ::: {.proof}
+
 On utilise ici les notations des physiciens $\vec{u}_r$ et $\vec{u}_\theta$. On a $\overrightarrow{OM}=\rho(\theta)\vec{u}_r$ et donc comme la dérivée de $\vec{u}_r$ par rapport à $\theta$ est $\vec{u}_\theta$ :
 $$\frac{d\overrightarrow{OM}}{d\theta}=\rho'(\theta)\vec{u}_r+\rho(\theta)\vec{u}_\theta$$
 En écrivant cette égalité en $\theta_0$, on obtient que $\tan V=\dfrac{\rho(\theta_0)}{\rho'(\theta_0)}$, avec $V$ l'angle, orienté, entre le rayon vecteur et la tangente. Si $\rho(\theta_0)=0$, la pente de $M_0M=\overrightarrow{OM}$ est $\dfrac{y}{x}=\dfrac{\rho(\theta)\sin\theta}{\rho(\theta)\cos\theta}$ qui tend bien vers $\tan\theta_0$.
+
 :::
 
 ## Branches infinies
@@ -202,7 +226,9 @@ Pour étudier une courbe en polaires $\rho=\rho(\theta)$ :
 ## Navigation {-}
 
 ::: {.chap-nav}
+
 [Chapitre 27 : Espaces préhilbertiens](mpsi-chap27.qmd){.prev}
 
 [Menu MPSI](mpsi.qmd){.home}
+
 :::

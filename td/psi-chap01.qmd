@@ -19,71 +19,87 @@ filters:
 **PSI (2e année) — TD du Chapitre 01.** Produit et somme d'espaces vectoriels, matrices par blocs et sous-espaces stables, trace d'une matrice et d'un endomorphisme, polynômes d'endomorphismes et de matrices carrées, interpolation de Lagrange.
 
 ::: {.exercise}
+
 Soient $E_1, E_2, E_3$ trois $\mathbb{K}$-espaces vectoriels de dimensions respectives $n_1, n_2, n_3$.
 
 1. Montrer que $E_1 \times E_2 \times E_3$ est un $\mathbb{K}$-espace vectoriel.
 2. Déterminer $\dim(E_1 \times E_2 \times E_3)$.
 3. Déterminer une base de $E_1 \times E_2 \times E_3$ à partir de bases de $E_1, E_2, E_3$.
+
 :::
 
 ::: {.exercise}
+
 Soit $E$ un $\mathbb{K}$-espace vectoriel et $F_1, F_2, F_3$ trois sous-espaces vectoriels de $E$.
 
 1. Montrer que $F_1 + F_2 + F_3$ est un sous-espace vectoriel.
 2. Montrer que $F_1 + F_2 + F_3$ est une somme directe si et seulement si $F_1 \cap F_2 = F_1 \cap F_3 = F_2 \cap F_3 = \{0\}$ et $(F_1 + F_2) \cap F_3 = \{0\}$.
 3. Montrer par un contre-exemple que $F_i \cap F_j = \{0\}$ pour $i \neq j$ ne suffit pas à garantir la somme directe.
+
 :::
 
 **Indication :** Pour (3), prendre $E = \mathbb{R}^2$ et trois droites distinctes passant par l'origine.
 
 ::: {.exercise}
+
 Soit $E$ un $\mathbb{K}$-espace vectoriel et $p \in \mathcal{L}(E)$ tel que $p^2 = p$.
 
 1. Montrer que $E = \mathrm{Im}(p) \oplus \ker(p)$.
 2. Montrer que $p$ est la projection sur $\mathrm{Im}(p)$ parallèlement à $\ker(p)$.
 3. Déterminer les valeurs propres possibles de $p$.
+
 :::
 
 ::: {.exercise}
+
 Soit $A = \begin{pmatrix} A_{11} & A_{12} \\ 0 & A_{22} \end{pmatrix} \in \mathcal{M}_n(\mathbb{K})$ une matrice par blocs triangulaire par blocs, où $A_{11} \in \mathcal{M}_p(\mathbb{K})$ et $A_{22} \in \mathcal{M}_{n-p}(\mathbb{K})$.
 
 1. Montrer que $\det(A) = \det(A_{11}) \cdot \det(A_{22})$.
 2. Montrer que si $A_{11}$ et $A_{22}$ sont inversibles, alors $A$ est inversible.
 3. Montrer que $\mathrm{tr}(A) = \mathrm{tr}(A_{11}) + \mathrm{tr}(A_{22})$.
+
 :::
 
 ::: {.exercise}
+
 Soit $E$ un $\mathbb{K}$-espace vectoriel de dimension $n$, $F$ un sous-espace vectoriel de dimension $p$ et $u \in \mathcal{L}(E)$ tel que $u(F) \subset F$.
 
 1. Montrer que $u$ induit un endomorphisme $u_F : F \to F$.
 2. Soit $\mathcal{B} = (e_1, \ldots, e_n)$ une base de $E$ telle que $(e_1, \ldots, e_p)$ soit une base de $F$. Montrer que $\mathrm{Mat}_{\mathcal{B}}(u) = \begin{pmatrix} A & C \\ 0 & D \end{pmatrix}$ où $A = \mathrm{Mat}_{(e_1, \ldots, e_p)}(u_F)$.
 3. Montrer que $\chi_u = \chi_A \cdot \chi_D$.
+
 :::
 
 ::: {.exercise}
+
 Soit $E$ un $\mathbb{K}$-espace vectoriel de dimension finie et $u \in \mathcal{L}(E)$.
 
 1. Montrer que $\mathrm{tr}(u + v) = \mathrm{tr}(u) + \mathrm{tr}(v)$ pour tout $v \in \mathcal{L}(E)$.
 2. Montrer que $\mathrm{tr}(\lambda u) = \lambda \, \mathrm{tr}(u)$ pour tout $\lambda \in \mathbb{K}$.
 3. Montrer que $\mathrm{tr}(u \circ v) = \mathrm{tr}(v \circ u)$ pour tout $v \in \mathcal{L}(E)$.
 4. Montrer que $\mathrm{tr}(p) = \mathrm{rg}(p)$ si $p$ est un projecteur.
+
 :::
 
 ::: {.exercise}
+
 Soit $A \in \mathcal{M}_n(\mathbb{K})$ et $P \in \mathbb{K}[X]$.
 
 1. Montrer que l'application $\Phi_A : \mathbb{K}[X] \to \mathcal{M}_n(\mathbb{K})$ définie par $P \mapsto P(A)$ est un morphisme d'algèbres.
 2. Montrer que $\ker(\Phi_A)$ est un idéal de $\mathbb{K}[X]$.
 3. Montrer que $\ker(\Phi_A) \neq \{0\}$ (utiliser la dimension finie de $\mathcal{M}_n(\mathbb{K})$).
 4. On appelle polynôme minimal de $A$ le générateur unitaire de $\ker(\Phi_A)$. Montrer qu'il divise tout polynôme annulateur de $A$.
+
 :::
 
 ::: {.exercise}
+
 Soit $A = \begin{pmatrix} 1 & 1 & 0 \\ 0 & 1 & 1 \\ 0 & 0 & 1 \end{pmatrix}$.
 
 1. Calculer $A^n$ pour tout $n \in \mathbb{N}$.
 2. Déterminer le polynôme minimal de $A$.
 3. Calculer $e^A = \sum_{k=0}^{+\infty} \frac{A^k}{k!}$.
+
 :::
 
 **Indications :**
@@ -91,16 +107,20 @@ Soit $A = \begin{pmatrix} 1 & 1 & 0 \\ 0 & 1 & 1 \\ 0 & 0 & 1 \end{pmatrix}$.
 - (2) $(A - I_3)^3 = 0$ mais $(A - I_3)^2 \neq 0$.
 
 ::: {.exercise}
+
 Soient $a_0, a_1, \ldots, a_n$ des éléments de $\mathbb{K}$ deux à deux distincts et $b_0, b_1, \ldots, b_n \in \mathbb{K}$.
 
 1. Montrer qu'il existe un unique polynôme $P \in \mathbb{K}_n[X]$ tel que $P(a_k) = b_k$ pour tout $k \in \{0, \ldots, n\}$.
 2. Montrer que ce polynôme est donné par la formule d'interpolation de Lagrange :
 $$P(X) = \sum_{k=0}^n b_k L_k(X) \quad \text{où} \quad L_k(X) = \prod_{\substack{j=0 \\ j \neq k}}^n \frac{X - a_j}{a_k - a_j}$$
+
 :::
 
 ::: {.exercise}
+
 Soit $f \in \mathcal{C}^{n+1}([a,b], \mathbb{R})$ et $a_0, \ldots, a_n \in [a,b]$ deux à deux distincts. Soit $P$ le polynôme d'interpolation de Lagrange de $f$ aux points $a_0, \ldots, a_n$. Montrer que pour tout $x \in [a,b]$, il existe $\xi \in ]a,b[$ tel que :
 $$f(x) - P(x) = \frac{f^{(n+1)}(\xi)}{(n+1)!} \prod_{k=0}^n (x - a_k)$$
+
 :::
 
 **Indication :** Appliquer le théorème de Rolle à la fonction $g(t) = f(t) - P(t) - \lambda \prod_{k=0}^n (t - a_k)$ avec $\lambda$ bien choisi.
@@ -109,7 +129,10 @@ $$f(x) - P(x) = \frac{f^{(n+1)}(\xi)}{(n+1)!} \prod_{k=0}^n (x - a_k)$$
 [**Chapitre 01 : Rappels et compléments sur les espaces vectoriels, endomorphismes et matrices**](../cours/psi-chap01.qmd)
 
 # Navigation {-}
+
 ::: {.chap-nav}
+
 [Menu PSI](psi.qmd){.home}
 [TD 02 : Réduction des endomorphismes](psi-chap02.qmd){.next}
+
 :::

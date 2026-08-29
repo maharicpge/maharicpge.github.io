@@ -29,12 +29,15 @@ Dans ce chapitre, $\mathbb{K}$ désigne $\mathbb{R}$ ou $\mathbb{C}$.
 ## Définitions et exemples
 
 ::: {.definition}
+
 Une **suite numérique** (réelle ou complexe) est une famille $(u_n)_{n\in\mathbb{N}}$ d'éléments de $\mathbb{K}$ indexée par $\mathbb{N}$ (parfois par $\mathbb{N}^*$, ou par $\mathbb{N}\smallsetminus\{0,\cdots,n_0-1\}$). Il s'agit donc d'une fonction de $\mathbb{N}$ dans $\mathbb{K}$.
 
 $u_n$ s'appelle le **terme général** de la suite $(u_n)_{n\in\mathbb{N}}$.
+
 :::
 
 ::: {.example}
+
 Voici quelques exemples de suites :
 
 1. $(2)_{n\in\mathbb{N}}$, $\left(\frac{1}{n}\right)_{n\in\mathbb{N}^*}$, $\left(\sin(n)\right)_{n\in\mathbb{N}}$, $\left(e^{in\frac{\pi}{2}}\right)_{n\in\mathbb{N}}$, $\left(\frac{1}{\sqrt{n^2-3n+2}}\right)_{n\geq 3}$, $(i^n)_{n\in\mathbb{N}}$ ;
@@ -45,127 +48,170 @@ $$\begin{cases} u_0=1,\ u_1=2 \\ \forall n\in\mathbb{N},\ u_{n+2}=2u_{n+1}-u_n\e
 4. $(F_n)_{n\geq 0}$ définie par $F_0=1$, $F_1=1$ et la relation $F_{n+2}=F_{n+1}+F_n$ (**suite de Fibonacci**). Les premiers termes sont $1$, $1$, $2$, $3$, $5$, $8$, $13$, … Chaque terme est la somme des deux précédents.
 5. La **suite harmonique** $(h_n)_{n\in\mathbb{N}^*}$ dont le terme général est défini par :
 $$\forall n\in\mathbb{N}^*,\ h_n=\sum_{k=1}^n\frac{1}{k}$$
+
 :::
 
 ::: {.definition title="(Suite bornée)"}
+
 Soit $(u_n)_{n\in\mathbb{N}}\subset\mathbb{K}$ une suite. On dit que la suite $(u_n)_{n\in\mathbb{N}}$ est **bornée** si :
 $$\exists M>0,\ \forall n\in\mathbb{N},\ |u_n|\leq M$$
+
 :::
 
 ::: {.example}
+
 Les suites $(2)_{n\in\mathbb{N}}$, $\left(\frac{1}{n}\right)_{n\in\mathbb{N}^*}$, $\left(\sin(n)\right)_{n\in\mathbb{N}}$, $\left(e^{in\frac{\pi}{2}}\right)_{n\in\mathbb{N}}$, $\left(\frac{1}{\sqrt{n^2-3n+2}}\right)_{n\geq 3}$, $(i^n)_{n\in\mathbb{N}}$ sont bornées.
+
 :::
 
 ::: {.definition title="(Suite stationnaire)"}
+
 Soit $(u_n)_{n\in\mathbb{N}}\subset\mathbb{K}$ une suite. On dit que la suite $(u_n)_{n\in\mathbb{N}}$ est **stationnaire** si :
 $$\exists N\in\mathbb{N},\ \forall n\in\mathbb{N},\ (n\geq N \Longrightarrow u_n=u_{n+1})$$
+
 :::
 
 ::: {.example}
+
 1. Soit $a\in\mathbb{K}$. La suite constante $(a)_{n\in\mathbb{N}}$ est stationnaire.
 2. La suite $(u_n)_{n\in\mathbb{N}}$ définie par $u_0=1$ et $u_{n+1}=\frac{1}{n+1}\sum_{k=0}^n u_k^2$ est stationnaire (puisque $\forall n\in\mathbb{N},\ u_n=1$).
 3. La suite $(u_n)_{n\in\mathbb{N}}$ définie par $u_n=e^{i\frac{2^n\pi}{1024}}$ est stationnaire.
+
 :::
 
 ::: {.proposition}
+
 Soit $(u_n)_{n\in\mathbb{N}}$ une suite réelle. Les assertions suivantes sont équivalentes :
 
 1. La suite $(u_n)_{n\in\mathbb{N}}$ est stationnaire ;
 2. Il existe un rang $N\in\mathbb{N}$ tel que la suite $(u_n)_{n\geq N}$ est constante.
+
 :::
 
 ## Convergence
 
 ::: {.definition title="(Suite convergente, divergente)"}
+
 Soit $(u_n)_{n\in\mathbb{N}}\subset\mathbb{K}$ une suite. On dit que $(u_n)_{n\in\mathbb{N}}$ est **convergente** si :
 $$\exists l\in\mathbb{K},\ \forall\varepsilon>0,\ \exists N\in\mathbb{N},\ \forall n\in\mathbb{N},\ (n\geq N \Longrightarrow |u_n-l|<\varepsilon)$$
 On dit, dans ce cas, que la suite $(u_n)$ **converge vers $l$**, ou que $l$ est la **limite** (finie) de la suite $(u_n)$, et on note $\lim_{n\to+\infty}u_n=l$ (ou $u_n\underset{n\to+\infty}{\longrightarrow}l$).
 
 Sinon, on dit que la suite $(u_n)$ est **divergente**.
+
 :::
 
 ::: {.remark}
+
 La suite $(u_n)_{n\in\mathbb{N}}$ converge vers $0$ si et seulement si la suite $(|u_n|)_{n\in\mathbb{N}}$ converge vers $0$.
+
 :::
 
 ::: {.example}
+
 1. La suite $\left(\frac{1}{n}\right)_{n\in\mathbb{N}^*}$ converge vers $0$.
 2. Soit $a\in\mathbb{K}$ tel que $|a|<1$. La suite $(a^n)_{n\in\mathbb{N}}$ converge vers $0$.
 3. La suite $(i^n)_{n\in\mathbb{N}}$ est divergente.
 4. La suite $(\ln n)_{n\in\mathbb{N}^*}$ est divergente.
+
 :::
 
 ::: {.proposition}
+
 Soient $(u_n)_{n\in\mathbb{N}}\subset\mathbb{K}$ une suite et $l\in\mathbb{K}$. Si la suite $(u_n)$ converge vers $l$, alors la suite $(|u_n|)$ converge vers $|l|$.
+
 :::
 
 ::: {.remark}
+
 La réciproque est fausse. Il suffit de considérer la suite $(i^n)_{n\in\mathbb{N}}$.
+
 :::
 
 ::: {.proposition}
+
 Toute suite convergente est bornée.
+
 :::
 
 ::: {.remark}
+
 La réciproque est fausse. Il suffit de considérer la suite de terme général $u_n=(-1)^n$.
+
 :::
 
 ::: {.proposition}
+
 Soient $(u_n)_{n\in\mathbb{N}},(v_n)_{n\in\mathbb{N}}\subset\mathbb{K}$ deux suites telles que :
 
 1. $(u_n)$ est bornée ;
 2. $(v_n)$ converge vers $0$.
 
 Alors la suite $(u_n v_n)_{n\in\mathbb{N}}$ converge vers $0$.
+
 :::
 
 ::: {.example}
+
 1. La suite $\left(\frac{e^{in}}{n}\right)_{n\in\mathbb{N}^*}$ converge vers $0$.
 2. La suite $\left(\frac{\sin(n)}{\sqrt{n}}\right)_{n\in\mathbb{N}^*}$ converge vers $0$.
 3. La suite $\left(\frac{u_n}{n}\right)_{n\in\mathbb{N}^*}$ converge vers $0$, avec $u_0\in]0,1[$ et $u_{n+1}=u_n(2-u_n)$ (on montre par récurrence que $0<u_n<1$).
+
 :::
 
 ## Suites extraites
 
 ::: {.definition}
+
 Soit $(u_n)_{n\in\mathbb{N}}\subset\mathbb{K}$ une suite. On appelle **suite extraite** (ou **sous-suite**) de la suite $(u_n)$ toute suite $(v_n)_{n\in\mathbb{N}}$ définie par :
 $$\forall n\in\mathbb{N},\ v_n=u_{\varphi(n)}$$
 avec $\varphi:\mathbb{N}\longrightarrow\mathbb{N}$ une application strictement croissante.
+
 :::
 
 ::: {.example}
+
 Soit la suite $(u_n)_{n\in\mathbb{N}}$ de terme général $u_n=(-1)^n$.
 
 - Si on considère $\phi(n)=2n$, alors la suite extraite correspondante a pour terme général $u_{\phi(n)}=(-1)^{2n}=1$ : la suite $(u_{\phi(n)})$ est constante égale à $1$.
 - Si on considère $\psi(n)=3n$, alors la suite extraite correspondante a pour terme général $u_{\psi(n)}=(-1)^{3n}=(-1)^n$ : la suite $(u_{\psi(n)})$ est égale à $(u_n)$.
+
 :::
 
 ::: {.example}
+
 1. Soit $(u_n)_{n\in\mathbb{N}}\subset\mathbb{K}$ une suite. Les suites $\left(u_{2n}\right)_{n\in\mathbb{N}}$, $\left(u_{2n+1}\right)_{n\in\mathbb{N}}$, $\left(u_{3n}\right)_{n\in\mathbb{N}}$, $\left(u_{6n}\right)_{n\in\mathbb{N}}$, $\left(u_{pn+r}\right)_{n\in\mathbb{N}}$ ($(p,r)\in\mathbb{N}^*\times\mathbb{N}$) sont des suites extraites de la suite $(u_n)$.
 2. Les suites $(i)_{n\in\mathbb{N}}$, $(1)_{n\in\mathbb{N}}$, $(-1)_{n\in\mathbb{N}}$, $(-i)_{n\in\mathbb{N}}$ sont des suites extraites de la suite $\left(i^n\right)_{n\in\mathbb{N}}$.
+
 :::
 
 ::: {.proposition}
+
 $(u_n)_{n\in\mathbb{N}}$ converge vers une limite $l\in\mathbb{K}$ si et seulement si toutes ses suites extraites convergent vers $l$.
+
 :::
 
 ::: {.remark}
+
 - Une technique pour montrer qu'une suite est divergente est d'avoir une suite extraite divergente, ou bien deux suites extraites convergentes qui ne convergent pas vers la même limite. Par exemple, la suite $((-1)^n)_{n\in\mathbb{N}}$ est divergente puisqu'elle admet deux suites extraites qui n'ont pas la même limite.
 - Attention : plusieurs suites extraites d'une suite $(u_n)$ qui convergent vers une même limite $l$ **n'implique pas** que la suite $(u_n)$ converge. Par exemple, si $u_n=(-1)^n$, alors les suites extraites $\left(u_{2n}\right)$, $\left(u_{2n+2}\right)$, $\left(u_{4n}\right)$, $\left(u_{4n+2}\right)$, … convergent toutes vers la même limite $1$ mais la suite $(u_n)$ diverge. Pourtant, on a le résultat suivant :
+
 :::
 
 ::: {.proposition}
+
 Si les deux suites extraites $(u_{2n})_{n\in\mathbb{N}}$ et $(u_{2n+1})_{n\in\mathbb{N}}$ convergent vers la même limite $l\in\mathbb{K}$, alors la suite $(u_n)_{n\in\mathbb{N}}$ converge vers $l$.
+
 :::
 
 ::: {.exercise}
+
 Étudier les suites suivantes :
 
 1. $\left(\sin\left(n\frac{\pi}{2}\right)\right)_{n\in\mathbb{N}}$ ;
 2. $\left(n(-1)^n\right)_{n\in\mathbb{N}}$ ;
 3. $\left(e^{i\pi((-1)^n+1)}\right)_{n\in\mathbb{N}}$ ;
 4. $\left(\frac{1}{2}+(-1)^n\frac{n^2}{n^2+4}\right)_{n\in\mathbb{N}}$.
+
 :::
 
 # Suites réelles
@@ -175,6 +221,7 @@ Dans tout ce paragraphe, $\mathbb{K}=\mathbb{R}$ ; toute suite numérique consid
 ## Majoration, minoration, monotonie
 
 ::: {.definition}
+
 Soit $(u_n)_{n\in\mathbb{N}}$ une suite réelle.
 
 1. On dit que la suite $(u_n)$ est **minorée** (respectivement **majorée**) si :
@@ -183,52 +230,66 @@ $$\exists m\in\mathbb{R},\ \forall n\in\mathbb{N},\ m\leq u_n \quad (\text{respe
 $$\forall n\in\mathbb{N},\ u_n\leq u_{n+1} \quad (\text{respectivement } u_{n+1}\leq u_n)$$
 Elle est **strictement croissante** (respectivement **strictement décroissante**) si $u_n<u_{n+1}$ (respectivement $u_{n+1}<u_n$).
 3. On dit que la suite $(u_n)$ est **monotone** si elle est croissante ou décroissante.
+
 :::
 
 ::: {.example}
+
 1. La suite $\left(\frac{1}{n}\right)_{n\in\mathbb{N}^*}$ est strictement décroissante.
 2. La suite $(\ln n)_{n\in\mathbb{N}^*}$ est strictement croissante.
 3. La suite $\left(n\sin\left(n\pi/2\right)\right)_{n\in\mathbb{N}}$ n'est pas monotone.
 4. La suite $\left((n-1)(n-2)\right)_{n\in\mathbb{N}^*}$ est croissante.
 5. La suite harmonique $\left(h_n=\sum_{k=1}^n\frac{1}{k}\right)_{n\in\mathbb{N}^*}$ est strictement croissante.
+
 :::
 
 ::: {.proposition}
+
 Soit $(u_n)_{n\in\mathbb{N}}$ une suite réelle. Les assertions suivantes sont équivalentes :
 
 1. La suite $(u_n)$ est croissante ;
 2. Pour tous $m,n\in\mathbb{N}$, si $n\leq m$ alors $u_n\leq u_m$ ;
 3. La suite $(-u_n)$ est décroissante.
+
 :::
 
 ## Limites infinies
 
 ::: {.definition}
+
 Soit $(u_n)_{n\in\mathbb{N}}$ une suite réelle. On dit que $(u_n)$ **diverge vers $+\infty$** (respectivement vers $-\infty$) et on écrit $\lim_{n\to+\infty}u_n=+\infty$ (ou $u_n\underset{n\to+\infty}{\longrightarrow}+\infty$) (respectivement $\lim_{n\to+\infty}u_n=-\infty$) si :
 $$\forall M\in\mathbb{R},\ \exists N\in\mathbb{N},\ \forall n\in\mathbb{N},\ (n\geq N \Longrightarrow u_n\geq M)$$
 (respectivement $\forall M\in\mathbb{R},\ \exists N\in\mathbb{N},\ \forall n\in\mathbb{N},\ (n\geq N \Longrightarrow u_n\leq M)$)
+
 :::
 
 ::: {.example}
+
 1. La suite $(n^2)_{n\in\mathbb{N}^*}$ diverge vers $+\infty$.
 2. La suite $\left(n(-1)^n\right)_{n\in\mathbb{N}}$ est divergente mais elle ne diverge ni vers $+\infty$ ni vers $-\infty$.
 3. La suite $\left(\frac{1}{n}\right)_{n\in\mathbb{N}^*}$ n'est pas divergente (elle est convergente).
+
 :::
 
 ::: {.theorem title="(Unicité de la limite)"}
+
 La limite (finie ou infinie) d'une suite réelle, si elle existe, est unique.
+
 :::
 
 ::: {.proposition}
+
 Soient $(u_n)_{n\in\mathbb{N}}$ une suite réelle admettant une limite $l\in\overline{\mathbb{R}}$ et $k\in\mathbb{R}$.
 
 1. S'il existe un rang $N\in\mathbb{N}$ tel que pour tout $n\geq N$, $u_n<k$ (ou $u_n\leq k$), alors $l\leq k$.
 2. Si $l<k$, alors il existe un rang $N\in\mathbb{N}$ tel que pour tout $n\geq N$, $u_n<k$.
+
 :::
 
 ## Opérations sur les limites
 
 ::: {.theorem}
+
 Soient $(u_n)$ et $(v_n)$ deux suites réelles admettant deux limites respectives $l$ et $l'$ de $\overline{\mathbb{R}}$.
 
 1. Si $l$ et $l'$ sont finies, alors pour tous $\alpha,\beta\in\mathbb{R}$, la suite $(\alpha u_n+\beta v_n)$ est convergente et :
@@ -237,6 +298,7 @@ $$\alpha u_n+\beta v_n\underset{n\to+\infty}{\longrightarrow}\alpha l+\beta l'$$
 3. Si $l\neq 0$, alors la suite $\left(\frac{1}{u_n}\right)$ est bien définie à partir d'un certain rang et convergente, et $\frac{1}{u_n}\underset{n\to+\infty}{\longrightarrow}\frac{1}{l}$.
 4. Si $l=\pm\infty$ et $l'\in\overline{\mathbb{R}}\smallsetminus\{0\}$, alors $u_n v_n\underset{n\to+\infty}{\longrightarrow}\infty$ (avec le signe donné par la règle des signes).
 5. Si $l=\pm\infty$, alors la suite $\left(\frac{1}{u_n}\right)$ est bien définie à partir d'un certain rang et convergente, et $\frac{1}{u_n}\underset{n\to+\infty}{\longrightarrow}0$.
+
 :::
 
 On peut résumer ce qui précède (plus d'autres cas) dans les tableaux suivants (avec $l,l'\in\mathbb{R}$) :
@@ -263,153 +325,205 @@ On peut résumer ce qui précède (plus d'autres cas) dans les tableaux suivants
 | limite de $(v_n/u_n)$ | $l'/l$ | $0$ | $\pm\infty$ | $\pm\infty$ | F.I | F.I |
 
 ::: {.example}
+
 1. La suite $\left(\frac{2n^2+n+1}{n^2+n+1}\right)_{n\in\mathbb{N}}$ converge vers $2$.
 2. La suite $\left(\frac{1-n^2}{\sin\left(\frac{1}{n}\right)}\right)_{n\in\mathbb{N}^*}$ diverge vers $-\infty$.
+
 :::
 
 ## Théorème des gendarmes et comparaison
 
 ::: {.theorem title="(Théorème des gendarmes)"}
+
 Soient $(u_n)$, $(v_n)$, $(w_n)$ trois suites réelles et $l\in\mathbb{R}$ telles que :
 
 1. $u_n,w_n\underset{n\to+\infty}{\longrightarrow} l$ ;
 2. $\exists N\in\mathbb{N},\ \forall n\geq N,\ u_n\leq v_n\leq w_n$.
 
 Alors la suite $(v_n)$ converge vers $l$.
+
 :::
 
 ::: {.exercise}
+
 Soient $(u_n)$, $(v_n)$ deux suites réelles telles que $\forall n\in\mathbb{N},\ u_n,v_n\in[0,1]$ et $u_n v_n\underset{n\to+\infty}{\longrightarrow}1$. Montrer que $u_n,v_n\underset{n\to+\infty}{\longrightarrow}1$.
+
 :::
 
 ::: {.exercise title="(Limites de référence)"}
+
 Soit $\alpha,\beta>0$. Montrer les limites de référence suivantes :
 $$\lim_{n\to+\infty}n^{\alpha}e^{-n}=0 \quad;\quad \lim_{n\to+\infty}\frac{(\ln n)^{\beta}}{n^{\alpha}}=0 \quad;\quad \lim_{n\to+\infty}\frac{n^{\alpha}}{n!}=0 \quad;\quad \lim_{n\to+\infty}n^{-n}n!=0$$
+
 :::
 
 ::: {.exercise}
+
 Étudier les suites suivantes :
 $$\left(u_n=\frac{\sin(2n)}{\sqrt{n}}\right)_{n\geq 1}\ ;\quad \left(u_n=\sum_{k=1}^n\frac{n}{n^2+k}\right)_{n\geq 1}\ ;\quad \left(u_n=\sum_{k=1}^n\frac{k}{\sqrt{n^9+k}}\right)_{n\geq 1}\ ;\quad \left(u_n=\frac{\lfloor nx\rfloor}{n}\right)_{n\geq 1}\ (x\in\mathbb{R})$$
+
 :::
 
 ::: {.theorem title="(Théorème de divergence par majoration ou minoration)"}
+
 Soient $(u_n)$ et $(v_n)$ deux suites réelles telles que :
 
 1. $(v_n)$ diverge vers $+\infty$ (respectivement vers $-\infty$) ;
 2. $\exists N\in\mathbb{N},\ \forall n\geq N,\ v_n\leq u_n$ (respectivement $u_n\leq v_n$).
 
 Alors la suite $(u_n)$ diverge vers $+\infty$ (respectivement vers $-\infty$).
+
 :::
 
 ::: {.exercise}
+
 Étudier les suites suivantes :
 $$\left(u_n=\sin(2n)+n\right)_{n\in\mathbb{N}}\ ;\quad \left(u_n=\sum_{k=1}^n\frac{1}{\sqrt[3]{k}}\right)_{n\geq 1}\ ;\quad \left(u_n=\sum_{k=1}^n\frac{k}{n+k}\right)_{n\geq 1}\ ;\quad \left(u_n=\sum_{k=1}^{n^2}\frac{k^2}{n^3+k^2}\right)_{n\geq 1}$$
+
 :::
 
 ## Théorème de la limite monotone
 
 ::: {.theorem title="(Théorème de la limite monotone)"}
+
 Soit $(u_n)_{n\in\mathbb{N}}$ une suite réelle croissante (respectivement décroissante).
 
 1. Si $(u_n)$ est majorée (respectivement minorée), alors elle est convergente et on a :
 $$u_n\underset{n\to+\infty}{\longrightarrow}\sup\{u_n\,/\,n\in\mathbb{N}\} \quad \left(\text{respectivement } u_n\underset{n\to+\infty}{\longrightarrow}\inf\{u_n\,/\,n\in\mathbb{N}\}\right)$$
 2. Si $(u_n)$ est non majorée (respectivement non minorée), alors elle diverge vers $+\infty$ (respectivement vers $-\infty$).
+
 :::
 
 ::: {.exercise}
+
 Étudier la convergence de la suite dont le terme général est défini par $u_n=\sum_{k=0}^n\frac{1}{k!}$.
+
 :::
 
 ::: {.exercise}
+
 Étudier la convergence de la suite dont le terme général est défini par $u_n=\sum_{k=1}^n\left(1-\frac{1}{2k+1}\right)$.
+
 :::
 
 ::: {.exercise}
+
 On considère l'ensemble $E=\left\{\left(1+\frac{1}{p}\right)^p\,/\,p\in\mathbb{N}^*\right\}$. Montrer que $\sup E=e$.
+
 :::
 
 ## Suites adjacentes
 
 ::: {.definition title="(Suites adjacentes)"}
+
 Soient $(u_n)$ et $(v_n)$ deux suites réelles. On dit qu'elles sont **adjacentes** si :
 
 1. l'une est croissante et l'autre décroissante ;
 2. $v_n-u_n\underset{n\to+\infty}{\longrightarrow}0$.
+
 :::
 
 ::: {.example}
+
 1. Les suites $\left(1-\frac{1}{n}\right)_{n\in\mathbb{N}^*}$ et $\left(1+\frac{1}{n}\right)_{n\in\mathbb{N}^*}$ sont adjacentes.
 2. Les suites $(u_n)_{n\in\mathbb{N}^*}$ et $(v_n)_{n\in\mathbb{N}^*}$ définies par $u_n=\sum_{k=1}^{2n}\frac{(-1)^{k+1}}{k}$ et $v_n=u_n+\frac{1}{2n+1}$ sont adjacentes.
 3. Soit $x\in\mathbb{R}$. Les suites $(r_n)$ et $(r'_n)$ définies par $r_n=\frac{\lfloor 10^n x\rfloor}{10^n}$ et $r'_n=r_n+\frac{1}{10^n}$ sont adjacentes.
+
 :::
 
 ::: {.theorem}
+
 Si $(u_n)$ et $(v_n)$ sont deux suites réelles adjacentes (avec $(u_n)$ croissante et $(v_n)$ décroissante), alors :
 
 1. $(u_n)$ et $(v_n)$ convergent vers la même limite $l\in\mathbb{R}$ ;
 2. $\forall n\in\mathbb{N},\ u_n\leq l\leq v_n$.
+
 :::
 
 ::: {.remark}
+
 Une technique pour montrer qu'une suite réelle $(u_n)$ est convergente est de montrer que ses suites extraites $\left(u_{2n}\right)$ et $\left(u_{2n+1}\right)$ sont adjacentes.
+
 :::
 
 ::: {.exercise title="(Critère de Leibniz)"}
+
 Soit $(a_n)_{n\in\mathbb{N}}$ une suite réelle décroissante convergeant vers $0$. Montrer que la suite $(S_n)_{n\in\mathbb{N}}$ définie par $S_n=\sum_{k=0}^n(-1)^k a_k$ est convergente.
+
 :::
 
 ## Bolzano-Weierstrass et caractérisations séquentielles
 
 ::: {.theorem title="(Théorème de Bolzano-Weierstrass)"}
+
 De toute suite réelle bornée, on peut extraire une suite convergente.
+
 :::
 
 ::: {.corollary}
+
 De toute suite réelle, on peut extraire une suite convergente dans $\overline{\mathbb{R}}$.
+
 :::
 
 ::: {.exercise}
+
 Donner un exemple de suite qui admet des sous-suites admettant comme limites $+\infty$, $-\infty$ et un réel.
+
 :::
 
 ::: {.exercise}
+
 Soit $(u_n)_n$ une suite réelle. $(u_n)_n$ est dite **de Cauchy** si elle vérifie :
 $$\left(\forall\varepsilon>0\right)\left(\exists n_0\in\mathbb{N}\right)\left(\forall(p,q)\in\mathbb{N}^2\right)\ (q\geq p\geq n_0 \Longrightarrow |u_q-u_p|\leq\varepsilon)$$
 Montrer que $(u_n)_n$ est de Cauchy si et seulement si elle est convergente.
+
 :::
 
 ::: {.theorem title="(Caractérisations séquentielles)"}
+
 Soit $X$ une partie non vide de $\mathbb{R}$.
 
 1. Si $X$ est majorée, alors il existe une suite $(x_n)_n$ d'éléments de $X$ qui converge vers $\sup X$.
 2. Si $X$ est non majorée, alors il existe une suite $(x_n)_n$ d'éléments de $X$ qui diverge vers $+\infty$.
+
 :::
 
 ::: {.corollary}
+
 Soit $X$ une partie non vide de $\mathbb{R}$.
 
 1. Si $X$ est minorée, alors il existe une suite $(x_n)_n$ d'éléments de $X$ qui converge vers $\inf X$.
 2. Si $X$ est non minorée, alors il existe une suite $(x_n)_n$ d'éléments de $X$ qui diverge vers $-\infty$.
+
 :::
 
 ::: {.proposition title="(Réciproque du théorème)"}
+
 Soit $X$ une partie non vide de $\mathbb{R}$ et $\alpha\in\mathbb{R}$.
 
 1. Si $\alpha$ est un majorant (respectivement minorant) de $X$ et il existe une suite $(x_n)_n$ d'éléments de $X$ qui converge vers $\alpha$, alors $\alpha$ est la borne supérieure (respectivement la borne inférieure) de $X$.
 2. S'il existe une suite $(x_n)_n$ d'éléments de $X$ qui diverge vers $+\infty$ (respectivement vers $-\infty$), alors $X$ est non majorée (respectivement non minorée).
+
 :::
 
 ::: {.exercise}
+
 Déterminer la borne inférieure de l'ensemble $A=\left\{\frac{1}{n}+(-1)^n\,/\,n\in\mathbb{N}^*\right\}$.
+
 :::
 
 ::: {.theorem title="(Caractérisation séquentielle de la densité)"}
+
 Soit $X$ une partie non vide de $\mathbb{R}$. $X$ est dense dans $\mathbb{R}$ si et seulement si pour tout réel $x$, il existe une suite $(x_n)_n$ d'éléments de $X$ qui converge vers $x$.
+
 :::
 
 ::: {.exercise}
+
 Montrer, en utilisant la caractérisation séquentielle, que les ensembles suivants sont denses dans $\mathbb{R}$ :
 $$\mathbb{Q}\quad;\quad \mathbb{R}\smallsetminus\mathbb{Q}\quad;\quad \mathbb{D}=\left\{q\cdot 10^{-p}\,/\,(p,q)\in\mathbb{N}\times\mathbb{Z}\right\}$$
+
 :::
 
 # Suites complexes
@@ -417,24 +531,32 @@ $$\mathbb{Q}\quad;\quad \mathbb{R}\smallsetminus\mathbb{Q}\quad;\quad \mathbb{D}
 Dans tout ce paragraphe, $\mathbb{K}=\mathbb{C}$ et toute suite numérique considérée sera dite **suite complexe**.
 
 ::: {.theorem title="(Unicité de la limite)"}
+
 La limite d'une suite complexe, si elle existe, est unique.
+
 :::
 
 ::: {.proposition title="(Caractérisation par les parties réelle et imaginaire)"}
+
 Soit $(u_n)_{n\in\mathbb{N}}$ une suite complexe et $l\in\mathbb{C}$. Alors :
 $$u_n\underset{n\to+\infty}{\longrightarrow} l \iff \begin{cases} \mathcal{R}e(u_n)\underset{n\to+\infty}{\longrightarrow}\mathcal{R}e(l) \\ \mathcal{I}m(u_n)\underset{n\to+\infty}{\longrightarrow}\mathcal{I}m(l)\end{cases}$$
+
 :::
 
 ::: {.theorem title="(Opérations sur les limites)"}
+
 Soient $(u_n)$ et $(v_n)$ deux suites complexes admettant deux limites respectives $l$ et $l'$ de $\mathbb{C}$.
 
 1. Pour tous $\alpha,\beta\in\mathbb{C}$, la suite $(\alpha u_n+\beta v_n)$ est convergente et $\alpha u_n+\beta v_n\underset{n\to+\infty}{\longrightarrow}\alpha l+\beta l'$ ;
 2. La suite $(u_n v_n)$ est convergente et $u_n v_n\underset{n\to+\infty}{\longrightarrow} l\cdot l'$ ;
 3. Si $l\neq 0$, alors la suite $\left(\frac{1}{u_n}\right)$ est bien définie à partir d'un certain rang et convergente, et $\frac{1}{u_n}\underset{n\to+\infty}{\longrightarrow}\frac{1}{l}$.
+
 :::
 
 ::: {.theorem title="(Bolzano-Weierstrass)"}
+
 De toute suite complexe bornée, on peut extraire une suite convergente.
+
 :::
 
 # Suites récurrentes
@@ -442,71 +564,92 @@ De toute suite complexe bornée, on peut extraire une suite convergente.
 ## Suite arithmétique
 
 ::: {.definition}
+
 On dit que la suite $(u_n)_{n\in\mathbb{N}}$ est une suite **arithmétique** de terme initial $u_0\in\mathbb{K}$ et de raison $r\in\mathbb{K}$ si elle vérifie la relation récurrente suivante :
 $$\forall n\in\mathbb{N},\ u_{n+1}=u_n+r$$
+
 :::
 
 ::: {.proposition}
+
 Si $(u_n)$ est une suite arithmétique de terme initial $u_0\in\mathbb{K}$ et de raison $r\in\mathbb{K}$, alors :
 
 1. $\forall n\in\mathbb{N},\ u_n=u_0+nr$ ;
 2. $(u_n)$ converge si et seulement si $r=0$ ;
 3. $\forall m,n\in\mathbb{N}\ (m\leq n),\ \sum_{k=m}^n u_k=(n-m+1)u_0+\frac{r(n-m+1)(n+m)}{2}$ ;
 4. Si la suite $(u_n)$ est réelle, alors elle est croissante si $r\geq 0$ et décroissante sinon.
+
 :::
 
 ::: {.exercise}
+
 Déterminer sept nombres impairs consécutifs dont la somme est $7^3$.
+
 :::
 
 ## Suite géométrique
 
 ::: {.definition}
+
 On dit que la suite $(u_n)_{n\in\mathbb{N}}$ est une suite **géométrique** de terme initial $u_0\in\mathbb{K}$ et de raison $q\in\mathbb{K}$ si elle vérifie la relation récurrente suivante :
 $$\forall n\in\mathbb{N},\ u_{n+1}=q\,u_n$$
+
 :::
 
 ::: {.proposition}
+
 Si $(u_n)$ est une suite géométrique de terme initial $u_0\in\mathbb{K}$ et de raison $q\in\mathbb{K}$, alors :
 
 1. $\forall n\in\mathbb{N},\ u_n=q^n u_0$ ;
 2. $\forall m,n\in\mathbb{N}\ (m\leq n),\ \sum_{k=m}^n u_k=\begin{cases} u_0\frac{q^m-q^{n+1}}{1-q}, & \text{si } q\neq 1 \\ u_0(n-m+1), & \text{sinon}\end{cases}$ ;
 3. Si la suite $(u_n)$ est réelle positive, alors elle est croissante si $q\geq 1$ et décroissante si $0\leq q\leq 1$.
+
 :::
 
 ::: {.exercise}
+
 Soit $(a,b)\in\mathbb{R}^2$. On considère la suite $(u_n)_n$ donnée par $u_0=a$, $u_1=b$ et $\forall n\in\mathbb{N},\ u_{n+2}=\frac{1}{2}\left(u_{n+1}+u_n\right)$. Pour $n\in\mathbb{N}$, on pose $v_n=u_{n+1}-u_n$.
 
 1. Montrer que la suite $(v_n)_n$ est géométrique.
 2. Calculer, en fonction de $n$ ($n\geq 1$), la somme $S_n=\sum_{k=0}^{n-1}v_k$.
 3. En déduire, pour tout $n\in\mathbb{N}$, $u_n$ en fonction de $n$ ainsi que la limite de $(u_n)_n$.
+
 :::
 
 ## Suite arithmético-géométrique
 
 ::: {.definition}
+
 Soit $(a,b)\in\mathbb{C}^2$. On dit que $(u_n)_{n\in\mathbb{N}}$ est une suite **arithmético-géométrique** si elle est définie comme suit :
 $$\begin{cases} u_0\in\mathbb{K} \\ \forall n\in\mathbb{N},\ u_{n+1}=a\,u_n+b\end{cases}$$
+
 :::
 
 ::: {.proposition}
+
 $$\forall n\in\mathbb{N},\ u_n=\begin{cases} u_0+nb, & \text{si } a=1 \\ a^n\left(u_0-\frac{b}{1-a}\right)+\frac{b}{1-a}, & \text{sinon}\end{cases}$$
+
 :::
 
 ::: {.exercise}
+
 Expliciter la suite $(u_n)_n$ vérifiant $u_0=2$ et $\forall n\in\mathbb{N},\ u_{n+1}=3u_n-2$.
+
 :::
 
 ## Suite récurrente linéaire d'ordre 2
 
 ::: {.definition}
+
 Soit $(a,b)\in\mathbb{C}^2$. On dit que $(u_n)_{n\in\mathbb{N}}$ est une suite **récurrente linéaire d'ordre 2** si elle vérifie la relation récurrente suivante :
 $$\forall n\in\mathbb{N},\ u_{n+2}=a\,u_{n+1}+b\,u_n \quad (\star)$$
 On associe à la relation récurrente $(\star)$ l'équation, dite **équation caractéristique**, suivante :
 $$r^2-ar-b=0$$
+
 :::
 
 ::: {.proposition}
+
 1. Si $\mathbb{K}=\mathbb{C}$, alors :
    a. Si l'équation caractéristique admet deux solutions distinctes $r_1$ et $r_2$, alors : $\forall n\in\mathbb{N},\ u_n=\alpha r_1^n+\beta r_2^n$ ;
    b. Si l'équation caractéristique admet une solution double $r$, alors : $\forall n\in\mathbb{N},\ u_n=(\alpha n+\beta)r^n$ ;
@@ -516,10 +659,13 @@ $$r^2-ar-b=0$$
    b. Si l'équation caractéristique admet une solution réelle double $r$, alors : $u_n=(\alpha n+\beta)r^n$ ;
    c. Si l'équation caractéristique admet deux solutions distinctes conjuguées $r=\rho e^{i\theta}$ et $\overline{r}$, alors : $u_n=\alpha\rho^n\cos(n\theta)+\beta\rho^n\sin(n\theta)$ ;
    où $(\alpha,\beta)\in\mathbb{R}^2$.
+
 :::
 
 ::: {.exercise}
+
 Expliciter la suite $(u_n)_n$ vérifiant $u_0=u_1=1$ et $\forall n\in\mathbb{N},\ u_{n+2}=3u_{n+1}-2u_n$.
+
 :::
 
 # Document en PDF {-}
@@ -529,9 +675,11 @@ Expliciter la suite $(u_n)_n$ vérifiant $u_0=u_1=1$ et $\forall n\in\mathbb{N},
 ## Navigation {-}
 
 ::: {.chap-nav}
+
 [Chapitre 16 : Nombres réels](mpsi-chap16.qmd){.prev}
 
 [Menu MPSI](mpsi.qmd){.home}
 
 [Chapitre 18 : Limites et continuité](mpsi-chap18.qmd){.next}
+
 :::

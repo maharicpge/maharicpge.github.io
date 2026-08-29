@@ -37,62 +37,80 @@ Dans toute la suite, $E$ est un espace vectoriel réel.
 ## Définition
 
 ::: {.definition title="(Produit scalaire)"}
+
 On appelle **produit scalaire** sur $E$ toute application $\langle \cdot, \cdot \rangle : E \times E \to \mathbb{R}$ qui vérifie :
 
 1. **Symétrie** : $\forall x, y \in E, \quad \langle x, y \rangle = \langle y, x \rangle$
 2. **Bilinéarité** : $\forall x, y, z \in E, \; \forall \lambda, \mu \in \mathbb{R}, \quad \langle \lambda x + \mu y, z \rangle = \lambda \langle x, z \rangle + \mu \langle y, z \rangle$
 3. **Positivité** : $\forall x \in E, \quad \langle x, x \rangle \geq 0$
 4. **Définie positive** : $\forall x \in E, \quad \langle x, x \rangle = 0 \implies x = 0_E$
+
 :::
 
 ::: {.remark}
+
 - Si $E$ est muni d'un produit scalaire $\langle \cdot, \cdot \rangle$, il sera dit **espace préhilbertien**.
 - S'il est, de plus, de dimension finie, il sera dit **espace euclidien**.
+
 :::
 
 ## Exemples de produits scalaires
 
 ::: {.example title="(Produit scalaire canonique sur $\mathbb{R}^n$)"}
+
 Le produit scalaire canonique sur $\mathbb{R}^n$ est défini par :
 $$\langle x, y \rangle = x_1 y_1 + x_2 y_2 + \cdots + x_n y_n = \sum_{k=1}^n x_k y_k = {}^tX Y$$
 où $x = (x_1, \ldots, x_n)$, $y = (y_1, \ldots, y_n)$ et $X$, $Y$ sont les colonnes des coordonnées de $x$ et $y$.
+
 :::
 
 ::: {.example title="(Produit scalaire sur $\mathcal{M}_n(\mathbb{R})$)"}
+
 Sur $\mathcal{M}_n(\mathbb{R})$, l'application :
 $$\langle A, B \rangle = \mathrm{Tr}({}^tA B) = \sum_{i,j=1}^n a_{i,j} b_{i,j}$$
 est un produit scalaire.
+
 :::
 
 ::: {.example title="(Produit scalaire sur les fonctions continues)"}
+
 Sur $\mathcal{C}([a,b], \mathbb{R})$, l'application :
 $$\langle f, g \rangle = \int_a^b f(t) g(t)\, dt$$
 est un produit scalaire.
+
 :::
 
 ::: {.example title="(Produit scalaire sur les fonctions $2\pi$-périodiques)"}
+
 Sur l'espace vectoriel $\mathcal{C}_{2\pi}(\mathbb{R}, \mathbb{R})$ des fonctions continues $2\pi$-périodiques, l'application :
 $$\langle f, g \rangle = \frac{1}{2\pi} \int_0^{2\pi} f(t) g(t)\, dt$$
 est un produit scalaire.
+
 :::
 
 ::: {.example title="(Produit scalaire sur $\mathbb{R}_n[X]$)"}
+
 Sur $\mathbb{R}_n[X]$, l'application :
 $$\langle P, Q \rangle = \int_{-1}^1 P(t) Q(t)\, dt$$
 est un produit scalaire. De même, l'application :
 $$\langle P, Q \rangle = \sum_{k=0}^n P(k) Q(k)$$
 est un produit scalaire.
+
 :::
 
 ::: {.example title="(Produit scalaire sur $\mathbb{C}$ considéré comme $\mathbb{R}$-espace vectoriel)"}
+
 $\mathbb{C}$ est un $\mathbb{R}$-espace vectoriel qui s'identifie à $\mathbb{R}^2$. Son produit scalaire standard est défini pour $z, z' \in \mathbb{C}$ par :
 $$\langle z, z' \rangle = \mathrm{Re}(z) \mathrm{Re}(z') + \mathrm{Im}(z) \mathrm{Im}(z') = \mathrm{Re}(\overline{z} z')$$
+
 :::
 
 ::: {.exercise}
+
 Montrer que les applications :
 $$\varphi_1(P,Q) = \int_{-1}^1 P(t) Q(t)\, dt, \quad \varphi_2(P,Q) = \sum_{k=0}^n P(k) Q(k)$$
 définissent des produits scalaires sur $E = \mathbb{R}_n[X]$.
+
 :::
 
 # Norme hilbertienne
@@ -100,26 +118,33 @@ définissent des produits scalaires sur $E = \mathbb{R}_n[X]$.
 ## Définition
 
 ::: {.definition title="(Norme associée à un produit scalaire)"}
+
 Soit $(E, \langle \cdot, \cdot \rangle)$ un espace préhilbertien. La **norme** associée au produit scalaire est définie par :
 $$\|x\| = \sqrt{\langle x, x \rangle}, \quad x \in E$$
 La **distance** associée à cette norme est :
 $$d(x, y) = \|x - y\|, \quad x, y \in E$$
+
 :::
 
 ::: {.example}
+
 Dans $\mathbb{R}^n$ muni du produit scalaire canonique :
 $$\|x\| = \sqrt{x_1^2 + x_2^2 + \cdots + x_n^2}$$
+
 :::
 
 ## Inégalité de Cauchy-Schwarz
 
 ::: {.proposition title="(Inégalité de Cauchy-Schwarz)"}
+
 Pour $x, y \in E$ :
 $$\boxed{|\langle x, y \rangle| \leq \|x\| \cdot \|y\|}$$
 Il y a égalité si et seulement si $x$ et $y$ sont linéairement dépendants (c'est-à-dire liés).
+
 :::
 
 ::: {.proof}
+
 - Si $x = 0_E$, on trouve $0 = 0$, ce qui est vrai.
 - Supposons $x \neq 0_E$. Alors pour tout $t \in \mathbb{R}$, $\langle tx + y, tx + y \rangle \geq 0$, or :
 $$\langle tx + y, tx + y \rangle = t^2 \langle x, x \rangle + 2t \langle x, y \rangle + \langle y, y \rangle = P(t)$$
@@ -128,27 +153,33 @@ $$\Delta = 4\langle x, y \rangle^2 - 4\|x\|^2 \|y\|^2 \leq 0$$
 d'où $\langle x, y \rangle^2 \leq \|x\|^2 \|y\|^2$, c'est-à-dire $|\langle x, y \rangle| \leq \|x\| \|y\|$.
 
 Pour l'égalité, on vérifie que $P(t) = 0$ pour un certain $t$ si et seulement si $tx + y = 0$, c'est-à-dire si $x$ et $y$ sont liés.
+
 :::
 
 ## Inégalité triangulaire
 
 ::: {.proposition title="(Inégalité triangulaire)"}
+
 Pour $x, y \in E$ :
 $$\|x + y\| \leq \|x\| + \|y\|$$
 Il y a égalité si et seulement si $x$ et $y$ sont positivement colinéaires (c'est-à-dire $\exists \lambda \geq 0$ tel que $y = \lambda x$ ou $x = \lambda y$).
+
 :::
 
 ::: {.proof}
+
 On a :
 $$\|x + y\|^2 = \langle x + y, x + y \rangle = \|x\|^2 + 2\langle x, y \rangle + \|y\|^2$$
 Par l'inégalité de Cauchy-Schwarz :
 $$\|x + y\|^2 \leq \|x\|^2 + 2\|x\|\|y\| + \|y\|^2 = (\|x\| + \|y\|)^2$$
 D'où $\|x + y\| \leq \|x\| + \|y\|$.
+
 :::
 
 ## Identités remarquables
 
 ::: {.proposition title="(Identités de polarisation et identité du parallélogramme)"}
+
 Pour $x, y \in E$ :
 
 1. **Identité de polarisation** :
@@ -159,22 +190,29 @@ $$\|x + y\|^2 + \|x - y\|^2 = 2(\|x\|^2 + \|y\|^2)$$
 
 3. **Autre forme de polarisation** :
 $$\langle x, y \rangle = \frac{1}{4}\left(\|x + y\|^2 - \|x - y\|^2\right)$$
+
 :::
 
 ::: {.remark}
+
 Il existe des normes qui ne sont pas hilbertiennes. Par exemple, la norme $\|\cdot\|_\infty$ sur $\mathbb{R}^2$ vérifie pour $x = (0,1)$ et $y = (1,0)$ :
 $$\|x + y\|_\infty^2 + \|x - y\|_\infty^2 = 2 \neq 4 = 2(\|x\|_\infty^2 + \|y\|_\infty^2)$$
 Donc $\|\cdot\|_\infty$ n'est pas une norme hilbertienne.
+
 :::
 
 ::: {.exercise}
+
 Soient $x, y$ et $z$ trois réels tels que $x^2 + y^2 + z^2 \leq 1$. Montrer que $(x + 2y + 3z)^2 \leq 14$.
+
 :::
 
 ::: {.exercise}
+
 Soit $E$ un $\mathbb{R}$-espace vectoriel non nul, $\varphi$ un produit scalaire sur $E$, $(a,b,c) \in \mathbb{R}^3$. On considère $\psi : E \times E \to \mathbb{R}$ définie par :
 $$\psi(x,y) = a\varphi(x,x) + b\varphi(x,y) + c\varphi(y,y)$$
 Trouver une condition nécessaire et suffisante sur $(a,b,c)$ pour que $\psi$ soit un produit scalaire sur $E$.
+
 :::
 
 # Orthogonalité
@@ -182,89 +220,118 @@ Trouver une condition nécessaire et suffisante sur $(a,b,c)$ pour que $\psi$ so
 ## Définitions
 
 ::: {.definition title="(Orthogonalité)"}
+
 Soient $x, y \in E$. On dit que $x$ et $y$ sont **orthogonaux**, et on note $x \perp y$, si :
 $$\langle x, y \rangle = 0$$
+
 :::
 
 ::: {.definition title="(Orthogonal d'une partie)"}
+
 Soit $A$ une partie de $E$. L'**orthogonal** de $A$ est :
 $$A^\perp = \{y \in E \mid \forall x \in A, \; \langle x, y \rangle = 0\}$$
+
 :::
 
 ::: {.proposition}
+
 L'orthogonal d'une partie est un sous-espace vectoriel :
 $$\forall A \subset E, \quad A^\perp \text{ est un sous-espace vectoriel de } E$$
+
 :::
 
 ::: {.example}
+
 Dans $\mathbb{R}^2$ muni du produit scalaire usuel $\langle x, y \rangle = x_1 y_1 + x_2 y_2$ :
 
 - Les deux vecteurs $v_1 = (1,0)$ et $v_2 = (0,2)$ sont orthogonaux.
 - La famille $(v_1 = (1,0), v_2 = (0,2))$ est orthogonale et la famille $(v_1 = (1,0), v_2 = (0,1))$ est orthonormale.
 - Pour $A = \{(x_1, x_2) \in \mathbb{R}^2 \mid x_1 + x_2 = 0\}$, on a :
 $$A^\perp = \{y = (y_1, y_2) \in \mathbb{R}^2 \mid \forall x \in A, \; \langle x, y \rangle = 0\} = \mathrm{Vect}((1,1))$$
+
 :::
 
 ::: {.exercise}
+
 Soient $\mathcal{B} = (e_1, \ldots, e_n)$ une base orthonormale de $E$ et $(a_1, \ldots, a_n) \in \mathbb{R}^n \setminus \{(0,\ldots,0)\}$ et $H$ le sous-espace vectoriel de $E$ d'équation cartésienne $\sum_{k=1}^n a_k x_k = 0$ dans $\mathcal{B}$.
 
 1. Déterminer l'orthogonale de $H$.
 2. Déterminer la distance du vecteur $x = \sum_{k=1}^n x_k e_k$ de $E$ au sous-espace vectoriel $H$.
+
 :::
 
 ## Familles orthogonales et orthonormales
 
 ::: {.definition}
+
 Une famille de vecteurs $(x_i)_{i \in I}$ est :
 
 - **orthogonale** si $\forall i \neq j, \; x_i \perp x_j$
 - **orthonormale** (ou **orthonormée**) si elle est orthogonale et si tous les vecteurs sont de norme $1$
+
 :::
 
 ::: {.proposition title="(Famille orthogonale libre)"}
+
 Toute famille orthogonale de vecteurs non nuls est libre.
+
 :::
 
 ::: {.proof}
+
 Soit $(x_1, \ldots, x_p)$ une famille orthogonale de vecteurs non nuls. Supposons $\sum_{k=1}^p \lambda_k x_k = 0$. Pour chaque $j$, en prenant le produit scalaire avec $x_j$ :
 $$0 = \left\langle \sum_{k=1}^p \lambda_k x_k, x_j \right\rangle = \sum_{k=1}^p \lambda_k \langle x_k, x_j \rangle = \lambda_j \langle x_j, x_j \rangle = \lambda_j \|x_j\|^2$$
 Comme $x_j \neq 0$, on a $\|x_j\|^2 \neq 0$, donc $\lambda_j = 0$. Ceci est vrai pour tout $j$, donc la famille est libre.
+
 :::
 
 ::: {.proposition title="(Théorème de Pythagore)"}
+
 Si $(x_i)_{1 \leq i \leq n}$ est une famille orthogonale de vecteurs, alors :
 $$\left\|\sum_{i=1}^n x_i\right\|^2 = \sum_{i=1}^n \|x_i\|^2$$
+
 :::
 
 ::: {.exercise title="(Théorème de Pythagore)"}
+
 Soient $u$ et $v$ deux vecteurs orthogonaux de $E$. Calculer $\|u+v\|^2$. Illustrer le résultat obtenu à l'aide d'un dessin.
+
 :::
 
 ## Bases orthonormales
 
 ::: {.definition title="(Base orthonormale)"}
+
 Une base $\mathcal{B} = (e_1, \ldots, e_n)$ d'un espace euclidien $E$ est **orthonormale** si elle est orthonormale.
+
 :::
 
 ::: {.theorem title="(Existence de bases orthonormales)"}
+
 Tout espace euclidien admet au moins une base orthonormale.
+
 :::
 
 ::: {.theorem title="(Théorème de la base orthonormale incomplète)"}
+
 Toute famille orthonormale d'un espace euclidien peut être complétée en une base orthonormale.
+
 :::
 
 ## Algorithme d'orthonormalisation de Gram-Schmidt
 
 ::: {.theorem title="(Algorithme de Gram-Schmidt)"}
+
 Soit $(x_1, \ldots, x_p)$ une famille libre d'un espace préhilbertien $E$. Alors il existe une unique famille orthonormale $(e_1, \ldots, e_p)$ telle que :
 $$\forall k \in \{1, \ldots, p\}, \quad \mathrm{Vect}(e_1, \ldots, e_k) = \mathrm{Vect}(x_1, \ldots, x_k) \quad \text{et} \quad \langle x_k, e_k \rangle > 0$$
 
 L'algorithme est le suivant :
 $$e_1 = \frac{x_1}{\|x_1\|}, \quad e_k = \frac{x_k - \sum_{j=1}^{k-1} \langle x_k, e_j \rangle e_j}{\left\|x_k - \sum_{j=1}^{k-1} \langle x_k, e_j \rangle e_j\right\|} \quad \text{pour } k \geq 2$$
+
 :::
 
 ::: {.example title="(Application de Gram-Schmidt sur $\mathbb{R}_2[X]$)"}
+
 Construisons une base orthonormale de $\mathbb{R}_2[X]$ pour le produit scalaire $\langle P, Q \rangle = \int_{-1}^1 P(t)Q(t)\, dt$ en appliquant l'algorithme de Gram-Schmidt à la base $(1, X, X^2)$.
 
 **Étape 1** : $e_1 = \frac{1}{\|1\|}$. On calcule $\|1\|^2 = \int_{-1}^1 1\, dt = 2$, donc $\|1\| = \sqrt{2}$ et :
@@ -275,29 +342,36 @@ $$e_2 = \frac{X}{\|X\|} = \frac{X}{\sqrt{\int_{-1}^1 t^2\, dt}} = \frac{X}{\sqrt
 
 **Étape 3** : On calcule $x_3' = X^2 - \langle X^2, e_1 \rangle e_1 - \langle X^2, e_2 \rangle e_2$. On obtient finalement :
 $$e_3 = \frac{1}{\sqrt{8/5}}\left(X^2 - \frac{1}{3}\right)$$
+
 :::
 
 ## Coordonnées dans une base orthonormale
 
 ::: {.proposition}
+
 Soit $\mathcal{B} = (e_1, \ldots, e_n)$ une base orthonormale de $E$. Si $x = \sum_{i=1}^n \alpha_i e_i$ et $y = \sum_{i=1}^n \beta_i e_i$, alors :
 
 1. $\alpha_j = \langle x, e_j \rangle$ pour tout $j$
 2. $\langle x, y \rangle = \sum_{i=1}^n \alpha_i \beta_i$
 3. $\|x\|^2 = \sum_{i=1}^n \alpha_i^2$
+
 :::
 
 ::: {.proof}
+
 On a :
 $$\langle x, e_j \rangle = \left\langle \sum_{i=1}^n \alpha_i e_i, e_j \right\rangle = \sum_{i=1}^n \alpha_i \langle e_i, e_j \rangle = \alpha_j$$
 car $\langle e_i, e_j \rangle = \delta_{i,j}$ (symbole de Kronecker).
 
 De même :
 $$\langle x, y \rangle = \left\langle \sum_{i=1}^n \alpha_i e_i, \sum_{j=1}^n \beta_j e_j \right\rangle = \sum_{i,j} \alpha_i \beta_j \langle e_i, e_j \rangle = \sum_{i=1}^n \alpha_i \beta_i$$
+
 :::
 
 ::: {.remark}
+
 On remarque que $\langle x, y \rangle = {}^tX Y$ où $X$ et $Y$ sont les colonnes des coordonnées de $x$ et $y$ dans la base orthonormale $\mathcal{B}$ et $.$ est le produit scalaire canonique sur $\mathbb{R}^n$.
+
 :::
 
 # Projection orthogonale
@@ -305,68 +379,90 @@ On remarque que $\langle x, y \rangle = {}^tX Y$ où $X$ et $Y$ sont les colonne
 ## Supplémentaire orthogonal
 
 ::: {.proposition}
+
 Soit $F$ un sous-espace vectoriel de dimension finie de $E$. Alors :
 $$E = F \oplus F^\perp$$
+
 :::
 
 ::: {.proposition title="(Dimension de $F^\perp$)"}
+
 Si $E$ est un espace euclidien et $F$ un sous-espace vectoriel de $E$, alors :
 $$\dim(F) + \dim(F^\perp) = \dim(E)$$
+
 :::
 
 ## Projection orthogonale
 
 ::: {.definition title="(Projection orthogonale)"}
+
 Soit $F$ un sous-espace vectoriel de dimension finie de $E$. La **projection orthogonale** sur $F$ est l'application $p_F : E \to F$ définie par :
 $$p_F(x) = y \quad \text{où } x = y + z \text{ avec } y \in F \text{ et } z \in F^\perp$$
+
 :::
 
 ::: {.proposition title="(Expression du projeté orthogonal)"}
+
 Si $\mathcal{B} = (e_1, \ldots, e_p)$ est une base orthonormale de $F$, alors :
 $$p_F(x) = \sum_{k=1}^p \langle x, e_k \rangle e_k$$
+
 :::
 
 ::: {.remark}
+
 À défaut d'une base orthonormale de $F$, les élèves doivent savoir déterminer $p_F(x)$ en résolvant un système linéaire traduisant l'orthogonalité du vecteur $x - p_F(x)$ aux vecteurs d'une base (ou d'une famille génératrice) de $F$.
+
 :::
 
 ::: {.exercise title="(Projection orthogonale et distance à un sous-espace)"}
+
 Soient $E$ un espace euclidien, $u$ un vecteur non nul et $H = u^\perp$. Soient $p$ la projection orthogonale sur $H$ et $s$ la symétrie orthogonale par rapport à $H$.
 
 1. Montrer que $\forall x \in E$, $p(x) = x - \frac{\langle x, u \rangle}{\|u\|^2} u$.
 2. Montrer que $\forall x \in E$, $s(x) = x - 2\frac{\langle x, u \rangle}{\|u\|^2} u$.
 3. On considère dans $\mathbb{R}^3$ le plan $(\Pi : x - y + z = 0)$. Déterminer la matrice dans la base canonique de la symétrie orthogonale par rapport à $\Pi$.
+
 :::
 
 ## Distance à un sous-espace vectoriel
 
 ::: {.definition title="(Distance à un sous-espace vectoriel)"}
+
 Soit $F$ un sous-espace vectoriel de dimension finie de $E$. La **distance** d'un vecteur $x$ à $F$ est :
 $$d(x, F) = \inf_{y \in F} \|x - y\|$$
+
 :::
 
 ::: {.theorem title="(Le projeté orthogonal minimise la distance)"}
+
 Le projeté orthogonal de $x$ sur $F$ est l'unique élément de $F$ qui minimise la distance de $x$ à $F$ :
 $$\boxed{\|x - p_F(x)\| = \min_{y \in F} \|x - y\|}$$
+
 :::
 
 ::: {.proposition title="(Formule de la distance à un hyperplan)"}
+
 En dimension finie, si $F = \mathrm{Vect}(u)^\perp$ est un hyperplan (avec $u \neq 0$), alors :
 $$d(x, F) = \frac{|\langle x, u \rangle|}{\|u\|}$$
+
 :::
 
 ::: {.proposition title="(Inégalité de Bessel)"}
+
 Pour tout $x \in E$ :
 $$\|p_F(x)\| \leq \|x\|$$
+
 :::
 
 ::: {.exercise title="(Application de la projection orthogonale)"}
+
 Montrer qu'il s'agit d'un produit scalaire (on admet que l'intégrale sur $[-1,1]$ d'une fonction $f$ continue et positive est nulle si et seulement si $f$ est nulle sur $[-1,1]$).
 
 À l'aide du procédé de Schmidt appliqué à la base $(1, X, X^2)$, construire une base orthonormée de $\mathbb{R}_2[X]$ pour ce produit scalaire.
 
 On considère le polynôme $P_0 = X^3$. Calculer la projection orthogonale de $X^3$ sur $\mathbb{R}_2[X]$. En déduire que pour ce produit scalaire, on a :
 $$d(X^3, \mathbb{R}_2[X]) = \frac{2}{5\sqrt{7}}$$
+
 :::
 
 # Produit vectoriel en dimension 3
@@ -374,93 +470,120 @@ $$d(X^3, \mathbb{R}_2[X]) = \frac{2}{5\sqrt{7}}$$
 ## Définition
 
 ::: {.definition title="(Produit vectoriel)"}
+
 Dans un espace euclidien orienté de dimension $3$ muni d'une base orthonormale directe $(e_1, e_2, e_3)$, le **produit vectoriel** de deux vecteurs $u$ et $v$ est le vecteur noté $u \wedge v$ (ou $u \times v$) défini par :
 $$\langle u \wedge v, w \rangle = \det(u, v, w) \quad \text{pour tout } w \in E$$
 
 où $\det(u, v, w)$ est le déterminant de la famille $(u, v, w)$ dans la base orthonormale directe.
+
 :::
 
 ::: {.proposition title="(Expression du produit vectoriel)"}
+
 Si $u = (u_1, u_2, u_3)$ et $v = (v_1, v_2, v_3)$ dans une base orthonormale directe, alors :
 $$u \wedge v = (u_2 v_3 - u_3 v_2, \; u_3 v_1 - u_1 v_3, \; u_1 v_2 - u_2 v_1)$$
+
 :::
 
 ::: {.proposition title="(Propriétés du produit vectoriel)"}
+
 Le produit vectoriel vérifie :
 
 1. **Bilinéarité** : $(\lambda u + \mu v) \wedge w = \lambda(u \wedge w) + \mu(v \wedge w)$
 2. **Antisymétrie** : $u \wedge v = -(v \wedge u)$
 3. $u \wedge v = 0$ si et seulement si $u$ et $v$ sont colinéaires
 4. $u \wedge v$ est orthogonal à $u$ et à $v$
+
 :::
 
 ## Produit mixte
 
 ::: {.definition title="(Produit mixte)"}
+
 Le **produit mixte** de trois vecteurs $u, v, w$ est :
 $$[u, v, w] = \langle u \wedge v, w \rangle = \det(u, v, w)$$
+
 :::
 
 ::: {.proposition title="(Interprétation géométrique)"}
+
 La valeur absolue $|[u, v, w]|$ représente le **volume du parallélépipède** construit sur les vecteurs $u$, $v$ et $w$.
+
 :::
 
 ::: {.proposition}
+
 Trois vecteurs $u, v, w$ sont coplanaires si et seulement si $[u, v, w] = 0$.
+
 :::
 
 ::: {.example}
+
 Dans $\mathbb{R}^3$ muni de la base canonique orthonormale directe :
 
 - $e_1 \wedge e_2 = e_3$, $e_2 \wedge e_3 = e_1$, $e_3 \wedge e_1 = e_2$
 - $e_1 \wedge e_1 = 0$, $e_2 \wedge e_2 = 0$, $e_3 \wedge e_3 = 0$
+
 :::
 
 ::: {.exercise}
+
 Soient $u = (1, 2, 3)$ et $v = (4, 5, 6)$ dans $\mathbb{R}^3$.
 
 1. Calculer $u \wedge v$.
 2. Vérifier que $u \wedge v$ est orthogonal à $u$ et à $v$.
 3. Calculer le produit mixte $[u, v, e_1]$.
+
 :::
 
 # Exercices de synthèse
 
 ::: {.exercise}
+
 Soit $P$ le sous-espace vectoriel de l'espace vectoriel $\mathbb{R}^4$ défini par :
 $$P = \{u = (x_1, x_2, x_3, x_4) \in \mathbb{R}^4 \mid x_1 + x_2 + x_3 + x_4 = 0 \text{ et } x_2 + 2x_3 + 3x_4 = 0\}$$
 
 1. Déterminer une base de $P$.
 2. Déterminer $P^\perp$.
 3. Déterminer la distance du vecteur $(1, 0, 0, 0)$ à $P$.
+
 :::
 
 ::: {.exercise}
+
 Soit $\varphi$ l'application définie sur $\mathbb{R}_2[X]$ par :
 $$\varphi(P, Q) = \int_{-1}^1 P(t) Q(t)\, dt$$
 
 1. Montrer que $\varphi$ est un produit scalaire.
 2. On suppose $n = 2$. Écrire la matrice associée à $\varphi$ dans la base $(1, X, X^2)$. Construire une base orthonormale $(P_0, P_1, P_2)$ par le procédé d'orthogonalisation de Schmidt appliqué à $(1, X, X^2)$.
+
 :::
 
 ::: {.exercise}
+
 Soient $x, y$ et $z$ trois réels tels que $x^2 + y^2 + z^2 \leq 1$. Montrer que $(x + 2y + 3z)^2 \leq 14$.
+
 :::
 
 ::: {.exercise}
+
 Soient $E$ un espace euclidien, $u$ un vecteur non nul et $H = u^\perp$. Soient $p$ la projection orthogonale sur $H$ et $s$ la symétrie orthogonale par rapport à $H$.
 
 1. Montrer que $\forall x \in E$, $p(x) = x - \frac{\langle x, u \rangle}{\|u\|^2} u$.
 2. Montrer que $\forall x \in E$, $s(x) = x - 2\frac{\langle x, u \rangle}{\|u\|^2} u$.
 3. On considère dans $\mathbb{R}^3$ le plan $(\Pi : x - y + z = 0)$. Déterminer la matrice dans la base canonique de la symétrie orthogonale par rapport à $\Pi$.
+
 :::
 
 # Document en PDF {-}
 [Chapitre 15 : Espaces préhilbertiens réels](PDF/pcsi-chap15.pdf)
 
 ## Navigation {-}
+
 ::: {.chap-nav}
+
 [Chapitre 14 : Matrices et déterminants](pcsi-chap14.qmd){.prev}
 [Menu PCSI](pcsi.qmd){.home}
 [Chapitre 16 : Intégration des fonctions continues sur un segment](pcsi-chap16.qmd){.next}
+
 :::

@@ -25,6 +25,7 @@ Ce chapitre a été réalisé conformément au programme marocain de mathématiq
 ## Tribus
 
 ::: {.definition title="(Tribu)"}
+
 Soit $\Omega$ un ensemble non vide. Une **tribu** (ou $\sigma$-algèbre) $\mathcal{T}$ sur $\Omega$ est une partie de $\mathcal{P}(\Omega)$ vérifiant :
 
 1. $\Omega \in \mathcal{T}$
@@ -32,14 +33,17 @@ Soit $\Omega$ un ensemble non vide. Une **tribu** (ou $\sigma$-algèbre) $\mathc
 3. Si $(A_n)_{n \in \mathbb{N}}$ est une suite d'éléments de $\mathcal{T}$, alors $\bigcup_{n \in \mathbb{N}} A_n \in \mathcal{T}$
 
 Le couple $(\Omega, \mathcal{T})$ est appelé **espace probabilisable**.
+
 :::
 
 ::: {.proposition}
+
 Soit $(\Omega, \mathcal{T})$ un espace probabilisable. Alors :
 
 1. $\varnothing \in \mathcal{T}$
 2. Si $(A_n)_{n \in \mathbb{N}}$ est une suite d'éléments de $\mathcal{T}$, alors $\bigcap_{n \in \mathbb{N}} A_n \in \mathcal{T}$
 3. Si $A, B \in \mathcal{T}$, alors $A \setminus B \in \mathcal{T}$ et $A \cup B \in \mathcal{T}$
+
 :::
 
 ::: {.example title="(Exemples de tribus)"}
@@ -48,11 +52,13 @@ Soit $(\Omega, \mathcal{T})$ un espace probabilisable. Alors :
 2. La **tribu discrète** : $\mathcal{P}(\Omega)$ est une tribu sur $\Omega$.
 3. Si $\Omega = \{1, 2, 3, 4, 5, 6\}$ (lancer d'un dé), la tribu engendrée par l'événement « obtenir un nombre pair » est :
 $$\mathcal{T} = \{\varnothing, \{2, 4, 6\}, \{1, 3, 5\}, \Omega\}$$
+
 :::
 
 ## Probabilités
 
 ::: {.definition title="(Probabilité)"}
+
 Soit $(\Omega, \mathcal{T})$ un espace probabilisable. Une **probabilité** $P$ sur $(\Omega, \mathcal{T})$ est une application $P : \mathcal{T} \to [0, 1]$ vérifiant :
 
 1. $P(\Omega) = 1$
@@ -60,9 +66,11 @@ Soit $(\Omega, \mathcal{T})$ un espace probabilisable. Une **probabilité** $P$ 
 $$P\left(\bigcup_{n=0}^{+\infty} A_n\right) = \sum_{n=0}^{+\infty} P(A_n)$$
 
 Le triplet $(\Omega, \mathcal{T}, P)$ est appelé **espace probabilisé**.
+
 :::
 
 ::: {.proposition title="(Propriétés des probabilités)"}
+
 Soit $(\Omega, \mathcal{T}, P)$ un espace probabilisé. Alors :
 
 1. $P(\varnothing) = 0$
@@ -70,25 +78,32 @@ Soit $(\Omega, \mathcal{T}, P)$ un espace probabilisé. Alors :
 3. Si $A \subset B$, alors $P(A) \leq P(B)$
 4. $P(A \cup B) = P(A) + P(B) - P(A \cap B)$
 5. Inégalité de Boole : $P\left(\bigcup_{k=1}^n A_k\right) \leq \sum_{k=1}^n P(A_k)$
+
 :::
 
 ## Systèmes complets d'événements
 
 ::: {.definition title="(Système complet d'événements)"}
+
 Une famille $(A_i)_{i \in I}$ d'événements est un **système complet d'événements** si :
 
 1. Les $A_i$ sont deux à deux incompatibles : $A_i \cap A_j = \varnothing$ pour $i \neq j$
 2. $\bigcup_{i \in I} A_i = \Omega$
+
 :::
 
 ::: {.theorem title="(Formule des probabilités totales)"}
+
 Soit $(A_i)_{i \in I}$ un système complet d'événements avec $P(A_i) > 0$ pour tout $i$. Alors pour tout événement $B$ :
 $$P(B) = \sum_{i \in I} P(B \mid A_i) \cdot P(A_i)$$
+
 :::
 
 ::: {.theorem title="(Formule de Bayes)"}
+
 Soit $(A_i)_{i \in I}$ un système complet d'événements avec $P(A_i) > 0$ pour tout $i$. Alors pour tout événement $B$ avec $P(B) > 0$ :
 $$P(A_j \mid B) = \frac{P(B \mid A_j) \cdot P(A_j)}{\sum_{i \in I} P(B \mid A_i) \cdot P(A_i)}$$
+
 :::
 
 # Variables aléatoires discrètes infinies
@@ -96,117 +111,157 @@ $$P(A_j \mid B) = \frac{P(B \mid A_j) \cdot P(A_j)}{\sum_{i \in I} P(B \mid A_i)
 ## Définition
 
 ::: {.definition title="(Variable aléatoire discrète)"}
+
 Une variable aléatoire réelle $X$ définie sur $(\Omega, \mathcal{T}, P)$ est **discrète** si $X(\Omega)$ est un ensemble fini ou dénombrable.
 
 Si $X(\Omega)$ est infini, on dit que $X$ est une **variable aléatoire discrète infinie**.
+
 :::
 
 ## Loi d'une variable aléatoire discrète
 
 ::: {.definition title="(Loi d'une variable aléatoire discrète)"}
+
 Soit $X$ une variable aléatoire discrète avec $X(\Omega) = \{x_0, x_1, x_2, \ldots\}$. La **loi** de $X$ est déterminée par la famille $(P(X = x_k))_{k \geq 0}$ vérifiant :
 $$\sum_{k=0}^{+\infty} P(X = x_k) = 1$$
+
 :::
 
 ## Espérance et variance
 
 ::: {.definition title="(Espérance)"}
+
 Soit $X$ une variable aléatoire discrète infinie. On dit que $X$ admet une **espérance** si la série $\sum_{k=0}^{+\infty} x_k P(X = x_k)$ est absolument convergente. On pose alors :
 $$E(X) = \sum_{k=0}^{+\infty} x_k P(X = x_k)$$
+
 :::
 
 ::: {.definition title="(Moment d'ordre $k$)"}
+
 Soit $k \in \mathbb{N}^*$. La variable $X$ admet un **moment d'ordre $k$** si la série $\sum_{k=0}^{+\infty} x_k^k P(X = x_k)$ est absolument convergente. On pose alors :
 $$E(X^k) = \sum_{k=0}^{+\infty} x_k^k P(X = x_k)$$
+
 :::
 
 ::: {.definition title="(Variance)"}
+
 Si $X$ admet un moment d'ordre 2, la **variance** de $X$ est :
 $$V(X) = E((X - E(X))^2) = E(X^2) - (E(X))^2$$
 L'écart-type est $\sigma(X) = \sqrt{V(X)}$.
+
 :::
 
 ::: {.proposition title="(Formule de transfert)"}
+
 Soit $X$ une variable aléatoire discrète et $g : \mathbb{R} \to \mathbb{R}$ une fonction. Alors $g(X)$ admet une espérance si et seulement si la série $\sum_{k=0}^{+\infty} g(x_k) P(X = x_k)$ est absolument convergente, et :
 $$E(g(X)) = \sum_{k=0}^{+\infty} g(x_k) P(X = x_k)$$
+
 :::
 
 # Loi géométrique
 
 ::: {.definition title="(Loi géométrique)"}
+
 Soit $p \in ]0, 1[$. On dit que $X$ suit la **loi géométrique** de paramètre $p$, notée $X \hookrightarrow \mathcal{G}(p)$, si :
 $$\forall k \in \mathbb{N}^*, \quad P(X = k) = p(1-p)^{k-1}$$
+
 :::
 
 ::: {.proposition title="(Vérification)"}
+
 On a bien :
 $$\sum_{k=1}^{+\infty} p(1-p)^{k-1} = p \cdot \frac{1}{1-(1-p)} = 1$$
+
 :::
 
 ::: {.proposition title="(Espérance et variance)"}
+
 Si $X \hookrightarrow \mathcal{G}(p)$, alors :
 $$E(X) = \frac{1}{p}, \quad V(X) = \frac{1-p}{p^2}$$
+
 :::
 
 ::: {.proposition title="(Absence de mémoire)"}
+
 Si $X \hookrightarrow \mathcal{G}(p)$, alors pour tous $n, m \in \mathbb{N}^*$ :
 $$P(X > n + m \mid X > m) = P(X > n)$$
+
 :::
 
 ::: {.example title="(Interprétation)"}
+
 On lance une pièce (probabilité de pile $p$) jusqu'à obtenir pile. Si $X$ est le numéro du lancer où apparaît le premier pile, alors $X \hookrightarrow \mathcal{G}(p)$.
+
 :::
 
 # Loi de Poisson
 
 ::: {.definition title="(Loi de Poisson)"}
+
 Soit $\lambda > 0$. On dit que $X$ suit la **loi de Poisson** de paramètre $\lambda$, notée $X \hookrightarrow \mathcal{P}(\lambda)$, si :
 $$\forall k \in \mathbb{N}, \quad P(X = k) = e^{-\lambda} \frac{\lambda^k}{k!}$$
+
 :::
 
 ::: {.proposition title="(Vérification)"}
+
 On a bien :
 $$\sum_{k=0}^{+\infty} e^{-\lambda} \frac{\lambda^k}{k!} = e^{-\lambda} \cdot e^{\lambda} = 1$$
+
 :::
 
 ::: {.proposition title="(Espérance et variance)"}
+
 Si $X \hookrightarrow \mathcal{P}(\lambda)$, alors :
 $$E(X) = \lambda, \quad V(X) = \lambda$$
+
 :::
 
 ::: {.proposition title="(Stabilité par somme)"}
+
 Si $X \hookrightarrow \mathcal{P}(\lambda)$ et $Y \hookrightarrow \mathcal{P}(\mu)$ sont indépendantes, alors :
 $$X + Y \hookrightarrow \mathcal{P}(\lambda + \mu)$$
+
 :::
 
 ::: {.example title="(Interprétation)"}
+
 La loi de Poisson modélise le nombre d'arrivées d'événements rares sur un intervalle de temps : nombre d'appels reçus par un standard téléphonique, nombre de clients arrivant à un guichet, etc.
+
 :::
 
 # Fonctions génératrices
 
 ::: {.definition title="(Fonction génératrice)"}
+
 Soit $X$ une variable aléatoire discrète à valeurs dans $\mathbb{N}$. La **fonction génératrice** de $X$ est :
 $$G_X(s) = E(s^X) = \sum_{k=0}^{+\infty} P(X = k) \cdot s^k$$
 définie pour $s \in [-1, 1]$.
+
 :::
 
 ::: {.proposition title="(Propriétés)"}
+
 Soit $X$ une variable aléatoire discrète à valeurs dans $\mathbb{N}$.
 
 1. $G_X(1) = 1$
 2. Si $X$ admet une espérance : $G_X'(1) = E(X)$
 3. Si $X$ admet un moment d'ordre 2 : $G_X''(1) = E(X(X-1))$ et $V(X) = G_X''(1) + G_X'(1) - (G_X'(1))^2$
+
 :::
 
 ::: {.proposition title="(Caractérisation de la loi)"}
+
 La fonction génératrice détermine entièrement la loi de $X$ :
 $$P(X = k) = \frac{G_X^{(k)}(0)}{k!}$$
+
 :::
 
 ::: {.proposition title="(Somme de variables indépendantes)"}
+
 Si $X$ et $Y$ sont indépendantes à valeurs dans $\mathbb{N}$, alors :
 $$G_{X+Y}(s) = G_X(s) \cdot G_Y(s)$$
+
 :::
 
 ::: {.example title="(Fonctions génératrices usuelles)"}
@@ -216,76 +271,96 @@ $$G_{X+Y}(s) = G_X(s) \cdot G_Y(s)$$
 | $\mathcal{G}(p)$ | $G_X(s) = \frac{ps}{1-(1-p)s}$ |
 | $\mathcal{P}(\lambda)$ | $G_X(s) = e^{\lambda(s-1)}$ |
 | $\mathcal{B}(n, p)$ | $G_X(s) = (1-p+ps)^n$ |
+
 :::
 
 # Exercices
 
 ::: {.exercise}
+
 On lance une pièce équilibrée jusqu'à obtenir pile. Soit $X$ le numéro du lancer où apparaît le premier pile.
 
 1. Déterminer la loi de $X$.
 2. Calculer $E(X)$ et $V(X)$.
 3. Calculer $P(X > 5)$.
+
 :::
 
 ::: {.exercise}
+
 Soit $X \hookrightarrow \mathcal{P}(\lambda)$.
 
 1. Vérifier que $\sum_{k=0}^{+\infty} e^{-\lambda} \frac{\lambda^k}{k!} = 1$.
 2. Calculer $E(X)$ et $V(X)$.
 3. Calculer $P(X = 0)$, $P(X = 1)$, $P(X = 2)$.
+
 :::
 
 ::: {.exercise}
+
 Soient $X \hookrightarrow \mathcal{P}(2)$ et $Y \hookrightarrow \mathcal{P}(3)$ indépendantes.
 
 1. Déterminer la loi de $X + Y$.
 2. Calculer $E(X + Y)$ et $V(X + Y)$.
+
 :::
 
 ::: {.exercise}
+
 Soit $X$ une variable aléatoire discrète à valeurs dans $\mathbb{N}$ telle que $P(X = k) = \frac{c}{k!}$ pour $k \geq 0$.
 
 1. Déterminer la constante $c$.
 2. Quelle loi suit $X$ ?
 3. Calculer $E(X)$ et $V(X)$.
+
 :::
 
 ::: {.exercise}
+
 Soit $X$ une variable aléatoire discrète à valeurs dans $\mathbb{N}^*$ telle que $P(X = k) = \frac{c}{2^k}$ pour $k \geq 1$.
 
 1. Déterminer la constante $c$.
 2. Calculer $E(X)$ et $V(X)$.
+
 :::
 
 ::: {.exercise}
+
 Soit $X \hookrightarrow \mathcal{G}(p)$.
 
 1. Déterminer la fonction génératrice $G_X(s)$.
 2. En déduire $E(X)$ et $V(X)$.
+
 :::
 
 ::: {.exercise}
+
 Soit $X \hookrightarrow \mathcal{P}(\lambda)$.
 
 1. Déterminer la fonction génératrice $G_X(s)$.
 2. En déduire $E(X)$ et $V(X)$.
+
 :::
 
 ::: {.exercise}
+
 Le nombre d'appels reçus par un standard téléphonique en une heure suit une loi de Poisson de paramètre $\lambda = 4$.
 
 1. Calculer la probabilité de recevoir exactement 3 appels en une heure.
 2. Calculer la probabilité de recevoir au moins un appel en une heure.
 3. Calculer la probabilité de recevoir au plus 2 appels en une heure.
+
 :::
 
 # Document en PDF {-}
 [**Chapitre 05 : Variables aléatoires discrètes infinies**](PDF/ect2-chap05.pdf)
 
 ## Navigation {-}
+
 ::: {.chap-nav}
+
 [Chapitre 04 : Couples de variables aléatoires discrètes finies](ect2-chap04.qmd){.prev}
 [Menu ECT2](ect2.qmd){.home}
 [Chapitre 06 : Statistiques bivariées](ect2-chap06.qmd){.next}
+
 :::

@@ -19,56 +19,79 @@ filters:
 **MP (2e année) — TD du Chapitre 11.** Rappels, variables aléatoires et lois de variables aléatoires, espérance et moments, fonctions génératrices, inégalités, notions de convergence et théorèmes limites.
 
 ::: {.exercise}
+
 Soit $X \hookrightarrow \mathcal{B}(n,p)$. Montrer que $E(X) = np$ et $V(X) = np(1-p)$.
+
 :::
 
 ::: {.exercise}
+
 Soit $X \hookrightarrow \mathcal{P}(\lambda)$.
 
 1. Déterminer la fonction génératrice $G_X(s)$.
 2. En déduire $E(X)$ et $V(X)$.
+
 :::
 
 ::: {.exercise}
+
 Soit $X$ une variable aléatoire positive admettant une espérance. Montrer l'inégalité de Markov : $P(X \geq a) \leq \dfrac{E(X)}{a}$ pour tout $a > 0$.
+
 :::
 
 ::: {.exercise}
+
 Soit $X$ une variable aléatoire admettant une variance. Montrer l'inégalité de Bienaymé-Tchebychev :
 $$P(|X - E(X)| \geq \varepsilon) \leq \frac{V(X)}{\varepsilon^2}$$
+
 :::
 
 ::: {.exercise}
+
 Soit $X$ une variable aléatoire discrète à valeurs dans $\mathbb{N}$. Montrer que $E(X) = G_X'(1)$ où $G_X$ est la fonction génératrice.
+
 :::
 
 ::: {.exercise}
+
 Soient $X$ et $Y$ indépendantes avec $X \hookrightarrow \mathcal{P}(\lambda_1)$ et $Y \hookrightarrow \mathcal{P}(\lambda_2)$. Montrer que $X+Y \hookrightarrow \mathcal{P}(\lambda_1 + \lambda_2)$.
+
 :::
 
 ::: {.exercise}
+
 Soit $(X_n)$ une suite de variables aléatoires avec $X_n \hookrightarrow \mathcal{B}(n, \lambda/n)$. Montrer que $X_n \xrightarrow{\mathcal{L}} \mathcal{P}(\lambda)$.
+
 :::
 
 ::: {.exercise}
+
 Soit $(X_n)$ une suite de variables aléatoires mutuellement indépendantes de même loi admettant un moment d'ordre 2. Montrer la loi faible des grands nombres :
 $$\frac{1}{n}\sum_{k=1}^n X_k \xrightarrow{P} E(X_1)$$
+
 :::
 
 ::: {.exercise}
+
 Soit $X$ admettant une espérance et $f$ convexe. Montrer l'inégalité de Jensen : $f(E(X)) \leq E(f(X))$.
+
 :::
 
 ::: {.exercise}
+
 On lance $n$ fois un dé équilibré. Soit $S_n$ la somme des résultats. Utiliser le théorème de la limite centrée pour approcher $P(S_n \leq 3{,}2n)$ pour $n$ grand.
+
 :::
 
 # Cours {-}
 [**Chapitre 11 : Probabilités**](mp-chap11.qmd)
 
 # Navigation {-}
+
 ::: {.chap-nav}
+
 [TD 10 : Intégrales dépendant d'un paramètre](mp-chap10.qmd){.prev}
 [Menu MP](mp.qmd){.home}
 [TD 12 : Équations différentielles linéaires](mp-chap12.qmd){.next}
+
 :::

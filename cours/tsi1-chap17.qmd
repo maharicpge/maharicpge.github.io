@@ -37,68 +37,90 @@ Dans ce chapitre, on note $I_n = \llbracket 1, n \rrbracket$ (intervalle d'entie
 ## Notion de cardinal
 
 ::: {.definition title="(Ensemble fini)"}
+
 Un ensemble $E$ est dit **fini** s'il existe $n \in \mathbb{N}$ et une bijection de $E$ sur $I_n = \llbracket 1, n \rrbracket$.
 
 L'entier $n$ est unique et est appelé **cardinal** de $E$. On le note $\mathrm{Card}(E)$, $|E|$ ou $\#E$.
 
 Un ensemble qui n'est pas fini est dit **infini**.
+
 :::
 
 ::: {.remarque}
+
 Tout fondement théorique des notions d'entier naturel et de cardinal est hors programme.
+
 :::
 
 ::: {.example}
+
 - $\mathrm{Card}(\varnothing) = 0$
 - $\mathrm{Card}(I_n) = n$
 - $\mathrm{Card}(\{a, b, c\}) = 3$
+
 :::
 
 ## Cardinal d'une partie d'un ensemble fini
 
 ::: {.proposition}
+
 Soit $E$ un ensemble fini et $A$ une partie de $E$. Alors :
 
 1. $A$ est fini et $\mathrm{Card}(A) \leq \mathrm{Card}(E)$.
 2. $\mathrm{Card}(A) = \mathrm{Card}(E)$ si et seulement si $A = E$.
+
 :::
 
 ::: {.proposition title="(Cardinal du complémentaire)"}
+
 Soit $E$ un ensemble fini et $A$ une partie de $E$. Alors :
 $$\mathrm{Card}(E \setminus A) = \mathrm{Card}(E) - \mathrm{Card}(A)$$
+
 :::
 
 ## Cardinal d'un produit fini d'ensembles finis
 
 ::: {.proposition}
+
 Soient $E_1, E_2, \ldots, E_p$ des ensembles finis. Alors :
 $$\mathrm{Card}(E_1 \times E_2 \times \cdots \times E_p) = \mathrm{Card}(E_1) \times \mathrm{Card}(E_2) \times \cdots \times \mathrm{Card}(E_p)$$
+
 :::
 
 ::: {.example}
+
 Le nombre de couples $(x, y) \in I_3 \times I_4$ est $3 \times 4 = 12$.
+
 :::
 
 ## Cardinal de l'ensemble des applications
 
 ::: {.proposition}
+
 Soient $E$ et $F$ deux ensembles finis de cardinaux respectifs $p$ et $n$. Alors le nombre d'applications de $E$ dans $F$ est :
 $$n^p$$
+
 :::
 
 ::: {.proof}
+
 Soit $E = \{x_1, x_2, \ldots, x_p\}$. Une application $f : E \to F$ est entièrement déterminée par les valeurs $(f(x_1), f(x_2), \ldots, f(x_p)) \in F^p$. Or $\mathrm{Card}(F^p) = n^p$.
+
 :::
 
 ## Cardinal de l'ensemble des parties
 
 ::: {.proposition}
+
 Soit $E$ un ensemble fini de cardinal $n$. Alors le nombre de parties de $E$ est :
 $$2^n$$
+
 :::
 
 ::: {.proof}
+
 À chaque partie $A$ de $E$, on associe sa fonction indicatrice $\mathbb{1}_A : E \to \{0, 1\}$ définie par $\mathbb{1}_A(x) = 1$ si $x \in A$ et $0$ sinon. Cette correspondance est bijective, donc le nombre de parties de $E$ est égal au nombre d'applications de $E$ dans $\{0,1\}$, qui est $2^n$.
+
 :::
 
 # Dénombrement
@@ -106,31 +128,40 @@ $$2^n$$
 ## Dénombrement des $p$-listes
 
 ::: {.definition title="($p$-liste)"}
+
 Soit $E$ un ensemble fini de cardinal $n \in \mathbb{N}^*$ et soit $p \in \mathbb{N}^*$. On appelle **$p$-liste** (ou **liste de longueur $p$**) un $p$-uplet $(x_1, \ldots, x_p)$ d'éléments de $E$.
 
 Une $p$-liste est donc un élément du produit cartésien $E^p$.
+
 :::
 
 ::: {.proposition title="(Nombre des $p$-listes)"}
+
 Le nombre des $p$-listes d'un ensemble $E$ de cardinal $n$ est :
 $$n^p$$
+
 :::
 
 ::: {.example}
+
 - Le nombre de 3-listes de $\{a, b, c\}$ est $3^3 = 27$.
 - Le nombre de mots de 5 lettres formés avec les lettres de $\{a, b\}$ est $2^5 = 32$.
+
 :::
 
 ## Dénombrement des $p$-arrangements
 
 ::: {.definition title="(Arrangements et permutations)"}
+
 Soit $E$ un ensemble fini de cardinal $n \in \mathbb{N}^*$ et soit $p$ tel que $1 \leq p \leq n$.
 
 1. On appelle **$p$-arrangement** (ou **arrangement de $p$ éléments**) une $p$-liste d'éléments **distincts** de $E$.
 2. On appelle **permutation** tout $n$-arrangement des éléments de $E$.
+
 :::
 
 ::: {.proposition title="(Nombre des $p$-arrangements et des permutations)"}
+
 Soit $E$ un ensemble fini de cardinal $n \in \mathbb{N}^*$ et soit $p$ tel que $1 \leq p \leq n$. Alors :
 
 1. Le nombre des $p$-arrangements des éléments de $E$ est :
@@ -138,9 +169,11 @@ $$A_n^p = n(n-1)\cdots(n-p+1) = \frac{n!}{(n-p)!}$$
 
 2. Le nombre des permutations des éléments de $E$ est :
 $$A_n^n = n!$$
+
 :::
 
 ::: {.proof}
+
 Pour former un $p$-arrangement, on choisit successivement $p$ éléments distincts :
 - $n$ choix pour le premier élément
 - $n-1$ choix pour le deuxième élément
@@ -148,41 +181,55 @@ Pour former un $p$-arrangement, on choisit successivement $p$ éléments distinc
 - $n-p+1$ choix pour le $p$-ème élément
 
 Par le principe multiplicatif, le nombre total est $n(n-1)\cdots(n-p+1)$.
+
 :::
 
 ::: {.example}
+
 - Le nombre de 3-arrangements de $\{a, b, c, d, e\}$ est $A_5^3 = 5 \times 4 \times 3 = 60$.
 - Le nombre de permutations de $\{a, b, c\}$ est $3! = 6$.
+
 :::
 
 ::: {.proposition title="(Nombre d'applications injectives)"}
+
 Soient $E$ et $F$ deux ensembles finis de cardinaux respectifs $p \in \mathbb{N}^*$ et $n \in \mathbb{N}^*$. Alors le nombre des applications injectives de $E$ dans $F$ est :
 $$\begin{cases} A_n^p = \frac{n!}{(n-p)!} & \text{si } p \leq n \\ 0 & \text{si } p > n \end{cases}$$
+
 :::
 
 ## Dénombrement des $p$-combinaisons
 
 ::: {.definition title="($p$-combinaison)"}
+
 Soit $E$ un ensemble fini de cardinal $n \in \mathbb{N}^*$ et soit $p$ tel que $0 \leq p \leq n$. On appelle **$p$-combinaison** (ou **combinaison à $p$ éléments**) toute partie de $E$ à $p$ éléments.
+
 :::
 
 ::: {.proposition title="(Nombre des $p$-combinaisons)"}
+
 Soit $E$ un ensemble fini de cardinal $n \in \mathbb{N}^*$ et soit $p$ tel que $0 \leq p \leq n$. Alors le nombre des $p$-combinaisons des éléments de $E$ est :
 $$C_n^p = \binom{n}{p} = \frac{A_n^p}{p!} = \frac{n!}{p!(n-p)!}$$
+
 :::
 
 ::: {.proof}
+
 Chaque $p$-combinaison $A$ de $E$ donne lieu à $p!$ $p$-arrangements distincts (les permutations des éléments de $A$). Donc :
 $$A_n^p = C_n^p \times p!$$
 d'où $C_n^p = \frac{A_n^p}{p!} = \frac{n!}{p!(n-p)!}$.
+
 :::
 
 ::: {.example}
+
 - Le nombre de parties à 2 éléments de $\{a, b, c, d\}$ est $C_4^2 = \frac{4!}{2!2!} = 6$.
 - Le nombre de façons de choisir 3 élèves parmi 10 est $C_{10}^3 = \frac{10!}{3!7!} = 120$.
+
 :::
 
 ::: {.example title="(Exemple de dénombrement)"}
+
 Dans une classe de 32 élèves (19 garçons et 13 filles), on veut choisir 2 délégués.
 
 1. **Quel est le nombre de choix ?**
@@ -193,6 +240,7 @@ Cela revient à choisir 1 parmi 19 et 1 parmi 13 : $C_{19}^1 \times C_{13}^1 = 1
 
 3. **Quel est le nombre de choix si l'on impose 2 garçons ?**
 Cela revient à choisir 2 éléments parmi 19 : $C_{19}^2 = 171$.
+
 :::
 
 # Formules de Pascal et du binôme
@@ -200,11 +248,14 @@ Cela revient à choisir 2 éléments parmi 19 : $C_{19}^2 = 171$.
 ## Triangle de Pascal
 
 ::: {.proposition title="(Relation de Pascal)"}
+
 Soit $n \in \mathbb{N}^*$ et soit $p$ tel que $0 \leq p \leq n$. On a la relation :
 $$C_{n+1}^{p+1} = C_n^{p+1} + C_n^p$$
+
 :::
 
 ::: {.proof title="(Démonstration combinatoire)"}
+
 Soit $E$ un ensemble de $n+1$ éléments et $a \in E$. On compte les parties à $p+1$ éléments de $E$ de deux manières :
 
 - Directement : $C_{n+1}^{p+1}$.
@@ -213,9 +264,11 @@ Soit $E$ un ensemble de $n+1$ éléments et $a \in E$. On compte les parties à 
   - Parties à $p+1$ éléments ne contenant pas $a$ : on choisit les $p+1$ éléments parmi les $n$ restants, soit $C_n^{p+1}$.
 
 Donc $C_{n+1}^{p+1} = C_n^p + C_n^{p+1}$.
+
 :::
 
 ::: {.proposition title="(Triangle de Pascal)"}
+
 À partir de la relation de Pascal, on peut tracer la table dite **Triangle de Pascal** qui donne les valeurs des coefficients binomiaux :
 
 | $n \backslash p$ | 0 | 1 | 2 | 3 | 4 | 5 |
@@ -226,42 +279,54 @@ Donc $C_{n+1}^{p+1} = C_n^p + C_n^{p+1}$.
 | 3 | 1 | 3 | 3 | 1 |   |   |
 | 4 | 1 | 4 | 6 | 4 | 1 |   |
 | 5 | 1 | 5 | 10 | 10 | 5 | 1 |
+
 :::
 
 ## Formule du binôme de Newton
 
 ::: {.theorem title="(Formule du binôme de Newton)"}
+
 Le triangle de Pascal permet notamment de développer le polynôme $(a+b)^n$. Par récurrence, on montre :
 
 Pour tout $n \in \mathbb{N}^*$ et tous $a, b \in \mathbb{C}$ :
 $$(a+b)^n = \sum_{k=0}^n \binom{n}{k} a^k b^{n-k}$$
+
 :::
 
 ::: {.example}
+
 $$(a+b)^3 = a^3 + 3a^2b + 3ab^2 + b^3$$
 $$(a+b)^4 = a^4 + 4a^3b + 6a^2b^2 + 4ab^3 + b^4$$
+
 :::
 
 ::: {.proposition title="(Interprétation combinatoire)"}
+
 On a les propriétés suivantes :
 
 1. $\binom{n}{p} = \binom{n}{n-p}$ (symétrie)
 2. $\sum_{k=0}^n \binom{n}{k} = 2^n$ (somme des coefficients binomiaux)
+
 :::
 
 ::: {.proof title="(Démonstration de la propriété 2)"}
+
 $\sum_{k=0}^n \binom{n}{k}$ compte le nombre total de parties d'un ensemble de $n$ éléments, en regroupant les parties par cardinal. Or ce nombre est $2^n$.
+
 :::
 
 # Ensembles dénombrables
 
 ::: {.definition}
+
 Un ensemble est **dénombrable** s'il est en bijection avec $\mathbb{N}$. Un ensemble est **au plus dénombrable** s'il est en bijection avec une partie de $\mathbb{N}$.
 
 Un ensemble est au plus dénombrable si et seulement s'il est fini ou dénombrable.
+
 :::
 
 ::: {.example}
+
 - L'ensemble $\mathbb{Z}$ est dénombrable.
 - Les parties infinies de $\mathbb{N}$ sont dénombrables.
 - L'ensemble des entiers naturels pairs $2\mathbb{N}$ et l'ensemble des entiers naturels impairs $2\mathbb{N}+1$ sont dénombrables.
@@ -270,63 +335,83 @@ Un ensemble est au plus dénombrable si et seulement s'il est fini ou dénombrab
 - L'ensemble des termes d'une suite est dénombrable.
 - Le produit cartésien $\mathbb{N} \times \mathbb{N}$ est dénombrable.
 - L'ensemble des points de discontinuité d'une fonction monotone est au plus dénombrable.
+
 :::
 
 # Exercices
 
 ::: {.exercise}
+
 1. Déterminer le nombre de mots de 4 lettres formés avec les lettres de $\{a, b, c\}$.
 2. Déterminer le nombre de mots de 4 lettres formés avec les lettres de $\{a, b, c\}$ sans répétition.
+
 :::
 
 ::: {.exercise}
+
 1. Déterminer le nombre de façons de ranger 5 livres sur une étagère.
 2. Déterminer le nombre de façons de choisir 3 livres parmi 5.
+
 :::
 
 ::: {.exercise}
+
 Dans un jeu de 32 cartes, on tire 5 cartes.
 
 1. Quel est le nombre de tirages possibles ?
 2. Quel est le nombre de tirages contenant exactement 2 as ?
 3. Quel est le nombre de tirages contenant au moins 1 as ?
+
 :::
 
 ::: {.exercise}
+
 Montrer par un argument combinatoire que :
 $$\sum_{k=0}^n \binom{n}{k} = 2^n$$
+
 :::
 
 ::: {.exercise}
+
 Montrer par un argument combinatoire que :
 $$\binom{n}{p} = \binom{n}{n-p}$$
+
 :::
 
 ::: {.exercise}
+
 Calculer $C_{10}^3$, $C_{10}^7$ et vérifier que $C_{10}^3 = C_{10}^7$.
+
 :::
 
 ::: {.exercise}
+
 Montrer que :
 $$\binom{n+1}{p+1} = \binom{n}{p+1} + \binom{n}{p}$$
 en utilisant la formule avec les factorielles.
+
 :::
 
 ::: {.exercise}
+
 Soit $E$ un ensemble de $n$ éléments.
 
 1. Déterminer le nombre de parties de $E$.
 2. Déterminer le nombre de parties de $E$ à 1 élément.
 3. Déterminer le nombre de parties de $E$ à 2 éléments.
 4. En déduire la valeur de $\sum_{k=0}^n \binom{n}{k}$.
+
 :::
 
 # Document en PDF {-}
 [Chapitre 17 : Dénombrement](PDF/tsi1-chap17.pdf)
 
 ## Navigation {-}
+
 ::: {.chap-nav}
+
 [Chapitre 16 : Intégration des fonctions continues sur un segment](tsi1-chap16.qmd){.prev}
 [Menu TSI1](tsi1.qmd){.home}
 [Chapitre 18 : Probabilité sur un univers fini](tsi1-chap18.qmd){.next}
+
 :::

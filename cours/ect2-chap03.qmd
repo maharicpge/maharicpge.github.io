@@ -27,69 +27,91 @@ Dans tout ce chapitre, $\mathbb{K}$ désigne $\mathbb{R}$ ou $\mathbb{C}$.
 ## Notation et propriétés
 
 ::: {.definition title="(Somme finie)"}
+
 Soient $a_0, a_1, \ldots, a_n$ des réels. On note :
 $$\sum_{k=0}^n a_k = a_0 + a_1 + \cdots + a_n$$
 Par convention, une somme vide est nulle : $\sum_{k=p}^n a_k = 0$ si $n < p$.
+
 :::
 
 ::: {.proposition title="(Linéarité)"}
+
 Pour tous réels $\lambda, \mu$ et toutes suites $(a_k), (b_k)$ :
 $$\sum_{k=p}^n (\lambda a_k + \mu b_k) = \lambda \sum_{k=p}^n a_k + \mu \sum_{k=p}^n b_k$$
+
 :::
 
 ::: {.proposition title="(Relation de Chasles)"}
+
 Pour $p \leq m \leq n$ :
 $$\sum_{k=p}^n a_k = \sum_{k=p}^m a_k + \sum_{k=m+1}^n a_k$$
+
 :::
 
 ::: {.proposition title="(Changement d'indice)"}
+
 Pour toute suite $(a_k)$ :
 $$\sum_{k=p}^n a_k = \sum_{k=p+r}^{n+r} a_{k-r} = \sum_{k=0}^{n-p} a_{k+p}$$
+
 :::
 
 ::: {.proposition title="(Sommes doubles)"}
+
 Pour une famille $(a_{ij})$ à indices dans un ensemble fini :
 $$\sum_{i=0}^n \sum_{j=0}^p a_{ij} = \sum_{j=0}^p \sum_{i=0}^n a_{ij}$$
 Si les indices sont liés, par exemple $0 \leq i \leq j \leq n$ :
 $$\sum_{i=0}^n \sum_{j=i}^n a_{ij} = \sum_{j=0}^n \sum_{i=0}^j a_{ij}$$
+
 :::
 
 ## Sommes usuelles
 
 ::: {.proposition title="(Sommes de référence)"}
+
 Pour tout $n \in \mathbb{N}^*$ :
 $$\sum_{k=1}^n k = \frac{n(n+1)}{2}$$
 $$\sum_{k=1}^n k^2 = \frac{n(n+1)(2n+1)}{6}$$
 $$\sum_{k=1}^n k^3 = \left(\frac{n(n+1)}{2}\right)^2$$
+
 :::
 
 ::: {.proposition title="(Somme géométrique finie)"}
+
 Pour $q \in \mathbb{R}$ et $n \in \mathbb{N}$ :
 $$\sum_{k=0}^n q^k = \begin{cases} n+1 & \text{si } q = 1 \\ \frac{1-q^{n+1}}{1-q} & \text{si } q \neq 1 \end{cases}$$
+
 :::
 
 ::: {.example}
+
 Calculons $\sum_{k=0}^n k \cdot q^k$ pour $q \neq 1$.
 En dérivant la somme géométrique par rapport à $q$ :
 $$\sum_{k=0}^n k q^{k-1} = \frac{d}{dq}\left(\frac{1-q^{n+1}}{1-q}\right)$$
 d'où :
 $$\sum_{k=0}^n k q^k = q \cdot \frac{1-(n+1)q^n + nq^{n+1}}{(1-q)^2}$$
+
 :::
 
 ## Sommes télescopiques
 
 ::: {.definition title="(Somme télescopique)"}
+
 Une somme de la forme :
 $$\sum_{k=p}^n (b_{k+1} - b_k) = b_{n+1} - b_p$$
 s'appelle une somme télescopique.
+
 :::
 
 ::: {.example}
+
 $$\sum_{k=1}^n \frac{1}{k(k+1)} = \sum_{k=1}^n \left(\frac{1}{k} - \frac{1}{k+1}\right) = 1 - \frac{1}{n+1}$$
+
 :::
 
 ::: {.example}
+
 $$\sum_{k=1}^n \frac{1}{k(k+1)(k+2)} = \frac{1}{2}\sum_{k=1}^n \left(\frac{1}{k(k+1)} - \frac{1}{(k+1)(k+2)}\right) = \frac{1}{2}\left(\frac{1}{2} - \frac{1}{(n+1)(n+2)}\right)$$
+
 :::
 
 # Séries numériques
@@ -97,156 +119,213 @@ $$\sum_{k=1}^n \frac{1}{k(k+1)(k+2)} = \frac{1}{2}\sum_{k=1}^n \left(\frac{1}{k(
 ## Définition
 
 ::: {.definition title="(Série numérique)"}
+
 Une série de terme général $u_n$ est la suite des sommes partielles :
 $$S_n = \sum_{k=0}^n u_k$$
 On la note $\sum u_n$. La série converge si $(S_n)$ converge vers une limite $S$, appelée somme de la série :
 $$S = \sum_{k=0}^{+\infty} u_k = \lim_{n \to +\infty} S_n$$
 Le reste d'ordre $n$ est $R_n = S - S_n = \sum_{k=n+1}^{+\infty} u_k$.
+
 :::
 
 ::: {.proposition title="(Condition nécessaire)"}
+
 Si $\sum u_n$ converge, alors $u_n \to 0$.
+
 :::
 
 ::: {.remark title="(Divergence grossière)"}
+
 Si $u_n$ ne tend pas vers $0$, la série diverge grossièrement.
+
 :::
 
 ## Série géométrique
 
 ::: {.theorem title="(Série géométrique)"}
+
 La série $\sum_{n=0}^{+\infty} q^n$ converge si et seulement si $|q| < 1$. Dans ce cas :
 $$\sum_{n=0}^{+\infty} q^n = \frac{1}{1-q}$$
+
 :::
 
 ::: {.proof}
+
 La somme partielle est $S_n = \frac{1-q^{n+1}}{1-q}$. Si $|q| < 1$, alors $q^{n+1} \to 0$, donc $S_n \to \frac{1}{1-q}$. Si $|q| \geq 1$, le terme général ne tend pas vers $0$.
+
 :::
 
 ::: {.example}
+
 $$\sum_{n=0}^{+\infty} \left(\frac{1}{2}\right)^n = \frac{1}{1-\frac{1}{2}} = 2$$
 $$\sum_{n=0}^{+\infty} \left(-\frac{1}{3}\right)^n = \frac{1}{1+\frac{1}{3}} = \frac{3}{4}$$
+
 :::
 
 ::: {.proposition title="(Série géométrique dérivée)"}
+
 Pour $|q| < 1$ :
 $$\sum_{n=1}^{+\infty} n q^{n-1} = \frac{1}{(1-q)^2}$$
 d'où $\sum_{n=1}^{+\infty} n q^n = \frac{q}{(1-q)^2}$.
+
 :::
 
 ## Série exponentielle
 
 ::: {.theorem title="(Série exponentielle)"}
+
 Pour tout $x \in \mathbb{R}$, la série $\sum_{n=0}^{+\infty} \frac{x^n}{n!}$ converge absolument et :
 $$\sum_{n=0}^{+\infty} \frac{x^n}{n!} = e^x$$
+
 :::
 
 ::: {.proof}
+
 Le critère de d'Alembert donne :
 $$\frac{|x|^{n+1}}{(n+1)!} \cdot \frac{n!}{|x|^n} = \frac{|x|}{n+1} \to 0 < 1$$
 donc la série converge absolument pour tout $x$. L'identité $\sum \frac{x^n}{n!} = e^x$ est la définition de l'exponentielle réelle.
+
 :::
 
 ::: {.proposition title="(Série exponentielle pour les sommes)"}
+
 Pour $x, y \in \mathbb{R}$ :
 $$e^{x+y} = e^x \cdot e^y$$
+
 :::
 
 ::: {.proposition title="(Applications)"}
+
 En $x = 1$ : $\sum_{n=0}^{+\infty} \frac{1}{n!} = e$.
 En $x = -1$ : $\sum_{n=0}^{+\infty} \frac{(-1)^n}{n!} = e^{-1}$.
+
 :::
 
 # Convergence absolue
 
 ::: {.definition title="(Convergence absolue)"}
+
 La série $\sum u_n$ est absolument convergente si $\sum |u_n|$ converge.
+
 :::
 
 ::: {.theorem}
+
 Toute série absolument convergente est convergente. De plus :
 $$\left|\sum_{n=0}^{+\infty} u_n\right| \leq \sum_{n=0}^{+\infty} |u_n|$$
+
 :::
 
 ::: {.remark}
+
 La réciproque est fausse : $\sum \frac{(-1)^n}{n}$ converge mais pas absolument.
+
 :::
 
 ## Critères pour les séries à termes positifs
 
 ::: {.proposition title="(Comparaison)"}
+
 Soient $(u_n), (v_n)$ à termes positifs avec $0 \leq u_n \leq v_n$ à partir d'un certain rang.
 Si $\sum v_n$ converge, alors $\sum u_n$ converge.
 Si $\sum u_n$ diverge, alors $\sum v_n$ diverge.
+
 :::
 
 ::: {.proposition title="(Équivalence)"}
+
 Si $u_n \sim v_n$ avec $u_n, v_n \geq 0$, alors $\sum u_n$ et $\sum v_n$ sont de même nature.
+
 :::
 
 ::: {.proposition title="(Critère de d'Alembert)"}
+
 Soit $(u_n)$ à termes strictement positifs. Si $\frac{u_{n+1}}{u_n} \to \ell$ :
 - Si $\ell < 1$ : $\sum u_n$ converge.
 - Si $\ell > 1$ : $\sum u_n$ diverge.
 - Si $\ell = 1$ : on ne peut pas conclure.
+
 :::
 
 ::: {.proposition title="(Séries de Riemann)"}
+
 La série $\sum \frac{1}{n^\alpha}$ converge si et seulement si $\alpha > 1$.
+
 :::
 
 ::: {.example title="(Applications)"}
+
 $\sum \frac{1}{n^2}$ converge ($\alpha = 2 > 1$).
 $\sum \frac{1}{n}$ diverge ($\alpha = 1$).
 $\sum \frac{1}{\sqrt{n}}$ diverge ($\alpha = \frac{1}{2} < 1$).
+
 :::
 
 # Exercices
 
 ::: {.exercise}
+
 Calculer les sommes suivantes :
 $\sum_{k=1}^{100} k$
 $\sum_{k=1}^n \frac{1}{k(k+2)}$
 $\sum_{k=0}^n \frac{k}{2^k}$
+
 :::
 
 ::: {.exercise}
+
 Étudier la convergence des séries suivantes :
 $\sum_{n=1}^{+\infty} \frac{1}{n^3}$
 $\sum_{n=1}^{+\infty} \frac{n}{n^2+1}$
 $\sum_{n=1}^{+\infty} \frac{n!}{n^n}$
+
 :::
 
 ::: {.exercise}
+
 Étudier la convergence de $\sum_{n=1}^{+\infty} \frac{(-1)^n}{\sqrt{n}}$. La convergence est-elle absolue ?
+
 :::
 
 ::: {.exercise}
+
 Étudier la convergence de $\sum_{n=0}^{+\infty} \frac{x^n}{n!}$ pour $x \in \mathbb{R}$.
+
 :::
 
 ::: {.exercise}
+
 Étudier la convergence de $\sum_{n=1}^{+\infty} \frac{\ln n}{n^2}$ en utilisant une comparaison avec $\sum \frac{1}{n^{3/2}}$.
+
 :::
 
 ::: {.exercise}
+
 Calculer $\sum_{n=0}^{+\infty} \frac{n}{2^n}$ en utilisant la série géométrique dérivée.
+
 :::
 
 ::: {.exercise}
+
 Étudier la convergence de $\sum_{n=1}^{+\infty} \frac{(-1)^n}{n}$. La série est-elle absolument convergente ?
+
 :::
 
 ::: {.exercise}
+
 Calculer la somme $\sum_{n=0}^{+\infty} \frac{n+1}{3^n}$.
+
 :::
 
 # Document en PDF {-}
 [**Chapitre 03 : Rappels sur les sommes finies ; séries numériques**](PDF/ect2-chap03.pdf)
 
 ## Navigation {-}
+
 ::: {.chap-nav}
+
 [Chapitre 02 : Compléments d'intégration](ect2-chap02.qmd){.prev}
 [Menu ECT2](ect2.qmd){.home}
 [Chapitre 04 : Couples de variables aléatoires discrètes finies](ect2-chap04.qmd){.next}
+
 :::

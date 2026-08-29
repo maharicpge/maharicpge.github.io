@@ -37,6 +37,7 @@ Dans tout ce chapitre, $\mathbb{K}$ désigne $\mathbb{R}$ ou $\mathbb{C}$, et to
 ## Matrice d'une famille de vecteurs
 
 ::: {.definition}
+
 Soient $E$ un $\mathbb{K}$-espace vectoriel de dimension $n$, $\mathcal{B} = (e_1, \ldots, e_n)$ une base de $E$, et $v_1, \ldots, v_p$ des vecteurs de $E$.
 
 Pour chaque $j \in \{1, \ldots, p\}$, le vecteur $v_j$ s'écrit de manière unique :
@@ -45,16 +46,20 @@ $$v_j = a_{1,j} e_1 + a_{2,j} e_2 + \cdots + a_{n,j} e_n$$
 La **matrice de la famille** $(v_1, \ldots, v_p)$ dans la base $\mathcal{B}$ est la matrice $A \in \mathcal{M}_{n,p}(\mathbb{K})$ dont la $j$-ème colonne est constituée des coordonnées de $v_j$ dans la base $\mathcal{B}$ :
 
 $$A = \begin{pmatrix} a_{1,1} & a_{1,2} & \cdots & a_{1,p} \\ a_{2,1} & a_{2,2} & \cdots & a_{2,p} \\ \vdots & \vdots & \ddots & \vdots \\ a_{n,1} & a_{n,2} & \cdots & a_{n,p} \end{pmatrix}$$
+
 :::
 
 ::: {.example}
+
 Dans $\mathbb{R}^3$ muni de la base canonique $\mathcal{B} = (e_1, e_2, e_3)$, la matrice de la famille $((1,2,3), (4,5,6))$ est :
 $$A = \begin{pmatrix} 1 & 4 \\ 2 & 5 \\ 3 & 6 \end{pmatrix}$$
+
 :::
 
 ## Matrice d'une application linéaire
 
 ::: {.definition}
+
 Soient $E$ et $F$ deux $\mathbb{K}$-espaces vectoriels de dimensions respectives $p$ et $n$, $\mathcal{B} = (e_1, \ldots, e_p)$ une base de $E$ et $\mathcal{B}' = (f_1, \ldots, f_n)$ une base de $F$.
 
 Soit $u : E \to F$ une application linéaire. Pour chaque $j \in \{1, \ldots, p\}$, le vecteur $u(e_j)$ s'écrit de manière unique :
@@ -62,13 +67,17 @@ $$u(e_j) = a_{1,j} f_1 + a_{2,j} f_2 + \cdots + a_{n,j} f_n$$
 
 La **matrice de l'application linéaire** $u$ par rapport aux bases $\mathcal{B}$ et $\mathcal{B}'$ est la matrice $A \in \mathcal{M}_{n,p}(\mathbb{K})$ dont la $j$-ème colonne est constituée des coordonnées de $u(e_j)$ dans la base $\mathcal{B}'$. On note :
 $$A = \mathrm{Mat}_{\mathcal{B}, \mathcal{B}'}(u)$$
+
 :::
 
 ::: {.remark}
+
 Une application linéaire entre deux espaces vectoriels de dimension finie est entièrement déterminée par l'image d'une base de l'espace de départ.
+
 :::
 
 ::: {.example}
+
 Soit $u : \mathbb{R}^2 \to \mathbb{R}^3$ définie par $u(x,y) = (x+y, x-y, 2x)$.
 
 Dans les bases canoniques :
@@ -76,26 +85,32 @@ $$u(e_1) = u(1,0) = (1, 1, 2), \quad u(e_2) = u(0,1) = (1, -1, 0)$$
 
 Donc :
 $$\mathrm{Mat}_{\mathcal{B}, \mathcal{B}'}(u) = \begin{pmatrix} 1 & 1 \\ 1 & -1 \\ 2 & 0 \end{pmatrix}$$
+
 :::
 
 ::: {.example}
+
 Soit $u : \mathbb{R}^3 \to \mathbb{R}^3$ définie par $u(x,y,z) = (2x+y, y-z, x+z)$.
 
 $$u(e_1) = (2, 0, 1), \quad u(e_2) = (1, 1, 0), \quad u(e_3) = (0, -1, 1)$$
 
 $$\mathrm{Mat}_{\mathcal{B}}(u) = \begin{pmatrix} 2 & 1 & 0 \\ 0 & 1 & -1 \\ 1 & 0 & 1 \end{pmatrix}$$
+
 :::
 
 ## Coordonnées de l'image d'un vecteur
 
 ::: {.proposition}
+
 Soient $E$ et $F$ deux $\mathbb{K}$-espaces vectoriels de dimensions finies, $\mathcal{B}$ une base de $E$, $\mathcal{B}'$ une base de $F$, et $u \in \mathcal{L}(E,F)$.
 
 Si $X = \mathrm{Mat}_{\mathcal{B}}(x)$ est la matrice colonne des coordonnées de $x \in E$ dans la base $\mathcal{B}$, et $A = \mathrm{Mat}_{\mathcal{B}, \mathcal{B}'}(u)$, alors :
 $$\mathrm{Mat}_{\mathcal{B}'}(u(x)) = A \cdot X$$
+
 :::
 
 ::: {.example}
+
 Reprenons l'exemple précédent avec $u(x,y) = (x+y, x-y, 2x)$ et $x = (3, 1)$.
 
 $$X = \begin{pmatrix} 3 \\ 1 \end{pmatrix}, \quad A = \begin{pmatrix} 1 & 1 \\ 1 & -1 \\ 2 & 0 \end{pmatrix}$$
@@ -103,33 +118,42 @@ $$X = \begin{pmatrix} 3 \\ 1 \end{pmatrix}, \quad A = \begin{pmatrix} 1 & 1 \\ 1
 $$AX = \begin{pmatrix} 1 & 1 \\ 1 & -1 \\ 2 & 0 \end{pmatrix} \begin{pmatrix} 3 \\ 1 \end{pmatrix} = \begin{pmatrix} 4 \\ 2 \\ 6 \end{pmatrix}$$
 
 Vérification : $u(3,1) = (3+1, 3-1, 2 \times 3) = (4, 2, 6)$. ✓
+
 :::
 
 ## Matrice d'une composée
 
 ::: {.proposition}
+
 Soient $E$, $F$, $G$ trois $\mathbb{K}$-espaces vectoriels de dimensions finies, $\mathcal{B}$ une base de $E$, $\mathcal{B}'$ une base de $F$, $\mathcal{B}''$ une base de $G$.
 
 Soient $u \in \mathcal{L}(E,F)$ et $v \in \mathcal{L}(F,G)$. Alors :
 $$\mathrm{Mat}_{\mathcal{B}, \mathcal{B}''}(v \circ u) = \mathrm{Mat}_{\mathcal{B}', \mathcal{B}''}(v) \times \mathrm{Mat}_{\mathcal{B}, \mathcal{B}'}(u)$$
+
 :::
 
 ::: {.remark}
+
 Le produit matriciel est défini de manière à correspondre à la composition des applications linéaires. L'ordre est important : la matrice de $v \circ u$ est le produit de la matrice de $v$ par la matrice de $u$, dans cet ordre.
+
 :::
 
 ## Isomorphisme entre $\mathcal{L}(E,F)$ et $\mathcal{M}_{n,p}(\mathbb{K})$
 
 ::: {.theorem}
+
 Soient $E$ et $F$ deux $\mathbb{K}$-espaces vectoriels de dimensions respectives $p$ et $n$, $\mathcal{B}$ une base de $E$ et $\mathcal{B}'$ une base de $F$.
 
 L'application :
 $$\Phi : \mathcal{L}(E,F) \to \mathcal{M}_{n,p}(\mathbb{K}), \quad u \mapsto \mathrm{Mat}_{\mathcal{B}, \mathcal{B}'}(u)$$
 est un isomorphisme de $\mathbb{K}$-espaces vectoriels.
+
 :::
 
 ::: {.corollary}
+
 $\dim(\mathcal{L}(E,F)) = \dim(E) \times \dim(F) = p \times n$.
+
 :::
 
 # Changements de bases
@@ -137,34 +161,43 @@ $\dim(\mathcal{L}(E,F)) = \dim(E) \times \dim(F) = p \times n$.
 ## Matrice de passage
 
 ::: {.definition}
+
 Soient $E$ un $\mathbb{K}$-espace vectoriel de dimension $n$, $\mathcal{B} = (e_1, \ldots, e_n)$ et $\mathcal{B}' = (e'_1, \ldots, e'_n)$ deux bases de $E$.
 
 La **matrice de passage** de $\mathcal{B}$ à $\mathcal{B}'$, notée $P = \mathrm{Pass}_{\mathcal{B}, \mathcal{B}'}$, est la matrice de la famille $\mathcal{B}'$ dans la base $\mathcal{B}$. Autrement dit, la $j$-ème colonne de $P$ est constituée des coordonnées de $e'_j$ dans la base $\mathcal{B}$.
+
 :::
 
 ::: {.proposition}
+
 La matrice de passage $P = \mathrm{Pass}_{\mathcal{B}, \mathcal{B}'}$ est inversible, et :
 $$P^{-1} = \mathrm{Pass}_{\mathcal{B}', \mathcal{B}}$$
+
 :::
 
 ::: {.example}
+
 Dans $\mathbb{R}^2$, soient $\mathcal{B} = (e_1, e_2)$ la base canonique et $\mathcal{B}' = (e'_1, e'_2)$ avec $e'_1 = e_1 + e_2$ et $e'_2 = e_1 - e_2$.
 
 $$P = \mathrm{Pass}_{\mathcal{B}, \mathcal{B}'} = \begin{pmatrix} 1 & 1 \\ 1 & -1 \end{pmatrix}$$
 
 $$P^{-1} = \frac{1}{-2}\begin{pmatrix} -1 & -1 \\ -1 & 1 \end{pmatrix} = \begin{pmatrix} 1/2 & 1/2 \\ 1/2 & -1/2 \end{pmatrix}$$
+
 :::
 
 ## Effet d'un changement de base sur les coordonnées d'un vecteur
 
 ::: {.proposition}
+
 Soient $\mathcal{B}$ et $\mathcal{B}'$ deux bases de $E$, $P = \mathrm{Pass}_{\mathcal{B}, \mathcal{B}'}$, et $x \in E$. Si $X = \mathrm{Mat}_{\mathcal{B}}(x)$ et $X' = \mathrm{Mat}_{\mathcal{B}'}(x)$, alors :
 $$X = P \cdot X' \quad \text{et} \quad X' = P^{-1} \cdot X$$
+
 :::
 
 ## Effet d'un changement de bases sur la matrice d'une application linéaire
 
 ::: {.theorem title="(Formule de changement de bases)"}
+
 Soient $E$ et $F$ deux $\mathbb{K}$-espaces vectoriels de dimensions finies, $\mathcal{B}_E$, $\mathcal{B}'_E$ deux bases de $E$, $\mathcal{B}_F$, $\mathcal{B}'_F$ deux bases de $F$.
 
 Soit $u \in \mathcal{L}(E,F)$. On pose :
@@ -175,13 +208,16 @@ Soit $u \in \mathcal{L}(E,F)$. On pose :
 
 Alors :
 $$\boxed{B = Q^{-1} A P}$$
+
 :::
 
 ## Cas particulier des endomorphismes
 
 ::: {.corollary title="(Formule de changement de base pour un endomorphisme)"}
+
 Soit $E$ un $\mathbb{K}$-espace vectoriel de dimension finie, $\mathcal{B}$ et $\mathcal{B}'$ deux bases de $E$, $P = \mathrm{Pass}_{\mathcal{B}, \mathcal{B}'}$, et $u \in \mathcal{L}(E)$. Si $A = \mathrm{Mat}_{\mathcal{B}}(u)$ et $B = \mathrm{Mat}_{\mathcal{B}'}(u)$, alors :
 $$\boxed{B = P^{-1} A P}$$
+
 :::
 
 # Matrices semblables
@@ -189,23 +225,30 @@ $$\boxed{B = P^{-1} A P}$$
 ## Définition
 
 ::: {.definition}
+
 Deux matrices $A, B \in \mathcal{M}_n(\mathbb{K})$ sont dites **semblables** s'il existe une matrice inversible $P \in \mathrm{GL}_n(\mathbb{K})$ telle que :
 $$B = P^{-1} A P$$
+
 :::
 
 ::: {.proposition}
+
 La relation de similitude est une relation d'équivalence sur $\mathcal{M}_n(\mathbb{K})$ :
 
 1. **Réflexivité** : $A$ est semblable à elle-même (avec $P = I_n$).
 2. **Symétrie** : Si $B = P^{-1}AP$, alors $A = PBP^{-1}$, donc $A$ est semblable à $B$.
 3. **Transitivité** : Si $B = P^{-1}AP$ et $C = Q^{-1}BQ$, alors $C = (PQ)^{-1}A(PQ)$, donc $A$ est semblable à $C$.
+
 :::
 
 ::: {.proposition title="(Interprétation)"}
+
 Deux matrices sont semblables si et seulement si elles représentent le même endomorphisme dans deux bases différentes.
+
 :::
 
 ::: {.proposition title="(Invariants par similitude)"}
+
 Si $A$ et $B$ sont semblables, alors :
 
 1. $\det(A) = \det(B)$
@@ -213,14 +256,17 @@ Si $A$ et $B$ sont semblables, alors :
 3. $\mathrm{tr}(A) = \mathrm{tr}(B)$
 4. $A$ et $B$ ont les mêmes valeurs propres
 5. $A^n$ et $B^n$ sont semblables pour tout $n \in \mathbb{N}$
+
 :::
 
 ::: {.example}
+
 Les matrices $A = \begin{pmatrix} 2 & 1 \\ 0 & 3 \end{pmatrix}$ et $B = \begin{pmatrix} 3 & 0 \\ 1 & 2 \end{pmatrix}$ sont-elles semblables ?
 
 On vérifie les invariants : $\mathrm{tr}(A) = 5 = \mathrm{tr}(B)$, $\det(A) = 6 = \det(B)$, $\mathrm{rg}(A) = 2 = \mathrm{rg}(B)$.
 
 Les valeurs propres de $A$ sont $2$ et $3$. Les valeurs propres de $B$ sont aussi $2$ et $3$. Donc $A$ et $B$ sont semblables.
+
 :::
 
 # Déterminants
@@ -228,119 +274,151 @@ Les valeurs propres de $A$ sont $2$ et $3$. Les valeurs propres de $B$ sont auss
 ## Définition du déterminant d'une matrice carrée
 
 ::: {.definition title="(Déterminant d'une matrice carrée)"}
+
 Soit $A = (a_{i,j}) \in \mathcal{M}_n(\mathbb{K})$. Le **déterminant** de $A$, noté $\det(A)$ ou $|A|$, est défini récursivement par :
 
 - Pour $n = 1$ : $\det(a_{1,1}) = a_{1,1}$
 - Pour $n \geq 2$ : développement par rapport à la première ligne (ou colonne) :
 $$\det(A) = \sum_{j=1}^n (-1)^{1+j} a_{1,j} \det(A_{1,j})$$
 où $A_{1,j}$ est la matrice obtenue en supprimant la première ligne et la $j$-ème colonne de $A$.
+
 :::
 
 ::: {.example}
+
 Pour $n = 2$ :
 $$\det\begin{pmatrix} a & b \\ c & d \end{pmatrix} = ad - bc$$
 
 Pour $n = 3$ :
 $$\det\begin{pmatrix} a_{1,1} & a_{1,2} & a_{1,3} \\ a_{2,1} & a_{2,2} & a_{2,3} \\ a_{3,1} & a_{3,2} & a_{3,3} \end{pmatrix} = a_{1,1}(a_{2,2}a_{3,3} - a_{2,3}a_{3,2}) - a_{1,2}(a_{2,1}a_{3,3} - a_{2,3}a_{3,1}) + a_{1,3}(a_{2,1}a_{3,2} - a_{2,2}a_{3,1})$$
+
 :::
 
 ## Développement de Laplace
 
 ::: {.theorem title="(Développement de Laplace)"}
+
 Soit $A \in \mathcal{M}_n(\mathbb{K})$. Alors pour tout $i \in \{1, \ldots, n\}$ :
 $$\det(A) = \sum_{j=1}^n (-1)^{i+j} a_{i,j} \det(A_{i,j})$$
 et pour tout $j \in \{1, \ldots, n\}$ :
 $$\det(A) = \sum_{i=1}^n (-1)^{i+j} a_{i,j} \det(A_{i,j})$$
 
 On appelle ce développement le **développement de Laplace** par rapport à la $i$-ème ligne (resp. $j$-ème colonne).
+
 :::
 
 ::: {.definition title="(Mineur et cofacteur)"}
+
 Soit $A \in \mathcal{M}_n(\mathbb{K})$.
 
 - Le **mineur** de $a_{i,j}$ est le déterminant $\det(A_{i,j})$.
 - Le **cofacteur** de $a_{i,j}$ est $\Delta_{i,j} = (-1)^{i+j} \det(A_{i,j})$.
+
 :::
 
 ::: {.example}
+
 Calculons le déterminant de $A = \begin{pmatrix} 1 & 2 & 3 \\ 4 & 5 & 6 \\ 7 & 8 & 9 \end{pmatrix}$ en développant par rapport à la première ligne :
 
 $$\det(A) = 1 \cdot \det\begin{pmatrix} 5 & 6 \\ 8 & 9 \end{pmatrix} - 2 \cdot \det\begin{pmatrix} 4 & 6 \\ 7 & 9 \end{pmatrix} + 3 \cdot \det\begin{pmatrix} 4 & 5 \\ 7 & 8 \end{pmatrix}$$
 
 $$= 1 \cdot (45 - 48) - 2 \cdot (36 - 42) + 3 \cdot (32 - 35) = -3 + 12 - 9 = 0$$
+
 :::
 
 ## Propriétés du déterminant
 
 ::: {.proposition title="(Propriétés fondamentales du déterminant)"}
+
 Soient $A, B \in \mathcal{M}_n(\mathbb{K})$.
 
 1. **Multiplicativité** : $\det(AB) = \det(A) \cdot \det(B)$
 2. **Inverse** : Si $A$ est inversible, $\det(A^{-1}) = \frac{1}{\det(A)}$
 3. **Transposée** : $\det({}^tA) = \det(A)$
 4. **Scalaire** : $\det(\lambda A) = \lambda^n \det(A)$
+
 :::
 
 ::: {.proposition title="(Effet des opérations élémentaires sur le déterminant)"}
+
 Les opérations élémentaires sur les lignes (ou colonnes) ont les effets suivants sur le déterminant :
 
 1. $L_i \leftarrow \lambda L_i$ avec $\lambda \neq 0$ : le déterminant est multiplié par $\lambda$.
 2. $L_i \leftarrow L_i + \lambda L_j$ avec $\lambda \in \mathbb{K}$ (et $j \neq i$) : le déterminant ne change pas.
 3. $L_i \leftrightarrow L_j$ : le déterminant change de signe.
+
 :::
 
 ::: {.proposition title="(Caractérisation de l'inversibilité)"}
+
 Soit $A \in \mathcal{M}_n(\mathbb{K})$. Alors :
 $$A \text{ est inversible} \iff \det(A) \neq 0$$
+
 :::
 
 ::: {.proposition title="(Déterminant d'une matrice triangulaire)"}
+
 Le déterminant d'une matrice triangulaire (supérieure ou inférieure) est le produit de ses coefficients diagonaux.
 
 En particulier, le déterminant d'une matrice diagonale est le produit de ses coefficients diagonaux.
+
 :::
 
 ::: {.example}
+
 $$\det\begin{pmatrix} 2 & 3 & 5 \\ 0 & 7 & 1 \\ 0 & 0 & 4 \end{pmatrix} = 2 \times 7 \times 4 = 56$$
+
 :::
 
 ::: {.proposition title="(Cas de deux colonnes identiques)"}
+
 Si une matrice carrée a deux colonnes identiques, son déterminant est nul.
+
 :::
 
 ## Déterminant d'une famille de vecteurs
 
 ::: {.definition title="(Déterminant d'une famille de vecteurs)"}
+
 Soient $E$ un $\mathbb{K}$-espace vectoriel de dimension $n$, $\mathcal{B} = (e_1, \ldots, e_n)$ une base de $E$, et $(v_1, \ldots, v_n)$ une famille de $n$ vecteurs de $E$.
 
 Le **déterminant** de la famille $(v_1, \ldots, v_n)$ dans la base $\mathcal{B}$, noté $\det_{\mathcal{B}}(v_1, \ldots, v_n)$, est le déterminant de la matrice dont les colonnes sont les coordonnées des $v_j$ dans la base $\mathcal{B}$.
+
 :::
 
 ::: {.proposition title="(Caractérisation des bases)"}
+
 Une famille $(v_1, \ldots, v_n)$ de $n$ vecteurs d'un espace vectoriel de dimension $n$ est une base si et seulement si :
 $$\det_{\mathcal{B}}(v_1, \ldots, v_n) \neq 0$$
+
 :::
 
 ## Déterminant d'un endomorphisme
 
 ::: {.definition title="(Déterminant d'un endomorphisme)"}
+
 Soit $u \in \mathcal{L}(E)$ avec $\dim(E) = n$. Le **déterminant** de $u$ est :
 $$\det(u) = \det(\mathrm{Mat}_{\mathcal{B}}(u))$$
 où $\mathcal{B}$ est une base quelconque de $E$.
+
 :::
 
 ::: {.proposition}
+
 Le déterminant d'un endomorphisme ne dépend pas du choix de la base. De plus :
 
 1. $\det(v \circ u) = \det(v) \cdot \det(u)$
 2. Si $u$ est un automorphisme : $\det(u^{-1}) = \frac{1}{\det(u)}$
+
 :::
 
 ::: {.proposition title="(Interprétation géométrique)"}
+
 Dans $\mathbb{R}^2$ ou $\mathbb{R}^3$ muni d'une base orthonormée directe :
 
 - Le déterminant de deux vecteurs $(u, v)$ de $\mathbb{R}^2$ représente l'**aire algébrique** du parallélogramme construit sur $u$ et $v$.
 - Le déterminant de trois vecteurs $(u, v, w)$ de $\mathbb{R}^3$ représente le **volume algébrique** du parallélépipède construit sur $u$, $v$ et $w$.
+
 :::
 
 # Comatrice
@@ -348,22 +426,29 @@ Dans $\mathbb{R}^2$ ou $\mathbb{R}^3$ muni d'une base orthonormée directe :
 ## Définition
 
 ::: {.definition title="(Comatrice)"}
+
 Soit $A = (a_{i,j}) \in \mathcal{M}_n(\mathbb{K})$. La **comatrice** de $A$, notée $\mathrm{Com}(A)$, est la matrice définie par :
 $$\mathrm{Com}(A)_{i,j} = \Delta_{i,j} = (-1)^{i+j} \det(A_{i,j})$$
 où $\Delta_{i,j}$ est le cofacteur de $a_{i,j}$.
+
 :::
 
 ::: {.theorem title="(Formule de la comatrice)"}
+
 Soit $A \in \mathcal{M}_n(\mathbb{K})$. Alors :
 $$A \cdot {}^t\mathrm{Com}(A) = {}^t\mathrm{Com}(A) \cdot A = \det(A) \cdot I_n$$
+
 :::
 
 ::: {.corollary title="(Inverse d'une matrice inversible)"}
+
 Si $A$ est inversible :
 $$\boxed{A^{-1} = \frac{1}{\det(A)} \cdot {}^t\mathrm{Com}(A)}$$
+
 :::
 
 ::: {.example}
+
 Calculons l'inverse de $A = \begin{pmatrix} 1 & 2 \\ 3 & 4 \end{pmatrix}$.
 
 $\det(A) = 1 \times 4 - 2 \times 3 = -2$.
@@ -375,17 +460,21 @@ Donc :
 $$A^{-1} = \frac{1}{-2}\begin{pmatrix} 4 & -2 \\ -3 & 1 \end{pmatrix} = \begin{pmatrix} -2 & 1 \\ 3/2 & -1/2 \end{pmatrix}$$
 
 Vérification : $A \cdot A^{-1} = \begin{pmatrix} 1 & 2 \\ 3 & 4 \end{pmatrix} \begin{pmatrix} -2 & 1 \\ 3/2 & -1/2 \end{pmatrix} = \begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix}$. ✓
+
 :::
 
 # Formules de Cramer
 
 ::: {.theorem title="(Règle de Cramer)"}
+
 Soit $A \in \mathrm{GL}_n(\mathbb{K})$ et $B = \begin{pmatrix} b_1 \\ \vdots \\ b_n \end{pmatrix} \in \mathbb{K}^n$. Le système $AX = B$ admet une unique solution $X = \begin{pmatrix} x_1 \\ \vdots \\ x_n \end{pmatrix}$ donnée par :
 $$\boxed{x_j = \frac{\det(A_j)}{\det(A)}}$$
 où $A_j$ est la matrice obtenue en remplaçant la $j$-ème colonne de $A$ par $B$.
+
 :::
 
 ::: {.example}
+
 Résolvons le système :
 $$\begin{cases} x + 2y = 5 \\ 3x + 4y = 11 \end{cases}$$
 
@@ -398,6 +487,7 @@ $x = \frac{\det\begin{pmatrix} 5 & 2 \\ 11 & 4 \end{pmatrix}}{-2} = \frac{20 - 2
 $y = \frac{\det\begin{pmatrix} 1 & 5 \\ 3 & 11 \end{pmatrix}}{-2} = \frac{11 - 15}{-2} = \frac{-4}{-2} = 2$
 
 Donc la solution est $(x, y) = (1, 2)$.
+
 :::
 
 # Déterminant de Vandermonde
@@ -405,103 +495,136 @@ Donc la solution est $(x, y) = (1, 2)$.
 ## Définition et formule
 
 ::: {.definition title="(Matrice de Vandermonde)"}
+
 Soient $x_1, x_2, \ldots, x_n \in \mathbb{K}$. La **matrice de Vandermonde** associée est :
 $$V = \begin{pmatrix} 1 & 1 & \cdots & 1 \\ x_1 & x_2 & \cdots & x_n \\ x_1^2 & x_2^2 & \cdots & x_n^2 \\ \vdots & \vdots & \ddots & \vdots \\ x_1^{n-1} & x_2^{n-1} & \cdots & x_n^{n-1} \end{pmatrix}$$
+
 :::
 
 ::: {.theorem title="(Déterminant de Vandermonde)"}
+
 $$\boxed{\det(V) = \prod_{1 \leq i < j \leq n} (x_j - x_i)}$$
+
 :::
 
 ::: {.example}
+
 Pour $n = 3$ :
 $$\det\begin{pmatrix} 1 & 1 & 1 \\ x_1 & x_2 & x_3 \\ x_1^2 & x_2^2 & x_3^2 \end{pmatrix} = (x_2 - x_1)(x_3 - x_1)(x_3 - x_2)$$
+
 :::
 
 ::: {.proposition title="(Conséquence : caractérisation de l'inversibilité)"}
+
 La matrice de Vandermonde $V$ est inversible si et seulement si les $x_i$ sont deux à deux distincts.
+
 :::
 
 ## Lien avec le problème d'interpolation de Lagrange
 
 ::: {.theorem title="(Interpolation de Lagrange)"}
+
 Soient $n$ points distincts $x_1, \ldots, x_n$ de $\mathbb{K}$ et $y_1, \ldots, y_n \in \mathbb{K}$. Il existe un unique polynôme $P \in \mathbb{K}_{n-1}[X]$ tel que :
 $$P(x_i) = y_i \quad \text{pour tout } i \in \{1, \ldots, n\}$$
+
 :::
 
 ::: {.proof}
+
 Le problème revient à résoudre un système linéaire de $n$ équations à $n$ inconnues (les coefficients du polynôme). La matrice de ce système est une matrice de Vandermonde, qui est inversible car les $x_i$ sont distincts. D'après la règle de Cramer, le système admet une unique solution.
+
 :::
 
 ::: {.remarque}
+
 Le déterminant de Vandermonde joue un rôle fondamental dans l'interpolation polynomiale, car il garantit l'existence et l'unicité du polynôme d'interpolation.
+
 :::
 
 # Exercices
 
 ::: {.exercise}
+
 Soit $u : \mathbb{R}^3 \to \mathbb{R}^2$ définie par $u(x,y,z) = (x+2y-z, 2x+3y)$.
 
 1. Déterminer la matrice de $u$ dans les bases canoniques.
 2. Calculer $\mathrm{Ker}(u)$ et $\mathrm{Im}(u)$.
 3. Vérifier le théorème du rang.
+
 :::
 
 ::: {.exercise}
+
 Soient $\mathcal{B} = (e_1, e_2, e_3)$ la base canonique de $\mathbb{R}^3$ et $\mathcal{B}' = (e'_1, e'_2, e'_3)$ avec :
 $$e'_1 = e_1 + e_2, \quad e'_2 = e_2 + e_3, \quad e'_3 = e_1 + e_3$$
 
 1. Déterminer la matrice de passage $P = \mathrm{Pass}_{\mathcal{B}, \mathcal{B}'}$.
 2. Calculer $P^{-1}$.
 3. Soit $x = 2e_1 + 3e_2 + e_3$. Déterminer les coordonnées de $x$ dans la base $\mathcal{B}'$.
+
 :::
 
 ::: {.exercise}
+
 Soit $u : \mathbb{R}^2 \to \mathbb{R}^2$ définie par $u(x,y) = (3x-y, x+y)$.
 
 1. Déterminer la matrice $A$ de $u$ dans la base canonique.
 2. Soit $\mathcal{B}' = ((1,1), (1,-1))$. Déterminer la matrice $B$ de $u$ dans la base $\mathcal{B}'$.
 3. Vérifier que $A$ et $B$ sont semblables.
+
 :::
 
 ::: {.exercise}
+
 Calculer les déterminants suivants :
 
 1. $\det\begin{pmatrix} 2 & 1 & 3 \\ 0 & 4 & 5 \\ 0 & 0 & 6 \end{pmatrix}$
 2. $\det\begin{pmatrix} 1 & 2 & 3 \\ 2 & 4 & 6 \\ 3 & 6 & 9 \end{pmatrix}$
 3. $\det\begin{pmatrix} 1 & 1 & 1 \\ a & b & c \\ a^2 & b^2 & c^2 \end{pmatrix}$
+
 :::
 
 ::: {.exercise}
+
 Soit $A = \begin{pmatrix} 1 & 2 & 3 \\ 0 & 1 & 4 \\ 5 & 6 & 0 \end{pmatrix}$.
 
 1. Calculer $\det(A)$.
 2. Déterminer la comatrice de $A$.
 3. Calculer $A^{-1}$ en utilisant la comatrice.
+
 :::
 
 ::: {.exercise}
+
 Résoudre le système suivant par la règle de Cramer :
 $$\begin{cases} 2x + y - z = 1 \\ x + 2y + z = 2 \\ x + y + 2z = 3 \end{cases}$$
+
 :::
 
 ::: {.exercise}
+
 Calculer le déterminant de Vandermonde pour $n = 4$ et $x_1 = 1, x_2 = 2, x_3 = 3, x_4 = 4$.
+
 :::
 
 ::: {.exercise}
+
 Soit $P \in \mathbb{R}_3[X]$ tel que $P(0) = 1$, $P(1) = 2$, $P(2) = 5$, $P(3) = 10$.
 
 1. Montrer qu'il existe un unique polynôme $P$ vérifiant ces conditions.
 2. Déterminer $P$ en utilisant l'interpolation de Lagrange.
+
 :::
 
 # Document en PDF {-}
 [Chapitre 14 : Matrices et déterminants](PDF/pcsi-chap14.pdf)
 
 ## Navigation {-}
+
 ::: {.chap-nav}
+
 [Chapitre 13 : Espaces vectoriels et applications linéaires](pcsi-chap13.qmd){.prev}
 [Menu PCSI](pcsi.qmd){.home}
 [Chapitre 15 : Espaces préhilbertiens réels](pcsi-chap15.qmd){.next}
+
 :::

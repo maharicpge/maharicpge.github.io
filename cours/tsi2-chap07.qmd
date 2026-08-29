@@ -37,11 +37,13 @@ Dans tout ce chapitre, $\mathbb{K}$ désigne $\mathbb{R}$ ou $\mathbb{C}$. Pour 
 ## Notion de série entière
 
 ::: {.definition title="(Série entière)"}
+
 Soit $(a_n)_{n \geq 0}$ une suite de nombres complexes (ou réels). On appelle **série entière** associée à $(a_n)$ la série de fonctions :
 $$\sum_{n \geq 0} a_n z^n$$
 où $z$ est une variable complexe (ou réelle).
 
 Les coefficients $a_n$ sont appelés les **coefficients** de la série entière.
+
 :::
 
 ::: {.remarque}
@@ -49,13 +51,16 @@ Les coefficients $a_n$ sont appelés les **coefficients** de la série entière.
 1. La suite $(a_n)$ peut n'être définie qu'à partir du rang $n_0$. On note alors $\sum_{n \geq n_0} a_n z^n$ la série entière correspondante.
 2. Si $z$ est fixé, on a affaire à une série numérique.
 3. Un exemple déjà rencontré est la somme géométrique.
+
 :::
 
 ::: {.remarque title="(Sommes partielles)"}
+
 Les sommes partielles de cette série de fonctions sont des fonctions polynomiales :
 $$S_n : \begin{cases} \mathbb{C} \to \mathbb{C} \\ z \mapsto \sum_{k=0}^n a_k z^k \end{cases}$$
 
 Les fonctions polynomiales sont des cas particuliers de séries entières.
+
 :::
 
 ::: {.example}
@@ -65,40 +70,50 @@ $$S : \begin{cases} D(0,1) \to \mathbb{C} \\ z \mapsto \frac{1}{1-z} \end{cases}
 
 2. $\sum_{n \geq 0} \frac{z^n}{n!}$ converge pour tout $z \in \mathbb{C}$, et sa somme est la fonction exponentielle :
 $$S : \begin{cases} \mathbb{C} \to \mathbb{C} \\ z \mapsto \exp(z) \end{cases}$$
+
 :::
 
 ## Lemme d'Abel
 
 ::: {.theorem title="(Lemme d'Abel)"}
+
 Soit $\sum_{n \geq 0} a_n z^n$ une série entière et $\rho \geq 0$. On suppose que la suite $(a_n \rho^n)_{n \geq 0}$ est bornée. Alors pour tout $z \in \mathbb{C}$ tel que $|z| < \rho$, la série numérique $\sum_{n \geq 0} a_n z^n$ converge absolument.
+
 :::
 
 ::: {.proof}
+
 Supposons que $|a_n \rho^n| \leq M$ pour tout $n \geq 0$. Pour $z \in D(0, \rho)$ avec $\rho \neq 0$ :
 $$|a_n z^n| = |a_n \rho^n| \cdot \left|\frac{z}{\rho}\right|^n \leq M \left|\frac{z}{\rho}\right|^n$$
 Comme $\left|\frac{z}{\rho}\right| < 1$, la série géométrique $\sum \left|\frac{z}{\rho}\right|^n$ converge. Par le critère de comparaison, $\sum |a_n z^n|$ converge.
+
 :::
 
 ## Rayon de convergence
 
 ::: {.definition title="(Rayon de convergence)"}
+
 On appelle **rayon de convergence** de la série entière $\sum_{n \geq 0} a_n z^n$ la borne supérieure (dans $\mathbb{R}$) des réels positifs $\rho \geq 0$ tels que la suite $(a_n \rho^n)_{n \geq 0}$ soit bornée :
 $$R = \sup\{\rho \geq 0 \mid (a_n \rho^n) \text{ est bornée}\}$$
 
 Le disque $D(0, R)$ est appelé **disque de convergence**.
+
 :::
 
 ::: {.remarque}
 
 1. Le rayon de convergence est bien défini. En effet, si $A = \{\rho \geq 0 \mid (a_n \rho^n) \text{ est bornée}\}$, alors $0 \in A$ donc $A$ est non vide. Si $A$ est majoré, il possède une borne supérieure dans $\mathbb{R}$. Si $A$ n'est pas majoré, sa borne supérieure dans $\mathbb{R}$ est $+\infty$.
 2. Si $R > 0$ est le rayon de convergence, alors pour tout $\rho < R$, $a_n \rho^n \xrightarrow[n \to +\infty]{} 0$.
+
 :::
 
 ::: {.theorem title="(Existence du rayon de convergence)"}
+
 Soit $\sum_{n \geq 0} a_n z^n$ une série entière de rayon de convergence $R$. Alors :
 
 1. Si $|z| < R$, la série $\sum a_n z^n$ converge absolument.
 2. Si $|z| > R$, la série $\sum a_n z^n$ diverge.
+
 :::
 
 ::: {.example}
@@ -107,23 +122,28 @@ Soit $\sum_{n \geq 0} a_n z^n$ une série entière de rayon de convergence $R$. 
 2. La série entière $\sum \frac{z^n}{n!}$ a pour rayon de convergence $R = +\infty$.
 3. La série entière $\sum n! \, z^n$ a pour rayon de convergence $R = 0$.
 4. La série entière $\sum n^\alpha z^n$ (avec $\alpha \in \mathbb{R}$) a pour rayon de convergence $R = 1$.
+
 :::
 
 ## Modes de convergence
 
 ::: {.theorem title="(Modes de convergence d'une série entière)"}
+
 Soit $\sum_{n \geq 0} a_n z^n$ une série entière de rayon de convergence $R$. Alors la série de fonctions $\sum f_n$ (où $f_n(z) = a_n z^n$) :
 
 1. Converge absolument sur le disque de convergence $D(0, R)$.
 2. Converge normalement sur tout compact $K$ inclus dans le disque de convergence (en pratique, sur tout disque fermé $\overline{D}(0, r)$ avec $r < R$).
+
 :::
 
 ::: {.proof title="(Convergence normale sur un compact)"}
+
 Soit un compact $K \subset D(0, R)$. Puisque $z \mapsto |z|$ est continue sur le compact $K$, elle est bornée et atteint ses bornes. Il existe donc $r \in [0, R[$ tel que $K \subset \overline{B}(0, r) \subset D(0, R)$.
 
 Comme $r < R$, la série numérique $\sum |a_n| r^n$ converge. Mais alors :
 $$\forall n \in \mathbb{N}, \quad \sup_{z \in K} |a_n z^n| \leq |a_n| r^n$$
 Donc la série numérique $\sum \|f_n\|_{\infty, K}$ converge.
+
 :::
 
 # Calcul du rayon de convergence
@@ -131,42 +151,54 @@ Donc la série numérique $\sum \|f_n\|_{\infty, K}$ converge.
 ## Comparaison des rayons
 
 ::: {.theorem title="(Comparaison des rayons)"}
+
 Soient $\sum a_n z^n$ et $\sum b_n z^n$ deux séries entières de rayons de convergence $R_a$ et $R_b$. Si, à partir d'un certain rang :
 $$|a_n| \leq |b_n|$$
 alors $R_a \geq R_b$.
+
 :::
 
 ::: {.proposition title="(Équivalence)"}
+
 Si $|a_n| \sim_{n \to +\infty} |b_n|$, alors les deux séries entières ont même rayon de convergence :
 $$R_a = R_b$$
+
 :::
 
 ## Règle de d'Alembert
 
 ::: {.proposition title="(Règle de d'Alembert)"}
+
 Soit $\sum a_n z^n$ une série entière telle que, à partir d'un certain rang $N$, $a_n \neq 0$ et la suite $\left(\frac{|a_{n+1}|}{|a_n|}\right)$ admet une limite $\ell \in [0, +\infty]$. Alors le rayon de convergence vaut :
 $$R = \frac{1}{\ell}$$
 avec les conventions $\frac{1}{0} = +\infty$ et $\frac{1}{+\infty} = 0$.
+
 :::
 
 ::: {.example}
+
 Pour $\sum_{n \geq 0} \frac{z^n}{n!}$ :
 $$\frac{|a_{n+1}|}{|a_n|} = \frac{n!}{(n+1)!} = \frac{1}{n+1} \to 0$$
 Donc $R = +\infty$.
+
 :::
 
 ::: {.example}
+
 Pour $\sum_{n \geq 1} \frac{z^n}{n}$ :
 $$\frac{|a_{n+1}|}{|a_n|} = \frac{n}{n+1} \to 1$$
 Donc $R = 1$.
+
 :::
 
 ::: {.remarque title="(Méthode pour déterminer le rayon de convergence)"}
+
 Pour déterminer le rayon de convergence d'une série entière $\sum a_n z^n$ :
 
 1. Chercher un équivalent plus simple de $|a_n|$. Si $|a_n| \sim_{n \to +\infty} |b_n|$, les séries entières $\sum a_n z^n$ et $\sum b_n z^n$ ont même rayon de convergence.
 2. Si la suite $(a_n)$ ne s'annule pas et si $a_n$ est formé de produits, exponentielles, factorielles, essayer la règle de d'Alembert. Si elle ne s'applique pas, on ne peut rien conclure encore !
 3. Utiliser des majorations-minorations simples de $|a_n|$.
+
 :::
 
 # Opérations sur les séries entières
@@ -174,56 +206,74 @@ Pour déterminer le rayon de convergence d'une série entière $\sum a_n z^n$ :
 ## Somme de deux séries entières
 
 ::: {.definition title="(Somme de deux séries entières)"}
+
 Soient deux séries entières $\sum a_n z^n$ et $\sum b_n z^n$. On appelle **somme** de ces deux séries entières, la série entière $\sum (a_n + b_n) z^n$.
+
 :::
 
 ::: {.theorem title="(Rayon de convergence d'une somme)"}
+
 On note $R_a$ et $R_b$ les rayons de convergence des séries entières $\sum a_n z^n$ et $\sum b_n z^n$ et $R_{a+b}$ le rayon de convergence de la série entière $\sum (a_n + b_n) z^n$. Alors :
 
 1. $R_{a+b} \geq \min(R_a, R_b)$.
 2. Si $R_a \neq R_b$, alors $R_{a+b} = \min(R_a, R_b)$.
 3. Pour $|z| < \min(R_a, R_b)$ :
 $$S_{a+b}(z) = S_a(z) + S_b(z)$$
+
 :::
 
 ## Produit de Cauchy
 
 ::: {.definition title="(Produit de Cauchy)"}
+
 Soient deux séries entières $\sum a_n z^n$ et $\sum b_n z^n$. On appelle **produit de Cauchy** de ces deux séries entières la série entière $\sum c_n z^n$ où :
 $$c_n = \sum_{k=0}^n a_k b_{n-k}$$
+
 :::
 
 ::: {.theorem title="(Rayon de convergence du produit de Cauchy)"}
+
 En notant $R_a$, $R_b$ et $R_{ab}$ les rayons de convergence des deux séries entières et de leur produit de Cauchy, et $S_a$, $S_b$ et $S_{ab}$ les fonctions sommes :
 
 1. $R_{ab} \geq \min(R_a, R_b)$.
 2. Pour tout $z \in \mathbb{C}$ avec $|z| < \min(R_a, R_b)$ :
 $$S_{ab}(z) = S_a(z) \times S_b(z)$$
+
 :::
 
 ::: {.corollary title="(Propriété de l'exponentielle complexe)"}
+
 Pour $(z, z') \in \mathbb{C}^2$ :
 $$\exp(z + z') = \exp(z) \times \exp(z')$$
+
 :::
 
 ## Série entière dérivée et primitive
 
 ::: {.definition title="(Série entière dérivée)"}
+
 Soit une série entière $\sum a_n z^n$. On appelle **série entière dérivée** la série entière $\sum_{n \geq 1} n a_n z^{n-1}$ ou encore $\sum_{n \geq 0} (n+1) a_{n+1} z^n$.
+
 :::
 
 ::: {.theorem title="(Rayon de convergence de la série dérivée)"}
+
 Les séries entières $\sum a_n z^n$ et $\sum_{n \geq 1} n a_n z^{n-1}$ ont même rayon de convergence :
 $$R = R'$$
+
 :::
 
 ::: {.definition title="(Série entière primitive)"}
+
 Soit une série entière $\sum a_n z^n$. On appelle **série entière primitive** la série entière $\sum_{n \geq 0} \frac{a_n}{n+1} z^{n+1}$ ou encore $\sum_{n \geq 1} \frac{a_{n-1}}{n} z^n$.
+
 :::
 
 ::: {.theorem title="(Rayon de convergence d'une série primitive)"}
+
 Les séries entières $\sum a_n z^n$ et $\sum_{n \geq 0} \frac{a_n}{n+1} z^{n+1}$ ont même rayon de convergence :
 $$R = \tilde{R}$$
+
 :::
 
 # Somme d'une série entière d'une variable réelle
@@ -231,50 +281,65 @@ $$R = \tilde{R}$$
 ## Définition
 
 ::: {.definition title="(Série entière d'une variable réelle)"}
+
 Soit une série entière $\sum a_n z^n$ où $(a_n) \in \mathbb{C}^\mathbb{N}$. On note $R$ son rayon de convergence et on suppose $R > 0$. Pour $x \in ]-R, R[$, la série numérique $\sum_{n=0}^{+\infty} a_n x^n$ converge absolument. On définit alors la fonction d'une variable réelle :
 $$f : \begin{cases} ]-R, R[ \to \mathbb{C} \\ x \mapsto \sum_{n=0}^{+\infty} a_n x^n \end{cases}$$
+
 :::
 
 ## Convergence normale sur tout segment
 
 ::: {.theorem title="(Convergence normale sur tout segment)"}
+
 Soit $\sum a_n x^n$ une série entière d'une variable réelle de rayon de convergence $R > 0$. Alors $\sum a_n x^n$ converge normalement sur tout segment inclus dans $]-R, R[$.
+
 :::
 
 ::: {.proof}
+
 Soient $[a, b] \subset ]-R, R[$ et $x \in [a, b]$. Alors :
 $$\|a_n x^n\|_{\infty, [a,b]} = |a_n| r^n \leq |a_n| r^n$$
 où $r = \max\{|a|, |b|\} < R$. Donc $\sum a_n r^n$ est absolument convergente (car $r \in D(0, R)$) et $\sum a_n z^n$ est bien normalement convergente sur $[a, b]$.
+
 :::
 
 ## Continuité de la somme
 
 ::: {.corollary title="(Continuité de la somme)"}
+
 La somme d'une série entière d'une variable réelle $f(x) = \sum a_n x^n$ est continue sur $]-R, R[$.
+
 :::
 
 ::: {.proof}
+
 C'est une conséquence directe de la convergence uniforme de $\sum f_n$ sur tout segment de $]-R, R[$.
+
 :::
 
 ## Régularité de la somme
 
 ::: {.theorem title="(Régularité de la somme)"}
+
 Soit $\sum a_n x^n$ une série entière réelle de rayon de convergence $R > 0$ et soit $f : ]-R, R[ \to \mathbb{R}$ sa somme. Alors :
 
 1. La fonction $f$ est de classe $\mathcal{C}^\infty$ sur l'intervalle ouvert $]-R, R[$.
 2. Pour tout $p \in \mathbb{N}$, la dérivée $p$-ième de $f$ est :
 $$f^{(p)}(x) = \sum_{n=p}^{+\infty} n(n-1)\cdots(n-p+1) a_n x^{n-p} = \sum_{n=0}^{+\infty} \frac{(n+p)!}{n!} a_{n+p} x^n$$
+
 :::
 
 ## Intégration terme à terme
 
 ::: {.proposition title="(Primitivation terme à terme)"}
+
 Soit $\sum a_n z^n$ une série entière de rayon de convergence $R > 0$. Alors pour tout $x \in ]-R, R[$ :
 $$\int_0^x f(t)\, dt = \sum_{n=0}^{+\infty} \frac{a_n}{n+1} x^{n+1}$$
+
 :::
 
 ::: {.proof}
+
 Soit $x \in ]-R, R[$. Notons $f_n(t) = a_n t^n$.
 
 1. Pour tout $n \in \mathbb{N}$, $f_n$ est continue sur $[0, x]$.
@@ -282,6 +347,7 @@ Soit $x \in ]-R, R[$. Notons $f_n(t) = a_n t^n$.
 
 Donc d'après le théorème d'intégration terme à terme, $f$ est continue et intégrable sur $[0, x]$. De plus :
 $$F(x) = \int_0^x f(t)\, dt = \sum_{n=0}^{+\infty} \int_0^x f_n(t)\, dt = \sum_{n=0}^{+\infty} \frac{a_n}{n+1} x^{n+1}$$
+
 :::
 
 # Fonctions développables en série entière
@@ -289,39 +355,52 @@ $$F(x) = \int_0^x f(t)\, dt = \sum_{n=0}^{+\infty} \int_0^x f_n(t)\, dt = \sum_{
 ## Définitions
 
 ::: {.definition title="(Fonction développable en série entière)"}
+
 Une fonction $f$ définie au voisinage de $0$ est dite **développable en série entière** en $0$ s'il existe une série entière $\sum a_n z^n$ de rayon de convergence $R > 0$ et un voisinage $V$ de $0$ tels que :
 $$\forall x \in V, \quad f(x) = \sum_{n=0}^{+\infty} a_n x^n$$
+
 :::
 
 ::: {.proposition title="(Unicité)"}
+
 Le développement en série entière d'une fonction, s'il existe, est unique.
+
 :::
 
 ::: {.proposition title="(Parité et développement en série entière)"}
+
 Soit $f(x) = \sum_{n=0}^{+\infty} a_n x^n$ une fonction développable en série entière.
 
 1. Si $f$ est paire, alors pour tout $p \in \mathbb{N}$, $a_{2p+1} = 0$.
 2. Si $f$ est impaire, alors pour tout $p \in \mathbb{N}$, $a_{2p} = 0$.
+
 :::
 
 ::: {.proof}
+
 Il suffit de comparer $f(-x)$ et $f(x)$ puis d'utiliser l'unicité du développement en série entière.
+
 :::
 
 ## Série de Taylor
 
 ::: {.definition title="(Série de Taylor d'une fonction)"}
+
 Soit $f : ]-r, r[ \to \mathbb{C}$ une fonction définie sur un voisinage de $0$. On suppose que $f$ est de classe $\mathcal{C}^\infty$. On appelle **série de Taylor** de $f$ la série entière :
 $$\sum_{n=0}^{+\infty} \frac{f^{(n)}(0)}{n!} z^n$$
+
 :::
 
 ::: {.remarque}
+
 Si $f$ est développable en série entière, alors sa série de Taylor a un rayon de convergence $R > 0$ et le développement de $f$ est donné par cette série.
+
 :::
 
 ## Développements usuels
 
 ::: {.proposition title="(Développements en série entière usuels)"}
+
 Les développements en série entière en $0$ des fonctions usuelles sont :
 
 1. **Exponentielle** : $e^z = \sum_{n=0}^{+\infty} \frac{z^n}{n!}$, $\quad R = +\infty$
@@ -341,60 +420,80 @@ Les développements en série entière en $0$ des fonctions usuelles sont :
 8. **Puissance** : $(1+t)^\alpha = \sum_{n=0}^{+\infty} \binom{\alpha}{n} t^n$, $\quad R = 1$ (pour $\alpha \in \mathbb{R} \setminus \mathbb{N}$)
 
 9. **Géométrique** : $\frac{1}{1-z} = \sum_{n=0}^{+\infty} z^n$, $\quad R = 1$
+
 :::
 
 ::: {.example title="(Développement de $\frac{1}{(1-x)^2}$)"}
+
 En dérivant terme à terme $\frac{1}{1-x} = \sum_{n=0}^{+\infty} x^n$, on obtient :
 $$\frac{1}{(1-x)^2} = \sum_{n=0}^{+\infty} (n+1) x^n = \sum_{n=1}^{+\infty} n x^{n-1}$$
+
 :::
 
 # Exercices
 
 ::: {.exercise}
+
 Déterminer le rayon de convergence des séries entières suivantes :
 
 1. $\sum_{n \geq 1} \frac{z^n}{n^2}$
 2. $\sum_{n \geq 0} \frac{z^n}{2^n}$
 3. $\sum_{n \geq 1} n^3 z^n$
 4. $\sum_{n \geq 0} \frac{z^{2n}}{(2n)!}$
+
 :::
 
 ::: {.exercise}
+
 Calculer la somme des séries entières suivantes sur leur intervalle de convergence :
 
 1. $\sum_{n=0}^{+\infty} (n+1) x^n$
 2. $\sum_{n=1}^{+\infty} n x^n$
 3. $\sum_{n=0}^{+\infty} \frac{x^{2n+1}}{2n+1}$
+
 :::
 
 ::: {.exercise}
+
 Montrer que la série entière $\sum_{n=0}^{+\infty} \frac{x^n}{n!}$ a un rayon de convergence infini et que sa somme est $e^x$.
+
 :::
 
 ::: {.exercise}
+
 Déterminer le développement en série entière de $\frac{1}{(1-x)^2}$ en utilisant le produit de Cauchy.
+
 :::
 
 ::: {.exercise}
+
 Déterminer le développement en série entière de $\ln\left(\frac{1+x}{1-x}\right)$ pour $|x| < 1$.
+
 :::
 
 ::: {.exercise}
+
 Soit $f(x) = \sum_{n=0}^{+\infty} a_n x^n$ une série entière de rayon $R > 0$. Montrer que :
 $$\int_0^x f(t)\, dt = \sum_{n=0}^{+\infty} \frac{a_n}{n+1} x^{n+1}$$
+
 :::
 
 ::: {.exercise}
+
 En utilisant le développement en série entière de $\arctan x$, montrer que :
 $$\sum_{n=0}^{+\infty} \frac{(-1)^n}{2n+1} = \frac{\pi}{4}$$
+
 :::
 
 # Document en PDF {-}
 [Chapitre 07 : Séries entières](PDF/tsi2-chap07.pdf)
 
 ## Navigation {-}
+
 ::: {.chap-nav}
+
 [Chapitre 06 : Séries numériques](tsi2-chap06.qmd){.prev}
 [Menu TSI](tsi2.qmd){.home}
 [Chapitre 08 : Espaces probabilisés ; variables aléatoires réelles ; cas discret](tsi2-chap08.qmd){.next}
+
 :::

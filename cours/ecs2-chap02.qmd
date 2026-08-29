@@ -36,32 +36,44 @@ Dans tout ce chapitre, $\mathbb{K}$ désigne $\mathbb{R}$ ou $\mathbb{C}$, et $E
 ## Valeurs propres et vecteurs propres
 
 ::: {.definition title="(Valeur propre, vecteur propre)"}
+
 Soit $u \in \mathcal{L}(E)$. Un scalaire $\lambda \in \mathbb{K}$ est une **valeur propre** de $u$ s'il existe $x \in E \setminus \{0\}$ tel que $u(x) = \lambda x$. Un tel vecteur $x$ est un **vecteur propre** associé à $\lambda$.
+
 :::
 
 ::: {.definition title="(Sous-espace propre)"}
+
 Pour $\lambda \in \mathbb{K}$, le **sous-espace propre** associé à $\lambda$ est :
 $$E_\lambda(u) = \ker(u - \lambda \mathrm{Id}_E)$$
+
 :::
 
 ::: {.definition title="(Spectre)"}
+
 Le **spectre** de $u$, noté $\mathrm{Sp}(u)$, est l'ensemble des valeurs propres de $u$. Il est fini et de cardinal au plus $n$.
+
 :::
 
 ::: {.proposition title="(Indépendance des sous-espaces propres)"}
+
 Si $\lambda_1, \ldots, \lambda_r$ sont des valeurs propres distinctes de $u$, alors :
 $$E_{\lambda_1} + \cdots + E_{\lambda_r} \text{ est une somme directe}$$
+
 :::
 
 ::: {.proposition title="(Stabilité)"}
+
 Un sous-espace vectoriel $F$ de $E$ est **stable par $u$** si $u(F) \subset F$. Les sous-espaces propres sont stables par $u$.
+
 :::
 
 # Polynôme caractéristique
 
 ::: {.definition title="(Polynôme caractéristique)"}
+
 Pour $A \in \mathcal{M}_n(\mathbb{K})$ :
 $$\chi_A(X) = \det(X I_n - A)$$
+
 :::
 
 ::: {.proposition title="(Propriétés)"}
@@ -70,11 +82,14 @@ $$\chi_A(X) = \det(X I_n - A)$$
 2. $\lambda$ est valeur propre de $A$ $\iff$ $\chi_A(\lambda) = 0$.
 3. Deux matrices semblables ont même polynôme caractéristique.
 4. $\chi_A(X) = X^n - \mathrm{tr}(A) X^{n-1} + \cdots + (-1)^n \det(A)$.
+
 :::
 
 ::: {.proposition title="(Matrice triangulaire)"}
+
 Si $A$ est triangulaire avec coefficients diagonaux $a_{11}, \ldots, a_{nn}$, alors :
 $$\chi_A(X) = \prod_{k=1}^n (X - a_{kk})$$
+
 :::
 
 # Diagonalisation
@@ -82,110 +97,149 @@ $$\chi_A(X) = \prod_{k=1}^n (X - a_{kk})$$
 ## Définition
 
 ::: {.definition title="(Endomorphisme diagonalisable)"}
+
 $u \in \mathcal{L}(E)$ est **diagonalisable** s'il existe une base de $E$ formée de vecteurs propres de $u$.
+
 :::
 
 ::: {.definition title="(Matrice diagonalisable)"}
+
 $A \in \mathcal{M}_n(\mathbb{K})$ est **diagonalisable** s'il existe $P \in \mathrm{GL}_n(\mathbb{K})$ et $D$ diagonale telles que $A = P D P^{-1}$.
+
 :::
 
 ## Caractérisations
 
 ::: {.theorem title="(Caractérisation par les sous-espaces propres)"}
+
 $u \in \mathcal{L}(E)$ est diagonalisable si et seulement si :
 $$E = E_{\lambda_1} \oplus \cdots \oplus E_{\lambda_r}$$
 où $\lambda_1, \ldots, \lambda_r$ sont les valeurs propres distinctes de $u$.
+
 :::
 
 ::: {.theorem title="(Caractérisation par le polynôme caractéristique)"}
+
 $u$ est diagonalisable si et seulement si :
 
 1. $\chi_u$ est scindé sur $\mathbb{K}$ : $\chi_u(X) = \prod_{k=1}^r (X - \lambda_k)^{\mu_k}$.
 2. Pour tout $k$, $\dim E_{\lambda_k} = \mu_k$.
+
 :::
 
 ::: {.proposition title="(Cas des valeurs propres distinctes)"}
+
 Si $u$ admet $n$ valeurs propres distinctes, alors $u$ est diagonalisable.
+
 :::
 
 ::: {.theorem title="(Caractérisation par le polynôme minimal)"}
+
 $u$ est diagonalisable si et seulement si $P_u$ est scindé à racines simples.
+
 :::
 
 ## Trigonalisation
 
 ::: {.definition title="(Trigonalisable)"}
+
 $u$ est **trigonalisable** s'il existe une base de $E$ dans laquelle la matrice de $u$ est triangulaire supérieure.
+
 :::
 
 ::: {.theorem title="(Caractérisation)"}
+
 $u$ est trigonalisable si et seulement si $\chi_u$ est scindé sur $\mathbb{K}$.
+
 :::
 
 ::: {.corollary}
+
 Tout endomorphisme d'un $\mathbb{C}$-espace vectoriel est trigonalisable.
+
 :::
 
 # Polynômes annulateurs et applications
 
 ::: {.theorem title="(Cayley-Hamilton)"}
+
 $\chi_u(u) = 0$. Donc $P_u$ divise $\chi_u$.
+
 :::
 
 ::: {.proposition title="(Racines du polynôme minimal)"}
+
 Les racines de $P_u$ sont exactement les valeurs propres de $u$.
+
 :::
 
 ::: {.example title="(Projecteurs et symétries)"}
 
 - Si $u^2 = u$, alors $X^2 - X = X(X-1)$ annule $u$, donc $u$ est diagonalisable.
 - Si $u^2 = \mathrm{Id}_E$, alors $X^2 - 1 = (X-1)(X+1)$ annule $u$, donc $u$ est diagonalisable.
+
 :::
 
 # Exercices
 
 ::: {.exercise}
+
 Soit $A = \begin{pmatrix} 3 & 1 \\ 0 & 2 \end{pmatrix}$.
 
 1. Déterminer les valeurs propres et les sous-espaces propres.
 2. $A$ est-elle diagonalisable ? Si oui, trouver $P$ et $D$ telles que $A = P D P^{-1}$.
 3. En déduire $A^n$.
+
 :::
 
 ::: {.exercise}
+
 Soit $A = \begin{pmatrix} 1 & 1 \\ -1 & 3 \end{pmatrix}$.
 
 1. Calculer $\chi_A$.
 2. $A$ est-elle diagonalisable ? Trigonalisable ?
 3. Calculer $A^n$.
+
 :::
 
 ::: {.exercise}
+
 Soit $u \in \mathcal{L}(E)$ avec $u^2 = 3u - 2\mathrm{Id}_E$. Montrer que $u$ est diagonalisable et déterminer ses valeurs propres possibles.
+
 :::
 
 ::: {.exercise}
+
 Soit $A = \begin{pmatrix} 2 & 1 & 1 \\ 1 & 2 & 1 \\ 1 & 1 & 2 \end{pmatrix}$.
 
 1. Calculer $\chi_A$.
 2. Déterminer les valeurs propres et les sous-espaces propres.
 3. Diagonaliser $A$.
+
 :::
 
 ::: {.exercise}
+
 Soit $A$ une matrice nilpotente ($A^p = 0$). Montrer que $\chi_A(X) = X^n$ et que $A$ est diagonalisable si et seulement si $A = 0$.
+
 :::
 
 ::: {.exercise}
+
 Soit $A \in \mathcal{M}_n(\mathbb{K})$ diagonalisable. Montrer que $A^k$ est diagonalisable pour tout $k \in \mathbb{N}$.
+
 :::
 
 ::: {.exercise}
+
 Résoudre la suite récurrente $u_{n+2} = 5u_{n+1} - 6u_n$ avec $u_0 = 1$, $u_1 = 2$ en diagonalisant la matrice compagnon.
+
 :::
 
 ::: {.exercise}
+
 Soient $A, B \in \mathcal{M}_n(\mathbb{K})$ avec $AB = BA$. Montrer que si $\lambda$ est valeur propre de $A$, alors $E_\lambda(A)$ est stable par $B$.
+
 :::
 
 # Document en PDF {-}
@@ -195,7 +249,9 @@ Soient $A, B \in \mathcal{M}_n(\mathbb{K})$ avec $AB = BA$. Montrer que si $\lam
 ## Navigation {-}
 
 ::: {.chap-nav}
+
 [Chapitre 01 : Algèbre linéaire (compléments)](ecs2-chap01.qmd){.prev}
 [Menu ECS2](ecs2.qmd){.home}
 [Chapitre 03 : Algèbre bilinéaire](ecs2-chap03.qmd){.next}
+
 :::

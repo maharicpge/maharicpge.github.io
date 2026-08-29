@@ -19,80 +19,103 @@ filters:
 **ECS1 (1re année) — TD du Chapitre 04.** Convergence, suites monotones, suites arithmético-géométriques, suites récurrentes.
 
 ::: {.exercise}
+
 Étudier la convergence des suites suivantes et déterminer leur limite lorsqu'elle existe :
 
 1. $u_n = \dfrac{n^2 + 1}{2n^2 + n}$
 2. $v_n = \dfrac{(-1)^n}{n}$
 3. $w_n = \sqrt{n+1} - \sqrt{n}$
 4. $a_n = n^2$
+
 :::
 
 ::: {.exercise}
+
 Soit $(u_n)$ définie par $u_0 = 1$ et $u_{n+1} = \dfrac{u_n + 2}{2}$.
 
 1. Montrer que si $u_n \leq 2$, alors $u_{n+1} \leq 2$.
 2. Montrer que $(u_n)$ est croissante.
 3. En déduire que $(u_n)$ converge.
 4. Déterminer sa limite.
+
 :::
 
 ::: {.exercise}
+
 Soit $u_0 = 0$ et $u_{n+1} = \dfrac{1}{3}u_n + 2$.
 
 1. Déterminer le point fixe $\ell$.
 2. Poser $v_n = u_n - \ell$ et montrer que $(v_n)$ est géométrique.
 3. Exprimer $u_n$ en fonction de $n$.
 4. Déterminer $\lim u_n$.
+
 :::
 
 ::: {.exercise}
+
 Soit $u_0 = 1$ et $u_{n+1} = 3u_n - 4$. Déterminer $u_n$ en fonction de $n$.
+
 :::
 
 ::: {.exercise}
+
 Soit $u_0 = 1$ et $u_{n+1} = \sqrt{u_n + 2}$.
 
 1. Montrer que $(u_n)$ est bien définie et positive.
 2. Montrer que $(u_n)$ est croissante et majorée par $2$.
 3. Déterminer $\lim u_n$.
+
 :::
 
 ::: {.exercise}
+
 Montrer que la suite $u_n = \displaystyle\sum_{k=1}^n \frac{1}{k}$ diverge vers $+\infty$.
+
 :::
 
 **Indication :** Regrouper les termes par paquets de puissances de $2$.
 
 ::: {.exercise}
+
 Soit $u_0 = 2$ et $u_{n+1} = \dfrac{2u_n + 1}{u_n + 2}$.
 
 1. Montrer que $1 \leq u_n \leq 2$ pour tout $n$.
 2. Montrer que $(u_n)$ est décroissante.
 3. Déterminer $\lim u_n$.
+
 :::
 
 ::: {.exercise}
+
 Soit $u_0 \in ]0, 1[$ et $u_{n+1} = u_n(1 - u_n)$. Montrer que $(u_n)$ converge vers $0$.
+
 :::
 
 ::: {.exercise}
+
 Soit $(u_n)$ définie par $u_0 = 1$ et $u_{n+1} = u_n + \dfrac{1}{u_n}$. Montrer que $(u_n)$ diverge vers $+\infty$.
+
 :::
 
 ::: {.exercise}
+
 Soit $u_0 = 5$ et $u_{n+1} = \dfrac{1}{2}u_n + 3$.
 
 1. Montrer que $(u_n)$ converge.
 2. Déterminer sa limite.
 3. Exprimer $u_n$ en fonction de $n$.
+
 :::
 
 # Cours {-}
 [**Chapitre 04 : Suites réelles**](ecs1-chap04.qmd)
 
 # Navigation {-}
+
 ::: {.chap-nav}
+
 [TD 03 : Polynômes](ecs1-chap03.qmd){.prev}
 [Menu ECS1](ecs1.qmd){.home}
 [TD 05 : Fonctions réelles d'une variable](ecs1-chap05.qmd){.next}
+
 :::

@@ -36,31 +36,43 @@ Dans tout ce chapitre, $\mathbb{K}$ désigne $\mathbb{R}$ ou $\mathbb{C}$.
 ## Définitions
 
 ::: {.definition title="(Famille libre)"}
+
 Soit $E$ un $\mathbb{K}$-espace vectoriel et $(e_i)_{i \in I}$ une famille de vecteurs de $E$ indexée par un ensemble $I$ au plus dénombrable. On dit que la famille $(e_i)_{i \in I}$ est **libre** si pour toute partie finie $J \subset I$ et toute famille $(\lambda_i)_{i \in J}$ de scalaires :
 $$\sum_{i \in J} \lambda_i e_i = 0 \implies \forall i \in J, \; \lambda_i = 0$$
+
 :::
 
 ::: {.definition title="(Famille génératrice)"}
+
 On dit que la famille $(e_i)_{i \in I}$ est **génératrice** de $E$ si tout vecteur de $E$ est combinaison linéaire d'un nombre fini de vecteurs de la famille, c'est-à-dire si :
 $$\mathrm{Vect}(e_i, i \in I) = E$$
+
 :::
 
 ::: {.definition title="(Base dénombrable)"}
+
 On dit que la famille $(e_i)_{i \in I}$ est une **base dénombrable** de $E$ si elle est à la fois libre et génératrice.
+
 :::
 
 ::: {.example}
+
 La famille $(X^n)_{n \in \mathbb{N}}$ est une base dénombrable de $\mathbb{K}[X]$.
+
 :::
 
 ::: {.example}
+
 La famille $(E_{i,j})_{(i,j) \in \{1,\ldots,n\}^2}$ est une base de $\mathcal{M}_n(\mathbb{K})$.
+
 :::
 
 ## Cas particulier : familles sommables de vecteurs
 
 ::: {.definition title="(Famille sommable de vecteurs)"}
+
 Soit $E$ un espace vectoriel normé de dimension finie et $(u_i)_{i \in I}$ une famille de vecteurs de $E$ indexée par un ensemble dénombrable. On dit que la famille $(u_i)_{i \in I}$ est **sommable** si pour toute bijection $\varphi : \mathbb{N} \to I$, la série $\sum_{n=0}^{+\infty} u_{\varphi(n)}$ est absolument convergente, et sa somme ne dépend pas du choix de $\varphi$.
+
 :::
 
 # Produit et somme d'espaces vectoriels
@@ -68,51 +80,69 @@ Soit $E$ un espace vectoriel normé de dimension finie et $(u_i)_{i \in I}$ une 
 ## Produit d'espaces vectoriels
 
 ::: {.definition title="(Produit d'espaces vectoriels)"}
+
 Soient $E_1, E_2, \ldots, E_p$ des $\mathbb{K}$-espaces vectoriels. Le **produit** $E = E_1 \times E_2 \times \cdots \times E_p$ est muni d'une structure de $\mathbb{K}$-espace vectoriel par les lois :
 $$(x_1, \ldots, x_p) + (y_1, \ldots, y_p) = (x_1 + y_1, \ldots, x_p + y_p)$$
 $$\lambda \cdot (x_1, \ldots, x_p) = (\lambda x_1, \ldots, \lambda x_p)$$
+
 :::
 
 ::: {.proposition}
+
 Si $E_1, \ldots, E_p$ sont de dimensions finies, alors $E = E_1 \times \cdots \times E_p$ est de dimension finie et :
 $$\dim(E) = \dim(E_1) + \dim(E_2) + \cdots + \dim(E_p)$$
+
 :::
 
 ::: {.example}
+
 $\mathbb{K}^n = \mathbb{K} \times \mathbb{K} \times \cdots \times \mathbb{K}$ ($n$ fois) est un $\mathbb{K}$-espace vectoriel de dimension $n$.
+
 :::
 
 ## Somme de sous-espaces vectoriels
 
 ::: {.definition title="(Somme de sous-espaces)"}
+
 Soient $F_1, F_2, \ldots, F_p$ des sous-espaces vectoriels d'un $\mathbb{K}$-espace vectoriel $E$. La **somme** de ces sous-espaces est :
 $$F_1 + F_2 + \cdots + F_p = \{x_1 + x_2 + \cdots + x_p \mid x_i \in F_i\}$$
+
 :::
 
 ::: {.definition title="(Somme directe)"}
+
 La somme $F_1 + F_2 + \cdots + F_p$ est dite **directe**, notée $F_1 \oplus F_2 \oplus \cdots \oplus F_p$, si tout vecteur de cette somme s'écrit de manière unique comme somme d'un vecteur de chaque $F_i$.
 
 On a l'équivalence :
 $$F_1 + \cdots + F_p \text{ est directe} \iff \forall i, \; F_i \cap \sum_{j \neq i} F_j = \{0_E\}$$
+
 :::
 
 ::: {.proposition title="(Dimension d'une somme directe)"}
+
 Si $E = F_1 \oplus F_2 \oplus \cdots \oplus F_p$ avec chaque $F_i$ de dimension finie, alors :
 $$\dim(E) = \dim(F_1) + \dim(F_2) + \cdots + \dim(F_p)$$
+
 :::
 
 ::: {.proposition title="(Formule de Grassmann)"}
+
 Soient $F$ et $G$ deux sous-espaces vectoriels de dimension finie d'un $\mathbb{K}$-espace vectoriel $E$. Alors :
 $$\dim(F + G) = \dim(F) + \dim(G) - \dim(F \cap G)$$
+
 :::
 
 ::: {.definition title="(Supplémentaires)"}
+
 Deux sous-espaces vectoriels $F$ et $G$ de $E$ sont dits **supplémentaires** si :
 $$E = F \oplus G$$
+
 :::
 
 ::: {.proposition}
+
 Tout sous-espace vectoriel d'un espace vectoriel de dimension finie admet au moins un supplémentaire.
+
 :::
 
 # Projecteurs et symétries
@@ -120,18 +150,23 @@ Tout sous-espace vectoriel d'un espace vectoriel de dimension finie admet au moi
 ## Projecteurs
 
 ::: {.definition title="(Projecteur)"}
+
 Soient $E$ un $\mathbb{K}$-espace vectoriel et $F$, $G$ deux sous-espaces vectoriels supplémentaires de $E$. La **projection** sur $F$ parallèlement à $G$ est l'application linéaire $p : E \to E$ définie par :
 $$\forall x = f + g \in E \text{ avec } (f, g) \in F \times G, \quad p(x) = f$$
+
 :::
 
 ::: {.proposition title="(Caractérisation des projecteurs)"}
+
 Soit $p \in \mathcal{L}(E)$. Alors $p$ est un projecteur si et seulement si :
 $$p^2 = p$$
 
 Dans ce cas, $E = \mathrm{Im}(p) \oplus \ker(p)$, $\mathrm{Im}(p)$ est le sous-espace sur lequel $p$ projette et $\ker(p)$ est la direction de projection.
+
 :::
 
 ::: {.proof}
+
 $(\Rightarrow)$ Si $p$ est un projecteur sur $F$ parallèlement à $G$, alors pour tout $x = f + g$ avec $f \in F$ et $g \in G$ :
 $$p^2(x) = p(p(x)) = p(f) = f = p(x)$$
 car $f \in F = \mathrm{Im}(p)$ et $p(f) = f$.
@@ -139,29 +174,38 @@ car $f \in F = \mathrm{Im}(p)$ et $p(f) = f$.
 $(\Leftarrow)$ Si $p^2 = p$, on montre que $E = \mathrm{Im}(p) \oplus \ker(p)$. Pour tout $x \in E$ :
 $$x = p(x) + (x - p(x))$$
 avec $p(x) \in \mathrm{Im}(p)$ et $p(x - p(x)) = p(x) - p^2(x) = p(x) - p(x) = 0$, donc $x - p(x) \in \ker(p)$. De plus, si $x \in \mathrm{Im}(p) \cap \ker(p)$, alors $x = p(y)$ pour un certain $y$ et $p(x) = 0$, donc $x = p(y) = p^2(y) = p(p(y)) = p(x) = 0$.
+
 :::
 
 ::: {.remarque}
+
 $\mathrm{Id}_E$ est un projecteur et une symétrie. $0_{\mathcal{L}(E)}$ est un projecteur.
+
 :::
 
 ## Symétries
 
 ::: {.definition title="(Symétrie)"}
+
 Soient $E$ un $\mathbb{K}$-espace vectoriel et $F$, $G$ deux sous-espaces vectoriels supplémentaires de $E$. La **symétrie** par rapport à $F$ parallèlement à $G$ est l'application linéaire $s : E \to E$ définie par :
 $$\forall x = f + g \in E \text{ avec } (f, g) \in F \times G, \quad s(x) = f - g$$
+
 :::
 
 ::: {.proposition title="(Caractérisation des symétries)"}
+
 Soit $s \in \mathcal{L}(E)$. Alors $s$ est une symétrie si et seulement si :
 $$s^2 = \mathrm{Id}_E$$
 
 Dans ce cas, $E = \ker(s - \mathrm{Id}_E) \oplus \ker(s + \mathrm{Id}_E)$.
+
 :::
 
 ::: {.proposition title="(Lien entre projecteur et symétrie)"}
+
 Si $p$ est le projecteur sur $F$ parallèlement à $G$, alors la symétrie par rapport à $F$ parallèlement à $G$ est :
 $$s = 2p - \mathrm{Id}_E$$
+
 :::
 
 # Matrices par blocs
@@ -169,33 +213,41 @@ $$s = 2p - \mathrm{Id}_E$$
 ## Définition
 
 ::: {.definition title="(Matrice par blocs)"}
+
 Une **matrice par blocs** est une matrice dont les coefficients sont regroupés en sous-matrices appelées **blocs**. Par exemple, si $A \in \mathcal{M}_{n,p}(\mathbb{K})$ et si on partitionne les lignes en deux groupes de tailles $n_1$ et $n_2$ ($n_1 + n_2 = n$) et les colonnes en deux groupes de tailles $p_1$ et $p_2$ ($p_1 + p_2 = p$), on peut écrire :
 $$A = \begin{pmatrix} A_{11} & A_{12} \\ A_{21} & A_{22} \end{pmatrix}$$
 où $A_{11} \in \mathcal{M}_{n_1, p_1}(\mathbb{K})$, $A_{12} \in \mathcal{M}_{n_1, p_2}(\mathbb{K})$, $A_{21} \in \mathcal{M}_{n_2, p_1}(\mathbb{K})$ et $A_{22} \in \mathcal{M}_{n_2, p_2}(\mathbb{K})$.
+
 :::
 
 ## Opérations sur les matrices par blocs
 
 ::: {.proposition title="(Opérations sur les matrices par blocs)"}
+
 Les opérations sur les matrices par blocs suivent les mêmes règles que les opérations sur les matrices usuelles, à condition que les tailles des blocs soient compatibles :
 
 1. **Addition** : $(A + B)_{ij} = A_{ij} + B_{ij}$
 2. **Multiplication** : $(AB)_{ij} = \sum_k A_{ik} B_{kj}$
+
 :::
 
 ::: {.example}
+
 Si $A = \begin{pmatrix} A_{11} & A_{12} \\ A_{21} & A_{22} \end{pmatrix}$ et $B = \begin{pmatrix} B_{11} & B_{12} \\ B_{21} & B_{22} \end{pmatrix}$, alors :
 $$AB = \begin{pmatrix} A_{11}B_{11} + A_{12}B_{21} & A_{11}B_{12} + A_{12}B_{22} \\ A_{21}B_{11} + A_{22}B_{21} & A_{21}B_{12} + A_{22}B_{22} \end{pmatrix}$$
+
 :::
 
 ## Matrices par blocs et sous-espaces stables
 
 ::: {.proposition title="(Matrice par blocs et stabilité)"}
+
 Soient $E$ un $\mathbb{K}$-espace vectoriel de dimension finie $n$, $F$ un sous-espace vectoriel de $E$ de dimension $p$, et $u \in \mathcal{L}(E)$.
 
 Si $F$ est stable par $u$ et si $\mathcal{B} = (e_1, \ldots, e_p, e_{p+1}, \ldots, e_n)$ est une base de $E$ adaptée à $F$ (c'est-à-dire $(e_1, \ldots, e_p)$ est une base de $F$), alors la matrice de $u$ dans la base $\mathcal{B}$ est de la forme :
 $$\mathrm{Mat}_{\mathcal{B}}(u) = \begin{pmatrix} A & C \\ 0 & D \end{pmatrix}$$
 où $A \in \mathcal{M}_p(\mathbb{K})$ est la matrice de l'endomorphisme induit $u_F$ dans la base $(e_1, \ldots, e_p)$.
+
 :::
 
 # Sous-espaces stables
@@ -203,30 +255,40 @@ où $A \in \mathcal{M}_p(\mathbb{K})$ est la matrice de l'endomorphisme induit $
 ## Définition
 
 ::: {.definition title="(Sous-espace stable)"}
+
 Soient $E$ un $\mathbb{K}$-espace vectoriel et $u \in \mathcal{L}(E)$. Un sous-espace vectoriel $F$ de $E$ est dit **stable par $u$** (ou **$u$-stable**) si :
 $$u(F) \subset F$$
 
 On parle alors de l'**endomorphisme induit** $u_F : F \to F$ défini par $u_F(x) = u(x)$ pour $x \in F$.
+
 :::
 
 ::: {.proposition title="(Somme et intersection de sous-espaces stables)"}
+
 Soient $F$ et $G$ deux sous-espaces vectoriels de $E$ stables par $u$. Alors $F + G$ et $F \cap G$ sont stables par $u$.
+
 :::
 
 ::: {.proposition title="(Cas d'une décomposition en somme directe)"}
+
 Soient $F$ et $G$ deux sous-espaces vectoriels supplémentaires de $E$ stables par $u$. Si $\mathcal{B} = (e_1, \ldots, e_p, e_{p+1}, \ldots, e_n)$ est une base de $E$ adaptée à la décomposition $E = F \oplus G$, alors :
 $$\mathrm{Mat}_{\mathcal{B}}(u) = \begin{pmatrix} A & 0 \\ 0 & D \end{pmatrix}$$
 où $A$ est la matrice de $u_F$ et $D$ est la matrice de $u_G$.
+
 :::
 
 ::: {.example title="(Matrice d'un projecteur)"}
+
 Si $p$ est un projecteur sur $F$ parallèlement à $G$ avec $E = F \oplus G$, et si $\mathcal{B}$ est une base adaptée, alors :
 $$\mathrm{Mat}_{\mathcal{B}}(p) = \begin{pmatrix} I_p & 0 \\ 0 & 0 \end{pmatrix}$$
+
 :::
 
 ::: {.example title="(Matrice d'une symétrie)"}
+
 Si $s$ est une symétrie par rapport à $F$ parallèlement à $G$ avec $E = F \oplus G$, et si $\mathcal{B}$ est une base adaptée, alors :
 $$\mathrm{Mat}_{\mathcal{B}}(s) = \begin{pmatrix} I_p & 0 \\ 0 & -I_{n-p} \end{pmatrix}$$
+
 :::
 
 # Trace
@@ -234,44 +296,58 @@ $$\mathrm{Mat}_{\mathcal{B}}(s) = \begin{pmatrix} I_p & 0 \\ 0 & -I_{n-p} \end{p
 ## Trace d'une matrice carrée
 
 ::: {.definition title="(Trace d'une matrice)"}
+
 Soit $A = (a_{ij}) \in \mathcal{M}_n(\mathbb{K})$. La **trace** de $A$ est :
 $$\mathrm{tr}(A) = \sum_{i=1}^n a_{ii}$$
+
 :::
 
 ::: {.proposition title="(Propriétés de la trace)"}
+
 Soient $A, B \in \mathcal{M}_n(\mathbb{K})$ et $\lambda \in \mathbb{K}$.
 
 1. **Linéarité** : $\mathrm{tr}(\lambda A + B) = \lambda \mathrm{tr}(A) + \mathrm{tr}(B)$
 2. **Invariance par transposition** : $\mathrm{tr}({}^tA) = \mathrm{tr}(A)$
 3. **Trace d'un produit** : $\mathrm{tr}(AB) = \mathrm{tr}(BA)$
 4. **Trace de l'identité** : $\mathrm{tr}(I_n) = n$
+
 :::
 
 ::: {.proposition title="(Trace d'une matrice triangulaire)"}
+
 Si $A$ est une matrice triangulaire (supérieure ou inférieure), alors :
 $$\mathrm{tr}(A) = \sum_{i=1}^n a_{ii}$$
+
 :::
 
 ## Trace d'un endomorphisme
 
 ::: {.definition title="(Trace d'un endomorphisme)"}
+
 Soit $E$ un $\mathbb{K}$-espace vectoriel de dimension finie et $u \in \mathcal{L}(E)$. La **trace** de $u$ est :
 $$\mathrm{tr}(u) = \mathrm{tr}(\mathrm{Mat}_{\mathcal{B}}(u))$$
 où $\mathcal{B}$ est une base quelconque de $E$.
+
 :::
 
 ::: {.proposition title="(Indépendance de la base)"}
+
 La trace d'un endomorphisme ne dépend pas du choix de la base.
+
 :::
 
 ::: {.proof}
+
 Si $\mathcal{B}$ et $\mathcal{B}'$ sont deux bases de $E$, alors $\mathrm{Mat}_{\mathcal{B}'}(u) = P^{-1} \mathrm{Mat}_{\mathcal{B}}(u) P$ où $P$ est la matrice de passage. Donc :
 $$\mathrm{tr}(\mathrm{Mat}_{\mathcal{B}'}(u)) = \mathrm{tr}(P^{-1} \mathrm{Mat}_{\mathcal{B}}(u) P) = \mathrm{tr}(\mathrm{Mat}_{\mathcal{B}}(u) P P^{-1}) = \mathrm{tr}(\mathrm{Mat}_{\mathcal{B}}(u))$$
+
 :::
 
 ::: {.proposition title="(Trace et projecteur)"}
+
 Si $p$ est un projecteur de $E$, alors :
 $$\mathrm{tr}(p) = \mathrm{rg}(p) = \dim(\mathrm{Im}(p))$$
+
 :::
 
 # Polynômes de matrice
@@ -279,107 +355,140 @@ $$\mathrm{tr}(p) = \mathrm{rg}(p) = \dim(\mathrm{Im}(p))$$
 ## Morphisme d'évaluation
 
 ::: {.definition title="(Polynôme de matrice)"}
+
 Soit $A \in \mathcal{M}_n(\mathbb{K})$. Pour tout polynôme $P = \sum_{k=0}^d a_k X^k \in \mathbb{K}[X]$, on définit :
 $$P(A) = \sum_{k=0}^d a_k A^k$$
 où $A^0 = I_n$ et $A^k = A \cdot A \cdot \cdots \cdot A$ ($k$ fois).
+
 :::
 
 ::: {.proposition title="(Morphisme de $\mathbb{K}$-algèbres)"}
+
 L'application $\Phi_A : \mathbb{K}[X] \to \mathcal{M}_n(\mathbb{K})$ définie par $P \mapsto P(A)$ est un morphisme de $\mathbb{K}$-algèbres. Autrement dit :
 
 1. $\Phi_A(\lambda P + Q) = \lambda \Phi_A(P) + \Phi_A(Q)$
 2. $\Phi_A(PQ) = \Phi_A(P) \cdot \Phi_A(Q)$
 3. $\Phi_A(1) = I_n$
+
 :::
 
 ## Idéal annulateur et polynôme minimal
 
 ::: {.definition title="(Polynôme annulateur)"}
+
 Un polynôme $P \in \mathbb{K}[X]$ est dit **annulateur** de $A$ si $P(A) = 0$.
 
 L'ensemble des polynômes annulateurs de $A$ est un idéal de $\mathbb{K}[X]$, appelé **idéal annulateur** de $A$.
+
 :::
 
 ::: {.theorem title="(Existence du polynôme minimal)"}
+
 Soit $A \in \mathcal{M}_n(\mathbb{K})$. Alors l'idéal annulateur de $A$ est non réduit à $\{0\}$.
 
 Il existe un unique polynôme unitaire $P_A \in \mathbb{K}[X]$ de plus petit degré annulant $A$, appelé **polynôme minimal** de $A$. On a :
 $$\{P \in \mathbb{K}[X] \mid P(A) = 0\} = P_A \cdot \mathbb{K}[X]$$
+
 :::
 
 ::: {.proposition title="(Lien entre polynôme minimal et valeurs propres)"}
+
 Si $\lambda$ est une valeur propre de $A$, alors $\lambda$ est une racine du polynôme minimal $P_A$.
+
 :::
 
 ::: {.proposition title="(Polynôme minimal d'une matrice diagonalisable)"}
+
 Si $A$ est diagonalisable avec des valeurs propres distinctes $\lambda_1, \ldots, \lambda_r$, alors :
 $$P_A(X) = \prod_{k=1}^r (X - \lambda_k)$$
+
 :::
 
 ## Théorème de Cayley-Hamilton
 
 ::: {.theorem title="(Théorème de Cayley-Hamilton)"}
+
 Soit $A \in \mathcal{M}_n(\mathbb{K})$ et $\chi_A$ son polynôme caractéristique. Alors :
 $$\chi_A(A) = 0$$
 
 Autrement dit, le polynôme caractéristique est un polynôme annulateur de $A$.
+
 :::
 
 ::: {.corollary}
+
 Le polynôme minimal $P_A$ divise le polynôme caractéristique $\chi_A$.
+
 :::
 
 ::: {.example}
+
 Soit $A = \begin{pmatrix} 1 & 1 \\ 0 & 1 \end{pmatrix}$. Le polynôme caractéristique est $\chi_A(X) = (X-1)^2$.
 
 On vérifie que $A - I_2 = \begin{pmatrix} 0 & 1 \\ 0 & 0 \end{pmatrix} \neq 0$ mais $(A - I_2)^2 = 0$.
 
 Donc le polynôme minimal est $P_A(X) = (X-1)^2$.
+
 :::
 
 # Exercices
 
 ::: {.exercise}
+
 Soient $F = \{(x, y, z) \in \mathbb{R}^3 \mid x + y + z = 0\}$ et $G = \{(x, y, z) \in \mathbb{R}^3 \mid x = y = z\}$.
 
 1. Montrer que $F$ et $G$ sont des sous-espaces vectoriels de $\mathbb{R}^3$.
 2. Montrer que $\mathbb{R}^3 = F \oplus G$.
 3. Déterminer la matrice de la projection sur $F$ parallèlement à $G$ dans la base canonique.
+
 :::
 
 ::: {.exercise}
+
 Soit $A = \begin{pmatrix} 2 & 1 \\ 0 & 2 \end{pmatrix}$.
 
 1. Calculer $\mathrm{tr}(A)$ et $\det(A)$.
 2. $A$ est-elle diagonalisable ?
 3. Déterminer le polynôme minimal de $A$.
+
 :::
 
 ::: {.exercise}
+
 Soit $p \in \mathcal{L}(E)$ tel que $p^2 = p$. Montrer que :
 
 1. $\mathrm{Im}(p) = \ker(p - \mathrm{Id}_E)$.
 2. $E = \mathrm{Im}(p) \oplus \ker(p)$.
+
 :::
 
 ::: {.exercise title="(Trace et projecteur)"}
+
 Soit $p$ un projecteur de $E$. Montrer que $\mathrm{tr}(p) = \mathrm{rg}(p)$.
+
 :::
 
 ::: {.exercise}
+
 Soit $A \in \mathcal{M}_n(\mathbb{K})$ inversible et diagonalisable. Montrer que $A^{-1}$ est diagonalisable et exprimer $A^{-1}$ en fonction de la diagonalisation de $A$.
+
 :::
 
 ::: {.exercise title="(Polynôme minimal)"}
+
 Soit $A \in \mathcal{M}_3(\mathbb{R})$ diagonalisable avec $\chi_A(X) = (X-1)^2(X-2)$. Déterminer le polynôme minimal de $A$.
+
 :::
 
 # Document en PDF {-}
 [Chapitre 01 : Rappels et compléments sur les espaces vectoriels, les endomorphismes et les matrices](PDF/tsi2-chap01.pdf)
 
 ## Navigation {-}
+
 ::: {.chap-nav}
+
 [Accueil](../index.qmd){.prev}
 [Menu TSI](tsi2.qmd){.home}
 [Chapitre 02 : Déterminants](tsi2-chap02.qmd){.next}
+
 :::

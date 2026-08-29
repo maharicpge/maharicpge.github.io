@@ -36,42 +36,58 @@ Dans tout ce chapitre, $\mathbb{K}$ désigne $\mathbb{R}$ ou $\mathbb{C}$, et $E
 ## Somme de sous-espaces
 
 ::: {.definition title="(Somme de sous-espaces)"}
+
 Soient $F_1, \ldots, F_p$ des sous-espaces vectoriels de $E$. Leur **somme** est :
 $$F_1 + \cdots + F_p = \{x_1 + \cdots + x_p \mid x_i \in F_i\}$$
 C'est le plus petit sous-espace vectoriel de $E$ contenant tous les $F_i$.
+
 :::
 
 ::: {.definition title="(Somme directe)"}
+
 La somme $F_1 + \cdots + F_p$ est **directe**, notée $F_1 \oplus \cdots \oplus F_p$, si tout vecteur de cette somme s'écrit de manière **unique** comme somme d'un vecteur de chaque $F_i$.
+
 :::
 
 ::: {.proposition title="(Caractérisation)"}
+
 La somme $F_1 + \cdots + F_p$ est directe si et seulement si :
 $$\forall i \in \{1, \ldots, p\}, \quad F_i \cap \sum_{j \neq i} F_j = \{0_E\}$$
+
 :::
 
 ::: {.proposition title="(Cas de deux sous-espaces)"}
+
 Pour deux sous-espaces $F$ et $G$, la somme $F + G$ est directe si et seulement si $F \cap G = \{0_E\}$.
+
 :::
 
 ::: {.proposition title="(Dimension d'une somme directe)"}
+
 Si $E = F_1 \oplus \cdots \oplus F_p$ avec chaque $F_i$ de dimension finie, alors :
 $$\dim E = \dim F_1 + \cdots + \dim F_p$$
+
 :::
 
 ::: {.proposition title="(Formule de Grassmann)"}
+
 Pour deux sous-espaces $F$ et $G$ de dimension finie :
 $$\dim(F + G) = \dim F + \dim G - \dim(F \cap G)$$
+
 :::
 
 ## Supplémentaires
 
 ::: {.definition title="(Supplémentaires)"}
+
 Deux sous-espaces $F$ et $G$ de $E$ sont **supplémentaires** si $E = F \oplus G$. On note aussi $G$ un **supplémentaire** de $F$.
+
 :::
 
 ::: {.proposition}
+
 Tout sous-espace vectoriel d'un espace de dimension finie admet au moins un supplémentaire. Ce supplémentaire n'est pas unique en général.
+
 :::
 
 # Projecteurs
@@ -79,40 +95,52 @@ Tout sous-espace vectoriel d'un espace de dimension finie admet au moins un supp
 ## Définition
 
 ::: {.definition title="(Projecteur)"}
+
 Soient $F$ et $G$ deux sous-espaces supplémentaires de $E$. Le **projecteur sur $F$ parallèlement à $G$** est l'application $p : E \to E$ définie par :
 $$\forall x = f + g \in E, \quad (f,g) \in F \times G, \quad p(x) = f$$
+
 :::
 
 ::: {.proposition title="(Caractérisation des projecteurs)"}
+
 Soit $p \in \mathcal{L}(E)$. Alors :
 $$p \text{ est un projecteur} \iff p^2 = p$$
 Dans ce cas, $E = \mathrm{Im}(p) \oplus \ker(p)$, avec $\mathrm{Im}(p) = \{x \in E \mid p(x) = x\}$.
+
 :::
 
 ::: {.proposition title="(Propriétés)"}
+
 Si $p$ est un projecteur :
 
 1. $\mathrm{rg}(p) = \mathrm{tr}(p)$.
 2. Les valeurs propres de $p$ sont dans $\{0, 1\}$.
 3. $p$ est diagonalisable.
+
 :::
 
 # Symétries
 
 ::: {.definition title="(Symétrie)"}
+
 Soient $F$ et $G$ deux sous-espaces supplémentaires de $E$. La **symétrie par rapport à $F$ parallèlement à $G$** est l'application $s : E \to E$ définie par :
 $$\forall x = f + g \in E, \quad (f,g) \in F \times G, \quad s(x) = f - g$$
+
 :::
 
 ::: {.proposition title="(Caractérisation)"}
+
 Soit $s \in \mathcal{L}(E)$. Alors :
 $$s \text{ est une symétrie} \iff s^2 = \mathrm{Id}_E$$
 Dans ce cas, $E = \ker(s - \mathrm{Id}_E) \oplus \ker(s + \mathrm{Id}_E)$.
+
 :::
 
 ::: {.proposition title="(Lien projecteur-symétrie)"}
+
 Si $p$ est le projecteur sur $F$ parallèlement à $G$, alors la symétrie $s$ par rapport à $F$ parallèlement à $G$ vérifie :
 $$s = 2p - \mathrm{Id}_E$$
+
 :::
 
 # Trace
@@ -120,33 +148,45 @@ $$s = 2p - \mathrm{Id}_E$$
 ## Définition
 
 ::: {.definition title="(Trace d'une matrice)"}
+
 Pour $A = (a_{ij}) \in \mathcal{M}_n(\mathbb{K})$ :
 $$\mathrm{tr}(A) = \sum_{i=1}^n a_{ii}$$
+
 :::
 
 ::: {.definition title="(Trace d'un endomorphisme)"}
+
 Pour $u \in \mathcal{L}(E)$, $\mathrm{tr}(u) = \mathrm{tr}(\mathrm{Mat}_{\mathcal{B}}(u))$ pour toute base $\mathcal{B}$ de $E$ (ne dépend pas du choix de $\mathcal{B}$).
+
 :::
 
 ## Propriétés
 
 ::: {.proposition title="(Linéarité)"}
+
 Pour tous $u, v \in \mathcal{L}(E)$ et $\lambda \in \mathbb{K}$ :
 $$\mathrm{tr}(\lambda u + v) = \lambda \mathrm{tr}(u) + \mathrm{tr}(v)$$
+
 :::
 
 ::: {.proposition title="(Trace d'un produit)"}
+
 Pour $A \in \mathcal{M}_{n,p}(\mathbb{K})$ et $B \in \mathcal{M}_{p,n}(\mathbb{K})$ :
 $$\mathrm{tr}(AB) = \mathrm{tr}(BA)$$
+
 :::
 
 ::: {.proposition title="(Invariance par transposition)"}
+
 $\mathrm{tr}(A^T) = \mathrm{tr}(A)$.
+
 :::
 
 ::: {.proposition title="(Trace et valeurs propres)"}
+
 Si $A$ est trigonalisable de valeurs propres $\lambda_1, \ldots, \lambda_n$ (comptées avec multiplicité), alors :
 $$\mathrm{tr}(A) = \lambda_1 + \cdots + \lambda_n$$
+
 :::
 
 # Polynômes d'endomorphismes
@@ -154,66 +194,94 @@ $$\mathrm{tr}(A) = \lambda_1 + \cdots + \lambda_n$$
 ## Définition
 
 ::: {.definition title="(Polynôme d'endomorphisme)"}
+
 Pour $u \in \mathcal{L}(E)$ et $P(X) = \sum_{k=0}^d a_k X^k \in \mathbb{K}[X]$ :
 $$P(u) = \sum_{k=0}^d a_k u^k$$
 où $u^0 = \mathrm{Id}_E$ et $u^k = u \circ \cdots \circ u$.
+
 :::
 
 ::: {.proposition title="(Morphisme de $\mathbb{K}$-algèbres)"}
+
 L'application $\Phi_u : \mathbb{K}[X] \to \mathcal{L}(E)$, $P \mapsto P(u)$, est un morphisme de $\mathbb{K}$-algèbres. En particulier :
 $$P(u) \circ Q(u) = (PQ)(u)$$
+
 :::
 
 ## Idéal annulateur et polynôme minimal
 
 ::: {.definition title="(Polynôme annulateur)"}
+
 Un polynôme $P \in \mathbb{K}[X]$ est **annulateur** de $u$ si $P(u) = 0$.
+
 :::
 
 ::: {.theorem title="(Existence du polynôme minimal)"}
+
 L'idéal des polynômes annulateurs de $u$ est non réduit à $\{0\}$ (car $\mathcal{L}(E)$ est de dimension finie $n^2$). Son générateur unitaire est le **polynôme minimal** de $u$, noté $P_u$.
+
 :::
 
 ::: {.proposition}
+
 Tout polynôme annulateur de $u$ est divisible par $P_u$.
+
 :::
 
 ::: {.proposition title="(Théorème de Cayley-Hamilton)"}
+
 Le polynôme caractéristique $\chi_u$ annule $u$ : $\chi_u(u) = 0$. Donc $P_u$ divise $\chi_u$.
+
 :::
 
 # Exercices
 
 ::: {.exercise}
+
 Soient $F = \{(x,y,z) \in \mathbb{R}^3 \mid x + y + z = 0\}$ et $G = \{(x,y,z) \in \mathbb{R}^3 \mid x = y = z\}$. Montrer que $\mathbb{R}^3 = F \oplus G$ et déterminer la matrice du projecteur sur $F$ parallèlement à $G$.
+
 :::
 
 ::: {.exercise}
+
 Soit $p \in \mathcal{L}(E)$ avec $p^2 = p$. Montrer que $E = \mathrm{Im}(p) \oplus \ker(p)$.
+
 :::
 
 ::: {.exercise}
+
 Soit $s \in \mathcal{L}(E)$ avec $s^2 = \mathrm{Id}_E$. Montrer que $s$ est un automorphisme et déterminer ses valeurs propres.
+
 :::
 
 ::: {.exercise}
+
 Soit $A = \begin{pmatrix} 1 & 1 & 0 \\ 0 & 1 & 1 \\ 0 & 0 & 1 \end{pmatrix}$. Calculer $A^n$ et $\mathrm{tr}(A^n)$.
+
 :::
 
 ::: {.exercise}
+
 Soit $u \in \mathcal{L}(E)$ avec $u^3 = u$. Montrer que $u$ est diagonalisable.
+
 :::
 
 ::: {.exercise}
+
 Soit $A \in \mathcal{M}_n(\mathbb{R})$ idempotente ($A^2 = A$). Montrer que $\mathrm{tr}(A) = \mathrm{rg}(A)$.
+
 :::
 
 ::: {.exercise}
+
 Soit $A = \begin{pmatrix} 2 & 1 \\ 0 & 2 \end{pmatrix}$. Déterminer le polynôme minimal de $A$.
+
 :::
 
 ::: {.exercise}
+
 Soit $u \in \mathcal{L}(E)$ nilpotent d'indice $p$ ($u^p = 0$ et $u^{p-1} \neq 0$). Déterminer le polynôme minimal de $u$.
+
 :::
 
 # Document en PDF {-}
@@ -223,6 +291,8 @@ Soit $u \in \mathcal{L}(E)$ nilpotent d'indice $p$ ($u^p = 0$ et $u^{p-1} \neq 0
 ## Navigation {-}
 
 ::: {.chap-nav}
+
 [Menu ECS2](ecs2.qmd){.home}
 [Chapitre 02 : Réduction des endomorphismes et matrices](ecs2-chap02.qmd){.next}
+
 :::

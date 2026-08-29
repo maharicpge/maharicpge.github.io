@@ -29,33 +29,43 @@ Dans tout ce chapitre, $E$ désigne un $\mathbb{R}$-espace vectoriel. Les espace
 ## Définition
 
 ::: {.definition title="(Produit scalaire)"}
+
 Un **produit scalaire** sur $E$ est une application $\varphi:E\times E\longrightarrow\mathbb{R}$ vérifiant :
 1. $\varphi$ est **bilinéaire** (linéaire par rapport à chacune des deux variables) ;
 2. $\varphi$ est **symétrique** : $\forall x,y\in E$, $\varphi(x,y)=\varphi(y,x)$ ;
 3. $\varphi$ est **positive** : $\forall x\in E$, $\varphi(x,x)\geq 0$ ;
 4. $\varphi$ est **définie** : $\forall x\in E$, $\varphi(x,x)=0\Leftrightarrow x=0_E$.
+
 :::
 
 ::: {.remark}
+
 Si $\varphi$ est un produit scalaire sur $E$, on note $x\cdot y$ ou $\langle x,y\rangle$ au lieu de $\varphi(x,y)$. Un espace vectoriel $E$ muni d'un produit scalaire est appelé **espace préhilbertien**. Si de plus $E$ est de dimension finie, on parle d'**espace euclidien**.
+
 :::
 
 ## Exemples
 
 ::: {.example title="(Produit scalaire canonique sur $\mathbb{R}^n$)"}
+
 Pour $x=(x_1,\ldots,x_n)$ et $y=(y_1,\ldots,y_n)$ dans $\mathbb{R}^n$, on pose :
 $$\langle x,y\rangle=\sum_{i=1}^{n}x_iy_i$$
 C'est le **produit scalaire canonique** sur $\mathbb{R}^n$.
+
 :::
 
 ::: {.example title="(Produit scalaire sur $\mathcal{C}([a,b],\mathbb{R})$)"}
+
 Pour $f,g\in\mathcal{C}([a,b],\mathbb{R})$, on pose :
 $$\langle f,g\rangle=\int_a^b f(t)g(t)\,dt$$
 C'est un produit scalaire sur $\mathcal{C}([a,b],\mathbb{R})$.
+
 :::
 
 ::: {.example}
+
 Sur $\mathbb{R}^2$, pour $x=(x_1,x_2)$ et $y=(y_1,y_2)$, on pose $\varphi(x,y)=x_1y_1+x_1y_2+x_2y_1+3x_2y_2$. Cette application est bilinéaire, symétrique et définie positive, donc c'est un produit scalaire.
+
 :::
 
 # Espace préhilbertien
@@ -63,32 +73,42 @@ Sur $\mathbb{R}^2$, pour $x=(x_1,x_2)$ et $y=(y_1,y_2)$, on pose $\varphi(x,y)=x
 ## Norme hilbertienne
 
 ::: {.definition title="(Norme hilbertienne)"}
+
 Soit $(E,\langle\cdot,\cdot\rangle)$ un espace préhilbertien. Pour $x\in E$, on définit la **norme** de $x$ par :
 $$\|x\|=\sqrt{\langle x,x\rangle}$$
+
 :::
 
 ## Inégalité de Cauchy-Schwarz
 
 ::: {.theorem title="(Inégalité de Cauchy-Schwarz)"}
+
 Pour tous $x,y\in E$ :
 $$\langle x,y\rangle^2\leq\|x\|^2\|y\|^2$$
 ou encore $|\langle x,y\rangle|\leq\|x\|\|y\|$. Il y a égalité si et seulement si $x$ et $y$ sont liés.
+
 :::
 
 ::: {.proof}
+
 Pour tout $t\in\mathbb{R}$, la fonction $P(t)=\|x+ty\|^2=\|x\|^2+2t\langle x,y\rangle+t^2\|y\|^2$ est un polynôme du second degré toujours positif. Son discriminant est donc $\leq 0$, ce qui donne $\langle x,y\rangle^2\leq\|x\|^2\|y\|^2$.
+
 :::
 
 ## Identités de polarisation et du parallélogramme
 
 ::: {.proposition title="(Identité de polarisation)"}
+
 Pour tous $x,y\in E$ :
 $$\langle x,y\rangle=\frac14\left(\|x+y\|^2-\|x-y\|^2\right)$$
+
 :::
 
 ::: {.proposition title="(Identité du parallélogramme)"}
+
 Pour tous $x,y\in E$ :
 $$\|x+y\|^2+\|x-y\|^2=2\left(\|x\|^2+\|y\|^2\right)$$
+
 :::
 
 # Orthogonalité
@@ -96,55 +116,73 @@ $$\|x+y\|^2+\|x-y\|^2=2\left(\|x\|^2+\|y\|^2\right)$$
 ## Définition
 
 ::: {.definition title="(Orthogonalité)"}
+
 Deux vecteurs $x,y\in E$ sont **orthogonaux**, noté $x\perp y$, si $\langle x,y\rangle=0$. Deux parties $A,B\subset E$ sont orthogonales, noté $A\perp B$, si $\forall x\in A,\forall y\in B$, $\langle x,y\rangle=0$.
+
 :::
 
 ## Familles orthogonales
 
 ::: {.definition title="(Famille orthogonale)"}
+
 Une famille $(e_1,\ldots,e_n)$ de vecteurs non nuls est **orthogonale** si les $e_i$ sont orthogonaux deux à deux. Elle est **orthonormée** si elle est orthogonale et $\|e_i\|=1$ pour tout $i$.
+
 :::
 
 ::: {.proposition}
+
 Toute famille orthogonale de vecteurs non nuls est libre.
+
 :::
 
 ## Bases orthonormées
 
 ::: {.proposition}
+
 Tout espace euclidien admet des bases orthonormées.
+
 :::
 
 ## Procédé de Gram-Schmidt
 
 ::: {.theorem title="(Procédé d'orthonormalisation de Gram-Schmidt)"}
+
 Soit $(e_1,\ldots,e_n)$ une famille libre de vecteurs de $E$. Alors il existe une famille orthonormée $(u_1,\ldots,u_n)$ telle que pour tout $k\in\{1,\ldots,n\}$ :
 $$\operatorname{Vect}(e_1,\ldots,e_k)=\operatorname{Vect}(u_1,\ldots,u_k)$$
+
 :::
 
 ::: {.proof title="(Esquisse du procédé)"}
+
 On construit les $u_k$ par récurrence :
 - $u_1=\frac{e_1}{\|e_1\|}$ ;
 - Pour $k\geq 2$, on pose $u_k=\frac{e_k-\sum_{i=1}^{k-1}\langle e_k,u_i\rangle u_i}{\left\|e_k-\sum_{i=1}^{k-1}\langle e_k,u_i\rangle u_i\right\|}$.
+
 :::
 
 ## Projection orthogonale
 
 ::: {.definition title="(Projection orthogonale)"}
+
 Soit $F$ un sous-espace vectoriel de $E$ et $(e_1,\ldots,e_r)$ une base orthonormée de $F$. Pour $x\in E$, la **projection orthogonale** de $x$ sur $F$ est :
 $$p_F(x)=\sum_{i=1}^{r}\langle x,e_i\rangle e_i$$
+
 :::
 
 ::: {.proposition title="(Distance à un sous-espace)"}
+
 Soit $F$ un sous-espace vectoriel de $E$ et $x\in E$. Alors :
 $$\|x-p_F(x)\|=\min_{y\in F}\|x-y\|$$
+
 :::
 
 ::: {.exercise}
+
 \sauteligne
 1. Vérifier que $\langle(x_1,x_2),(y_1,y_2)\rangle=x_1y_1+2x_2y_2$ définit un produit scalaire sur $\mathbb{R}^2$.
 2. Orthonormaliser la famille $((1,1),(1,0))$ de $\mathbb{R}^2$ muni du produit scalaire canonique.
 3. Montrer que $\langle f,g\rangle=\int_0^1 f(t)g(t)\,dt$ est un produit scalaire sur $\mathcal{C}([0,1],\mathbb{R})$.
+
 :::
 
 # Document en PDF {-}
@@ -154,9 +192,11 @@ $$\|x-p_F(x)\|=\min_{y\in F}\|x-y\|$$
 # Navigation {-}
 
 ::: {.chap-nav}
+
 [Chapitre 26 : Variables aléatoires finies](mpsi-chap26.qmd){.prev}
 
 [Menu MPSI](mpsi.qmd){.home}
 
 [Chapitre 28 :  Courbes paramétrées](mpsi-chap28.qmd){.next}
+
 :::

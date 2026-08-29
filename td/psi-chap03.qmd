@@ -19,58 +19,78 @@ filters:
 **PSI (2e année) — TD du Chapitre 03.** Normes et EVN, suites d'éléments d'un EVN, comparaison de normes, topologie d'un EVN, étude locale et propriétés globales d'une application continue, EVN de dimension finie.
 
 ::: {.exercise}
+
 Montrer que les applications suivantes définissent des normes sur $\mathbb{R}^n$ :
 
 1. $\|x\|_1 = \sum_{k=1}^n |x_k|$
 2. $\|x\|_2 = \sqrt{\sum_{k=1}^n x_k^2}$
 3. $\|x\|_\infty = \max_{1 \leq k \leq n} |x_k|$
+
 :::
 
 ::: {.exercise}
+
 Soit $(E, \|\cdot\|)$ un EVN et $(u_n)$ une suite convergente de limite $l$. Montrer que :
 
 1. $\|u_n\| \to \|l\|$.
 2. $(u_n)$ est bornée.
 3. La limite est unique.
+
 :::
 
 ::: {.exercise}
+
 Montrer que dans un EVN, toute boule ouverte est un ouvert et toute boule fermée est un fermé.
+
 :::
 
 ::: {.exercise}
+
 Soient $\mathcal{N}_1$ et $\mathcal{N}_2$ deux normes sur un espace vectoriel $E$. Montrer que $\mathcal{N}_1$ et $\mathcal{N}_2$ sont équivalentes si et seulement s'il existe $a, b > 0$ tels que :
 $$\forall x \in E,\quad a\,\mathcal{N}_1(x) \leq \mathcal{N}_2(x) \leq b\,\mathcal{N}_1(x)$$
+
 :::
 
 ::: {.exercise}
+
 Montrer que sur $\mathbb{R}[X]$, les normes $\|P\|_\infty = \max_k |a_k|$ et $\|P\|_1 = \sum_k |a_k|$ ne sont pas équivalentes.
+
 :::
 
 **Indication :** Prendre $Q_n = 1 + X + \cdots + X^n$. On a $\|Q_n\|_\infty = 1$ et $\|Q_n\|_1 = n+1$.
 
 ::: {.exercise}
+
 Soit $f : E \to F$ une application entre deux EVN. Montrer que $f$ est continue en $a$ si et seulement si pour toute suite $(x_n)$ convergeant vers $a$, $(f(x_n))$ converge vers $f(a)$.
+
 :::
 
 ::: {.exercise}
+
 Soit $K$ une partie compacte d'un EVN et $f : K \to \mathbb{R}$ continue. Montrer que $f$ est bornée et atteint ses bornes.
+
 :::
 
 ::: {.exercise}
+
 Montrer que dans un EVN de dimension finie :
 
 1. Toute partie fermée et bornée est compacte.
 2. Tout sous-espace vectoriel est fermé.
 3. Toute partie compacte est fermée et bornée.
+
 :::
 
 ::: {.exercise}
+
 Montrer que toute partie convexe d'un EVN est connexe par arcs.
+
 :::
 
 ::: {.exercise}
+
 Soit $(E, \|\cdot\|)$ un EVN de dimension finie et $f : E \to F$ une application linéaire. Montrer que $f$ est continue.
+
 :::
 
 **Indication :** Utiliser l'équivalence des normes en dimension finie et la norme $\|x\|_1 = \sum |x_k|$ dans une base.
@@ -79,8 +99,11 @@ Soit $(E, \|\cdot\|)$ un EVN de dimension finie et $f : E \to F$ une application
 [**Chapitre 03 : Topologie des espaces normés**](../cours/psi-chap03.qmd)
 
 # Navigation {-}
+
 ::: {.chap-nav}
+
 [TD 02 : Réduction des endomorphismes](psi-chap02.qmd){.prev}
 [Menu PSI](psi.qmd){.home}
 [TD 04 : Intégration des fonctions continues par morceaux](psi-chap04.qmd){.next}
+
 :::

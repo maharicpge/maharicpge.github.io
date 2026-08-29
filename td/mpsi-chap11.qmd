@@ -19,12 +19,14 @@ filters:
 **MPSI (1re année) — TD du Chapitre 11.** Décomposition en éléments simples, pôles et parties polaires.
 
 ::: {.exercise}
+
 Décomposer en éléments simples dans $\mathbb{C}(X)$ puis dans $\mathbb{R}(X)$ les fractions suivantes :
 
 1. $F_1(X) = \dfrac{X^2 + 1}{X(X-1)(X+2)}$
 2. $F_2(X) = \dfrac{X^3}{X^2 - 1}$
 3. $F_3(X) = \dfrac{1}{(X-1)^2(X+1)}$
 4. $F_4(X) = \dfrac{X^2 + 3X + 1}{(X^2 + 1)(X - 2)}$
+
 :::
 
 **Indications :**
@@ -33,19 +35,23 @@ Décomposer en éléments simples dans $\mathbb{C}(X)$ puis dans $\mathbb{R}(X)$
 - (4) Dans $\mathbb{R}(X)$, les facteurs irréductibles de degré 2 donnent des termes $\frac{aX+b}{X^2+1}$.
 
 ::: {.exercise}
+
 Soit $F(X) = \dfrac{X^4 + 1}{X^4 - 1}$.
 
 1. Effectuer la division euclidienne.
 2. Factoriser le dénominateur dans $\mathbb{R}[X]$ et dans $\mathbb{C}[X]$.
 3. En déduire la décomposition en éléments simples dans $\mathbb{R}(X)$ et dans $\mathbb{C}(X)$.
+
 :::
 
 ::: {.exercise}
+
 Déterminer la décomposition en éléments simples des fractions suivantes :
 
 1. $F(X) = \dfrac{1}{X^n - 1}$ pour $n \in \mathbb{N}^*$.
 2. $F(X) = \dfrac{1}{(X-a)(X-b)}$ avec $a \neq b$.
 3. $F(X) = \dfrac{1}{X(X+1)(X+2)\cdots(X+n)}$.
+
 :::
 
 **Indications :**
@@ -53,16 +59,20 @@ Déterminer la décomposition en éléments simples des fractions suivantes :
 - (3) Utiliser le produit télescopique ou les différences finies.
 
 ::: {.exercise}
+
 Soit $F(X) = \dfrac{P(X)}{Q(X)}$ avec $\deg P < \deg Q$ et $Q$ scindé à racines simples $\alpha_1, \ldots, \alpha_n$.
 
 1. Montrer que la décomposition en éléments simples est $F(X) = \sum_{k=1}^n \dfrac{P(\alpha_k)}{Q'(\alpha_k)} \cdot \dfrac{1}{X - \alpha_k}$.
 2. Application : décomposer $F(X) = \dfrac{X^2 + 1}{X^3 - X}$.
+
 :::
 
 **Indication :** Pour trouver le coefficient $\lambda_k$, multiplier par $X - \alpha_k$ et évaluer en $X = \alpha_k$ : $\lambda_k = \frac{P(\alpha_k)}{Q'(\alpha_k)}$ (règle des résidus).
 
 ::: {.exercise}
+
 Soit $F(X) = \dfrac{1}{(X^2 + 1)^2}$. Décomposer $F$ en éléments simples dans $\mathbb{C}(X)$ puis en déduire la décomposition dans $\mathbb{R}(X)$.
+
 :::
 
 **Indications :**
@@ -72,40 +82,50 @@ Soit $F(X) = \dfrac{1}{(X^2 + 1)^2}$. Décomposer $F$ en éléments simples dans
 - Dans $\mathbb{R}(X)$ : $F(X) = \frac{aX+b}{X^2+1} + \frac{cX+d}{(X^2+1)^2}$.
 
 ::: {.exercise}
+
 Décomposer $F(X) = \dfrac{X^{n-1}}{X^n + 1}$ en éléments simples dans $\mathbb{C}(X)$ pour $n \in \mathbb{N}^*$.
+
 :::
 
 **Indication :** Les racines de $X^n + 1 = 0$ sont $\omega_k = e^{i(2k+1)\pi/n}$ pour $k = 0, \ldots, n-1$. Chaque coefficient vaut $\frac{1}{n}$.
 
 ::: {.exercise}
+
 Soit $F(X) = \dfrac{P(X)}{(X-a)^m}$ avec $\deg P < m$. Montrer que la décomposition en éléments simples est :
 $$F(X) = \sum_{k=1}^m \frac{P^{(m-k)}(a)}{(m-k)!} \cdot \frac{1}{(X-a)^k}$$
+
 :::
 
 **Indication :** Écrire $P(X) = \sum_{j=0}^{m-1} \frac{P^{(j)}(a)}{j!}(X-a)^j$ (formule de Taylor) et diviser par $(X-a)^m$.
 
 ::: {.exercise}
+
 Déterminer la partie entière et la décomposition en éléments simples de :
 
 1. $F(X) = \dfrac{X^5 + 2X^3 - X + 1}{X^3 - X}$
 2. $F(X) = \dfrac{(X+1)^n}{X^n}$ pour $n \in \mathbb{N}^*$
+
 :::
 
 **Indication pour (2) :** Utiliser le binôme de Newton $(X+1)^n = \sum_{k=0}^n \binom{n}{k} X^k$.
 
 ::: {.exercise}
+
 Soit $F(X) = \dfrac{1}{1 + X + X^2 + \cdots + X^{n-1}}$ pour $n \geq 2$.
 
 1. Montrer que $F(X) = \dfrac{X - 1}{X^n - 1}$ pour $X \neq 1$.
 2. En déduire la décomposition en éléments simples dans $\mathbb{C}(X)$.
+
 :::
 
 ::: {.exercise}
+
 Soit $F(X) \in \mathbb{R}(X)$ une fraction rationnelle impaire ($F(-X) = -F(X)$). Montrer que dans sa décomposition en éléments simples :
 
 1. La partie entière est impaire (donc nulle si $\deg P < \deg Q$).
 2. Les pôles non nuls apparaissent par paires $(\alpha, -\alpha)$ avec des parties polaires reliées.
 3. Le pôle éventuel en $0$ a une partie polaire impaire (puissances impaires de $X$).
+
 :::
 
 **Indication :** Appliquer la transformation $X \mapsto -X$ à la décomposition et utiliser l'unicité.
@@ -114,8 +134,11 @@ Soit $F(X) \in \mathbb{R}(X)$ une fraction rationnelle impaire ($F(-X) = -F(X)$)
 [**Chapitre 11 : Fractions rationnelles**](mpsi-chap11.qmd)
 
 # Navigation {-}
+
 ::: {.chap-nav}
+
 [Chapitre 10 : Polynômes](mpsi-chap10.qmd){.prev}
 [Menu MPSI](mpsi.qmd){.home}
 [Chapitre 12 : Espaces vectoriels et applications linéaires](mpsi-chap12.qmd){.next}
+
 :::

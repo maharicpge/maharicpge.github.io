@@ -18,12 +18,14 @@ filters:
 **MPSI (1re année) — TD du Chapitre 15.** Permutations, signatures, déterminants d'une famille, d'un endomorphisme, d'une matrice.
 
 ::: {.exercise}
+
 Dans $\mathcal{S}_4$, considérer $\sigma = \begin{pmatrix} 1 & 2 & 3 & 4 \\ 3 & 4 & 2 & 1 \end{pmatrix}$.
 
 1. Décomposer $\sigma$ en produit de cycles à supports disjoints.
 2. Décomposer $\sigma$ en produit de transpositions.
 3. Calculer la signature $\varepsilon(\sigma)$.
 4. Calculer $\sigma^2$, $\sigma^3$, $\sigma^4$.
+
 :::
 
 **Indications :**
@@ -32,17 +34,21 @@ Dans $\mathcal{S}_4$, considérer $\sigma = \begin{pmatrix} 1 & 2 & 3 & 4 \\ 3 &
 - (3) 3 transpositions, donc $\varepsilon(\sigma) = (-1)^3 = -1$.
 
 ::: {.exercise}
+
 Montrer que toute permutation de $\mathcal{S}_n$ peut s'écrire comme produit de transpositions de la forme $(k \;\; k+1)$ pour $k \in \{1, \ldots, n-1\}$.
+
 :::
 
 **Indication :** Pour échanger $i$ et $j$ avec $i < j$, utiliser $(i \;\; i+1)(i+1 \;\; i+2)\cdots(j-1 \;\; j)\cdots(i \;\; i+1)$.
 
 ::: {.exercise}
+
 Calculer les déterminants suivants :
 
 1. $\begin{vmatrix} 1 & 2 & 3 \\ 4 & 5 & 6 \\ 7 & 8 & 9 \end{vmatrix}$
 2. $\begin{vmatrix} a & b & c \\ b & c & a \\ c & a & b \end{vmatrix}$
 3. $\begin{vmatrix} 1 & 1 & 1 & 1 \\ 1 & 2 & 3 & 4 \\ 1 & 3 & 6 & 10 \\ 1 & 4 & 10 & 20 \end{vmatrix}$ (matrice de Pascal)
+
 :::
 
 **Indications :**
@@ -51,43 +57,53 @@ Calculer les déterminants suivants :
 - (3) Réduire par opérations élémentaires.
 
 ::: {.exercise}
+
 Soit $A = \begin{pmatrix} 0 & 1 & 1 & 1 \\ 1 & 0 & 1 & 1 \\ 1 & 1 & 0 & 1 \\ 1 & 1 & 1 & 0 \end{pmatrix}$.
 
 1. Calculer $\det A$.
 2. $A$ est-elle inversible ? Si oui, calculer $A^{-1}$.
+
 :::
 
 **Indication :** $A = J - I_4$ où $J$ est la matrice de 1. Les valeurs propres de $J$ sont 4 et 0 (multiplicité 3). Donc $\det(J - I_4) = (4-1)(0-1)^3 = -3$.
 
 ::: {.exercise}
+
 Soient $a_1, \ldots, a_n \in \mathbb{K}$ deux à deux distincts. Calculer le déterminant de Vandermonde :
 $$V(a_1, \ldots, a_n) = \begin{vmatrix} 1 & 1 & \cdots & 1 \\ a_1 & a_2 & \cdots & a_n \\ a_1^2 & a_2^2 & \cdots & a_n^2 \\ \vdots & \vdots & & \vdots \\ a_1^{n-1} & a_2^{n-1} & \cdots & a_n^{n-1} \end{vmatrix}$$
+
 :::
 
 **Indication :** Par récurrence. Pour $n = 2$ : $V(a_1, a_2) = a_2 - a_1$. Pour l'hérédité, $L_k \leftarrow L_k - a_1 L_{k-1}$ pour $k = n, n-1, \ldots, 2$. On obtient $V(a_1, \ldots, a_n) = \prod_{k=2}^n (a_k - a_1) \cdot V(a_2, \ldots, a_n)$.
 
 ::: {.exercise}
+
 Soit $A \in \mathcal{M}_n(\mathbb{K})$.
 
 1. Montrer que $\det(^t\!A) = \det(A)$.
 2. Montrer que $\det(AB) = \det(A) \det(B)$.
 3. Montrer que $A$ est inversible $\iff \det(A) \neq 0$.
 4. Si $A$ est inversible, montrer que $\det(A^{-1}) = \dfrac{1}{\det(A)}$.
+
 :::
 
 ::: {.exercise}
+
 Soit $E$ un $\mathbb{K}$-espace vectoriel de dimension $n$ et $(e_1, \ldots, e_n)$ une base. Soient $v_1, \ldots, v_n \in E$.
 
 1. Montrer que $(v_1, \ldots, v_n)$ est une base de $E$ $\iff \det_{\mathcal{B}}(v_1, \ldots, v_n) \neq 0$.
 2. Montrer que le déterminant d'une famille de vecteurs change de signe si on échange deux vecteurs.
+
 :::
 
 ::: {.exercise}
+
 Soit $u \in \mathcal{L}(E)$ avec $\dim E = n$.
 
 1. Montrer que $\det(u)$ est bien défini (ne dépend pas de la base choisie).
 2. Montrer que $u$ est un automorphisme $\iff \det(u) \neq 0$.
 3. Si $u = \lambda \mathrm{Id}_E$, calculer $\det(u)$.
+
 :::
 
 **Indications :**
@@ -95,14 +111,18 @@ Soit $u \in \mathcal{L}(E)$ avec $\dim E = n$.
 - (3) $\det(\lambda \mathrm{Id}_E) = \lambda^n$.
 
 ::: {.exercise}
+
 Soit $A \in \mathcal{M}_n(\mathbb{K})$ triangulaire (supérieure ou inférieure). Montrer que $\det A$ est le produit des coefficients diagonaux.
+
 :::
 
 **Indication :** Par récurrence sur $n$, développer par rapport à la première colonne (ou dernière ligne).
 
 ::: {.exercise}
+
 Calculer le déterminant de la matrice tridiagonale :
 $$\Delta_n = \begin{vmatrix} 2 & -1 & & 0 \\ -1 & 2 & \ddots & \\ & \ddots & \ddots & -1 \\ 0 & & -1 & 2 \end{vmatrix} \in \mathcal{M}_n(\mathbb{R})$$
+
 :::
 
 **Indications :**
@@ -113,8 +133,11 @@ $$\Delta_n = \begin{vmatrix} 2 & -1 & & 0 \\ -1 & 2 & \ddots & \\ & \ddots & \dd
 [**Chapitre 15 : Groupe symétrique et déterminant**](mpsi-chap15.qmd)
 
 # Navigation {-}
+
 ::: {.chap-nav}
+
 [Chapitre 14 : Calcul matriciel](mpsi-chap14.qmd){.prev}
 [Menu MPSI](mpsi.qmd){.home}
 [Chapitre 16 : Nombres réels](mpsi-chap16.qmd){.next}
+
 :::

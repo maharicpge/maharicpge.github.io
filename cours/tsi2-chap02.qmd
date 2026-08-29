@@ -37,41 +37,51 @@ Dans tout ce chapitre, $\mathbb{K}$ désigne un corps ($\mathbb{Q}$, $\mathbb{R}
 ## Définition et premières propriétés
 
 ::: {.theorem-definition title="(Existence et unicité du déterminant)"}
+
 Il existe une unique application de $\mathcal{M}_n(\mathbb{K})$ dans $\mathbb{K}$, appelée **déterminant**, telle que :
 
 1. Le déterminant est **linéaire par rapport à chaque vecteur colonne**, les autres étant fixés (multilinéarité).
 2. Si une matrice $A$ a **deux colonnes identiques**, alors son déterminant est nul.
 3. Le déterminant de la matrice identité $I_n$ vaut $1$.
+
 :::
 
 ::: {.remarque}
+
 Le déterminant est donc la seule **forme $n$-linéaire alternée** telle que $\det(I_n) = 1$. Les autres formes multilinéaires alternées sont les multiples scalaires du déterminant.
+
 :::
 
 ::: {.definition title="(Notation)"}
+
 On note le déterminant d'une matrice $A = (a_{ij})$ par :
 $$\det A \qquad \text{ou} \qquad \left|\begin{array}{cccc}a_{11} & a_{12} & \cdots & a_{1n} \\ a_{21} & a_{22} & \cdots & a_{2n} \\ \vdots & \vdots & & \vdots \\ a_{n1} & a_{n2} & \cdots & a_{nn}\end{array}\right|$$
 
 Si on note $C_i$ la $i$-ème colonne de $A$, alors :
 $$\det A = \left|\begin{matrix}C_1 & C_2 & \cdots & C_n\end{matrix}\right| = \det(C_1, C_2, \ldots, C_n)$$
+
 :::
 
 ## Déterminant en dimension 2
 
 ::: {.proposition title="(Déterminant $2 \times 2$)"}
+
 En dimension 2, le déterminant est très simple à calculer :
 $$\det \begin{pmatrix}a & b \\ c & d\end{pmatrix} = ad - bc$$
 
 C'est donc le produit des éléments sur la diagonale principale moins le produit des éléments sur l'autre diagonale.
+
 :::
 
 ## Déterminant en dimension 3 : règle de Sarrus
 
 ::: {.proposition title="(Déterminant $3 \times 3$ et règle de Sarrus)"}
+
 En dimension 3, pour $A = \begin{pmatrix} a_{11} & a_{12} & a_{13} \\ a_{21} & a_{22} & a_{23} \\ a_{31} & a_{32} & a_{33}\end{pmatrix}$ :
 $$\det A = a_{11} a_{22} a_{33} + a_{12} a_{23} a_{31} + a_{13} a_{21} a_{32} - a_{31} a_{22} a_{13} - a_{32} a_{23} a_{11} - a_{33} a_{21} a_{12}$$
 
 Il existe un moyen facile de retenir cette formule, c'est la **règle de Sarrus** : on recopie les deux premières colonnes à droite de la matrice, puis on additionne les produits de trois termes en les regroupant selon la direction de la diagonale descendante, et on soustrait ensuite les produits de trois termes selon la diagonale montante.
+
 :::
 
 # Premières propriétés du déterminant
@@ -83,41 +93,52 @@ Il existe un moyen facile de retenir cette formule, c'est la **règle de Sarrus*
 1. Le déterminant d'une matrice comportant une **colonne nulle** est nul.
 2. Le déterminant de la matrice nulle $0_n$ vaut $0$.
 3. Le déterminant de la matrice identité $I_n$ vaut $1$.
+
 :::
 
 ## Effet des opérations élémentaires sur les colonnes
 
 ::: {.proposition title="(Opérations élémentaires sur les colonnes)"}
+
 Soit $A \in \mathcal{M}_n(\mathbb{K})$ une matrice ayant les colonnes $C_1, C_2, \ldots, C_n$. On note $A'$ la matrice obtenue par une des opérations élémentaires sur les colonnes :
 
 1. $C_i \leftarrow \lambda C_i$ avec $\lambda \neq 0$ : le déterminant est multiplié par $\lambda$.
 2. $C_i \leftarrow C_i + \lambda C_j$ avec $\lambda \in \mathbb{K}$ (et $j \neq i$) : le déterminant ne change pas.
 3. $C_i \leftrightarrow C_j$ : le déterminant change de signe.
+
 :::
 
 ::: {.remarque}
+
 Les mêmes propriétés sont valables pour les opérations élémentaires sur les **lignes** :
 
 1. $L_i \leftarrow \lambda L_i$ avec $\lambda \neq 0$ : le déterminant est multiplié par $\lambda$.
 2. $L_i \leftarrow L_i + \lambda L_j$ avec $\lambda \in \mathbb{K}$ (et $j \neq i$) : le déterminant ne change pas.
 3. $L_i \leftrightarrow L_j$ : le déterminant change de signe.
+
 :::
 
 ::: {.example title="(Calcul par opérations élémentaires)"}
+
 Calculons $\det A$ où $A = \begin{pmatrix}0 & 3 & 2 \\ 1 & -6 & 6 \\ 5 & 9 & 1\end{pmatrix}$.
 
 On effectue $C_1 \leftrightarrow C_2$ pour avoir un pivot en haut à gauche, puis on utilise des opérations élémentaires pour obtenir une matrice triangulaire. Le déterminant de la matrice triangulaire est le produit des termes diagonaux.
+
 :::
 
 ## Déterminant d'une matrice triangulaire
 
 ::: {.proposition title="(Déterminant triangulaire)"}
+
 Le déterminant d'une matrice triangulaire supérieure (ou inférieure) est égal au **produit des termes diagonaux** :
 $$\det \begin{pmatrix}a_{11} & * & \cdots & * \\ 0 & a_{22} & \cdots & * \\ \vdots & & \ddots & \vdots \\ 0 & 0 & \cdots & a_{nn}\end{pmatrix} = a_{11} \cdot a_{22} \cdots a_{nn}$$
+
 :::
 
 ::: {.corollary}
+
 Le déterminant d'une matrice diagonale est égal au produit des termes diagonaux.
+
 :::
 
 # Développement de Laplace
@@ -125,43 +146,55 @@ Le déterminant d'une matrice diagonale est égal au produit des termes diagonau
 ## Mineurs et cofacteurs
 
 ::: {.definition title="(Matrice extraite et mineur)"}
+
 Soit $A = (a_{ij}) \in \mathcal{M}_n(\mathbb{K})$. Pour $(i,j) \in \{1, \ldots, n\}^2$, on note $A_{i,j}$ la matrice obtenue à partir de $A$ en supprimant la ligne $i$ et la colonne $j$.
 
 Le **mineur d'ordre $n-1$** associé à $(i,j)$ est $\det(A_{i,j})$.
+
 :::
 
 ::: {.definition title="(Cofacteur)"}
+
 Le **cofacteur** de $a_{ij}$ dans $A$ est le scalaire :
 $$\Delta_{i,j}(A) = (-1)^{i+j} \det(A_{i,j})$$
+
 :::
 
 ::: {.example}
+
 Soit $A = \begin{pmatrix} 1 & 2 & 3 \\ 4 & 5 & 6 \\ 7 & 8 & 9 \end{pmatrix}$.
 
 Le cofacteur de $a_{11} = 1$ est :
 $$\Delta_{1,1}(A) = (-1)^{1+1} \det\begin{pmatrix} 5 & 6 \\ 8 & 9 \end{pmatrix} = 1 \cdot (45 - 48) = -3$$
+
 :::
 
 ## Formule de développement suivant une ligne ou une colonne
 
 ::: {.theorem title="(Développement de Laplace)"}
+
 Soit $A \in \mathcal{M}_n(\mathbb{K})$. Alors pour toute ligne $i$ :
 $$\det(A) = \sum_{j=1}^n a_{ij} \Delta_{i,j}(A)$$
 
 Et pour toute colonne $j$ :
 $$\det(A) = \sum_{i=1}^n a_{ij} \Delta_{i,j}(A)$$
+
 :::
 
 ::: {.remarque}
+
 En pratique, on choisit de développer suivant la ligne ou la colonne qui contient le plus de zéros.
+
 :::
 
 ::: {.example title="(Développement par rapport à une colonne)"}
+
 Soit $A = \begin{pmatrix} 4 & 3 & 1 & 0 \\ 0 & 1 & -1 & 2 \\ 4 & 1 & 0 & 3 \\ 1 & 2 & 3 & 0 \end{pmatrix}$.
 
 On choisit de développer par rapport à la seconde colonne (car c'est là qu'il y a le plus de zéros) :
 $$\det A = 0 \cdot C_{12} + 2 \cdot C_{22} + 3 \cdot C_{32} + 0 \cdot C_{42}$$
 où les $C_{ij}$ sont les cofacteurs. On développe ensuite chacun des deux déterminants $3 \times 3$ restants.
+
 :::
 
 # Propriétés du déterminant
@@ -169,55 +202,71 @@ où les $C_{ij}$ sont les cofacteurs. On développe ensuite chacun des deux dét
 ## Multiplicativité
 
 ::: {.theorem title="(Déterminant d'un produit)"}
+
 Soient $A, B \in \mathcal{M}_n(\mathbb{K})$. Alors :
 $$\det(AB) = \det(A) \cdot \det(B)$$
+
 :::
 
 ## Déterminant de l'inverse
 
 ::: {.proposition title="(Déterminant de l'inverse)"}
+
 Soit $A \in \mathrm{GL}_n(\mathbb{K})$. Alors :
 $$\det(A^{-1}) = \frac{1}{\det(A)}$$
+
 :::
 
 ::: {.proof}
+
 Comme $A A^{-1} = I_n$, on a :
 $$\det(A) \cdot \det(A^{-1}) = \det(I_n) = 1$$
 Donc $\det(A^{-1}) = \frac{1}{\det(A)}$.
+
 :::
 
 ## Déterminant de la transposée
 
 ::: {.proposition title="(Déterminant de la transposée)"}
+
 Soit $A \in \mathcal{M}_n(\mathbb{K})$. Alors :
 $$\det({}^tA) = \det(A)$$
+
 :::
 
 ## Déterminant et scalaires
 
 ::: {.proposition}
+
 Soit $A \in \mathcal{M}_n(\mathbb{K})$ et $\lambda \in \mathbb{K}$. Alors :
 $$\det(\lambda A) = \lambda^n \det(A)$$
+
 :::
 
 ::: {.proof}
+
 La matrice $\lambda A$ est obtenue en multipliant chaque colonne de $A$ par $\lambda$. Comme le déterminant est multilinéaire par rapport aux colonnes :
 $$\det(\lambda A) = \lambda^n \det(A)$$
+
 :::
 
 ## Comatrice et inverse d'une matrice
 
 ::: {.definition title="(Comatrice)"}
+
 Soit $A \in \mathcal{M}_n(\mathbb{K})$. La **comatrice** de $A$, notée $\mathrm{Com}(A)$, est la matrice des cofacteurs :
 $$\mathrm{Com}(A) = (\Delta_{i,j}(A))_{1 \leq i,j \leq n}$$
+
 :::
 
 ::: {.theorem title="(Formule de la comatrice)"}
+
 Soit $A \in \mathcal{M}_n(\mathbb{K})$. Alors :
 $$A \cdot {}^t\mathrm{Com}(A) = {}^t\mathrm{Com}(A) \cdot A = \det(A) \cdot I_n$$
 
 En particulier, si $A$ est inversible :
 $$A^{-1} = \frac{1}{\det(A)} \cdot {}^t\mathrm{Com}(A)$$
+
 :::
 
 # Déterminant d'une famille de vecteurs
@@ -225,36 +274,46 @@ $$A^{-1} = \frac{1}{\det(A)} \cdot {}^t\mathrm{Com}(A)$$
 ## Définition
 
 ::: {.definition title="(Déterminant d'une famille de vecteurs)"}
+
 Soit $E$ un $\mathbb{K}$-espace vectoriel de dimension $n$ muni d'une base $\mathcal{B}$. Soit $(x_1, \ldots, x_n)$ une famille de $n$ vecteurs de $E$.
 
 Le **déterminant de la famille $(x_1, \ldots, x_n)$** relativement à la base $\mathcal{B}$ est :
 $$\det_{\mathcal{B}}(x_1, \ldots, x_n) = \det(\mathrm{Mat}_{\mathcal{B}}(x_1, \ldots, x_n))$$
 où $\mathrm{Mat}_{\mathcal{B}}(x_1, \ldots, x_n)$ est la matrice dont les colonnes sont les coordonnées des $x_i$ dans la base $\mathcal{B}$.
+
 :::
 
 ::: {.remarque}
+
 Le déterminant d'une famille de vecteurs dépend de la base choisie.
+
 :::
 
 ## Formule de changement de base
 
 ::: {.theorem title="(Changement de base pour le déterminant)"}
+
 Soient $\mathcal{B}$ et $\mathcal{B}'$ deux bases de $E$ et $(x_1, \ldots, x_n)$ une famille de vecteurs de $E$. Alors :
 $$\det_{\mathcal{B}'}(x_1, \ldots, x_n) = \det(P_{\mathcal{B}' \leftarrow \mathcal{B}}) \cdot \det_{\mathcal{B}}(x_1, \ldots, x_n)$$
 où $P_{\mathcal{B}' \leftarrow \mathcal{B}}$ est la matrice de passage de la base $\mathcal{B}$ à la base $\mathcal{B}'$.
+
 :::
 
 ## Caractérisation des bases
 
 ::: {.theorem title="(Déterminant et base)"}
+
 Soit $E$ un $\mathbb{K}$-espace vectoriel de dimension $n$ et $(v_1, \ldots, v_n)$ une famille de $n$ vecteurs de $E$. Soit $A$ la matrice de cette famille dans une base $\mathcal{B}$ de $E$.
 
 Les vecteurs $(v_1, \ldots, v_n)$ forment une base de $E$ si et seulement si :
 $$\det A \neq 0$$
+
 :::
 
 ::: {.corollary}
+
 Une famille de $n$ vecteurs de $\mathbb{K}^n$ forme une base si et seulement si le déterminant de la matrice formée par ces vecteurs (en colonnes) est non nul.
+
 :::
 
 # Déterminant d'un endomorphisme
@@ -262,35 +321,45 @@ Une famille de $n$ vecteurs de $\mathbb{K}^n$ forme une base si et seulement si 
 ## Définition
 
 ::: {.definition title="(Déterminant d'un endomorphisme)"}
+
 Soit $E$ un $\mathbb{K}$-espace vectoriel de dimension $n$ et $f \in \mathcal{L}(E)$. À chaque choix de base $\mathcal{B}$ de $E$ correspond une matrice $A = \mathrm{Mat}_{\mathcal{B}}(f)$. Cette matrice varie avec le choix de la base, mais pas son déterminant, ce qui permet de définir le **déterminant de l'endomorphisme $f$** par :
 $$\det(f) = \det(\mathrm{Mat}_{\mathcal{B}}(f))$$
+
 :::
 
 ::: {.proposition title="(Indépendance de la base)"}
+
 Le déterminant d'un endomorphisme ne dépend pas du choix de la base.
+
 :::
 
 ::: {.proof}
+
 Si $\mathcal{B}$ et $\mathcal{B}'$ sont deux bases de $E$ et $P = \mathrm{Pass}_{\mathcal{B}, \mathcal{B}'}$, alors :
 $$\mathrm{Mat}_{\mathcal{B}'}(f) = P^{-1} \cdot \mathrm{Mat}_{\mathcal{B}}(f) \cdot P$$
 Donc :
 $$\det(\mathrm{Mat}_{\mathcal{B}'}(f)) = \det(P^{-1}) \cdot \det(\mathrm{Mat}_{\mathcal{B}}(f)) \cdot \det(P) = \det(\mathrm{Mat}_{\mathcal{B}}(f))$$
+
 :::
 
 ## Propriétés
 
 ::: {.proposition}
+
 Soient $f, g \in \mathcal{L}(E)$. Alors :
 
 1. $\det(f \circ g) = \det(f) \cdot \det(g)$
 2. Si $f$ est un automorphisme : $\det(f^{-1}) = \frac{1}{\det(f)}$
 3. $f$ est un automorphisme si et seulement si $\det(f) \neq 0$
+
 :::
 
 ::: {.example}
+
 On considère l'application $f : \mathbb{R}_2[X] \to \mathbb{R}_2[X]$ définie par $P \mapsto P(0)X^2 + P'(0)X + \frac{1}{2}P''(0)$. Sa matrice dans la base canonique est :
 $$A = \begin{pmatrix}0 & 0 & 1 \\ 0 & 1 & 0 \\ 1 & 0 & 0\end{pmatrix}$$
 Donc $\det f = \det A = -1 \neq 0$, on en déduit que $f$ est un automorphisme de $\mathbb{R}_2[X]$.
+
 :::
 
 # Formules de Cramer
@@ -298,13 +367,16 @@ Donc $\det f = \det A = -1 \neq 0$, on en déduit que $f$ est un automorphisme d
 ## Énoncé
 
 ::: {.theorem title="(Règle de Cramer)"}
+
 Soit $AX = B$ un système de $n$ équations à $n$ inconnues. Supposons que $\det A \neq 0$.
 
 Pour $j \in \{1, \ldots, n\}$, on note $A_j$ la matrice obtenue en remplaçant la $j$-ème colonne de $A$ par le second membre $B$. Alors la solution du système est :
 $$\boxed{x_j = \frac{\det A_j}{\det A}}$$
+
 :::
 
 ::: {.example}
+
 Résolvons le système :
 $$\begin{cases} 2x + 3y - z = 1 \\ x - y + 2z = 4 \\ 3x + y + z = 5 \end{cases}$$
 
@@ -315,10 +387,13 @@ $$\det A = 44, \quad \det A_1 = -40, \quad \det A_2 = 72, \quad \det A_3 = 152$$
 
 La solution est :
 $$x_1 = \frac{-40}{44} = -\frac{10}{11}, \quad x_2 = \frac{72}{44} = \frac{18}{11}, \quad x_3 = \frac{152}{44} = \frac{38}{11}$$
+
 :::
 
 ::: {.remarque}
+
 La méthode de Cramer n'est pas la méthode la plus efficace pour résoudre un système, mais est utile si le système contient des paramètres.
+
 :::
 
 # Déterminants remarquables
@@ -326,11 +401,14 @@ La méthode de Cramer n'est pas la méthode la plus efficace pour résoudre un s
 ## Déterminant de Vandermonde
 
 ::: {.theorem title="(Déterminant de Vandermonde)"}
+
 Soient $a_1, a_2, \ldots, a_n \in \mathbb{K}$. Le déterminant de Vandermonde est :
 $$V(a_1, \ldots, a_n) = \det\begin{pmatrix} 1 & 1 & \cdots & 1 \\ a_1 & a_2 & \cdots & a_n \\ a_1^2 & a_2^2 & \cdots & a_n^2 \\ \vdots & \vdots & & \vdots \\ a_1^{n-1} & a_2^{n-1} & \cdots & a_n^{n-1} \end{pmatrix} = \prod_{1 \leq i < j \leq n} (a_j - a_i)$$
+
 :::
 
 ::: {.proof title="(Démonstration)"}
+
 On procède par récurrence sur $n$.
 
 **Initialisation** : Pour $n = 2$, $V(a_1, a_2) = a_2 - a_1 = \prod_{1 \leq i < j \leq 2} (a_j - a_i)$.
@@ -339,84 +417,112 @@ On procède par récurrence sur $n$.
 $$V(a_1, \ldots, a_n) = C \prod_{i=1}^{n-1} (a_n - a_i)$$
 où $C$ est le coefficient de $a_n^{n-1}$, qui est $V(a_1, \ldots, a_{n-1})$. Par hypothèse de récurrence :
 $$V(a_1, \ldots, a_n) = V(a_1, \ldots, a_{n-1}) \prod_{i=1}^{n-1} (a_n - a_i) = \prod_{1 \leq i < j \leq n} (a_j - a_i)$$
+
 :::
 
 ## Déterminant circulant
 
 ::: {.proposition title="(Déterminant circulant)"}
+
 Soit $\Delta = \left|\begin{array}{cccccc}a_1 & a_2 & \ldots & & \ldots & a_n \\ a_n & a_1 & a_2 & & & a_{n-1} \\ a_{n-1} & a_n & a_1 & & & a_{n-2} \\ \vdots & & \ddots & \ddots & & \vdots \\ & & & \ddots & \ddots & \vdots \\ a_2 & a_3 & \ldots & & a_n & a_1\end{array}\right|$ où $a_1, \ldots, a_n \in \mathbb{K}$.
 
 Ce déterminant vaut :
 $$\Delta = \prod_{k=1}^{n}\left(\sum_{v=1}^{n}\omega^{(k-1)(1-v)}a_v\right)$$
 où $\omega = e^{2i\pi/n}$.
+
 :::
 
 ## Déterminant de Cauchy
 
 ::: {.proposition title="(Déterminant de Cauchy)"}
+
 Soient $\alpha_1, \ldots, \alpha_n$ et $\beta_1, \ldots, \beta_n$ des éléments de $\mathbb{K}$ tels que $\alpha_i + \beta_j \neq 0$ pour tout $(i,j)$. Alors :
 $$\det\begin{pmatrix} \frac{1}{\alpha_1 + \beta_1} & \cdots & \frac{1}{\alpha_1 + \beta_n} \\ \vdots & & \vdots \\ \frac{1}{\alpha_n + \beta_1} & \cdots & \frac{1}{\alpha_n + \beta_n} \end{pmatrix} = \frac{\prod_{1 \leq i < j \leq n}(\alpha_j - \alpha_i)(\beta_j - \beta_i)}{\prod_{1 \leq i, j \leq n}(\alpha_i + \beta_j)}$$
+
 :::
 
 # Exercices
 
 ::: {.exercise}
+
 Calculer les déterminants suivants :
 
 1. $\det\begin{pmatrix} 1 & 2 \\ 5 & 3 \end{pmatrix}$
 2. $\det\begin{pmatrix} a & b \\ c & d \end{pmatrix}$
 3. $\det\begin{pmatrix} 1 & 0 & 6 \\ 3 & 4 & 15 \\ 5 & 6 & 21 \end{pmatrix}$
 4. $\det\begin{pmatrix} 1 & 2 & 4 & 8 \\ 1 & 3 & 9 & 27 \\ 1 & 4 & 16 & 64 \\ 1 & 5 & 25 & 125 \end{pmatrix}$
+
 :::
 
 ::: {.exercise}
+
 Soient $A = \begin{pmatrix} a & 1 & 3 \\ 0 & b & 2 \\ 0 & 0 & c \end{pmatrix}$ et $B = \begin{pmatrix} 1 & 0 & 2 \\ 0 & d & 0 \\ -2 & 0 & 1 \end{pmatrix}$.
 
 Calculer, lorsque c'est possible, les déterminants des matrices $A$, $B$, $A^{-1}$, $B^{-1}$, $A^T$, $B^T$, $AB$, $BA$.
+
 :::
 
 ::: {.exercise}
+
 Par développement suivant une ligne (ou une colonne) bien choisie, calculer les déterminants :
 
 1. $\det\begin{pmatrix} 1 & 0 & 1 & 2 \\ 0 & 0 & 0 & 1 \\ 1 & 1 & 1 & 0 \\ 0 & 0 & 0 & -1 \end{pmatrix}$
 2. $\det\begin{pmatrix} t & 0 & 1 & 0 \\ 1 & t & 0 & 0 \\ 0 & 1 & t & 0 \\ 0 & 0 & 0 & t \end{pmatrix}$
+
 :::
 
 ::: {.exercise}
+
 En utilisant la multilinéarité du déterminant, calculer $\det(-I_n)$.
+
 :::
 
 ::: {.exercise}
+
 Pour $A \in \mathcal{M}_n(\mathbb{K})$, calculer $\det(\lambda A)$ en fonction de $\det A$.
+
 :::
 
 ::: {.exercise}
+
 Montrer que le déterminant reste invariant par l'opération $C_i \leftarrow C_i + \sum_{\substack{j=1 \\ j \neq i}}^n \lambda_j C_j$ (on ajoute à une colonne de $A$ une combinaison linéaire des autres colonnes de $A$).
+
 :::
 
 ::: {.exercise title="(Déterminant et base)"}
+
 Pour quelles valeurs de $a, b \in \mathbb{R}$ les vecteurs $\begin{pmatrix} 0 \\ a \\ b \end{pmatrix}$, $\begin{pmatrix} 1 \\ 2 \\ 3 \end{pmatrix}$, $\begin{pmatrix} 1 \\ 3 \\ 1 \end{pmatrix}$ forment-ils une base de $\mathbb{R}^3$ ?
+
 :::
 
 ::: {.exercise title="(Formules de Cramer)"}
+
 Résoudre le système suivant par la méthode de Cramer :
 $$\begin{cases} x + 2y + 3z = 1 \\ 2x + 3y + z = 2 \\ 3x + y + 2z = 3 \end{cases}$$
+
 :::
 
 ::: {.exercise title="(Déterminant de Vandermonde)"}
+
 Calculer $\det\begin{pmatrix} 1 & 1 & 1 & 1 \\ a & b & c & d \\ a^2 & b^2 & c^2 & d^2 \\ a^3 & b^3 & c^3 & d^3 \end{pmatrix}$.
+
 :::
 
 ::: {.exercise}
+
 Soient $A \in \mathcal{M}_p(\mathbb{R})$ et $B \in \mathcal{M}_q(\mathbb{R})$. Calculer (en fonction de $\det(A)$ et $\det(B)$) le déterminant de la matrice $M = \begin{pmatrix} A & 0 \\ 0 & B \end{pmatrix} \in \mathcal{M}_{p+q}(\mathbb{R})$.
+
 :::
 
 # Document en PDF {-}
 [Chapitre 02 : Déterminants](PDF/tsi2-chap02.pdf)
 
 ## Navigation {-}
+
 ::: {.chap-nav}
+
 [Chapitre 01 : Rappels et compléments sur les espaces vectoriels, les endomorphismes et les matrices](tsi2-chap01.qmd){.prev}
 [Menu TSI](tsi2.qmd){.home}
 [Chapitre 03 : Réduction des endomorphismes et des matrices carrées](tsi2-chap03.qmd){.next}
+
 :::

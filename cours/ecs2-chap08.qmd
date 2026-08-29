@@ -34,18 +34,23 @@ Dans tout ce chapitre, $(X, Y)$ désigne un couple de variables aléatoires.
 # Loi conjointe
 
 ::: {.definition title="(Loi conjointe)"}
+
 La **loi conjointe** de $(X, Y)$ est la donnée des $P(X = x, Y = y)$ pour $(x, y) \in X(\Omega) \times Y(\Omega)$, avec :
 $$\sum_{x} \sum_{y} P(X = x, Y = y) = 1$$
+
 :::
 
 # Lois marginales
 
 ::: {.definition title="(Lois marginales)"}
+
 Les **lois marginales** de $X$ et $Y$ sont :
 $$P(X = x) = \sum_y P(X = x, Y = y), \quad P(Y = y) = \sum_x P(X = x, Y = y)$$
+
 :::
 
 ::: {.example}
+
 Soit $(X, Y)$ de loi conjointe :
 
 | $X \setminus Y$ | 0 | 1 |
@@ -54,39 +59,52 @@ Soit $(X, Y)$ de loi conjointe :
 | 1 | $1/4$ | $1/4$ |
 
 Lois marginales : $P(X = 0) = P(X = 1) = 1/2$, idem pour $Y$.
+
 :::
 
 # Lois conditionnelles
 
 ::: {.definition title="(Loi conditionnelle)"}
+
 Si $P(Y = y) > 0$, la **loi conditionnelle** de $X$ sachant $Y = y$ est :
 $$P(X = x \mid Y = y) = \frac{P(X = x, Y = y)}{P(Y = y)}$$
+
 :::
 
 ::: {.proposition title="(Formule des probabilités totales)"}
+
 $$P(X = x) = \sum_y P(X = x \mid Y = y) P(Y = y)$$
+
 :::
 
 ::: {.theorem title="(Formule de Bayes)"}
+
 $$P(Y = y \mid X = x) = \frac{P(X = x \mid Y = y) P(Y = y)}{\sum_{y'} P(X = x \mid Y = y') P(Y = y')}$$
+
 :::
 
 # Indépendance
 
 ::: {.definition title="(Indépendance)"}
+
 $X$ et $Y$ sont **indépendantes** si pour tout $(x, y)$ :
 $$P(X = x, Y = y) = P(X = x) P(Y = y)$$
+
 :::
 
 ::: {.proposition title="(Caractérisation par les lois conditionnelles)"}
+
 $X$ et $Y$ sont indépendantes si et seulement si la loi conditionnelle de $X$ sachant $Y = y$ est égale à la loi marginale de $X$, pour tout $y$ avec $P(Y = y) > 0$.
+
 :::
 
 # Covariance
 
 ::: {.definition title="(Covariance)"}
+
 Si $X$ et $Y$ admettent un moment d'ordre $2$ :
 $$\mathrm{cov}(X, Y) = E((X - E(X))(Y - E(Y))) = E(XY) - E(X)E(Y)$$
+
 :::
 
 ::: {.proposition title="(Propriétés)"}
@@ -95,25 +113,34 @@ $$\mathrm{cov}(X, Y) = E((X - E(X))(Y - E(Y))) = E(XY) - E(X)E(Y)$$
 2. $\mathrm{cov}(X, Y) = \mathrm{cov}(Y, X)$.
 3. $\mathrm{cov}(aX + b, cY + d) = ac \, \mathrm{cov}(X, Y)$.
 4. $\mathrm{cov}(X + Y, Z) = \mathrm{cov}(X, Z) + \mathrm{cov}(Y, Z)$.
+
 :::
 
 ::: {.proposition title="(Indépendance implique covariance nulle)"}
+
 Si $X$ et $Y$ sont indépendantes et admettent un moment d'ordre $2$, alors $\mathrm{cov}(X, Y) = 0$.
+
 :::
 
 ::: {.remarque}
+
 La réciproque est fausse : $\mathrm{cov}(X, Y) = 0$ n'implique pas l'indépendance.
+
 :::
 
 ::: {.proposition title="(Inégalité de Cauchy-Schwarz)"}
+
 $$|\mathrm{cov}(X, Y)| \leq \sigma(X) \sigma(Y)$$
+
 :::
 
 # Corrélation linéaire
 
 ::: {.definition title="(Coefficient de corrélation)"}
+
 Si $\sigma(X) > 0$ et $\sigma(Y) > 0$ :
 $$\rho(X, Y) = \frac{\mathrm{cov}(X, Y)}{\sigma(X) \sigma(Y)}$$
+
 :::
 
 ::: {.proposition title="(Propriétés)"}
@@ -121,23 +148,29 @@ $$\rho(X, Y) = \frac{\mathrm{cov}(X, Y)}{\sigma(X) \sigma(Y)}$$
 1. $\rho(X, Y) \in [-1, 1]$.
 2. $\rho(X, Y) = 1$ $\iff$ $\exists (a, b) \in \mathbb{R}^* \times \mathbb{R}$ avec $a > 0$ tel que $Y = aX + b$ presque sûrement.
 3. $\rho(X, Y) = -1$ $\iff$ idem avec $a < 0$.
+
 :::
 
 # Vecteurs aléatoires à densité
 
 ::: {.definition title="(Vecteur aléatoire à densité)"}
+
 $(X, Y)$ est à densité s'il existe $f_{X,Y} : \mathbb{R}^2 \to \mathbb{R}^+$ continue par morceaux telle que :
 $$P((X, Y) \in D) = \iint_D f_{X,Y}(x, y)\, dx\, dy$$
 pour tout domaine $D$ du plan.
+
 :::
 
 ::: {.proposition title="(Lois marginales à densité)"}
+
 $$f_X(x) = \int_{-\infty}^{+\infty} f_{X,Y}(x, y)\, dy, \quad f_Y(y) = \int_{-\infty}^{+\infty} f_{X,Y}(x, y)\, dx$$
+
 :::
 
 # Exercices
 
 ::: {.exercise}
+
 Soit $(X, Y)$ de loi conjointe :
 
 | $X \setminus Y$ | 0 | 1 |
@@ -148,42 +181,57 @@ Soit $(X, Y)$ de loi conjointe :
 1. Déterminer les lois marginales.
 2. $X$ et $Y$ sont-elles indépendantes ?
 3. Calculer $E(X)$, $E(Y)$, $\mathrm{cov}(X, Y)$.
+
 :::
 
 ::: {.exercise}
+
 Soient $X$ et $Y$ indépendantes suivant $\mathcal{B}(p)$. Déterminer la loi de $X + Y$.
+
 :::
 
 ::: {.exercise}
+
 Soient $X$ et $Y$ indépendantes suivant $\mathcal{E}(\lambda)$. Déterminer la densité de $X + Y$.
+
 :::
 
 ::: {.exercise}
+
 Soit $(X, Y)$ de densité $f_{X,Y}(x, y) = \begin{cases} c(x + y) & 0 \leq x \leq 1, 0 \leq y \leq 1 \\ 0 & \text{sinon} \end{cases}$.
 
 1. Déterminer $c$.
 2. Déterminer les lois marginales.
 3. $X$ et $Y$ sont-elles indépendantes ?
+
 :::
 
 ::: {.exercise}
+
 Soient $X$ et $Y$ avec $V(X) = 4$, $V(Y) = 9$, $\mathrm{cov}(X, Y) = 3$. Calculer $\rho(X, Y)$ et $V(X + Y)$.
+
 :::
 
 ::: {.exercise}
+
 Soit $X \hookrightarrow \mathcal{B}(n, p)$. Montrer que $V(X) = np(1-p)$ en écrivant $X = X_1 + \cdots + X_n$ avec les $X_i$ indépendantes suivant $\mathcal{B}(p)$.
+
 :::
 
 ::: {.exercise}
+
 Soient $X$ et $Y$ indépendantes suivant $\mathcal{N}(0, 1)$. Déterminer la loi de $X + Y$.
+
 :::
 
 ::: {.exercise}
+
 Soit $(X, Y)$ de densité $f_{X,Y}(x, y) = \begin{cases} e^{-y} & 0 \leq x \leq y \\ 0 & \text{sinon} \end{cases}$.
 
 1. Vérifier que $f_{X,Y}$ est une densité.
 2. Déterminer les lois marginales.
 3. $X$ et $Y$ sont-elles indépendantes ?
+
 :::
 
 # Document en PDF {-}
@@ -193,7 +241,9 @@ Soit $(X, Y)$ de densité $f_{X,Y}(x, y) = \begin{cases} e^{-y} & 0 \leq x \leq 
 ## Navigation {-}
 
 ::: {.chap-nav}
+
 [Chapitre 07 : Variables aléatoires à densité](ecs2-chap07.qmd){.prev}
 [Menu ECS2](ecs2.qmd){.home}
 [Chapitre 09 : Convergences et approximations](ecs2-chap09.qmd){.next}
+
 :::

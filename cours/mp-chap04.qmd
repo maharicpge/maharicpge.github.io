@@ -37,77 +37,102 @@ Dans tout ce chapitre, $E$ désigne un $\mathbb{K}$-espace vectoriel de dimensio
 ## Rappels sur les séries numériques
 
 ::: {.definition title="(Série numérique)"}
+
 Soit $(u_n)_{n \geq n_0}$ une suite d'éléments de $\mathbb{K}$. On appelle **série** de terme général $u_n$ la suite $(S_n)_{n \geq n_0}$ définie par :
 $$S_n = \sum_{k=n_0}^n u_k$$
 On note $\sum u_n$ ou $\sum_{k \geq n_0} u_k$ cette série.
+
 :::
 
 ::: {.definition title="(Convergence et divergence)"}
+
 On dit que la série $\sum u_n$ **converge** si la suite $(S_n)$ converge vers une limite finie $S \in \mathbb{K}$. On note alors :
 $$S = \sum_{k=n_0}^{+\infty} u_k$$
 et $S$ est appelée la **somme** de la série.
 
 Si la suite $(S_n)$ diverge, on dit que la série $\sum u_n$ **diverge**.
+
 :::
 
 ::: {.definition title="(Reste d'une série convergente)"}
+
 Si la série $\sum u_n$ converge et si $S$ est sa somme, on note :
 $$R_n = \sum_{k=n+1}^{+\infty} u_k$$
 le **reste** de la série $\sum u_n$ et on a $R_n \xrightarrow[n \to +\infty]{} 0$.
+
 :::
 
 ::: {.proposition title="(Critère de Cauchy)"}
+
 Soit $\sum u_n$ une série numérique. La série $\sum u_n$ converge si et seulement si :
 $$\forall \varepsilon > 0, \; \exists N \in \mathbb{N}, \; \forall n \geq N, \; \forall p \geq 0, \quad |S_{n+p} - S_n| = |u_{n+1} + \cdots + u_{n+p}| \leq \varepsilon$$
+
 :::
 
 ::: {.definition title="(Séries absolument convergentes ; semi-convergentes)"}
+
 Soit $\sum u_n$ une série numérique. On dit que $\sum u_n$ est **absolument convergente** si la série $\sum |u_n|$ est convergente.
 
 Une série convergente mais non absolument convergente est dite **semi-convergente**.
+
 :::
 
 ## Séries à valeurs dans un espace normé
 
 ::: {.definition title="(Série à valeurs dans un espace normé)"}
+
 Soit $(u_n)_{n \geq n_0}$ une suite d'éléments de $E$. On appelle **série** de terme général $u_n$ la suite $(S_n)_{n \geq n_0}$ définie par :
 $$S_n = \sum_{k=n_0}^n u_k$$
 On note $\sum u_n$ ou $\sum_{k \geq n_0} u_k$ cette série.
+
 :::
 
 ::: {.definition title="(Convergence et divergence)"}
+
 On dit que la série $\sum u_n$ **converge** si la suite $(S_n)$ converge vers une limite $S \in E$. On note alors :
 $$S = \sum_{k=n_0}^{+\infty} u_k$$
 Si la suite $(S_n)$ diverge, on dit que la série $\sum u_n$ **diverge**.
+
 :::
 
 ::: {.proposition title="(Divergence grossière)"}
+
 Si la série $\sum u_n$ converge, alors $u_n \xrightarrow[n \to +\infty]{} 0$.
+
 :::
 
 ::: {.proposition title="(Linéarité)"}
+
 Soient $\sum u_n$ et $\sum v_n$ deux séries convergentes de sommes respectives $S$ et $T$, et soient $\lambda, \mu \in \mathbb{K}$. Alors la série $\sum (\lambda u_n + \mu v_n)$ converge et :
 $$\sum_{n=n_0}^{+\infty} (\lambda u_n + \mu v_n) = \lambda S + \mu T$$
+
 :::
 
 ::: {.proposition title="(Reste d'une série convergente)"}
+
 Si la série $\sum u_n$ converge et si $S$ est sa somme, on note :
 $$R_n = \sum_{k=n+1}^{+\infty} u_k$$
 le reste de la série $\sum u_n$ et on a $R_n \xrightarrow[n \to +\infty]{} 0$.
+
 :::
 
 ## Séries absolument convergentes dans un espace normé
 
 ::: {.definition title="(Convergence absolue)"}
+
 On dit qu'une série $\sum u_n$ à valeurs dans $E$ est **absolument convergente** si la série numérique $\sum \|u_n\|$ est convergente.
+
 :::
 
 ::: {.proposition title="(Convergence absolue implique convergence)"}
+
 Une série $\sum u_n$ à valeurs dans $E$ absolument convergente est convergente. De plus, on a :
 $$\left\|\sum_{n=n_0}^{+\infty} u_n\right\| \leq \sum_{n=n_0}^{+\infty} \|u_n\|$$
+
 :::
 
 ::: {.proof}
+
 Utilisons le critère de Cauchy. La série $\sum \|u_n\|$ converge, donc la suite des restes $(R'_n)$ avec $R'_n = \sum_{k=n+1}^{+\infty} \|u_k\|$ tend vers $0$. Pour tout $\varepsilon > 0$, il existe $N$ tel que pour $n \geq N$ et $p \geq 0$ :
 $$\sum_{k=n+1}^{n+p} \|u_k\| < \varepsilon$$
 Par l'inégalité triangulaire :
@@ -117,10 +142,13 @@ Donc $(S_n)$ est une suite de Cauchy dans $E$, qui est complet (car de dimension
 Pour l'inégalité, on a pour tout $n \geq n_0$ :
 $$\left\|\sum_{k=n_0}^n u_k\right\| \leq \sum_{k=n_0}^n \|u_k\| \leq \sum_{k=n_0}^{+\infty} \|u_k\|$$
 En passant à la limite, on obtient le résultat.
+
 :::
 
 ::: {.proposition title="(Critère de comparaison)"}
+
 Soit $(u_n)$ une suite d'éléments de $E$ et $(v_n)$ une suite de réels positifs. Si $\|u_n\| \leq v_n$ à partir d'un certain rang et si $\sum v_n$ converge, alors $\sum u_n$ est absolument convergente (donc convergente).
+
 :::
 
 # Séries à termes dans une $\mathbb{K}$-algèbre
@@ -131,23 +159,29 @@ Soit $(u_n)$ une suite d'éléments de $E$ et $(v_n)$ une suite de réels positi
 $$\forall x, y \in E, \quad \|x \cdot y\| = \|x\| \cdot \|y\|$$
 
 ::: {.proposition title="(Série géométrique de Neumann)"}
+
 Soit $a \in E$.
 
 1. La série $\sum_{k=0}^{+\infty} a^k$ converge si et seulement si $\|a\| < 1$.
 2. Dans ce cas :
 $$\sum_{k=0}^{+\infty} a^k = (e - a)^{-1}$$
+
 :::
 
 ::: {.example}
+
 Dans $\mathcal{M}_n(\mathbb{K})$ muni de la norme $\|A\|_\infty = \sup_{1 \leq i \leq n} \sum_{j=1}^n |a_{i,j}|$, si $\|A\|_\infty < 1$, alors $I_n - A$ est inversible et :
 $$(I_n - A)^{-1} = \sum_{k=0}^{+\infty} A^k$$
+
 :::
 
 ::: {.proposition title="(Produit de Cauchy dans une algèbre)"}
+
 Soient $\sum a_n$ et $\sum b_n$ deux séries absolument convergentes à valeurs dans une $\mathbb{K}$-algèbre. Alors la série produit $\sum c_n$ où :
 $$c_n = \sum_{k=0}^n a_k b_{n-k}$$
 est absolument convergente et :
 $$\sum_{n=0}^{+\infty} c_n = \left(\sum_{n=0}^{+\infty} a_n\right) \cdot \left(\sum_{n=0}^{+\infty} b_n\right)$$
+
 :::
 
 # Familles sommables
@@ -155,10 +189,12 @@ $$\sum_{n=0}^{+\infty} c_n = \left(\sum_{n=0}^{+\infty} a_n\right) \cdot \left(\
 ## Familles sommables de nombres réels positifs
 
 ::: {.definition title="(Famille sommable de réels positifs)"}
+
 Soit $(u_i)_{i \in I}$ une famille d'éléments de $[0, +\infty[$, où $I$ est un ensemble fini ou dénombrable. On définit la **somme** de cette famille par :
 $$\sum_{i \in I} u_i = \sup \left\{\sum_{i \in F} u_i \mid F \subset I, \; F \text{ fini}\right\}$$
 
 La famille $(u_i)_{i \in I}$ est dite **sommable** si $\sum_{i \in I} u_i < +\infty$.
+
 :::
 
 ::: {.proposition title="(Cas fini et cas dénombrable)"}
@@ -166,53 +202,68 @@ La famille $(u_i)_{i \in I}$ est dite **sommable** si $\sum_{i \in I} u_i < +\in
 1. **Cas où $I$ est fini** : la définition est cohérente avec la somme usuelle.
 
 2. **Cas où $I = \mathbb{N}$** : lien avec les séries. Si la série $\sum_{n \geq 0} u_n$ d'éléments de $\mathbb{R}_+$ diverge, il est pratique d'écrire $\sum_{n=0}^{+\infty} u_n = +\infty$.
+
 :::
 
 ::: {.proposition title="(Invariance par permutation)"}
+
 Soit $\sigma : I \to I$ une bijection. Alors les familles $(u_i)_{i \in I}$ et $(u_{\sigma(j)})_{j \in I}$ ont la même somme :
 $$\sum_{j \in I} u_{\sigma(j)} = \sum_{i \in I} u_i$$
+
 :::
 
 ::: {.proposition title="(Caractérisation de la sommabilité)"}
+
 La famille $(u_i)_{i \in I}$ d'éléments de $\mathbb{R}_+$ est sommable si et seulement s'il existe $M > 0$ tel que pour toute partie finie $F$ de $I$ :
 $$0 \leq \sum_{i \in F} u_i \leq M$$
+
 :::
 
 ## Critère de comparaison
 
 ::: {.proposition title="(Critère de comparaison)"}
+
 Soient $(u_i)_{i \in I}$ et $(v_i)_{i \in I}$ deux familles de nombres réels positifs telles que pour tout $i \in I$, $0 \leq u_i \leq v_i$. Alors :
 
 1. La sommabilité de $(v_i)_{i \in I}$ entraîne celle de $(u_i)_{i \in I}$ et on a :
 $$0 \leq \sum_{i \in I} u_i \leq \sum_{i \in I} v_i$$
 
 2. La non-sommabilité de $(u_i)_{i \in I}$ entraîne la non-sommabilité de $(v_i)_{i \in I}$.
+
 :::
 
 ## Opérations
 
 ::: {.proposition title="(Linéarité)"}
+
 Soient $(u_i)_{i \in I}$ et $(v_i)_{i \in I}$ deux familles sommables de nombres réels positifs et $\lambda, \mu \in \mathbb{R}_+$. Alors la famille $(\lambda u_i + \mu v_i)_{i \in I}$ est sommable et :
 $$\sum_{i \in I} (\lambda u_i + \mu v_i) = \lambda \sum_{i \in I} u_i + \mu \sum_{i \in I} v_i$$
+
 :::
 
 ## Théorème de sommation par paquets
 
 ::: {.theorem title="(Théorème de sommation par paquets)"}
+
 Soit $I$ réunion disjointe des $I_j$ pour $j \in J$, et soit $(u_i)_{i \in I}$ une famille de réels positifs. Alors :
 $$\sum_{i \in I} u_i = \sum_{j \in J} \left(\sum_{i \in I_j} u_i\right)$$
+
 :::
 
 ::: {.example title="(Cas des suites doubles)"}
+
 Si $(u_{m,n})_{(m,n) \in \mathbb{N}^2}$ est une famille sommable de réels positifs, alors :
 $$\sum_{(m,n) \in \mathbb{N}^2} u_{m,n} = \sum_{m=0}^{+\infty} \left(\sum_{n=0}^{+\infty} u_{m,n}\right) = \sum_{n=0}^{+\infty} \left(\sum_{m=0}^{+\infty} u_{m,n}\right)$$
+
 :::
 
 ## Familles sommables de nombres complexes
 
 ::: {.definition title="(Famille sommable de nombres complexes)"}
+
 Une famille $(u_i)_{i \in I}$ de nombres complexes est dite **sommable** si la famille $(|u_i|)_{i \in I}$ est sommable, c'est-à-dire si :
 $$\sum_{i \in I} |u_i| < +\infty$$
+
 :::
 
 ::: {.proposition title="(Somme d'une famille sommable)"}
@@ -223,52 +274,67 @@ où $u_k^+ = \max(u_k, 0)$ et $u_k^- = \max(-u_k, 0)$.
 
 2. **Cas complexe** : Dans le cas général, sa somme est définie par :
 $$\sum_{k \in I} u_k = \sum_{k \in I} \mathrm{Re}(u_k) + i \sum_{k \in I} \mathrm{Im}(u_k)$$
+
 :::
 
 ::: {.proposition title="(Lien avec la convergence absolue)"}
+
 Lorsque $I = \mathbb{N}$, la suite $(u_n)_{n \in \mathbb{N}}$ est sommable si et seulement si la série $\sum_n u_n$ est absolument convergente, auquel cas :
 $$\sum_{n \in \mathbb{N}} u_n = \sum_{n=0}^{+\infty} u_n$$
+
 :::
 
 ::: {.proposition title="(Invariance par permutation)"}
+
 Soit $\sigma : I \to I$ une bijection. Alors la famille $(v_i)_{i \in I}$ est sommable si et seulement si la famille $(v_{\sigma(j)})_{j \in I}$ est sommable, auquel cas :
 $$\sum_{j \in I} v_{\sigma(j)} = \sum_{i \in I} v_i$$
+
 :::
 
 ## Espace vectoriel des familles sommables
 
 ::: {.proposition title="(Espace $\ell^1(I)$)"}
+
 L'ensemble des familles sommables d'éléments de $\mathbb{K}$, noté $\ell^1(I)$, est un $\mathbb{K}$-espace vectoriel. La somme est linéaire et on a l'**inégalité triangulaire** :
 
 Si la famille $(u_i)_{i \in I}$ est sommable, alors :
 $$\left|\sum_{i \in I} u_i\right| \leq \sum_{i \in I} |u_i|$$
+
 :::
 
 ::: {.proposition title="(Sous-famille d'une famille sommable)"}
+
 Toute sous-famille d'une famille sommable est sommable.
+
 :::
 
 ## Théorème de sommation par paquets pour les familles complexes
 
 ::: {.theorem title="(Sommation par paquets)"}
+
 Si $I$ est réunion disjointe des $I_j$ pour $j \in J$, et si $(u_i)_{i \in I}$ est une famille sommable de complexes, alors :
 $$\sum_{i \in I} u_i = \sum_{j \in J} \left(\sum_{i \in I_j} u_i\right)$$
 
 En particulier, la famille $\left(\sum_{i \in I_j} u_i\right)_{j \in J}$ est sommable et elle a la même somme que $(u_i)_{i \in I}$.
+
 :::
 
 ## Théorème de Fubini pour les familles
 
 ::: {.theorem title="(Théorème de Fubini)"}
+
 Si la famille $(u_{m,n})_{(m,n) \in \mathbb{N}^2}$ de complexes est sommable, alors :
 $$\sum_{n=0}^{+\infty} \left(\sum_{m=0}^{+\infty} u_{m,n}\right) = \sum_{m=0}^{+\infty} \left(\sum_{n=0}^{+\infty} u_{m,n}\right) = \sum_{(m,n) \in \mathbb{N}^2} u_{m,n}$$
+
 :::
 
 ## Produit de familles sommables
 
 ::: {.proposition}
+
 Si $(u_i)_{i \in I}$ et $(v_j)_{j \in J}$ sont sommables, alors la famille $(u_i v_j)_{(i,j) \in I \times J}$ est sommable et :
 $$\sum_{(i,j) \in I \times J} u_i v_j = \left(\sum_{i \in I} u_i\right) \left(\sum_{j \in J} v_j\right)$$
+
 :::
 
 # Produit de Cauchy
@@ -276,18 +342,23 @@ $$\sum_{(i,j) \in I \times J} u_i v_j = \left(\sum_{i \in I} u_i\right) \left(\s
 ## Définition
 
 ::: {.definition title="(Produit de Cauchy)"}
+
 Soient $\sum_{n \geq 0} a_n$ et $\sum_{n \geq 0} b_n$ deux séries numériques. On appelle **série produit de Cauchy** des séries $\sum_{n \geq 0} a_n$ et $\sum_{n \geq 0} b_n$ la série $\sum_{n \geq 0} c_n$ où :
 $$c_n = \sum_{k=0}^n a_k b_{n-k}$$
+
 :::
 
 ## Produit de Cauchy de deux séries absolument convergentes
 
 ::: {.theorem}
+
 Si les séries $\sum_{n \geq 0} a_n$ et $\sum_{n \geq 0} b_n$ sont absolument convergentes, alors la série $\sum_{n \geq 0} c_n$ est absolument convergente et on a :
 $$\sum_{n=0}^{+\infty} c_n = \left(\sum_{n=0}^{+\infty} a_n\right) \left(\sum_{n=0}^{+\infty} b_n\right)$$
+
 :::
 
 ::: {.example title="(Application à la fonction exponentielle)"}
+
 On admet que pour $x \in \mathbb{R}$, la série $\sum_{k=0}^{+\infty} \frac{x^k}{k!}$ converge et vaut $\exp(x)$.
 
 Que vaut la série produit associée à $\exp(a) \times \exp(b)$ ? En utilisant la formule du binôme de Newton :
@@ -295,53 +366,73 @@ $$c_n = \sum_{k=0}^n \frac{a^k}{k!} \cdot \frac{b^{n-k}}{(n-k)!} = \frac{1}{n!} 
 
 Donc :
 $$\exp(a) \cdot \exp(b) = \sum_{n=0}^{+\infty} \frac{(a+b)^n}{n!} = \exp(a+b)$$
+
 :::
 
 ## Produit de Cauchy dans une $\mathbb{K}$-algèbre
 
 ::: {.proposition}
+
 Soient $\sum a_n$ et $\sum b_n$ deux séries absolument convergentes à valeurs dans une $\mathbb{K}$-algèbre de dimension finie. Alors la série produit $\sum c_n$ est absolument convergente et :
 $$\sum_{n=0}^{+\infty} c_n = \left(\sum_{n=0}^{+\infty} a_n\right) \cdot \left(\sum_{n=0}^{+\infty} b_n\right)$$
+
 :::
 
 # Exercices
 
 ::: {.exercise}
+
 Soit $A \in \mathcal{M}_n(\mathbb{R})$ telle que $\|A\|_\infty < 1$. Montrer que $I_n - A$ est inversible et calculer $(I_n - A)^{-1}$.
+
 :::
 
 ::: {.exercise}
+
 Soit $(u_n)$ une suite d'éléments de $E$ telle que $\sum \|u_n\|$ converge. Montrer que $\sum u_n$ converge et que :
 $$\left\|\sum_{n=0}^{+\infty} u_n\right\| \leq \sum_{n=0}^{+\infty} \|u_n\|$$
+
 :::
 
 ::: {.exercise}
+
 Soit $(u_{m,n})_{(m,n) \in \mathbb{N}^2}$ définie par $u_{m,n} = \frac{1}{(m+n+1)(m+n+2)}$. Montrer que la famille $(u_{m,n})$ est sommable et calculer sa somme.
+
 :::
 
 ::: {.exercise}
+
 Soient $a, b \in \mathbb{R}$ tels que $|a| < 1$ et $|b| < 1$. Calculer :
 $$\sum_{n=0}^{+\infty} \sum_{m=0}^{+\infty} a^m b^n$$
+
 :::
 
 ::: {.exercise}
+
 Soit $f : \mathbb{N}^2 \to \mathbb{R}_+$ définie par $f(m,n) = \frac{1}{(m+1)(n+1)(m+n+2)}$. Montrer que la famille $(f(m,n))$ est sommable.
+
 :::
 
 ::: {.exercise title="(Produit de Cauchy)"}
+
 Soient $\sum a_n$ et $\sum b_n$ deux séries absolument convergentes. Montrer que la série produit $\sum c_n$ est absolument convergente.
+
 :::
 
 ::: {.exercise}
+
 Soit $(u_i)_{i \in I}$ une famille sommable de complexes. Montrer que pour toute sous-famille $J \subset I$, la famille $(u_i)_{i \in J}$ est sommable.
+
 :::
 
 # Document en PDF {-}
 [Chapitre 04 : Séries dans un espace vectoriel normé et familles sommables](PDF/mp-chap04.pdf)
 
 ## Navigation {-}
+
 ::: {.chap-nav}
+
 [Chapitre 03 : Réduction des endomorphismes et des matrices carrées](mp-chap03.qmd){.prev}
 [Menu MP](mp.qmd){.home}
 [Chapitre 05 : Fonctions vectorielles d'une variable réelle, arcs paramétrés](mp-chap05.qmd){.next}
+
 :::

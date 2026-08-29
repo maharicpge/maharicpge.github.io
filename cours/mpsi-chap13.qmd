@@ -29,34 +29,46 @@ Dans la suite, $\mathbb{K}=\mathbb{R}$ ou $\mathbb{C}$.
 ## Espace de type fini
 
 ::: {.definition}
+
 Un $\mathbb{K}$-espace vectoriel $E$ est **de type fini** s'il admet une famille génératrice finie : $\exists n\in\mathbb{N}^*$, $\exists x_1,\ldots,x_n\in E$ tels que $E=\mathrm{Vect}(x_1,\ldots,x_n)$.
+
 :::
 
 ::: {.example}
+
 - $\mathbb{K}^n$ est de type fini (sa base canonique l'engendre).
 - $\mathbb{K}_n[X]$ est de type fini car $\mathbb{K}_n[X]=\mathrm{Vect}\left((X^k)_{0\leq k\leq n}\right)$.
 - $\mathbb{K}[X]$ n'est **pas** de type fini.
+
 :::
 
 ## Théorème de la base incomplète et lemme fondamental
 
 ::: {.lemma title="(Lemme fondamental)"}
+
 Soit $V$ un $\mathbb{K}$-espace vectoriel, $n\in\mathbb{N}^*$, $(x_1,\ldots,x_n)$ une famille libre de vecteurs de $V$. Alors toute famille de $n+1$ vecteurs de $\mathrm{Vect}(x_1,\ldots,x_n)$ est liée.
+
 :::
 
 ::: {.theorem title="(Théorème de la base incomplète)"}
+
 Soit $\mathcal{G}$ une famille génératrice finie de $E$ et $\mathcal{L}$ une famille libre de vecteurs de $E$. Alors il existe une base $\mathcal{B}$ de $E$ telle que $\mathcal{L}\subset\mathcal{B}$ et $\mathcal{B}\subset\mathcal{G}\vee\mathcal{L}$.
+
 :::
 
 ## Dimension
 
 ::: {.theorem title="(Corollaire et définition)"}
+
 Soit $E$ un espace de type fini. Alors $E$ admet des bases ; toutes les bases sont de longueur finie et ont **même longueur**. Cette longueur commune s'appelle la **dimension** de $E$ et se note $\dim E$.
+
 :::
 
 ::: {.remark}
+
 - $\dim\{0\}=0$ (car $(\varnothing)$ est une base de $\{0\}$) ; $\dim\mathbb{K}^n=n$ ; $\dim\mathbb{K}_n[X]=n+1$.
 - Si $E$ n'est pas de type fini, il contient des familles libres de longueur arbitrairement grande.
+
 :::
 
 # Principes et résultats usuels
@@ -64,38 +76,50 @@ Soit $E$ un espace de type fini. Alors $E$ admet des bases ; toutes les bases so
 ## Principe de fainéantise
 
 ::: {.theorem title="(Principe de fainéantise)"}
+
 Soit $E$ un $\mathbb{K}$-espace vectoriel de dimension $n\in\mathbb{N}^*$.
 
 1. Toute famille libre de $E$ est de longueur $\leq n$ ; si sa longueur est $n$, c'est une base.
 2. Toute famille génératrice finie de $E$ est de longueur $\geq n$ ; si sa longueur est $n$, c'est une base.
 3. Pour une famille $(x_1,\ldots,x_n)$ de $n$ vecteurs, les assertions suivantes sont équivalentes : libre ; génératrice ; base.
+
 :::
 
 ## Dimension et sous-espaces
 
 ::: {.proposition}
+
 Soit $E$ de dimension finie et $F$ un sous-espace vectoriel de $E$. Alors $F$ est de dimension finie, $\dim F\leq\dim E$, et $\dim F=\dim E \iff F=E$.
+
 :::
 
 ## Dimension des sommes et produits
 
 ::: {.proposition}
+
 1. Si $E=F\oplus G$ (plus généralement $\bigoplus_{i=1}^r F_i=E$), alors $\dim E=\dim F+\dim G$ (resp. $\dim E=\sum_{i=1}^r\dim F_i$).
 2. Si $E$ est de dimension finie et $F$ un sous-espace vectoriel, il existe un sous-espace $G$ tel que $E=F\oplus G$ (tout sous-espace admet un supplémentaire).
+
 :::
 
 ::: {.theorem title="(Dimension d'une somme quelconque)"}
+
 Soit $E$ de dimension finie, $F$ et $G$ deux sous-espaces vectoriels de $E$. Alors :
 $$\dim(F+G)=\dim F+\dim G-\dim(F\cap G)$$
+
 :::
 
 ::: {.proposition title="(Produit cartésien, $\mathcal{L}(E,F)$)"}
+
 1. $E\times F$ muni des lois usuelles est un $\mathbb{K}$-espace vectoriel ; si $E,F$ sont de dimension finie, $\dim(E\times F)=\dim E+\dim F$.
 2. $\mathcal{L}(E,F)$ est de dimension finie et $\dim\mathcal{L}(E,F)=\dim E\times\dim F$ ; en particulier $\dim\mathcal{L}(E)=(\dim E)^2$ et $\dim E^*=\dim E$, où $E^*=\mathcal{L}(E,\mathbb{K})$ est l'**espace dual**.
+
 :::
 
 ::: {.remark title="(Base duale)"}
+
 Si $\mathcal{B}=(e_1,\ldots,e_n)$ est une base de $E$, la famille $(e_1^*,\ldots,e_n^*)$ définie par $e_i^*(e_k)=\delta_{ik}$ est une base de $E^*$ appelée **base duale** de $\mathcal{B}$ : $e_j^*$ associe à tout vecteur sa $j$-ième coordonnée dans $\mathcal{B}$.
+
 :::
 
 # Applications linéaires en dimension finie
@@ -103,24 +127,31 @@ Si $\mathcal{B}=(e_1,\ldots,e_n)$ est une base de $E$, la famille $(e_1^*,\ldots
 ## Rang d'une application linéaire
 
 ::: {.definition}
+
 Soit $E$ de dimension finie, $F$ un espace vectoriel et $f\in\mathcal{L}(E,F)$. Alors $\mathrm{Im}\,f$ est de dimension finie (engendré par $f(e_1),\ldots,f(e_n)$) ; le **rang** de $f$ est $\mathrm{rg}\,f=\dim\mathrm{Im}\,f$. On a toujours $\mathrm{rg}\,f\leq\dim E$, et $\mathrm{rg}\,f\leq\min(\dim E,\dim F)$ si $F$ est de dimension finie.
+
 :::
 
 ::: {.proposition}
+
 Soient $E,F$ de dimension finie.
 
 1. Si $\dim E<\dim F$, il ne peut exister d'application linéaire surjective de $E$ dans $F$.
 2. Si $\dim E>\dim F$, il ne peut exister d'application linéaire injective de $E$ dans $F$.
 3. $E$ et $F$ sont **isomorphes** si et seulement si $\dim E=\dim F$.
+
 :::
 
 ::: {.remark}
+
 S'il existe un isomorphisme de $E$ dans $X$ et si $E$ est de dimension finie, alors $X$ est de dimension finie et $\dim X=\dim E$.
+
 :::
 
 ## Principe de fainéantise : le retour
 
 ::: {.theorem}
+
 Soient $E,F$ de dimension finie avec $\dim E=\dim F$, $f\in\mathcal{L}(E,F)$ et $\mathcal{B}$ une base de $E$. Les assertions suivantes sont équivalentes :
 
 1. $f$ est injective ;
@@ -129,48 +160,65 @@ Soient $E,F$ de dimension finie avec $\dim E=\dim F$, $f\in\mathcal{L}(E,F)$ et 
 4. $f(\mathcal{B})$ est libre ;
 5. $f(\mathcal{B})$ est génératrice ;
 6. $f(\mathcal{B})$ est une base.
+
 :::
 
 ::: {.example title="(Polynômes interpolateurs de Lagrange)"}
+
 Soient $n\in\mathbb{N}$ et $x_1,\ldots,x_{n+1}$ distincts dans $\mathbb{C}$. Pour tout $(n+1)$-uplet $(y_1,\ldots,y_{n+1})$, il existe $P\in\mathbb{C}_n[X]$ tel que $\forall i,\ P(x_i)=y_i$ : en effet l'application $\varphi:P\mapsto(P(x_1),\ldots,P(x_{n+1}))$ est linéaire et injective (un polynôme de degré $\leq n$ ayant $n+1$ racines est nul), donc isomorphisme puisque $\dim\mathbb{C}_n[X]=n+1=\dim\mathbb{C}^{n+1}$.
+
 :::
 
 ## Théorème du rang
 
 ::: {.theorem title="(Théorème du rang)"}
+
 Soit $E$ un $\mathbb{K}$-espace vectoriel de dimension finie, $F$ un $\mathbb{K}$-espace vectoriel et $f\in\mathcal{L}(E,F)$. Alors :
 $$\dim\ker f+\mathrm{rg}\,f=\dim E$$
+
 :::
 
 ::: {.proof}
+
 Soit $H$ un supplémentaire de $\ker f$ dans $E$ : $E=\ker f\oplus H$. L'application $\varphi:H\to\mathrm{Im}\,f,\ x\mapsto f(x)$ est linéaire ; elle est injective car $\ker\varphi=H\cap\ker f=\{0_E\}$, et surjective car si $y=f(a)$ avec $a=x+b$ ($x\in H$, $b\in\ker f$), alors $y=f(x)$. Ainsi $\dim H=\dim\mathrm{Im}\,f=\mathrm{rg}\,f$, et puisque $E=H\oplus\ker f$ : $\dim E=\dim H+\dim\ker f$.
+
 :::
 
 ::: {.example}
+
 Soit $f\in\mathcal{L}(\mathbb{R}^3)$, $f(x,y,z)=(x-2y+z,\ x-z,\ y-z)$. On a $\mathrm{Im}\,f=\mathrm{Vect}(u_1,u_2,u_3)$ avec $u_1=(1,1,0)$, $u_2=(-2,0,1)$, $u_3=(1,-1,-1)$. Or $(u_1,u_2)$ est libre et $u_1+u_2+u_3=0$, donc $\mathrm{Im}\,f=\mathrm{Vect}(u_1,u_2)$ et $\mathrm{rg}\,f=2$. D'après le théorème du rang, $\dim\ker f=1$ ; comme $f(1,1,1)=0$ : $\ker f=\mathrm{Vect}((1,1,1))$. De plus $\dim(\mathrm{Im}\,f+\ker f)=3$, donc $\mathbb{R}^3=\mathrm{Im}\,f\oplus\ker f$.
+
 :::
 
 # Hyperplans et formes linéaires
 
 ::: {.definition}
+
 Soit $E$ de dimension finie $n\in\mathbb{N}^*$. On appelle **droite** (resp. **plan**, **hyperplan**) de $E$ tout sous-espace vectoriel de dimension $1$ (resp. $2$, $n-1$). Une **forme linéaire** sur $E$ est un élément de $E^*=\mathcal{L}(E,\mathbb{K})$.
+
 :::
 
 ::: {.proposition}
+
 1. Si $\varphi\in E^*\setminus\{0\}$, alors $\ker\varphi$ est un hyperplan de $E$.
 2. Tout hyperplan $H$ de $E$ est le noyau d'une forme linéaire non nulle $\varphi$ ; les formes linéaires de noyau $H$ sont exactement les $\alpha\varphi$ avec $\alpha\in\mathbb{K}^*$.
 3. Dans une base $\mathcal{B}=(e_1,\ldots,e_n)$, les hyperplans de $E$ sont les ensembles d'équation cartésienne $\sum_{i=1}^n a_i\alpha_i=0$ avec $(a_1,\ldots,a_n)\neq(0,\ldots,0)$.
+
 :::
 
 ::: {.example}
+
 - Dans $\mathbb{K}^2$ : les hyperplans sont les droites $ax+by=0$ avec $(a,b)\neq(0,0)$.
 - Dans $\mathbb{K}^3$ : les hyperplans sont les plans $ax+by+cz=0$ avec $(a,b,c)\neq(0,0,0)$.
+
 :::
 
 ::: {.exercise title="(Exercice classique)"}
+
 Soit $E$ un $\mathbb{K}$-espace vectoriel de dimension finie. Trouver tous les endomorphismes de $E$ qui commutent avec : tous les projecteurs ; toutes les symétries ; tous les éléments de $\mathrm{GL}(E)$ ; tous les endomorphismes.
 
 **Indication :** montrer qu'un tel endomorphisme $u$ vérifie $\forall x\in E,\ u(x)\in\mathrm{Vect}(x)$ (considérer un projecteur sur $\mathrm{Vect}(x)$), donc $u$ est une homothétie $h_\lambda=\lambda\,\mathrm{Id}_E$ ; réciproquement, les homothéties commutent avec tout endomorphisme.
+
 :::
 
 # Document en PDF {-}
@@ -180,9 +228,11 @@ Soit $E$ un $\mathbb{K}$-espace vectoriel de dimension finie. Trouver tous les e
 # Navigation {-}
 
 ::: {.chap-nav}
+
 [Chapitre 12 : Espaces vectoriels et applications linéaires](mpsi-chap12.qmd){.prev}
 
 [Menu MPSI](mpsi.qmd){.home}
 
 [Chapitre 14 : Calcul matriciel](mpsi-chap14.qmd){.next}
+
 :::

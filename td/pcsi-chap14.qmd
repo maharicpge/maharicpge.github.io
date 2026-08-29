@@ -19,64 +19,87 @@ filters:
 **PCSI (1re année) — TD du Chapitre 14.** Matrice d'une application linéaire, changements de bases, matrices semblables, déterminants, comatrice, formules de Cramer, déterminant de Vandermonde.
 
 ::: {.exercise}
+
 Soit $f : \mathbb{R}^2 \to \mathbb{R}^2$, $f(x,y) = (x+y, x-y)$.
 
 1. Déterminer la matrice de $f$ dans la base canonique.
 2. Soit $\mathcal{B}' = ((1,1),(1,-1))$. Déterminer la matrice de $f$ dans $\mathcal{B}'$.
+
 :::
 
 ::: {.exercise}
+
 Calculer les déterminants :
 
 1. $\begin{vmatrix} 1 & 2 & 3 \\ 1 & 4 & 6 \\ 1 & 4 & 4 \end{vmatrix}$
 2. $\begin{vmatrix} 0 & 1 & 2 & 3 \\ 1 & 2 & 3 & 0 \\ 2 & 3 & 0 & 1 \\ 3 & 0 & 1 & 2 \end{vmatrix}$
+
 :::
 
 ::: {.exercise}
+
 Soit $A \in \mathcal{M}_n(\mathbb{R})$. Montrer que :
 
 1. $\det(A^T) = \det(A)$
 2. $\det(AB) = \det(A)\det(B)$
 3. $A$ inversible $\iff \det(A) \neq 0$
+
 :::
 
 ::: {.exercise}
+
 Résoudre par Cramer :
 $$\begin{cases} x + y + z = 6 \\ 2x - y + z = 3 \\ x + y - 2z = -1 \end{cases}$$
+
 :::
 
 ::: {.exercise}
+
 Calculer le déterminant de Vandermonde $V(a_1, a_2, a_3)$.
+
 :::
 
 **Indication :** $V = (a_2-a_1)(a_3-a_1)(a_3-a_2)$.
 
 ::: {.exercise}
+
 Soient $\mathcal{B}$ et $\mathcal{B}'$ deux bases de $E$. Montrer que $\mathrm{Mat}_{\mathcal{B}'}(f) = P^{-1}\mathrm{Mat}_{\mathcal{B}}(f)P$ où $P$ est la matrice de passage.
+
 :::
 
 ::: {.exercise}
+
 Soit $A$ une matrice antisymétrique de taille impaire. Montrer que $\det(A) = 0$.
+
 :::
 
 ::: {.exercise}
+
 Soient $v_1 = (1,2,3)$, $v_2 = (0,1,1)$, $v_3 = (1,0,1)$. Calculer $\det(v_1, v_2, v_3)$. La famille est-elle une base ?
+
 :::
 
 ::: {.exercise}
+
 Soit $A \in \mathcal{M}_n(\mathbb{R})$ inversible. Montrer que $A^{-1} = \dfrac{1}{\det(A)}\,^t\mathrm{Com}(A)$.
+
 :::
 
 ::: {.exercise}
+
 Montrer que deux matrices semblables ont même déterminant, même trace et même polynôme caractéristique.
+
 :::
 
 # Cours {-}
 [**Chapitre 14 : Matrices et déterminants**](pcsi-chap14.qmd)
 
 # Navigation {-}
+
 ::: {.chap-nav}
+
 [TD 13 : Espaces vectoriels et applications linéaires](pcsi-chap13.qmd){.prev}
 [Menu PCSI](pcsi.qmd){.home}
 [TD 15 : Espaces préhilbertiens réels](pcsi-chap15.qmd){.next}
+
 :::

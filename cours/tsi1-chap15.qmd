@@ -37,6 +37,7 @@ Dans tout ce chapitre, $\mathbb{K}$ désigne $\mathbb{R}$ ou $\mathbb{C}$, et to
 ## Matrice d'une famille de vecteurs
 
 ::: {.definition}
+
 Soient $E$ un $\mathbb{K}$-espace vectoriel de dimension $n$, $\mathcal{B} = (e_1, \ldots, e_n)$ une base de $E$, et $v_1, \ldots, v_p$ des vecteurs de $E$.
 
 Pour chaque $j \in \{1, \ldots, p\}$, le vecteur $v_j$ s'écrit de manière unique :
@@ -45,16 +46,20 @@ $$v_j = a_{1,j} e_1 + a_{2,j} e_2 + \cdots + a_{n,j} e_n$$
 La **matrice de la famille** $(v_1, \ldots, v_p)$ dans la base $\mathcal{B}$ est la matrice $A \in \mathcal{M}_{n,p}(\mathbb{K})$ dont la $j$-ème colonne est constituée des coordonnées de $v_j$ dans la base $\mathcal{B}$ :
 
 $$A = \begin{pmatrix} a_{1,1} & a_{1,2} & \cdots & a_{1,p} \\ a_{2,1} & a_{2,2} & \cdots & a_{2,p} \\ \vdots & \vdots & \ddots & \vdots \\ a_{n,1} & a_{n,2} & \cdots & a_{n,p} \end{pmatrix}$$
+
 :::
 
 ::: {.example}
+
 Dans $\mathbb{R}^3$ muni de la base canonique $\mathcal{B} = (e_1, e_2, e_3)$, la matrice de la famille $((1,2,3), (4,5,6))$ est :
 $$A = \begin{pmatrix} 1 & 4 \\ 2 & 5 \\ 3 & 6 \end{pmatrix}$$
+
 :::
 
 ## Matrice d'une application linéaire
 
 ::: {.definition}
+
 Soient $E$ et $F$ deux $\mathbb{K}$-espaces vectoriels de dimensions respectives $p$ et $n$, $\mathcal{B} = (e_1, \ldots, e_p)$ une base de $E$ et $\mathcal{B}' = (f_1, \ldots, f_n)$ une base de $F$.
 
 Soit $u : E \to F$ une application linéaire. Pour chaque $j \in \{1, \ldots, p\}$, le vecteur $u(e_j)$ s'écrit de manière unique :
@@ -62,13 +67,17 @@ $$u(e_j) = a_{1,j} f_1 + a_{2,j} f_2 + \cdots + a_{n,j} f_n$$
 
 La **matrice de l'application linéaire** $u$ par rapport aux bases $\mathcal{B}$ et $\mathcal{B}'$ est la matrice $A \in \mathcal{M}_{n,p}(\mathbb{K})$ dont la $j$-ème colonne est constituée des coordonnées de $u(e_j)$ dans la base $\mathcal{B}'$. On note :
 $$A = \mathrm{Mat}_{\mathcal{B}, \mathcal{B}'}(u)$$
+
 :::
 
 ::: {.remark}
+
 Une application linéaire entre deux espaces vectoriels de dimension finie est entièrement déterminée par l'image d'une base de l'espace de départ. La matrice $\mathrm{Mat}_{\mathcal{B}, \mathcal{B}'}(u)$ est donc la représentation matricielle complète de $u$.
+
 :::
 
 ::: {.example}
+
 Soit $u : \mathbb{R}^2 \to \mathbb{R}^3$ définie par $u(x,y) = (x+y, x-y, 2x)$.
 
 Dans les bases canoniques, on a :
@@ -76,26 +85,32 @@ $$u(e_1) = u(1,0) = (1, 1, 2), \quad u(e_2) = u(0,1) = (1, -1, 0)$$
 
 Donc :
 $$\mathrm{Mat}_{\mathcal{B}, \mathcal{B}'}(u) = \begin{pmatrix} 1 & 1 \\ 1 & -1 \\ 2 & 0 \end{pmatrix}$$
+
 :::
 
 ::: {.example}
+
 Soit $u : \mathbb{R}^3 \to \mathbb{R}^3$ définie par $u(x,y,z) = (2x+y, y-z, x+z)$.
 
 $$u(e_1) = (2, 0, 1), \quad u(e_2) = (1, 1, 0), \quad u(e_3) = (0, -1, 1)$$
 
 $$\mathrm{Mat}_{\mathcal{B}}(u) = \begin{pmatrix} 2 & 1 & 0 \\ 0 & 1 & -1 \\ 1 & 0 & 1 \end{pmatrix}$$
+
 :::
 
 ## Coordonnées de l'image d'un vecteur
 
 ::: {.proposition}
+
 Soient $E$ et $F$ deux $\mathbb{K}$-espaces vectoriels de dimensions finies, $\mathcal{B}$ une base de $E$, $\mathcal{B}'$ une base de $F$, et $u \in \mathcal{L}(E,F)$.
 
 Si $X = \mathrm{Mat}_{\mathcal{B}}(x)$ est la matrice colonne des coordonnées de $x \in E$ dans la base $\mathcal{B}$, et $A = \mathrm{Mat}_{\mathcal{B}, \mathcal{B}'}(u)$, alors :
 $$\mathrm{Mat}_{\mathcal{B}'}(u(x)) = A \cdot X$$
+
 :::
 
 ::: {.example}
+
 Reprenons l'exemple précédent avec $u(x,y) = (x+y, x-y, 2x)$ et $x = (3, 1)$.
 
 $$X = \begin{pmatrix} 3 \\ 1 \end{pmatrix}, \quad A = \begin{pmatrix} 1 & 1 \\ 1 & -1 \\ 2 & 0 \end{pmatrix}$$
@@ -103,22 +118,28 @@ $$X = \begin{pmatrix} 3 \\ 1 \end{pmatrix}, \quad A = \begin{pmatrix} 1 & 1 \\ 1
 $$AX = \begin{pmatrix} 1 & 1 \\ 1 & -1 \\ 2 & 0 \end{pmatrix} \begin{pmatrix} 3 \\ 1 \end{pmatrix} = \begin{pmatrix} 4 \\ 2 \\ 6 \end{pmatrix}$$
 
 Vérification : $u(3,1) = (3+1, 3-1, 2 \times 3) = (4, 2, 6)$. ✓
+
 :::
 
 ## Matrice d'une composée
 
 ::: {.proposition}
+
 Soient $E$, $F$, $G$ trois $\mathbb{K}$-espaces vectoriels de dimensions finies, $\mathcal{B}$ une base de $E$, $\mathcal{B}'$ une base de $F$, $\mathcal{B}''$ une base de $G$.
 
 Soient $u \in \mathcal{L}(E,F)$ et $v \in \mathcal{L}(F,G)$. Alors :
 $$\mathrm{Mat}_{\mathcal{B}, \mathcal{B}''}(v \circ u) = \mathrm{Mat}_{\mathcal{B}', \mathcal{B}''}(v) \times \mathrm{Mat}_{\mathcal{B}, \mathcal{B}'}(u)$$
+
 :::
 
 ::: {.remark}
+
 Le produit matriciel est défini de manière à correspondre à la composition des applications linéaires. L'ordre est important : la matrice de $v \circ u$ est le produit de la matrice de $v$ par la matrice de $u$, dans cet ordre.
+
 :::
 
 ::: {.example}
+
 Soient $u : \mathbb{R}^2 \to \mathbb{R}^3$ et $v : \mathbb{R}^3 \to \mathbb{R}^2$ définies par :
 $$u(x,y) = (x+y, x-y, 2x), \quad v(a,b,c) = (a+b, b+c)$$
 
@@ -128,20 +149,25 @@ $$A = \mathrm{Mat}(u) = \begin{pmatrix} 1 & 1 \\ 1 & -1 \\ 2 & 0 \end{pmatrix}, 
 $$\mathrm{Mat}(v \circ u) = BA = \begin{pmatrix} 1 & 1 & 0 \\ 0 & 1 & 1 \end{pmatrix} \begin{pmatrix} 1 & 1 \\ 1 & -1 \\ 2 & 0 \end{pmatrix} = \begin{pmatrix} 2 & 0 \\ 3 & -1 \end{pmatrix}$$
 
 Vérification : $(v \circ u)(x,y) = v(x+y, x-y, 2x) = (2x, x-y+2x) = (2x, 3x-y)$. ✓
+
 :::
 
 ## Isomorphisme entre $\mathcal{L}(E,F)$ et $\mathcal{M}_{n,p}(\mathbb{K})$
 
 ::: {.theorem}
+
 Soient $E$ et $F$ deux $\mathbb{K}$-espaces vectoriels de dimensions respectives $p$ et $n$, $\mathcal{B}$ une base de $E$ et $\mathcal{B}'$ une base de $F$.
 
 L'application :
 $$\Phi : \mathcal{L}(E,F) \to \mathcal{M}_{n,p}(\mathbb{K}), \quad u \mapsto \mathrm{Mat}_{\mathcal{B}, \mathcal{B}'}(u)$$
 est un isomorphisme de $\mathbb{K}$-espaces vectoriels.
+
 :::
 
 ::: {.corollary}
+
 $\dim(\mathcal{L}(E,F)) = \dim(E) \times \dim(F) = p \times n$.
+
 :::
 
 # Application linéaire canoniquement associée à une matrice
@@ -149,22 +175,29 @@ $\dim(\mathcal{L}(E,F)) = \dim(E) \times \dim(F) = p \times n$.
 ## Définition
 
 ::: {.definition}
+
 Soit $A \in \mathcal{M}_{n,p}(\mathbb{K})$. L'**application linéaire canoniquement associée** à $A$ est l'application :
 $$f_A : \mathbb{K}^p \to \mathbb{K}^n, \quad X \mapsto AX$$
+
 :::
 
 ::: {.proposition}
+
 $f_A$ est une application linéaire.
+
 :::
 
 ::: {.example}
+
 Soit $A = \begin{pmatrix} 1 & 2 & -1 \\ 2 & 3 & 0 \end{pmatrix}$. L'application linéaire associée est :
 $$f_A : \mathbb{K}^3 \to \mathbb{K}^2, \quad \begin{pmatrix} x_1 \\ x_2 \\ x_3 \end{pmatrix} \mapsto \begin{pmatrix} x_1 + 2x_2 - x_3 \\ 2x_1 + 3x_2 \end{pmatrix}$$
+
 :::
 
 ## Noyau et image d'une matrice
 
 ::: {.definition}
+
 Soit $A \in \mathcal{M}_{n,p}(\mathbb{K})$.
 
 - Le **noyau** de $A$, noté $\mathrm{Ker}(A)$, est le noyau de l'application linéaire $f_A$ :
@@ -172,18 +205,22 @@ $$\mathrm{Ker}(A) = \{X \in \mathbb{K}^p \mid AX = 0\}$$
 
 - L'**image** de $A$, notée $\mathrm{Im}(A)$, est l'image de $f_A$ :
 $$\mathrm{Im}(A) = \{AX \mid X \in \mathbb{K}^p\}$$
+
 :::
 
 ::: {.proposition}
+
 Soit $A \in \mathcal{M}_{n,p}(\mathbb{K})$.
 
 1. $\mathrm{Ker}(A)$ est un sous-espace vectoriel de $\mathbb{K}^p$.
 2. $\mathrm{Im}(A)$ est un sous-espace vectoriel de $\mathbb{K}^n$.
 3. Les colonnes de $A$ engendrent $\mathrm{Im}(A)$.
 4. Les lignes de $A$ donnent un système d'équations de $\mathrm{Ker}(A)$.
+
 :::
 
 ::: {.example}
+
 Soit $A = \begin{pmatrix} 1 & 2 & -1 \\ 2 & 3 & 0 \end{pmatrix}$.
 
 **Noyau** : $AX = 0$ donne :
@@ -193,20 +230,26 @@ De la deuxième équation : $x_1 = -\frac{3}{2}x_2$. En substituant dans la prem
 $$\mathrm{Ker}(A) = \mathrm{Vect}\left(\begin{pmatrix} -3 \\ 2 \\ 1 \end{pmatrix}\right)$$
 
 **Image** : Les colonnes de $A$ sont $\begin{pmatrix} 1 \\ 2 \end{pmatrix}$ et $\begin{pmatrix} 2 \\ 3 \end{pmatrix}$ et $\begin{pmatrix} -1 \\ 0 \end{pmatrix}$. Comme $\begin{pmatrix} 1 \\ 2 \end{pmatrix}$ et $\begin{pmatrix} 2 \\ 3 \end{pmatrix}$ sont libres, $\mathrm{Im}(A) = \mathbb{K}^2$.
+
 :::
 
 ## Rang d'une matrice
 
 ::: {.definition}
+
 Le **rang** d'une matrice $A \in \mathcal{M}_{n,p}(\mathbb{K})$, noté $\mathrm{rg}(A)$, est le rang de l'application linéaire $f_A$, c'est-à-dire :
 $$\mathrm{rg}(A) = \dim(\mathrm{Im}(A))$$
+
 :::
 
 ::: {.proposition}
+
 Le rang d'une matrice est égal au nombre de pivots obtenus par l'algorithme de Gauss-Jordan.
+
 :::
 
 ::: {.proposition title="(Caractérisations des matrices inversibles)"}
+
 Soit $A \in \mathcal{M}_n(\mathbb{K})$. Les assertions suivantes sont équivalentes :
 
 1. $A$ est inversible.
@@ -215,15 +258,20 @@ Soit $A \in \mathcal{M}_n(\mathbb{K})$. Les assertions suivantes sont équivalen
 4. $\mathrm{rg}(A) = n$.
 5. Le système $AX = 0$ a une unique solution $X = 0$.
 6. Pour tout $B \in \mathbb{K}^n$, le système $AX = B$ a une unique solution.
+
 :::
 
 ::: {.proposition title="(Conservation du rang)"}
+
 Le rang d'une matrice est conservé par multiplication à gauche ou à droite par une matrice inversible.
+
 :::
 
 ::: {.proposition}
+
 Une matrice et sa transposée ont le même rang :
 $$\mathrm{rg}(A) = \mathrm{rg}({}^tA)$$
+
 :::
 
 # Changements de bases
@@ -231,34 +279,43 @@ $$\mathrm{rg}(A) = \mathrm{rg}({}^tA)$$
 ## Matrice de passage
 
 ::: {.definition}
+
 Soient $E$ un $\mathbb{K}$-espace vectoriel de dimension $n$, $\mathcal{B} = (e_1, \ldots, e_n)$ et $\mathcal{B}' = (e'_1, \ldots, e'_n)$ deux bases de $E$.
 
 La **matrice de passage** de $\mathcal{B}$ à $\mathcal{B}'$, notée $P = \mathrm{Pass}_{\mathcal{B}, \mathcal{B}'}$, est la matrice de la famille $\mathcal{B}'$ dans la base $\mathcal{B}$. Autrement dit, la $j$-ème colonne de $P$ est constituée des coordonnées de $e'_j$ dans la base $\mathcal{B}$.
+
 :::
 
 ::: {.proposition}
+
 La matrice de passage $P = \mathrm{Pass}_{\mathcal{B}, \mathcal{B}'}$ est inversible, et :
 $$P^{-1} = \mathrm{Pass}_{\mathcal{B}', \mathcal{B}}$$
+
 :::
 
 ::: {.example}
+
 Dans $\mathbb{R}^2$, soient $\mathcal{B} = (e_1, e_2)$ la base canonique et $\mathcal{B}' = (e'_1, e'_2)$ avec $e'_1 = e_1 + e_2$ et $e'_2 = e_1 - e_2$.
 
 $$P = \mathrm{Pass}_{\mathcal{B}, \mathcal{B}'} = \begin{pmatrix} 1 & 1 \\ 1 & -1 \end{pmatrix}$$
 
 $$P^{-1} = \frac{1}{-2}\begin{pmatrix} -1 & -1 \\ -1 & 1 \end{pmatrix} = \begin{pmatrix} 1/2 & 1/2 \\ 1/2 & -1/2 \end{pmatrix}$$
+
 :::
 
 ## Effet d'un changement de base sur les coordonnées d'un vecteur
 
 ::: {.proposition}
+
 Soient $\mathcal{B}$ et $\mathcal{B}'$ deux bases de $E$, $P = \mathrm{Pass}_{\mathcal{B}, \mathcal{B}'}$, et $x \in E$. Si $X = \mathrm{Mat}_{\mathcal{B}}(x)$ et $X' = \mathrm{Mat}_{\mathcal{B}'}(x)$, alors :
 $$X = P \cdot X' \quad \text{et} \quad X' = P^{-1} \cdot X$$
+
 :::
 
 ## Effet d'un changement de bases sur la matrice d'une application linéaire
 
 ::: {.theorem title="(Formule de changement de bases)"}
+
 Soient $E$ et $F$ deux $\mathbb{K}$-espaces vectoriels de dimensions finies, $\mathcal{B}_E$, $\mathcal{B}'_E$ deux bases de $E$, $\mathcal{B}_F$, $\mathcal{B}'_F$ deux bases de $F$.
 
 Soit $u \in \mathcal{L}(E,F)$. On pose :
@@ -269,9 +326,11 @@ Soit $u \in \mathcal{L}(E,F)$. On pose :
 
 Alors :
 $$\boxed{B = Q^{-1} A P}$$
+
 :::
 
 ::: {.example}
+
 Soit $u : \mathbb{R}^2 \to \mathbb{R}^2$ définie par $u(x,y) = (2x+y, x-y)$.
 
 Dans la base canonique $\mathcal{B}$ :
@@ -285,13 +344,16 @@ $$B = P^{-1} A P = \begin{pmatrix} 1/2 & 1/2 \\ 1/2 & -1/2 \end{pmatrix} \begin{
 $$= \begin{pmatrix} 3/2 & 0 \\ 1/2 & 1 \end{pmatrix} \begin{pmatrix} 1 & 1 \\ 1 & -1 \end{pmatrix} = \begin{pmatrix} 3/2 & 3/2 \\ 3/2 & -1/2 \end{pmatrix}$$
 
 Vérification : $u(1,1) = (3, 0) = \frac{3}{2}(1,1) + \frac{3}{2}(1,-1)$ et $u(1,-1) = (1, 2) = \frac{3}{2}(1,1) - \frac{1}{2}(1,-1)$. ✓
+
 :::
 
 ## Cas particulier des endomorphismes
 
 ::: {.corollary title="(Formule de changement de base pour un endomorphisme)"}
+
 Soit $E$ un $\mathbb{K}$-espace vectoriel de dimension finie, $\mathcal{B}$ et $\mathcal{B}'$ deux bases de $E$, $P = \mathrm{Pass}_{\mathcal{B}, \mathcal{B}'}$, et $u \in \mathcal{L}(E)$. Si $A = \mathrm{Mat}_{\mathcal{B}}(u)$ et $B = \mathrm{Mat}_{\mathcal{B}'}(u)$, alors :
 $$\boxed{B = P^{-1} A P}$$
+
 :::
 
 # Matrices semblables
@@ -299,23 +361,30 @@ $$\boxed{B = P^{-1} A P}$$
 ## Définition
 
 ::: {.definition}
+
 Deux matrices $A, B \in \mathcal{M}_n(\mathbb{K})$ sont dites **semblables** s'il existe une matrice inversible $P \in \mathrm{GL}_n(\mathbb{K})$ telle que :
 $$B = P^{-1} A P$$
+
 :::
 
 ::: {.proposition}
+
 La relation de similitude est une relation d'équivalence sur $\mathcal{M}_n(\mathbb{K})$ :
 
 1. **Réflexivité** : $A$ est semblable à elle-même (avec $P = I_n$).
 2. **Symétrie** : Si $B = P^{-1}AP$, alors $A = PBP^{-1}$, donc $A$ est semblable à $B$.
 3. **Transitivité** : Si $B = P^{-1}AP$ et $C = Q^{-1}BQ$, alors $C = (PQ)^{-1}A(PQ)$, donc $A$ est semblable à $C$.
+
 :::
 
 ::: {.proposition title="(Interprétation)"}
+
 Deux matrices sont semblables si et seulement si elles représentent le même endomorphisme dans deux bases différentes.
+
 :::
 
 ::: {.proposition title="(Invariants par similitude)"}
+
 Si $A$ et $B$ sont semblables, alors :
 
 1. $\det(A) = \det(B)$ (si les déterminants sont définis)
@@ -323,14 +392,17 @@ Si $A$ et $B$ sont semblables, alors :
 3. $\mathrm{tr}(A) = \mathrm{tr}(B)$ (si les traces sont définies)
 4. $A$ et $B$ ont les mêmes valeurs propres
 5. $A^n$ et $B^n$ sont semblables pour tout $n \in \mathbb{N}$
+
 :::
 
 ::: {.example}
+
 Les matrices $A = \begin{pmatrix} 2 & 1 \\ 0 & 3 \end{pmatrix}$ et $B = \begin{pmatrix} 3 & 0 \\ 1 & 2 \end{pmatrix}$ sont-elles semblables ?
 
 On vérifie les invariants : $\mathrm{tr}(A) = 5 = \mathrm{tr}(B)$, $\det(A) = 6 = \det(B)$, $\mathrm{rg}(A) = 2 = \mathrm{rg}(B)$.
 
 Les valeurs propres de $A$ sont $2$ et $3$. Les valeurs propres de $B$ sont aussi $2$ et $3$. Donc $A$ et $B$ sont semblables.
+
 :::
 
 # Retour sur les systèmes linéaires
@@ -338,55 +410,67 @@ Les valeurs propres de $A$ sont $2$ et $3$. Les valeurs propres de $B$ sont auss
 ## Écriture matricielle
 
 ::: {.proposition}
+
 Le système linéaire :
 $$\begin{cases} a_{1,1}x_1 + a_{1,2}x_2 + \cdots + a_{1,p}x_p = b_1 \\ a_{2,1}x_1 + a_{2,2}x_2 + \cdots + a_{2,p}x_p = b_2 \\ \vdots \\ a_{n,1}x_1 + a_{n,2}x_2 + \cdots + a_{n,p}x_p = b_n \end{cases}$$
 s'écrit sous forme matricielle :
 $$AX = B$$
 où $A \in \mathcal{M}_{n,p}(\mathbb{K})$ est la matrice des coefficients, $X = \begin{pmatrix} x_1 \\ \vdots \\ x_p \end{pmatrix}$ et $B = \begin{pmatrix} b_1 \\ \vdots \\ b_n \end{pmatrix}$.
+
 :::
 
 ## Système homogène associé
 
 ::: {.proposition}
+
 Le système homogène associé à $AX = B$ est $AX = 0$. L'ensemble des solutions de $AX = 0$ est $\mathrm{Ker}(A)$, qui est un sous-espace vectoriel de $\mathbb{K}^p$ de dimension $p - \mathrm{rg}(A)$.
+
 :::
 
 ## Condition de compatibilité
 
 ::: {.proposition}
+
 Le système $AX = B$ est compatible si et seulement si $B \in \mathrm{Im}(A)$, c'est-à-dire si et seulement si :
 $$\mathrm{rg}(A) = \mathrm{rg}(A|B)$$
 où $(A|B)$ est la matrice augmentée.
+
 :::
 
 ## Structure de l'ensemble des solutions
 
 ::: {.proposition}
+
 Si le système $AX = B$ est compatible et si $X_0$ est une solution particulière, alors l'ensemble des solutions est :
 $$\{X_0 + Y \mid Y \in \mathrm{Ker}(A)\}$$
 
 C'est un sous-espace affine de $\mathbb{K}^p$ de dimension $p - \mathrm{rg}(A)$.
+
 :::
 
 ## Formulation du théorème du rang pour les systèmes
 
 ::: {.theorem title="(Théorème du rang pour les systèmes linéaires)"}
+
 Soit $AX = B$ un système linéaire de $n$ équations à $p$ inconnues. Alors :
 
 1. Le rang du système est $\mathrm{rg}(A)$.
 2. La dimension de l'espace des solutions du système homogène associé est $p - \mathrm{rg}(A)$.
 3. Le système est compatible si et seulement si $\mathrm{rg}(A) = \mathrm{rg}(A|B)$.
+
 :::
 
 ## Cas des systèmes carrés
 
 ::: {.proposition}
+
 Soit $A \in \mathcal{M}_n(\mathbb{K})$. Les assertions suivantes sont équivalentes :
 
 1. $A$ est inversible.
 2. $\mathrm{rg}(A) = n$.
 3. Pour tout $B \in \mathbb{K}^n$, le système $AX = B$ a une unique solution $X = A^{-1}B$.
 4. Le système $AX = 0$ a une unique solution $X = 0$.
+
 :::
 
 # Matrices élémentaires et opérations élémentaires
@@ -394,87 +478,110 @@ Soit $A \in \mathcal{M}_n(\mathbb{K})$. Les assertions suivantes sont équivalen
 ## Matrices élémentaires
 
 ::: {.definition}
+
 Les **matrices élémentaires** de $\mathcal{M}_n(\mathbb{K})$ sont les matrices obtenues à partir de $I_n$ par une seule opération élémentaire sur les lignes (ou les colonnes) :
 
 1. **Dilatation** : $E_{L_i \leftarrow \lambda L_i}$ avec $\lambda \neq 0$
 2. **Transvection** : $E_{L_i \leftarrow L_i + \lambda L_j}$ avec $i \neq j$
 3. **Échange** : $E_{L_i \leftrightarrow L_j}$ avec $i \neq j$
+
 :::
 
 ::: {.proposition}
+
 Toute matrice élémentaire est inversible.
 
 Effectuer une opération élémentaire sur les lignes d'une matrice $A$ revient à multiplier $A$ à gauche par la matrice élémentaire correspondante.
 
 Effectuer une opération élémentaire sur les colonnes de $A$ revient à multiplier $A$ à droite par la matrice élémentaire correspondante.
+
 :::
 
 ::: {.proposition title="(Conservation du rang)"}
+
 Les opérations élémentaires sur les lignes (resp. colonnes) conservent l'image (resp. le noyau) et le rang d'une matrice.
+
 :::
 
 # Exercices
 
 ::: {.exercise}
+
 Soit $u : \mathbb{R}^3 \to \mathbb{R}^2$ définie par $u(x,y,z) = (x+2y-z, 2x+3y)$.
 
 1. Déterminer la matrice de $u$ dans les bases canoniques.
 2. Calculer $\mathrm{Ker}(u)$ et $\mathrm{Im}(u)$.
 3. Vérifier le théorème du rang.
+
 :::
 
 ::: {.exercise}
+
 Soient $\mathcal{B} = (e_1, e_2, e_3)$ la base canonique de $\mathbb{R}^3$ et $\mathcal{B}' = (e'_1, e'_2, e'_3)$ avec :
 $$e'_1 = e_1 + e_2, \quad e'_2 = e_2 + e_3, \quad e'_3 = e_1 + e_3$$
 
 1. Déterminer la matrice de passage $P = \mathrm{Pass}_{\mathcal{B}, \mathcal{B}'}$.
 2. Calculer $P^{-1}$.
 3. Soit $x = 2e_1 + 3e_2 + e_3$. Déterminer les coordonnées de $x$ dans la base $\mathcal{B}'$.
+
 :::
 
 ::: {.exercise}
+
 Soit $u : \mathbb{R}^2 \to \mathbb{R}^2$ définie par $u(x,y) = (3x-y, x+y)$.
 
 1. Déterminer la matrice $A$ de $u$ dans la base canonique.
 2. Soit $\mathcal{B}' = ((1,1), (1,-1))$. Déterminer la matrice $B$ de $u$ dans la base $\mathcal{B}'$.
 3. Vérifier que $A$ et $B$ sont semblables.
+
 :::
 
 ::: {.exercise}
+
 Résoudre le système :
 $$\begin{cases} x + 2y + z = 1 \\ 2x + 3y + z = 2 \\ x + y = 1 \end{cases}$$
 
 1. Écrire le système sous forme matricielle $AX = B$.
 2. Déterminer $\mathrm{rg}(A)$ et $\mathrm{rg}(A|B)$.
 3. Le système est-il compatible ? Si oui, déterminer l'ensemble des solutions.
+
 :::
 
 ::: {.exercise}
+
 Soit $A = \begin{pmatrix} 1 & 2 & 3 \\ 2 & 4 & 6 \\ 1 & 2 & 3 \end{pmatrix}$.
 
 1. Déterminer $\mathrm{rg}(A)$.
 2. Déterminer $\mathrm{Ker}(A)$ et $\mathrm{Im}(A)$.
 3. $A$ est-elle inversible ?
+
 :::
 
 ::: {.exercise}
+
 Montrer que les matrices $A = \begin{pmatrix} 1 & 1 \\ 0 & 2 \end{pmatrix}$ et $B = \begin{pmatrix} 2 & 0 \\ 1 & 1 \end{pmatrix}$ sont semblables en déterminant explicitement une matrice de passage $P$.
+
 :::
 
 ::: {.exercise}
+
 Soit $A = \begin{pmatrix} 0 & 1 & 0 \\ 0 & 0 & 1 \\ 1 & 0 & 0 \end{pmatrix}$.
 
 1. Montrer que $A^3 = I_3$.
 2. En déduire que $A$ est inversible et calculer $A^{-1}$.
 3. Déterminer $\mathrm{Ker}(A - I_3)$ et $\mathrm{Im}(A - I_3)$.
+
 :::
 
 # Document en PDF {-}
 [Chapitre 15 : Représentations matricielles](PDF/tsi1-chap15.pdf)
 
 ## Navigation {-}
+
 ::: {.chap-nav}
+
 [Chapitre 14 : Applications linéaires](tsi1-chap14.qmd){.prev}
 [Menu TSI1](tsi1.qmd){.home}
 [Chapitre 16 : Intégration des fonctions continues sur un segment](tsi1-chap16.qmd){.next}
+
 :::

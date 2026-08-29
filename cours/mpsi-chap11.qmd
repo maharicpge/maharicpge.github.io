@@ -27,6 +27,7 @@ Une fraction rationnelle est le quotient de deux polynômes. Toute fraction rati
 # Définitions
 
 ::: {.definition}
+
 Une **fraction rationnelle** à coefficients dans $\mathbb{K}$ est une expression de la forme
 $$F=\frac{P}{Q}$$
 où $P,Q\in\mathbb{K}[X]$ sont deux polynômes et $Q\neq 0$.
@@ -34,33 +35,41 @@ où $P,Q\in\mathbb{K}[X]$ sont deux polynômes et $Q\neq 0$.
 - Les racines de $P$ sont les **zéros** de $F$ ;
 - les racines de $Q$ sont les **pôles** de $F$ ;
 - le **degré** de $F$ est défini par : $\deg(F)=\deg(P)-\deg(Q)$.
+
 :::
 
 ::: {.example}
+
 Soit $F=\frac{(X-1)X^3}{(X-2)(X+1)^2}$ :
 
 - les zéros de $F$ sont $1$ et $0$ ;
 - les pôles de $F$ sont $2$ (pôle simple) et $-1$ (pôle double) ;
 - le degré de $F$ est $1$.
+
 :::
 
 # Décomposition en éléments simples sur $\mathbb{C}$
 
 ::: {.theorem}
+
 Soit $P/Q$ une fraction rationnelle avec $P,Q\in\mathbb{C}[X]$ et $Q=(X-\alpha_1)^{k_1}\cdots(X-\alpha_r)^{k_r}$. Alors il existe une et une seule écriture :
 $$\frac{P}{Q}=E+\frac{a_{1,1}}{(X-\alpha_1)^{k_1}}+\frac{a_{1,2}}{(X-\alpha_1)^{k_1-1}}+\cdots+\frac{a_{1,k_1}}{X-\alpha_1}+\cdots+\frac{a_{r,1}}{(X-\alpha_r)^{k_r}}+\cdots+\frac{a_{r,k_r}}{X-\alpha_r}$$
+
 :::
 
 Le polynôme $E$ s'appelle la **partie polynomiale** (ou **partie entière**). Les termes $\frac{a}{(X-\alpha)^i}$ sont les **éléments simples** sur $\mathbb{C}$.
 
 ::: {.example}
+
 - Vérifier que $\frac{1}{X^2+1}=\frac{a}{X+i}+\frac{b}{X-i}$ avec $a=\frac12 i$ et $b=-\frac12 i$.
 - Vérifier que $\frac{X^4-8X^2+9X-7}{(X-2)^2(X+3)}=X+1-\frac{1}{(X-2)^2}+\frac{2}{X-2}-\frac{1}{X+3}$.
+
 :::
 
 **Méthode.** On commence par déterminer la partie polynomiale : si $\deg Q>\deg P$ alors $E(X)=0$ ; sinon on effectue la division euclidienne de $P$ par $Q$ : $P=QE+R$ donc $\frac{P}{Q}=E+\frac{R}{Q}$ avec $\deg R<\deg Q$. On factorise ensuite le dénominateur, on écrit la décomposition théorique, puis on détermine les coefficients (par identification, par multiplication par $(X-\alpha)^k$ puis évaluation, ou par valeurs particulières).
 
 ::: {.example}
+
 Décomposons $\frac{P}{Q}=\frac{X^5-2X^3+4X^2-8X+11}{X^3-3X+2}$.
 
 - **Partie polynomiale.** La division euclidienne donne $P(X)=(X^2+1)Q(X)+2X^2-5X+9$ : donc $E(X)=X^2+1$ et $\frac{P}{Q}=X^2+1+\frac{2X^2-5X+9}{Q}$.
@@ -69,11 +78,13 @@ Décomposons $\frac{P}{Q}=\frac{X^5-2X^3+4X^2-8X+11}{X^3-3X+2}$.
 - **Coefficients par identification.** En réduisant au même dénominateur : $(b+c)X^2+(a+b-2c)X+2a-2b+c=2X^2-5X+9$, d'où $b+c=2$, $a+b-2c=-5$, $2a-2b+c=9$ : l'unique solution est $a=2$, $b=-1$, $c=3$. Donc :
 $$\frac{P}{Q}=X^2+1+\frac{2}{(X-1)^2}-\frac{1}{X-1}+\frac{3}{X+2}$$
 - **Coefficients par multiplication.** Notons $\frac{P'(X)}{Q(X)}=\frac{2X^2-5X+9}{(X-1)^2(X+2)}$. Pour $a$ : $F_1(X)=(X-1)^2\frac{P'(X)}{Q(X)}=\frac{2X^2-5X+9}{X+2}$, donc $a=F_1(1)=2$. Pour $c$ : $F_2(X)=(X+2)\frac{P'(X)}{Q(X)}=\frac{2X^2-5X+9}{(X-1)^2}$, donc $c=F_2(-2)=3$. Pour $b$ : en évaluant la décomposition en $x=0$ : $\frac{9}{2}=a-b+\frac{c}{2}$, donc $b=-1$.
+
 :::
 
 # Décomposition en éléments simples sur $\mathbb{R}$
 
 ::: {.theorem}
+
 Soit $P/Q$ une fraction rationnelle avec $P,Q\in\mathbb{R}[X]$. Alors $P/Q$ s'écrit de manière unique comme somme :
 
 - d'une partie polynomiale $E(X)$ ;
@@ -81,20 +92,25 @@ Soit $P/Q$ une fraction rationnelle avec $P,Q\in\mathbb{R}[X]$. Alors $P/Q$ s'é
 - d'éléments simples du type $\frac{aX+b}{(X^2+\alpha X+\beta)^i}$ ;
 
 où les $X-\alpha$ et $X^2+\alpha X+\beta$ sont les facteurs irréductibles de $Q(X)$ et les exposants $i$ inférieurs ou égaux à la puissance correspondante dans cette factorisation.
+
 :::
 
 ::: {.example}
+
 Décomposition de $\frac{P(X)}{Q(X)}=\frac{3X^4+5X^3+11X^2+5X+3}{(X^2+X+1)^2(X-1)}$. Comme $\deg P<\deg Q$, $E(X)=0$ ; le dénominateur est déjà factorisé sur $\mathbb{R}$ car $X^2+X+1$ est irréductible. La décomposition théorique est :
 $$\frac{P(X)}{Q(X)}=\frac{aX+b}{(X^2+X+1)^2}+\frac{cX+d}{X^2+X+1}+\frac{e}{X-1}$$
 En menant les calculs au mieux, on obtient :
 $$\frac{P(X)}{Q(X)}=\frac{2X+1}{(X^2+X+1)^2}-\frac{1}{X^2+X+1}+\frac{3}{X-1}$$
+
 :::
 
 ::: {.exercise}
+
 1. Soit $Q(X)=(X-2)^2(X^2-1)^3(X^2+1)^4$. Pour $P\in\mathbb{R}[X]$, quelle est la forme théorique de la décomposition en éléments simples sur $\mathbb{C}$ ? Et sur $\mathbb{R}$ ?
 2. Décomposer en éléments simples sur $\mathbb{R}$ et $\mathbb{C}$ : $\frac{1}{X^2-1}$ ; $\frac{X^2+1}{(X-1)^2}$ ; $\frac{X}{X^3-1}$.
 3. Décomposer en éléments simples sur $\mathbb{R}$ : $\frac{X^2+X+1}{(X-1)(X+2)^2}$ ; $\frac{2X^2-X}{(X^2+2)^2}$ ; $\frac{X^6}{(X^2+1)^2}$.
 4. Soit $F(X)=\frac{2X^2+7X-20}{X+2}$. Déterminer l'équation de l'asymptote oblique en $\pm\infty$ et étudier la position du graphe de $F$ par rapport à cette droite.
+
 :::
 
 # Document en PDF {-}
@@ -104,9 +120,11 @@ $$\frac{P(X)}{Q(X)}=\frac{2X+1}{(X^2+X+1)^2}-\frac{1}{X^2+X+1}+\frac{3}{X-1}$$
 # Navigation {-}
 
 ::: {.chap-nav}
+
 [Chapitre 10 : Polynômes](mpsi-chap10.qmd){.prev}
 
 [Menu MPSI](mpsi.qmd){.home}
 
 [Chapitre 12 : Espaces vectoriels et applications linéaires](mpsi-chap12.qmd){.next}
+
 :::

@@ -19,30 +19,38 @@ filters:
 **MPSI (1re année) — TD du Chapitre 10.** Anneau $\mathbb{K}[X]$, opérations et degré, division euclidienne, pgcd et Bézout, racines et multiplicité, théorème de d'Alembert-Gauss, factorisation dans $\mathbb{C}[X]$ et $\mathbb{R}[X]$.
 
 ::: {.exercise}
+
 Soit $P(X) = 3X^3 - 2$, $Q(X) = X^2 + X - 1$, $R(X) = aX + b$.
 
 1. Calculer $P + Q$, $P \times Q$, $(P+Q) \times R$ et $P \times Q \times R$.
 2. Trouver $a$ et $b$ afin que le degré de $P - QR$ soit le plus petit possible.
+
 :::
 
 **Indication :** Développer $QR$ et identifier les coefficients dominants pour annuler les termes de plus haut degré.
 
 ::: {.exercise}
+
 Soient $P, Q \in \mathbb{K}[X]$.
 
 1. Montrer que si $\deg P \neq \deg Q$ alors $\deg(P + Q) = \max(\deg P, \deg Q)$.
 2. Donner un contre-exemple dans le cas où $\deg P = \deg Q$.
 3. Montrer que $\deg(PQ) = \deg P + \deg Q$.
+
 :::
 
 ::: {.exercise}
+
 Effectuer la division euclidienne de $A = X^4 + 2X^3 - X + 3$ par $B = X^2 + X - 1$.
+
 :::
 
 **Indication :** Diviser les termes de plus haut degré successivement.
 
 ::: {.exercise}
+
 Calculer $A \wedge B$ par l'algorithme d'Euclide, où $A = X^4 - 1$ et $B = X^3 + X^2 + X + 1$. En déduire $U, V$ tels que $AU + BV = A \wedge B$.
+
 :::
 
 **Indications :**
@@ -51,10 +59,12 @@ Calculer $A \wedge B$ par l'algorithme d'Euclide, où $A = X^4 - 1$ et $B = X^3 
 - Donc $A \wedge B = (X+1)(X^2+1) = B$.
 
 ::: {.exercise}
+
 Soit $P(X) = X^4 - 4X^3 + 5X^2 - 2X$.
 
 1. Montrer que $1$ est racine de $P$. Quelle est sa multiplicité ?
 2. Factoriser $P$ dans $\mathbb{R}[X]$ puis dans $\mathbb{C}[X]$.
+
 :::
 
 **Indications :**
@@ -62,11 +72,13 @@ Soit $P(X) = X^4 - 4X^3 + 5X^2 - 2X$.
 - Factoriser par $X(X-1)^2$ puis chercher la dernière racine.
 
 ::: {.exercise}
+
 Factoriser dans $\mathbb{C}[X]$ puis dans $\mathbb{R}[X]$ :
 
 1. $X^4 + 1$
 2. $X^6 - 1$
 3. $X^4 - 2X^2 + 4$
+
 :::
 
 **Indications :**
@@ -75,11 +87,13 @@ Factoriser dans $\mathbb{C}[X]$ puis dans $\mathbb{R}[X]$ :
 - (3) Poser $Y = X^2$ et résoudre $Y^2 - 2Y + 4 = 0$ dans $\mathbb{C}$.
 
 ::: {.exercise}
+
 Décomposer en éléments simples sur $\mathbb{R}$ puis sur $\mathbb{C}$ :
 
 1. $\frac{1}{X^2 - 1}$
 2. $\frac{X}{(X^2+1)^2}$
 3. $\frac{X^3 + 1}{X^2(X-1)}$
+
 :::
 
 **Indications :**
@@ -88,11 +102,13 @@ Décomposer en éléments simples sur $\mathbb{R}$ puis sur $\mathbb{C}$ :
 - (3) D'abord effectuer la division euclidienne (partie entière).
 
 ::: {.exercise}
+
 Soit $P(X) = X^3 - 6X^2 + 11X - 6$.
 
 1. Vérifier que $1$ est racine. Factoriser $P$.
 2. Vérifier les relations de Viète.
 3. Calculer $r_1^2 + r_2^2 + r_3^2$ où $r_1, r_2, r_3$ sont les racines.
+
 :::
 
 **Indications :**
@@ -100,7 +116,9 @@ Soit $P(X) = X^3 - 6X^2 + 11X - 6$.
 - (3) $r_1^2 + r_2^2 + r_3^2 = (r_1+r_2+r_3)^2 - 2(r_1r_2 + r_1r_3 + r_2r_3)$.
 
 ::: {.exercise}
+
 Soit $P \in \mathbb{R}[X]$ tel que $P(x) \geq 0$ pour tout $x \in \mathbb{R}$. Montrer que $P$ est une somme de deux carrés de polynômes de $\mathbb{R}[X]$.
+
 :::
 
 **Indications :**
@@ -110,16 +128,20 @@ Soit $P \in \mathbb{R}[X]$ tel que $P(x) \geq 0$ pour tout $x \in \mathbb{R}$. M
 - Regrouper les facteurs pour obtenir $P = A^2 + B^2$.
 
 ::: {.exercise}
+
 Soit $n \in \mathbb{N}^*$. Montrer que le polynôme $P_n(X) = \sum_{k=0}^n \frac{X^k}{k!}$ n'a pas de racine multiple.
+
 :::
 
 **Indication :** Calculer $P_n'(X) = P_{n-1}(X)$ et montrer que $P_n$ et $P_n'$ n'ont pas de racine commune.
 
 ::: {.exercise}
+
 Soit $F(X) = \frac{2X^2 + 7X - 20}{X + 2}$.
 
 1. Déterminer l'équation de l'asymptote oblique en $\pm\infty$.
 2. Étudier la position du graphe de $F$ par rapport à cette droite.
+
 :::
 
 **Indication :** Effectuer la division euclidienne de $2X^2 + 7X - 20$ par $X + 2$.
@@ -128,8 +150,11 @@ Soit $F(X) = \frac{2X^2 + 7X - 20}{X + 2}$.
 [Chapitre 10 : Polynômes](../cours/mpsi-chap10.qmd)
 
 # Navigation {-}
+
 ::: {.chap-nav}
+
 [Chapitre 09 : Arithmétique dans ℤ](mpsi-chap09.qmd){.prev}
 [Menu MPSI](mpsi.qmd){.home}
 [Chapitre 11 : Fractions rationnelles](mpsi-chap11.qmd){.next}
+
 :::

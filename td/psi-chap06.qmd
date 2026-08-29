@@ -19,54 +19,77 @@ filters:
 **PSI (2e année) — TD du Chapitre 06.** Compléments sur les séries numériques (comparaison série-intégrale, produit de Cauchy), modes de convergence (simple, uniforme, normale), stabilité des propriétés par passage à la limite.
 
 ::: {.exercise}
+
 Soit $f : [0, +\infty[ \to \mathbb{R}$ continue, positive et décroissante. Montrer que :
 $$\int_0^{+\infty} f(t)\, dt \text{ converge} \iff \sum_{n=0}^{+\infty} f(n) \text{ converge}$$
+
 :::
 
 ::: {.exercise}
+
 Soient $\sum a_n$ et $\sum b_n$ deux séries absolument convergentes. Montrer que le produit de Cauchy $\sum c_n$ avec $c_n = \sum_{k=0}^n a_k b_{n-k}$ est absolument convergent et :
 $$\sum_{n=0}^{+\infty} c_n = \left(\sum_{n=0}^{+\infty} a_n\right)\left(\sum_{n=0}^{+\infty} b_n\right)$$
+
 :::
 
 ::: {.exercise}
+
 Étudier la convergence simple et uniforme de la suite $(f_n)$ définie sur $[0,1]$ par $f_n(x) = x^n$.
+
 :::
 
 ::: {.exercise}
+
 Étudier la convergence simple et uniforme de la suite $(f_n)$ définie sur $\mathbb{R}^+$ par $f_n(x) = \dfrac{x}{1+nx}$.
+
 :::
 
 ::: {.exercise}
+
 Soit $(f_n)$ une suite de fonctions continues convergeant uniformément vers $f$. Montrer que $f$ est continue.
+
 :::
 
 ::: {.exercise}
+
 Soit $\sum u_n$ une série de fonctions convergeant normalement sur $X$. Montrer qu'elle converge uniformément sur $X$.
+
 :::
 
 ::: {.exercise}
+
 Soit $(f_n)$ une suite de fonctions de classe $\mathcal{C}^1$ sur $I$ telle que $(f_n(x_0))$ converge pour un $x_0 \in I$ et $(f_n')$ converge uniformément sur tout segment. Montrer que $(f_n)$ converge uniformément sur tout segment vers une fonction $f$ de classe $\mathcal{C}^1$ avec $f' = \lim f_n'$.
+
 :::
 
 ::: {.exercise}
+
 Soit $\sum u_n$ une série de fonctions convergeant uniformément sur $[a,b]$ avec chaque $u_n$ continue. Montrer que :
 $$\int_a^b \sum_{n=0}^{+\infty} u_n(x)\, dx = \sum_{n=0}^{+\infty} \int_a^b u_n(x)\, dx$$
+
 :::
 
 ::: {.exercise}
+
 Étudier la convergence de la série $\sum_{n=1}^{+\infty} \dfrac{x^n}{n}$ sur $[0, r]$ avec $0 < r < 1$.
+
 :::
 
 ::: {.exercise}
+
 Montrer que la série $\sum_{n=0}^{+\infty} \dfrac{x^n}{n!}$ converge normalement sur tout segment de $\mathbb{R}$. En déduire que sa somme est de classe $\mathcal{C}^\infty$.
+
 :::
 
 # Cours {-}
 [**Chapitre 06 : Compléments sur les séries numériques. Suites et séries de fonctions**](../cours/psi-chap06.qmd)
 
 # Navigation {-}
+
 ::: {.chap-nav}
+
 [TD 05 : Fonctions vectorielles](psi-chap05.qmd){.prev}
 [Menu PSI](psi.qmd){.home}
 [TD 07 : Séries entières](psi-chap07.qmd){.next}
+
 :::

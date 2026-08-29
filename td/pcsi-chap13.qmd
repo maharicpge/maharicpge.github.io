@@ -19,67 +19,90 @@ filters:
 **PCSI (1re année) — TD du Chapitre 13.** EV, sous-espaces vectoriels, familles libres et génératrices, bases, dimension finie, applications linéaires, théorème du rang, formes linéaires, hyperplans.
 
 ::: {.exercise}
+
 Montrer que les ensembles suivants sont des sous-espaces vectoriels :
 
 1. $F = \{(x,y,z) \in \mathbb{R}^3 \mid x + 2y - z = 0\}$
 2. $G = \{P \in \mathbb{R}[X] \mid P(0) = P(1)\}$
+
 :::
 
 ::: {.exercise}
+
 Soient $F = \mathrm{Vect}(e_1, e_2)$ et $G = \mathrm{Vect}(e_2, e_3)$ dans $\mathbb{R}^3$.
 
 1. Déterminer $F \cap G$ et $F + G$.
 2. La somme est-elle directe ?
+
 :::
 
 ::: {.exercise}
+
 Montrer que $(e_1, e_2, e_3)$ avec $e_1 = (1,1,0)$, $e_2 = (0,1,1)$, $e_3 = (1,0,1)$ est une base de $\mathbb{R}^3$.
+
 :::
 
 ::: {.exercise}
+
 Soit $f : \mathbb{R}^3 \to \mathbb{R}^2$, $f(x,y,z) = (x+y, y-z)$.
 
 1. Montrer que $f$ est linéaire.
 2. Déterminer $\ker f$ et $\mathrm{Im}(f)$.
 3. Vérifier le théorème du rang.
+
 :::
 
 ::: {.exercise}
+
 Soit $f : E \to F$ linéaire. Montrer que :
 
 1. $f$ injective $\iff \ker f = \{0\}$
 2. $f$ surjective $\iff \mathrm{Im}(f) = F$
+
 :::
 
 ::: {.exercise}
+
 Soit $f : \mathbb{R}_2[X] \to \mathbb{R}_2[X]$, $f(P) = P + (1-X)P'$.
 
 1. Montrer que $f$ est linéaire.
 2. Déterminer $\ker f$ et $\mathrm{Im}(f)$.
+
 :::
 
 ::: {.exercise}
+
 Soit $p \in \mathcal{L}(E)$ avec $p^2 = p$. Montrer que $E = \mathrm{Im}(p) \oplus \ker(p)$.
+
 :::
 
 ::: {.exercise}
+
 Soit $E$ de dimension $n$ et $f \in \mathcal{L}(E)$. Montrer que $f$ injective $\iff$ $f$ surjective $\iff$ $f$ bijective.
+
 :::
 
 ::: {.exercise}
+
 Déterminer une base et la dimension de $\{P \in \mathbb{R}_3[X] \mid P(1) = 0\}$.
+
 :::
 
 ::: {.exercise}
+
 Soit $\varphi : \mathbb{R}^3 \to \mathbb{R}$ définie par $\varphi(x,y,z) = x + 2y - z$. Montrer que $\varphi$ est une forme linéaire et déterminer $\ker \varphi$ (hyperplan).
+
 :::
 
 # Cours {-}
 [**Chapitre 13 : Espaces vectoriels et applications linéaires**](pcsi-chap13.qmd)
 
 # Navigation {-}
+
 ::: {.chap-nav}
+
 [TD 12 : Développements limités](pcsi-chap12.qmd){.prev}
 [Menu PCSI](pcsi.qmd){.home}
 [TD 14 : Matrices et déterminants](pcsi-chap14.qmd){.next}
+
 :::
