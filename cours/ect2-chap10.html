@@ -8,7 +8,7 @@
 
 <meta name="author" content="Saîd MAHARI">
 
-<title>TD — Couples de variables aléatoires discrètes finies – Mathématiques en CPGE</title>
+<title>Convergences et approximations – Mathématiques en CPGE</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -266,8 +266,22 @@ window.Quarto = {
     <h2 id="toc-title">Sur cette page</h2>
    
   <ul>
-  <li><a href="#cours" id="toc-cours" class="nav-link active" data-scroll-target="#cours">Cours</a></li>
+  <li><a href="#inégalités" id="toc-inégalités" class="nav-link active" data-scroll-target="#inégalités"><span class="header-section-number">1</span> Inégalités</a>
+  <ul class="collapse">
+  <li><a href="#inégalité-de-markov" id="toc-inégalité-de-markov" class="nav-link" data-scroll-target="#inégalité-de-markov"><span class="header-section-number">1.1</span> Inégalité de Markov</a></li>
+  <li><a href="#inégalité-de-bienaymé-tchebychev" id="toc-inégalité-de-bienaymé-tchebychev" class="nav-link" data-scroll-target="#inégalité-de-bienaymé-tchebychev"><span class="header-section-number">1.2</span> Inégalité de Bienaymé-Tchebychev</a></li>
+  </ul></li>
+  <li><a href="#suites-de-variables-aléatoires" id="toc-suites-de-variables-aléatoires" class="nav-link" data-scroll-target="#suites-de-variables-aléatoires"><span class="header-section-number">2</span> Suites de variables aléatoires</a>
+  <ul class="collapse">
+  <li><a href="#convergence-en-probabilité" id="toc-convergence-en-probabilité" class="nav-link" data-scroll-target="#convergence-en-probabilité"><span class="header-section-number">2.1</span> Convergence en probabilité</a></li>
+  <li><a href="#convergence-en-loi" id="toc-convergence-en-loi" class="nav-link" data-scroll-target="#convergence-en-loi"><span class="header-section-number">2.2</span> Convergence en loi</a></li>
+  </ul></li>
+  <li><a href="#loi-faible-des-grands-nombres" id="toc-loi-faible-des-grands-nombres" class="nav-link" data-scroll-target="#loi-faible-des-grands-nombres"><span class="header-section-number">3</span> Loi faible des grands nombres</a></li>
+  <li><a href="#exercices" id="toc-exercices" class="nav-link" data-scroll-target="#exercices"><span class="header-section-number">4</span> Exercices</a></li>
+  <li><a href="#document-en-pdf" id="toc-document-en-pdf" class="nav-link" data-scroll-target="#document-en-pdf">Document en PDF</a>
+  <ul class="collapse">
   <li><a href="#navigation" id="toc-navigation" class="nav-link" data-scroll-target="#navigation">Navigation</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -276,8 +290,8 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">TD — Couples de variables aléatoires discrètes finies</h1>
-<p class="subtitle lead">Chapitre 04</p>
+<h1 class="title">Convergences et approximations</h1>
+<p class="subtitle lead">Chapitre 10</p>
 </div>
 
 
@@ -306,223 +320,152 @@ window.Quarto = {
 </header>
 
 
-<p><strong>ECT2 (2e année) — TD du Chapitre 04.</strong> Lois marginales, lois conditionnelles, indépendance, covariance, coefficient de corrélation linéaire.</p>
-<div class="custom-numbered-block custom-exercise">
-<p><strong>Exercice 1</strong></p>
-<p>On lance deux dés équilibrés. Soit <span class="math inline">X</span> le résultat du premier dé et <span class="math inline">Y</span> le résultat du second dé.</p>
-<ol type="1">
-<li>Donner la loi conjointe de <span class="math inline">(X, Y)</span>.</li>
-<li>Donner les lois marginales de <span class="math inline">X</span> et <span class="math inline">Y</span>.</li>
-<li><span class="math inline">X</span> et <span class="math inline">Y</span> sont-elles indépendantes ?</li>
-<li>Calculer <span class="math inline">E(X)</span>, <span class="math inline">E(Y)</span>, <span class="math inline">V(X)</span>, <span class="math inline">V(Y)</span> et <span class="math inline">\operatorname{Cov}(X, Y)</span>.</li>
-</ol>
+<p><strong>ECT2 (2e année) — Chapitre 10.</strong> Inégalités de Markov et de Bienaymé-Tchebychev, suites de variables aléatoires, loi faible des grands nombres.</p>
+<p>Ce chapitre a été réalisé conformément au programme marocain de mathématiques de la filière ECT.</p>
+<section id="inégalités" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Inégalités</h1>
+<section id="inégalité-de-markov" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="inégalité-de-markov"><span class="header-section-number">1.1</span> Inégalité de Markov</h2>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 1.1 — (Inégalité de Markov)</strong></p>
+<p>Soit <span class="math inline">X</span> une variable aléatoire positive admettant une espérance. Alors pour tout <span class="math inline">a &gt; 0</span> : <span class="math display">P(X \geq a) \leq \frac{E(X)}{a}</span></p>
 </div>
-<div class="custom-numbered-block custom-exercise">
-<p><strong>Exercice 2</strong></p>
-<p>On lance une pièce équilibrée deux fois. Soit <span class="math inline">X</span> le nombre de « pile » obtenus et <span class="math inline">Y</span> le nombre de « face » obtenus.</p>
-<ol type="1">
-<li>Donner la loi conjointe de <span class="math inline">(X, Y)</span>.</li>
-<li>Donner les lois marginales de <span class="math inline">X</span> et <span class="math inline">Y</span>.</li>
-<li><span class="math inline">X</span> et <span class="math inline">Y</span> sont-elles indépendantes ?</li>
-<li>Calculer <span class="math inline">E(X)</span>, <span class="math inline">E(Y)</span>, <span class="math inline">V(X)</span>, <span class="math inline">V(Y)</span>, <span class="math inline">\operatorname{Cov}(X, Y)</span> et <span class="math inline">\rho(X, Y)</span>.</li>
-</ol>
+<div class="proof">
+<p><span class="proof-title"><em>Preuve</em>. </span>On a <span class="math inline">X \geq a \cdot \mathbb{1}_{(X \geq a)}</span>. Par croissance de l’espérance : <span class="math display">E(X) \geq a \cdot E(\mathbb{1}_{(X \geq a)}) = a \cdot P(X \geq a)</span></p>
 </div>
-<div class="custom-numbered-block custom-exercise">
-<p><strong>Exercice 3</strong></p>
-<p>On considère le tableau de loi conjointe suivant :</p>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th><span class="math inline">X \setminus Y</span></th>
-<th><span class="math inline">0</span></th>
-<th><span class="math inline">1</span></th>
-<th><span class="math inline">2</span></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><span class="math inline">0</span></td>
-<td><span class="math inline">0{,}1</span></td>
-<td><span class="math inline">0{,}2</span></td>
-<td><span class="math inline">0{,}1</span></td>
-</tr>
-<tr class="even">
-<td><span class="math inline">1</span></td>
-<td><span class="math inline">0{,}1</span></td>
-<td><span class="math inline">0{,}1</span></td>
-<td><span class="math inline">0{,}2</span></td>
-</tr>
-</tbody>
-</table>
-<ol type="1">
-<li>Vérifier que ce tableau définit bien une loi de probabilité.</li>
-<li>Donner les lois marginales de <span class="math inline">X</span> et <span class="math inline">Y</span>.</li>
-<li><span class="math inline">X</span> et <span class="math inline">Y</span> sont-elles indépendantes ?</li>
-<li>Calculer <span class="math inline">E(X)</span>, <span class="math inline">E(Y)</span>, <span class="math inline">V(X)</span>, <span class="math inline">V(Y)</span>, <span class="math inline">\operatorname{Cov}(X, Y)</span> et <span class="math inline">\rho(X, Y)</span>.</li>
-</ol>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 1.1</strong></p>
+<p>Si <span class="math inline">E(X) = 10</span>, alors <span class="math inline">P(X \geq 20) \leq \frac{10}{20} = \frac{1}{2}</span>.</p>
 </div>
-<div class="custom-numbered-block custom-exercise">
-<p><strong>Exercice 4</strong></p>
-<p>On considère le tableau de loi conjointe suivant :</p>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th><span class="math inline">X \setminus Y</span></th>
-<th><span class="math inline">0</span></th>
-<th><span class="math inline">1</span></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><span class="math inline">0</span></td>
-<td><span class="math inline">a</span></td>
-<td><span class="math inline">b</span></td>
-</tr>
-<tr class="even">
-<td><span class="math inline">1</span></td>
-<td><span class="math inline">c</span></td>
-<td><span class="math inline">d</span></td>
-</tr>
-</tbody>
-</table>
-<ol type="1">
-<li>Quelle condition sur <span class="math inline">a</span>, <span class="math inline">b</span>, <span class="math inline">c</span>, <span class="math inline">d</span> pour que ce tableau définisse une loi de probabilité ?</li>
-<li>Quelle condition supplémentaire pour que <span class="math inline">X</span> et <span class="math inline">Y</span> soient indépendantes ?</li>
-</ol>
-</div>
-<div class="custom-numbered-block custom-exercise">
-<p><strong>Exercice 5</strong></p>
-<p>On lance trois pièces équilibrées. Soit <span class="math inline">X</span> le nombre de « pile » et <span class="math inline">Y</span> le nombre de « face ».</p>
-<ol type="1">
-<li>Donner la loi conjointe de <span class="math inline">(X, Y)</span>.</li>
-<li>Donner les lois marginales de <span class="math inline">X</span> et <span class="math inline">Y</span>.</li>
-<li><span class="math inline">X</span> et <span class="math inline">Y</span> sont-elles indépendantes ? Justifier.</li>
-<li>Calculer <span class="math inline">E(X)</span>, <span class="math inline">E(Y)</span>, <span class="math inline">V(X)</span>, <span class="math inline">V(Y)</span>, <span class="math inline">\operatorname{Cov}(X, Y)</span>.</li>
-</ol>
-</div>
-<div class="custom-numbered-block custom-exercise">
-<p><strong>Exercice 6</strong></p>
-<p>On tire une boule dans une urne contenant 3 boules rouges et 2 boules vertes, puis une seconde boule sans remise. Soit <span class="math inline">X</span> l’indicateur de « la première boule est rouge » et <span class="math inline">Y</span> l’indicateur de « la seconde boule est rouge ».</p>
-<ol type="1">
-<li>Donner la loi conjointe de <span class="math inline">(X, Y)</span>.</li>
-<li>Donner les lois marginales de <span class="math inline">X</span> et <span class="math inline">Y</span>.</li>
-<li><span class="math inline">X</span> et <span class="math inline">Y</span> sont-elles indépendantes ?</li>
-<li>Calculer <span class="math inline">E(X)</span>, <span class="math inline">E(Y)</span>, <span class="math inline">\operatorname{Cov}(X, Y)</span>.</li>
-</ol>
-</div>
-<div class="custom-numbered-block custom-exercise">
-<p><strong>Exercice 7</strong></p>
-<p>Soit <span class="math inline">(X, Y)</span> un couple de variables aléatoires tel que :</p>
-<ul>
-<li><span class="math inline">X</span> suit une loi de Bernoulli de paramètre <span class="math inline">\frac{1}{2}</span></li>
-<li><span class="math inline">Y</span> suit une loi de Bernoulli de paramètre <span class="math inline">\frac{1}{2}</span></li>
-<li><span class="math inline">P(X = 0, Y = 0) = \frac{1}{3}</span></li>
-</ul>
-<ol type="1">
-<li>Donner la loi conjointe de <span class="math inline">(X, Y)</span>.</li>
-<li><span class="math inline">X</span> et <span class="math inline">Y</span> sont-elles indépendantes ?</li>
-<li>Calculer <span class="math inline">\operatorname{Cov}(X, Y)</span> et <span class="math inline">\rho(X, Y)</span>.</li>
-</ol>
-</div>
-<div class="custom-numbered-block custom-exercise">
-<p><strong>Exercice 8</strong></p>
-<p>On lance un dé équilibré. Soit <span class="math inline">X</span> le résultat obtenu et <span class="math inline">Y</span> l’indicateur de « le résultat est pair ».</p>
-<ol type="1">
-<li>Donner la loi conjointe de <span class="math inline">(X, Y)</span>.</li>
-<li>Donner les lois marginales de <span class="math inline">X</span> et <span class="math inline">Y</span>.</li>
-<li><span class="math inline">X</span> et <span class="math inline">Y</span> sont-elles indépendantes ?</li>
-<li>Calculer <span class="math inline">\operatorname{Cov}(X, Y)</span>.</li>
-</ol>
-</div>
-<div class="custom-numbered-block custom-exercise">
-<p><strong>Exercice 9</strong></p>
-<p>On considère le tableau de loi conjointe suivant :</p>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th><span class="math inline">X \setminus Y</span></th>
-<th><span class="math inline">-1</span></th>
-<th><span class="math inline">0</span></th>
-<th><span class="math inline">1</span></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><span class="math inline">-1</span></td>
-<td><span class="math inline">\frac{1}{8}</span></td>
-<td><span class="math inline">0</span></td>
-<td><span class="math inline">\frac{1}{8}</span></td>
-</tr>
-<tr class="even">
-<td><span class="math inline">0</span></td>
-<td><span class="math inline">0</span></td>
-<td><span class="math inline">\frac{1}{4}</span></td>
-<td><span class="math inline">0</span></td>
-</tr>
-<tr class="odd">
-<td><span class="math inline">1</span></td>
-<td><span class="math inline">\frac{1}{8}</span></td>
-<td><span class="math inline">0</span></td>
-<td><span class="math inline">\frac{1}{8}</span></td>
-</tr>
-</tbody>
-</table>
-<ol type="1">
-<li>Vérifier que ce tableau définit une loi de probabilité.</li>
-<li>Donner les lois marginales de <span class="math inline">X</span> et <span class="math inline">Y</span>.</li>
-<li><span class="math inline">X</span> et <span class="math inline">Y</span> sont-elles indépendantes ?</li>
-<li>Calculer <span class="math inline">E(X)</span>, <span class="math inline">E(Y)</span>, <span class="math inline">V(X)</span>, <span class="math inline">V(Y)</span>, <span class="math inline">\operatorname{Cov}(X, Y)</span> et <span class="math inline">\rho(X, Y)</span>.</li>
-</ol>
-</div>
-<div class="custom-numbered-block custom-exercise">
-<p><strong>Exercice 10</strong></p>
-<p>On lance deux pièces équilibrées. Soit <span class="math inline">X</span> le nombre de « pile » et <span class="math inline">Y</span> l’indicateur de « les deux pièces donnent le même résultat ».</p>
-<ol type="1">
-<li>Donner la loi conjointe de <span class="math inline">(X, Y)</span>.</li>
-<li>Donner les lois marginales de <span class="math inline">X</span> et <span class="math inline">Y</span>.</li>
-<li><span class="math inline">X</span> et <span class="math inline">Y</span> sont-elles indépendantes ?</li>
-<li>Calculer <span class="math inline">\operatorname{Cov}(X, Y)</span> et <span class="math inline">\rho(X, Y)</span>.</li>
-</ol>
-</div>
-<div class="custom-numbered-block custom-exercise">
-<p><strong>Exercice 11</strong></p>
-<p>On considère deux variables aléatoires <span class="math inline">X</span> et <span class="math inline">Y</span> telles que <span class="math inline">E(X) = 2</span>, <span class="math inline">E(Y) = 3</span>, <span class="math inline">V(X) = 4</span>, <span class="math inline">V(Y) = 9</span> et <span class="math inline">\operatorname{Cov}(X, Y) = 3</span>.</p>
-<ol type="1">
-<li>Calculer <span class="math inline">\rho(X, Y)</span>.</li>
-<li>Calculer <span class="math inline">V(X + Y)</span> et <span class="math inline">V(X - Y)</span>.</li>
-<li>Calculer <span class="math inline">V(2X + 3Y)</span>.</li>
-<li><span class="math inline">X</span> et <span class="math inline">Y</span> sont-elles indépendantes ? Justifier.</li>
-</ol>
-</div>
-<div class="custom-numbered-block custom-exercise">
-<p><strong>Exercice 12</strong></p>
-<p>On lance un dé équilibré deux fois. Soit <span class="math inline">X</span> la somme des deux résultats et <span class="math inline">Y</span> la valeur absolue de la différence des deux résultats.</p>
-<ol type="1">
-<li>Donner les lois marginales de <span class="math inline">X</span> et <span class="math inline">Y</span>.</li>
-<li><span class="math inline">X</span> et <span class="math inline">Y</span> sont-elles indépendantes ?</li>
-<li>Calculer <span class="math inline">E(X)</span>, <span class="math inline">E(Y)</span>, <span class="math inline">\operatorname{Cov}(X, Y)</span>.</li>
-</ol>
-</div>
-<div class="custom-numbered-block custom-exercise">
-<p><strong>Exercice 13</strong></p>
-<p>On tire deux boules dans une urne contenant 2 boules rouges et 3 boules vertes, avec remise. Soit <span class="math inline">X</span> l’indicateur de « la première boule est rouge » et <span class="math inline">Y</span> l’indicateur de « la seconde boule est rouge ».</p>
-<ol type="1">
-<li>Donner la loi conjointe de <span class="math inline">(X, Y)</span>.</li>
-<li><span class="math inline">X</span> et <span class="math inline">Y</span> sont-elles indépendantes ?</li>
-<li>Calculer <span class="math inline">E(X)</span>, <span class="math inline">E(Y)</span>, <span class="math inline">\operatorname{Cov}(X, Y)</span>.</li>
-</ol>
-</div>
-<section id="cours" class="level1 unnumbered">
-<h1 class="unnumbered">Cours</h1>
-<p><a href="../cours/ect2-chap04.html"><strong>Chapitre 04 : Couples de variables aléatoires discrètes finies</strong></a></p>
 </section>
-<section id="navigation" class="level1 unnumbered">
-<h1 class="unnumbered">Navigation</h1>
+<section id="inégalité-de-bienaymé-tchebychev" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="inégalité-de-bienaymé-tchebychev"><span class="header-section-number">1.2</span> Inégalité de Bienaymé-Tchebychev</h2>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 1.2 — (Inégalité de Bienaymé-Tchebychev)</strong></p>
+<p>Soit <span class="math inline">X</span> une variable aléatoire admettant un moment d’ordre 2. Alors pour tout <span class="math inline">\varepsilon &gt; 0</span> : <span class="math display">P(|X - E(X)| \geq \varepsilon) \leq \frac{V(X)}{\varepsilon^2}</span></p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Preuve</em>. </span>On applique l’inégalité de Markov à <span class="math inline">(X - E(X))^2</span> : <span class="math display">P(|X - E(X)| \geq \varepsilon) = P((X - E(X))^2 \geq \varepsilon^2) \leq \frac{E((X - E(X))^2)}{\varepsilon^2} = \frac{V(X)}{\varepsilon^2}</span></p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 1.2</strong></p>
+<p>Si <span class="math inline">E(X) = 10</span> et <span class="math inline">V(X) = 4</span>, alors <span class="math inline">P(|X - 10| \geq 6) \leq \frac{4}{36} = \frac{1}{9}</span>.</p>
+</div>
+</section>
+</section>
+<section id="suites-de-variables-aléatoires" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> Suites de variables aléatoires</h1>
+<section id="convergence-en-probabilité" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="convergence-en-probabilité"><span class="header-section-number">2.1</span> Convergence en probabilité</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 2.1 — (Convergence en probabilité)</strong></p>
+<p>Soit <span class="math inline">(X_n)_{n \geq 1}</span> une suite de variables aléatoires et <span class="math inline">X</span> une variable aléatoire. On dit que <span class="math inline">(X_n)</span> <strong>converge en probabilité</strong> vers <span class="math inline">X</span>, noté <span class="math inline">X_n \xrightarrow{P} X</span>, si : <span class="math display">\forall \varepsilon &gt; 0, \quad P(|X_n - X| \geq \varepsilon) \xrightarrow{n \to +\infty} 0</span></p>
+</div>
+</section>
+<section id="convergence-en-loi" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="convergence-en-loi"><span class="header-section-number">2.2</span> Convergence en loi</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 2.2 — (Convergence en loi)</strong></p>
+<p>Soit <span class="math inline">(X_n)_{n \geq 1}</span> une suite de variables aléatoires et <span class="math inline">X</span> une variable aléatoire. On dit que <span class="math inline">(X_n)</span> <strong>converge en loi</strong> vers <span class="math inline">X</span>, noté <span class="math inline">X_n \xrightarrow{\mathcal{L}} X</span>, si : <span class="math display">\forall x \in \mathbb{R} \text{ point de continuité de } F_X, \quad F_{X_n}(x) \xrightarrow{n \to +\infty} F_X(x)</span></p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 2.1</strong></p>
+<p>La convergence en probabilité implique la convergence en loi.</p>
+</div>
+</section>
+</section>
+<section id="loi-faible-des-grands-nombres" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Loi faible des grands nombres</h1>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 3.1 — (Loi faible des grands nombres)</strong></p>
+<p>Soit <span class="math inline">(X_n)_{n \geq 1}</span> une suite de variables aléatoires mutuellement indépendantes, de même loi, admettant un moment d’ordre 2. Notons <span class="math inline">\mu = E(X_1)</span> et <span class="math inline">\sigma^2 = V(X_1)</span>. Alors : <span class="math display">\overline{X}_n = \frac{1}{n} \sum_{k=1}^n X_k \xrightarrow{P} \mu</span></p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Preuve</em>. </span>Par indépendance et même loi : <span class="math display">E(\overline{X}_n) = \mu, \quad V(\overline{X}_n) = \frac{\sigma^2}{n}</span> Par l’inégalité de Bienaymé-Tchebychev : <span class="math display">P(|\overline{X}_n - \mu| \geq \varepsilon) \leq \frac{\sigma^2}{n \varepsilon^2} \xrightarrow{n \to +\infty} 0</span></p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 3.1 — (Interprétation)</strong></p>
+<p>La loi faible des grands nombres justifie l’approche fréquentiste de la probabilité : si l’on répète <span class="math inline">n</span> fois une expérience aléatoire, la fréquence d’apparition d’un événement converge en probabilité vers sa probabilité.</p>
+</div>
+</section>
+<section id="exercices" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> Exercices</h1>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 4.1</strong></p>
+<p>Soit <span class="math inline">X</span> une variable aléatoire positive avec <span class="math inline">E(X) = 10</span>.</p>
+<ol type="1">
+<li>Majorer <span class="math inline">P(X \geq 20)</span>.</li>
+<li>Majorer <span class="math inline">P(X \geq 40)</span>.</li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 4.2</strong></p>
+<p>Soit <span class="math inline">X</span> une variable aléatoire avec <span class="math inline">E(X) = 10</span> et <span class="math inline">V(X) = 4</span>.</p>
+<ol type="1">
+<li>Majorer <span class="math inline">P(|X - 10| \geq 2)</span>.</li>
+<li>Majorer <span class="math inline">P(|X - 10| \geq 6)</span>.</li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 4.3</strong></p>
+<p>Soit <span class="math inline">(X_n)_{n \geq 1}</span> une suite de variables aléatoires mutuellement indépendantes, de même loi, admettant un moment d’ordre 2. Notons <span class="math inline">\mu = E(X_1)</span> et <span class="math inline">\sigma^2 = V(X_1)</span>.</p>
+<ol type="1">
+<li>Calculer <span class="math inline">E(\overline{X}_n)</span> et <span class="math inline">V(\overline{X}_n)</span>.</li>
+<li>Montrer que <span class="math inline">\overline{X}_n \xrightarrow{P} \mu</span>.</li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 4.4</strong></p>
+<p>On lance <span class="math inline">n</span> fois une pièce équilibrée. Soit <span class="math inline">S_n</span> le nombre de piles.</p>
+<ol type="1">
+<li>Calculer <span class="math inline">E(S_n)</span> et <span class="math inline">V(S_n)</span>.</li>
+<li>Montrer que <span class="math inline">\frac{S_n}{n} \xrightarrow{P} \frac{1}{2}</span>.</li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 4.5</strong></p>
+<p>On lance <span class="math inline">n</span> fois un dé équilibré. Soit <span class="math inline">S_n</span> la somme des résultats.</p>
+<ol type="1">
+<li>Calculer <span class="math inline">E(S_n)</span> et <span class="math inline">V(S_n)</span>.</li>
+<li>Montrer que <span class="math inline">\frac{S_n}{n} \xrightarrow{P} \frac{7}{2}</span>.</li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 4.6</strong></p>
+<p>Soit <span class="math inline">X</span> une variable aléatoire avec <span class="math inline">E(X) = 3</span> et <span class="math inline">V(X) = 4</span>.</p>
+<ol type="1">
+<li>Majorer <span class="math inline">P(|X - 3| \geq 2)</span>.</li>
+<li>Majorer <span class="math inline">P(|X - 3| \geq 6)</span>.</li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 4.7</strong></p>
+<p>On lance <span class="math inline">n</span> fois une pièce équilibrée. Soit <span class="math inline">S_n</span> le nombre de piles.</p>
+<ol type="1">
+<li>Calculer <span class="math inline">E(S_n)</span> et <span class="math inline">V(S_n)</span>.</li>
+<li>Montrer que <span class="math inline">\frac{S_n}{n} \xrightarrow{P} \frac{1}{2}</span>.</li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 4.8</strong></p>
+<p>On lance <span class="math inline">n</span> fois un dé équilibré. Soit <span class="math inline">S_n</span> la somme des résultats.</p>
+<ol type="1">
+<li>Calculer <span class="math inline">E(S_n)</span> et <span class="math inline">V(S_n)</span>.</li>
+<li>Montrer que <span class="math inline">\frac{S_n}{n} \xrightarrow{P} \frac{7}{2}</span>.</li>
+</ol>
+</div>
+</section>
+<section id="document-en-pdf" class="level1 unnumbered">
+<h1 class="unnumbered">Document en PDF</h1>
+<p><a href="PDF/ect2-chap10.pdf"><strong>Chapitre 10 : Convergences et approximations</strong></a></p>
+<section id="navigation" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="navigation">Navigation</h2>
 <div class="chap-nav">
-<p><a href="../td/ect2-chap03.html" class="prev">TD 03 : Sommes finies et séries numériques</a> <a href="../td/ect2.html" class="home">Menu ECT2</a> <a href="../td/ect2-chap05.html" class="next">TD 05 : Variables aléatoires discrètes infinies</a></p>
+<p><a href="../cours/ect2-chap09.html" class="prev">Chapitre 09 : Variables aléatoires à densité</a> <a href="../cours/ect2.html" class="home">Menu ECT2</a> <a href="../cours/ect2-chap11.html" class="next">Chapitre 11 : Estimation</a></p>
 </div>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->

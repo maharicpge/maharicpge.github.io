@@ -8,7 +8,7 @@
 
 <meta name="author" content="Saîd MAHARI">
 
-<title>TD — Couples de variables aléatoires discrètes finies – Mathématiques en CPGE</title>
+<title>TD — Convergences et approximations – Mathématiques en CPGE</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -276,8 +276,8 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">TD — Couples de variables aléatoires discrètes finies</h1>
-<p class="subtitle lead">Chapitre 04</p>
+<h1 class="title">TD — Convergences et approximations</h1>
+<p class="subtitle lead">Chapitre 10</p>
 </div>
 
 
@@ -306,220 +306,186 @@ window.Quarto = {
 </header>
 
 
-<p><strong>ECT2 (2e année) — TD du Chapitre 04.</strong> Lois marginales, lois conditionnelles, indépendance, covariance, coefficient de corrélation linéaire.</p>
+<p><strong>ECT2 (2e année) — TD du Chapitre 10.</strong> Inégalités de Markov et de Bienaymé-Tchebychev, suites de variables aléatoires, loi faible des grands nombres.</p>
 <div class="custom-numbered-block custom-exercise">
 <p><strong>Exercice 1</strong></p>
-<p>On lance deux dés équilibrés. Soit <span class="math inline">X</span> le résultat du premier dé et <span class="math inline">Y</span> le résultat du second dé.</p>
+<p>Soit <span class="math inline">X</span> une variable aléatoire positive telle que <span class="math inline">E(X) = 10</span>.</p>
 <ol type="1">
-<li>Donner la loi conjointe de <span class="math inline">(X, Y)</span>.</li>
-<li>Donner les lois marginales de <span class="math inline">X</span> et <span class="math inline">Y</span>.</li>
-<li><span class="math inline">X</span> et <span class="math inline">Y</span> sont-elles indépendantes ?</li>
-<li>Calculer <span class="math inline">E(X)</span>, <span class="math inline">E(Y)</span>, <span class="math inline">V(X)</span>, <span class="math inline">V(Y)</span> et <span class="math inline">\operatorname{Cov}(X, Y)</span>.</li>
+<li>Majorer <span class="math inline">P(X \geq 20)</span>.</li>
+<li>Majorer <span class="math inline">P(X \geq 50)</span>.</li>
 </ol>
 </div>
 <div class="custom-numbered-block custom-exercise">
 <p><strong>Exercice 2</strong></p>
-<p>On lance une pièce équilibrée deux fois. Soit <span class="math inline">X</span> le nombre de « pile » obtenus et <span class="math inline">Y</span> le nombre de « face » obtenus.</p>
+<p>Soit <span class="math inline">X</span> une variable aléatoire telle que <span class="math inline">E(X) = 5</span> et <span class="math inline">V(X) = 9</span>.</p>
 <ol type="1">
-<li>Donner la loi conjointe de <span class="math inline">(X, Y)</span>.</li>
-<li>Donner les lois marginales de <span class="math inline">X</span> et <span class="math inline">Y</span>.</li>
-<li><span class="math inline">X</span> et <span class="math inline">Y</span> sont-elles indépendantes ?</li>
-<li>Calculer <span class="math inline">E(X)</span>, <span class="math inline">E(Y)</span>, <span class="math inline">V(X)</span>, <span class="math inline">V(Y)</span>, <span class="math inline">\operatorname{Cov}(X, Y)</span> et <span class="math inline">\rho(X, Y)</span>.</li>
+<li>Majorer <span class="math inline">P(|X - 5| \geq 3)</span>.</li>
+<li>Majorer <span class="math inline">P(|X - 5| \geq 6)</span>.</li>
 </ol>
 </div>
 <div class="custom-numbered-block custom-exercise">
 <p><strong>Exercice 3</strong></p>
-<p>On considère le tableau de loi conjointe suivant :</p>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th><span class="math inline">X \setminus Y</span></th>
-<th><span class="math inline">0</span></th>
-<th><span class="math inline">1</span></th>
-<th><span class="math inline">2</span></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><span class="math inline">0</span></td>
-<td><span class="math inline">0{,}1</span></td>
-<td><span class="math inline">0{,}2</span></td>
-<td><span class="math inline">0{,}1</span></td>
-</tr>
-<tr class="even">
-<td><span class="math inline">1</span></td>
-<td><span class="math inline">0{,}1</span></td>
-<td><span class="math inline">0{,}1</span></td>
-<td><span class="math inline">0{,}2</span></td>
-</tr>
-</tbody>
-</table>
+<p>Soit <span class="math inline">X</span> une variable aléatoire positive telle que <span class="math inline">E(X) = 4</span>.</p>
 <ol type="1">
-<li>Vérifier que ce tableau définit bien une loi de probabilité.</li>
-<li>Donner les lois marginales de <span class="math inline">X</span> et <span class="math inline">Y</span>.</li>
-<li><span class="math inline">X</span> et <span class="math inline">Y</span> sont-elles indépendantes ?</li>
-<li>Calculer <span class="math inline">E(X)</span>, <span class="math inline">E(Y)</span>, <span class="math inline">V(X)</span>, <span class="math inline">V(Y)</span>, <span class="math inline">\operatorname{Cov}(X, Y)</span> et <span class="math inline">\rho(X, Y)</span>.</li>
+<li>Majorer <span class="math inline">P(X \geq 8)</span>.</li>
+<li>Si <span class="math inline">V(X) = 4</span>, majorer <span class="math inline">P(|X - 4| \geq 4)</span>.</li>
 </ol>
 </div>
 <div class="custom-numbered-block custom-exercise">
 <p><strong>Exercice 4</strong></p>
-<p>On considère le tableau de loi conjointe suivant :</p>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th><span class="math inline">X \setminus Y</span></th>
-<th><span class="math inline">0</span></th>
-<th><span class="math inline">1</span></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><span class="math inline">0</span></td>
-<td><span class="math inline">a</span></td>
-<td><span class="math inline">b</span></td>
-</tr>
-<tr class="even">
-<td><span class="math inline">1</span></td>
-<td><span class="math inline">c</span></td>
-<td><span class="math inline">d</span></td>
-</tr>
-</tbody>
-</table>
+<p>On lance <span class="math inline">n</span> fois un dé équilibré. Soit <span class="math inline">S_n</span> la somme des résultats obtenus.</p>
 <ol type="1">
-<li>Quelle condition sur <span class="math inline">a</span>, <span class="math inline">b</span>, <span class="math inline">c</span>, <span class="math inline">d</span> pour que ce tableau définisse une loi de probabilité ?</li>
-<li>Quelle condition supplémentaire pour que <span class="math inline">X</span> et <span class="math inline">Y</span> soient indépendantes ?</li>
+<li>Calculer <span class="math inline">E(S_n)</span> et <span class="math inline">V(S_n)</span>.</li>
+<li>Majorer <span class="math inline">P\left(\left|\frac{S_n}{n} - \frac{7}{2}\right| \geq 1\right)</span> à l’aide de l’inégalité de Bienaymé-Tchebychev.</li>
+<li>Pour quelle valeur de <span class="math inline">n</span> cette majoration est-elle inférieure à <span class="math inline">0{,}01</span> ?</li>
 </ol>
 </div>
 <div class="custom-numbered-block custom-exercise">
 <p><strong>Exercice 5</strong></p>
-<p>On lance trois pièces équilibrées. Soit <span class="math inline">X</span> le nombre de « pile » et <span class="math inline">Y</span> le nombre de « face ».</p>
+<p>On lance <span class="math inline">n</span> fois une pièce équilibrée. Soit <span class="math inline">S_n</span> le nombre de « pile » obtenus.</p>
 <ol type="1">
-<li>Donner la loi conjointe de <span class="math inline">(X, Y)</span>.</li>
-<li>Donner les lois marginales de <span class="math inline">X</span> et <span class="math inline">Y</span>.</li>
-<li><span class="math inline">X</span> et <span class="math inline">Y</span> sont-elles indépendantes ? Justifier.</li>
-<li>Calculer <span class="math inline">E(X)</span>, <span class="math inline">E(Y)</span>, <span class="math inline">V(X)</span>, <span class="math inline">V(Y)</span>, <span class="math inline">\operatorname{Cov}(X, Y)</span>.</li>
+<li>Calculer <span class="math inline">E(S_n)</span> et <span class="math inline">V(S_n)</span>.</li>
+<li>Majorer <span class="math inline">P\left(\left|\frac{S_n}{n} - \frac{1}{2}\right| \geq 0{,}1\right)</span> à l’aide de l’inégalité de Bienaymé-Tchebychev.</li>
+<li>Pour quelle valeur de <span class="math inline">n</span> cette majoration est-elle inférieure à <span class="math inline">0{,}01</span> ?</li>
 </ol>
 </div>
 <div class="custom-numbered-block custom-exercise">
 <p><strong>Exercice 6</strong></p>
-<p>On tire une boule dans une urne contenant 3 boules rouges et 2 boules vertes, puis une seconde boule sans remise. Soit <span class="math inline">X</span> l’indicateur de « la première boule est rouge » et <span class="math inline">Y</span> l’indicateur de « la seconde boule est rouge ».</p>
+<p>Soit <span class="math inline">X</span> une variable aléatoire positive telle que <span class="math inline">E(X) = 3</span> et <span class="math inline">V(X) = 4</span>.</p>
 <ol type="1">
-<li>Donner la loi conjointe de <span class="math inline">(X, Y)</span>.</li>
-<li>Donner les lois marginales de <span class="math inline">X</span> et <span class="math inline">Y</span>.</li>
-<li><span class="math inline">X</span> et <span class="math inline">Y</span> sont-elles indépendantes ?</li>
-<li>Calculer <span class="math inline">E(X)</span>, <span class="math inline">E(Y)</span>, <span class="math inline">\operatorname{Cov}(X, Y)</span>.</li>
+<li>Majorer <span class="math inline">P(X \geq 6)</span>.</li>
+<li>Majorer <span class="math inline">P(|X - 3| \geq 3)</span>.</li>
 </ol>
 </div>
 <div class="custom-numbered-block custom-exercise">
 <p><strong>Exercice 7</strong></p>
-<p>Soit <span class="math inline">(X, Y)</span> un couple de variables aléatoires tel que :</p>
-<ul>
-<li><span class="math inline">X</span> suit une loi de Bernoulli de paramètre <span class="math inline">\frac{1}{2}</span></li>
-<li><span class="math inline">Y</span> suit une loi de Bernoulli de paramètre <span class="math inline">\frac{1}{2}</span></li>
-<li><span class="math inline">P(X = 0, Y = 0) = \frac{1}{3}</span></li>
-</ul>
+<p>On lance <span class="math inline">n</span> fois un dé équilibré. Soit <span class="math inline">S_n</span> le nombre de « 6 » obtenus.</p>
 <ol type="1">
-<li>Donner la loi conjointe de <span class="math inline">(X, Y)</span>.</li>
-<li><span class="math inline">X</span> et <span class="math inline">Y</span> sont-elles indépendantes ?</li>
-<li>Calculer <span class="math inline">\operatorname{Cov}(X, Y)</span> et <span class="math inline">\rho(X, Y)</span>.</li>
+<li>Calculer <span class="math inline">E(S_n)</span> et <span class="math inline">V(S_n)</span>.</li>
+<li>Majorer <span class="math inline">P\left(\left|\frac{S_n}{n} - \frac{1}{6}\right| \geq 0{,}1\right)</span> à l’aide de l’inégalité de Bienaymé-Tchebychev.</li>
 </ol>
 </div>
 <div class="custom-numbered-block custom-exercise">
 <p><strong>Exercice 8</strong></p>
-<p>On lance un dé équilibré. Soit <span class="math inline">X</span> le résultat obtenu et <span class="math inline">Y</span> l’indicateur de « le résultat est pair ».</p>
+<p>Soit <span class="math inline">X</span> une variable aléatoire positive telle que <span class="math inline">E(X) = 5</span> et <span class="math inline">V(X) = 4</span>.</p>
 <ol type="1">
-<li>Donner la loi conjointe de <span class="math inline">(X, Y)</span>.</li>
-<li>Donner les lois marginales de <span class="math inline">X</span> et <span class="math inline">Y</span>.</li>
-<li><span class="math inline">X</span> et <span class="math inline">Y</span> sont-elles indépendantes ?</li>
-<li>Calculer <span class="math inline">\operatorname{Cov}(X, Y)</span>.</li>
+<li>Majorer <span class="math inline">P(X \geq 10)</span>.</li>
+<li>Majorer <span class="math inline">P(X \geq 15)</span>.</li>
 </ol>
 </div>
 <div class="custom-numbered-block custom-exercise">
 <p><strong>Exercice 9</strong></p>
-<p>On considère le tableau de loi conjointe suivant :</p>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th><span class="math inline">X \setminus Y</span></th>
-<th><span class="math inline">-1</span></th>
-<th><span class="math inline">0</span></th>
-<th><span class="math inline">1</span></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><span class="math inline">-1</span></td>
-<td><span class="math inline">\frac{1}{8}</span></td>
-<td><span class="math inline">0</span></td>
-<td><span class="math inline">\frac{1}{8}</span></td>
-</tr>
-<tr class="even">
-<td><span class="math inline">0</span></td>
-<td><span class="math inline">0</span></td>
-<td><span class="math inline">\frac{1}{4}</span></td>
-<td><span class="math inline">0</span></td>
-</tr>
-<tr class="odd">
-<td><span class="math inline">1</span></td>
-<td><span class="math inline">\frac{1}{8}</span></td>
-<td><span class="math inline">0</span></td>
-<td><span class="math inline">\frac{1}{8}</span></td>
-</tr>
-</tbody>
-</table>
+<p>On lance <span class="math inline">n</span> fois une pièce équilibrée. Soit <span class="math inline">S_n</span> le nombre de « pile » obtenus.</p>
 <ol type="1">
-<li>Vérifier que ce tableau définit une loi de probabilité.</li>
-<li>Donner les lois marginales de <span class="math inline">X</span> et <span class="math inline">Y</span>.</li>
-<li><span class="math inline">X</span> et <span class="math inline">Y</span> sont-elles indépendantes ?</li>
-<li>Calculer <span class="math inline">E(X)</span>, <span class="math inline">E(Y)</span>, <span class="math inline">V(X)</span>, <span class="math inline">V(Y)</span>, <span class="math inline">\operatorname{Cov}(X, Y)</span> et <span class="math inline">\rho(X, Y)</span>.</li>
+<li>Calculer <span class="math inline">E(S_n)</span> et <span class="math inline">V(S_n)</span>.</li>
+<li>Majorer <span class="math inline">P\left(\left|\frac{S_n}{n} - \frac{1}{2}\right| \geq 0{,}05\right)</span> à l’aide de l’inégalité de Bienaymé-Tchebychev.</li>
+<li>Pour quelle valeur de <span class="math inline">n</span> cette majoration est-elle inférieure à <span class="math inline">0{,}05</span> ?</li>
 </ol>
 </div>
 <div class="custom-numbered-block custom-exercise">
 <p><strong>Exercice 10</strong></p>
-<p>On lance deux pièces équilibrées. Soit <span class="math inline">X</span> le nombre de « pile » et <span class="math inline">Y</span> l’indicateur de « les deux pièces donnent le même résultat ».</p>
+<p>Soit <span class="math inline">X</span> une variable aléatoire positive telle que <span class="math inline">E(X) = 2</span> et <span class="math inline">V(X) = 1</span>.</p>
 <ol type="1">
-<li>Donner la loi conjointe de <span class="math inline">(X, Y)</span>.</li>
-<li>Donner les lois marginales de <span class="math inline">X</span> et <span class="math inline">Y</span>.</li>
-<li><span class="math inline">X</span> et <span class="math inline">Y</span> sont-elles indépendantes ?</li>
-<li>Calculer <span class="math inline">\operatorname{Cov}(X, Y)</span> et <span class="math inline">\rho(X, Y)</span>.</li>
+<li>Majorer <span class="math inline">P(X \geq 4)</span>.</li>
+<li>Majorer <span class="math inline">P(X \geq 6)</span>.</li>
 </ol>
 </div>
 <div class="custom-numbered-block custom-exercise">
 <p><strong>Exercice 11</strong></p>
-<p>On considère deux variables aléatoires <span class="math inline">X</span> et <span class="math inline">Y</span> telles que <span class="math inline">E(X) = 2</span>, <span class="math inline">E(Y) = 3</span>, <span class="math inline">V(X) = 4</span>, <span class="math inline">V(Y) = 9</span> et <span class="math inline">\operatorname{Cov}(X, Y) = 3</span>.</p>
+<p>On lance <span class="math inline">n</span> fois un dé équilibré. Soit <span class="math inline">S_n</span> la somme des résultats obtenus.</p>
 <ol type="1">
-<li>Calculer <span class="math inline">\rho(X, Y)</span>.</li>
-<li>Calculer <span class="math inline">V(X + Y)</span> et <span class="math inline">V(X - Y)</span>.</li>
-<li>Calculer <span class="math inline">V(2X + 3Y)</span>.</li>
-<li><span class="math inline">X</span> et <span class="math inline">Y</span> sont-elles indépendantes ? Justifier.</li>
+<li>Calculer <span class="math inline">E(S_n)</span> et <span class="math inline">V(S_n)</span>.</li>
+<li>Majorer <span class="math inline">P\left(\left|\frac{S_n}{n} - \frac{7}{2}\right| \geq 0{,}5\right)</span> à l’aide de l’inégalité de Bienaymé-Tchebychev.</li>
 </ol>
 </div>
 <div class="custom-numbered-block custom-exercise">
 <p><strong>Exercice 12</strong></p>
-<p>On lance un dé équilibré deux fois. Soit <span class="math inline">X</span> la somme des deux résultats et <span class="math inline">Y</span> la valeur absolue de la différence des deux résultats.</p>
+<p>On lance <span class="math inline">n</span> fois une pièce équilibrée. Soit <span class="math inline">S_n</span> le nombre de « pile » obtenus.</p>
 <ol type="1">
-<li>Donner les lois marginales de <span class="math inline">X</span> et <span class="math inline">Y</span>.</li>
-<li><span class="math inline">X</span> et <span class="math inline">Y</span> sont-elles indépendantes ?</li>
-<li>Calculer <span class="math inline">E(X)</span>, <span class="math inline">E(Y)</span>, <span class="math inline">\operatorname{Cov}(X, Y)</span>.</li>
+<li>Calculer <span class="math inline">E(S_n)</span> et <span class="math inline">V(S_n)</span>.</li>
+<li>Majorer <span class="math inline">P\left(\left|\frac{S_n}{n} - \frac{1}{2}\right| \geq 0{,}2\right)</span> à l’aide de l’inégalité de Bienaymé-Tchebychev.</li>
 </ol>
 </div>
 <div class="custom-numbered-block custom-exercise">
 <p><strong>Exercice 13</strong></p>
-<p>On tire deux boules dans une urne contenant 2 boules rouges et 3 boules vertes, avec remise. Soit <span class="math inline">X</span> l’indicateur de « la première boule est rouge » et <span class="math inline">Y</span> l’indicateur de « la seconde boule est rouge ».</p>
+<p>Soit <span class="math inline">X</span> une variable aléatoire positive telle que <span class="math inline">E(X) = 6</span> et <span class="math inline">V(X) = 9</span>.</p>
 <ol type="1">
-<li>Donner la loi conjointe de <span class="math inline">(X, Y)</span>.</li>
-<li><span class="math inline">X</span> et <span class="math inline">Y</span> sont-elles indépendantes ?</li>
-<li>Calculer <span class="math inline">E(X)</span>, <span class="math inline">E(Y)</span>, <span class="math inline">\operatorname{Cov}(X, Y)</span>.</li>
+<li>Majorer <span class="math inline">P(X \geq 12)</span>.</li>
+<li>Majorer <span class="math inline">P(|X - 6| \geq 3)</span>.</li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 14</strong></p>
+<p>On lance <span class="math inline">n</span> fois un dé équilibré. Soit <span class="math inline">S_n</span> le nombre de « 6 » obtenus.</p>
+<ol type="1">
+<li>Calculer <span class="math inline">E(S_n)</span> et <span class="math inline">V(S_n)</span>.</li>
+<li>Majorer <span class="math inline">P\left(\left|\frac{S_n}{n} - \frac{1}{6}\right| \geq 0{,}05\right)</span> à l’aide de l’inégalité de Bienaymé-Tchebychev.</li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 15</strong></p>
+<p>On lance <span class="math inline">n</span> fois une pièce équilibrée. Soit <span class="math inline">S_n</span> le nombre de « pile » obtenus.</p>
+<ol type="1">
+<li>Calculer <span class="math inline">E(S_n)</span> et <span class="math inline">V(S_n)</span>.</li>
+<li>Majorer <span class="math inline">P\left(\left|\frac{S_n}{n} - \frac{1}{2}\right| \geq 0{,}1\right)</span> à l’aide de l’inégalité de Bienaymé-Tchebychev.</li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 16</strong></p>
+<p>Soit <span class="math inline">X</span> une variable aléatoire positive telle que <span class="math inline">E(X) = 8</span> et <span class="math inline">V(X) = 16</span>.</p>
+<ol type="1">
+<li>Majorer <span class="math inline">P(X \geq 16)</span>.</li>
+<li>Majorer <span class="math inline">P(|X - 8| \geq 4)</span>.</li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 17</strong></p>
+<p>On lance <span class="math inline">n</span> fois une pièce équilibrée. Soit <span class="math inline">S_n</span> le nombre de « pile » obtenus.</p>
+<ol type="1">
+<li>Calculer <span class="math inline">E(S_n)</span> et <span class="math inline">V(S_n)</span>.</li>
+<li>Majorer <span class="math inline">P\left(\left|\frac{S_n}{n} - \frac{1}{2}\right| \geq 0{,}15\right)</span> à l’aide de l’inégalité de Bienaymé-Tchebychev.</li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 18</strong></p>
+<p>On lance <span class="math inline">n</span> fois un dé équilibré. Soit <span class="math inline">S_n</span> le nombre de « 6 » obtenus.</p>
+<ol type="1">
+<li>Calculer <span class="math inline">E(S_n)</span> et <span class="math inline">V(S_n)</span>.</li>
+<li>Majorer <span class="math inline">P\left(\left|\frac{S_n}{n} - \frac{1}{6}\right| \geq 0{,}1\right)</span> à l’aide de l’inégalité de Bienaymé-Tchebychev.</li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 19</strong></p>
+<p>Soit <span class="math inline">X</span> une variable aléatoire positive telle que <span class="math inline">E(X) = 12</span> et <span class="math inline">V(X) = 25</span>.</p>
+<ol type="1">
+<li>Majorer <span class="math inline">P(X \geq 24)</span>.</li>
+<li>Majorer <span class="math inline">P(|X - 12| \geq 5)</span>.</li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 20</strong></p>
+<p>On lance <span class="math inline">n</span> fois une pièce équilibrée. Soit <span class="math inline">S_n</span> le nombre de « pile » obtenus.</p>
+<ol type="1">
+<li>Calculer <span class="math inline">E(S_n)</span> et <span class="math inline">V(S_n)</span>.</li>
+<li>Majorer <span class="math inline">P\left(\left|\frac{S_n}{n} - \frac{1}{2}\right| \geq 0{,}25\right)</span> à l’aide de l’inégalité de Bienaymé-Tchebychev.</li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 21</strong></p>
+<p>On lance <span class="math inline">n</span> fois un dé équilibré. Soit <span class="math inline">S_n</span> le nombre de « 6 » obtenus.</p>
+<ol type="1">
+<li>Calculer <span class="math inline">E(S_n)</span> et <span class="math inline">V(S_n)</span>.</li>
+<li>Majorer <span class="math inline">P\left(\left|\frac{S_n}{n} - \frac{1}{6}\right| \geq 0{,}2\right)</span> à l’aide de l’inégalité de Bienaymé-Tchebychev.</li>
 </ol>
 </div>
 <section id="cours" class="level1 unnumbered">
 <h1 class="unnumbered">Cours</h1>
-<p><a href="../cours/ect2-chap04.html"><strong>Chapitre 04 : Couples de variables aléatoires discrètes finies</strong></a></p>
+<p><a href="../cours/ect2-chap10.html"><strong>Chapitre 10 : Convergences et approximations</strong></a></p>
 </section>
 <section id="navigation" class="level1 unnumbered">
 <h1 class="unnumbered">Navigation</h1>
 <div class="chap-nav">
-<p><a href="../td/ect2-chap03.html" class="prev">TD 03 : Sommes finies et séries numériques</a> <a href="../td/ect2.html" class="home">Menu ECT2</a> <a href="../td/ect2-chap05.html" class="next">TD 05 : Variables aléatoires discrètes infinies</a></p>
+<p><a href="../td/ect2-chap09.html" class="prev">TD 09 : Variables aléatoires à densité</a> <a href="../td/ect2.html" class="home">Menu ECT2</a> <a href="../td/ect2-chap11.html" class="next">TD 11 : Estimation</a></p>
 </div>
 
 

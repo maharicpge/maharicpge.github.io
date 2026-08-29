@@ -1,13 +1,14 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr"><head>
 
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.10.18">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Saîd MAHARI">
 
-<title>Algèbre matricielle (compléments) - Mathématiques en CPGE – Mathématiques en CPGE</title>
+<title>Matrices – Mathématiques en CPGE</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -45,7 +46,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-7a8c080b55ea27eb37b467515007f9ee.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-e0d9a45d84245cc5e3b300860d8fa645.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -60,17 +61,17 @@ ul.task-list li input[type="checkbox"] {
   ],
   "show-item-context": false,
   "language": {
-    "search-no-results-text": "No results",
-    "search-matching-documents-text": "matching documents",
-    "search-copy-link-title": "Copy link to search",
-    "search-hide-matches-text": "Hide additional matches",
-    "search-more-match-text": "more match in this document",
-    "search-more-matches-text": "more matches in this document",
-    "search-clear-button-title": "Clear",
+    "search-no-results-text": "Pas de résultats",
+    "search-matching-documents-text": "documents trouvés",
+    "search-copy-link-title": "Copier le lien vers la recherche",
+    "search-hide-matches-text": "Cacher les correspondances additionnelles",
+    "search-more-match-text": "correspondance de plus dans ce document",
+    "search-more-matches-text": "correspondances de plus dans ce document",
+    "search-clear-button-title": "Effacer",
     "search-text-placeholder": "",
-    "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit",
-    "search-label": "Search"
+    "search-detached-cancel-button-title": "Annuler",
+    "search-submit-button-title": "Envoyer",
+    "search-label": "Recherche"
   }
 }</script>
 <script data-goatcounter="https://maharicpge.goatcounter.com/count" async="" src="//gc.zgo.at/count.js"></script>
@@ -142,8 +143,52 @@ ul.task-list li input[type="checkbox"] {
   });
 </script>
 
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="styles.css">
 </head>
 
 <body class="nav-fixed quarto-light">
@@ -157,8 +202,8 @@ ul.task-list li input[type="checkbox"] {
     <span class="navbar-title">Accueil</span>
     </a>
   </div>
-            <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+            <div id="quarto-search" class="" title="Recherche"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Basculer la navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
@@ -218,10 +263,39 @@ ul.task-list li input[type="checkbox"] {
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
+    <h2 id="toc-title">Sur cette page</h2>
    
   <ul>
-  <li><a href="#document" id="toc-document" class="nav-link active" data-scroll-target="#document">Document</a></li>
+  <li><a href="#définitions-générales" id="toc-définitions-générales" class="nav-link active" data-scroll-target="#définitions-générales"><span class="header-section-number">1</span> Définitions générales</a>
+  <ul class="collapse">
+  <li><a href="#définition-dune-matrice" id="toc-définition-dune-matrice" class="nav-link" data-scroll-target="#définition-dune-matrice"><span class="header-section-number">1.1</span> Définition d’une matrice</a></li>
+  <li><a href="#matrices-particulières" id="toc-matrices-particulières" class="nav-link" data-scroll-target="#matrices-particulières"><span class="header-section-number">1.2</span> Matrices particulières</a></li>
+  </ul></li>
+  <li><a href="#opérations-sur-les-matrices" id="toc-opérations-sur-les-matrices" class="nav-link" data-scroll-target="#opérations-sur-les-matrices"><span class="header-section-number">2</span> Opérations sur les matrices</a>
+  <ul class="collapse">
+  <li><a href="#addition-et-multiplication-par-un-scalaire" id="toc-addition-et-multiplication-par-un-scalaire" class="nav-link" data-scroll-target="#addition-et-multiplication-par-un-scalaire"><span class="header-section-number">2.1</span> Addition et multiplication par un scalaire</a></li>
+  <li><a href="#produit-matriciel" id="toc-produit-matriciel" class="nav-link" data-scroll-target="#produit-matriciel"><span class="header-section-number">2.2</span> Produit matriciel</a></li>
+  </ul></li>
+  <li><a href="#puissances-et-formule-du-binôme" id="toc-puissances-et-formule-du-binôme" class="nav-link" data-scroll-target="#puissances-et-formule-du-binôme"><span class="header-section-number">3</span> Puissances et formule du binôme</a>
+  <ul class="collapse">
+  <li><a href="#puissances" id="toc-puissances" class="nav-link" data-scroll-target="#puissances"><span class="header-section-number">3.1</span> Puissances</a></li>
+  <li><a href="#formule-du-binôme" id="toc-formule-du-binôme" class="nav-link" data-scroll-target="#formule-du-binôme"><span class="header-section-number">3.2</span> Formule du binôme</a></li>
+  </ul></li>
+  <li><a href="#matrices-inversibles" id="toc-matrices-inversibles" class="nav-link" data-scroll-target="#matrices-inversibles"><span class="header-section-number">4</span> Matrices inversibles</a>
+  <ul class="collapse">
+  <li><a href="#définition-et-propriétés" id="toc-définition-et-propriétés" class="nav-link" data-scroll-target="#définition-et-propriétés"><span class="header-section-number">4.1</span> Définition et propriétés</a></li>
+  <li><a href="#méthode-du-pivot-de-gauss" id="toc-méthode-du-pivot-de-gauss" class="nav-link" data-scroll-target="#méthode-du-pivot-de-gauss"><span class="header-section-number">4.2</span> Méthode du pivot de Gauss</a></li>
+  </ul></li>
+  <li><a href="#écriture-matricielle-des-systèmes-linéaires" id="toc-écriture-matricielle-des-systèmes-linéaires" class="nav-link" data-scroll-target="#écriture-matricielle-des-systèmes-linéaires"><span class="header-section-number">5</span> Écriture matricielle des systèmes linéaires</a>
+  <ul class="collapse">
+  <li><a href="#formulation" id="toc-formulation" class="nav-link" data-scroll-target="#formulation"><span class="header-section-number">5.1</span> Formulation</a></li>
+  <li><a href="#résolution" id="toc-résolution" class="nav-link" data-scroll-target="#résolution"><span class="header-section-number">5.2</span> Résolution</a></li>
+  </ul></li>
+  <li><a href="#exercices" id="toc-exercices" class="nav-link" data-scroll-target="#exercices"><span class="header-section-number">6</span> Exercices</a></li>
+  <li><a href="#document-en-pdf" id="toc-document-en-pdf" class="nav-link" data-scroll-target="#document-en-pdf">Document en PDF</a>
+  <ul class="collapse">
+  <li><a href="#navigation" id="toc-navigation" class="nav-link" data-scroll-target="#navigation">Navigation</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -230,14 +304,27 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Chapitre 01 : Algèbre matricielle (compléments)</h1>
+<h1 class="title">Matrices</h1>
+<p class="subtitle lead">Chapitre 01</p>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Auteur·rice</div>
+    <div class="quarto-title-meta-contents">
+             <p>Saîd MAHARI </p>
+          </div>
+  </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">Date de publication</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">29 août 2026</p>
+    </div>
+  </div>
   
     
   </div>
@@ -247,12 +334,199 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p><strong>ECT 2e année — Chapitre 01.</strong> Puissances de matrices, systèmes économiques, introduction aux valeurs propres.</p>
-<section id="document" class="level2">
-<h2 class="anchored" data-anchor-id="document">Document</h2>
-<p><em>PDF à venir : déposez le fichier <code>files/ect2/chap01.pdf</code> puis régénérez la page.</em></p>
+<p><strong>ECT2 (2e année) — Chapitre 01.</strong> Matrices carrées, inversibilité, puissances, formule du binôme, écriture matricielle des systèmes linéaires.</p>
+<p>Ce chapitre a été réalisé conformément au programme marocain de mathématiques de la filière ECT.</p>
+<section id="définitions-générales" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Définitions générales</h1>
+<section id="définition-dune-matrice" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="définition-dune-matrice"><span class="header-section-number">1.1</span> Définition d’une matrice</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 1.1 — (Matrice)</strong></p>
+<p>Une <strong>matrice</strong> <span class="math inline">A</span> de taille <span class="math inline">n \times p</span> à coefficients dans <span class="math inline">\mathbb{R}</span> est un tableau rectangulaire de <span class="math inline">n</span> lignes et <span class="math inline">p</span> colonnes : <span class="math display">A = (a_{ij})_{1 \leq i \leq n, \; 1 \leq j \leq p} = \begin{pmatrix} a_{11} &amp; a_{12} &amp; \cdots &amp; a_{1p} \\ a_{21} &amp; a_{22} &amp; \cdots &amp; a_{2p} \\ \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\ a_{n1} &amp; a_{n2} &amp; \cdots &amp; a_{np} \end{pmatrix}</span> L’ensemble des matrices à <span class="math inline">n</span> lignes et <span class="math inline">p</span> colonnes à coefficients réels est noté <span class="math inline">\mathcal{M}_{n,p}(\mathbb{R})</span>.</p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 1.1</strong></p>
+<p><span class="math inline">A = \begin{pmatrix} 1 &amp; -2 &amp; 5 \\ 0 &amp; 3 &amp; 7 \end{pmatrix}</span> est une matrice <span class="math inline">2 \times 3</span> avec <span class="math inline">a_{11} = 1</span>, <span class="math inline">a_{23} = 7</span>.</p>
+</div>
+</section>
+<section id="matrices-particulières" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="matrices-particulières"><span class="header-section-number">1.2</span> Matrices particulières</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 1.2 — (Matrices particulières)</strong></p>
+<p>On distingue plusieurs types de matrices : - La <strong>matrice nulle</strong> <span class="math inline">0_{n,p}</span> : tous ses coefficients sont nuls. - La <strong>matrice carrée</strong> : <span class="math inline">n = p</span> (même nombre de lignes et de colonnes). On note <span class="math inline">\mathcal{M}_n(\mathbb{R})</span>. - La <strong>matrice diagonale</strong> : <span class="math inline">a_{ij} = 0</span> pour <span class="math inline">i \neq j</span>. On note <span class="math inline">\mathrm{diag}(\alpha_1, \ldots, \alpha_n)</span>. - La <strong>matrice identité</strong> <span class="math inline">I_n</span> : <span class="math inline">a_{ii} = 1</span> et <span class="math inline">a_{ij} = 0</span> pour <span class="math inline">i \neq j</span>. - La <strong>matrice triangulaire supérieure</strong> : <span class="math inline">a_{ij} = 0</span> pour <span class="math inline">i &gt; j</span>. - La <strong>matrice triangulaire inférieure</strong> : <span class="math inline">a_{ij} = 0</span> pour <span class="math inline">i &lt; j</span>.</p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 1.2</strong></p>
+<p><span class="math display">\mathrm{diag}(2, -3, 5) = \begin{pmatrix} 2 &amp; 0 &amp; 0 \\ 0 &amp; -3 &amp; 0 \\ 0 &amp; 0 &amp; 5 \end{pmatrix}, \qquad I_3 = \begin{pmatrix} 1 &amp; 0 &amp; 0 \\ 0 &amp; 1 &amp; 0 \\ 0 &amp; 0 &amp; 1 \end{pmatrix}</span></p>
+</div>
+</section>
+</section>
+<section id="opérations-sur-les-matrices" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> Opérations sur les matrices</h1>
+<section id="addition-et-multiplication-par-un-scalaire" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="addition-et-multiplication-par-un-scalaire"><span class="header-section-number">2.1</span> Addition et multiplication par un scalaire</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 2.1 — (Addition et produit par un scalaire)</strong></p>
+<p>Soient <span class="math inline">A = (a_{ij})</span> et <span class="math inline">B = (b_{ij})</span> deux matrices de <span class="math inline">\mathcal{M}_{n,p}(\mathbb{R})</span>, et <span class="math inline">\lambda \in \mathbb{R}</span>. <span class="math display">A + B = (a_{ij} + b_{ij}), \qquad \lambda A = (\lambda a_{ij})</span></p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 2.1 — (Propriétés)</strong></p>
+<p><span class="math inline">(\mathcal{M}_{n,p}(\mathbb{R}), +)</span> est un groupe abélien : - <span class="math inline">A + B = B + A</span> (commutativité) - <span class="math inline">(A + B) + C = A + (B + C)</span> (associativité) - <span class="math inline">A + 0_{n,p} = A</span> (élément neutre) - <span class="math inline">\lambda(A + B) = \lambda A + \lambda B</span>, <span class="math inline">(\lambda + \mu)A = \lambda A + \mu A</span></p>
+</div>
+</section>
+<section id="produit-matriciel" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="produit-matriciel"><span class="header-section-number">2.2</span> Produit matriciel</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 2.2 — (Produit matriciel)</strong></p>
+<p>Soient <span class="math inline">A = (a_{ij}) \in \mathcal{M}_{n,p}(\mathbb{R})</span> et <span class="math inline">B = (b_{ij}) \in \mathcal{M}_{p,q}(\mathbb{R})</span>. Le produit <span class="math inline">AB</span> est la matrice de <span class="math inline">\mathcal{M}_{n,q}(\mathbb{R})</span> définie par : <span class="math display">(AB)_{ij} = \sum_{k=1}^p a_{ik} b_{kj}</span> Le produit <span class="math inline">AB</span> n’est défini que si le nombre de colonnes de <span class="math inline">A</span> est égal au nombre de lignes de <span class="math inline">B</span>.</p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 2.1</strong></p>
+<p><span class="math display">\begin{pmatrix} 1 &amp; 2 \\ 3 &amp; 4 \end{pmatrix} \begin{pmatrix} 5 &amp; 6 \\ 7 &amp; 8 \end{pmatrix} = \begin{pmatrix} 1 \cdot 5 + 2 \cdot 7 &amp; 1 \cdot 6 + 2 \cdot 8 \\ 3 \cdot 5 + 4 \cdot 7 &amp; 3 \cdot 6 + 4 \cdot 8 \end{pmatrix} = \begin{pmatrix} 19 &amp; 22 \\ 11 &amp; 14 \end{pmatrix}</span></p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 2.2 — (Propriétés du produit)</strong></p>
+<ul>
+<li><strong>Associativité</strong> : <span class="math inline">(AB)C = A(BC)</span></li>
+<li><strong>Distributivité</strong> : <span class="math inline">A(B + C) = AB + AC</span> et <span class="math inline">(A + B)C = AC + BC</span></li>
+<li><strong>Élément neutre</strong> : <span class="math inline">I_n A = A</span> et <span class="math inline">A I_p = A</span></li>
+<li><strong>Attention</strong> : le produit n’est <strong>pas commutatif</strong> en général : <span class="math inline">AB \neq BA</span>.</li>
+<li><strong>Attention</strong> : <span class="math inline">AB = 0</span> n’implique pas <span class="math inline">A = 0</span> ou <span class="math inline">B = 0</span>.</li>
+</ul>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 2.2 — (Non-commutativité)</strong></p>
+<p><span class="math display">\begin{pmatrix} 1 &amp; 0 \\ 0 &amp; 0 \end{pmatrix}\begin{pmatrix} 0 &amp; 0 \\ 1 &amp; 0 \end{pmatrix} = \begin{pmatrix} 0 &amp; 0 \\ 0 &amp; 0 \end{pmatrix} \quad \text{mais} \quad \begin{pmatrix} 0 &amp; 0 \\ 1 &amp; 0 \end{pmatrix}\begin{pmatrix} 1 &amp; 0 \\ 0 &amp; 0 \end{pmatrix} = \begin{pmatrix} 0 &amp; 0 \\ 1 &amp; 0 \end{pmatrix}</span></p>
+</div>
+</section>
+</section>
+<section id="puissances-et-formule-du-binôme" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Puissances et formule du binôme</h1>
+<section id="puissances" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="puissances"><span class="header-section-number">3.1</span> Puissances</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 3.1 — (Puissance d’une matrice)</strong></p>
+<p>Pour <span class="math inline">A \in \mathcal{M}_n(\mathbb{R})</span>, on définit par récurrence : <span class="math display">A^0 = I_n, \qquad A^{k+1} = A^k \cdot A</span></p>
+</div>
+</section>
+<section id="formule-du-binôme" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="formule-du-binôme"><span class="header-section-number">3.2</span> Formule du binôme</h2>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 3.1 — (Formule du binôme matricielle)</strong></p>
+<p>Soient <span class="math inline">A, B \in \mathcal{M}_n(\mathbb{R})</span> qui <strong>commutent</strong> (<span class="math inline">AB = BA</span>). Alors pour tout <span class="math inline">m \in \mathbb{N}</span> : <span class="math display">(A + B)^m = \sum_{k=0}^m \binom{m}{k} A^{m-k} B^k</span></p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 3.1 — (Calcul de <span class="math inline">\boldsymbol{A^m}</span> avec une matrice nilpotente)</strong></p>
+<p>Soit <span class="math inline">A = \begin{pmatrix} 1 &amp; 1 \\ 0 &amp; 1 \end{pmatrix}</span>. On écrit <span class="math inline">A = I_2 + N</span> avec <span class="math inline">N = \begin{pmatrix} 0 &amp; 1 \\ 0 &amp; 0 \end{pmatrix}</span>. Comme <span class="math inline">N^2 = 0</span> et <span class="math inline">I_2</span> commute avec <span class="math inline">N</span>, la formule du binôme donne : <span class="math display">A^m = I_2 + mN = \begin{pmatrix} 1 &amp; m \\ 0 &amp; 1 \end{pmatrix}</span></p>
+</div>
+</section>
+</section>
+<section id="matrices-inversibles" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> Matrices inversibles</h1>
+<section id="définition-et-propriétés" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="définition-et-propriétés"><span class="header-section-number">4.1</span> Définition et propriétés</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 4.1 — (Matrice inversible)</strong></p>
+<p><span class="math inline">A \in \mathcal{M}_n(\mathbb{R})</span> est <strong>inversible</strong> s’il existe <span class="math inline">B \in \mathcal{M}_n(\mathbb{R})</span> telle que : <span class="math display">AB = BA = I_n</span> La matrice <span class="math inline">B</span>, unique, est notée <span class="math inline">A^{-1}</span>. L’ensemble des matrices inversibles est noté <span class="math inline">GL_n(\mathbb{R})</span>.</p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 4.1 — (Formule pour les matrices <span class="math inline">\boldsymbol{2 \times 2}</span>)</strong></p>
+<p><span class="math inline">A = \begin{pmatrix} a &amp; b \\ c &amp; d \end{pmatrix}</span> est inversible si et seulement si <span class="math inline">ad - bc \neq 0</span>. Dans ce cas : <span class="math display">A^{-1} = \frac{1}{ad-bc}\begin{pmatrix} d &amp; -b \\ -c &amp; a \end{pmatrix}</span></p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 4.2 — (Propriétés)</strong></p>
+<ul>
+<li><span class="math inline">(A^{-1})^{-1} = A</span></li>
+<li><span class="math inline">(AB)^{-1} = B^{-1} A^{-1}</span></li>
+<li><span class="math inline">(A^T)^{-1} = (A^{-1})^T</span></li>
+<li><span class="math inline">(\lambda A)^{-1} = \frac{1}{\lambda} A^{-1}</span> pour <span class="math inline">\lambda \neq 0</span></li>
+</ul>
+</div>
+</section>
+<section id="méthode-du-pivot-de-gauss" class="level2" data-number="4.2">
+<h2 data-number="4.2" class="anchored" data-anchor-id="méthode-du-pivot-de-gauss"><span class="header-section-number">4.2</span> Méthode du pivot de Gauss</h2>
+<div class="callout callout-style-default callout-note no-icon callout-titled" title="Algorithme de Gauss-Jordan">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Algorithme de Gauss-Jordan
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Pour inverser <span class="math inline">A</span>, on forme la matrice augmentée <span class="math inline">(A \mid I_n)</span> et on effectue des opérations élémentaires sur les lignes jusqu’à obtenir <span class="math inline">(I_n \mid A^{-1})</span>.</p>
+</div>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 4.1 — (Calcul d’inverse par Gauss)</strong></p>
+<p>Calculons l’inverse de <span class="math inline">A = \begin{pmatrix} 1 &amp; 2 \\ 3 &amp; 4 \end{pmatrix}</span>. On a <span class="math inline">ad - bc = 4 - 6 = -2 \neq 0</span>, donc <span class="math inline">A</span> est inversible : <span class="math display">A^{-1} = \frac{1}{-2}\begin{pmatrix} 4 &amp; -2 \\ -3 &amp; 1 \end{pmatrix} = \begin{pmatrix} -2 &amp; 1 \\ \frac{3}{2} &amp; -\frac{1}{2} \end{pmatrix}</span></p>
+</div>
+</section>
+</section>
+<section id="écriture-matricielle-des-systèmes-linéaires" class="level1" data-number="5">
+<h1 data-number="5"><span class="header-section-number">5</span> Écriture matricielle des systèmes linéaires</h1>
+<section id="formulation" class="level2" data-number="5.1">
+<h2 data-number="5.1" class="anchored" data-anchor-id="formulation"><span class="header-section-number">5.1</span> Formulation</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 5.1 — (Système linéaire)</strong></p>
+<p>Un système linéaire de <span class="math inline">n</span> équations à <span class="math inline">p</span> inconnues s’écrit : <span class="math display">\begin{cases} a_{11}x_1 + a_{12}x_2 + \cdots + a_{1p}x_p = b_1 \\ a_{21}x_1 + a_{22}x_2 + \cdots + a_{2p}x_p = b_2 \\ \vdots \\ a_{n1}x_1 + a_{n2}x_2 + \cdots + a_{np}x_p = b_n \end{cases}</span> et s’écrit sous forme matricielle <span class="math inline">AX = B</span> avec : <span class="math display">A = (a_{ij}) \in \mathcal{M}_{n,p}(\mathbb{R}), \quad X = \begin{pmatrix} x_1 \\ \vdots \\ x_p \end{pmatrix} \in \mathbb{R}^p, \quad B = \begin{pmatrix} b_1 \\ \vdots \\ b_n \end{pmatrix} \in \mathbb{R}^n</span></p>
+</div>
+</section>
+<section id="résolution" class="level2" data-number="5.2">
+<h2 data-number="5.2" class="anchored" data-anchor-id="résolution"><span class="header-section-number">5.2</span> Résolution</h2>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 5.1 — (Théorème de Cramer)</strong></p>
+<p>Si <span class="math inline">A \in \mathcal{M}_n(\mathbb{R})</span> est inversible, alors le système <span class="math inline">AX = B</span> admet une unique solution : <span class="math display">X = A^{-1}B</span></p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 5.1 — (Résolution d’un système)</strong></p>
+<p>Résolvons le système : <span class="math inline">\begin{cases} 2x + y = 5 \\ x - y = 1 \end{cases}</span>. On a <span class="math inline">A = \begin{pmatrix} 2 &amp; 1 \\ 1 &amp; -1 \end{pmatrix}</span>, <span class="math inline">B = \begin{pmatrix} 5 \\ 1 \end{pmatrix}</span>. <span class="math inline">\det(A) = -2 - 2 = -3 \neq 0</span>, donc <span class="math inline">A</span> est inversible : <span class="math display">A^{-1} = \frac{1}{-3}\begin{pmatrix} -1 &amp; -1 \\ -1 &amp; 2 \end{pmatrix} = \begin{pmatrix} \frac{1}{3} &amp; \frac{1}{3} \\ \frac{1}{3} &amp; -\frac{2}{3} \end{pmatrix}</span> <span class="math display">X = A^{-1}B = \begin{pmatrix} \frac{1}{3} \cdot 5 + \frac{1}{3} \cdot 1 \\ \frac{1}{3} \cdot 5 - \frac{2}{3} \cdot 1 \end{pmatrix} = \begin{pmatrix} 2 \\ 1 \end{pmatrix}</span></p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 5.1 — (Cas des systèmes homogènes)</strong></p>
+<p>Le système homogène <span class="math inline">AX = 0</span> admet toujours la solution triviale <span class="math inline">X = 0</span>. - Si <span class="math inline">A</span> est inversible, alors <span class="math inline">X = 0</span> est l’unique solution. - Si <span class="math inline">A</span> n’est pas inversible, alors le système admet une infinité de solutions.</p>
+</div>
+</section>
+</section>
+<section id="exercices" class="level1" data-number="6">
+<h1 data-number="6"><span class="header-section-number">6</span> Exercices</h1>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 6.1</strong></p>
+<p>Calculer <span class="math inline">A^2</span>, <span class="math inline">A^3</span> et <span class="math inline">A^n</span> pour <span class="math inline">A = \begin{pmatrix} 1 &amp; 1 \\ 0 &amp; 1 \end{pmatrix}</span>.</p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 6.2</strong></p>
+<p>Soit <span class="math inline">A = \begin{pmatrix} 1 &amp; 2 \\ 3 &amp; 4 \end{pmatrix}</span>. Calculer <span class="math inline">A^{-1}</span> et vérifier que <span class="math inline">AA^{-1} = I_2</span>.</p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 6.3</strong></p>
+<p>Soit <span class="math inline">A = \begin{pmatrix} 2 &amp; 1 \\ 0 &amp; 2 \end{pmatrix}</span>. Écrire <span class="math inline">A = 2I_2 + N</span> et calculer <span class="math inline">A^n</span> par la formule du binôme.</p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 6.4</strong></p>
+<p>Résoudre le système : <span class="math inline">\begin{cases} x + 2y + z = 1 \\ 2x + y - z = 0 \\ x - y + z = 1 \end{cases}</span>.</p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 6.5</strong></p>
+<p>Soit <span class="math inline">A = \begin{pmatrix} a &amp; b \\ c &amp; d \end{pmatrix}</span>. Montrer que si <span class="math inline">ad - bc \neq 0</span>, alors <span class="math inline">A</span> est inversible et donner <span class="math inline">A^{-1}</span>.</p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 6.6</strong></p>
+<p>Montrer que pour <span class="math inline">A, B \in \mathcal{M}_n(\mathbb{R})</span> : <span class="math inline">(AB)^T = B^T A^T</span>.</p>
+</div>
+</section>
+<section id="document-en-pdf" class="level1 unnumbered">
+<h1 class="unnumbered">Document en PDF</h1>
+<p><a href="PDF/ect2-chap01.pdf"><strong>Chapitre 01 : Matrices</strong></a></p>
+<section id="navigation" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="navigation">Navigation</h2>
+<div class="chap-nav">
+<p><a href="../cours/ect2.html" class="home">Menu ECT2</a> <a href="../cours/ect2-chap02.html" class="next">Chapitre 02 : Compléments d’intégration</a></p>
+</div>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -281,12 +555,12 @@ ul.task-list li input[type="checkbox"] {
       // flash "checked"
       button.classList.add('code-copy-button-checked');
       var currentTitle = button.getAttribute("title");
-      button.setAttribute("title", "Copied!");
+      button.setAttribute("title", "Copié");
       let tooltip;
       if (window.bootstrap) {
         button.setAttribute("data-bs-toggle", "tooltip");
         button.setAttribute("data-bs-placement", "left");
-        button.setAttribute("data-bs-title", "Copied!");
+        button.setAttribute("data-bs-title", "Copié");
         tooltip = new bootstrap.Tooltip(button, 
           { trigger: "manual", 
             customClass: "code-copy-button-tooltip",

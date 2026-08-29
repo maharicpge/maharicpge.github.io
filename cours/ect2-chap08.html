@@ -8,7 +8,7 @@
 
 <meta name="author" content="Saîd MAHARI">
 
-<title>TD — Couples de variables aléatoires discrètes finies – Mathématiques en CPGE</title>
+<title>Compléments d’analyse : Intégrales généralisées – Mathématiques en CPGE</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -266,8 +266,19 @@ window.Quarto = {
     <h2 id="toc-title">Sur cette page</h2>
    
   <ul>
-  <li><a href="#cours" id="toc-cours" class="nav-link active" data-scroll-target="#cours">Cours</a></li>
-  <li><a href="#navigation" id="toc-navigation" class="nav-link" data-scroll-target="#navigation">Navigation</a></li>
+  <li><a href="#intégrales-sur-a-infty" id="toc-intégrales-sur-a-infty" class="nav-link active" data-scroll-target="#intégrales-sur-a-infty"><span class="header-section-number">1</span> Intégrales sur <span class="math inline">[a, +\infty[</span></a>
+  <ul class="collapse">
+  <li><a href="#définition" id="toc-définition" class="nav-link" data-scroll-target="#définition"><span class="header-section-number">1.1</span> Définition</a></li>
+  </ul></li>
+  <li><a href="#intégrales-de-référence" id="toc-intégrales-de-référence" class="nav-link" data-scroll-target="#intégrales-de-référence"><span class="header-section-number">2</span> Intégrales de référence</a></li>
+  <li><a href="#critères-de-convergence" id="toc-critères-de-convergence" class="nav-link" data-scroll-target="#critères-de-convergence"><span class="header-section-number">3</span> Critères de convergence</a>
+  <ul class="collapse">
+  <li><a href="#critère-de-comparaison" id="toc-critère-de-comparaison" class="nav-link" data-scroll-target="#critère-de-comparaison"><span class="header-section-number">3.1</span> Critère de comparaison</a></li>
+  </ul></li>
+  <li><a href="#convergence-absolue" id="toc-convergence-absolue" class="nav-link" data-scroll-target="#convergence-absolue"><span class="header-section-number">4</span> Convergence absolue</a></li>
+  <li><a href="#intégration-par-parties" id="toc-intégration-par-parties" class="nav-link" data-scroll-target="#intégration-par-parties"><span class="header-section-number">5</span> Intégration par parties</a></li>
+  <li><a href="#exercices" id="toc-exercices" class="nav-link" data-scroll-target="#exercices"><span class="header-section-number">6</span> Exercices</a></li>
+  <li><a href="#document-en-pdf" id="toc-document-en-pdf" class="nav-link" data-scroll-target="#document-en-pdf">Document en PDF</a></li>
   </ul>
 </nav>
     </div>
@@ -276,8 +287,8 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">TD — Couples de variables aléatoires discrètes finies</h1>
-<p class="subtitle lead">Chapitre 04</p>
+<h1 class="title">Compléments d’analyse : Intégrales généralisées</h1>
+<p class="subtitle lead">Chapitre 08</p>
 </div>
 
 
@@ -306,221 +317,176 @@ window.Quarto = {
 </header>
 
 
-<p><strong>ECT2 (2e année) — TD du Chapitre 04.</strong> Lois marginales, lois conditionnelles, indépendance, covariance, coefficient de corrélation linéaire.</p>
-<div class="custom-numbered-block custom-exercise">
-<p><strong>Exercice 1</strong></p>
-<p>On lance deux dés équilibrés. Soit <span class="math inline">X</span> le résultat du premier dé et <span class="math inline">Y</span> le résultat du second dé.</p>
-<ol type="1">
-<li>Donner la loi conjointe de <span class="math inline">(X, Y)</span>.</li>
-<li>Donner les lois marginales de <span class="math inline">X</span> et <span class="math inline">Y</span>.</li>
-<li><span class="math inline">X</span> et <span class="math inline">Y</span> sont-elles indépendantes ?</li>
-<li>Calculer <span class="math inline">E(X)</span>, <span class="math inline">E(Y)</span>, <span class="math inline">V(X)</span>, <span class="math inline">V(Y)</span> et <span class="math inline">\operatorname{Cov}(X, Y)</span>.</li>
-</ol>
+<p><strong>ECT2 (2e année) — Chapitre 08.</strong> Intégrales sur <span class="math inline">[a, +\infty[</span>, fonctions continues par morceaux, critères de convergence.</p>
+<p>Ce chapitre a été réalisé conformément au programme marocain de mathématiques de la filière ECT.</p>
+<section id="intégrales-sur-a-infty" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Intégrales sur <span class="math inline">[a, +\infty[</span></h1>
+<section id="définition" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="définition"><span class="header-section-number">1.1</span> Définition</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 1.1 — (Intégrale généralisée)</strong></p>
+<p>Soit <span class="math inline">f : [a, +\infty[ \to \mathbb{R}</span> continue par morceaux. L’intégrale généralisée <span class="math inline">\int_a^{+\infty} f(t) \, dt</span> est définie par : <span class="math display">\int_a^{+\infty} f(t) \, dt = \lim_{x \to +\infty} \int_a^x f(t) \, dt</span> si cette limite existe et est finie. On dit alors que l’intégrale <strong>converge</strong>. Sinon, elle <strong>diverge</strong>.</p>
 </div>
-<div class="custom-numbered-block custom-exercise">
-<p><strong>Exercice 2</strong></p>
-<p>On lance une pièce équilibrée deux fois. Soit <span class="math inline">X</span> le nombre de « pile » obtenus et <span class="math inline">Y</span> le nombre de « face » obtenus.</p>
-<ol type="1">
-<li>Donner la loi conjointe de <span class="math inline">(X, Y)</span>.</li>
-<li>Donner les lois marginales de <span class="math inline">X</span> et <span class="math inline">Y</span>.</li>
-<li><span class="math inline">X</span> et <span class="math inline">Y</span> sont-elles indépendantes ?</li>
-<li>Calculer <span class="math inline">E(X)</span>, <span class="math inline">E(Y)</span>, <span class="math inline">V(X)</span>, <span class="math inline">V(Y)</span>, <span class="math inline">\operatorname{Cov}(X, Y)</span> et <span class="math inline">\rho(X, Y)</span>.</li>
-</ol>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 1.1</strong></p>
+<p><span class="math inline">\int_1^{+\infty} \frac{dt}{t^2}</span> converge car : <span class="math display">\int_1^x \frac{dt}{t^2} = \left[-\frac{1}{t}\right]_1^x = 1 - \frac{1}{x} \xrightarrow{x \to +\infty} 1</span></p>
 </div>
-<div class="custom-numbered-block custom-exercise">
-<p><strong>Exercice 3</strong></p>
-<p>On considère le tableau de loi conjointe suivant :</p>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th><span class="math inline">X \setminus Y</span></th>
-<th><span class="math inline">0</span></th>
-<th><span class="math inline">1</span></th>
-<th><span class="math inline">2</span></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><span class="math inline">0</span></td>
-<td><span class="math inline">0{,}1</span></td>
-<td><span class="math inline">0{,}2</span></td>
-<td><span class="math inline">0{,}1</span></td>
-</tr>
-<tr class="even">
-<td><span class="math inline">1</span></td>
-<td><span class="math inline">0{,}1</span></td>
-<td><span class="math inline">0{,}1</span></td>
-<td><span class="math inline">0{,}2</span></td>
-</tr>
-</tbody>
-</table>
-<ol type="1">
-<li>Vérifier que ce tableau définit bien une loi de probabilité.</li>
-<li>Donner les lois marginales de <span class="math inline">X</span> et <span class="math inline">Y</span>.</li>
-<li><span class="math inline">X</span> et <span class="math inline">Y</span> sont-elles indépendantes ?</li>
-<li>Calculer <span class="math inline">E(X)</span>, <span class="math inline">E(Y)</span>, <span class="math inline">V(X)</span>, <span class="math inline">V(Y)</span>, <span class="math inline">\operatorname{Cov}(X, Y)</span> et <span class="math inline">\rho(X, Y)</span>.</li>
-</ol>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 1.2</strong></p>
+<p><span class="math inline">\int_1^{+\infty} \frac{dt}{t}</span> diverge car : <span class="math display">\int_1^x \frac{dt}{t} = [\ln t]_1^x = \ln x \xrightarrow{x \to +\infty} +\infty</span></p>
 </div>
-<div class="custom-numbered-block custom-exercise">
-<p><strong>Exercice 4</strong></p>
-<p>On considère le tableau de loi conjointe suivant :</p>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th><span class="math inline">X \setminus Y</span></th>
-<th><span class="math inline">0</span></th>
-<th><span class="math inline">1</span></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><span class="math inline">0</span></td>
-<td><span class="math inline">a</span></td>
-<td><span class="math inline">b</span></td>
-</tr>
-<tr class="even">
-<td><span class="math inline">1</span></td>
-<td><span class="math inline">c</span></td>
-<td><span class="math inline">d</span></td>
-</tr>
-</tbody>
-</table>
-<ol type="1">
-<li>Quelle condition sur <span class="math inline">a</span>, <span class="math inline">b</span>, <span class="math inline">c</span>, <span class="math inline">d</span> pour que ce tableau définisse une loi de probabilité ?</li>
-<li>Quelle condition supplémentaire pour que <span class="math inline">X</span> et <span class="math inline">Y</span> soient indépendantes ?</li>
-</ol>
-</div>
-<div class="custom-numbered-block custom-exercise">
-<p><strong>Exercice 5</strong></p>
-<p>On lance trois pièces équilibrées. Soit <span class="math inline">X</span> le nombre de « pile » et <span class="math inline">Y</span> le nombre de « face ».</p>
-<ol type="1">
-<li>Donner la loi conjointe de <span class="math inline">(X, Y)</span>.</li>
-<li>Donner les lois marginales de <span class="math inline">X</span> et <span class="math inline">Y</span>.</li>
-<li><span class="math inline">X</span> et <span class="math inline">Y</span> sont-elles indépendantes ? Justifier.</li>
-<li>Calculer <span class="math inline">E(X)</span>, <span class="math inline">E(Y)</span>, <span class="math inline">V(X)</span>, <span class="math inline">V(Y)</span>, <span class="math inline">\operatorname{Cov}(X, Y)</span>.</li>
-</ol>
-</div>
-<div class="custom-numbered-block custom-exercise">
-<p><strong>Exercice 6</strong></p>
-<p>On tire une boule dans une urne contenant 3 boules rouges et 2 boules vertes, puis une seconde boule sans remise. Soit <span class="math inline">X</span> l’indicateur de « la première boule est rouge » et <span class="math inline">Y</span> l’indicateur de « la seconde boule est rouge ».</p>
-<ol type="1">
-<li>Donner la loi conjointe de <span class="math inline">(X, Y)</span>.</li>
-<li>Donner les lois marginales de <span class="math inline">X</span> et <span class="math inline">Y</span>.</li>
-<li><span class="math inline">X</span> et <span class="math inline">Y</span> sont-elles indépendantes ?</li>
-<li>Calculer <span class="math inline">E(X)</span>, <span class="math inline">E(Y)</span>, <span class="math inline">\operatorname{Cov}(X, Y)</span>.</li>
-</ol>
-</div>
-<div class="custom-numbered-block custom-exercise">
-<p><strong>Exercice 7</strong></p>
-<p>Soit <span class="math inline">(X, Y)</span> un couple de variables aléatoires tel que :</p>
-<ul>
-<li><span class="math inline">X</span> suit une loi de Bernoulli de paramètre <span class="math inline">\frac{1}{2}</span></li>
-<li><span class="math inline">Y</span> suit une loi de Bernoulli de paramètre <span class="math inline">\frac{1}{2}</span></li>
-<li><span class="math inline">P(X = 0, Y = 0) = \frac{1}{3}</span></li>
-</ul>
-<ol type="1">
-<li>Donner la loi conjointe de <span class="math inline">(X, Y)</span>.</li>
-<li><span class="math inline">X</span> et <span class="math inline">Y</span> sont-elles indépendantes ?</li>
-<li>Calculer <span class="math inline">\operatorname{Cov}(X, Y)</span> et <span class="math inline">\rho(X, Y)</span>.</li>
-</ol>
-</div>
-<div class="custom-numbered-block custom-exercise">
-<p><strong>Exercice 8</strong></p>
-<p>On lance un dé équilibré. Soit <span class="math inline">X</span> le résultat obtenu et <span class="math inline">Y</span> l’indicateur de « le résultat est pair ».</p>
-<ol type="1">
-<li>Donner la loi conjointe de <span class="math inline">(X, Y)</span>.</li>
-<li>Donner les lois marginales de <span class="math inline">X</span> et <span class="math inline">Y</span>.</li>
-<li><span class="math inline">X</span> et <span class="math inline">Y</span> sont-elles indépendantes ?</li>
-<li>Calculer <span class="math inline">\operatorname{Cov}(X, Y)</span>.</li>
-</ol>
-</div>
-<div class="custom-numbered-block custom-exercise">
-<p><strong>Exercice 9</strong></p>
-<p>On considère le tableau de loi conjointe suivant :</p>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th><span class="math inline">X \setminus Y</span></th>
-<th><span class="math inline">-1</span></th>
-<th><span class="math inline">0</span></th>
-<th><span class="math inline">1</span></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><span class="math inline">-1</span></td>
-<td><span class="math inline">\frac{1}{8}</span></td>
-<td><span class="math inline">0</span></td>
-<td><span class="math inline">\frac{1}{8}</span></td>
-</tr>
-<tr class="even">
-<td><span class="math inline">0</span></td>
-<td><span class="math inline">0</span></td>
-<td><span class="math inline">\frac{1}{4}</span></td>
-<td><span class="math inline">0</span></td>
-</tr>
-<tr class="odd">
-<td><span class="math inline">1</span></td>
-<td><span class="math inline">\frac{1}{8}</span></td>
-<td><span class="math inline">0</span></td>
-<td><span class="math inline">\frac{1}{8}</span></td>
-</tr>
-</tbody>
-</table>
-<ol type="1">
-<li>Vérifier que ce tableau définit une loi de probabilité.</li>
-<li>Donner les lois marginales de <span class="math inline">X</span> et <span class="math inline">Y</span>.</li>
-<li><span class="math inline">X</span> et <span class="math inline">Y</span> sont-elles indépendantes ?</li>
-<li>Calculer <span class="math inline">E(X)</span>, <span class="math inline">E(Y)</span>, <span class="math inline">V(X)</span>, <span class="math inline">V(Y)</span>, <span class="math inline">\operatorname{Cov}(X, Y)</span> et <span class="math inline">\rho(X, Y)</span>.</li>
-</ol>
-</div>
-<div class="custom-numbered-block custom-exercise">
-<p><strong>Exercice 10</strong></p>
-<p>On lance deux pièces équilibrées. Soit <span class="math inline">X</span> le nombre de « pile » et <span class="math inline">Y</span> l’indicateur de « les deux pièces donnent le même résultat ».</p>
-<ol type="1">
-<li>Donner la loi conjointe de <span class="math inline">(X, Y)</span>.</li>
-<li>Donner les lois marginales de <span class="math inline">X</span> et <span class="math inline">Y</span>.</li>
-<li><span class="math inline">X</span> et <span class="math inline">Y</span> sont-elles indépendantes ?</li>
-<li>Calculer <span class="math inline">\operatorname{Cov}(X, Y)</span> et <span class="math inline">\rho(X, Y)</span>.</li>
-</ol>
-</div>
-<div class="custom-numbered-block custom-exercise">
-<p><strong>Exercice 11</strong></p>
-<p>On considère deux variables aléatoires <span class="math inline">X</span> et <span class="math inline">Y</span> telles que <span class="math inline">E(X) = 2</span>, <span class="math inline">E(Y) = 3</span>, <span class="math inline">V(X) = 4</span>, <span class="math inline">V(Y) = 9</span> et <span class="math inline">\operatorname{Cov}(X, Y) = 3</span>.</p>
-<ol type="1">
-<li>Calculer <span class="math inline">\rho(X, Y)</span>.</li>
-<li>Calculer <span class="math inline">V(X + Y)</span> et <span class="math inline">V(X - Y)</span>.</li>
-<li>Calculer <span class="math inline">V(2X + 3Y)</span>.</li>
-<li><span class="math inline">X</span> et <span class="math inline">Y</span> sont-elles indépendantes ? Justifier.</li>
-</ol>
-</div>
-<div class="custom-numbered-block custom-exercise">
-<p><strong>Exercice 12</strong></p>
-<p>On lance un dé équilibré deux fois. Soit <span class="math inline">X</span> la somme des deux résultats et <span class="math inline">Y</span> la valeur absolue de la différence des deux résultats.</p>
-<ol type="1">
-<li>Donner les lois marginales de <span class="math inline">X</span> et <span class="math inline">Y</span>.</li>
-<li><span class="math inline">X</span> et <span class="math inline">Y</span> sont-elles indépendantes ?</li>
-<li>Calculer <span class="math inline">E(X)</span>, <span class="math inline">E(Y)</span>, <span class="math inline">\operatorname{Cov}(X, Y)</span>.</li>
-</ol>
-</div>
-<div class="custom-numbered-block custom-exercise">
-<p><strong>Exercice 13</strong></p>
-<p>On tire deux boules dans une urne contenant 2 boules rouges et 3 boules vertes, avec remise. Soit <span class="math inline">X</span> l’indicateur de « la première boule est rouge » et <span class="math inline">Y</span> l’indicateur de « la seconde boule est rouge ».</p>
-<ol type="1">
-<li>Donner la loi conjointe de <span class="math inline">(X, Y)</span>.</li>
-<li><span class="math inline">X</span> et <span class="math inline">Y</span> sont-elles indépendantes ?</li>
-<li>Calculer <span class="math inline">E(X)</span>, <span class="math inline">E(Y)</span>, <span class="math inline">\operatorname{Cov}(X, Y)</span>.</li>
-</ol>
-</div>
-<section id="cours" class="level1 unnumbered">
-<h1 class="unnumbered">Cours</h1>
-<p><a href="../cours/ect2-chap04.html"><strong>Chapitre 04 : Couples de variables aléatoires discrètes finies</strong></a></p>
 </section>
-<section id="navigation" class="level1 unnumbered">
-<h1 class="unnumbered">Navigation</h1>
-<div class="chap-nav">
-<p><a href="../td/ect2-chap03.html" class="prev">TD 03 : Sommes finies et séries numériques</a> <a href="../td/ect2.html" class="home">Menu ECT2</a> <a href="../td/ect2-chap05.html" class="next">TD 05 : Variables aléatoires discrètes infinies</a></p>
+</section>
+<section id="intégrales-de-référence" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> Intégrales de référence</h1>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 2.1 — (Intégrales de Riemann)</strong></p>
+<ol type="1">
+<li><p><span class="math inline">\int_1^{+\infty} \frac{dt}{t^\alpha}</span> converge si et seulement si <span class="math inline">\alpha &gt; 1</span>. Dans ce cas : <span class="math display">\int_1^{+\infty} \frac{dt}{t^\alpha} = \frac{1}{\alpha - 1}</span></p></li>
+<li><p><span class="math inline">\int_0^1 \frac{dt}{t^\alpha}</span> converge si et seulement si <span class="math inline">\alpha &lt; 1</span>. Dans ce cas : <span class="math display">\int_0^1 \frac{dt}{t^\alpha} = \frac{1}{1 - \alpha}</span></p></li>
+</ol>
 </div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 2.1</strong></p>
+<ul>
+<li><span class="math inline">\int_1^{+\infty} \frac{dt}{t^2}</span> converge (<span class="math inline">\alpha = 2 &gt; 1</span>) et vaut <span class="math inline">1</span>.</li>
+<li><span class="math inline">\int_1^{+\infty} \frac{dt}{t}</span> diverge (<span class="math inline">\alpha = 1</span>).</li>
+<li><span class="math inline">\int_1^{+\infty} \frac{dt}{\sqrt{t}}</span> diverge (<span class="math inline">\alpha = \frac{1}{2} &lt; 1</span>).</li>
+</ul>
+</div>
+</section>
+<section id="critères-de-convergence" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Critères de convergence</h1>
+<section id="critère-de-comparaison" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="critère-de-comparaison"><span class="header-section-number">3.1</span> Critère de comparaison</h2>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 3.1 — (Critère de comparaison)</strong></p>
+<p>Soient <span class="math inline">f, g : [a, +\infty[ \to \mathbb{R}^+</span> continues par morceaux.</p>
+<ol type="1">
+<li>Si <span class="math inline">0 \leq f(t) \leq g(t)</span> au voisinage de <span class="math inline">+\infty</span> et <span class="math inline">\int_a^{+\infty} g(t) \, dt</span> converge, alors <span class="math inline">\int_a^{+\infty} f(t) \, dt</span> converge.</li>
+<li>Si <span class="math inline">0 \leq f(t) \leq g(t)</span> au voisinage de <span class="math inline">+\infty</span> et <span class="math inline">\int_a^{+\infty} f(t) \, dt</span> diverge, alors <span class="math inline">\int_a^{+\infty} g(t) \, dt</span> diverge.</li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 3.2 — (Critère d’équivalence)</strong></p>
+<p>Soient <span class="math inline">f, g : [a, +\infty[ \to \mathbb{R}^+</span> continues par morceaux. Si <span class="math inline">f(t) \sim g(t)</span> au voisinage de <span class="math inline">+\infty</span>, alors <span class="math inline">\int_a^{+\infty} f(t) \, dt</span> et <span class="math inline">\int_a^{+\infty} g(t) \, dt</span> sont de même nature.</p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 3.1</strong></p>
+<p><span class="math inline">\int_1^{+\infty} \frac{dt}{t^2 + 1}</span> converge car <span class="math inline">\frac{1}{t^2 + 1} \sim \frac{1}{t^2}</span> au voisinage de <span class="math inline">+\infty</span> et <span class="math inline">\int_1^{+\infty} \frac{dt}{t^2}</span> converge.</p>
+</div>
+</section>
+</section>
+<section id="convergence-absolue" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> Convergence absolue</h1>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 4.1 — (Convergence absolue)</strong></p>
+<p>L’intégrale <span class="math inline">\int_a^{+\infty} f(t) \, dt</span> est <strong>absolument convergente</strong> si <span class="math inline">\int_a^{+\infty} |f(t)| \, dt</span> converge.</p>
+</div>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 4.1</strong></p>
+<p>Toute intégrale absolument convergente est convergente. De plus : <span class="math display">\left|\int_a^{+\infty} f(t) \, dt\right| \leq \int_a^{+\infty} |f(t)| \, dt</span></p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 4.1</strong></p>
+<p><span class="math inline">\int_1^{+\infty} \frac{\sin t}{t^2} \, dt</span> converge absolument car <span class="math inline">\left|\frac{\sin t}{t^2}\right| \leq \frac{1}{t^2}</span> et <span class="math inline">\int_1^{+\infty} \frac{dt}{t^2}</span> converge.</p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 4.2 — (Semi-convergence)</strong></p>
+<p><span class="math inline">\int_1^{+\infty} \frac{\sin t}{t} \, dt</span> converge mais pas absolument (car <span class="math inline">\int_1^{+\infty} \frac{|\sin t|}{t} \, dt</span> diverge).</p>
+</div>
+</section>
+<section id="intégration-par-parties" class="level1" data-number="5">
+<h1 data-number="5"><span class="header-section-number">5</span> Intégration par parties</h1>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 5.1 — (Intégration par parties)</strong></p>
+<p>Soient <span class="math inline">f, g : [a, +\infty[ \to \mathbb{R}</span> de classe <span class="math inline">\mathcal{C}^1</span>. Si <span class="math inline">\lim_{x \to +\infty} f(x)g(x)</span> existe et <span class="math inline">\int_a^{+\infty} f'(t)g(t) \, dt</span> converge, alors <span class="math inline">\int_a^{+\infty} f(t)g'(t) \, dt</span> converge et : <span class="math display">\int_a^{+\infty} f(t)g'(t) \, dt = \lim_{x \to +\infty} [f(x)g(x)] - f(a)g(a) - \int_a^{+\infty} f'(t)g(t) \, dt</span></p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 5.1</strong></p>
+<p><span class="math inline">\int_0^{+\infty} t e^{-t} \, dt</span> converge car : <span class="math display">\int_0^x t e^{-t} \, dt = [-te^{-t}]_0^x + \int_0^x e^{-t} \, dt = -xe^{-x} + 1 - e^{-x} \xrightarrow{x \to +\infty} 1</span></p>
+</div>
+</section>
+<section id="exercices" class="level1" data-number="6">
+<h1 data-number="6"><span class="header-section-number">6</span> Exercices</h1>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 6.1</strong></p>
+<p>Étudier la convergence des intégrales suivantes :</p>
+<ol type="1">
+<li><span class="math inline">\int_1^{+\infty} \frac{dt}{t^3}</span></li>
+<li><span class="math inline">\int_1^{+\infty} \frac{dt}{\sqrt{t}}</span></li>
+<li><span class="math inline">\int_1^{+\infty} \frac{dt}{t^2 + 1}</span></li>
+<li><span class="math inline">\int_1^{+\infty} \frac{\sin t}{t^2} \, dt</span></li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 6.2</strong></p>
+<p>Étudier la convergence des intégrales suivantes :</p>
+<ol type="1">
+<li><span class="math inline">\int_1^{+\infty} \frac{dt}{t^2 + t + 1}</span></li>
+<li><span class="math inline">\int_1^{+\infty} \frac{dt}{\sqrt{t^3 + 1}}</span></li>
+<li><span class="math inline">\int_1^{+\infty} \frac{\sin t}{t} \, dt</span></li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 6.3</strong></p>
+<p>Étudier la convergence des intégrales suivantes :</p>
+<ol type="1">
+<li><span class="math inline">\int_1^{+\infty} \frac{\ln t}{t^2} \, dt</span></li>
+<li><span class="math inline">\int_1^{+\infty} \frac{dt}{t \ln t}</span></li>
+<li><span class="math inline">\int_1^{+\infty} \frac{dt}{t^2 \ln t}</span></li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 6.4</strong></p>
+<p>Étudier la convergence des intégrales suivantes :</p>
+<ol type="1">
+<li><span class="math inline">\int_1^{+\infty} \frac{dt}{1 + t^2}</span></li>
+<li><span class="math inline">\int_1^{+\infty} \frac{dt}{1 + t^3}</span></li>
+<li><span class="math inline">\int_1^{+\infty} \frac{dt}{1 + t}</span></li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 6.5</strong></p>
+<p>Étudier la convergence des intégrales suivantes :</p>
+<ol type="1">
+<li><span class="math inline">\int_0^1 \frac{dt}{\sqrt{t}}</span></li>
+<li><span class="math inline">\int_0^1 \frac{dt}{t}</span></li>
+<li><span class="math inline">\int_0^1 \frac{dt}{\sqrt{1-t}}</span></li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 6.6</strong></p>
+<p>Étudier la convergence des intégrales suivantes :</p>
+<ol type="1">
+<li><span class="math inline">\int_1^{+\infty} \frac{dt}{t^2 + t}</span></li>
+<li><span class="math inline">\int_1^{+\infty} \frac{dt}{t^2 - 1}</span></li>
+<li><span class="math inline">\int_1^{+\infty} \frac{dt}{t^2 - t}</span></li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 6.7</strong></p>
+<p>Étudier la convergence des intégrales suivantes :</p>
+<ol type="1">
+<li><span class="math inline">\int_1^{+\infty} \frac{dt}{t^3 + t}</span></li>
+<li><span class="math inline">\int_1^{+\infty} \frac{dt}{t^3 - 1}</span></li>
+<li><span class="math inline">\int_1^{+\infty} \frac{dt}{t^3 + 1}</span></li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 6.8</strong></p>
+<p>Étudier la convergence des intégrales suivantes :</p>
+<ol type="1">
+<li><span class="math inline">\int_1^{+\infty} \frac{dt}{t^2 + \sqrt{t}}</span></li>
+<li><span class="math inline">\int_1^{+\infty} \frac{dt}{t^2 + \ln t}</span></li>
+<li><span class="math inline">\int_1^{+\infty} \frac{dt}{t^2 + e^t}</span></li>
+</ol>
+</div>
+</section>
+<section id="document-en-pdf" class="level1 unnumbered">
+<h1 class="unnumbered">Document en PDF</h1>
+<p><a href="PDF/ect2-chap08.pdf"><strong>Chapitre 08 : Compléments d’analyse : Intégrales généralisées</strong></a></p>
+<p>##&nbsp;Navigation {-} ::: {.chap-nav} <a href="../cours/ect2-chap07.html" class="prev">Chapitre 07 : Réduction des matrices carrées</a> <a href="../cours/ect2.html" class="home">Menu ECT2</a> <a href="../cours/ect2-chap09.html" class="next">Chapitre 09 : Variables aléatoires à densité</a> :::</p>
 
 
 </section>

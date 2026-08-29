@@ -8,7 +8,7 @@
 
 <meta name="author" content="Saîd MAHARI">
 
-<title>TD — Couples de variables aléatoires discrètes finies – Mathématiques en CPGE</title>
+<title>Réduction des matrices carrées – Mathématiques en CPGE</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -266,8 +266,24 @@ window.Quarto = {
     <h2 id="toc-title">Sur cette page</h2>
    
   <ul>
-  <li><a href="#cours" id="toc-cours" class="nav-link active" data-scroll-target="#cours">Cours</a></li>
+  <li><a href="#valeurs-propres-et-vecteurs-propres" id="toc-valeurs-propres-et-vecteurs-propres" class="nav-link active" data-scroll-target="#valeurs-propres-et-vecteurs-propres"><span class="header-section-number">1</span> Valeurs propres et vecteurs propres</a>
+  <ul class="collapse">
+  <li><a href="#définitions" id="toc-définitions" class="nav-link" data-scroll-target="#définitions"><span class="header-section-number">1.1</span> Définitions</a></li>
+  <li><a href="#polynôme-caractéristique" id="toc-polynôme-caractéristique" class="nav-link" data-scroll-target="#polynôme-caractéristique"><span class="header-section-number">1.2</span> Polynôme caractéristique</a></li>
+  </ul></li>
+  <li><a href="#diagonalisation" id="toc-diagonalisation" class="nav-link" data-scroll-target="#diagonalisation"><span class="header-section-number">2</span> Diagonalisation</a>
+  <ul class="collapse">
+  <li><a href="#définition" id="toc-définition" class="nav-link" data-scroll-target="#définition"><span class="header-section-number">2.1</span> Définition</a></li>
+  <li><a href="#caractérisations" id="toc-caractérisations" class="nav-link" data-scroll-target="#caractérisations"><span class="header-section-number">2.2</span> Caractérisations</a></li>
+  </ul></li>
+  <li><a href="#trigonalisation" id="toc-trigonalisation" class="nav-link" data-scroll-target="#trigonalisation"><span class="header-section-number">3</span> Trigonalisation</a></li>
+  <li><a href="#polynômes-annulateurs" id="toc-polynômes-annulateurs" class="nav-link" data-scroll-target="#polynômes-annulateurs"><span class="header-section-number">4</span> Polynômes annulateurs</a></li>
+  <li><a href="#application-aux-puissances-de-matrices" id="toc-application-aux-puissances-de-matrices" class="nav-link" data-scroll-target="#application-aux-puissances-de-matrices"><span class="header-section-number">5</span> Application aux puissances de matrices</a></li>
+  <li><a href="#exercices" id="toc-exercices" class="nav-link" data-scroll-target="#exercices"><span class="header-section-number">6</span> Exercices</a></li>
+  <li><a href="#document-en-pdf" id="toc-document-en-pdf" class="nav-link" data-scroll-target="#document-en-pdf">Document en PDF</a>
+  <ul class="collapse">
   <li><a href="#navigation" id="toc-navigation" class="nav-link" data-scroll-target="#navigation">Navigation</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -276,8 +292,8 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">TD — Couples de variables aléatoires discrètes finies</h1>
-<p class="subtitle lead">Chapitre 04</p>
+<h1 class="title">Réduction des matrices carrées</h1>
+<p class="subtitle lead">Chapitre 07</p>
 </div>
 
 
@@ -306,223 +322,248 @@ window.Quarto = {
 </header>
 
 
-<p><strong>ECT2 (2e année) — TD du Chapitre 04.</strong> Lois marginales, lois conditionnelles, indépendance, covariance, coefficient de corrélation linéaire.</p>
-<div class="custom-numbered-block custom-exercise">
-<p><strong>Exercice 1</strong></p>
-<p>On lance deux dés équilibrés. Soit <span class="math inline">X</span> le résultat du premier dé et <span class="math inline">Y</span> le résultat du second dé.</p>
-<ol type="1">
-<li>Donner la loi conjointe de <span class="math inline">(X, Y)</span>.</li>
-<li>Donner les lois marginales de <span class="math inline">X</span> et <span class="math inline">Y</span>.</li>
-<li><span class="math inline">X</span> et <span class="math inline">Y</span> sont-elles indépendantes ?</li>
-<li>Calculer <span class="math inline">E(X)</span>, <span class="math inline">E(Y)</span>, <span class="math inline">V(X)</span>, <span class="math inline">V(Y)</span> et <span class="math inline">\operatorname{Cov}(X, Y)</span>.</li>
-</ol>
+<p><strong>ECT2 (2e année) — Chapitre 07.</strong> Valeurs propres, vecteurs propres, matrices diagonalisables, polynômes annulateurs, application aux puissances de matrices.</p>
+<p>Ce chapitre a été réalisé conformément au programme marocain de mathématiques de la filière ECT.</p>
+<p>Dans tout ce chapitre, <span class="math inline">\mathbb{K}</span> désigne <span class="math inline">\mathbb{R}</span> ou <span class="math inline">\mathbb{C}</span>, et <span class="math inline">E</span> un <span class="math inline">\mathbb{K}</span>-espace vectoriel de dimension finie <span class="math inline">n</span>.</p>
+<section id="valeurs-propres-et-vecteurs-propres" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Valeurs propres et vecteurs propres</h1>
+<section id="définitions" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="définitions"><span class="header-section-number">1.1</span> Définitions</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 1.1 — (Valeur propre, vecteur propre)</strong></p>
+<p>Soit <span class="math inline">u \in \mathcal{L}(E)</span>. Un scalaire <span class="math inline">\lambda \in \mathbb{K}</span> est une <strong>valeur propre</strong> de <span class="math inline">u</span> s’il existe <span class="math inline">x \in E \setminus \{0_E\}</span> tel que : <span class="math display">u(x) = \lambda x</span> Le vecteur <span class="math inline">x</span> est appelé <strong>vecteur propre</strong> associé à <span class="math inline">\lambda</span>.</p>
 </div>
-<div class="custom-numbered-block custom-exercise">
-<p><strong>Exercice 2</strong></p>
-<p>On lance une pièce équilibrée deux fois. Soit <span class="math inline">X</span> le nombre de « pile » obtenus et <span class="math inline">Y</span> le nombre de « face » obtenus.</p>
-<ol type="1">
-<li>Donner la loi conjointe de <span class="math inline">(X, Y)</span>.</li>
-<li>Donner les lois marginales de <span class="math inline">X</span> et <span class="math inline">Y</span>.</li>
-<li><span class="math inline">X</span> et <span class="math inline">Y</span> sont-elles indépendantes ?</li>
-<li>Calculer <span class="math inline">E(X)</span>, <span class="math inline">E(Y)</span>, <span class="math inline">V(X)</span>, <span class="math inline">V(Y)</span>, <span class="math inline">\operatorname{Cov}(X, Y)</span> et <span class="math inline">\rho(X, Y)</span>.</li>
-</ol>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 1.2 — (Sous-espace propre)</strong></p>
+<p>Le <strong>sous-espace propre</strong> associé à <span class="math inline">\lambda</span> est : <span class="math display">E_\lambda(u) = \ker(u - \lambda \mathrm{Id}_E)</span></p>
 </div>
-<div class="custom-numbered-block custom-exercise">
-<p><strong>Exercice 3</strong></p>
-<p>On considère le tableau de loi conjointe suivant :</p>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th><span class="math inline">X \setminus Y</span></th>
-<th><span class="math inline">0</span></th>
-<th><span class="math inline">1</span></th>
-<th><span class="math inline">2</span></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><span class="math inline">0</span></td>
-<td><span class="math inline">0{,}1</span></td>
-<td><span class="math inline">0{,}2</span></td>
-<td><span class="math inline">0{,}1</span></td>
-</tr>
-<tr class="even">
-<td><span class="math inline">1</span></td>
-<td><span class="math inline">0{,}1</span></td>
-<td><span class="math inline">0{,}1</span></td>
-<td><span class="math inline">0{,}2</span></td>
-</tr>
-</tbody>
-</table>
-<ol type="1">
-<li>Vérifier que ce tableau définit bien une loi de probabilité.</li>
-<li>Donner les lois marginales de <span class="math inline">X</span> et <span class="math inline">Y</span>.</li>
-<li><span class="math inline">X</span> et <span class="math inline">Y</span> sont-elles indépendantes ?</li>
-<li>Calculer <span class="math inline">E(X)</span>, <span class="math inline">E(Y)</span>, <span class="math inline">V(X)</span>, <span class="math inline">V(Y)</span>, <span class="math inline">\operatorname{Cov}(X, Y)</span> et <span class="math inline">\rho(X, Y)</span>.</li>
-</ol>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 1.3 — (Spectre)</strong></p>
+<p>Le <strong>spectre</strong> de <span class="math inline">u</span>, noté <span class="math inline">\mathrm{Sp}(u)</span>, est l’ensemble des valeurs propres de <span class="math inline">u</span>.</p>
 </div>
-<div class="custom-numbered-block custom-exercise">
-<p><strong>Exercice 4</strong></p>
-<p>On considère le tableau de loi conjointe suivant :</p>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th><span class="math inline">X \setminus Y</span></th>
-<th><span class="math inline">0</span></th>
-<th><span class="math inline">1</span></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><span class="math inline">0</span></td>
-<td><span class="math inline">a</span></td>
-<td><span class="math inline">b</span></td>
-</tr>
-<tr class="even">
-<td><span class="math inline">1</span></td>
-<td><span class="math inline">c</span></td>
-<td><span class="math inline">d</span></td>
-</tr>
-</tbody>
-</table>
-<ol type="1">
-<li>Quelle condition sur <span class="math inline">a</span>, <span class="math inline">b</span>, <span class="math inline">c</span>, <span class="math inline">d</span> pour que ce tableau définisse une loi de probabilité ?</li>
-<li>Quelle condition supplémentaire pour que <span class="math inline">X</span> et <span class="math inline">Y</span> soient indépendantes ?</li>
-</ol>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 1.1</strong></p>
+<p>Soient <span class="math inline">\lambda_1, \ldots, \lambda_r</span> des valeurs propres distinctes de <span class="math inline">u</span>. Alors la somme <span class="math inline">E_{\lambda_1} + \cdots + E_{\lambda_r}</span> est directe.</p>
 </div>
-<div class="custom-numbered-block custom-exercise">
-<p><strong>Exercice 5</strong></p>
-<p>On lance trois pièces équilibrées. Soit <span class="math inline">X</span> le nombre de « pile » et <span class="math inline">Y</span> le nombre de « face ».</p>
-<ol type="1">
-<li>Donner la loi conjointe de <span class="math inline">(X, Y)</span>.</li>
-<li>Donner les lois marginales de <span class="math inline">X</span> et <span class="math inline">Y</span>.</li>
-<li><span class="math inline">X</span> et <span class="math inline">Y</span> sont-elles indépendantes ? Justifier.</li>
-<li>Calculer <span class="math inline">E(X)</span>, <span class="math inline">E(Y)</span>, <span class="math inline">V(X)</span>, <span class="math inline">V(Y)</span>, <span class="math inline">\operatorname{Cov}(X, Y)</span>.</li>
-</ol>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 1.2</strong></p>
+<p>Le spectre d’un endomorphisme d’un espace de dimension finie <span class="math inline">n</span> est fini de cardinal au plus <span class="math inline">n</span>.</p>
 </div>
-<div class="custom-numbered-block custom-exercise">
-<p><strong>Exercice 6</strong></p>
-<p>On tire une boule dans une urne contenant 3 boules rouges et 2 boules vertes, puis une seconde boule sans remise. Soit <span class="math inline">X</span> l’indicateur de « la première boule est rouge » et <span class="math inline">Y</span> l’indicateur de « la seconde boule est rouge ».</p>
-<ol type="1">
-<li>Donner la loi conjointe de <span class="math inline">(X, Y)</span>.</li>
-<li>Donner les lois marginales de <span class="math inline">X</span> et <span class="math inline">Y</span>.</li>
-<li><span class="math inline">X</span> et <span class="math inline">Y</span> sont-elles indépendantes ?</li>
-<li>Calculer <span class="math inline">E(X)</span>, <span class="math inline">E(Y)</span>, <span class="math inline">\operatorname{Cov}(X, Y)</span>.</li>
-</ol>
-</div>
-<div class="custom-numbered-block custom-exercise">
-<p><strong>Exercice 7</strong></p>
-<p>Soit <span class="math inline">(X, Y)</span> un couple de variables aléatoires tel que :</p>
-<ul>
-<li><span class="math inline">X</span> suit une loi de Bernoulli de paramètre <span class="math inline">\frac{1}{2}</span></li>
-<li><span class="math inline">Y</span> suit une loi de Bernoulli de paramètre <span class="math inline">\frac{1}{2}</span></li>
-<li><span class="math inline">P(X = 0, Y = 0) = \frac{1}{3}</span></li>
-</ul>
-<ol type="1">
-<li>Donner la loi conjointe de <span class="math inline">(X, Y)</span>.</li>
-<li><span class="math inline">X</span> et <span class="math inline">Y</span> sont-elles indépendantes ?</li>
-<li>Calculer <span class="math inline">\operatorname{Cov}(X, Y)</span> et <span class="math inline">\rho(X, Y)</span>.</li>
-</ol>
-</div>
-<div class="custom-numbered-block custom-exercise">
-<p><strong>Exercice 8</strong></p>
-<p>On lance un dé équilibré. Soit <span class="math inline">X</span> le résultat obtenu et <span class="math inline">Y</span> l’indicateur de « le résultat est pair ».</p>
-<ol type="1">
-<li>Donner la loi conjointe de <span class="math inline">(X, Y)</span>.</li>
-<li>Donner les lois marginales de <span class="math inline">X</span> et <span class="math inline">Y</span>.</li>
-<li><span class="math inline">X</span> et <span class="math inline">Y</span> sont-elles indépendantes ?</li>
-<li>Calculer <span class="math inline">\operatorname{Cov}(X, Y)</span>.</li>
-</ol>
-</div>
-<div class="custom-numbered-block custom-exercise">
-<p><strong>Exercice 9</strong></p>
-<p>On considère le tableau de loi conjointe suivant :</p>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th><span class="math inline">X \setminus Y</span></th>
-<th><span class="math inline">-1</span></th>
-<th><span class="math inline">0</span></th>
-<th><span class="math inline">1</span></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><span class="math inline">-1</span></td>
-<td><span class="math inline">\frac{1}{8}</span></td>
-<td><span class="math inline">0</span></td>
-<td><span class="math inline">\frac{1}{8}</span></td>
-</tr>
-<tr class="even">
-<td><span class="math inline">0</span></td>
-<td><span class="math inline">0</span></td>
-<td><span class="math inline">\frac{1}{4}</span></td>
-<td><span class="math inline">0</span></td>
-</tr>
-<tr class="odd">
-<td><span class="math inline">1</span></td>
-<td><span class="math inline">\frac{1}{8}</span></td>
-<td><span class="math inline">0</span></td>
-<td><span class="math inline">\frac{1}{8}</span></td>
-</tr>
-</tbody>
-</table>
-<ol type="1">
-<li>Vérifier que ce tableau définit une loi de probabilité.</li>
-<li>Donner les lois marginales de <span class="math inline">X</span> et <span class="math inline">Y</span>.</li>
-<li><span class="math inline">X</span> et <span class="math inline">Y</span> sont-elles indépendantes ?</li>
-<li>Calculer <span class="math inline">E(X)</span>, <span class="math inline">E(Y)</span>, <span class="math inline">V(X)</span>, <span class="math inline">V(Y)</span>, <span class="math inline">\operatorname{Cov}(X, Y)</span> et <span class="math inline">\rho(X, Y)</span>.</li>
-</ol>
-</div>
-<div class="custom-numbered-block custom-exercise">
-<p><strong>Exercice 10</strong></p>
-<p>On lance deux pièces équilibrées. Soit <span class="math inline">X</span> le nombre de « pile » et <span class="math inline">Y</span> l’indicateur de « les deux pièces donnent le même résultat ».</p>
-<ol type="1">
-<li>Donner la loi conjointe de <span class="math inline">(X, Y)</span>.</li>
-<li>Donner les lois marginales de <span class="math inline">X</span> et <span class="math inline">Y</span>.</li>
-<li><span class="math inline">X</span> et <span class="math inline">Y</span> sont-elles indépendantes ?</li>
-<li>Calculer <span class="math inline">\operatorname{Cov}(X, Y)</span> et <span class="math inline">\rho(X, Y)</span>.</li>
-</ol>
-</div>
-<div class="custom-numbered-block custom-exercise">
-<p><strong>Exercice 11</strong></p>
-<p>On considère deux variables aléatoires <span class="math inline">X</span> et <span class="math inline">Y</span> telles que <span class="math inline">E(X) = 2</span>, <span class="math inline">E(Y) = 3</span>, <span class="math inline">V(X) = 4</span>, <span class="math inline">V(Y) = 9</span> et <span class="math inline">\operatorname{Cov}(X, Y) = 3</span>.</p>
-<ol type="1">
-<li>Calculer <span class="math inline">\rho(X, Y)</span>.</li>
-<li>Calculer <span class="math inline">V(X + Y)</span> et <span class="math inline">V(X - Y)</span>.</li>
-<li>Calculer <span class="math inline">V(2X + 3Y)</span>.</li>
-<li><span class="math inline">X</span> et <span class="math inline">Y</span> sont-elles indépendantes ? Justifier.</li>
-</ol>
-</div>
-<div class="custom-numbered-block custom-exercise">
-<p><strong>Exercice 12</strong></p>
-<p>On lance un dé équilibré deux fois. Soit <span class="math inline">X</span> la somme des deux résultats et <span class="math inline">Y</span> la valeur absolue de la différence des deux résultats.</p>
-<ol type="1">
-<li>Donner les lois marginales de <span class="math inline">X</span> et <span class="math inline">Y</span>.</li>
-<li><span class="math inline">X</span> et <span class="math inline">Y</span> sont-elles indépendantes ?</li>
-<li>Calculer <span class="math inline">E(X)</span>, <span class="math inline">E(Y)</span>, <span class="math inline">\operatorname{Cov}(X, Y)</span>.</li>
-</ol>
-</div>
-<div class="custom-numbered-block custom-exercise">
-<p><strong>Exercice 13</strong></p>
-<p>On tire deux boules dans une urne contenant 2 boules rouges et 3 boules vertes, avec remise. Soit <span class="math inline">X</span> l’indicateur de « la première boule est rouge » et <span class="math inline">Y</span> l’indicateur de « la seconde boule est rouge ».</p>
-<ol type="1">
-<li>Donner la loi conjointe de <span class="math inline">(X, Y)</span>.</li>
-<li><span class="math inline">X</span> et <span class="math inline">Y</span> sont-elles indépendantes ?</li>
-<li>Calculer <span class="math inline">E(X)</span>, <span class="math inline">E(Y)</span>, <span class="math inline">\operatorname{Cov}(X, Y)</span>.</li>
-</ol>
-</div>
-<section id="cours" class="level1 unnumbered">
-<h1 class="unnumbered">Cours</h1>
-<p><a href="../cours/ect2-chap04.html"><strong>Chapitre 04 : Couples de variables aléatoires discrètes finies</strong></a></p>
 </section>
-<section id="navigation" class="level1 unnumbered">
-<h1 class="unnumbered">Navigation</h1>
+<section id="polynôme-caractéristique" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="polynôme-caractéristique"><span class="header-section-number">1.2</span> Polynôme caractéristique</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 1.4 — (Polynôme caractéristique)</strong></p>
+<p>Soit <span class="math inline">A \in \mathcal{M}_n(\mathbb{K})</span>. Le <strong>polynôme caractéristique</strong> de <span class="math inline">A</span> est : <span class="math display">\chi_A(X) = \det(XI_n - A)</span></p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 1.3</strong></p>
+<ol type="1">
+<li><span class="math inline">\chi_A</span> est unitaire de degré <span class="math inline">n</span>.</li>
+<li><span class="math inline">\lambda</span> est valeur propre de <span class="math inline">A</span> <span class="math inline">\iff</span> <span class="math inline">\chi_A(\lambda) = 0</span>.</li>
+<li>Deux matrices semblables ont même polynôme caractéristique.</li>
+<li><span class="math inline">\chi_A(X) = X^n - \mathrm{tr}(A) X^{n-1} + \cdots + (-1)^n \det(A)</span></li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 1.1</strong></p>
+<p>Pour <span class="math inline">A = \begin{pmatrix} 1 &amp; 2 \\ 0 &amp; 3 \end{pmatrix}</span> : <span class="math display">\chi_A(X) = \det \begin{pmatrix} X-1 &amp; -2 \\ 0 &amp; X-3 \end{pmatrix} = (X-1)(X-3)</span> Les valeurs propres sont <span class="math inline">\lambda_1 = 1</span> et <span class="math inline">\lambda_2 = 3</span>.</p>
+</div>
+</section>
+</section>
+<section id="diagonalisation" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> Diagonalisation</h1>
+<section id="définition" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="définition"><span class="header-section-number">2.1</span> Définition</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 2.1 — (Matrice diagonalisable)</strong></p>
+<p>Une matrice <span class="math inline">A \in \mathcal{M}_n(\mathbb{K})</span> est <strong>diagonalisable</strong> s’il existe <span class="math inline">P \in GL_n(\mathbb{K})</span> et <span class="math inline">D</span> diagonale telles que : <span class="math display">A = PDP^{-1}</span></p>
+</div>
+</section>
+<section id="caractérisations" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="caractérisations"><span class="header-section-number">2.2</span> Caractérisations</h2>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 2.1 — (Caractérisation par les sous-espaces propres)</strong></p>
+<p><span class="math inline">A</span> est diagonalisable si et seulement si : <span class="math display">\mathbb{K}^n = E_{\lambda_1} \oplus \cdots \oplus E_{\lambda_r}</span> où <span class="math inline">\lambda_1, \ldots, \lambda_r</span> sont les valeurs propres distinctes de <span class="math inline">A</span>.</p>
+</div>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 2.2 — (Caractérisation par le polynôme caractéristique)</strong></p>
+<p><span class="math inline">A</span> est diagonalisable si et seulement si :</p>
+<ol type="1">
+<li><span class="math inline">\chi_A</span> est scindé sur <span class="math inline">\mathbb{K}</span></li>
+<li>Pour toute valeur propre <span class="math inline">\lambda_k</span> de multiplicité <span class="math inline">\mu_k</span>, <span class="math inline">\dim E_{\lambda_k} = \mu_k</span></li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 2.1 — (Cas des valeurs propres distinctes)</strong></p>
+<p>Si <span class="math inline">A</span> admet <span class="math inline">n</span> valeurs propres distinctes, alors <span class="math inline">A</span> est diagonalisable.</p>
+</div>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 2.3 — (Caractérisation par le polynôme minimal)</strong></p>
+<p><span class="math inline">A</span> est diagonalisable si et seulement si son polynôme minimal <span class="math inline">P_A</span> est scindé à racines simples.</p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 2.1 — (Matrice diagonalisable)</strong></p>
+<p>Pour <span class="math inline">A = \begin{pmatrix} 1 &amp; 2 \\ 0 &amp; 3 \end{pmatrix}</span> : - <span class="math inline">\chi_A(X) = (X-1)(X-3)</span> - <span class="math inline">E_1 = \mathrm{Vect}\left(\begin{pmatrix} 1 \\ 0 \end{pmatrix}\right)</span> - <span class="math inline">E_3 = \mathrm{Vect}\left(\begin{pmatrix} 1 \\ 2 \end{pmatrix}\right)</span></p>
+<p>Donc <span class="math inline">A</span> est diagonalisable : <span class="math display">A = \begin{pmatrix} 1 &amp; 1 \\ 0 &amp; 2 \end{pmatrix} \begin{pmatrix} 1 &amp; 0 \\ 0 &amp; 3 \end{pmatrix} \begin{pmatrix} 1 &amp; 1 \\ 0 &amp; 2 \end{pmatrix}^{-1}</span></p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 2.2 — (Matrice non diagonalisable)</strong></p>
+<p>Pour <span class="math inline">A = \begin{pmatrix} 1 &amp; 1 \\ 0 &amp; 1 \end{pmatrix}</span> : - <span class="math inline">\chi_A(X) = (X-1)^2</span> - <span class="math inline">E_1 = \mathrm{Vect}\left(\begin{pmatrix} 1 \\ 0 \end{pmatrix}\right)</span> de dimension 1</p>
+<p>Comme <span class="math inline">\dim E_1 = 1 &lt; 2</span>, <span class="math inline">A</span> n’est pas diagonalisable.</p>
+</div>
+</section>
+</section>
+<section id="trigonalisation" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Trigonalisation</h1>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 3.1 — (Matrice trigonalisable)</strong></p>
+<p><span class="math inline">A</span> est <strong>trigonalisable</strong> s’il existe <span class="math inline">P \in GL_n(\mathbb{K})</span> et <span class="math inline">T</span> triangulaire supérieure telles que : <span class="math display">A = PTP^{-1}</span></p>
+</div>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 3.1 — (Caractérisation)</strong></p>
+<p><span class="math inline">A</span> est trigonalisable si et seulement si <span class="math inline">\chi_A</span> est scindé sur <span class="math inline">\mathbb{K}</span>.</p>
+</div>
+<div class="custom-numbered-block custom-corollary">
+<p><strong>Corollaire 3.1</strong></p>
+<p>En particulier, toute matrice de <span class="math inline">\mathcal{M}_n(\mathbb{C})</span> est trigonalisable.</p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 3.1</strong></p>
+<p>Pour <span class="math inline">A = \begin{pmatrix} 1 &amp; 1 \\ 0 &amp; 1 \end{pmatrix}</span>, <span class="math inline">A</span> est déjà triangulaire supérieure, donc trigonalisable.</p>
+</div>
+</section>
+<section id="polynômes-annulateurs" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> Polynômes annulateurs</h1>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 4.1 — (Polynôme annulateur)</strong></p>
+<p>Un polynôme <span class="math inline">P \in \mathbb{K}[X]</span> est un <strong>polynôme annulateur</strong> de <span class="math inline">A</span> si <span class="math inline">P(A) = 0</span>.</p>
+</div>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 4.2 — (Polynôme minimal)</strong></p>
+<p>Le <strong>polynôme minimal</strong> <span class="math inline">P_A</span> de <span class="math inline">A</span> est le polynôme annulateur unitaire de plus petit degré.</p>
+</div>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 4.1 — (Théorème de Cayley-Hamilton)</strong></p>
+<p>Le polynôme caractéristique annule la matrice : <span class="math inline">\chi_A(A) = 0</span>.</p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 4.1</strong></p>
+<p>Tout polynôme annulateur de <span class="math inline">A</span> est divisible par <span class="math inline">P_A</span>.</p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 4.1</strong></p>
+<p>Pour <span class="math inline">A = \begin{pmatrix} 1 &amp; 1 \\ 0 &amp; 1 \end{pmatrix}</span> : - <span class="math inline">\chi_A(X) = (X-1)^2</span> - <span class="math inline">A - I = \begin{pmatrix} 0 &amp; 1 \\ 0 &amp; 0 \end{pmatrix} \neq 0</span> - <span class="math inline">(A - I)^2 = 0</span></p>
+<p>Donc <span class="math inline">P_A(X) = (X-1)^2</span>.</p>
+</div>
+</section>
+<section id="application-aux-puissances-de-matrices" class="level1" data-number="5">
+<h1 data-number="5"><span class="header-section-number">5</span> Application aux puissances de matrices</h1>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 5.1 — (Calcul de <span class="math inline">\boldsymbol{A^n}</span> par diagonalisation)</strong></p>
+<p>Si <span class="math inline">A</span> est diagonalisable avec <span class="math inline">A = PDP^{-1}</span>, alors : <span class="math display">A^n = PD^nP^{-1}</span> où <span class="math inline">D^n</span> est la matrice diagonale dont les coefficients diagonaux sont <span class="math inline">\lambda_i^n</span>.</p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 5.1</strong></p>
+<p>Pour <span class="math inline">A = \begin{pmatrix} 1 &amp; 2 \\ 0 &amp; 3 \end{pmatrix}</span> diagonalisée en <span class="math inline">A = PDP^{-1}</span> : <span class="math display">A^n = P \begin{pmatrix} 1^n &amp; 0 \\ 0 &amp; 3^n \end{pmatrix} P^{-1} = P \begin{pmatrix} 1 &amp; 0 \\ 0 &amp; 3^n \end{pmatrix} P^{-1}</span></p>
+</div>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 5.2 — (Calcul de <span class="math inline">\boldsymbol{A^n}</span> par trigonalisation)</strong></p>
+<p>Si <span class="math inline">A</span> est trigonalisable avec <span class="math inline">A = PTP^{-1}</span>, alors : <span class="math display">A^n = PT^nP^{-1}</span> où <span class="math inline">T^n</span> se calcule par récurrence.</p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 5.2</strong></p>
+<p>Pour <span class="math inline">A = \begin{pmatrix} 1 &amp; 1 \\ 0 &amp; 1 \end{pmatrix}</span>, on a <span class="math inline">A = I + N</span> avec <span class="math inline">N^2 = 0</span>. Donc : <span class="math display">A^n = (I + N)^n = I + nN = \begin{pmatrix} 1 &amp; n \\ 0 &amp; 1 \end{pmatrix}</span></p>
+</div>
+</section>
+<section id="exercices" class="level1" data-number="6">
+<h1 data-number="6"><span class="header-section-number">6</span> Exercices</h1>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 6.1</strong></p>
+<p>Soit <span class="math inline">A = \begin{pmatrix} 2 &amp; 1 \\ 0 &amp; 3 \end{pmatrix}</span>.</p>
+<ol type="1">
+<li>Calculer <span class="math inline">\chi_A(X)</span>.</li>
+<li>Déterminer les valeurs propres et les sous-espaces propres.</li>
+<li><span class="math inline">A</span> est-elle diagonalisable ? Si oui, diagonaliser <span class="math inline">A</span>.</li>
+<li>Calculer <span class="math inline">A^n</span> pour tout <span class="math inline">n \in \mathbb{N}</span>.</li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 6.2</strong></p>
+<p>Soit <span class="math inline">A = \begin{pmatrix} 1 &amp; 1 \\ 0 &amp; 1 \end{pmatrix}</span>.</p>
+<ol type="1">
+<li>Calculer <span class="math inline">\chi_A(X)</span>.</li>
+<li><span class="math inline">A</span> est-elle diagonalisable ? Trigonalisable ?</li>
+<li>Déterminer le polynôme minimal de <span class="math inline">A</span>.</li>
+<li>Calculer <span class="math inline">A^n</span> pour tout <span class="math inline">n \in \mathbb{N}</span>.</li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 6.3</strong></p>
+<p>Soit <span class="math inline">A = \begin{pmatrix} 1 &amp; 2 &amp; 0 \\ 0 &amp; 1 &amp; 0 \\ 0 &amp; 0 &amp; 3 \end{pmatrix}</span>.</p>
+<ol type="1">
+<li>Calculer <span class="math inline">\chi_A(X)</span>.</li>
+<li>Déterminer les valeurs propres et les sous-espaces propres.</li>
+<li><span class="math inline">A</span> est-elle diagonalisable ?</li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 6.4</strong></p>
+<p>Soit <span class="math inline">A = \begin{pmatrix} 1 &amp; 0 &amp; 0 \\ 0 &amp; 2 &amp; 1 \\ 0 &amp; 0 &amp; 2 \end{pmatrix}</span>.</p>
+<ol type="1">
+<li>Calculer <span class="math inline">\chi_A(X)</span>.</li>
+<li><span class="math inline">A</span> est-elle diagonalisable ? Trigonalisable ?</li>
+<li>Déterminer le polynôme minimal de <span class="math inline">A</span>.</li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 6.5</strong></p>
+<p>Soit <span class="math inline">A = \begin{pmatrix} 2 &amp; 1 &amp; 0 \\ 0 &amp; 2 &amp; 0 \\ 0 &amp; 0 &amp; 3 \end{pmatrix}</span>.</p>
+<ol type="1">
+<li>Calculer <span class="math inline">\chi_A(X)</span>.</li>
+<li><span class="math inline">A</span> est-elle diagonalisable ?</li>
+<li>Déterminer le polynôme minimal de <span class="math inline">A</span>.</li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 6.6</strong></p>
+<p>Soit <span class="math inline">A = \begin{pmatrix} 1 &amp; 1 &amp; 1 \\ 0 &amp; 1 &amp; 1 \\ 0 &amp; 0 &amp; 1 \end{pmatrix}</span>.</p>
+<ol type="1">
+<li>Calculer <span class="math inline">\chi_A(X)</span>.</li>
+<li><span class="math inline">A</span> est-elle diagonalisable ? Trigonalisable ?</li>
+<li>Calculer <span class="math inline">A^n</span> pour tout <span class="math inline">n \in \mathbb{N}</span>.</li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 6.7</strong></p>
+<p>Soit <span class="math inline">A = \begin{pmatrix} 1 &amp; 0 &amp; 0 \\ 0 &amp; 2 &amp; 0 \\ 0 &amp; 0 &amp; 3 \end{pmatrix}</span>.</p>
+<ol type="1">
+<li>Calculer <span class="math inline">\chi_A(X)</span>.</li>
+<li><span class="math inline">A</span> est-elle diagonalisable ?</li>
+<li>Calculer <span class="math inline">A^n</span> pour tout <span class="math inline">n \in \mathbb{N}</span>.</li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 6.8</strong></p>
+<p>Soit <span class="math inline">A = \begin{pmatrix} 1 &amp; 1 &amp; 0 \\ 0 &amp; 1 &amp; 0 \\ 0 &amp; 0 &amp; 2 \end{pmatrix}</span>.</p>
+<ol type="1">
+<li>Calculer <span class="math inline">\chi_A(X)</span>.</li>
+<li><span class="math inline">A</span> est-elle diagonalisable ? Trigonalisable ?</li>
+<li>Déterminer le polynôme minimal de <span class="math inline">A</span>.</li>
+</ol>
+</div>
+</section>
+<section id="document-en-pdf" class="level1 unnumbered">
+<h1 class="unnumbered">Document en PDF</h1>
+<p><a href="PDF/ect2-chap07.pdf"><strong>Chapitre 07 : Réduction des matrices carrées</strong></a></p>
+<section id="navigation" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="navigation">Navigation</h2>
 <div class="chap-nav">
-<p><a href="../td/ect2-chap03.html" class="prev">TD 03 : Sommes finies et séries numériques</a> <a href="../td/ect2.html" class="home">Menu ECT2</a> <a href="../td/ect2-chap05.html" class="next">TD 05 : Variables aléatoires discrètes infinies</a></p>
+<p><a href="../cours/ect2-chap06.html" class="prev">Chapitre 06 : Statistiques bivariées</a> <a href="../cours/ect2.html" class="home">Menu ECT2</a> <a href="../cours/ect2-chap08.html" class="next">Chapitre 08 : Compléments d’analyse : Intégrales généralisées</a></p>
 </div>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->

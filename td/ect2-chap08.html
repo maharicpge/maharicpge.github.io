@@ -8,7 +8,7 @@
 
 <meta name="author" content="Saîd MAHARI">
 
-<title>TD — Couples de variables aléatoires discrètes finies – Mathématiques en CPGE</title>
+<title>TD — Compléments d’analyse : Intégrales généralisées – Mathématiques en CPGE</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -276,8 +276,8 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">TD — Couples de variables aléatoires discrètes finies</h1>
-<p class="subtitle lead">Chapitre 04</p>
+<h1 class="title">TD — Compléments d’analyse : Intégrales généralisées</h1>
+<p class="subtitle lead">Chapitre 08</p>
 </div>
 
 
@@ -306,220 +306,151 @@ window.Quarto = {
 </header>
 
 
-<p><strong>ECT2 (2e année) — TD du Chapitre 04.</strong> Lois marginales, lois conditionnelles, indépendance, covariance, coefficient de corrélation linéaire.</p>
+<p><strong>ECT2 (2e année) — TD du Chapitre 08.</strong> Intégrales sur <span class="math inline">[a, +\infty[</span>, fonctions continues par morceaux, critères de convergence.</p>
 <div class="custom-numbered-block custom-exercise">
 <p><strong>Exercice 1</strong></p>
-<p>On lance deux dés équilibrés. Soit <span class="math inline">X</span> le résultat du premier dé et <span class="math inline">Y</span> le résultat du second dé.</p>
+<p>Étudier la convergence des intégrales suivantes :</p>
 <ol type="1">
-<li>Donner la loi conjointe de <span class="math inline">(X, Y)</span>.</li>
-<li>Donner les lois marginales de <span class="math inline">X</span> et <span class="math inline">Y</span>.</li>
-<li><span class="math inline">X</span> et <span class="math inline">Y</span> sont-elles indépendantes ?</li>
-<li>Calculer <span class="math inline">E(X)</span>, <span class="math inline">E(Y)</span>, <span class="math inline">V(X)</span>, <span class="math inline">V(Y)</span> et <span class="math inline">\operatorname{Cov}(X, Y)</span>.</li>
+<li><span class="math inline">\displaystyle\int_1^{+\infty} \frac{dt}{t^2}</span></li>
+<li><span class="math inline">\displaystyle\int_1^{+\infty} \frac{dt}{t}</span></li>
+<li><span class="math inline">\displaystyle\int_1^{+\infty} \frac{dt}{t^3}</span></li>
+<li><span class="math inline">\displaystyle\int_0^1 \frac{dt}{\sqrt{t}}</span></li>
+<li><span class="math inline">\displaystyle\int_0^1 \frac{dt}{t}</span></li>
 </ol>
 </div>
 <div class="custom-numbered-block custom-exercise">
 <p><strong>Exercice 2</strong></p>
-<p>On lance une pièce équilibrée deux fois. Soit <span class="math inline">X</span> le nombre de « pile » obtenus et <span class="math inline">Y</span> le nombre de « face » obtenus.</p>
+<p>Étudier la convergence des intégrales suivantes :</p>
 <ol type="1">
-<li>Donner la loi conjointe de <span class="math inline">(X, Y)</span>.</li>
-<li>Donner les lois marginales de <span class="math inline">X</span> et <span class="math inline">Y</span>.</li>
-<li><span class="math inline">X</span> et <span class="math inline">Y</span> sont-elles indépendantes ?</li>
-<li>Calculer <span class="math inline">E(X)</span>, <span class="math inline">E(Y)</span>, <span class="math inline">V(X)</span>, <span class="math inline">V(Y)</span>, <span class="math inline">\operatorname{Cov}(X, Y)</span> et <span class="math inline">\rho(X, Y)</span>.</li>
+<li><span class="math inline">\displaystyle\int_1^{+\infty} \frac{dt}{t^2 + 1}</span></li>
+<li><span class="math inline">\displaystyle\int_1^{+\infty} \frac{dt}{t^2 + t + 1}</span></li>
+<li><span class="math inline">\displaystyle\int_1^{+\infty} \frac{dt}{t^2 + \sqrt{t}}</span></li>
 </ol>
 </div>
 <div class="custom-numbered-block custom-exercise">
 <p><strong>Exercice 3</strong></p>
-<p>On considère le tableau de loi conjointe suivant :</p>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th><span class="math inline">X \setminus Y</span></th>
-<th><span class="math inline">0</span></th>
-<th><span class="math inline">1</span></th>
-<th><span class="math inline">2</span></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><span class="math inline">0</span></td>
-<td><span class="math inline">0{,}1</span></td>
-<td><span class="math inline">0{,}2</span></td>
-<td><span class="math inline">0{,}1</span></td>
-</tr>
-<tr class="even">
-<td><span class="math inline">1</span></td>
-<td><span class="math inline">0{,}1</span></td>
-<td><span class="math inline">0{,}1</span></td>
-<td><span class="math inline">0{,}2</span></td>
-</tr>
-</tbody>
-</table>
+<p>Étudier la convergence des intégrales suivantes :</p>
 <ol type="1">
-<li>Vérifier que ce tableau définit bien une loi de probabilité.</li>
-<li>Donner les lois marginales de <span class="math inline">X</span> et <span class="math inline">Y</span>.</li>
-<li><span class="math inline">X</span> et <span class="math inline">Y</span> sont-elles indépendantes ?</li>
-<li>Calculer <span class="math inline">E(X)</span>, <span class="math inline">E(Y)</span>, <span class="math inline">V(X)</span>, <span class="math inline">V(Y)</span>, <span class="math inline">\operatorname{Cov}(X, Y)</span> et <span class="math inline">\rho(X, Y)</span>.</li>
+<li><span class="math inline">\displaystyle\int_0^{+\infty} e^{-t}\, dt</span></li>
+<li><span class="math inline">\displaystyle\int_0^{+\infty} t e^{-t}\, dt</span></li>
+<li><span class="math inline">\displaystyle\int_0^{+\infty} t^2 e^{-t}\, dt</span></li>
+<li><span class="math inline">\displaystyle\int_0^{+\infty} t^n e^{-t}\, dt</span> pour <span class="math inline">n \in \mathbb{N}</span></li>
 </ol>
 </div>
 <div class="custom-numbered-block custom-exercise">
 <p><strong>Exercice 4</strong></p>
-<p>On considère le tableau de loi conjointe suivant :</p>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th><span class="math inline">X \setminus Y</span></th>
-<th><span class="math inline">0</span></th>
-<th><span class="math inline">1</span></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><span class="math inline">0</span></td>
-<td><span class="math inline">a</span></td>
-<td><span class="math inline">b</span></td>
-</tr>
-<tr class="even">
-<td><span class="math inline">1</span></td>
-<td><span class="math inline">c</span></td>
-<td><span class="math inline">d</span></td>
-</tr>
-</tbody>
-</table>
+<p>Étudier la convergence des intégrales suivantes :</p>
 <ol type="1">
-<li>Quelle condition sur <span class="math inline">a</span>, <span class="math inline">b</span>, <span class="math inline">c</span>, <span class="math inline">d</span> pour que ce tableau définisse une loi de probabilité ?</li>
-<li>Quelle condition supplémentaire pour que <span class="math inline">X</span> et <span class="math inline">Y</span> soient indépendantes ?</li>
+<li><span class="math inline">\displaystyle\int_1^{+\infty} \frac{\ln t}{t^2}\, dt</span></li>
+<li><span class="math inline">\displaystyle\int_1^{+\infty} \frac{\ln t}{t}\, dt</span></li>
+<li><span class="math inline">\displaystyle\int_1^{+\infty} \frac{\ln t}{t^3}\, dt</span></li>
 </ol>
 </div>
 <div class="custom-numbered-block custom-exercise">
 <p><strong>Exercice 5</strong></p>
-<p>On lance trois pièces équilibrées. Soit <span class="math inline">X</span> le nombre de « pile » et <span class="math inline">Y</span> le nombre de « face ».</p>
+<p>Étudier la convergence absolue des intégrales suivantes :</p>
 <ol type="1">
-<li>Donner la loi conjointe de <span class="math inline">(X, Y)</span>.</li>
-<li>Donner les lois marginales de <span class="math inline">X</span> et <span class="math inline">Y</span>.</li>
-<li><span class="math inline">X</span> et <span class="math inline">Y</span> sont-elles indépendantes ? Justifier.</li>
-<li>Calculer <span class="math inline">E(X)</span>, <span class="math inline">E(Y)</span>, <span class="math inline">V(X)</span>, <span class="math inline">V(Y)</span>, <span class="math inline">\operatorname{Cov}(X, Y)</span>.</li>
+<li><span class="math inline">\displaystyle\int_1^{+\infty} \frac{\sin t}{t^2}\, dt</span></li>
+<li><span class="math inline">\displaystyle\int_1^{+\infty} \frac{\sin t}{t}\, dt</span></li>
+<li><span class="math inline">\displaystyle\int_1^{+\infty} \frac{\cos t}{t^2}\, dt</span></li>
 </ol>
 </div>
 <div class="custom-numbered-block custom-exercise">
 <p><strong>Exercice 6</strong></p>
-<p>On tire une boule dans une urne contenant 3 boules rouges et 2 boules vertes, puis une seconde boule sans remise. Soit <span class="math inline">X</span> l’indicateur de « la première boule est rouge » et <span class="math inline">Y</span> l’indicateur de « la seconde boule est rouge ».</p>
+<p>Étudier la convergence des intégrales suivantes :</p>
 <ol type="1">
-<li>Donner la loi conjointe de <span class="math inline">(X, Y)</span>.</li>
-<li>Donner les lois marginales de <span class="math inline">X</span> et <span class="math inline">Y</span>.</li>
-<li><span class="math inline">X</span> et <span class="math inline">Y</span> sont-elles indépendantes ?</li>
-<li>Calculer <span class="math inline">E(X)</span>, <span class="math inline">E(Y)</span>, <span class="math inline">\operatorname{Cov}(X, Y)</span>.</li>
+<li><span class="math inline">\displaystyle\int_0^{+\infty} \frac{dt}{1 + t^2}</span></li>
+<li><span class="math inline">\displaystyle\int_0^{+\infty} \frac{dt}{1 + t^3}</span></li>
+<li><span class="math inline">\displaystyle\int_0^{+\infty} \frac{dt}{1 + t}</span></li>
 </ol>
 </div>
 <div class="custom-numbered-block custom-exercise">
 <p><strong>Exercice 7</strong></p>
-<p>Soit <span class="math inline">(X, Y)</span> un couple de variables aléatoires tel que :</p>
-<ul>
-<li><span class="math inline">X</span> suit une loi de Bernoulli de paramètre <span class="math inline">\frac{1}{2}</span></li>
-<li><span class="math inline">Y</span> suit une loi de Bernoulli de paramètre <span class="math inline">\frac{1}{2}</span></li>
-<li><span class="math inline">P(X = 0, Y = 0) = \frac{1}{3}</span></li>
-</ul>
+<p>Étudier la convergence des intégrales suivantes :</p>
 <ol type="1">
-<li>Donner la loi conjointe de <span class="math inline">(X, Y)</span>.</li>
-<li><span class="math inline">X</span> et <span class="math inline">Y</span> sont-elles indépendantes ?</li>
-<li>Calculer <span class="math inline">\operatorname{Cov}(X, Y)</span> et <span class="math inline">\rho(X, Y)</span>.</li>
+<li><span class="math inline">\displaystyle\int_0^{+\infty} \frac{dt}{(1+t)^2}</span></li>
+<li><span class="math inline">\displaystyle\int_0^{+\infty} \frac{dt}{(1+t)^3}</span></li>
+<li><span class="math inline">\displaystyle\int_0^{+\infty} \frac{dt}{(1+t)^{3/2}}</span></li>
 </ol>
 </div>
 <div class="custom-numbered-block custom-exercise">
 <p><strong>Exercice 8</strong></p>
-<p>On lance un dé équilibré. Soit <span class="math inline">X</span> le résultat obtenu et <span class="math inline">Y</span> l’indicateur de « le résultat est pair ».</p>
+<p>Étudier la convergence des intégrales suivantes :</p>
 <ol type="1">
-<li>Donner la loi conjointe de <span class="math inline">(X, Y)</span>.</li>
-<li>Donner les lois marginales de <span class="math inline">X</span> et <span class="math inline">Y</span>.</li>
-<li><span class="math inline">X</span> et <span class="math inline">Y</span> sont-elles indépendantes ?</li>
-<li>Calculer <span class="math inline">\operatorname{Cov}(X, Y)</span>.</li>
+<li><span class="math inline">\displaystyle\int_0^{+\infty} \frac{1 - \cos t}{t^2}\, dt</span></li>
+<li><span class="math inline">\displaystyle\int_0^{+\infty} \frac{1 - e^{-t}}{t}\, dt</span></li>
 </ol>
 </div>
+<p>Indication : Pour (1), montrer que <span class="math inline">\frac{1-\cos t}{t^2} \sim \frac{1}{2}</span> quand <span class="math inline">t \to 0</span> et <span class="math inline">\frac{1-\cos t}{t^2} \leq \frac{2}{t^2}</span> quand <span class="math inline">t \to +\infty</span>.</p>
 <div class="custom-numbered-block custom-exercise">
 <p><strong>Exercice 9</strong></p>
-<p>On considère le tableau de loi conjointe suivant :</p>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th><span class="math inline">X \setminus Y</span></th>
-<th><span class="math inline">-1</span></th>
-<th><span class="math inline">0</span></th>
-<th><span class="math inline">1</span></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><span class="math inline">-1</span></td>
-<td><span class="math inline">\frac{1}{8}</span></td>
-<td><span class="math inline">0</span></td>
-<td><span class="math inline">\frac{1}{8}</span></td>
-</tr>
-<tr class="even">
-<td><span class="math inline">0</span></td>
-<td><span class="math inline">0</span></td>
-<td><span class="math inline">\frac{1}{4}</span></td>
-<td><span class="math inline">0</span></td>
-</tr>
-<tr class="odd">
-<td><span class="math inline">1</span></td>
-<td><span class="math inline">\frac{1}{8}</span></td>
-<td><span class="math inline">0</span></td>
-<td><span class="math inline">\frac{1}{8}</span></td>
-</tr>
-</tbody>
-</table>
+<p>Calculer les intégrales suivantes si elles convergent :</p>
 <ol type="1">
-<li>Vérifier que ce tableau définit une loi de probabilité.</li>
-<li>Donner les lois marginales de <span class="math inline">X</span> et <span class="math inline">Y</span>.</li>
-<li><span class="math inline">X</span> et <span class="math inline">Y</span> sont-elles indépendantes ?</li>
-<li>Calculer <span class="math inline">E(X)</span>, <span class="math inline">E(Y)</span>, <span class="math inline">V(X)</span>, <span class="math inline">V(Y)</span>, <span class="math inline">\operatorname{Cov}(X, Y)</span> et <span class="math inline">\rho(X, Y)</span>.</li>
+<li><span class="math inline">\displaystyle\int_0^{+\infty} \frac{dt}{(1+t)^2}</span></li>
+<li><span class="math inline">\displaystyle\int_0^{+\infty} \frac{dt}{(1+t)^3}</span></li>
+<li><span class="math inline">\displaystyle\int_0^{+\infty} \frac{t\, dt}{(1+t)^3}</span></li>
 </ol>
 </div>
 <div class="custom-numbered-block custom-exercise">
 <p><strong>Exercice 10</strong></p>
-<p>On lance deux pièces équilibrées. Soit <span class="math inline">X</span> le nombre de « pile » et <span class="math inline">Y</span> l’indicateur de « les deux pièces donnent le même résultat ».</p>
+<p>Étudier la convergence des intégrales suivantes :</p>
 <ol type="1">
-<li>Donner la loi conjointe de <span class="math inline">(X, Y)</span>.</li>
-<li>Donner les lois marginales de <span class="math inline">X</span> et <span class="math inline">Y</span>.</li>
-<li><span class="math inline">X</span> et <span class="math inline">Y</span> sont-elles indépendantes ?</li>
-<li>Calculer <span class="math inline">\operatorname{Cov}(X, Y)</span> et <span class="math inline">\rho(X, Y)</span>.</li>
+<li><span class="math inline">\displaystyle\int_0^{+\infty} \frac{\sin t}{t^2}\, dt</span></li>
+<li><span class="math inline">\displaystyle\int_0^{+\infty} \frac{\sin t}{t^3}\, dt</span></li>
 </ol>
 </div>
+<p>Indication : Pour (1), étudier la convergence en <span class="math inline">0</span> et en <span class="math inline">+\infty</span> séparément. Pour (2), montrer que <span class="math inline">\frac{\sin t}{t^3} \sim \frac{1}{t^2}</span> quand <span class="math inline">t \to 0</span> et <span class="math inline">\frac{|\sin t|}{t^3} \leq \frac{1}{t^3}</span> quand <span class="math inline">t \to +\infty</span>.</p>
 <div class="custom-numbered-block custom-exercise">
 <p><strong>Exercice 11</strong></p>
-<p>On considère deux variables aléatoires <span class="math inline">X</span> et <span class="math inline">Y</span> telles que <span class="math inline">E(X) = 2</span>, <span class="math inline">E(Y) = 3</span>, <span class="math inline">V(X) = 4</span>, <span class="math inline">V(Y) = 9</span> et <span class="math inline">\operatorname{Cov}(X, Y) = 3</span>.</p>
+<p>Étudier la convergence des intégrales suivantes :</p>
 <ol type="1">
-<li>Calculer <span class="math inline">\rho(X, Y)</span>.</li>
-<li>Calculer <span class="math inline">V(X + Y)</span> et <span class="math inline">V(X - Y)</span>.</li>
-<li>Calculer <span class="math inline">V(2X + 3Y)</span>.</li>
-<li><span class="math inline">X</span> et <span class="math inline">Y</span> sont-elles indépendantes ? Justifier.</li>
+<li><span class="math inline">\displaystyle\int_1^{+\infty} \frac{\cos t}{t}\, dt</span></li>
+<li><span class="math inline">\displaystyle\int_1^{+\infty} \frac{\cos t}{t^2}\, dt</span></li>
 </ol>
 </div>
+<p>Indication : Pour (1), utiliser une intégration par parties. Pour (2), utiliser le fait que <span class="math inline">|\cos t| \leq 1</span>.</p>
 <div class="custom-numbered-block custom-exercise">
 <p><strong>Exercice 12</strong></p>
-<p>On lance un dé équilibré deux fois. Soit <span class="math inline">X</span> la somme des deux résultats et <span class="math inline">Y</span> la valeur absolue de la différence des deux résultats.</p>
+<p>Étudier la convergence des intégrales suivantes :</p>
 <ol type="1">
-<li>Donner les lois marginales de <span class="math inline">X</span> et <span class="math inline">Y</span>.</li>
-<li><span class="math inline">X</span> et <span class="math inline">Y</span> sont-elles indépendantes ?</li>
-<li>Calculer <span class="math inline">E(X)</span>, <span class="math inline">E(Y)</span>, <span class="math inline">\operatorname{Cov}(X, Y)</span>.</li>
+<li><span class="math inline">\displaystyle\int_0^{+\infty} \frac{dt}{\sqrt{t}(1+t)}</span></li>
+<li><span class="math inline">\displaystyle\int_0^{+\infty} \frac{dt}{\sqrt{t}(1+t^2)}</span></li>
+</ol>
+</div>
+<p>Indication : Étudier la convergence en <span class="math inline">0</span> et en <span class="math inline">+\infty</span> séparément.</p>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 13</strong></p>
+<p>Étudier la convergence des intégrales suivantes :</p>
+<ol type="1">
+<li><span class="math inline">\displaystyle\int_0^{+\infty} \frac{e^{-t}}{\sqrt{t}}\, dt</span></li>
+<li><span class="math inline">\displaystyle\int_0^{+\infty} \frac{e^{-t}}{t}\, dt</span></li>
+</ol>
+</div>
+<p>Indication : Pour (1), montrer que <span class="math inline">\frac{e^{-t}}{\sqrt{t}} \sim \frac{1}{\sqrt{t}}</span> quand <span class="math inline">t \to 0</span> et <span class="math inline">\frac{e^{-t}}{\sqrt{t}} \leq e^{-t}</span> quand <span class="math inline">t \to +\infty</span>. Pour (2), montrer que <span class="math inline">\frac{e^{-t}}{t} \sim \frac{1}{t}</span> quand <span class="math inline">t \to 0</span>.</p>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 14</strong></p>
+<p>Étudier la convergence des intégrales suivantes :</p>
+<ol type="1">
+<li><span class="math inline">\displaystyle\int_0^{+\infty} \frac{\sin t}{t^2}\, dt</span></li>
+<li><span class="math inline">\displaystyle\int_0^{+\infty} \frac{\sin^2 t}{t^2}\, dt</span></li>
 </ol>
 </div>
 <div class="custom-numbered-block custom-exercise">
-<p><strong>Exercice 13</strong></p>
-<p>On tire deux boules dans une urne contenant 2 boules rouges et 3 boules vertes, avec remise. Soit <span class="math inline">X</span> l’indicateur de « la première boule est rouge » et <span class="math inline">Y</span> l’indicateur de « la seconde boule est rouge ».</p>
+<p><strong>Exercice 15</strong></p>
+<p>Étudier la convergence des intégrales suivantes :</p>
 <ol type="1">
-<li>Donner la loi conjointe de <span class="math inline">(X, Y)</span>.</li>
-<li><span class="math inline">X</span> et <span class="math inline">Y</span> sont-elles indépendantes ?</li>
-<li>Calculer <span class="math inline">E(X)</span>, <span class="math inline">E(Y)</span>, <span class="math inline">\operatorname{Cov}(X, Y)</span>.</li>
+<li><span class="math inline">\displaystyle\int_0^{+\infty} \frac{dt}{t^2 + t + 1}</span></li>
+<li><span class="math inline">\displaystyle\int_0^{+\infty} \frac{dt}{t^2 + 2t + 2}</span></li>
 </ol>
 </div>
 <section id="cours" class="level1 unnumbered">
 <h1 class="unnumbered">Cours</h1>
-<p><a href="../cours/ect2-chap04.html"><strong>Chapitre 04 : Couples de variables aléatoires discrètes finies</strong></a></p>
+<p><a href="../cours/ect2-chap08.html"><strong>Chapitre 08 : Intégrales généralisées</strong></a></p>
 </section>
 <section id="navigation" class="level1 unnumbered">
 <h1 class="unnumbered">Navigation</h1>
 <div class="chap-nav">
-<p><a href="../td/ect2-chap03.html" class="prev">TD 03 : Sommes finies et séries numériques</a> <a href="../td/ect2.html" class="home">Menu ECT2</a> <a href="../td/ect2-chap05.html" class="next">TD 05 : Variables aléatoires discrètes infinies</a></p>
+<p><a href="../td/ect2-chap07.html" class="prev">TD 07 : Réduction des matrices carrées</a> <a href="../td/ect2.html" class="home">Menu ECT2</a> <a href="../td/ect2-chap09.html" class="next">TD 09 : Variables aléatoires à densité</a></p>
 </div>
 
 

@@ -1,13 +1,14 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr"><head>
 
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.10.18">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Saîd MAHARI">
 
-<title>Calcul intégral - Mathématiques en CPGE – Mathématiques en CPGE</title>
+<title>Compléments d’intégration : propriétés de l’intégrale – Mathématiques en CPGE</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -45,7 +46,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-7a8c080b55ea27eb37b467515007f9ee.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-e0d9a45d84245cc5e3b300860d8fa645.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -60,17 +61,17 @@ ul.task-list li input[type="checkbox"] {
   ],
   "show-item-context": false,
   "language": {
-    "search-no-results-text": "No results",
-    "search-matching-documents-text": "matching documents",
-    "search-copy-link-title": "Copy link to search",
-    "search-hide-matches-text": "Hide additional matches",
-    "search-more-match-text": "more match in this document",
-    "search-more-matches-text": "more matches in this document",
-    "search-clear-button-title": "Clear",
+    "search-no-results-text": "Pas de résultats",
+    "search-matching-documents-text": "documents trouvés",
+    "search-copy-link-title": "Copier le lien vers la recherche",
+    "search-hide-matches-text": "Cacher les correspondances additionnelles",
+    "search-more-match-text": "correspondance de plus dans ce document",
+    "search-more-matches-text": "correspondances de plus dans ce document",
+    "search-clear-button-title": "Effacer",
     "search-text-placeholder": "",
-    "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit",
-    "search-label": "Search"
+    "search-detached-cancel-button-title": "Annuler",
+    "search-submit-button-title": "Envoyer",
+    "search-label": "Recherche"
   }
 }</script>
 <script data-goatcounter="https://maharicpge.goatcounter.com/count" async="" src="//gc.zgo.at/count.js"></script>
@@ -142,8 +143,52 @@ ul.task-list li input[type="checkbox"] {
   });
 </script>
 
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="styles.css">
 </head>
 
 <body class="nav-fixed quarto-light">
@@ -157,8 +202,8 @@ ul.task-list li input[type="checkbox"] {
     <span class="navbar-title">Accueil</span>
     </a>
   </div>
-            <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+            <div id="quarto-search" class="" title="Recherche"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Basculer la navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
@@ -218,10 +263,29 @@ ul.task-list li input[type="checkbox"] {
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
+    <h2 id="toc-title">Sur cette page</h2>
    
   <ul>
-  <li><a href="#document" id="toc-document" class="nav-link active" data-scroll-target="#document">Document</a></li>
+  <li><a href="#rappel-fonctions-continues-par-morceaux" id="toc-rappel-fonctions-continues-par-morceaux" class="nav-link active" data-scroll-target="#rappel-fonctions-continues-par-morceaux"><span class="header-section-number">1</span> Rappel : fonctions continues par morceaux</a>
+  <ul class="collapse">
+  <li><a href="#définition" id="toc-définition" class="nav-link" data-scroll-target="#définition"><span class="header-section-number">1.1</span> Définition</a></li>
+  </ul></li>
+  <li><a href="#définition-de-lintégrale" id="toc-définition-de-lintégrale" class="nav-link" data-scroll-target="#définition-de-lintégrale"><span class="header-section-number">2</span> Définition de l’intégrale</a></li>
+  <li><a href="#linéarité" id="toc-linéarité" class="nav-link" data-scroll-target="#linéarité"><span class="header-section-number">3</span> Linéarité</a></li>
+  <li><a href="#positivité-et-comparaison" id="toc-positivité-et-comparaison" class="nav-link" data-scroll-target="#positivité-et-comparaison"><span class="header-section-number">4</span> Positivité et comparaison</a>
+  <ul class="collapse">
+  <li><a href="#positivité" id="toc-positivité" class="nav-link" data-scroll-target="#positivité"><span class="header-section-number">4.1</span> Positivité</a></li>
+  <li><a href="#comparaison" id="toc-comparaison" class="nav-link" data-scroll-target="#comparaison"><span class="header-section-number">4.2</span> Comparaison</a></li>
+  </ul></li>
+  <li><a href="#intégration-par-parties" id="toc-intégration-par-parties" class="nav-link" data-scroll-target="#intégration-par-parties"><span class="header-section-number">5</span> Intégration par parties</a></li>
+  <li><a href="#changement-de-variable" id="toc-changement-de-variable" class="nav-link" data-scroll-target="#changement-de-variable"><span class="header-section-number">6</span> Changement de variable</a></li>
+  <li><a href="#théorème-fondamental-du-calcul-intégral" id="toc-théorème-fondamental-du-calcul-intégral" class="nav-link" data-scroll-target="#théorème-fondamental-du-calcul-intégral"><span class="header-section-number">7</span> Théorème fondamental du calcul intégral</a></li>
+  <li><a href="#valeur-moyenne" id="toc-valeur-moyenne" class="nav-link" data-scroll-target="#valeur-moyenne"><span class="header-section-number">8</span> Valeur moyenne</a></li>
+  <li><a href="#exercices" id="toc-exercices" class="nav-link" data-scroll-target="#exercices"><span class="header-section-number">9</span> Exercices</a></li>
+  <li><a href="#document-en-pdf" id="toc-document-en-pdf" class="nav-link" data-scroll-target="#document-en-pdf">Document en PDF</a>
+  <ul class="collapse">
+  <li><a href="#navigation" id="toc-navigation" class="nav-link" data-scroll-target="#navigation">Navigation</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -230,14 +294,27 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Chapitre 02 : Calcul intégral</h1>
+<h1 class="title">Compléments d’intégration : propriétés de l’intégrale</h1>
+<p class="subtitle lead">Chapitre 02</p>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Auteur·rice</div>
+    <div class="quarto-title-meta-contents">
+             <p>Saîd MAHARI </p>
+          </div>
+  </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">Date de publication</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">29 août 2026</p>
+    </div>
+  </div>
   
     
   </div>
@@ -247,12 +324,187 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p><strong>ECT 2e année — Chapitre 02.</strong> Primitives, intégration sur un segment, IPP, aire sous la courbe.</p>
-<section id="document" class="level2">
-<h2 class="anchored" data-anchor-id="document">Document</h2>
-<p><em>PDF à venir : déposez le fichier <code>files/ect2/chap02.pdf</code> puis régénérez la page.</em></p>
+<p><strong>ECT2 (2e année) — Chapitre 02.</strong> Linéarité, intégration par parties, positivité, comparaison d’intégrales.</p>
+<p>Ce chapitre a été réalisé conformément au programme marocain de mathématiques de la filière ECT.</p>
+<section id="rappel-fonctions-continues-par-morceaux" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Rappel : fonctions continues par morceaux</h1>
+<section id="définition" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="définition"><span class="header-section-number">1.1</span> Définition</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 1.1 — (Fonction continue par morceaux)</strong></p>
+<p>Une fonction <span class="math inline">f : [a,b] \to \mathbb{R}</span> est <strong>continue par morceaux</strong> s’il existe une subdivision <span class="math inline">a = x_0 &lt; x_1 &lt; \cdots &lt; x_p = b</span> telle que <span class="math inline">f</span> est continue sur chaque intervalle ouvert <span class="math inline">]x_i, x_{i+1}[</span> et admet des limites finies à gauche et à droite en chaque <span class="math inline">x_i</span>.</p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 1.1</strong></p>
+<ul>
+<li>Toute fonction continue sur <span class="math inline">[a,b]</span> est continue par morceaux.</li>
+<li>La fonction partie entière <span class="math inline">x \mapsto E(x)</span> est continue par morceaux sur <span class="math inline">\mathbb{R}</span>.</li>
+<li>La fonction <span class="math inline">f(x) = \sin(1/x)</span> prolongée par <span class="math inline">f(0) = 0</span> n’est <strong>pas</strong> continue par morceaux sur <span class="math inline">[0,1]</span> car elle n’admet pas de limite finie en <span class="math inline">0^+</span>.</li>
+</ul>
+</div>
+</section>
+</section>
+<section id="définition-de-lintégrale" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> Définition de l’intégrale</h1>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 2.1 — (Intégrale d’une fonction continue par morceaux)</strong></p>
+<p>Soit <span class="math inline">f : [a,b] \to \mathbb{R}</span> continue par morceaux. On définit l’intégrale : <span class="math display">\int_a^b f(t)\,dt</span> comme la limite des sommes de Riemann. Si <span class="math inline">F</span> est une primitive de <span class="math inline">f</span> sur <span class="math inline">[a,b]</span>, alors : <span class="math display">\int_a^b f(t)\,dt = F(b) - F(a) = [F(t)]_a^b</span></p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 2.1 — (Relation de Chasles)</strong></p>
+<p>Pour tout <span class="math inline">c \in [a,b]</span> : <span class="math display">\int_a^b f(t)\,dt = \int_a^c f(t)\,dt + \int_c^b f(t)\,dt</span></p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 2.2 — (Convention)</strong></p>
+<p><span class="math display">\int_a^a f(t)\,dt = 0, \qquad \int_b^a f(t)\,dt = -\int_a^b f(t)\,dt</span></p>
+</div>
+</section>
+<section id="linéarité" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Linéarité</h1>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 3.1 — (Linéarité de l’intégrale)</strong></p>
+<p>Soient <span class="math inline">f, g</span> continues par morceaux sur <span class="math inline">[a,b]</span> et <span class="math inline">\lambda, \mu \in \mathbb{R}</span>. Alors : <span class="math display">\int_a^b (\lambda f + \mu g)(t)\,dt = \lambda \int_a^b f(t)\,dt + \mu \int_a^b g(t)\,dt</span></p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 3.1</strong></p>
+<p><span class="math display">\int_0^1 (3t^2 + 2t)\,dt = 3\int_0^1 t^2\,dt + 2\int_0^1 t\,dt = 3 \cdot \frac{1}{3} + 2 \cdot \frac{1}{2} = 2</span></p>
+</div>
+</section>
+<section id="positivité-et-comparaison" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> Positivité et comparaison</h1>
+<section id="positivité" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="positivité"><span class="header-section-number">4.1</span> Positivité</h2>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 4.1 — (Positivité)</strong></p>
+<p>Si <span class="math inline">f \geq 0</span> sur <span class="math inline">[a,b]</span> (avec <span class="math inline">a \leq b</span>), alors : <span class="math display">\int_a^b f(t)\,dt \geq 0</span> De plus, si <span class="math inline">f</span> est continue, <span class="math inline">f \geq 0</span> et <span class="math inline">f \not\equiv 0</span>, alors <span class="math inline">\int_a^b f(t)\,dt &gt; 0</span>.</p>
+</div>
+</section>
+<section id="comparaison" class="level2" data-number="4.2">
+<h2 data-number="4.2" class="anchored" data-anchor-id="comparaison"><span class="header-section-number">4.2</span> Comparaison</h2>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 4.2 — (Comparaison)</strong></p>
+<p>Si <span class="math inline">f \leq g</span> sur <span class="math inline">[a,b]</span>, alors : <span class="math display">\int_a^b f(t)\,dt \leq \int_a^b g(t)\,dt</span></p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 4.3 — (Inégalité triangulaire)</strong></p>
+<p><span class="math display">\left|\int_a^b f(t)\,dt\right| \leq \int_a^b |f(t)|\,dt</span></p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 4.4 — (Inégalité de Cauchy-Schwarz)</strong></p>
+<p>Pour <span class="math inline">f, g</span> continues par morceaux sur <span class="math inline">[a,b]</span> : <span class="math display">\left(\int_a^b f(t)g(t)\,dt\right)^2 \leq \int_a^b f(t)^2\,dt \cdot \int_a^b g(t)^2\,dt</span></p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 4.1 — (Application de Cauchy-Schwarz)</strong></p>
+<p>Montrons que <span class="math inline">\left(\int_0^1 f(t)\,dt\right)^2 \leq \int_0^1 f(t)^2\,dt</span>. En appliquant Cauchy-Schwarz avec <span class="math inline">g(t) = 1</span> : <span class="math display">\left(\int_0^1 f(t) \cdot 1\,dt\right)^2 \leq \int_0^1 f(t)^2\,dt \cdot \int_0^1 1\,dt = \int_0^1 f(t)^2\,dt</span></p>
+</div>
+</section>
+</section>
+<section id="intégration-par-parties" class="level1" data-number="5">
+<h1 data-number="5"><span class="header-section-number">5</span> Intégration par parties</h1>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 5.1 — (Intégration par parties)</strong></p>
+<p>Soient <span class="math inline">u, v</span> de classe <span class="math inline">\mathcal{C}^1</span> sur <span class="math inline">[a,b]</span>. Alors : <span class="math display">\int_a^b u(t)v'(t)\,dt = [u(t)v(t)]_a^b - \int_a^b u'(t)v(t)\,dt</span></p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 5.1 — (Calcul par parties)</strong></p>
+<p>Calculons <span class="math inline">\int_0^1 t e^t\,dt</span>. On pose <span class="math inline">u(t) = t</span>, <span class="math inline">v'(t) = e^t</span>, donc <span class="math inline">u'(t) = 1</span>, <span class="math inline">v(t) = e^t</span> : <span class="math display">\int_0^1 t e^t\,dt = [te^t]_0^1 - \int_0^1 e^t\,dt = e - [e^t]_0^1 = e - (e - 1) = 1</span></p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 5.2 — (Calcul par parties itérées)</strong></p>
+<p>Calculons <span class="math inline">\int_0^1 t^2 e^t\,dt</span>. Première intégration par parties : <span class="math inline">u(t) = t^2</span>, <span class="math inline">v'(t) = e^t</span> : <span class="math display">\int_0^1 t^2 e^t\,dt = [t^2 e^t]_0^1 - 2\int_0^1 t e^t\,dt = e - 2 \cdot 1 = e - 2</span> (en utilisant le résultat précédent <span class="math inline">\int_0^1 t e^t\,dt = 1</span>).</p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 5.3 — (Calcul de <span class="math inline">\boldsymbol{\int_0^1 \ln t,dt}</span>)</strong></p>
+<p>On pose <span class="math inline">u(t) = \ln t</span>, <span class="math inline">v'(t) = 1</span>, donc <span class="math inline">u'(t) = 1/t</span>, <span class="math inline">v(t) = t</span> : <span class="math display">\int_\varepsilon^1 \ln t\,dt = [t\ln t]_\varepsilon^1 - \int_\varepsilon^1 1\,dt = -\varepsilon \ln \varepsilon - (1 - \varepsilon)</span> En faisant tendre <span class="math inline">\varepsilon \to 0^+</span>, on obtient <span class="math inline">\int_0^1 \ln t\,dt = -1</span>.</p>
+</div>
+</section>
+<section id="changement-de-variable" class="level1" data-number="6">
+<h1 data-number="6"><span class="header-section-number">6</span> Changement de variable</h1>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 6.1 — (Changement de variable)</strong></p>
+<p>Soit <span class="math inline">\varphi : [\alpha, \beta] \to [a,b]</span> de classe <span class="math inline">\mathcal{C}^1</span> et <span class="math inline">f</span> continue sur <span class="math inline">[a,b]</span>. Alors : <span class="math display">\int_\alpha^\beta f(\varphi(t))\varphi'(t)\,dt = \int_{\varphi(\alpha)}^{\varphi(\beta)} f(u)\,du</span></p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 6.1 — (Changement de variable)</strong></p>
+<p>Calculons <span class="math inline">\int_0^1 \frac{2t}{1+t^2}\,dt</span>. On pose <span class="math inline">u = 1 + t^2</span>, donc <span class="math inline">du = 2t\,dt</span> : <span class="math display">\int_0^1 \frac{2t}{1+t^2}\,dt = \int_1^2 \frac{du}{u} = [\ln u]_1^2 = \ln 2</span></p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 6.2 — (Changement de variable trigonométrique)</strong></p>
+<p>Calculons <span class="math inline">\int_0^1 \sqrt{1-t^2}\,dt</span>. On pose <span class="math inline">t = \sin \theta</span>, donc <span class="math inline">dt = \cos\theta\,d\theta</span> : <span class="math display">\int_0^1 \sqrt{1-t^2}\,dt = \int_0^{\pi/2} \cos^2\theta\,d\theta = \int_0^{\pi/2} \frac{1 + \cos 2\theta}{2}\,d\theta = \frac{\pi}{4}</span> (C’est l’aire du quart de disque unité.)</p>
+</div>
+</section>
+<section id="théorème-fondamental-du-calcul-intégral" class="level1" data-number="7">
+<h1 data-number="7"><span class="header-section-number">7</span> Théorème fondamental du calcul intégral</h1>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 7.1 — (Théorème fondamental)</strong></p>
+<p>Soit <span class="math inline">f</span> continue sur <span class="math inline">[a,b]</span>. La fonction <span class="math inline">F : x \mapsto \int_a^x f(t)\,dt</span> est de classe <span class="math inline">\mathcal{C}^1</span> sur <span class="math inline">[a,b]</span> et : <span class="math display">F'(x) = f(x)</span> Autrement dit, <span class="math inline">F</span> est une primitive de <span class="math inline">f</span> sur <span class="math inline">[a,b]</span>.</p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 7.1</strong></p>
+<p>Soit <span class="math inline">F(x) = \int_0^x e^{-t^2}\,dt</span>. Alors <span class="math inline">F'(x) = e^{-x^2}</span>.</p>
+</div>
+<div class="custom-numbered-block custom-example">
+<p><strong>Exemple 7.2 — (Dérivation d’une intégrale à bornes variables)</strong></p>
+<p>Soit <span class="math inline">G(x) = \int_x^{x^2} e^t\,dt</span>. Alors : <span class="math display">G'(x) = 2x \cdot e^{x^2} - e^x</span> (formule : si <span class="math inline">G(x) = \int_{u(x)}^{v(x)} f(t)\,dt</span>, alors <span class="math inline">G'(x) = v'(x)f(v(x)) - u'(x)f(u(x))</span>).</p>
+</div>
+</section>
+<section id="valeur-moyenne" class="level1" data-number="8">
+<h1 data-number="8"><span class="header-section-number">8</span> Valeur moyenne</h1>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 8.1 — (Valeur moyenne)</strong></p>
+<p>La <strong>valeur moyenne</strong> de <span class="math inline">f</span> sur <span class="math inline">[a,b]</span> est : <span class="math display">\bar{f} = \frac{1}{b-a}\int_a^b f(t)\,dt</span></p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 8.1 — (Théorème de la moyenne)</strong></p>
+<p>Si <span class="math inline">f</span> est continue sur <span class="math inline">[a,b]</span>, alors il existe <span class="math inline">c \in [a,b]</span> tel que : <span class="math display">\int_a^b f(t)\,dt = f(c)(b-a)</span></p>
+</div>
+</section>
+<section id="exercices" class="level1" data-number="9">
+<h1 data-number="9"><span class="header-section-number">9</span> Exercices</h1>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 9.1</strong></p>
+<p>Calculer les intégrales suivantes : - <span class="math inline">\int_0^1 (2t^3 - 3t + 1)\,dt</span> - <span class="math inline">\int_0^1 t e^{-t}\,dt</span> - <span class="math inline">\int_0^\pi t \cos t\,dt</span></p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 9.2</strong></p>
+<p>Calculer <span class="math inline">\int_0^1 t^2 \ln t\,dt</span> par intégration par parties.</p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 9.3</strong></p>
+<p>Montrer que pour tout <span class="math inline">x \in [0,1]</span> : <span class="math inline">\frac{x}{1+x} \leq \ln(1+x) \leq x</span>. En déduire un encadrement de <span class="math inline">\int_0^1 \ln(1+x)\,dx</span>.</p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 9.4</strong></p>
+<p>Calculer <span class="math inline">\int_0^1 \frac{t}{1+t^2}\,dt</span> par changement de variable.</p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 9.5</strong></p>
+<p>Montrer par intégration par parties que <span class="math inline">\int_0^\pi t \sin t\,dt = \pi</span>.</p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 9.6</strong></p>
+<p>Montrer que <span class="math inline">\left(\int_0^1 f(t)\,dt\right)^2 \leq \int_0^1 f(t)^2\,dt</span> pour toute fonction continue <span class="math inline">f</span> sur <span class="math inline">[0,1]</span>.</p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 9.7</strong></p>
+<p>Soit <span class="math inline">f</span> continue sur <span class="math inline">[0,1]</span> telle que <span class="math inline">\int_0^1 f(t)\,dt = 0</span>. Montrer que <span class="math inline">\int_0^1 f(t)^2\,dt \geq 0</span> et que l’égalité a lieu si et seulement si <span class="math inline">f \equiv 0</span>.</p>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 9.8</strong></p>
+<p>Calculer <span class="math inline">\int_0^1 \frac{1}{1+t^2}\,dt</span> par changement de variable <span class="math inline">t = \tan \theta</span>.</p>
+</div>
+</section>
+<section id="document-en-pdf" class="level1 unnumbered">
+<h1 class="unnumbered">Document en PDF</h1>
+<p><a href="PDF/ect2-chap02.pdf"><strong>Chapitre 02 : Compléments d’intégration</strong></a></p>
+<section id="navigation" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="navigation">Navigation</h2>
+<div class="chap-nav">
+<p><a href="../cours/ect2-chap01.html" class="prev">Chapitre 01 : Matrices</a> <a href="../cours/ect2.html" class="home">Menu ECT2</a> <a href="../cours/ect2-chap03.html" class="next">Chapitre 03 : Rappels sur les sommes finies ; séries numériques</a></p>
+</div>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -281,12 +533,12 @@ ul.task-list li input[type="checkbox"] {
       // flash "checked"
       button.classList.add('code-copy-button-checked');
       var currentTitle = button.getAttribute("title");
-      button.setAttribute("title", "Copied!");
+      button.setAttribute("title", "Copié");
       let tooltip;
       if (window.bootstrap) {
         button.setAttribute("data-bs-toggle", "tooltip");
         button.setAttribute("data-bs-placement", "left");
-        button.setAttribute("data-bs-title", "Copied!");
+        button.setAttribute("data-bs-title", "Copié");
         tooltip = new bootstrap.Tooltip(button, 
           { trigger: "manual", 
             customClass: "code-copy-button-tooltip",
