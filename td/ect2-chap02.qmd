@@ -1,10 +1,135 @@
 ---
-title: "Chapitre 02 : Calcul intégral"
-pagetitle: "Calcul intégral - Mathématiques en CPGE"
+title: "TD — Compléments d'intégration : propriétés de l'intégrale"
+subtitle: "Chapitre 02"
+author: "Saîd MAHARI"
+date: last-modified
+date-format: "D MMMM YYYY"
+lang: fr
+format:
+  html:
+    theme: cosmo
+    toc: true
+    number-sections: true
+    html-math-method: katex
+    css: styles.css
+filters:
+  - custom-numbered-blocks.lua
 ---
 
-**ECT 2e année — Chapitre 02.** Primitives, intégration sur un segment, IPP, aire sous la courbe.
+**ECT2 (2e année) — TD du Chapitre 02.** Linéarité, intégration par parties, positivité, comparaison d'intégrales.
 
-## Document
+::: {.exercise}
+Calculer les intégrales suivantes :
 
-*PDF à venir : déposez le fichier `files/ect2/chap02.pdf` puis régénérez la page.*
+1. $\displaystyle\int_0^1 (3x^2 - 2x + 1)\, dx$
+2. $\displaystyle\int_0^1 x e^x\, dx$
+3. $\displaystyle\int_0^\pi x \cos x\, dx$
+4. $\displaystyle\int_1^e x \ln x\, dx$
+:::
+
+Indication : Pour (2), (3) et (4), utiliser une intégration par parties.
+
+::: {.exercise}
+Calculer les intégrales suivantes par intégration par parties :
+
+1. $\displaystyle\int_0^1 x^2 e^x\, dx$
+2. $\displaystyle\int_0^\pi x^2 \sin x\, dx$
+3. $\displaystyle\int_1^e (\ln x)^2\, dx$
+:::
+
+::: {.exercise}
+Montrer que pour tout $n \in \mathbb{N}^*$ :
+
+1. $\displaystyle\int_0^1 x^n e^x\, dx = e - n\int_0^1 x^{n-1} e^x\, dx$
+2. En déduire $\displaystyle\int_0^1 x^3 e^x\, dx$.
+:::
+
+Indication : Utiliser une intégration par parties avec $u = x^n$, $v' = e^x$.
+
+::: {.exercise}
+Soit $f$ une fonction continue sur $[0,1]$ telle que $\displaystyle\int_0^1 f(t)\, dt = 0$.
+
+1. Montrer que $\displaystyle\int_0^1 (f(t))^2\, dt \geq 0$.
+2. Montrer que $\displaystyle\int_0^1 (f(t) - 1)^2\, dt = \int_0^1 (f(t))^2\, dt + 1$.
+:::
+
+::: {.exercise}
+Montrer les inégalités suivantes :
+
+1. $\displaystyle\int_0^1 e^{-x^2}\, dx \leq 1$
+2. $\displaystyle\int_0^1 e^{-x^2}\, dx \geq e^{-1}$
+3. $\displaystyle\int_0^1 \frac{1}{1+x^2}\, dx = \frac{\pi}{4}$
+
+En déduire un encadrement de $\displaystyle\int_0^1 e^{-x^2}\, dx$.
+:::
+
+Indication : Pour les deux premières inégalités, utiliser le fait que $e^{-1} \leq e^{-x^2} \leq 1$ sur $[0,1]$.
+
+::: {.exercise}
+Montrer que pour toute fonction continue $f$ sur $[0,1]$ :
+
+1. $\left(\displaystyle\int_0^1 f(t)\, dt\right)^2 \leq \displaystyle\int_0^1 (f(t))^2\, dt$
+2. En déduire que $\left(\displaystyle\int_0^1 t e^t\, dt\right)^2 \leq \displaystyle\int_0^1 t^2 e^{2t}\, dt$
+:::
+
+Indication : Pour (1), appliquer l'inégalité de Cauchy-Schwarz avec $g = 1$.
+
+::: {.exercise}
+Calculer les intégrales suivantes :
+
+1. $\displaystyle\int_0^1 \frac{x}{1+x^2}\, dx$ (changement de variable $u = 1+x^2$)
+2. $\displaystyle\int_0^{\pi/2} \sin x \cos x\, dx$
+3. $\displaystyle\int_0^1 \frac{1}{\sqrt{1-x^2}}\, dx$ (changement de variable $x = \sin \theta$)
+:::
+
+::: {.exercise}
+Montrer que pour toute fonction continue $f$ sur $[0,1]$ :
+
+1. $\displaystyle\int_0^1 f(t)\, dt = \int_0^1 f(1-t)\, dt$ (changement de variable $u = 1-t$)
+2. En déduire que $\displaystyle\int_0^1 \frac{1}{1+x^2}\, dx = \int_0^1 \frac{1}{1+(1-t)^2}\, dt$
+:::
+
+::: {.exercise}
+Calculer les intégrales suivantes :
+
+1. $\displaystyle\int_0^{\pi/2} \cos^2 x\, dx$
+2. $\displaystyle\int_0^{\pi} \sin^2 x\, dx$
+3. $\displaystyle\int_0^{\pi/2} \cos^4 x\, dx$
+
+On pourra utiliser les formules de linéarisation $\cos^2 x = \frac{1+\cos 2x}{2}$ et $\cos^4 x = \frac{3 + 4\cos 2x + \cos 4x}{8}$.
+:::
+
+::: {.exercise}
+On définit pour tout $n \in \mathbb{N}^*$ : $I_n = \displaystyle\int_0^1 \frac{x^n}{1+x}\, dx$.
+
+1. Montrer que $I_n + I_{n+1} = \dfrac{1}{n+1}$.
+2. En déduire que $I_n \geq 0$ et $I_n \leq \dfrac{1}{n+1}$.
+3. Calculer $I_1$, $I_2$, $I_3$.
+:::
+
+::: {.exercise}
+Montrer que pour tout $n \in \mathbb{N}^*$ :
+
+1. $\displaystyle\int_0^1 (1-x)^n\, dx = \frac{1}{n+1}$
+2. $\displaystyle\int_0^1 x(1-x)^n\, dx = \frac{1}{(n+1)(n+2)}$
+:::
+
+Indication : Pour (2), utiliser un changement de variable $u = 1-x$ ou une intégration par parties.
+
+::: {.exercise}
+Soit $n \in \mathbb{N}^*$. On pose $I_n = \displaystyle\int_0^{\pi/2} \cos^n t\, dt$.
+
+1. Montrer que $I_{n+2} = \dfrac{n+1}{n+2} I_n$.
+2. Calculer $I_0$ et $I_1$.
+3. En déduire $I_{2p}$ et $I_{2p+1}$ pour tout $p \in \mathbb{N}$.
+:::
+
+# Cours {-}
+[**Chapitre 02 : Compléments d'intégration**](../cours/ect2-chap02.qmd)
+
+# Navigation {-}
+::: {.chap-nav}
+[TD 01 : Matrices](ect2-chap01.qmd){.prev}
+[Menu ECT2](ect2.qmd){.home}
+[TD 03 : Sommes finies et séries numériques](ect2-chap03.qmd){.next}
+:::

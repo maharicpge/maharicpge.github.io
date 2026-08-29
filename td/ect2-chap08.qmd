@@ -1,0 +1,155 @@
+---
+title: "TD — Compléments d'analyse : Intégrales généralisées"
+subtitle: "Chapitre 08"
+author: "Saîd MAHARI"
+date: last-modified
+date-format: "D MMMM YYYY"
+lang: fr
+format:
+  html:
+    theme: cosmo
+    toc: true
+    number-sections: true
+    html-math-method: katex
+    css: styles.css
+filters:
+  - custom-numbered-blocks.lua
+---
+
+**ECT2 (2e année) — TD du Chapitre 08.** Intégrales sur $[a, +\infty[$, fonctions continues par morceaux, critères de convergence.
+
+::: {.exercise}
+Étudier la convergence des intégrales suivantes :
+
+1. $\displaystyle\int_1^{+\infty} \frac{dt}{t^2}$
+2. $\displaystyle\int_1^{+\infty} \frac{dt}{t}$
+3. $\displaystyle\int_1^{+\infty} \frac{dt}{t^3}$
+4. $\displaystyle\int_0^1 \frac{dt}{\sqrt{t}}$
+5. $\displaystyle\int_0^1 \frac{dt}{t}$
+:::
+
+::: {.exercise}
+Étudier la convergence des intégrales suivantes :
+
+1. $\displaystyle\int_1^{+\infty} \frac{dt}{t^2 + 1}$
+2. $\displaystyle\int_1^{+\infty} \frac{dt}{t^2 + t + 1}$
+3. $\displaystyle\int_1^{+\infty} \frac{dt}{t^2 + \sqrt{t}}$
+:::
+
+::: {.exercise}
+Étudier la convergence des intégrales suivantes :
+
+1. $\displaystyle\int_0^{+\infty} e^{-t}\, dt$
+2. $\displaystyle\int_0^{+\infty} t e^{-t}\, dt$
+3. $\displaystyle\int_0^{+\infty} t^2 e^{-t}\, dt$
+4. $\displaystyle\int_0^{+\infty} t^n e^{-t}\, dt$ pour $n \in \mathbb{N}$
+:::
+
+::: {.exercise}
+Étudier la convergence des intégrales suivantes :
+
+1. $\displaystyle\int_1^{+\infty} \frac{\ln t}{t^2}\, dt$
+2. $\displaystyle\int_1^{+\infty} \frac{\ln t}{t}\, dt$
+3. $\displaystyle\int_1^{+\infty} \frac{\ln t}{t^3}\, dt$
+:::
+
+::: {.exercise}
+Étudier la convergence absolue des intégrales suivantes :
+
+1. $\displaystyle\int_1^{+\infty} \frac{\sin t}{t^2}\, dt$
+2. $\displaystyle\int_1^{+\infty} \frac{\sin t}{t}\, dt$
+3. $\displaystyle\int_1^{+\infty} \frac{\cos t}{t^2}\, dt$
+:::
+
+::: {.exercise}
+Étudier la convergence des intégrales suivantes :
+
+1. $\displaystyle\int_0^{+\infty} \frac{dt}{1 + t^2}$
+2. $\displaystyle\int_0^{+\infty} \frac{dt}{1 + t^3}$
+3. $\displaystyle\int_0^{+\infty} \frac{dt}{1 + t}$
+:::
+
+::: {.exercise}
+Étudier la convergence des intégrales suivantes :
+
+1. $\displaystyle\int_0^{+\infty} \frac{dt}{(1+t)^2}$
+2. $\displaystyle\int_0^{+\infty} \frac{dt}{(1+t)^3}$
+3. $\displaystyle\int_0^{+\infty} \frac{dt}{(1+t)^{3/2}}$
+:::
+
+::: {.exercise}
+Étudier la convergence des intégrales suivantes :
+
+1. $\displaystyle\int_0^{+\infty} \frac{1 - \cos t}{t^2}\, dt$
+2. $\displaystyle\int_0^{+\infty} \frac{1 - e^{-t}}{t}\, dt$
+:::
+
+Indication : Pour (1), montrer que $\frac{1-\cos t}{t^2} \sim \frac{1}{2}$ quand $t \to 0$ et $\frac{1-\cos t}{t^2} \leq \frac{2}{t^2}$ quand $t \to +\infty$.
+
+::: {.exercise}
+Calculer les intégrales suivantes si elles convergent :
+
+1. $\displaystyle\int_0^{+\infty} \frac{dt}{(1+t)^2}$
+2. $\displaystyle\int_0^{+\infty} \frac{dt}{(1+t)^3}$
+3. $\displaystyle\int_0^{+\infty} \frac{t\, dt}{(1+t)^3}$
+:::
+
+::: {.exercise}
+Étudier la convergence des intégrales suivantes :
+
+1. $\displaystyle\int_0^{+\infty} \frac{\sin t}{t^2}\, dt$
+2. $\displaystyle\int_0^{+\infty} \frac{\sin t}{t^3}\, dt$
+:::
+
+Indication : Pour (1), étudier la convergence en $0$ et en $+\infty$ séparément. Pour (2), montrer que $\frac{\sin t}{t^3} \sim \frac{1}{t^2}$ quand $t \to 0$ et $\frac{|\sin t|}{t^3} \leq \frac{1}{t^3}$ quand $t \to +\infty$.
+
+::: {.exercise}
+Étudier la convergence des intégrales suivantes :
+
+1. $\displaystyle\int_1^{+\infty} \frac{\cos t}{t}\, dt$
+2. $\displaystyle\int_1^{+\infty} \frac{\cos t}{t^2}\, dt$
+:::
+
+Indication : Pour (1), utiliser une intégration par parties. Pour (2), utiliser le fait que $|\cos t| \leq 1$.
+
+::: {.exercise}
+Étudier la convergence des intégrales suivantes :
+
+1. $\displaystyle\int_0^{+\infty} \frac{dt}{\sqrt{t}(1+t)}$
+2. $\displaystyle\int_0^{+\infty} \frac{dt}{\sqrt{t}(1+t^2)}$
+:::
+
+Indication : Étudier la convergence en $0$ et en $+\infty$ séparément.
+
+::: {.exercise}
+Étudier la convergence des intégrales suivantes :
+
+1. $\displaystyle\int_0^{+\infty} \frac{e^{-t}}{\sqrt{t}}\, dt$
+2. $\displaystyle\int_0^{+\infty} \frac{e^{-t}}{t}\, dt$
+:::
+
+Indication : Pour (1), montrer que $\frac{e^{-t}}{\sqrt{t}} \sim \frac{1}{\sqrt{t}}$ quand $t \to 0$ et $\frac{e^{-t}}{\sqrt{t}} \leq e^{-t}$ quand $t \to +\infty$. Pour (2), montrer que $\frac{e^{-t}}{t} \sim \frac{1}{t}$ quand $t \to 0$.
+
+::: {.exercise}
+Étudier la convergence des intégrales suivantes :
+
+1. $\displaystyle\int_0^{+\infty} \frac{\sin t}{t^2}\, dt$
+2. $\displaystyle\int_0^{+\infty} \frac{\sin^2 t}{t^2}\, dt$
+:::
+
+::: {.exercise}
+Étudier la convergence des intégrales suivantes :
+
+1. $\displaystyle\int_0^{+\infty} \frac{dt}{t^2 + t + 1}$
+2. $\displaystyle\int_0^{+\infty} \frac{dt}{t^2 + 2t + 2}$
+:::
+
+# Cours {-}
+[**Chapitre 08 : Intégrales généralisées**](../cours/ect2-chap08.qmd)
+
+# Navigation {-}
+::: {.chap-nav}
+[TD 07 : Réduction des matrices carrées](ect2-chap07.qmd){.prev}
+[Menu ECT2](ect2.qmd){.home}
+[TD 09 : Variables aléatoires à densité](ect2-chap09.qmd){.next}
+:::

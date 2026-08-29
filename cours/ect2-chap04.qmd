@@ -1,10 +1,257 @@
 ---
-title: "Chapitre 04 : Variables aléatoires discrètes infinies"
-pagetitle: "Variables aléatoires discrètes infinies - Mathématiques en CPGE"
+title: "Cours – Couples de variables aléatoires discrètes finies"
+subtitle: "Chapitre 04"
+author: "Saîd MAHARI"
+date: last-modified
+date-format: "D MMMM YYYY"
+lang: fr
+format:
+  html:
+    theme: cosmo
+    toc: true
+    number-sections: true
+    html-math-method: katex
+    css: styles.css
+filters:
+  - custom-numbered-blocks.lua
 ---
 
-**ECT 2e année — Chapitre 04.** Lois géométrique et de Poisson.
+**ECT2 (2e année) — Chapitre 04.** Lois marginales, lois conditionnelles, indépendance, covariance, coefficient de corrélation linéaire.
 
-## Document
+Ce chapitre a été réalisé conformément au programme marocain de mathématiques de la filière ECT.
 
-*PDF à venir : déposez le fichier `files/ect2/chap04.pdf` puis régénérez la page.*
+Dans tout ce chapitre, $(\Omega, P)$ est un espace probabilisé fini, et $X, Y$ sont deux variables aléatoires réelles finies sur $(\Omega, P)$.
+
+# Couples de variables aléatoires
+
+## Loi conjointe
+
+::: {.definition title="(Loi conjointe)"}
+La loi conjointe du couple $(X, Y)$ est l'application qui associe à chaque couple $(x, y) \in X(\Omega) \times Y(\Omega)$ la probabilité :
+$$P(X = x, Y = y) = P(\{X = x\} \cap \{Y = y\})$$
+:::
+
+::: {.example}
+On lance deux dés équilibrés. Soit $X$ le résultat du premier dé et $Y$ le résultat du second dé. La loi conjointe est :
+$$P(X = i, Y = j) = \frac{1}{36} \quad \text{pour } i, j \in \{1, 2, \ldots, 6\}$$
+:::
+
+::: {.proposition title="(Somme des probabilités)"}
+La loi conjointe vérifie :
+$$\sum_{x \in X(\Omega)} \sum_{y \in Y(\Omega)} P(X = x, Y = y) = 1$$
+:::
+
+# Lois marginales
+
+::: {.definition title="(Loi marginale)"}
+La loi marginale de $X$ est :
+$$P(X = x) = \sum_{y \in Y(\Omega)} P(X = x, Y = y)$$
+La loi marginale de $Y$ est :
+$$P(Y = y) = \sum_{x \in X(\Omega)} P(X = x, Y = y)$$
+:::
+
+::: {.example}
+Dans le cas de deux dés, la loi marginale de $X$ est :
+$$P(X = i) = \sum_{j=1}^6 \frac{1}{36} = \frac{6}{36} = \frac{1}{6}$$
+:::
+
+::: {.proposition title="(Tableau de la loi conjointe)"}
+La loi conjointe peut être représentée dans un tableau à double entrée :
+| | $y_1$ | $y_2$ | $\cdots$ | $y_m$ | Marges de $X$ |
+|---|---|---|---|---|---|
+| $x_1$ | $p_{11}$ | $p_{12}$ | $\cdots$ | $p_{1m}$ | $P(X=x_1)$ |
+| $x_2$ | $p_{21}$ | $p_{22}$ | $\cdots$ | $p_{2m}$ | $P(X=x_2)$ |
+| $\vdots$ | $\vdots$ | $\vdots$ | $\vdots$ | $\vdots$ | $\vdots$ |
+| Marges de $Y$ | $P(Y=y_1)$ | $P(Y=y_2)$ | $\cdots$ | $P(Y=y_m)$ | $1$ |
+:::
+
+# Lois conditionnelles
+
+::: {.definition title="(Loi conditionnelle)"}
+Si $P(Y = y) > 0$, la loi conditionnelle de $X$ sachant $Y = y$ est :
+$$P(X = x \mid Y = y) = \frac{P(X = x, Y = y)}{P(Y = y)}$$
+:::
+
+::: {.proposition title="(Propriétés)"}
+Pour $y$ fixé avec $P(Y = y) > 0$ :
+$\sum_x P(X = x \mid Y = y) = 1$
+$P(X = x \mid Y = y) \geq 0$
+:::
+
+::: {.example title="(Formule des probabilités totales)"}
+Si $Y$ prend les valeurs $y_1, \ldots, y_m$ :
+$$P(X = x) = \sum_{j=1}^m P(X = x \mid Y = y_j) P(Y = y_j)$$
+:::
+
+::: {.example title="(Formule de Bayes)"}
+Si $P(X = x) > 0$ :
+$$P(Y = y \mid X = x) = \frac{P(X = x \mid Y = y) P(Y = y)}{P(X = x)}$$
+:::
+
+# Indépendance
+
+## Définition
+
+::: {.definition title="(Indépendance de deux variables aléatoires)"}
+$X$ et $Y$ sont indépendantes si pour tous $x \in X(\Omega)$ et $y \in Y(\Omega)$ :
+$$P(X = x, Y = y) = P(X = x) P(Y = y)$$
+:::
+
+::: {.proposition title="(Caractérisation par les lois conditionnelles)"}
+$X$ et $Y$ sont indépendantes si et seulement si pour tout $y$ avec $P(Y = y) > 0$ :
+$$P(X = x \mid Y = y) = P(X = x)$$
+:::
+
+::: {.example}
+Deux lancers de dés équilibrés sont indépendants car :
+$$P(X = i, Y = j) = \frac{1}{36} = \frac{1}{6} \cdot \frac{1}{6} = P(X = i) P(Y = j)$$
+:::
+
+::: {.proposition title="(Indépendance et fonctions)"}
+Si $X$ et $Y$ sont indépendantes, alors pour toutes fonctions $g, h$ :
+$g(X)$ et $h(Y)$ sont indépendantes.
+:::
+
+# Espérance et covariance
+
+## Espérance d'un couple
+
+::: {.proposition title="(Linéarité de l'espérance)"}
+$$E(X + Y) = E(X) + E(Y)$$
+:::
+
+::: {.proposition title="(Espérance d'un produit)"}
+Si $X$ et $Y$ sont indépendantes :
+$$E(XY) = E(X) E(Y)$$
+:::
+
+## Covariance
+
+::: {.definition title="(Covariance)"}
+La covariance de $X$ et $Y$ est :
+$$\mathrm{cov}(X, Y) = E((X - E(X))(Y - E(Y))) = E(XY) - E(X) E(Y)$$
+:::
+
+::: {.proposition title="(Propriétés de la covariance)"}
+$\mathrm{cov}(X, X) = V(X)$
+$\mathrm{cov}(X, Y) = \mathrm{cov}(Y, X)$
+$\mathrm{cov}(aX + b, Y) = a \, \mathrm{cov}(X, Y)$
+$\mathrm{cov}(X + Y, Z) = \mathrm{cov}(X, Z) + \mathrm{cov}(Y, Z)$
+:::
+
+::: {.proposition title="(Variance d'une somme)"}
+$$V(X + Y) = V(X) + V(Y) + 2\mathrm{cov}(X, Y)$$
+:::
+
+::: {.proposition title="(Indépendance implique covariance nulle)"}
+Si $X$ et $Y$ sont indépendantes, alors $\mathrm{cov}(X, Y) = 0$.
+:::
+
+::: {.remark}
+La réciproque est fausse : $\mathrm{cov}(X, Y) = 0$ n'implique pas l'indépendance.
+:::
+
+# Coefficient de corrélation linéaire
+
+::: {.definition title="(Coefficient de corrélation)"}
+Si $V(X) > 0$ et $V(Y) > 0$, le coefficient de corrélation linéaire est :
+$$\rho(X, Y) = \frac{\mathrm{cov}(X, Y)}{\sqrt{V(X)} \sqrt{V(Y)}}$$
+:::
+
+::: {.proposition title="(Propriétés)"}
+$-1 \leq \rho(X, Y) \leq 1$
+$|\rho(X, Y)| = 1$ si et seulement s'il existe $a \in \mathbb{R}^*, b \in \mathbb{R}$ tels que $Y = aX + b$ presque sûrement.
+:::
+
+::: {.proposition title="(Inégalité de Cauchy-Schwarz)"}
+$$|\mathrm{cov}(X, Y)| \leq \sqrt{V(X)} \sqrt{V(Y)}$$
+:::
+
+::: {.proof}
+On applique l'inégalité de Cauchy-Schwarz à $(X - E(X))$ et $(Y - E(Y))$ :
+$$|E((X - E(X))(Y - E(Y)))| \leq \sqrt{E((X - E(X))^2)} \sqrt{E((Y - E(Y))^2)}$$
+:::
+
+::: {.example title="(Interprétation)"}
+$\rho(X, Y) = 1$ : corrélation linéaire positive parfaite.
+$\rho(X, Y) = -1$ : corrélation linéaire négative parfaite.
+$\rho(X, Y) = 0$ : pas de corrélation linéaire (mais pas nécessairement indépendance).
+:::
+
+# Exercices
+
+::: {.exercise}
+On lance deux dés équilibrés. Soit $X$ le résultat du premier dé et $Y$ le résultat du second dé.
+Déterminer la loi conjointe de $(X, Y)$.
+Déterminer les lois marginales de $X$ et $Y$.
+$X$ et $Y$ sont-elles indépendantes ?
+Calculer $E(X)$, $E(Y)$, $\mathrm{cov}(X, Y)$.
+:::
+
+::: {.exercise}
+On lance un dé équilibré. Soit $X$ le résultat et $Y = X^2$.
+Déterminer la loi conjointe de $(X, Y)$.
+$X$ et $Y$ sont-elles indépendantes ?
+Calculer $\mathrm{cov}(X, Y)$.
+:::
+
+::: {.exercise}
+On lance deux pièces équilibrées. Soit $X$ le nombre de piles et $Y$ le nombre de faces.
+Déterminer la loi conjointe de $(X, Y)$.
+$X$ et $Y$ sont-elles indépendantes ?
+Calculer $\mathrm{cov}(X, Y)$ et $\rho(X, Y)$.
+:::
+
+::: {.exercise}
+On lance trois pièces équilibrées. Soit $X$ le nombre de piles et $Y$ le nombre de faces.
+Déterminer la loi conjointe de $(X, Y)$.
+Calculer $E(X)$, $E(Y)$, $V(X)$, $V(Y)$, $\mathrm{cov}(X, Y)$.
+:::
+
+::: {.exercise}
+On considère le tableau de la loi conjointe suivant :
+| | $0$ | $1$ |
+|---|---|---|
+| $0$ | $0{,}2$ | $0{,}3$ |
+| $1$ | $0{,}1$ | $0{,}2$ |
+Déterminer les lois marginales de $X$ et $Y$.
+$X$ et $Y$ sont-elles indépendantes ?
+Calculer $\mathrm{cov}(X, Y)$ et $\rho(X, Y)$.
+:::
+
+::: {.exercise}
+On considère le tableau de la loi conjointe suivant :
+| | $0$ | $1$ | $2$ |
+|---|---|---|---|
+| $0$ | $0{,}1$ | $0{,}2$ | $0{,}1$ |
+| $1$ | $0{,}2$ | $0{,}1$ | $0{,}1$ |
+Déterminer les lois marginales de $X$ et $Y$.
+$X$ et $Y$ sont-elles indépendantes ?
+Calculer $\mathrm{cov}(X, Y)$ et $\rho(X, Y)$.
+:::
+
+::: {.exercise}
+On lance deux dés équilibrés. Soit $X$ le résultat du premier dé et $Y = X + Y$.
+Déterminer la loi conjointe de $(X, Y)$.
+Calculer $\mathrm{cov}(X, Y)$ et $\rho(X, Y)$.
+:::
+
+::: {.exercise}
+On considère le tableau de la loi conjointe suivant :
+| | $0$ | $1$ | $2$ |
+|---|---|---|---|
+| $0$ | $0{,}1$ | $0{,}2$ | $0{,}1$ |
+| $1$ | $0{,}2$ | $0{,}1$ | $0{,}1$ |
+Déterminer les lois conditionnelles de $X$ sachant $Y = 0$ et $Y = 1$.
+Calculer $E(X \mid Y = 0)$ et $E(X \mid Y = 1)$.
+:::
+
+# Document en PDF {-}
+[**Chapitre 04 : Couples de variables aléatoires discrètes finies**](PDF/ect2-chap04.pdf)
+
+## Navigation {-}
+::: {.chap-nav}
+[Chapitre 03 : Rappels sur les sommes finies ; séries numériques](ect2-chap03.qmd){.prev}
+[Menu ECT2](ect2.qmd){.home}
+[Chapitre 05 : Variables aléatoires discrètes infinies](ect2-chap05.qmd){.next}
+:::

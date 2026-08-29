@@ -1,0 +1,176 @@
+---
+title: "TD — Variables aléatoires à densité"
+subtitle: "Chapitre 09"
+author: "Saîd MAHARI"
+date: last-modified
+date-format: "D MMMM YYYY"
+lang: fr
+format:
+  html:
+    theme: cosmo
+    toc: true
+    number-sections: true
+    html-math-method: katex
+    css: styles.css
+filters:
+  - custom-numbered-blocks.lua
+---
+
+**ECT2 (2e année) — TD du Chapitre 09.** Densités de probabilité, lois usuelles (uniforme, exponentielle, normale), espérance et variance.
+
+::: {.exercise}
+Soit $X$ une variable aléatoire à densité $f(x) = \begin{cases} cx^2 & 0 \leq x \leq 1 \\ 0 & \text{sinon} \end{cases}$.
+
+1. Déterminer la constante $c$.
+2. Déterminer la fonction de répartition $F_X(x)$.
+3. Calculer $E(X)$ et $V(X)$.
+4. Calculer $P\left(\frac{1}{4} < X < \frac{1}{2}\right)$.
+:::
+
+::: {.exercise}
+Soit $X$ une variable aléatoire suivant une loi uniforme sur $[0, 1]$.
+
+1. Déterminer la fonction de répartition $F_X(x)$.
+2. Calculer $P(0{,}2 < X < 0{,}7)$.
+3. Calculer $E(X)$ et $V(X)$.
+4. Soit $Y = X^2$. Déterminer la fonction de répartition de $Y$.
+:::
+
+::: {.exercise}
+Soit $X$ une variable aléatoire suivant une loi exponentielle de paramètre $\lambda = 2$.
+
+1. Déterminer la fonction de répartition $F_X(x)$.
+2. Calculer $P(X > 1)$.
+3. Calculer $E(X)$ et $V(X)$.
+4. Calculer $P(X > 2 \mid X > 1)$ et vérifier la propriété d'absence de mémoire.
+:::
+
+::: {.exercise}
+Soit $X$ une variable aléatoire suivant une loi uniforme sur $[0, 10]$.
+
+1. Déterminer la fonction de répartition $F_X(x)$.
+2. Calculer $P(2 < X < 5)$.
+3. Calculer $E(X)$ et $V(X)$.
+:::
+
+::: {.exercise}
+Soit $X$ une variable aléatoire suivant une loi exponentielle de paramètre $\lambda = 3$.
+
+1. Déterminer la fonction de répartition $F_X(x)$.
+2. Calculer $P(X > 1)$.
+3. Calculer $E(X)$ et $V(X)$.
+4. Calculer $P(1 < X < 2)$.
+:::
+
+::: {.exercise}
+Soit $X$ une variable aléatoire à densité $f(x) = \begin{cases} 2(1-x) & 0 \leq x \leq 1 \\ 0 & \text{sinon} \end{cases}$.
+
+1. Vérifier que $f$ est bien une densité.
+2. Déterminer la fonction de répartition $F_X(x)$.
+3. Calculer $E(X)$ et $V(X)$.
+:::
+
+::: {.exercise}
+Soit $X$ une variable aléatoire suivant une loi uniforme sur $[0, 1]$. Soit $Y = -\ln(1-X)$.
+
+1. Déterminer la fonction de répartition de $Y$.
+2. Montrer que $Y$ suit une loi exponentielle de paramètre $1$.
+:::
+
+::: {.exercise}
+Soit $X$ une variable aléatoire à densité $f(x) = \begin{cases} \frac{1}{\pi\sqrt{1-x^2}} & -1 < x < 1 \\ 0 & \text{sinon} \end{cases}$.
+
+1. Vérifier que $f$ est bien une densité.
+2. Déterminer la fonction de répartition $F_X(x)$.
+3. Calculer $E(X)$.
+:::
+
+::: {.exercise}
+Soit $X$ une variable aléatoire à densité $f(x) = \begin{cases} \frac{1}{2} e^{-|x|} & x \in \mathbb{R} \\ 0 & \text{sinon} \end{cases}$.
+
+1. Vérifier que $f$ est bien une densité.
+2. Déterminer la fonction de répartition $F_X(x)$.
+3. Calculer $E(X)$ et $V(X)$.
+:::
+
+::: {.exercise}
+Soit $X$ une variable aléatoire à densité $f(x) = \begin{cases} \frac{1}{\sqrt{2\pi}} e^{-x^2/2} & x \in \mathbb{R} \\ 0 & \text{sinon} \end{cases}$.
+
+1. Vérifier que $f$ est bien une densité.
+2. Calculer $E(X)$ et $V(X)$.
+:::
+
+::: {.exercise}
+Soit $X$ une variable aléatoire à densité $f(x) = \begin{cases} \frac{1}{2} e^{-x/2} & x \geq 0 \\ 0 & \text{sinon} \end{cases}$.
+
+1. Vérifier que $f$ est bien une densité.
+2. Déterminer la fonction de répartition $F_X(x)$.
+3. Calculer $E(X)$ et $V(X)$.
+4. Calculer $P(X > 2)$.
+:::
+
+::: {.exercise}
+Soit $X$ une variable aléatoire à densité $f(x) = \begin{cases} \frac{1}{2} & 0 \leq x \leq 2 \\ 0 & \text{sinon} \end{cases}$.
+
+1. Vérifier que $f$ est bien une densité.
+2. Déterminer la fonction de répartition $F_X(x)$.
+3. Calculer $E(X)$ et $V(X)$.
+4. Soit $Y = X^2$. Déterminer la fonction de répartition de $Y$.
+:::
+
+::: {.exercise}
+Soit $X$ une variable aléatoire à densité $f(x) = \begin{cases} \frac{3}{8} x^2 & 0 \leq x \leq 2 \\ 0 & \text{sinon} \end{cases}$.
+
+1. Vérifier que $f$ est bien une densité.
+2. Déterminer la fonction de répartition $F_X(x)$.
+3. Calculer $E(X)$ et $V(X)$.
+:::
+
+::: {.exercise}
+Soit $X$ une variable aléatoire à densité $f(x) = \begin{cases} \frac{1}{\sqrt{2\pi}} e^{-x^2/2} & x \in \mathbb{R} \\ 0 & \text{sinon} \end{cases}$.
+
+1. Calculer $P(X > 0)$.
+2. Calculer $P(-1 < X < 1)$.
+3. Calculer $P(X > 2)$.
+
+On utilise les valeurs approchées : $P(X > 1) \approx 0{,}159$ et $P(X > 2) \approx 0{,}023$.
+:::
+
+::: {.exercise}
+Soit $X$ une variable aléatoire à densité $f(x) = \begin{cases} \frac{1}{\pi} \frac{1}{1+x^2} & x \in \mathbb{R} \\ 0 & \text{sinon} \end{cases}$.
+
+1. Vérifier que $f$ est bien une densité.
+2. Déterminer la fonction de répartition $F_X(x)$.
+3. $X$ admet-elle une espérance ? Justifier.
+:::
+
+::: {.exercise}
+Soit $X$ une variable aléatoire à densité $f(x) = \begin{cases} \frac{1}{\sqrt{2\pi}} e^{-(x-2)^2/2} & x \in \mathbb{R} \\ 0 & \text{sinon} \end{cases}$.
+
+1. Calculer $E(X)$ et $V(X)$.
+2. Calculer $P(X > 2)$.
+:::
+
+::: {.exercise}
+Soit $X$ une variable aléatoire à densité $f(x) = \begin{cases} \frac{1}{\sqrt{2\pi}} e^{-x^2/2} & x \in \mathbb{R} \\ 0 & \text{sinon} \end{cases}$.
+
+1. Calculer $E(X)$ et $V(X)$.
+2. Soit $Y = 2X + 1$. Déterminer la densité de $Y$.
+:::
+
+::: {.exercise}
+Soit $X$ une variable aléatoire à densité $f(x) = \begin{cases} \frac{1}{\sqrt{2\pi}} e^{-x^2/2} & x \in \mathbb{R} \\ 0 & \text{sinon} \end{cases}$.
+
+1. Calculer $E(X)$ et $V(X)$.
+2. Soit $Y = X^2$. Déterminer la fonction de répartition de $Y$.
+:::
+
+# Cours {-}
+[**Chapitre 09 : Variables aléatoires à densité**](../cours/ect2-chap09.qmd)
+
+# Navigation {-}
+::: {.chap-nav}
+[TD 08 : Intégrales généralisées](ect2-chap08.qmd){.prev}
+[Menu ECT2](ect2.qmd){.home}
+[TD 10 : Convergences et approximations](ect2-chap10.qmd){.next}
+:::

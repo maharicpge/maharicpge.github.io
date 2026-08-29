@@ -1,10 +1,220 @@
 ---
-title: "Chapitre 02 : Calcul intégral"
-pagetitle: "Calcul intégral - Mathématiques en CPGE"
+title: "Cours – Compléments d'intégration : propriétés de l'intégrale"
+subtitle: "Chapitre 02"
+author: "Saîd MAHARI"
+date: last-modified
+date-format: "D MMMM YYYY"
+lang: fr
+format:
+  html:
+    theme: cosmo
+    toc: true
+    number-sections: true
+    html-math-method: katex
+    css: styles.css
+filters:
+  - custom-numbered-blocks.lua
 ---
 
-**ECT 2e année — Chapitre 02.** Primitives, intégration sur un segment, IPP, aire sous la courbe.
+**ECT2 (2e année) — Chapitre 02.** Linéarité, intégration par parties, positivité, comparaison d'intégrales.
 
-## Document
+Ce chapitre a été réalisé conformément au programme marocain de mathématiques de la filière ECT.
 
-*PDF à venir : déposez le fichier `files/ect2/chap02.pdf` puis régénérez la page.*
+# Rappel : fonctions continues par morceaux
+
+## Définition
+
+::: {.definition title="(Fonction continue par morceaux)"}
+Une fonction $f : [a,b] \to \mathbb{R}$ est **continue par morceaux** s'il existe une subdivision $a = x_0 < x_1 < \cdots < x_p = b$ telle que $f$ est continue sur chaque intervalle ouvert $]x_i, x_{i+1}[$ et admet des limites finies à gauche et à droite en chaque $x_i$.
+:::
+
+::: {.example}
+- Toute fonction continue sur $[a,b]$ est continue par morceaux.
+- La fonction partie entière $x \mapsto E(x)$ est continue par morceaux sur $\mathbb{R}$.
+- La fonction $f(x) = \sin(1/x)$ prolongée par $f(0) = 0$ n'est **pas** continue par morceaux sur $[0,1]$ car elle n'admet pas de limite finie en $0^+$.
+:::
+
+# Définition de l'intégrale
+
+::: {.definition title="(Intégrale d'une fonction continue par morceaux)"}
+Soit $f : [a,b] \to \mathbb{R}$ continue par morceaux. On définit l'intégrale :
+$$\int_a^b f(t)\,dt$$
+comme la limite des sommes de Riemann. Si $F$ est une primitive de $f$ sur $[a,b]$, alors :
+$$\int_a^b f(t)\,dt = F(b) - F(a) = [F(t)]_a^b$$
+:::
+
+::: {.proposition title="(Relation de Chasles)"}
+Pour tout $c \in [a,b]$ :
+$$\int_a^b f(t)\,dt = \int_a^c f(t)\,dt + \int_c^b f(t)\,dt$$
+:::
+
+::: {.proposition title="(Convention)"}
+$$\int_a^a f(t)\,dt = 0, \qquad \int_b^a f(t)\,dt = -\int_a^b f(t)\,dt$$
+:::
+
+# Linéarité
+
+::: {.proposition title="(Linéarité de l'intégrale)"}
+Soient $f, g$ continues par morceaux sur $[a,b]$ et $\lambda, \mu \in \mathbb{R}$. Alors :
+$$\int_a^b (\lambda f + \mu g)(t)\,dt = \lambda \int_a^b f(t)\,dt + \mu \int_a^b g(t)\,dt$$
+:::
+
+::: {.example}
+$$\int_0^1 (3t^2 + 2t)\,dt = 3\int_0^1 t^2\,dt + 2\int_0^1 t\,dt = 3 \cdot \frac{1}{3} + 2 \cdot \frac{1}{2} = 2$$
+:::
+
+# Positivité et comparaison
+
+## Positivité
+
+::: {.proposition title="(Positivité)"}
+Si $f \geq 0$ sur $[a,b]$ (avec $a \leq b$), alors :
+$$\int_a^b f(t)\,dt \geq 0$$
+De plus, si $f$ est continue, $f \geq 0$ et $f \not\equiv 0$, alors $\int_a^b f(t)\,dt > 0$.
+:::
+
+## Comparaison
+
+::: {.proposition title="(Comparaison)"}
+Si $f \leq g$ sur $[a,b]$, alors :
+$$\int_a^b f(t)\,dt \leq \int_a^b g(t)\,dt$$
+:::
+
+::: {.proposition title="(Inégalité triangulaire)"}
+$$\left|\int_a^b f(t)\,dt\right| \leq \int_a^b |f(t)|\,dt$$
+:::
+
+::: {.proposition title="(Inégalité de Cauchy-Schwarz)"}
+Pour $f, g$ continues par morceaux sur $[a,b]$ :
+$$\left(\int_a^b f(t)g(t)\,dt\right)^2 \leq \int_a^b f(t)^2\,dt \cdot \int_a^b g(t)^2\,dt$$
+:::
+
+::: {.example title="(Application de Cauchy-Schwarz)"}
+Montrons que $\left(\int_0^1 f(t)\,dt\right)^2 \leq \int_0^1 f(t)^2\,dt$.
+En appliquant Cauchy-Schwarz avec $g(t) = 1$ :
+$$\left(\int_0^1 f(t) \cdot 1\,dt\right)^2 \leq \int_0^1 f(t)^2\,dt \cdot \int_0^1 1\,dt = \int_0^1 f(t)^2\,dt$$
+:::
+
+# Intégration par parties
+
+::: {.theorem title="(Intégration par parties)"}
+Soient $u, v$ de classe $\mathcal{C}^1$ sur $[a,b]$. Alors :
+$$\int_a^b u(t)v'(t)\,dt = [u(t)v(t)]_a^b - \int_a^b u'(t)v(t)\,dt$$
+:::
+
+::: {.example title="(Calcul par parties)"}
+Calculons $\int_0^1 t e^t\,dt$.
+On pose $u(t) = t$, $v'(t) = e^t$, donc $u'(t) = 1$, $v(t) = e^t$ :
+$$\int_0^1 t e^t\,dt = [te^t]_0^1 - \int_0^1 e^t\,dt = e - [e^t]_0^1 = e - (e - 1) = 1$$
+:::
+
+::: {.example title="(Calcul par parties itérées)"}
+Calculons $\int_0^1 t^2 e^t\,dt$.
+Première intégration par parties : $u(t) = t^2$, $v'(t) = e^t$ :
+$$\int_0^1 t^2 e^t\,dt = [t^2 e^t]_0^1 - 2\int_0^1 t e^t\,dt = e - 2 \cdot 1 = e - 2$$
+(en utilisant le résultat précédent $\int_0^1 t e^t\,dt = 1$).
+:::
+
+::: {.example title="(Calcul de $\int_0^1 \ln t\,dt$)"}
+On pose $u(t) = \ln t$, $v'(t) = 1$, donc $u'(t) = 1/t$, $v(t) = t$ :
+$$\int_\varepsilon^1 \ln t\,dt = [t\ln t]_\varepsilon^1 - \int_\varepsilon^1 1\,dt = -\varepsilon \ln \varepsilon - (1 - \varepsilon)$$
+En faisant tendre $\varepsilon \to 0^+$, on obtient $\int_0^1 \ln t\,dt = -1$.
+:::
+
+# Changement de variable
+
+::: {.theorem title="(Changement de variable)"}
+Soit $\varphi : [\alpha, \beta] \to [a,b]$ de classe $\mathcal{C}^1$ et $f$ continue sur $[a,b]$. Alors :
+$$\int_\alpha^\beta f(\varphi(t))\varphi'(t)\,dt = \int_{\varphi(\alpha)}^{\varphi(\beta)} f(u)\,du$$
+:::
+
+::: {.example title="(Changement de variable)"}
+Calculons $\int_0^1 \frac{2t}{1+t^2}\,dt$.
+On pose $u = 1 + t^2$, donc $du = 2t\,dt$ :
+$$\int_0^1 \frac{2t}{1+t^2}\,dt = \int_1^2 \frac{du}{u} = [\ln u]_1^2 = \ln 2$$
+:::
+
+::: {.example title="(Changement de variable trigonométrique)"}
+Calculons $\int_0^1 \sqrt{1-t^2}\,dt$.
+On pose $t = \sin \theta$, donc $dt = \cos\theta\,d\theta$ :
+$$\int_0^1 \sqrt{1-t^2}\,dt = \int_0^{\pi/2} \cos^2\theta\,d\theta = \int_0^{\pi/2} \frac{1 + \cos 2\theta}{2}\,d\theta = \frac{\pi}{4}$$
+(C'est l'aire du quart de disque unité.)
+:::
+
+# Théorème fondamental du calcul intégral
+
+::: {.theorem title="(Théorème fondamental)"}
+Soit $f$ continue sur $[a,b]$. La fonction $F : x \mapsto \int_a^x f(t)\,dt$ est de classe $\mathcal{C}^1$ sur $[a,b]$ et :
+$$F'(x) = f(x)$$
+Autrement dit, $F$ est une primitive de $f$ sur $[a,b]$.
+:::
+
+::: {.example}
+Soit $F(x) = \int_0^x e^{-t^2}\,dt$. Alors $F'(x) = e^{-x^2}$.
+:::
+
+::: {.example title="(Dérivation d'une intégrale à bornes variables)"}
+Soit $G(x) = \int_x^{x^2} e^t\,dt$. Alors :
+$$G'(x) = 2x \cdot e^{x^2} - e^x$$
+(formule : si $G(x) = \int_{u(x)}^{v(x)} f(t)\,dt$, alors $G'(x) = v'(x)f(v(x)) - u'(x)f(u(x))$).
+:::
+
+# Valeur moyenne
+
+::: {.definition title="(Valeur moyenne)"}
+La **valeur moyenne** de $f$ sur $[a,b]$ est :
+$$\bar{f} = \frac{1}{b-a}\int_a^b f(t)\,dt$$
+:::
+
+::: {.proposition title="(Théorème de la moyenne)"}
+Si $f$ est continue sur $[a,b]$, alors il existe $c \in [a,b]$ tel que :
+$$\int_a^b f(t)\,dt = f(c)(b-a)$$
+:::
+
+# Exercices
+
+::: {.exercise}
+Calculer les intégrales suivantes :
+- $\int_0^1 (2t^3 - 3t + 1)\,dt$
+- $\int_0^1 t e^{-t}\,dt$
+- $\int_0^\pi t \cos t\,dt$
+:::
+
+::: {.exercise}
+Calculer $\int_0^1 t^2 \ln t\,dt$ par intégration par parties.
+:::
+
+::: {.exercise}
+Montrer que pour tout $x \in [0,1]$ : $\frac{x}{1+x} \leq \ln(1+x) \leq x$.
+En déduire un encadrement de $\int_0^1 \ln(1+x)\,dx$.
+:::
+
+::: {.exercise}
+Calculer $\int_0^1 \frac{t}{1+t^2}\,dt$ par changement de variable.
+:::
+
+::: {.exercise}
+Montrer par intégration par parties que $\int_0^\pi t \sin t\,dt = \pi$.
+:::
+
+::: {.exercise}
+Montrer que $\left(\int_0^1 f(t)\,dt\right)^2 \leq \int_0^1 f(t)^2\,dt$ pour toute fonction continue $f$ sur $[0,1]$.
+:::
+
+::: {.exercise}
+Soit $f$ continue sur $[0,1]$ telle que $\int_0^1 f(t)\,dt = 0$. Montrer que $\int_0^1 f(t)^2\,dt \geq 0$ et que l'égalité a lieu si et seulement si $f \equiv 0$.
+:::
+
+::: {.exercise}
+Calculer $\int_0^1 \frac{1}{1+t^2}\,dt$ par changement de variable $t = \tan \theta$.
+:::
+
+# Document en PDF {-}
+[**Chapitre 02 : Compléments d'intégration**](PDF/ect2-chap02.pdf)
+
+## Navigation {-}
+::: {.chap-nav}
+[Chapitre 01 : Matrices](ect2-chap01.qmd){.prev}
+[Menu ECT2](ect2.qmd){.home}
+[Chapitre 03 : Rappels sur les sommes finies ; séries numériques](ect2-chap03.qmd){.next}
+:::

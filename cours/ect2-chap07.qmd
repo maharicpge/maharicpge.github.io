@@ -1,0 +1,269 @@
+---
+title: "Cours – Réduction des matrices carrées"
+subtitle: "Chapitre 07"
+author: "Saîd MAHARI"
+date: last-modified
+date-format: "D MMMM YYYY"
+lang: fr
+format:
+  html:
+    theme: cosmo
+    toc: true
+    number-sections: true
+    html-math-method: katex
+    css: styles.css
+filters:
+  - custom-numbered-blocks.lua
+---
+
+**ECT2 (2e année) — Chapitre 07.** Valeurs propres, vecteurs propres, matrices diagonalisables, polynômes annulateurs, application aux puissances de matrices.
+
+Ce chapitre a été réalisé conformément au programme marocain de mathématiques de la filière ECT.
+
+Dans tout ce chapitre, $\mathbb{K}$ désigne $\mathbb{R}$ ou $\mathbb{C}$, et $E$ un $\mathbb{K}$-espace vectoriel de dimension finie $n$.
+
+# Valeurs propres et vecteurs propres
+
+## Définitions
+
+::: {.definition title="(Valeur propre, vecteur propre)"}
+Soit $u \in \mathcal{L}(E)$. Un scalaire $\lambda \in \mathbb{K}$ est une **valeur propre** de $u$ s'il existe $x \in E \setminus \{0_E\}$ tel que :
+$$u(x) = \lambda x$$
+Le vecteur $x$ est appelé **vecteur propre** associé à $\lambda$.
+:::
+
+::: {.definition title="(Sous-espace propre)"}
+Le **sous-espace propre** associé à $\lambda$ est :
+$$E_\lambda(u) = \ker(u - \lambda \mathrm{Id}_E)$$
+:::
+
+::: {.definition title="(Spectre)"}
+Le **spectre** de $u$, noté $\mathrm{Sp}(u)$, est l'ensemble des valeurs propres de $u$.
+:::
+
+::: {.proposition}
+Soient $\lambda_1, \ldots, \lambda_r$ des valeurs propres distinctes de $u$. Alors la somme $E_{\lambda_1} + \cdots + E_{\lambda_r}$ est directe.
+:::
+
+::: {.proposition}
+Le spectre d'un endomorphisme d'un espace de dimension finie $n$ est fini de cardinal au plus $n$.
+:::
+
+## Polynôme caractéristique
+
+::: {.definition title="(Polynôme caractéristique)"}
+Soit $A \in \mathcal{M}_n(\mathbb{K})$. Le **polynôme caractéristique** de $A$ est :
+$$\chi_A(X) = \det(XI_n - A)$$
+:::
+
+::: {.proposition}
+
+1. $\chi_A$ est unitaire de degré $n$.
+2. $\lambda$ est valeur propre de $A$ $\iff$ $\chi_A(\lambda) = 0$.
+3. Deux matrices semblables ont même polynôme caractéristique.
+4. $\chi_A(X) = X^n - \mathrm{tr}(A) X^{n-1} + \cdots + (-1)^n \det(A)$
+:::
+
+::: {.example}
+Pour $A = \begin{pmatrix} 1 & 2 \\ 0 & 3 \end{pmatrix}$ :
+$$\chi_A(X) = \det \begin{pmatrix} X-1 & -2 \\ 0 & X-3 \end{pmatrix} = (X-1)(X-3)$$
+Les valeurs propres sont $\lambda_1 = 1$ et $\lambda_2 = 3$.
+:::
+
+# Diagonalisation
+
+## Définition
+
+::: {.definition title="(Matrice diagonalisable)"}
+Une matrice $A \in \mathcal{M}_n(\mathbb{K})$ est **diagonalisable** s'il existe $P \in GL_n(\mathbb{K})$ et $D$ diagonale telles que :
+$$A = PDP^{-1}$$
+:::
+
+## Caractérisations
+
+::: {.theorem title="(Caractérisation par les sous-espaces propres)"}
+$A$ est diagonalisable si et seulement si :
+$$\mathbb{K}^n = E_{\lambda_1} \oplus \cdots \oplus E_{\lambda_r}$$
+où $\lambda_1, \ldots, \lambda_r$ sont les valeurs propres distinctes de $A$.
+:::
+
+::: {.theorem title="(Caractérisation par le polynôme caractéristique)"}
+$A$ est diagonalisable si et seulement si :
+
+1. $\chi_A$ est scindé sur $\mathbb{K}$
+2. Pour toute valeur propre $\lambda_k$ de multiplicité $\mu_k$, $\dim E_{\lambda_k} = \mu_k$
+:::
+
+::: {.proposition title="(Cas des valeurs propres distinctes)"}
+Si $A$ admet $n$ valeurs propres distinctes, alors $A$ est diagonalisable.
+:::
+
+::: {.theorem title="(Caractérisation par le polynôme minimal)"}
+$A$ est diagonalisable si et seulement si son polynôme minimal $P_A$ est scindé à racines simples.
+:::
+
+::: {.example title="(Matrice diagonalisable)"}
+Pour $A = \begin{pmatrix} 1 & 2 \\ 0 & 3 \end{pmatrix}$ :
+- $\chi_A(X) = (X-1)(X-3)$
+- $E_1 = \mathrm{Vect}\left(\begin{pmatrix} 1 \\ 0 \end{pmatrix}\right)$
+- $E_3 = \mathrm{Vect}\left(\begin{pmatrix} 1 \\ 2 \end{pmatrix}\right)$
+
+Donc $A$ est diagonalisable :
+$$A = \begin{pmatrix} 1 & 1 \\ 0 & 2 \end{pmatrix} \begin{pmatrix} 1 & 0 \\ 0 & 3 \end{pmatrix} \begin{pmatrix} 1 & 1 \\ 0 & 2 \end{pmatrix}^{-1}$$
+:::
+
+::: {.example title="(Matrice non diagonalisable)"}
+Pour $A = \begin{pmatrix} 1 & 1 \\ 0 & 1 \end{pmatrix}$ :
+- $\chi_A(X) = (X-1)^2$
+- $E_1 = \mathrm{Vect}\left(\begin{pmatrix} 1 \\ 0 \end{pmatrix}\right)$ de dimension 1
+
+Comme $\dim E_1 = 1 < 2$, $A$ n'est pas diagonalisable.
+:::
+
+# Trigonalisation
+
+::: {.definition title="(Matrice trigonalisable)"}
+$A$ est **trigonalisable** s'il existe $P \in GL_n(\mathbb{K})$ et $T$ triangulaire supérieure telles que :
+$$A = PTP^{-1}$$
+:::
+
+::: {.theorem title="(Caractérisation)"}
+$A$ est trigonalisable si et seulement si $\chi_A$ est scindé sur $\mathbb{K}$.
+:::
+
+::: {.corollary}
+En particulier, toute matrice de $\mathcal{M}_n(\mathbb{C})$ est trigonalisable.
+:::
+
+::: {.example}
+Pour $A = \begin{pmatrix} 1 & 1 \\ 0 & 1 \end{pmatrix}$, $A$ est déjà triangulaire supérieure, donc trigonalisable.
+:::
+
+# Polynômes annulateurs
+
+::: {.definition title="(Polynôme annulateur)"}
+Un polynôme $P \in \mathbb{K}[X]$ est un **polynôme annulateur** de $A$ si $P(A) = 0$.
+:::
+
+::: {.definition title="(Polynôme minimal)"}
+Le **polynôme minimal** $P_A$ de $A$ est le polynôme annulateur unitaire de plus petit degré.
+:::
+
+::: {.theorem title="(Théorème de Cayley-Hamilton)"}
+Le polynôme caractéristique annule la matrice : $\chi_A(A) = 0$.
+:::
+
+::: {.proposition}
+Tout polynôme annulateur de $A$ est divisible par $P_A$.
+:::
+
+::: {.example}
+Pour $A = \begin{pmatrix} 1 & 1 \\ 0 & 1 \end{pmatrix}$ :
+- $\chi_A(X) = (X-1)^2$
+- $A - I = \begin{pmatrix} 0 & 1 \\ 0 & 0 \end{pmatrix} \neq 0$
+- $(A - I)^2 = 0$
+
+Donc $P_A(X) = (X-1)^2$.
+:::
+
+# Application aux puissances de matrices
+
+::: {.theorem title="(Calcul de $A^n$ par diagonalisation)"}
+Si $A$ est diagonalisable avec $A = PDP^{-1}$, alors :
+$$A^n = PD^nP^{-1}$$
+où $D^n$ est la matrice diagonale dont les coefficients diagonaux sont $\lambda_i^n$.
+:::
+
+::: {.example}
+Pour $A = \begin{pmatrix} 1 & 2 \\ 0 & 3 \end{pmatrix}$ diagonalisée en $A = PDP^{-1}$ :
+$$A^n = P \begin{pmatrix} 1^n & 0 \\ 0 & 3^n \end{pmatrix} P^{-1} = P \begin{pmatrix} 1 & 0 \\ 0 & 3^n \end{pmatrix} P^{-1}$$
+:::
+
+::: {.theorem title="(Calcul de $A^n$ par trigonalisation)"}
+Si $A$ est trigonalisable avec $A = PTP^{-1}$, alors :
+$$A^n = PT^nP^{-1}$$
+où $T^n$ se calcule par récurrence.
+:::
+
+::: {.example}
+Pour $A = \begin{pmatrix} 1 & 1 \\ 0 & 1 \end{pmatrix}$, on a $A = I + N$ avec $N^2 = 0$. Donc :
+$$A^n = (I + N)^n = I + nN = \begin{pmatrix} 1 & n \\ 0 & 1 \end{pmatrix}$$
+:::
+
+# Exercices
+
+::: {.exercise}
+Soit $A = \begin{pmatrix} 2 & 1 \\ 0 & 3 \end{pmatrix}$.
+
+1. Calculer $\chi_A(X)$.
+2. Déterminer les valeurs propres et les sous-espaces propres.
+3. $A$ est-elle diagonalisable ? Si oui, diagonaliser $A$.
+4. Calculer $A^n$ pour tout $n \in \mathbb{N}$.
+:::
+
+::: {.exercise}
+Soit $A = \begin{pmatrix} 1 & 1 \\ 0 & 1 \end{pmatrix}$.
+
+1. Calculer $\chi_A(X)$.
+2. $A$ est-elle diagonalisable ? Trigonalisable ?
+3. Déterminer le polynôme minimal de $A$.
+4. Calculer $A^n$ pour tout $n \in \mathbb{N}$.
+:::
+
+::: {.exercise}
+Soit $A = \begin{pmatrix} 1 & 2 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 3 \end{pmatrix}$.
+
+1. Calculer $\chi_A(X)$.
+2. Déterminer les valeurs propres et les sous-espaces propres.
+3. $A$ est-elle diagonalisable ?
+:::
+
+::: {.exercise}
+Soit $A = \begin{pmatrix} 1 & 0 & 0 \\ 0 & 2 & 1 \\ 0 & 0 & 2 \end{pmatrix}$.
+
+1. Calculer $\chi_A(X)$.
+2. $A$ est-elle diagonalisable ? Trigonalisable ?
+3. Déterminer le polynôme minimal de $A$.
+:::
+
+::: {.exercise}
+Soit $A = \begin{pmatrix} 2 & 1 & 0 \\ 0 & 2 & 0 \\ 0 & 0 & 3 \end{pmatrix}$.
+
+1. Calculer $\chi_A(X)$.
+2. $A$ est-elle diagonalisable ?
+3. Déterminer le polynôme minimal de $A$.
+:::
+
+::: {.exercise}
+Soit $A = \begin{pmatrix} 1 & 1 & 1 \\ 0 & 1 & 1 \\ 0 & 0 & 1 \end{pmatrix}$.
+
+1. Calculer $\chi_A(X)$.
+2. $A$ est-elle diagonalisable ? Trigonalisable ?
+3. Calculer $A^n$ pour tout $n \in \mathbb{N}$.
+:::
+
+::: {.exercise}
+Soit $A = \begin{pmatrix} 1 & 0 & 0 \\ 0 & 2 & 0 \\ 0 & 0 & 3 \end{pmatrix}$.
+
+1. Calculer $\chi_A(X)$.
+2. $A$ est-elle diagonalisable ?
+3. Calculer $A^n$ pour tout $n \in \mathbb{N}$.
+:::
+
+::: {.exercise}
+Soit $A = \begin{pmatrix} 1 & 1 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 2 \end{pmatrix}$.
+
+1. Calculer $\chi_A(X)$.
+2. $A$ est-elle diagonalisable ? Trigonalisable ?
+3. Déterminer le polynôme minimal de $A$.
+:::
+
+# Document en PDF {-}
+[**Chapitre 07 : Réduction des matrices carrées**](PDF/ect2-chap07.pdf)
+
+## Navigation {-}
+::: {.chap-nav}
+[Chapitre 06 : Statistiques bivariées](ect2-chap06.qmd){.prev}
+[Menu ECT2](ect2.qmd){.home}
+[Chapitre 08 : Compléments d'analyse : Intégrales généralisées](ect2-chap08.qmd){.next}
+:::

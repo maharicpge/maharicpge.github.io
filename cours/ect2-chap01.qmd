@@ -1,10 +1,215 @@
 ---
-title: "Chapitre 01 : Algèbre matricielle (compléments)"
-pagetitle: "Algèbre matricielle (compléments) - Mathématiques en CPGE"
+title: "Cours – Matrices"
+subtitle: "Chapitre 01"
+author: "Saîd MAHARI"
+date: last-modified
+date-format: "D MMMM YYYY"
+lang: fr
+format:
+  html:
+    theme: cosmo
+    toc: true
+    number-sections: true
+    html-math-method: katex
+    css: styles.css
+filters:
+  - custom-numbered-blocks.lua
 ---
 
-**ECT 2e année — Chapitre 01.** Puissances de matrices, systèmes économiques, introduction aux valeurs propres.
+**ECT2 (2e année) — Chapitre 01.** Matrices carrées, inversibilité, puissances, formule du binôme, écriture matricielle des systèmes linéaires.
 
-## Document
+Ce chapitre a été réalisé conformément au programme marocain de mathématiques de la filière ECT.
 
-*PDF à venir : déposez le fichier `files/ect2/chap01.pdf` puis régénérez la page.*
+# Définitions générales
+
+## Définition d'une matrice
+
+::: {.definition title="(Matrice)"}
+Une **matrice** $A$ de taille $n \times p$ à coefficients dans $\mathbb{R}$ est un tableau rectangulaire de $n$ lignes et $p$ colonnes :
+$$A = (a_{ij})_{1 \leq i \leq n, \; 1 \leq j \leq p} = \begin{pmatrix} a_{11} & a_{12} & \cdots & a_{1p} \\ a_{21} & a_{22} & \cdots & a_{2p} \\ \vdots & \vdots & \ddots & \vdots \\ a_{n1} & a_{n2} & \cdots & a_{np} \end{pmatrix}$$
+L'ensemble des matrices à $n$ lignes et $p$ colonnes à coefficients réels est noté $\mathcal{M}_{n,p}(\mathbb{R})$.
+:::
+
+::: {.example}
+$A = \begin{pmatrix} 1 & -2 & 5 \\ 0 & 3 & 7 \end{pmatrix}$ est une matrice $2 \times 3$ avec $a_{11} = 1$, $a_{23} = 7$.
+:::
+
+## Matrices particulières
+
+::: {.definition title="(Matrices particulières)"}
+On distingue plusieurs types de matrices :
+- La **matrice nulle** $0_{n,p}$ : tous ses coefficients sont nuls.
+- La **matrice carrée** : $n = p$ (même nombre de lignes et de colonnes). On note $\mathcal{M}_n(\mathbb{R})$.
+- La **matrice diagonale** : $a_{ij} = 0$ pour $i \neq j$. On note $\mathrm{diag}(\alpha_1, \ldots, \alpha_n)$.
+- La **matrice identité** $I_n$ : $a_{ii} = 1$ et $a_{ij} = 0$ pour $i \neq j$.
+- La **matrice triangulaire supérieure** : $a_{ij} = 0$ pour $i > j$.
+- La **matrice triangulaire inférieure** : $a_{ij} = 0$ pour $i < j$.
+:::
+
+::: {.example}
+$$\mathrm{diag}(2, -3, 5) = \begin{pmatrix} 2 & 0 & 0 \\ 0 & -3 & 0 \\ 0 & 0 & 5 \end{pmatrix}, \qquad I_3 = \begin{pmatrix} 1 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 1 \end{pmatrix}$$
+:::
+
+# Opérations sur les matrices
+
+## Addition et multiplication par un scalaire
+
+::: {.definition title="(Addition et produit par un scalaire)"}
+Soient $A = (a_{ij})$ et $B = (b_{ij})$ deux matrices de $\mathcal{M}_{n,p}(\mathbb{R})$, et $\lambda \in \mathbb{R}$.
+$$A + B = (a_{ij} + b_{ij}), \qquad \lambda A = (\lambda a_{ij})$$
+:::
+
+::: {.proposition title="(Propriétés)"}
+$(\mathcal{M}_{n,p}(\mathbb{R}), +)$ est un groupe abélien :
+- $A + B = B + A$ (commutativité)
+- $(A + B) + C = A + (B + C)$ (associativité)
+- $A + 0_{n,p} = A$ (élément neutre)
+- $\lambda(A + B) = \lambda A + \lambda B$, $(\lambda + \mu)A = \lambda A + \mu A$
+:::
+
+## Produit matriciel
+
+::: {.definition title="(Produit matriciel)"}
+Soient $A = (a_{ij}) \in \mathcal{M}_{n,p}(\mathbb{R})$ et $B = (b_{ij}) \in \mathcal{M}_{p,q}(\mathbb{R})$. Le produit $AB$ est la matrice de $\mathcal{M}_{n,q}(\mathbb{R})$ définie par :
+$$(AB)_{ij} = \sum_{k=1}^p a_{ik} b_{kj}$$
+Le produit $AB$ n'est défini que si le nombre de colonnes de $A$ est égal au nombre de lignes de $B$.
+:::
+
+::: {.example}
+$$\begin{pmatrix} 1 & 2 \\ 3 & 4 \end{pmatrix} \begin{pmatrix} 5 & 6 \\ 7 & 8 \end{pmatrix} = \begin{pmatrix} 1 \cdot 5 + 2 \cdot 7 & 1 \cdot 6 + 2 \cdot 8 \\ 3 \cdot 5 + 4 \cdot 7 & 3 \cdot 6 + 4 \cdot 8 \end{pmatrix} = \begin{pmatrix} 19 & 22 \\ 11 & 14 \end{pmatrix}$$
+:::
+
+::: {.proposition title="(Propriétés du produit)"}
+- **Associativité** : $(AB)C = A(BC)$
+- **Distributivité** : $A(B + C) = AB + AC$ et $(A + B)C = AC + BC$
+- **Élément neutre** : $I_n A = A$ et $A I_p = A$
+- **Attention** : le produit n'est **pas commutatif** en général : $AB \neq BA$.
+- **Attention** : $AB = 0$ n'implique pas $A = 0$ ou $B = 0$.
+:::
+
+::: {.example title="(Non-commutativité)"}
+$$\begin{pmatrix} 1 & 0 \\ 0 & 0 \end{pmatrix}\begin{pmatrix} 0 & 0 \\ 1 & 0 \end{pmatrix} = \begin{pmatrix} 0 & 0 \\ 0 & 0 \end{pmatrix} \quad \text{mais} \quad \begin{pmatrix} 0 & 0 \\ 1 & 0 \end{pmatrix}\begin{pmatrix} 1 & 0 \\ 0 & 0 \end{pmatrix} = \begin{pmatrix} 0 & 0 \\ 1 & 0 \end{pmatrix}$$
+:::
+
+# Puissances et formule du binôme
+
+## Puissances
+
+::: {.definition title="(Puissance d'une matrice)"}
+Pour $A \in \mathcal{M}_n(\mathbb{R})$, on définit par récurrence :
+$$A^0 = I_n, \qquad A^{k+1} = A^k \cdot A$$
+:::
+
+## Formule du binôme
+
+::: {.theorem title="(Formule du binôme matricielle)"}
+Soient $A, B \in \mathcal{M}_n(\mathbb{R})$ qui **commutent** ($AB = BA$). Alors pour tout $m \in \mathbb{N}$ :
+$$(A + B)^m = \sum_{k=0}^m \binom{m}{k} A^{m-k} B^k$$
+:::
+
+::: {.example title="(Calcul de $A^m$ avec une matrice nilpotente)"}
+Soit $A = \begin{pmatrix} 1 & 1 \\ 0 & 1 \end{pmatrix}$. On écrit $A = I_2 + N$ avec $N = \begin{pmatrix} 0 & 1 \\ 0 & 0 \end{pmatrix}$.
+Comme $N^2 = 0$ et $I_2$ commute avec $N$, la formule du binôme donne :
+$$A^m = I_2 + mN = \begin{pmatrix} 1 & m \\ 0 & 1 \end{pmatrix}$$
+:::
+
+# Matrices inversibles
+
+## Définition et propriétés
+
+::: {.definition title="(Matrice inversible)"}
+$A \in \mathcal{M}_n(\mathbb{R})$ est **inversible** s'il existe $B \in \mathcal{M}_n(\mathbb{R})$ telle que :
+$$AB = BA = I_n$$
+La matrice $B$, unique, est notée $A^{-1}$. L'ensemble des matrices inversibles est noté $GL_n(\mathbb{R})$.
+:::
+
+::: {.proposition title="(Formule pour les matrices $2 \times 2$)"}
+$A = \begin{pmatrix} a & b \\ c & d \end{pmatrix}$ est inversible si et seulement si $ad - bc \neq 0$. Dans ce cas :
+$$A^{-1} = \frac{1}{ad-bc}\begin{pmatrix} d & -b \\ -c & a \end{pmatrix}$$
+:::
+
+::: {.proposition title="(Propriétés)"}
+- $(A^{-1})^{-1} = A$
+- $(AB)^{-1} = B^{-1} A^{-1}$
+- $(A^T)^{-1} = (A^{-1})^T$
+- $(\lambda A)^{-1} = \frac{1}{\lambda} A^{-1}$ pour $\lambda \neq 0$
+:::
+
+## Méthode du pivot de Gauss
+
+::: {.callout-note title="Algorithme de Gauss-Jordan" icon="false"}
+Pour inverser $A$, on forme la matrice augmentée $(A \mid I_n)$ et on effectue des opérations élémentaires sur les lignes jusqu'à obtenir $(I_n \mid A^{-1})$.
+:::
+
+::: {.example title="(Calcul d'inverse par Gauss)"}
+Calculons l'inverse de $A = \begin{pmatrix} 1 & 2 \\ 3 & 4 \end{pmatrix}$.
+On a $ad - bc = 4 - 6 = -2 \neq 0$, donc $A$ est inversible :
+$$A^{-1} = \frac{1}{-2}\begin{pmatrix} 4 & -2 \\ -3 & 1 \end{pmatrix} = \begin{pmatrix} -2 & 1 \\ \frac{3}{2} & -\frac{1}{2} \end{pmatrix}$$
+:::
+
+# Écriture matricielle des systèmes linéaires
+
+## Formulation
+
+::: {.definition title="(Système linéaire)"}
+Un système linéaire de $n$ équations à $p$ inconnues s'écrit :
+$$\begin{cases} a_{11}x_1 + a_{12}x_2 + \cdots + a_{1p}x_p = b_1 \\ a_{21}x_1 + a_{22}x_2 + \cdots + a_{2p}x_p = b_2 \\ \vdots \\ a_{n1}x_1 + a_{n2}x_2 + \cdots + a_{np}x_p = b_n \end{cases}$$
+et s'écrit sous forme matricielle $AX = B$ avec :
+$$A = (a_{ij}) \in \mathcal{M}_{n,p}(\mathbb{R}), \quad X = \begin{pmatrix} x_1 \\ \vdots \\ x_p \end{pmatrix} \in \mathbb{R}^p, \quad B = \begin{pmatrix} b_1 \\ \vdots \\ b_n \end{pmatrix} \in \mathbb{R}^n$$
+:::
+
+## Résolution
+
+::: {.theorem title="(Théorème de Cramer)"}
+Si $A \in \mathcal{M}_n(\mathbb{R})$ est inversible, alors le système $AX = B$ admet une unique solution :
+$$X = A^{-1}B$$
+:::
+
+::: {.example title="(Résolution d'un système)"}
+Résolvons le système : $\begin{cases} 2x + y = 5 \\ x - y = 1 \end{cases}$.
+On a $A = \begin{pmatrix} 2 & 1 \\ 1 & -1 \end{pmatrix}$, $B = \begin{pmatrix} 5 \\ 1 \end{pmatrix}$.
+$\det(A) = -2 - 2 = -3 \neq 0$, donc $A$ est inversible :
+$$A^{-1} = \frac{1}{-3}\begin{pmatrix} -1 & -1 \\ -1 & 2 \end{pmatrix} = \begin{pmatrix} \frac{1}{3} & \frac{1}{3} \\ \frac{1}{3} & -\frac{2}{3} \end{pmatrix}$$
+$$X = A^{-1}B = \begin{pmatrix} \frac{1}{3} \cdot 5 + \frac{1}{3} \cdot 1 \\ \frac{1}{3} \cdot 5 - \frac{2}{3} \cdot 1 \end{pmatrix} = \begin{pmatrix} 2 \\ 1 \end{pmatrix}$$
+:::
+
+::: {.proposition title="(Cas des systèmes homogènes)"}
+Le système homogène $AX = 0$ admet toujours la solution triviale $X = 0$.
+- Si $A$ est inversible, alors $X = 0$ est l'unique solution.
+- Si $A$ n'est pas inversible, alors le système admet une infinité de solutions.
+:::
+
+# Exercices
+
+::: {.exercise}
+Calculer $A^2$, $A^3$ et $A^n$ pour $A = \begin{pmatrix} 1 & 1 \\ 0 & 1 \end{pmatrix}$.
+:::
+
+::: {.exercise}
+Soit $A = \begin{pmatrix} 1 & 2 \\ 3 & 4 \end{pmatrix}$. Calculer $A^{-1}$ et vérifier que $AA^{-1} = I_2$.
+:::
+
+::: {.exercise}
+Soit $A = \begin{pmatrix} 2 & 1 \\ 0 & 2 \end{pmatrix}$. Écrire $A = 2I_2 + N$ et calculer $A^n$ par la formule du binôme.
+:::
+
+::: {.exercise}
+Résoudre le système : $\begin{cases} x + 2y + z = 1 \\ 2x + y - z = 0 \\ x - y + z = 1 \end{cases}$.
+:::
+
+::: {.exercise}
+Soit $A = \begin{pmatrix} a & b \\ c & d \end{pmatrix}$. Montrer que si $ad - bc \neq 0$, alors $A$ est inversible et donner $A^{-1}$.
+:::
+
+::: {.exercise}
+Montrer que pour $A, B \in \mathcal{M}_n(\mathbb{R})$ : $(AB)^T = B^T A^T$.
+:::
+
+# Document en PDF {-}
+[**Chapitre 01 : Matrices**](PDF/ect2-chap01.pdf)
+
+## Navigation {-}
+::: {.chap-nav}
+[Menu ECT2](ect2.qmd){.home}
+[Chapitre 02 : Compléments d'intégration](ect2-chap02.qmd){.next}
+:::

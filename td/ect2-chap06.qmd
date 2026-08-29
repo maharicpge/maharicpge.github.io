@@ -1,10 +1,202 @@
 ---
-title: "Chapitre 06 : Statistiques bidimensionnelles"
-pagetitle: "Statistiques bidimensionnelles - Mathématiques en CPGE"
+title: "TD — Statistiques bivariées"
+subtitle: "Chapitre 06"
+author: "Saîd MAHARI"
+date: last-modified
+date-format: "D MMMM YYYY"
+lang: fr
+format:
+  html:
+    theme: cosmo
+    toc: true
+    number-sections: true
+    html-math-method: katex
+    css: styles.css
+filters:
+  - custom-numbered-blocks.lua
 ---
 
-**ECT 2e année — Chapitre 06.** Nuage de points, moindres carrés, corrélation linéaire.
+**ECT2 (2e année) — TD du Chapitre 06.** Analyse de deux caractères, covariance empirique, corrélation linéaire, ajustement affine par les moindres carrés.
 
-## Document
+::: {.exercise}
+On considère les données suivantes :
 
-*PDF à venir : déposez le fichier `files/ect2/chap06.pdf` puis régénérez la page.*
+| $x_i$ | $1$ | $2$ | $3$ | $4$ | $5$ |
+|---|---|---|---|---|---|
+| $y_i$ | $2$ | $4$ | $5$ | $4$ | $5$ |
+
+1. Calculer $\bar{x}$ et $\bar{y}$.
+2. Calculer $\operatorname{Cov}(X, Y)$, $V(X)$ et $V(Y)$.
+3. Calculer le coefficient de corrélation $r(X, Y)$.
+4. Déterminer l'équation de la droite de régression de $Y$ en $X$.
+5. Prévoir la valeur de $Y$ pour $x = 6$.
+:::
+
+::: {.exercise}
+On considère les données suivantes :
+
+| $x_i$ | $1$ | $2$ | $3$ | $4$ | $5$ |
+|---|---|---|---|---|---|
+| $y_i$ | $5$ | $4$ | $3$ | $3$ | $2$ |
+
+1. Calculer $\bar{x}$ et $\bar{y}$.
+2. Calculer $\operatorname{Cov}(X, Y)$, $V(X)$ et $V(Y)$.
+3. Calculer le coefficient de corrélation $r(X, Y)$.
+4. Déterminer l'équation de la droite de régression de $Y$ en $X$.
+:::
+
+::: {.exercise}
+On considère les données suivantes :
+
+| $x_i$ | $1$ | $2$ | $3$ | $4$ | $5$ |
+|---|---|---|---|---|---|
+| $y_i$ | $2$ | $4$ | $6$ | $8$ | $10$ |
+
+1. Calculer $\bar{x}$ et $\bar{y}$.
+2. Calculer $\operatorname{Cov}(X, Y)$, $V(X)$ et $V(Y)$.
+3. Calculer le coefficient de corrélation $r(X, Y)$.
+4. Déterminer les droites de régression de $Y$ en $X$ et de $X$ en $Y$. Que remarque-t-on ?
+:::
+
+::: {.exercise}
+On considère les données suivantes :
+
+| $x_i$ | $1$ | $2$ | $3$ | $4$ | $5$ |
+|---|---|---|---|---|---|
+| $y_i$ | $1$ | $1$ | $1$ | $1$ | $1$ |
+
+1. Calculer $\operatorname{Cov}(X, Y)$.
+2. Calculer $r(X, Y)$.
+3. Que peut-on conclure ?
+:::
+
+::: {.exercise}
+On considère les données suivantes :
+
+| $x_i$ | $1$ | $2$ | $3$ | $4$ | $5$ |
+|---|---|---|---|---|---|
+| $y_i$ | $3$ | $5$ | $2$ | $6$ | $4$ |
+
+1. Calculer $\bar{x}$ et $\bar{y}$.
+2. Calculer $\operatorname{Cov}(X, Y)$, $V(X)$ et $V(Y)$.
+3. Calculer le coefficient de corrélation $r(X, Y)$.
+4. Déterminer l'équation de la droite de régression de $Y$ en $X$.
+5. Prévoir la valeur de $Y$ pour $x = 7$.
+:::
+
+::: {.exercise}
+On considère les données suivantes :
+
+| $x_i$ | $1$ | $2$ | $3$ | $4$ | $5$ |
+|---|---|---|---|---|---|
+| $y_i$ | $10$ | $8$ | $7$ | $6$ | $5$ |
+
+1. Calculer $\bar{x}$ et $\bar{y}$.
+2. Calculer $\operatorname{Cov}(X, Y)$, $V(X)$ et $V(Y)$.
+3. Calculer le coefficient de corrélation $r(X, Y)$.
+4. Déterminer l'équation de la droite de régression de $Y$ en $X$.
+5. Prévoir la valeur de $Y$ pour $x = 8$.
+:::
+
+::: {.exercise}
+On considère les données suivantes :
+
+| $x_i$ | $0$ | $1$ | $2$ | $3$ | $4$ |
+|---|---|---|---|---|---|
+| $y_i$ | $1$ | $3$ | $5$ | $7$ | $9$ |
+
+1. Calculer $\bar{x}$ et $\bar{y}$.
+2. Calculer $\operatorname{Cov}(X, Y)$, $V(X)$ et $V(Y)$.
+3. Calculer le coefficient de corrélation $r(X, Y)$.
+4. Déterminer les droites de régression de $Y$ en $X$ et de $X$ en $Y$.
+5. Que peut-on conclure ?
+:::
+
+::: {.exercise}
+On considère les données suivantes :
+
+| $x_i$ | $1$ | $2$ | $3$ | $4$ | $5$ |
+|---|---|---|---|---|---|
+| $y_i$ | $2$ | $3$ | $5$ | $7$ | $8$ |
+
+1. Calculer $\bar{x}$ et $\bar{y}$.
+2. Calculer $\operatorname{Cov}(X, Y)$, $V(X)$ et $V(Y)$.
+3. Calculer le coefficient de corrélation $r(X, Y)$.
+4. Déterminer l'équation de la droite de régression de $Y$ en $X$.
+5. Déterminer l'équation de la droite de régression de $X$ en $Y$.
+:::
+
+::: {.exercise}
+On considère les données suivantes :
+
+| $x_i$ | $2$ | $4$ | $6$ | $8$ | $10$ |
+|---|---|---|---|---|---|
+| $y_i$ | $1$ | $4$ | $6$ | $8$ | $10$ |
+
+1. Calculer $\bar{x}$ et $\bar{y}$.
+2. Calculer $\operatorname{Cov}(X, Y)$, $V(X)$ et $V(Y)$.
+3. Calculer le coefficient de corrélation $r(X, Y)$.
+4. Déterminer l'équation de la droite de régression de $Y$ en $X$.
+:::
+
+::: {.exercise}
+On considère les données suivantes :
+
+| $x_i$ | $1$ | $2$ | $3$ | $4$ | $5$ | $6$ |
+|---|---|---|---|---|---|---|
+| $y_i$ | $2$ | $5$ | $4$ | $7$ | $6$ | $8$ |
+
+1. Calculer $\bar{x}$ et $\bar{y}$.
+2. Calculer $\operatorname{Cov}(X, Y)$, $V(X)$ et $V(Y)$.
+3. Calculer le coefficient de corrélation $r(X, Y)$.
+4. Déterminer l'équation de la droite de régression de $Y$ en $X$.
+5. Prévoir la valeur de $Y$ pour $x = 7$.
+:::
+
+::: {.exercise}
+On considère les données suivantes :
+
+| $x_i$ | $1$ | $2$ | $3$ | $4$ | $5$ |
+|---|---|---|---|---|---|
+| $y_i$ | $5$ | $5$ | $5$ | $5$ | $5$ |
+
+1. Calculer $\operatorname{Cov}(X, Y)$.
+2. Que peut-on dire du coefficient de corrélation $r(X, Y)$ ?
+3. Que peut-on conclure sur la relation entre $X$ et $Y$ ?
+:::
+
+::: {.exercise}
+On considère les données suivantes :
+
+| $x_i$ | $1$ | $2$ | $3$ | $4$ | $5$ |
+|---|---|---|---|---|---|
+| $y_i$ | $4$ | $3$ | $5$ | $6$ | $7$ |
+
+1. Calculer $\bar{x}$ et $\bar{y}$.
+2. Calculer $\operatorname{Cov}(X, Y)$, $V(X)$ et $V(Y)$.
+3. Calculer le coefficient de corrélation $r(X, Y)$.
+4. Déterminer l'équation de la droite de régression de $Y$ en $X$.
+:::
+
+::: {.exercise}
+On considère les données suivantes :
+
+| $x_i$ | $0$ | $1$ | $2$ | $3$ | $4$ | $5$ |
+|---|---|---|---|---|---|---|
+| $y_i$ | $10$ | $9$ | $8$ | $7$ | $6$ | $5$ |
+
+1. Calculer $\bar{x}$ et $\bar{y}$.
+2. Calculer $\operatorname{Cov}(X, Y)$, $V(X)$ et $V(Y)$.
+3. Calculer le coefficient de corrélation $r(X, Y)$.
+4. Déterminer l'équation de la droite de régression de $Y$ en $X$.
+:::
+
+# Cours {-}
+[**Chapitre 06 : Statistiques bivariées**](../cours/ect2-chap06.qmd)
+
+# Navigation {-}
+::: {.chap-nav}
+[TD 05 : Variables aléatoires discrètes infinies](ect2-chap05.qmd){.prev}
+[Menu ECT2](ect2.qmd){.home}
+[TD 07 : Réduction des matrices carrées](ect2-chap07.qmd){.next}
+:::

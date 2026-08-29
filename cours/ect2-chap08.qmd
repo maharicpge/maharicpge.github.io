@@ -1,0 +1,186 @@
+---
+title: "Cours – Compléments d'analyse : Intégrales généralisées"
+subtitle: "Chapitre 08"
+author: "Saîd MAHARI"
+date: last-modified
+date-format: "D MMMM YYYY"
+lang: fr
+format:
+  html:
+    theme: cosmo
+    toc: true
+    number-sections: true
+    html-math-method: katex
+    css: styles.css
+filters:
+  - custom-numbered-blocks.lua
+---
+
+**ECT2 (2e année) — Chapitre 08.** Intégrales sur $[a, +\infty[$, fonctions continues par morceaux, critères de convergence.
+
+Ce chapitre a été réalisé conformément au programme marocain de mathématiques de la filière ECT.
+
+# Intégrales sur $[a, +\infty[$
+
+## Définition
+
+::: {.definition title="(Intégrale généralisée)"}
+Soit $f : [a, +\infty[ \to \mathbb{R}$ continue par morceaux. L'intégrale généralisée $\int_a^{+\infty} f(t) \, dt$ est définie par :
+$$\int_a^{+\infty} f(t) \, dt = \lim_{x \to +\infty} \int_a^x f(t) \, dt$$
+si cette limite existe et est finie. On dit alors que l'intégrale **converge**. Sinon, elle **diverge**.
+:::
+
+::: {.example}
+$\int_1^{+\infty} \frac{dt}{t^2}$ converge car :
+$$\int_1^x \frac{dt}{t^2} = \left[-\frac{1}{t}\right]_1^x = 1 - \frac{1}{x} \xrightarrow{x \to +\infty} 1$$
+:::
+
+::: {.example}
+$\int_1^{+\infty} \frac{dt}{t}$ diverge car :
+$$\int_1^x \frac{dt}{t} = [\ln t]_1^x = \ln x \xrightarrow{x \to +\infty} +\infty$$
+:::
+
+# Intégrales de référence
+
+::: {.theorem title="(Intégrales de Riemann)"}
+
+1. $\int_1^{+\infty} \frac{dt}{t^\alpha}$ converge si et seulement si $\alpha > 1$. Dans ce cas :
+$$\int_1^{+\infty} \frac{dt}{t^\alpha} = \frac{1}{\alpha - 1}$$
+
+2. $\int_0^1 \frac{dt}{t^\alpha}$ converge si et seulement si $\alpha < 1$. Dans ce cas :
+$$\int_0^1 \frac{dt}{t^\alpha} = \frac{1}{1 - \alpha}$$
+:::
+
+::: {.example}
+
+- $\int_1^{+\infty} \frac{dt}{t^2}$ converge ($\alpha = 2 > 1$) et vaut $1$.
+- $\int_1^{+\infty} \frac{dt}{t}$ diverge ($\alpha = 1$).
+- $\int_1^{+\infty} \frac{dt}{\sqrt{t}}$ diverge ($\alpha = \frac{1}{2} < 1$).
+:::
+
+# Critères de convergence
+
+## Critère de comparaison
+
+::: {.theorem title="(Critère de comparaison)"}
+Soient $f, g : [a, +\infty[ \to \mathbb{R}^+$ continues par morceaux.
+
+1. Si $0 \leq f(t) \leq g(t)$ au voisinage de $+\infty$ et $\int_a^{+\infty} g(t) \, dt$ converge, alors $\int_a^{+\infty} f(t) \, dt$ converge.
+2. Si $0 \leq f(t) \leq g(t)$ au voisinage de $+\infty$ et $\int_a^{+\infty} f(t) \, dt$ diverge, alors $\int_a^{+\infty} g(t) \, dt$ diverge.
+:::
+
+::: {.theorem title="(Critère d'équivalence)"}
+Soient $f, g : [a, +\infty[ \to \mathbb{R}^+$ continues par morceaux. Si $f(t) \sim g(t)$ au voisinage de $+\infty$, alors $\int_a^{+\infty} f(t) \, dt$ et $\int_a^{+\infty} g(t) \, dt$ sont de même nature.
+:::
+
+::: {.example}
+$\int_1^{+\infty} \frac{dt}{t^2 + 1}$ converge car $\frac{1}{t^2 + 1} \sim \frac{1}{t^2}$ au voisinage de $+\infty$ et $\int_1^{+\infty} \frac{dt}{t^2}$ converge.
+:::
+
+# Convergence absolue
+
+::: {.definition title="(Convergence absolue)"}
+L'intégrale $\int_a^{+\infty} f(t) \, dt$ est **absolument convergente** si $\int_a^{+\infty} |f(t)| \, dt$ converge.
+:::
+
+::: {.theorem}
+Toute intégrale absolument convergente est convergente. De plus :
+$$\left|\int_a^{+\infty} f(t) \, dt\right| \leq \int_a^{+\infty} |f(t)| \, dt$$
+:::
+
+::: {.example}
+$\int_1^{+\infty} \frac{\sin t}{t^2} \, dt$ converge absolument car $\left|\frac{\sin t}{t^2}\right| \leq \frac{1}{t^2}$ et $\int_1^{+\infty} \frac{dt}{t^2}$ converge.
+:::
+
+::: {.example title="(Semi-convergence)"}
+$\int_1^{+\infty} \frac{\sin t}{t} \, dt$ converge mais pas absolument (car $\int_1^{+\infty} \frac{|\sin t|}{t} \, dt$ diverge).
+:::
+
+# Intégration par parties
+
+::: {.theorem title="(Intégration par parties)"}
+Soient $f, g : [a, +\infty[ \to \mathbb{R}$ de classe $\mathcal{C}^1$. Si $\lim_{x \to +\infty} f(x)g(x)$ existe et $\int_a^{+\infty} f'(t)g(t) \, dt$ converge, alors $\int_a^{+\infty} f(t)g'(t) \, dt$ converge et :
+$$\int_a^{+\infty} f(t)g'(t) \, dt = \lim_{x \to +\infty} [f(x)g(x)] - f(a)g(a) - \int_a^{+\infty} f'(t)g(t) \, dt$$
+:::
+
+::: {.example}
+$\int_0^{+\infty} t e^{-t} \, dt$ converge car :
+$$\int_0^x t e^{-t} \, dt = [-te^{-t}]_0^x + \int_0^x e^{-t} \, dt = -xe^{-x} + 1 - e^{-x} \xrightarrow{x \to +\infty} 1$$
+:::
+
+# Exercices
+
+::: {.exercise}
+Étudier la convergence des intégrales suivantes :
+
+1. $\int_1^{+\infty} \frac{dt}{t^3}$
+2. $\int_1^{+\infty} \frac{dt}{\sqrt{t}}$
+3. $\int_1^{+\infty} \frac{dt}{t^2 + 1}$
+4. $\int_1^{+\infty} \frac{\sin t}{t^2} \, dt$
+:::
+
+::: {.exercise}
+Étudier la convergence des intégrales suivantes :
+
+1. $\int_1^{+\infty} \frac{dt}{t^2 + t + 1}$
+2. $\int_1^{+\infty} \frac{dt}{\sqrt{t^3 + 1}}$
+3. $\int_1^{+\infty} \frac{\sin t}{t} \, dt$
+:::
+
+::: {.exercise}
+Étudier la convergence des intégrales suivantes :
+
+1. $\int_1^{+\infty} \frac{\ln t}{t^2} \, dt$
+2. $\int_1^{+\infty} \frac{dt}{t \ln t}$
+3. $\int_1^{+\infty} \frac{dt}{t^2 \ln t}$
+:::
+
+::: {.exercise}
+Étudier la convergence des intégrales suivantes :
+
+1. $\int_1^{+\infty} \frac{dt}{1 + t^2}$
+2. $\int_1^{+\infty} \frac{dt}{1 + t^3}$
+3. $\int_1^{+\infty} \frac{dt}{1 + t}$
+:::
+
+::: {.exercise}
+Étudier la convergence des intégrales suivantes :
+
+1. $\int_0^1 \frac{dt}{\sqrt{t}}$
+2. $\int_0^1 \frac{dt}{t}$
+3. $\int_0^1 \frac{dt}{\sqrt{1-t}}$
+:::
+
+::: {.exercise}
+Étudier la convergence des intégrales suivantes :
+
+1. $\int_1^{+\infty} \frac{dt}{t^2 + t}$
+2. $\int_1^{+\infty} \frac{dt}{t^2 - 1}$
+3. $\int_1^{+\infty} \frac{dt}{t^2 - t}$
+:::
+
+::: {.exercise}
+Étudier la convergence des intégrales suivantes :
+
+1. $\int_1^{+\infty} \frac{dt}{t^3 + t}$
+2. $\int_1^{+\infty} \frac{dt}{t^3 - 1}$
+3. $\int_1^{+\infty} \frac{dt}{t^3 + 1}$
+:::
+
+::: {.exercise}
+Étudier la convergence des intégrales suivantes :
+
+1. $\int_1^{+\infty} \frac{dt}{t^2 + \sqrt{t}}$
+2. $\int_1^{+\infty} \frac{dt}{t^2 + \ln t}$
+3. $\int_1^{+\infty} \frac{dt}{t^2 + e^t}$
+:::
+
+# Document en PDF {-}
+[**Chapitre 08 : Compléments d'analyse : Intégrales généralisées**](PDF/ect2-chap08.pdf)
+
+## Navigation {-}
+::: {.chap-nav}
+[Chapitre 07 : Réduction des matrices carrées](ect2-chap07.qmd){.prev}
+[Menu ECT2](ect2.qmd){.home}
+[Chapitre 09 : Variables aléatoires à densité](ect2-chap09.qmd){.next}
+:::
