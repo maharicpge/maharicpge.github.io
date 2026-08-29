@@ -84,3 +84,10 @@
   margin-left: 0.2em;
   white-space: nowrap;
 }
+
+/* Justifier tous les paragraphes du site */
+p {
+  text-align: justify;
+  text-justify: inter-word;
+  hyphens: auto;
+}
