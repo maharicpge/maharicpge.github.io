@@ -660,119 +660,119 @@
   {
     "objectID": "cours/mp-chap01.html",
     "href": "cours/mp-chap01.html",
-    "title": "Cours – Cours – Structures algébriques",
+    "title": "Cours – Structures algébriques",
     "section": "",
     "text": "MP (2e année) — Chapitre 01. Groupes, anneaux et corps, anneau \\mathbb{K}[X], \\mathbb{K}-algèbres.\nCe chapitre a été réalisé conformément au programme marocain de mathématiques de la filière MP.\nDans tout ce chapitre, \\mathbb{K} désigne \\mathbb{R} ou \\mathbb{C} sauf mention explicite."
   },
   {
     "objectID": "cours/mp-chap01.html#structure-de-groupe",
     "href": "cours/mp-chap01.html#structure-de-groupe",
-    "title": "Cours – Cours – Structures algébriques",
+    "title": "Cours – Structures algébriques",
     "section": "1.1 Structure de groupe",
     "text": "1.1 Structure de groupe\n\nDéfinition 1.1 — (Loi de composition interne)\nSoit A un ensemble non vide. Une loi de composition interne sur A est une application : \\star : A \\times A \\to A On note x \\star y l’image de (x, y) par \\star.\n\n\nDéfinition 1.2 — (Structure de groupe)\nSoit A un ensemble non vide muni d’une loi de composition interne \\star. On dit que (A, \\star) est un groupe si :\n\nLa loi \\star est associative : \\forall x, y, z \\in A, \\quad (x \\star y) \\star z = x \\star (y \\star z)\nIl existe un élément neutre e \\in A : \\forall x \\in A, \\quad x \\star e = e \\star x = x\nTout élément de A est symétrisable : \\forall x \\in A, \\; \\exists x' \\in A, \\quad x \\star x' = x' \\star x = e\n\nSi, de plus, la loi \\star est commutative, on dit que (A, \\star) est un groupe abélien (ou commutatif).\n\n\nProposition 1.1\nDans un groupe (A, \\star) :\n\nL’élément neutre est unique.\nLe symétrique de chaque élément est unique.\nPour tous a, b \\in A, les équations a \\star x = b et y \\star a = b admettent chacune une unique solution.\n\n\n\nExemple 1.1\n\n(\\mathbb{Z}, +), (\\mathbb{Q}, +), (\\mathbb{R}, +), (\\mathbb{C}, +) sont des groupes abéliens.\n(\\mathbb{Q}^*, \\times), (\\mathbb{R}^*, \\times), (\\mathbb{C}^*, \\times) sont des groupes abéliens.\n(\\mathbb{N}, +) n’est pas un groupe (les éléments non nuls n’ont pas de symétrique).\n(\\mathcal{S}_n, \\circ) est un groupe non abélien pour n \\geq 3.\n(\\mathrm{GL}_n(\\mathbb{K}), \\times) est un groupe non abélien pour n \\geq 2."
   },
   {
     "objectID": "cours/mp-chap01.html#sous-groupes",
     "href": "cours/mp-chap01.html#sous-groupes",
-    "title": "Cours – Cours – Structures algébriques",
+    "title": "Cours – Structures algébriques",
     "section": "1.2 Sous-groupes",
     "text": "1.2 Sous-groupes\n\nDéfinition 1.3 — (Sous-groupe)\nSoit (A, \\star) un groupe et B une partie non vide de A. On dit que (B, \\star) est un sous-groupe de (A, \\star) si (B, \\star) est un groupe.\n\n\nProposition 1.2 — (Caractérisation d’un sous-groupe)\nSoient (A, \\star) un groupe et B une partie non vide de A. Alors (B, \\star) est un sous-groupe de (A, \\star) si et seulement si :\n\ne \\in B\n\\forall x, y \\in B, \\quad x \\star y \\in B (stabilité par la loi)\n\\forall x \\in B, \\quad x^{-1} \\in B (stabilité par l’opération de passage à l’inverse)\n\n\n\nExemple 1.2\n\n(\\mathbb{Z}, +) est un sous-groupe de (\\mathbb{R}, +).\n(\\mathbb{R}^*, \\times) est un sous-groupe de (\\mathbb{C}^*, \\times).\n(\\mathbb{Z}/n\\mathbb{Z}, +) est un sous-groupe de (\\mathbb{Q}/\\mathbb{Z}, +).\nL’ensemble \\mathbb{U}_n = \\{z \\in \\mathbb{C} \\mid z^n = 1\\} est un sous-groupe de (\\mathbb{C}^*, \\times)."
   },
   {
     "objectID": "cours/mp-chap01.html#morphismes-de-groupes",
     "href": "cours/mp-chap01.html#morphismes-de-groupes",
-    "title": "Cours – Cours – Structures algébriques",
+    "title": "Cours – Structures algébriques",
     "section": "1.3 Morphismes de groupes",
     "text": "1.3 Morphismes de groupes\n\nDéfinition 1.4 — (Morphisme de groupes)\nSoient (A, \\star) et (A', \\star') deux groupes. Une application f : A \\to A' est un morphisme de groupes si : \\forall x, y \\in A, \\quad f(x \\star y) = f(x) \\star' f(y) Un morphisme bijectif est appelé isomorphisme de groupes.\n\n\nProposition 1.3 — (Propriétés des morphismes)\nSoit f : (A, \\star) \\to (A', \\star') un morphisme de groupes. Alors :\n\nf(e) = e'\n\\forall x \\in A, \\quad f(x^{-1}) = (f(x))^{-1}\n\\mathrm{Ker}(f) = \\{x \\in A \\mid f(x) = e'\\} est un sous-groupe de A.\n\\mathrm{Im}(f) = f(A) est un sous-groupe de A'.\n\n\n\nProposition 1.4 — (Théorème d’isomorphisme)\nSoit f : (A, \\star) \\to (A', \\star') un morphisme de groupes. Alors : (A / \\mathrm{Ker}(f), \\star) \\cong (\\mathrm{Im}(f), \\star')"
   },
   {
     "objectID": "cours/mp-chap01.html#groupes-cycliques",
     "href": "cours/mp-chap01.html#groupes-cycliques",
-    "title": "Cours – Cours – Structures algébriques",
+    "title": "Cours – Structures algébriques",
     "section": "1.4 Groupes cycliques",
     "text": "1.4 Groupes cycliques\n\nDéfinition 1.5 — (Groupe monogène et cyclique)\nSoit (A, \\star) un groupe.\n\nA est monogène s’il existe a \\in A tel que A = \\{a^k \\mid k \\in \\mathbb{Z}\\}.\nA est cyclique s’il est monogène et fini.\n\n\n\nExemple 1.3\n\n(\\mathbb{Z}/n\\mathbb{Z}, +) est un groupe fini abélien cyclique.\n(\\mathbb{Z}, +) est un groupe monogène.\nL’ensemble \\mathbb{U}_n = \\{e^{i\\frac{2k\\pi}{n}} \\mid 0 \\leq k \\leq n-1\\} des racines n-ièmes de l’unité est un groupe cyclique.\n\n\n\nThéorème 1.1 — (Sous-groupes de \\boldsymbol{\\mathbb{Z}})\nLes sous-groupes de (\\mathbb{Z}, +) sont exactement les n\\mathbb{Z} pour n \\in \\mathbb{N}.\n\n\nThéorème 1.2 — (Ordre d’un élément)\nSoit (A, \\star) un groupe d’ordre fini n \\in \\mathbb{N}^*. Alors tout élément x \\in A est d’ordre fini et on a : o(x) \\mid n\n\n\nExemple 1.4\n\n\\overline{k} est un générateur de \\mathbb{Z}/n\\mathbb{Z} si et seulement si k \\wedge n = 1.\n1 et -1 sont les seuls générateurs de (\\mathbb{Z}, +).\n\\omega_k = e^{i\\frac{2k\\pi}{n}} est un générateur de \\mathbb{U}_n si et seulement si k \\wedge n = 1."
   },
   {
     "objectID": "cours/mp-chap01.html#groupe-symétrique",
     "href": "cours/mp-chap01.html#groupe-symétrique",
-    "title": "Cours – Cours – Structures algébriques",
+    "title": "Cours – Structures algébriques",
     "section": "1.5 Groupe symétrique",
     "text": "1.5 Groupe symétrique\n\nDéfinition 1.6 — (Permutation et groupe symétrique)\nUne permutation de \\{1, 2, \\ldots, n\\} est une bijection de \\{1, 2, \\ldots, n\\} dans lui-même. L’ensemble des permutations de \\{1, 2, \\ldots, n\\}, muni de la composition, est un groupe noté \\mathcal{S}_n et appelé groupe symétrique d’ordre n.\n\n\nProposition 1.5\n\\mathrm{Card}(\\mathcal{S}_n) = n!\n\n\nDéfinition 1.7 — (Transposition)\nUne transposition est une permutation qui échange deux éléments et laisse les autres fixes.\n\n\nProposition 1.6\nL’ensemble des transpositions est une partie génératrice de \\mathcal{S}_n.\n\n\nDéfinition 1.8 — (Signature d’une permutation)\nLa signature d’une permutation \\sigma \\in \\mathcal{S}_n est le nombre : \\varepsilon(\\sigma) = (-1)^{N(\\sigma)} où N(\\sigma) est le nombre d’inversions de \\sigma (couples (i,j) tels que i &lt; j et \\sigma(i) &gt; \\sigma(j)).\n\n\nProposition 1.7 — (Propriétés de la signature)\n\n\\varepsilon(\\sigma \\circ \\tau) = \\varepsilon(\\sigma) \\cdot \\varepsilon(\\tau)\nUne permutation est paire (resp. impaire) si \\varepsilon(\\sigma) = 1 (resp. \\varepsilon(\\sigma) = -1).\nToute transposition est impaire.\n\n\n\nDéfinition 1.9 — (Groupe alterné)\nLe groupe alterné \\mathcal{A}_n est le sous-groupe de \\mathcal{S}_n formé des permutations paires : \\mathcal{A}_n = \\{\\sigma \\in \\mathcal{S}_n \\mid \\varepsilon(\\sigma) = 1\\}\n\n\nProposition 1.8\n\\mathrm{Card}(\\mathcal{A}_n) = \\frac{n!}{2}"
   },
   {
     "objectID": "cours/mp-chap01.html#structure-danneau",
     "href": "cours/mp-chap01.html#structure-danneau",
-    "title": "Cours – Cours – Structures algébriques",
+    "title": "Cours – Structures algébriques",
     "section": "2.1 Structure d’anneau",
     "text": "2.1 Structure d’anneau\n\nDéfinition 2.1 — (Structure d’anneau)\nSoit A un ensemble non vide muni de deux lois de composition interne notées + et \\cdot. On dit que (A, +, \\cdot) est un anneau si :\n\n(A, +) est un groupe abélien d’élément neutre noté 0_A.\nLa loi \\cdot est associative et possède un élément neutre noté 1_A.\nLa loi \\cdot est distributive par rapport à + : \\forall x, y, z \\in A, \\quad x \\cdot (y + z) = x \\cdot y + x \\cdot z \\quad \\text{et} \\quad (y + z) \\cdot x = y \\cdot x + z \\cdot x\n\nSi la loi \\cdot est commutative, on parle d’anneau commutatif.\n\n\nExemple 2.1\n\n(\\mathbb{Z}, +, \\times) est un anneau commutatif.\n(\\mathbb{Q}, +, \\times), (\\mathbb{R}, +, \\times), (\\mathbb{C}, +, \\times) sont des anneaux commutatifs.\n(\\mathcal{M}_n(\\mathbb{K}), +, \\times) est un anneau non commutatif pour n \\geq 2.\n(\\mathbb{K}[X], +, \\times) est un anneau commutatif.\n\n\n\nDéfinition 2.2 — (Sous-anneau)\nSoit (A, +, \\cdot) un anneau et B une partie non vide de A. On dit que (B, +, \\cdot) est un sous-anneau de (A, +, \\cdot) si :\n\n1_A \\in B\n\\forall x, y \\in B, \\quad x - y \\in B (sous-groupe additif)\n\\forall x, y \\in B, \\quad x \\cdot y \\in B (stabilité par la multiplication)\n\n\n\nExemple 2.2\n\\mathbb{Z} est le seul sous-anneau de \\mathbb{Z}."
   },
   {
     "objectID": "cours/mp-chap01.html#morphismes-danneaux",
     "href": "cours/mp-chap01.html#morphismes-danneaux",
-    "title": "Cours – Cours – Structures algébriques",
+    "title": "Cours – Structures algébriques",
     "section": "2.2 Morphismes d’anneaux",
     "text": "2.2 Morphismes d’anneaux\n\nDéfinition 2.3 — (Morphisme d’anneaux)\nSoient (A, +, \\cdot) et (A', +, \\cdot) deux anneaux. Une application f : A \\to A' est un morphisme d’anneaux si :\n\n\\forall x, y \\in A, \\quad f(x + y) = f(x) + f(y)\n\\forall x, y \\in A, \\quad f(x \\cdot y) = f(x) \\cdot f(y)\nf(1_A) = 1_{A'}\n\nUn morphisme bijectif est appelé isomorphisme d’anneaux."
   },
   {
     "objectID": "cours/mp-chap01.html#anneau-intègre",
     "href": "cours/mp-chap01.html#anneau-intègre",
-    "title": "Cours – Cours – Structures algébriques",
+    "title": "Cours – Structures algébriques",
     "section": "2.3 Anneau intègre",
     "text": "2.3 Anneau intègre\n\nDéfinition 2.4 — (Anneau intègre)\nOn dit qu’un anneau commutatif (A, +, \\cdot) est intègre si : \\forall x, y \\in A, \\quad x \\cdot y = 0_A \\implies x = 0_A \\text{ ou } y = 0_A\n\n\nExemple 2.3\n\nLes anneaux (\\mathbb{Z}, +, \\times), (\\mathbb{Q}, +, \\times), (\\mathbb{R}, +, \\times), (\\mathbb{C}, +, \\times) sont intègres.\nL’anneau (\\mathcal{M}_n(\\mathbb{K}), +, \\times) n’est pas intègre pour $n (il possède des diviseurs de zéro)."
   },
   {
     "objectID": "cours/mp-chap01.html#corps",
     "href": "cours/mp-chap01.html#corps",
-    "title": "Cours – Cours – Structures algébriques",
+    "title": "Cours – Structures algébriques",
     "section": "2.4 Corps",
     "text": "2.4 Corps\n\nDéfinition 2.5 — (Corps)\nUn corps est un anneau commutatif (A, +, \\cdot) où tout élément non nul est inversible pour la multiplication.\n\n\nDéfinition 2.6 — (Sous-corps)\nSoit (A, +, \\cdot) un corps et B une partie non vide de A. On dit que (B, +, \\cdot) est un sous-corps de (A, +, \\cdot) si (B, +, \\cdot) est un corps.\n\n\nExemple 2.4\n\n(\\mathbb{Q}, +, \\times), (\\mathbb{R}, +, \\times), (\\mathbb{C}, +, \\times) sont des corps.\n(\\mathbb{Q}, +, \\times) est un sous-corps de (\\mathbb{R}, +, \\times) et de (\\mathbb{C}, +, \\times).\n\\mathbb{Q} est le plus petit sous-corps de \\mathbb{C}.\nL’ensemble \\mathbb{Q}[i] = \\{a + ib \\mid (a,b) \\in \\mathbb{Q}^2\\} est un sous-corps de \\mathbb{C}.\n\n\n\nProposition 2.1\nUn corps est un anneau intègre."
   },
   {
     "objectID": "cours/mp-chap01.html#idéaux-dun-anneau-commutatif",
     "href": "cours/mp-chap01.html#idéaux-dun-anneau-commutatif",
-    "title": "Cours – Cours – Structures algébriques",
+    "title": "Cours – Structures algébriques",
     "section": "2.5 Idéaux d’un anneau commutatif",
     "text": "2.5 Idéaux d’un anneau commutatif\n\nDéfinition 2.7 — (Idéal d’un anneau commutatif)\nSoit (A, +, \\cdot) un anneau commutatif et I une partie non vide de A. On dit que I est un idéal de A si :\n\nI est un sous-groupe de (A, +).\n\\forall a \\in A, \\; \\forall x \\in I, \\quad a \\cdot x \\in I.\n\n\n\nProposition 2.2\nSoient (A_1, +, \\cdot) et (A_2, +, \\cdot) deux anneaux commutatifs et f : A_1 \\to A_2 un morphisme d’anneaux. Alors \\mathrm{Ker}(f) est un idéal de A_1.\n\n\nDéfinition 2.8 — (Divisibilité dans un anneau)\nSoit (A, +, \\cdot) un anneau commutatif intègre et (a, b) \\in A^2 avec a \\neq 0_A. On dit que a divise b dans A, noté a \\mid b, s’il existe k \\in A tel que b = a \\cdot k.\n\n\nProposition 2.3 — (Interprétation de la divisibilité)\nSoit (A, +, \\cdot) un anneau commutatif intègre et (a, b) \\in A^2.\n\nSi a \\neq 0_A, alors a \\mid b \\iff b \\cdot A \\subset a \\cdot A.\nSi A est de plus principal (anneau commutatif intègre dont tous les idéaux s’écrivent sous la forme x \\cdot A), alors : d = a \\wedge b \\iff a \\cdot A + b \\cdot A = d \\cdot A m = a \\vee b \\iff a \\cdot A \\cap b \\cdot A = m \\cdot A"
   },
   {
     "objectID": "cours/mp-chap01.html#lanneau-mathbbznmathbbz",
     "href": "cours/mp-chap01.html#lanneau-mathbbznmathbbz",
-    "title": "Cours – Cours – Structures algébriques",
+    "title": "Cours – Structures algébriques",
     "section": "2.6 L’anneau \\mathbb{Z}/n\\mathbb{Z}",
     "text": "2.6 L’anneau \\mathbb{Z}/n\\mathbb{Z}\n\nDéfinition 2.9 — (Anneau quotient)\nSoit n \\in \\mathbb{N}^*. L’ensemble \\mathbb{Z}/n\\mathbb{Z} des classes de congruence modulo n, muni de l’addition et de la multiplication définies par : \\overline{x} + \\overline{y} = \\overline{x + y}, \\quad \\overline{x} \\cdot \\overline{y} = \\overline{x \\cdot y} est un anneau commutatif.\n\n\nProposition 2.4 — (Caractérisation des inversibles)\n\\overline{k} est inversible dans \\mathbb{Z}/n\\mathbb{Z} si et seulement si k \\wedge n = 1.\n\n\nCorollaire 2.1\n(\\mathbb{Z}/n\\mathbb{Z}, +, \\cdot) est un corps si et seulement si n est un nombre premier.\n\n\nThéorème 2.1 — (Théorème de Bézout)\nSoient a, b \\in \\mathbb{Z}. Alors il existe u, v \\in \\mathbb{Z} tels que : au + bv = a \\wedge b\n\n\nThéorème 2.2 — (Théorème d’Euler)\nSoit n \\in \\mathbb{Z}^* et k \\in \\{1, \\ldots, n-1\\} avec k \\wedge n = 1. Alors : k^{\\varphi(n)} \\equiv 1 \\pmod{n} où \\varphi(n) est l’indicatrice d’Euler (nombre d’entiers de \\{1, \\ldots, n\\} premiers avec n).\n\n\nCorollaire 2.2 — (Petit théorème de Fermat)\nSoit p un nombre premier. Alors pour tout k \\in \\{1, \\ldots, p-1\\} : k^{p-1} \\equiv 1 \\pmod{p}"
   },
   {
     "objectID": "cours/mp-chap01.html#structure-de-mathbbk-algèbre",
     "href": "cours/mp-chap01.html#structure-de-mathbbk-algèbre",
-    "title": "Cours – Cours – Structures algébriques",
+    "title": "Cours – Structures algébriques",
     "section": "3.1 Structure de \\mathbb{K}-algèbre",
     "text": "3.1 Structure de \\mathbb{K}-algèbre\n\nDéfinition 3.1 — (\\boldsymbol{\\mathbb{K}}-algèbre)\nOn appelle \\mathbb{K}-algèbre tout ensemble A non vide muni de trois lois +, \\times, \\cdot et vérifiant :\n\n(A, +, \\cdot) est un \\mathbb{K}-espace vectoriel\n(A, +, \\times) est un anneau\n\\forall \\lambda \\in \\mathbb{K}, \\; \\forall x, y \\in A, \\quad \\lambda \\cdot (x \\times y) = (\\lambda \\cdot x) \\times y = x \\times (\\lambda \\cdot y)\n\nOn dit qu’une \\mathbb{K}-algèbre (A, +, \\times, \\cdot) est commutative si la loi \\times est commutative.\n\n\nExemple 3.1\n\n(\\mathbb{K}[X], +, \\times, \\cdot) est une \\mathbb{K}-algèbre commutative.\nSoit E un \\mathbb{K}-espace vectoriel. (\\mathcal{L}(E), +, \\circ, \\cdot) est une \\mathbb{K}-algèbre.\nL’ensemble des matrices carrées (\\mathcal{M}_n(\\mathbb{K}), +, \\times, \\cdot) est une \\mathbb{K}-algèbre.\n\n\n\nDéfinition 3.2 — (Sous-algèbre)\nSoit (A, +, \\times, \\cdot) une \\mathbb{K}-algèbre et B une partie de A. On dit que (B, +, \\times, \\cdot) est une sous-algèbre de (A, +, \\times, \\cdot) si :\n\n1_A \\in B\n\\forall \\lambda, \\mu \\in \\mathbb{K}, \\; \\forall x, y \\in B, \\quad \\lambda x + \\mu y \\in B\n\\forall x, y \\in B, \\quad x \\times y \\in B\n\n\n\nDéfinition 3.3 — (Morphisme d’algèbres)\nSoient A et A' deux \\mathbb{K}-algèbres et f : A \\to A' une application. On dit que f est un morphisme de \\mathbb{K}-algèbres si :\n\n\\forall \\lambda, \\mu \\in \\mathbb{K}, \\; \\forall x, y \\in A, \\quad f(\\lambda x + \\mu y) = \\lambda f(x) + \\mu f(y)\n\\forall x, y \\in A, \\quad f(x \\times y) = f(x) \\times f(y)\nf(1_A) = 1_{A'}"
   },
   {
     "objectID": "cours/mp-chap01.html#division-euclidienne-dans-mathbbkx",
     "href": "cours/mp-chap01.html#division-euclidienne-dans-mathbbkx",
-    "title": "Cours – Cours – Structures algébriques",
+    "title": "Cours – Structures algébriques",
     "section": "3.2 Division euclidienne dans \\mathbb{K}[X]",
     "text": "3.2 Division euclidienne dans \\mathbb{K}[X]\n\nThéorème 3.1 — (Division euclidienne)\nSoient A, B \\in \\mathbb{K}[X] avec B \\neq 0. Il existe un unique couple (Q, R) \\in \\mathbb{K}[X]^2 tel que : A = BQ + R \\quad \\text{et} \\quad \\deg(R) &lt; \\deg(B) Q est le quotient et R le reste de la division euclidienne de A par B.\n\n\nProposition 3.1\nSoient A, B \\in \\mathbb{K}[X] avec B \\neq 0. Alors : B \\mid A \\iff \\text{le reste de la division euclidienne de } A \\text{ par } B \\text{ est nul}"
   },
   {
     "objectID": "cours/mp-chap01.html#pgcd-et-ppcm",
     "href": "cours/mp-chap01.html#pgcd-et-ppcm",
-    "title": "Cours – Cours – Structures algébriques",
+    "title": "Cours – Structures algébriques",
     "section": "3.3 PGCD et PPCM",
     "text": "3.3 PGCD et PPCM\n\nDéfinition 3.4 — (PGCD et PPCM)\nSoient A, B \\in \\mathbb{K}[X] non tous deux nuls.\n\nLe PGCD de A et B, noté A \\wedge B, est le polynôme unitaire de plus grand degré qui divise à la fois A et B.\nLe PPCM de A et B, noté A \\vee B, est le polynôme unitaire de plus petit degré qui est multiple à la fois de A et B.\n\n\n\nThéorème 3.2 — (Algorithme d’Euclide dans \\boldsymbol{\\mathbb{K}[X]})\nSoient A, B \\in \\mathbb{K}[X] avec B \\neq 0. On effectue des divisions euclidiennes successives : A = BQ_1 + R_1, \\quad B = R_1 Q_2 + R_2, \\quad R_1 = R_2 Q_3 + R_3, \\quad \\ldots jusqu’à obtenir R_{n-1} = R_n Q_{n+1} + 0. Alors : A \\wedge B = \\frac{R_n}{c(R_n)} où c(R_n) est le coefficient dominant de R_n.\n\n\nThéorème 3.3 — (Identité de Bézout)\nSoient A, B \\in \\mathbb{K}[X]. Alors il existe U, V \\in \\mathbb{K}[X] tels que : AU + BV = A \\wedge B\n\n\nThéorème 3.4 — (Lemme de Gauss)\nSoient A, B, C \\in \\mathbb{K}[X]. Si A \\mid BC et A \\wedge B = 1, alors A \\mid C."
   },
   {
     "objectID": "cours/mp-chap01.html#idéaux-de-mathbbkx",
     "href": "cours/mp-chap01.html#idéaux-de-mathbbkx",
-    "title": "Cours – Cours – Structures algébriques",
+    "title": "Cours – Structures algébriques",
     "section": "3.4 Idéaux de \\mathbb{K}[X]",
     "text": "3.4 Idéaux de \\mathbb{K}[X]\n\nProposition 3.2 — (Idéaux de \\boldsymbol{\\mathbb{K}[X]})\nLes idéaux de \\mathbb{K}[X] sont exactement les ensembles de la forme P \\cdot \\mathbb{K}[X] pour P \\in \\mathbb{K}[X].\nAutrement dit, \\mathbb{K}[X] est un anneau principal.\n\n\nProposition 3.3 — (Irréductibilité dans \\boldsymbol{\\mathbb{K}[X]})\nUn polynôme P \\in \\mathbb{K}[X] non constant est irréductible sur \\mathbb{K} s’il ne peut pas s’écrire comme produit de deux polynômes non constants de \\mathbb{K}[X].\n\n\nThéorème 3.5 — (Théorème de décomposition)\nTout polynôme P \\in \\mathbb{K}[X] non constant se décompose de façon unique (à l’ordre près et à une constante multiplicative près) comme produit de polynômes irréductibles.\n\nDans \\mathbb{C}[X] : P = \\lambda \\prod_{k=1}^r (X - a_k)^{\\alpha_k}\nDans \\mathbb{R}[X] : P = \\lambda \\prod_{k=1}^r (X - a_k)^{\\alpha_k} \\prod_{k=1}^s (X^2 + b_k X + c_k)^{\\beta_k}"
   },
   {
     "objectID": "cours/mp-chap01.html#navigation",
     "href": "cours/mp-chap01.html#navigation",
-    "title": "Cours – Cours – Structures algébriques",
+    "title": "Cours – Structures algébriques",
     "section": "Navigation",
     "text": "Navigation\n\nAccueil Menu MP Chapitre 02 : Espaces vectoriels normés"
   },
@@ -4895,175 +4895,175 @@
   {
     "objectID": "cours/mp-chap02.html",
     "href": "cours/mp-chap02.html",
-    "title": "Cours – Cours – Espaces vectoriels normés",
+    "title": "Cours – Espaces vectoriels normés",
     "section": "",
     "text": "MP (2e année) — Chapitre 02. Normes et EVN, suites d’éléments d’un EVN, topologie d’un EVN, comparaison des normes, étude locale d’une application, parties compactes, parties connexes par arcs, EVN de dimension finie, suites de Cauchy.\nCe chapitre a été réalisé conformément au programme marocain de mathématiques de la filière MP.\nDans tout ce chapitre, \\mathbb{K} désigne \\mathbb{R} ou \\mathbb{C}."
   },
   {
     "objectID": "cours/mp-chap02.html#définition",
     "href": "cours/mp-chap02.html#définition",
-    "title": "Cours – Cours – Espaces vectoriels normés",
+    "title": "Cours – Espaces vectoriels normés",
     "section": "1.1 Définition",
     "text": "1.1 Définition\n\nDéfinition 1.1 — (Norme)\nSoit E un \\mathbb{K}-espace vectoriel. On appelle norme sur E toute application \\|\\cdot\\| : E \\to \\mathbb{R}^+ qui vérifie :\n\nSéparation : \\forall x \\in E, \\quad \\|x\\| = 0 \\iff x = 0_E\nHomogénéité : \\forall \\lambda \\in \\mathbb{K}, \\; \\forall x \\in E, \\quad \\|\\lambda x\\| = |\\lambda| \\cdot \\|x\\|\nInégalité triangulaire : \\forall x, y \\in E, \\quad \\|x + y\\| \\leq \\|x\\| + \\|y\\|\n\nUn espace vectoriel normé (EVN) est un couple (E, \\|\\cdot\\|) où E est un \\mathbb{K}-espace vectoriel et \\|\\cdot\\| est une norme sur E.\n\n\nDéfinition 1.2 — (Distance associée à une norme)\nSoit (E, \\|\\cdot\\|) un EVN. La distance associée à la norme est l’application d : E \\times E \\to \\mathbb{R}^+ définie par : d(x, y) = \\|x - y\\|\n\n\nProposition 1.1 — (Inégalité triangulaire pour la distance)\nSoit (E, \\|\\cdot\\|) un EVN. Alors :\n\n\\forall x, y \\in E, \\quad d(x, y) = 0 \\iff x = y\n\\forall x, y \\in E, \\quad d(x, y) = d(y, x)\n\\forall x, y, z \\in E, \\quad d(x, z) \\leq d(x, y) + d(y, z)"
   },
   {
     "objectID": "cours/mp-chap02.html#normes-usuelles-sur-mathbbkn",
     "href": "cours/mp-chap02.html#normes-usuelles-sur-mathbbkn",
-    "title": "Cours – Cours – Espaces vectoriels normés",
+    "title": "Cours – Espaces vectoriels normés",
     "section": "1.2 Normes usuelles sur \\mathbb{K}^n",
     "text": "1.2 Normes usuelles sur \\mathbb{K}^n\n\nDéfinition 1.3 — (Normes usuelles sur \\boldsymbol{\\mathbb{K}^n})\nSur \\mathbb{K}^n, on définit les trois normes suivantes :\n\n\\|x\\|_1 = \\sum_{k=1}^n |x_k|\n\\|x\\|_2 = \\sqrt{\\sum_{k=1}^n |x_k|^2}\n\\|x\\|_\\infty = \\max_{1 \\leq k \\leq n} |x_k|\n\n\n\nExemple 1.1\nDans \\mathbb{R}^2 : \\|(3, -4)\\|_1 = 7, \\quad \\|(3, -4)\\|_2 = 5, \\quad \\|(3, -4)\\|_\\infty = 4"
   },
   {
     "objectID": "cours/mp-chap02.html#normes-usuelles-sur-mathcalm_npmathbbk",
     "href": "cours/mp-chap02.html#normes-usuelles-sur-mathcalm_npmathbbk",
-    "title": "Cours – Cours – Espaces vectoriels normés",
+    "title": "Cours – Espaces vectoriels normés",
     "section": "1.3 Normes usuelles sur \\mathcal{M}_{n,p}(\\mathbb{K})",
     "text": "1.3 Normes usuelles sur \\mathcal{M}_{n,p}(\\mathbb{K})\n\nDéfinition 1.4 — (Normes usuelles sur les matrices)\nSur \\mathcal{M}_{n,p}(\\mathbb{K}), on définit :\n\n\\|A\\|_1 = \\sup_{1 \\leq j \\leq p} \\sum_{i=1}^n |a_{i,j}|\n\\|A\\|_\\infty = \\sup_{1 \\leq i \\leq n} \\sum_{j=1}^p |a_{i,j}|\n\\|A\\|_2 = \\left(\\sum_{1 \\leq i \\leq n, \\; 1 \\leq j \\leq p} |a_{i,j}|^2\\right)^{1/2}"
   },
   {
     "objectID": "cours/mp-chap02.html#autres-exemples-de-normes",
     "href": "cours/mp-chap02.html#autres-exemples-de-normes",
-    "title": "Cours – Cours – Espaces vectoriels normés",
+    "title": "Cours – Espaces vectoriels normés",
     "section": "1.4 Autres exemples de normes",
     "text": "1.4 Autres exemples de normes\n\nDéfinition 1.5 — (Norme de la convergence uniforme)\nSi X est un ensemble non vide, l’espace \\mathcal{B}(X, \\mathbb{K}) des fonctions bornées de X dans \\mathbb{K} est un EVN pour la norme : \\|f\\|_\\infty = \\sup_{x \\in X} |f(x)| Cette norme est appelée norme de la convergence uniforme ou norme infinie.\n\n\nDéfinition 1.6 — (Normes de la convergence en moyenne)\nSur l’espace \\mathcal{C}([a,b], \\mathbb{K}) des fonctions continues sur [a,b] à valeurs dans \\mathbb{K}, on définit :\n\n\\|f\\|_1 = \\int_a^b |f(t)|\\, dt (convergence en moyenne)\n\\|f\\|_2 = \\left(\\int_a^b |f(t)|^2\\, dt\\right)^{1/2} (convergence en moyenne quadratique)\n\n\n\nDéfinition 1.7 — (Norme associée à un produit scalaire)\nSur un espace préhilbertien réel (E, \\langle \\cdot, \\cdot \\rangle), l’application x \\mapsto \\sqrt{\\langle x, x \\rangle} est une norme sur E."
   },
   {
     "objectID": "cours/mp-chap02.html#produit-despaces-vectoriels-normés",
     "href": "cours/mp-chap02.html#produit-despaces-vectoriels-normés",
-    "title": "Cours – Cours – Espaces vectoriels normés",
+    "title": "Cours – Espaces vectoriels normés",
     "section": "1.5 Produit d’espaces vectoriels normés",
     "text": "1.5 Produit d’espaces vectoriels normés\n\nProposition 1.2 — (Normes produit)\nSoient (E_1, \\mathcal{N}_1), \\ldots, (E_n, \\mathcal{N}_n) des EVN. Alors les applications suivantes définissent des normes sur le produit cartésien E = E_1 \\times \\cdots \\times E_n :\n\n\\|x\\|_1 = \\sum_{k=1}^n \\mathcal{N}_k(x_k)\n\\|x\\|_2 = \\sqrt{\\sum_{k=1}^n \\mathcal{N}_k(x_k)^2}\n\\|x\\|_\\infty = \\max_{1 \\leq k \\leq n} \\mathcal{N}_k(x_k)\n\nCes normes sont appelées normes produit."
   },
   {
     "objectID": "cours/mp-chap02.html#définitions",
     "href": "cours/mp-chap02.html#définitions",
-    "title": "Cours – Cours – Espaces vectoriels normés",
+    "title": "Cours – Espaces vectoriels normés",
     "section": "2.1 Définitions",
     "text": "2.1 Définitions\n\nDéfinition 2.1 — (Suites convergentes et divergentes)\nSoient (E, \\|\\cdot\\|) un EVN et (u_n)_{n \\in \\mathbb{N}} une suite d’éléments de E.\n\nOn dit que la suite (u_n) converge vers l \\in E si : \\forall \\varepsilon &gt; 0, \\; \\exists N \\in \\mathbb{N}, \\; n \\geq N \\implies \\|u_n - l\\| &lt; \\varepsilon\nDans le cas contraire, on dit que la suite (u_n) diverge."
   },
   {
     "objectID": "cours/mp-chap02.html#propriétés-des-suites-convergentes",
     "href": "cours/mp-chap02.html#propriétés-des-suites-convergentes",
-    "title": "Cours – Cours – Espaces vectoriels normés",
+    "title": "Cours – Espaces vectoriels normés",
     "section": "2.2 Propriétés des suites convergentes",
     "text": "2.2 Propriétés des suites convergentes\n\nProposition 2.1 — (Unicité de la limite)\nUne suite convergente d’éléments d’un EVN possède une limite unique.\n\n\nProposition 2.2 — (Opérations algébriques sur les limites)\nSoient (E, \\|\\cdot\\|) un EVN et (u_n), (v_n) deux suites d’éléments de E convergeant respectivement vers l et l'. Alors pour tous \\lambda, \\mu \\in \\mathbb{K} : \\lambda u_n + \\mu v_n \\xrightarrow[n \\to +\\infty]{} \\lambda l + \\mu l'\n\n\nProposition 2.3 — (Caractère borné d’une suite convergente)\nToute suite convergente d’éléments d’un EVN est bornée.\n\n\nProposition 2.4 — (Suites extraites)\nToute suite extraite d’une suite convergente est convergente et possède la même limite.\n\n\nProposition 2.5 — (Convergence dans un produit fini d’espaces normés)\nSoient (E_1, \\mathcal{N}_1), \\ldots, (E_n, \\mathcal{N}_n) des EVN. On munit E = \\prod_{i=1}^n E_i de l’une des normes produit \\|\\cdot\\|_i (i \\in \\{1, 2, \\infty\\}). Soit (u_k)_{k \\in \\mathbb{N}} = (u_k^{(1)}, \\ldots, u_k^{(n)}) une suite d’éléments de E. Alors : (u_k) \\to (l^{(1)}, \\ldots, l^{(n)}) \\iff \\forall i \\in \\{1, \\ldots, n\\}, \\; (u_k^{(i)}) \\to l^{(i)}"
   },
   {
     "objectID": "cours/mp-chap02.html#boules-ouverts-fermés",
     "href": "cours/mp-chap02.html#boules-ouverts-fermés",
-    "title": "Cours – Cours – Espaces vectoriels normés",
+    "title": "Cours – Espaces vectoriels normés",
     "section": "3.1 Boules, ouverts, fermés",
     "text": "3.1 Boules, ouverts, fermés\n\nDéfinition 3.1 — (Boules ouvertes, fermées et sphères)\nSoient (E, \\|\\cdot\\|) un EVN, a \\in E et r &gt; 0.\n\nLa boule ouverte de centre a et de rayon r est : B(a, r) = \\{x \\in E \\mid \\|x - a\\| &lt; r\\}\nLa boule fermée de centre a et de rayon r est : \\overline{B}(a, r) = \\{x \\in E \\mid \\|x - a\\| \\leq r\\}\nLa sphère de centre a et de rayon r est : S(a, r) = \\{x \\in E \\mid \\|x - a\\| = r\\}\n\n\n\nDéfinition 3.2 — (Ouvert et fermé d’un EVN)\nSoit (E, \\|\\cdot\\|) un EVN.\n\nOn appelle ouvert de E toute partie \\mathcal{O} vide ou vérifiant : \\forall x \\in \\mathcal{O}, \\; \\exists r &gt; 0, \\; B(x, r) \\subset \\mathcal{O}\nUne partie F de E est dite fermée si \\complement_E(F) est un ouvert de E.\n\n\n\nExemple 3.1\n\nLes boules ouvertes sont des ouverts.\nLes boules fermées sont des fermés.\nLes sphères sont des fermés.\n\n\n\nProposition 3.1 — (Stabilité des ouverts et des fermés)\nSoit (E, \\|\\cdot\\|) un EVN.\n\nToute réunion d’ouverts est un ouvert.\nToute intersection finie d’ouverts est un ouvert.\nToute intersection de fermés est un fermé.\nToute réunion finie de fermés est un fermé."
   },
   {
     "objectID": "cours/mp-chap02.html#points-adhérents-adhérence-frontière",
     "href": "cours/mp-chap02.html#points-adhérents-adhérence-frontière",
-    "title": "Cours – Cours – Espaces vectoriels normés",
+    "title": "Cours – Espaces vectoriels normés",
     "section": "3.2 Points adhérents, adhérence, frontière",
     "text": "3.2 Points adhérents, adhérence, frontière\n\nDéfinition 3.3 — (Point adhérent, adhérence, frontière)\nSoient (E, \\|\\cdot\\|) un EVN et A une partie de E.\n\nUn point a \\in E est adhérent à A si toute boule ouverte centrée en a rencontre A : \\forall \\varepsilon &gt; 0, \\; B(a, \\varepsilon) \\cap A \\neq \\varnothing\nL’adhérence de A, notée \\overline{A}, est l’ensemble des points adhérents à A.\nL’intérieur de A, noté \\mathrm{Int}(A) ou \\mathring{A}, est l’ensemble des points x tels qu’il existe r &gt; 0 avec B(x, r) \\subset A.\nLa frontière de A, notée \\mathrm{Fr}(A), est \\overline{A} \\setminus \\mathring{A}.\n\n\n\nProposition 3.2 — (Caractérisation séquentielle des points adhérents et des fermés)\nSoient (E, \\|\\cdot\\|) un EVN et A une partie de E. Alors :\n\na \\in \\overline{A} \\iff \\exists (u_n)_n \\subset A \\; / \\; u_n \\xrightarrow[n \\to +\\infty]{} a\nA est fermée \\iff A = \\overline{A}"
   },
   {
     "objectID": "cours/mp-chap02.html#parties-denses",
     "href": "cours/mp-chap02.html#parties-denses",
-    "title": "Cours – Cours – Espaces vectoriels normés",
+    "title": "Cours – Espaces vectoriels normés",
     "section": "3.3 Parties denses",
     "text": "3.3 Parties denses\n\nDéfinition 3.4 — (Parties denses)\nSoient (E, \\|\\cdot\\|) un EVN et A une partie de E. A est dite dense dans E si : \\forall x \\in E, \\; \\forall \\varepsilon &gt; 0, \\; B(x, \\varepsilon) \\cap A \\neq \\varnothing\n\n\nExemple 3.2\n\\mathbb{Q} est dense dans \\mathbb{R}. Plus généralement, \\mathbb{Q}^n est dense dans \\mathbb{R}^n.\n\n\nProposition 3.3\nDeux applications continues qui coïncident sur une partie dense sont égales."
   },
   {
     "objectID": "cours/mp-chap02.html#propriétés-globales-dune-application-continue",
     "href": "cours/mp-chap02.html#propriétés-globales-dune-application-continue",
-    "title": "Cours – Cours – Espaces vectoriels normés",
+    "title": "Cours – Espaces vectoriels normés",
     "section": "3.4 Propriétés globales d’une application continue",
     "text": "3.4 Propriétés globales d’une application continue\n\nProposition 3.4 — (Image réciproque d’un ouvert/fermé)\nSoient (E, \\|\\cdot\\|) et (F, \\|\\cdot\\|') deux EVN et f : E \\to F une application continue. Alors :\n\nSi O est un ouvert de F, alors f^{-1}(O) est un ouvert de E.\nSi F est un fermé de F, alors f^{-1}(F) est un fermé de E.\n\n\n\nProposition 3.5\nSi f : E \\to \\mathbb{R} est continue, alors : - \\{x \\in E \\mid f(x) &gt; 0\\} et \\{x \\in E \\mid f(x) &lt; 0\\} sont des ouverts. - \\{x \\in E \\mid f(x) = 0\\}, \\{x \\in E \\mid f(x) \\geq 0\\}, \\{x \\in E \\mid f(x) \\leq 0\\} sont des fermés."
   },
   {
     "objectID": "cours/mp-chap02.html#applications-lipschitziennes",
     "href": "cours/mp-chap02.html#applications-lipschitziennes",
-    "title": "Cours – Cours – Espaces vectoriels normés",
+    "title": "Cours – Espaces vectoriels normés",
     "section": "3.5 Applications lipschitziennes",
     "text": "3.5 Applications lipschitziennes\n\nDéfinition 3.5 — (Application lipschitzienne)\nSoient (E, \\|\\cdot\\|) et (F, \\|\\cdot\\|') deux EVN. Une application f : E \\to F est dite lipschitzienne s’il existe K \\geq 0 tel que : \\forall x, y \\in E, \\quad \\|f(x) - f(y)\\|' \\leq K \\|x - y\\|\n\n\nProposition 3.6\nToute application lipschitzienne est continue.\n\n\nExemple 3.3\nL’application x \\mapsto d(x, B) (distance à une partie non vide B d’un EVN) est 1-lipschitzienne."
   },
   {
     "objectID": "cours/mp-chap02.html#définition-1",
     "href": "cours/mp-chap02.html#définition-1",
-    "title": "Cours – Cours – Espaces vectoriels normés",
+    "title": "Cours – Espaces vectoriels normés",
     "section": "4.1 Définition",
     "text": "4.1 Définition\n\nDéfinition 4.1 — (Normes équivalentes)\nSoient \\mathcal{N}_1 et \\mathcal{N}_2 deux normes sur un \\mathbb{K}-espace vectoriel E. On dit que \\mathcal{N}_1 et \\mathcal{N}_2 sont équivalentes s’il existe deux réels a &gt; 0 et b &gt; 0 tels que : \\forall x \\in E, \\quad a \\cdot \\mathcal{N}_1(x) \\leq \\mathcal{N}_2(x) \\leq b \\cdot \\mathcal{N}_1(x)\n\n\nExemple 4.1\nDans \\mathbb{K}^n, les trois normes \\|\\cdot\\|_1, \\|\\cdot\\|_2, \\|\\cdot\\|_\\infty sont équivalentes."
   },
   {
     "objectID": "cours/mp-chap02.html#conséquences-de-léquivalence",
     "href": "cours/mp-chap02.html#conséquences-de-léquivalence",
-    "title": "Cours – Cours – Espaces vectoriels normés",
+    "title": "Cours – Espaces vectoriels normés",
     "section": "4.2 Conséquences de l’équivalence",
     "text": "4.2 Conséquences de l’équivalence\n\nProposition 4.1\nSoient \\mathcal{N}_1 et \\mathcal{N}_2 deux normes équivalentes sur E. Alors :\n\nUne partie, une suite ou une fonction bornée pour \\mathcal{N}_1 est bornée pour \\mathcal{N}_2, et réciproquement.\nToute suite convergente pour \\mathcal{N}_1 est convergente pour \\mathcal{N}_2, et réciproquement.\nLes deux normes \\mathcal{N}_1 et \\mathcal{N}_2 définissent la même topologie sur E (c’est-à-dire les mêmes parties ouvertes et fermées).\n\n\n\nExemple 4.2 — (Normes non équivalentes)\nConsidérons l’espace vectoriel E = \\mathbb{R}[X]. On définit sur E les deux normes suivantes : \\|P\\|_\\infty = \\max_k |a_k| \\quad \\text{et} \\quad \\|P\\|_h = \\sum_{k=0}^{\\deg(P)} \\frac{|a_k|}{1+k} pour P = \\sum_{k=0}^{\\deg(P)} a_k X^k.\nConsidérons la suite (P_n) de polynômes définie par P_n = X^n. On a : \\|P_n\\|_\\infty = 1 \\quad \\text{et} \\quad \\|P_n\\|_h = \\frac{1}{n+1} \\to 0 Ces deux normes ne sont donc pas équivalentes."
   },
   {
     "objectID": "cours/mp-chap02.html#invariance-des-notions-topologiques",
     "href": "cours/mp-chap02.html#invariance-des-notions-topologiques",
-    "title": "Cours – Cours – Espaces vectoriels normés",
+    "title": "Cours – Espaces vectoriels normés",
     "section": "4.3 Invariance des notions topologiques",
     "text": "4.3 Invariance des notions topologiques\n\nRemarque. Lorsqu’il y a équivalence des normes, travailler avec n’importe quelle norme ne change rien à :\n\nLa définition des ouverts et des fermés de E (propriétés topologiques).\nLa convergence des suites d’éléments de E.\nLes limites des applications définies sur E ou dans E."
   },
   {
     "objectID": "cours/mp-chap02.html#limite-en-un-point",
     "href": "cours/mp-chap02.html#limite-en-un-point",
-    "title": "Cours – Cours – Espaces vectoriels normés",
+    "title": "Cours – Espaces vectoriels normés",
     "section": "5.1 Limite en un point",
     "text": "5.1 Limite en un point\n\nDéfinition 5.1 — (Limite en un point)\nSoient (E, \\|\\cdot\\|) et (F, \\|\\cdot\\|') deux EVN, A une partie non vide de E, f : A \\to F une application et a un point adhérent à A. On dit que f admet pour limite l \\in F en a si : \\forall \\varepsilon &gt; 0, \\; \\exists \\delta &gt; 0, \\; (x \\in A \\text{ et } \\|x - a\\| &lt; \\delta) \\implies \\|f(x) - l\\|' &lt; \\varepsilon"
   },
   {
     "objectID": "cours/mp-chap02.html#continuité",
     "href": "cours/mp-chap02.html#continuité",
-    "title": "Cours – Cours – Espaces vectoriels normés",
+    "title": "Cours – Espaces vectoriels normés",
     "section": "5.2 Continuité",
     "text": "5.2 Continuité\n\nDéfinition 5.2 — (Continuité en un point et sur une partie)\nSoient (E, \\|\\cdot\\|) et (F, \\|\\cdot\\|') deux EVN, A une partie non vide de E et f : A \\to F une application.\n\nf est continue en a \\in A si : \\forall \\varepsilon &gt; 0, \\; \\exists \\delta &gt; 0, \\; (x \\in A \\text{ et } \\|x - a\\| &lt; \\delta) \\implies \\|f(x) - f(a)\\|' &lt; \\varepsilon\nf est continue sur A si elle est continue en tout point de A.\n\n\n\nProposition 5.1 — (Continuité des applications linéaires)\nSoient (E, \\|\\cdot\\|) et (F, \\|\\cdot\\|') deux EVN et u : E \\to F une application linéaire. Les assertions suivantes sont équivalentes :\n\nu \\in \\mathcal{L}_c(E, F) (applications linéaires continues).\nu est continue en 0_E.\nIl existe C \\geq 0 tel que : \\forall x \\in E, \\; \\|u(x)\\|' \\leq C \\|x\\|.\nu est uniformément continue."
   },
   {
     "objectID": "cours/mp-chap02.html#équivalence-des-normes-en-dimension-finie",
     "href": "cours/mp-chap02.html#équivalence-des-normes-en-dimension-finie",
-    "title": "Cours – Cours – Espaces vectoriels normés",
+    "title": "Cours – Espaces vectoriels normés",
     "section": "6.1 Équivalence des normes en dimension finie",
     "text": "6.1 Équivalence des normes en dimension finie\n\nThéorème 6.1 — (Admis)\nSoit E un \\mathbb{K}-espace vectoriel de dimension finie n \\in \\mathbb{N}^* et \\mathcal{B} = (e_1, \\ldots, e_n) une base de E.\nToutes les normes sur E sont équivalentes.\n\n\nRemarque. En dimension finie, l’étude topologique d’un EVN E se ramène à celle de \\mathbb{K}^n muni d’une norme. Le théorème de l’équivalence des normes permet de ramener l’étude topologique à celle de l’espace \\mathbb{K}^n (\\mathbb{K} = \\mathbb{R} ou \\mathbb{C}) qui peut servir de cadre à la présentation des différentes notions (boules, ouverts, limite et continuité, …)."
   },
   {
     "objectID": "cours/mp-chap02.html#continuité-des-applications-en-dimension-finie",
     "href": "cours/mp-chap02.html#continuité-des-applications-en-dimension-finie",
-    "title": "Cours – Cours – Espaces vectoriels normés",
+    "title": "Cours – Espaces vectoriels normés",
     "section": "6.2 Continuité des applications en dimension finie",
     "text": "6.2 Continuité des applications en dimension finie\n\nProposition 6.1 — (Continuité des applications multilinéaires)\nSoient E_1, \\ldots, E_p, F des EVN de dimension finie. Toute application f : E_1 \\times \\cdots \\times E_p \\to F multilinéaire est continue.\n\n\nExemple 6.1\nLe déterminant est une forme multilinéaire et l’espace de départ \\mathbb{K}^n \\times \\cdots \\times \\mathbb{K}^n est de dimension finie n^2, donc il est continu."
   },
   {
     "objectID": "cours/mp-chap02.html#propriétés-topologiques-en-dimension-finie",
     "href": "cours/mp-chap02.html#propriétés-topologiques-en-dimension-finie",
-    "title": "Cours – Cours – Espaces vectoriels normés",
+    "title": "Cours – Espaces vectoriels normés",
     "section": "6.3 Propriétés topologiques en dimension finie",
     "text": "6.3 Propriétés topologiques en dimension finie\n\nProposition 6.2\nDans un EVN de dimension finie :\n\nToute partie fermée et bornée est compacte.\nTout sous-espace vectoriel est fermé.\nToute partie compacte est fermée et bornée."
   },
   {
     "objectID": "cours/mp-chap02.html#définition-et-propriétés",
     "href": "cours/mp-chap02.html#définition-et-propriétés",
-    "title": "Cours – Cours – Espaces vectoriels normés",
+    "title": "Cours – Espaces vectoriels normés",
     "section": "7.1 Définition et propriétés",
     "text": "7.1 Définition et propriétés\n\nDéfinition 7.1 — (Partie compacte)\nSoit (E, \\|\\cdot\\|) un EVN. On dit qu’une partie K de E est compacte si toute suite d’éléments de K admet une valeur d’adhérence dans K.\n\n\nProposition 7.1\nSoit (E, \\|\\cdot\\|) un EVN.\n\nSi K est un compact de E, alors K est un fermé borné.\nUne boule fermée et une sphère sont fermées.\n\n\n\nProposition 7.2 — (Produit de compacts)\nSoient (E_1, \\mathcal{N}_1), \\ldots, (E_n, \\mathcal{N}_n) des EVN. Pour tout i \\in \\{1, \\ldots, n\\}, K_i est un compact de E_i. Posons E = \\prod_{i=1}^n E_i et munissons E d’une norme produit \\mathcal{N}. Alors K_1 \\times \\cdots \\times K_n est un compact de E.\n\n\nProposition 7.3 — (Image d’un compact par une application continue)\nSoient (E, \\|\\cdot\\|) et (F, \\|\\cdot\\|') deux EVN, f : E \\to F une application continue et K une partie compacte de E. Alors f(K) est une partie compacte de F.\n\n\nCorollaire 7.1 — (Théorème des bornes atteintes)\nSoient (E, \\|\\cdot\\|) un EVN et f : E \\to \\mathbb{R} une application continue. Si K est un compact de E, alors f est bornée et atteint ses bornes sur K."
   },
   {
     "objectID": "cours/mp-chap02.html#définition-2",
     "href": "cours/mp-chap02.html#définition-2",
-    "title": "Cours – Cours – Espaces vectoriels normés",
+    "title": "Cours – Espaces vectoriels normés",
     "section": "8.1 Définition",
     "text": "8.1 Définition\n\nDéfinition 8.1 — (Partie connexe par arcs)\nSoit (E, \\|\\cdot\\|) un EVN. On dit qu’une partie A de E est connexe par arcs si pour tous a, b \\in A, il existe un chemin continu \\gamma : [0, 1] \\to A tel que \\gamma(0) = a et \\gamma(1) = b.\n\n\nProposition 8.1\nSoit (E, \\|\\cdot\\|) un EVN.\n\nToute partie convexe est connexe par arcs.\nSi A et B sont connexes par arcs et A \\cap B \\neq \\varnothing, alors A \\cup B est connexe par arcs.\n\n\n\nProposition 8.2 — (Image d’une partie connexe par arcs par une application continue)\nSi f : E \\to F est une application continue, alors f(A) est une partie connexe par arcs de F.\n\n\nCorollaire 8.1 — (Théorème des valeurs intermédiaires)\nSoit f : I \\to \\mathbb{R} une application continue et (a, b) \\in I^2 tel que a &lt; b. Posons \\alpha = \\min\\{f(a), f(b)\\} et \\beta = \\max\\{f(a), f(b)\\}. Alors pour tout y \\in [\\alpha, \\beta], il existe x \\in [a, b] tel que y = f(x)."
   },
   {
     "objectID": "cours/mp-chap02.html#définition-3",
     "href": "cours/mp-chap02.html#définition-3",
-    "title": "Cours – Cours – Espaces vectoriels normés",
+    "title": "Cours – Espaces vectoriels normés",
     "section": "9.1 Définition",
     "text": "9.1 Définition\n\nDéfinition 9.1 — (Suite de Cauchy)\nOn dit qu’une suite (u_n)_{n \\in \\mathbb{N}} d’éléments d’un EVN (E, \\|\\cdot\\|) est de Cauchy si : \\forall \\varepsilon &gt; 0, \\; \\exists N \\in \\mathbb{N}, \\; p, q \\geq N \\implies \\|u_p - u_q\\| &lt; \\varepsilon\n\n\nProposition 9.1\nToute suite d’éléments de E convergente est de Cauchy.\n\n\nDéfinition 9.2 — (Espace complet ou de Banach)\nOn dira que E est un espace de Banach (ou un EVN complet) si toute suite d’éléments de E de Cauchy est convergente.\n\n\nExemple 9.1\n\n\\mathbb{R}, \\mathbb{C}, \\mathbb{R}^n, \\mathbb{C}^n munis des normes usuelles sont des espaces de Banach.\nPlus généralement, un EVN de dimension finie est complet.\n\\mathbb{Q} muni de la valeur absolue n’est pas un espace de Banach."
   },
   {
     "objectID": "cours/mp-chap02.html#navigation",
     "href": "cours/mp-chap02.html#navigation",
-    "title": "Cours – Cours – Espaces vectoriels normés",
+    "title": "Cours – Espaces vectoriels normés",
     "section": "Navigation",
     "text": "Navigation\n\nChapitre 01 : Structures algébriques Menu MP Chapitre 03 : Réduction des endomorphismes et des matrices carrées"
   },
@@ -14590,98 +14590,98 @@
   {
     "objectID": "cours/mp-chap03.html",
     "href": "cours/mp-chap03.html",
-    "title": "Cours – Cours – Réduction des endomorphismes et des matrices carrées",
+    "title": "Cours – Réduction des endomorphismes et des matrices carrées",
     "section": "",
     "text": "MP (2e année) — Chapitre 03. Éléments propres, polynôme caractéristique, diagonalisation, trigonalisation, polynômes d’endomorphismes et de matrices carrées, application de la notion de polynôme annulateur à la réduction.\nCe chapitre a été réalisé conformément au programme marocain de mathématiques de la filière MP.\nDans tout ce chapitre, \\mathbb{K} désigne un sous-corps de \\mathbb{C} (souvent \\mathbb{R} ou \\mathbb{C}), E un \\mathbb{K}-espace vectoriel de dimension finie n, \\mathscr{B} = (e_1, \\ldots, e_n) une base de E, \\mathcal{M}_n(\\mathbb{K}) la \\mathbb{K}-algèbre des matrices carrées de taille n, et \\mathcal{L}(E) la \\mathbb{K}-algèbre des endomorphismes de E."
   },
   {
     "objectID": "cours/mp-chap03.html#définitions",
     "href": "cours/mp-chap03.html#définitions",
-    "title": "Cours – Cours – Réduction des endomorphismes et des matrices carrées",
+    "title": "Cours – Réduction des endomorphismes et des matrices carrées",
     "section": "1.1 Définitions",
     "text": "1.1 Définitions\n\nDéfinition 1.1 — (Droite stable, valeur propre, vecteur propre, sous-espace propre)\nSoient u \\in \\mathcal{L}(E) et x_0 \\in E \\setminus \\{0_E\\}. On suppose que la droite vectorielle D = \\mathbb{K} \\cdot x_0 est stable par u, c’est-à-dire u(D) \\subset D. Alors il existe un scalaire \\lambda \\in \\mathbb{K} tel que : \\forall x \\in D, \\quad u(x) = \\lambda x\n\nLe scalaire \\lambda est appelé valeur propre de u.\nTout vecteur non nul de E vérifiant u(x) = \\lambda x est appelé vecteur propre associé à la valeur propre \\lambda.\nL’ensemble E_\\lambda = \\{x \\in E \\mid u(x) = \\lambda x\\} \\cup \\{0_E\\} = \\ker(u - \\lambda \\mathrm{Id}_E) est un sous-espace vectoriel de E appelé sous-espace propre de u associé à la valeur propre \\lambda.\n\n\n\nDéfinition 1.2 — (Spectre)\nLe spectre d’un endomorphisme u d’un espace de dimension finie est l’ensemble de ses valeurs propres. On le note \\mathrm{Sp}(u).\n\n\nProposition 1.1\nSoient u \\in \\mathcal{L}(E) et \\lambda_1, \\ldots, \\lambda_r des valeurs propres de u deux à deux distinctes. Alors :\n\nLa somme E_{\\lambda_1} + \\cdots + E_{\\lambda_r} est directe.\nToute famille formée en regroupant des familles libres de vecteurs propres associés à des valeurs propres distinctes deux à deux est libre.\n\n\n\nProposition 1.2\nLe spectre d’un endomorphisme d’un espace de dimension finie n est fini de cardinal au plus n.\n\n\nProposition 1.3\nSi P \\in \\mathbb{K}[X] est un polynôme annulateur de u (c’est-à-dire P(u) = 0), alors toute valeur propre de u est racine de P.\nPlus précisément, si u(x) = \\lambda x, alors P(u)(x) = P(\\lambda) x pour tout P \\in \\mathbb{K}[X].\n\n\nDéfinition 1.3 — (Éléments propres d’une matrice carrée)\nSoit M \\in \\mathcal{M}_n(\\mathbb{K}). On définit de même :\n\nLes valeurs propres de M : \\lambda \\in \\mathbb{K} est valeur propre de M s’il existe X \\in \\mathbb{K}^n \\setminus \\{0\\} tel que MX = \\lambda X.\nLes vecteurs propres de M.\nLes sous-espaces propres de M : E_\\lambda(M) = \\ker(M - \\lambda I_n).\nLe spectre de M : \\mathrm{Sp}(M).\n\nL’équation aux éléments propres est : MX = \\lambda X\n\n\nProposition 1.4 — (Lien entre endomorphisme et matrice)\nSi M = \\mathrm{Mat}_{\\mathscr{B}}(u), alors les valeurs propres, vecteurs propres et sous-espaces propres de M correspondent aux valeurs propres, vecteurs propres et sous-espaces propres de u.\n\n\nProposition 1.5\nDeux matrices semblables ont même spectre.\n\n\nExemple 1.1\nCherchons les valeurs propres et les sous-espaces propres de la matrice : A = \\begin{pmatrix} -1 & 3 & 3 \\\\ 3 & -1 & -3 \\\\ -3 & 3 & 5 \\end{pmatrix}\nOn résout le système AX = \\lambda X avec X = \\begin{pmatrix} x_1 \\\\ x_2 \\\\ x_3 \\end{pmatrix} \\neq 0 : \\begin{cases} -x_1 + 3x_2 + 3x_3 = \\lambda x_1 \\\\ 3x_1 - x_2 - 3x_3 = \\lambda x_2 \\\\ -3x_1 + 3x_2 + 5x_3 = \\lambda x_3 \\end{cases}\nAprès résolution, on trouve : \\mathrm{Sp}(A) = \\{-1, 2\\} avec E_{-1} = \\mathrm{Vect}((1, -1, 0)) et E_2 = \\mathrm{Vect}((1, 0, -1), (0, 1, -1))."
   },
   {
     "objectID": "cours/mp-chap03.html#définition",
     "href": "cours/mp-chap03.html#définition",
-    "title": "Cours – Cours – Réduction des endomorphismes et des matrices carrées",
+    "title": "Cours – Réduction des endomorphismes et des matrices carrées",
     "section": "2.1 Définition",
     "text": "2.1 Définition\n\nDéfinition 2.1 — (Polynôme caractéristique)\nSoit A \\in \\mathcal{M}_n(\\mathbb{K}). Le polynôme caractéristique de A est : \\chi_A(X) = \\det(X I_n - A)\nSoit u \\in \\mathcal{L}(E). Le polynôme caractéristique de u, noté \\chi_u, est le polynôme caractéristique de sa matrice \\mathrm{Mat}_{\\mathscr{B}}(u) dans la base \\mathscr{B}.\n\n\nProposition 2.1\n\nUne matrice A et sa transposée {}^tA ont même polynôme caractéristique.\nDeux matrices semblables ont même polynôme caractéristique. Par conséquent, le polynôme caractéristique d’un endomorphisme ne dépend pas de la base choisie.\nLe polynôme caractéristique d’un endomorphisme ou d’une matrice carrée est un polynôme unitaire de degré n : \\chi_A(X) = X^n - \\mathrm{tr}(A) X^{n-1} + \\cdots + (-1)^n \\det(A)"
   },
   {
     "objectID": "cours/mp-chap03.html#multiplicité-et-lien-avec-tracedéterminant",
     "href": "cours/mp-chap03.html#multiplicité-et-lien-avec-tracedéterminant",
-    "title": "Cours – Cours – Réduction des endomorphismes et des matrices carrées",
+    "title": "Cours – Réduction des endomorphismes et des matrices carrées",
     "section": "2.2 Multiplicité et lien avec trace/déterminant",
     "text": "2.2 Multiplicité et lien avec trace/déterminant\n\nProposition 2.2\nSoit u \\in \\mathcal{L}(E) et \\lambda \\in \\mathbb{K} une racine de \\chi_u de multiplicité \\mu \\in \\mathbb{N}^*. Alors :\n\n\\lambda est une valeur propre de u. \\mu est la multiplicité de la valeur propre \\lambda.\nLe sous-espace propre E_\\lambda est de dimension au plus \\mu : \\dim(E_\\lambda) \\leq \\mu\n\n\n\nProposition 2.3 — (Matrice triangulaire)\nSoit A = (a_{ij}) \\in \\mathcal{M}_n(\\mathbb{K}) une matrice triangulaire (supérieure ou inférieure). Alors : \\chi_A(X) = \\prod_{k=1}^n (X - a_{kk})\n\n\nCorollaire 2.1\nSoit u \\in \\mathcal{L}(E). Si \\chi_u = \\prod_{k=1}^n (X - \\lambda_k) est scindé, alors : \\sum_{k=1}^n \\lambda_k = \\mathrm{tr}(u), \\quad \\prod_{k=1}^n \\lambda_k = \\det(u)"
   },
   {
     "objectID": "cours/mp-chap03.html#définition-et-caractérisation",
     "href": "cours/mp-chap03.html#définition-et-caractérisation",
-    "title": "Cours – Cours – Réduction des endomorphismes et des matrices carrées",
+    "title": "Cours – Réduction des endomorphismes et des matrices carrées",
     "section": "3.1 Définition et caractérisation",
     "text": "3.1 Définition et caractérisation\n\nDéfinition 3.1 — (Endomorphisme diagonalisable)\nUn endomorphisme u \\in \\mathcal{L}(E) est dit diagonalisable s’il existe une base \\mathscr{B}' de E dans laquelle la matrice de u est diagonale : \\mathrm{Mat}_{\\mathscr{B}'}(u) = \\mathrm{Diag}(\\lambda_1, \\ldots, \\lambda_n) Une telle base est constituée de vecteurs propres de u.\n\n\nDéfinition 3.2 — (Matrice diagonalisable)\nUne matrice A \\in \\mathcal{M}_n(\\mathbb{K}) est dite diagonalisable si elle est semblable à une matrice diagonale, c’est-à-dire s’il existe P \\in \\mathrm{GL}_n(\\mathbb{K}) et D diagonale telles que : A = P D P^{-1}\n\n\nProposition 3.1\nPour qu’une matrice carrée soit diagonalisable, il faut et il suffit que l’endomorphisme canoniquement associé le soit.\n\n\nThéorème 3.1 — (Caractérisation par les sous-espaces propres)\nSoit u \\in \\mathcal{L}(E). Alors u est diagonalisable si et seulement si : E = E_{\\lambda_1} \\oplus E_{\\lambda_2} \\oplus \\cdots \\oplus E_{\\lambda_r} où \\lambda_1, \\ldots, \\lambda_r sont les valeurs propres distinctes de u.\n\n\nThéorème 3.2 — (Caractérisation par le polynôme caractéristique)\nUn endomorphisme u \\in \\mathcal{L}(E) est diagonalisable si et seulement si :\n\n\\chi_u est scindé sur \\mathbb{K} : \\chi_u = \\prod_{k=1}^r (X - \\lambda_k)^{\\mu_k}\nPour toute valeur propre \\lambda_k, on a \\dim(E_{\\lambda_k}) = \\mu_k.\n\nTraduction matricielle : Une matrice A \\in \\mathcal{M}_n(\\mathbb{K}) est diagonalisable si et seulement si \\chi_A est scindé sur \\mathbb{K} et pour toute valeur propre \\lambda_k, on a \\dim(E_{\\lambda_k}(A)) = \\mu_k.\n\n\nProposition 3.2 — (Cas des valeurs propres distinctes)\nUn endomorphisme u \\in \\mathcal{L}(E) admettant n valeurs propres distinctes deux à deux est diagonalisable.\nTraduction matricielle : Une matrice A \\in \\mathcal{M}_n(\\mathbb{K}) admettant n valeurs propres distinctes deux à deux est diagonalisable.\n\n\nExemple 3.1\n\nProjecteurs : Si p \\in \\mathcal{L}(E) vérifie p^2 = p, alors p est diagonalisable. En effet, \\mathrm{Sp}(p) \\subset \\{0, 1\\} et E = \\ker(p) \\oplus \\mathrm{Im}(p).\nSymétries : Si s \\in \\mathcal{L}(E) vérifie s^2 = \\mathrm{Id}_E, alors s est diagonalisable. En effet, \\mathrm{Sp}(s) \\subset \\{-1, 1\\} et E = E_{-1} \\oplus E_1.\n\n\n\nExemple 3.2\nLa matrice C = \\begin{pmatrix} 0 & 1 & 0 \\\\ 0 & 0 & 1 \\\\ 0 & 0 & 0 \\end{pmatrix} a pour polynôme caractéristique \\chi_C = X^3. Donc la seule valeur propre est 0. Si C était diagonalisable, elle serait semblable à la matrice nulle, ce qui est impossible car C \\neq 0. Donc C n’est pas diagonalisable."
   },
   {
     "objectID": "cours/mp-chap03.html#définition-et-caractérisation-1",
     "href": "cours/mp-chap03.html#définition-et-caractérisation-1",
-    "title": "Cours – Cours – Réduction des endomorphismes et des matrices carrées",
+    "title": "Cours – Réduction des endomorphismes et des matrices carrées",
     "section": "4.1 Définition et caractérisation",
     "text": "4.1 Définition et caractérisation\n\nDéfinition 4.1 — (Endomorphisme trigonalisable)\nUn endomorphisme u \\in \\mathcal{L}(E) est dit trigonalisable s’il existe une base de E dans laquelle sa matrice est triangulaire supérieure.\n\n\nDéfinition 4.2 — (Matrice trigonalisable)\nUne matrice A \\in \\mathcal{M}_n(\\mathbb{K}) est dite trigonalisable si elle est semblable à une matrice triangulaire supérieure.\n\n\nProposition 4.1\nPour qu’une matrice carrée soit trigonalisable, il faut et il suffit que l’endomorphisme canoniquement associé le soit.\n\n\nThéorème 4.1 — (Caractérisation)\nUn endomorphisme est trigonalisable si et seulement si son polynôme caractéristique est scindé sur le corps de base \\mathbb{K}.\nTraduction matricielle : Une matrice A \\in \\mathcal{M}_n(\\mathbb{K}) est trigonalisable si et seulement si \\chi_A est scindé sur \\mathbb{K}.\n\n\nCorollaire 4.1\nEn particulier, tout endomorphisme d’un \\mathbb{C}-espace vectoriel et toute matrice de \\mathcal{M}_n(\\mathbb{C}) sont trigonalisables.\n\n\nCorollaire 4.2 — (Expression du déterminant et de la trace)\nSoit A \\in \\mathcal{M}_n(\\mathbb{K}) trigonalisable. Alors \\chi_A = \\prod_{k=1}^n (X - \\lambda_k) et : \\sum_{k=1}^n \\lambda_k = \\mathrm{tr}(A), \\quad \\prod_{k=1}^n \\lambda_k = \\det(A)\n\n\nExemple 4.1\nLa matrice M = \\begin{pmatrix} 1 & -1 \\\\ 1 & 3 \\end{pmatrix} est trigonalisable car : M = P^{-1} \\begin{pmatrix} 2 & -1 \\\\ 0 & 2 \\end{pmatrix} P où P = \\begin{pmatrix} 1 & 1 \\\\ -1 & 0 \\end{pmatrix}."
   },
   {
     "objectID": "cours/mp-chap03.html#définition-et-propriétés",
     "href": "cours/mp-chap03.html#définition-et-propriétés",
-    "title": "Cours – Cours – Réduction des endomorphismes et des matrices carrées",
+    "title": "Cours – Réduction des endomorphismes et des matrices carrées",
     "section": "5.1 Définition et propriétés",
     "text": "5.1 Définition et propriétés\n\nProposition 5.1 — (Morphisme de \\boldsymbol{\\mathbb{K}}-algèbres)\nSoit u \\in \\mathcal{L}(E). L’application : \\Phi : \\mathbb{K}[X] \\to \\mathcal{L}(E), \\quad P \\mapsto P(u) est un morphisme de \\mathbb{K}-algèbres et on a : \\ker \\Phi = \\{P \\in \\mathbb{K}[X] \\mid P(u) = 0\\}, \\quad \\mathrm{Im}(\\Phi) = \\mathbb{K}[u] = \\{P(u) \\mid P \\in \\mathbb{K}[X]\\} \\ker \\Phi est l’idéal annulateur de u et \\mathbb{K}[u] est une sous-algèbre de \\mathcal{L}(E) commutative.\nDe même, pour A \\in \\mathcal{M}_n(\\mathbb{K}), l’application \\Psi : P \\mapsto P(A) est un morphisme de \\mathbb{K}-algèbres."
   },
   {
     "objectID": "cours/mp-chap03.html#polynôme-minimal",
     "href": "cours/mp-chap03.html#polynôme-minimal",
-    "title": "Cours – Cours – Réduction des endomorphismes et des matrices carrées",
+    "title": "Cours – Réduction des endomorphismes et des matrices carrées",
     "section": "5.2 Polynôme minimal",
     "text": "5.2 Polynôme minimal\n\nThéorème 5.1 — (Existence du polynôme minimal)\nSoit u \\in \\mathcal{L}(E) un endomorphisme non nul. Alors l’idéal annulateur de u est non réduit au polynôme nul.\nOn appelle polynôme minimal de u, noté P_u, le polynôme non nul unitaire de plus petit degré annulant u. On a : \\ker \\Phi = P_u \\cdot \\mathbb{K}[X]\nDe même pour une matrice A \\in \\mathcal{M}_n(\\mathbb{K}) non nulle, on définit le polynôme minimal P_A.\n\n\nProposition 5.2\nSoient u \\in \\mathcal{L}(E) un endomorphisme non nul et d = \\deg(P_u). Alors :\n\nLa famille (u^k)_{0 \\leq k \\leq d-1} est une base de \\mathbb{K}[u].\nSi \\lambda \\in \\mathrm{Sp}(u) et x un vecteur propre associé à \\lambda, alors pour tout P \\in \\mathbb{K}[X] : P(u)(x) = P(\\lambda) \\cdot x"
   },
   {
     "objectID": "cours/mp-chap03.html#endomorphismes-et-matrices-nilpotentes",
     "href": "cours/mp-chap03.html#endomorphismes-et-matrices-nilpotentes",
-    "title": "Cours – Cours – Réduction des endomorphismes et des matrices carrées",
+    "title": "Cours – Réduction des endomorphismes et des matrices carrées",
     "section": "5.3 Endomorphismes et matrices nilpotentes",
     "text": "5.3 Endomorphismes et matrices nilpotentes\n\nDéfinition 5.1 — (Endomorphisme et matrice nilpotentes)\n\nUn endomorphisme u \\in \\mathcal{L}(E) est dit nilpotent s’il existe un entier p \\in \\mathbb{N} tel que u^p = 0.\nUne matrice A \\in \\mathcal{M}_n(\\mathbb{K}) est dite nilpotente s’il existe un entier p \\in \\mathbb{N} tel que A^p = 0.\n\nLe plus petit entier p \\in \\mathbb{N} vérifiant u^p = 0 (resp. A^p = 0) est appelé indice de nilpotence.\n\n\nProposition 5.3\nSoit u \\in \\mathcal{L}(E) un endomorphisme nilpotent d’indice p \\in \\mathbb{N}. Alors :\n\n\\mathrm{Sp}(u) = \\{0\\}\np \\leq n"
   },
   {
     "objectID": "cours/mp-chap03.html#projecteurs-associés-à-une-décomposition-en-somme-directe",
     "href": "cours/mp-chap03.html#projecteurs-associés-à-une-décomposition-en-somme-directe",
-    "title": "Cours – Cours – Réduction des endomorphismes et des matrices carrées",
+    "title": "Cours – Réduction des endomorphismes et des matrices carrées",
     "section": "6.1 Projecteurs associés à une décomposition en somme directe",
     "text": "6.1 Projecteurs associés à une décomposition en somme directe\n\nProposition 6.1 — (Projecteurs associés à une décomposition)\nSoient (F_k)_{1 \\leq k \\leq r} une famille de sous-espaces vectoriels de E telle que E = F_1 \\oplus \\cdots \\oplus F_r.\nOn appelle famille de projecteurs associée à cette décomposition une famille de projecteurs (p_k)_{1 \\leq k \\leq r} où p_k est le projecteur sur F_k parallèlement à \\bigoplus_{i \\neq k} F_i. On a : \\forall i \\neq j \\in \\{1, \\ldots, r\\}, \\quad p_i \\circ p_j = 0"
   },
   {
     "objectID": "cours/mp-chap03.html#décomposition-spectrale-dun-endomorphisme-diagonalisable",
     "href": "cours/mp-chap03.html#décomposition-spectrale-dun-endomorphisme-diagonalisable",
-    "title": "Cours – Cours – Réduction des endomorphismes et des matrices carrées",
+    "title": "Cours – Réduction des endomorphismes et des matrices carrées",
     "section": "6.2 Décomposition spectrale d’un endomorphisme diagonalisable",
     "text": "6.2 Décomposition spectrale d’un endomorphisme diagonalisable\n\nThéorème 6.1 — (Décomposition spectrale)\nSoit u \\in \\mathcal{L}(E) diagonalisable. Soient F_1, \\ldots, F_r les sous-espaces propres de u associés aux valeurs propres \\lambda_1, \\ldots, \\lambda_r. Alors il existe une famille de projecteurs (p_k)_{1 \\leq k \\leq r} associée à la décomposition E = \\bigoplus_{k=1}^r F_k vérifiant :\n\nu = \\sum_{k=1}^r \\lambda_k p_k\nPour tout P \\in \\mathbb{K}[X] : P(u) = \\sum_{k=1}^r P(\\lambda_k) p_k"
   },
   {
     "objectID": "cours/mp-chap03.html#caractérisation-de-la-diagonalisabilité-par-le-polynôme-minimal",
     "href": "cours/mp-chap03.html#caractérisation-de-la-diagonalisabilité-par-le-polynôme-minimal",
-    "title": "Cours – Cours – Réduction des endomorphismes et des matrices carrées",
+    "title": "Cours – Réduction des endomorphismes et des matrices carrées",
     "section": "6.3 Caractérisation de la diagonalisabilité par le polynôme minimal",
     "text": "6.3 Caractérisation de la diagonalisabilité par le polynôme minimal\n\nThéorème 6.2 — (Caractérisation)\nUn endomorphisme u \\in \\mathcal{L}(E) est diagonalisable si et seulement si son polynôme minimal P_u est scindé à racines simples. Autrement dit, P_u s’écrit : P_u = \\prod_{k=1}^r (X - \\lambda_k) \\quad \\text{où les } \\lambda_k \\text{ sont deux à deux distincts}\nTraduction matricielle : Une matrice A \\in \\mathcal{M}_n(\\mathbb{K}) est diagonalisable si et seulement si son polynôme minimal P_A est scindé à racines simples.\n\n\nThéorème 6.3 — (Lemme de décomposition des noyaux)\nSoit u \\in \\mathcal{L}(E) et on suppose que P_u = \\prod_{k=1}^r (X - \\lambda_k)^{\\mu_k} où les \\lambda_k sont distincts deux à deux. Alors : E = \\ker\\left((u - \\lambda_1 \\mathrm{Id}_E)^{\\mu_1}\\right) \\oplus \\cdots \\oplus \\ker\\left((u - \\lambda_r \\mathrm{Id}_E)^{\\mu_r}\\right)"
   },
   {
     "objectID": "cours/mp-chap03.html#décomposition-de-dunford",
     "href": "cours/mp-chap03.html#décomposition-de-dunford",
-    "title": "Cours – Cours – Réduction des endomorphismes et des matrices carrées",
+    "title": "Cours – Réduction des endomorphismes et des matrices carrées",
     "section": "6.4 Décomposition de Dunford",
     "text": "6.4 Décomposition de Dunford\n\nThéorème 6.4 — (Décomposition de Dunford)\nSoit u \\in \\mathcal{L}(E). Il existe deux endomorphismes g, f \\in \\mathcal{L}(E) uniques tels que : u = g + f, \\quad f \\circ g = g \\circ f avec g diagonalisable et f nilpotent.\nTraduction matricielle : Toute matrice A \\in \\mathcal{M}_n(\\mathbb{K}) se décompose de manière unique en A = D + N où D est diagonalisable, N est nilpotente et DN = ND."
   },
   {
     "objectID": "cours/mp-chap03.html#navigation",
     "href": "cours/mp-chap03.html#navigation",
-    "title": "Cours – Cours – Réduction des endomorphismes et des matrices carrées",
+    "title": "Cours – Réduction des endomorphismes et des matrices carrées",
     "section": "Navigation",
     "text": "Navigation\n\nChapitre 02 : Espaces vectoriels normés Menu MP Chapitre 04 : Séries dans un espace vectoriel normé et familles sommables"
   },
