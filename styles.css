@@ -91,3 +91,26 @@ p {
   text-justify: inter-word;
   hyphens: auto;
 }
+
+
+
+/* Logo dans la barre de navigation */
+.navbar-logo {
+  max-height: 45px;
+  width: auto;
+  border-radius: 8px;
+  margin-right: 0.5rem;
+}
+
+/* Logo centré sur la page d'accueil */
+/* Logo en médaillon dans le bandeau d'accueil */
+.hero .grid { align-items: center; }
+.hero .g-col-md-7 { text-align: left; }
+.hero img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 18px;
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.28);
+  background: #ffffff;
+  padding: 0.6rem 1rem;
+}
