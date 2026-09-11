@@ -114,34 +114,6 @@ ul.task-list li input[type="checkbox"] {
     });
   });
 </script>
-<script>
-  document.addEventListener('DOMContentLoaded', function () {
-    var PATHS = ['/', '/cours/', '/cours/mpsi.html', '/cours/mp.html', '/cours/pcsi.html', '/cours/psi.html', '/cours/tsi1.html', '/cours/tsi2.html', '/cours/ect1.html', '/cours/ect2.html', '/cours/ecs1.html', '/cours/ecs2.html', '/td/', '/td/mpsi.html', '/td/mp.html', '/td/pcsi.html', '/td/psi.html', '/td/tsi1.html', '/td/tsi2.html', '/td/ect1.html', '/td/ect2.html', '/td/ecs1.html', '/td/ecs2.html', '/annales/', '/annales/mp.html', '/annales/psi.html', '/annales/tsi.html', '/annales/ect.html', '/annales/ecs.html', '/tipe/', '/tipe/mp.html', '/conseils.html', '/contact.html', '/analytics.html'];
-    function getCount(p) {
-      return fetch('https://maharicpge.goatcounter.com/counter/' + encodeURIComponent(p) + '.json')
-        .then(function (r) { if (!r.ok) throw 0; return r.json(); })
-        .then(function (d) { return d.count || 0; })
-        .catch(function () { return 0; });
-    }
-    function show(n) {
-      document.querySelectorAll('.navbar a[href$="#total"]').forEach(function (a) {
-        a.textContent = '👥 ' + n.toLocaleString('fr-FR') + ' visites';
-      });
-    }
-    var cache = null;
-    try { cache = JSON.parse(localStorage.getItem('gcTotal') || 'null'); } catch (e) {}
-    if (cache && Date.now() - cache.t < 3600000) { show(cache.n); return; }
-    getCount('TOTAL').then(function (n) {
-      if (n > 0) { return n; }
-      return Promise.all(PATHS.map(getCount)).then(function (arr) {
-        return arr.reduce(function (s, x) { return s + x; }, 0);
-      });
-    }).then(function (n) {
-      try { localStorage.setItem('gcTotal', JSON.stringify({ n: n, t: Date.now() })); } catch (e) {}
-      show(n);
-    });
-  });
-</script>
 
 
 <link rel="stylesheet" href="styles.css">
@@ -223,12 +195,6 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">À propos de l’auteur</span></a>
   </li>  
 </ul>
-            <ul class="navbar-nav navbar-nav-scroll ms-auto">
-  <li class="nav-item">
-    <a class="nav-link" href="./analytics.html#total"> 
-<span class="menu-text">👥 …</span></a>
-  </li>  
-</ul>
           </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
 </div>
@@ -271,33 +237,45 @@ ul.task-list li input[type="checkbox"] {
 </div>
 <section id="mathématiques-en-cpge" class="level1 g-col-12 g-col-md-7">
 <h1>Mathématiques en CPGE</h1>
-<p>Cours, TD, annales, TIPE et conseils pour réussir.</p>
+<p>Cours, TD, DL, DS, annales et TIPE pour réussir.</p>
 </section>
 </div>
 </div>
 <div class="grid">
-<div class="g-col-12 g-col-md-6">
+<div class="g-col-12 g-col-md-4">
 <section id="cours" class="level3 card-home">
 <h3 class="anchored" data-anchor-id="cours"><a href="./cours/index.html">📘 Cours</a></h3>
 <p>Chapitres et fiches par filière. <a href="./cours/index.html">Voir les cours →</a></p>
 </section>
 </div>
-<div class="g-col-12 g-col-md-6">
+<div class="g-col-12 g-col-md-4">
 <section id="td" class="level3 card-home">
 <h3 class="anchored" data-anchor-id="td"><a href="./td/index.html">✏️ TD</a></h3>
 <p>Énoncés et corrigés par filière. <a href="./td/index.html">Voir les TD →</a></p>
 </section>
 </div>
-<div class="g-col-12 g-col-md-6">
+<div class="g-col-12 g-col-md-4">
+<section id="dl" class="level3 card-home">
+<h3 class="anchored" data-anchor-id="dl"><a href="./dl/index.html">📝 DL</a></h3>
+<p>Devoirs libres et corrigés. <a href="./dl/index.html">Voir les DL →</a></p>
+</section>
+</div>
+<div class="g-col-12 g-col-md-4">
+<section id="ds" class="level3 card-home">
+<h3 class="anchored" data-anchor-id="ds"><a href="./ds/index.html">⏱️ DS</a></h3>
+<p>Devoirs surveillés et corrigés. <a href="./ds/index.html">Voir les DS →</a></p>
+</section>
+</div>
+<div class="g-col-12 g-col-md-4">
 <section id="annales" class="level3 card-home">
 <h3 class="anchored" data-anchor-id="annales"><a href="./annales/index.html">🎓 Annales</a></h3>
 <p>Sujets et corrigés de concours. <a href="./annales/index.html">Voir les annales →</a></p>
 </section>
 </div>
-<div class="g-col-12 g-col-md-6">
-<section id="tipe" class="level3 card-home">
-<h3 class="anchored" data-anchor-id="tipe"><a href="./tipe/index.html">🔬 TIPE</a></h3>
-<p>Ressources et accompagnement TIPE. <a href="./tipe/index.html">Voir TIPE →</a></p>
+<div class="g-col-12 g-col-md-4">
+<section id="t.i.p.e." class="level3 card-home">
+<h3 class="anchored" data-anchor-id="t.i.p.e."><a href="./tipe/index.html">🔬 T.I.P.E.</a></h3>
+<p>Ressources et accompagnement TIPE. <a href="./tipe/index.html">Voir le TIPE →</a></p>
 </section>
 </div>
 </div>

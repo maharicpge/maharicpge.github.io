@@ -114,34 +114,6 @@ ul.task-list li input[type="checkbox"] {
     });
   });
 </script>
-<script>
-  document.addEventListener('DOMContentLoaded', function () {
-    var PATHS = ['/', '/cours/', '/cours/mpsi.html', '/cours/mp.html', '/cours/pcsi.html', '/cours/psi.html', '/cours/tsi1.html', '/cours/tsi2.html', '/cours/ect1.html', '/cours/ect2.html', '/cours/ecs1.html', '/cours/ecs2.html', '/td/', '/td/mpsi.html', '/td/mp.html', '/td/pcsi.html', '/td/psi.html', '/td/tsi1.html', '/td/tsi2.html', '/td/ect1.html', '/td/ect2.html', '/td/ecs1.html', '/td/ecs2.html', '/annales/', '/annales/mp.html', '/annales/psi.html', '/annales/tsi.html', '/annales/ect.html', '/annales/ecs.html', '/tipe/', '/tipe/mp.html', '/conseils.html', '/contact.html', '/analytics.html'];
-    function getCount(p) {
-      return fetch('https://maharicpge.goatcounter.com/counter/' + encodeURIComponent(p) + '.json')
-        .then(function (r) { if (!r.ok) throw 0; return r.json(); })
-        .then(function (d) { return d.count || 0; })
-        .catch(function () { return 0; });
-    }
-    function show(n) {
-      document.querySelectorAll('.navbar a[href$="#total"]').forEach(function (a) {
-        a.textContent = '👥 ' + n.toLocaleString('fr-FR') + ' visites';
-      });
-    }
-    var cache = null;
-    try { cache = JSON.parse(localStorage.getItem('gcTotal') || 'null'); } catch (e) {}
-    if (cache && Date.now() - cache.t < 3600000) { show(cache.n); return; }
-    getCount('TOTAL').then(function (n) {
-      if (n > 0) { return n; }
-      return Promise.all(PATHS.map(getCount)).then(function (arr) {
-        return arr.reduce(function (s, x) { return s + x; }, 0);
-      });
-    }).then(function (n) {
-      try { localStorage.setItem('gcTotal', JSON.stringify({ n: n, t: Date.now() })); } catch (e) {}
-      show(n);
-    });
-  });
-</script>
 
 
 <link rel="stylesheet" href="styles.css">
@@ -219,12 +191,6 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">À propos de l’auteur</span></a>
   </li>  
 </ul>
-            <ul class="navbar-nav navbar-nav-scroll ms-auto">
-  <li class="nav-item">
-    <a class="nav-link" href="./analytics.html#total"> 
-<span class="menu-text">👥 …</span></a>
-  </li>  
-</ul>
           </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
 </div>
@@ -258,58 +224,103 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<style>
+/* Bulles : largeur réduite (3 par ligne) et hauteur raisonnable */
+.card-home {
+  padding: 1.5rem 1.25rem;
+  min-height: 150px;
+  font-size: 1.1rem;
+  border-radius: 1.25rem;
+}
+
+/* Même style pour les liens ET pour le titre « Total visiteurs » */
+.grid .card-home a,
+.grid .card-home .titre-carte {
+  font-size: 1.9rem;
+  font-weight: 700;
+  line-height: 1.15;
+  display: inline-block;
+  margin-bottom: 0.5rem;
+  color: var(--bs-link-color, #6f42c1);
+  text-decoration: underline;
+}
+
+/* Compteurs bien visibles */
+.grid .card-home span[data-count-path] {
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+/* Liens du tableau */
+table a {
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+/* Adaptation mobile */
+@media (max-width: 768px) {
+  .card-home {
+    padding: 1.25rem 1rem;
+    min-height: 130px;
+  }
+  .grid .card-home a,
+  .grid .card-home .titre-carte {
+    font-size: 1.5rem;
+  }
+}
+</style>
 <section id="en-un-coup-dœil" class="level2">
 <h2 class="anchored" data-anchor-id="en-un-coup-dœil">En un coup d’œil</h2>
 <div class="grid">
-<div class="g-col-6 g-col-md-3">
-<section id="total-visiteurs" class="level3 card-home">
-<h3 class="anchored" data-anchor-id="total-visiteurs">👥 Total visiteurs</h3>
-<p><strong><span data-count-path="TOTAL">…</span></strong></p>
-</section>
-</div>
-<div class="g-col-6 g-col-md-3">
-<section id="accueil" class="level3 card-home">
-<h3 class="anchored" data-anchor-id="accueil"><a href="./index.html">🏠 Accueil</a></h3>
-<p><strong><span data-count-path="/">…</span></strong> visites</p>
-</section>
-</div>
-<div class="g-col-6 g-col-md-3">
-<section id="cours" class="level3 card-home">
-<h3 class="anchored" data-anchor-id="cours"><a href="./cours/index.html">📘 Cours</a></h3>
-<p><strong><span data-count-path="/cours/">…</span></strong> visites</p>
-</section>
-</div>
-<div class="g-col-6 g-col-md-3">
-<section id="td" class="level3 card-home">
-<h3 class="anchored" data-anchor-id="td"><a href="./td/index.html">✏️ TD</a></h3>
-<p><strong><span data-count-path="/td/">…</span></strong> visites</p>
-</section>
+<div class="g-col-1 g-col-md-5">
+<div class="card-home">
+<p><span class="titre-carte">👥 Total visiteurs</span> <span data-count-path="TOTAL">…</span> visites</p>
 </div>
 </div>
-<div class="grid">
-<div class="g-col-6 g-col-md-3">
-<section id="annales" class="level3 card-home">
-<h3 class="anchored" data-anchor-id="annales"><a href="./annales/index.html">🎓 Annales</a></h3>
-<p><strong><span data-count-path="/annales/">…</span></strong> visites</p>
-</section>
+<div class="g-col-1 g-col-md-5">
+<div class="card-home">
+<p><a href="./index.html">🏠 Accueil</a> <span data-count-path="/">…</span> visites</p>
 </div>
-<div class="g-col-6 g-col-md-3">
-<section id="tipe" class="level3 card-home">
-<h3 class="anchored" data-anchor-id="tipe"><a href="./tipe/index.html">🔬 TIPE</a></h3>
-<p><strong><span data-count-path="/tipe/">…</span></strong> visites</p>
-</section>
 </div>
-<div class="g-col-6 g-col-md-3">
-<section id="conseils" class="level3 card-home">
-<h3 class="anchored" data-anchor-id="conseils"><a href="./conseils.html">💡 Conseils</a></h3>
-<p><strong><span data-count-path="/conseils.html">…</span></strong> visites</p>
-</section>
+<div class="g-col-1 g-col-md-5">
+<div class="card-home">
+<p><a href="./cours/index.html">📘 Cours</a> <span data-count-path="/cours/">…</span> visites</p>
 </div>
-<div class="g-col-6 g-col-md-3">
-<section id="contact" class="level3 card-home">
-<h3 class="anchored" data-anchor-id="contact"><a href="./contact.html">✉️ Contact</a></h3>
-<p><strong><span data-count-path="/contact.html">…</span></strong> visites</p>
-</section>
+</div>
+<div class="g-col-1 g-col-md-5">
+<div class="card-home">
+<p><a href="./dl/index.html">💻 DL</a> <span data-count-path="/dl/">…</span> visites</p>
+</div>
+</div>
+<div class="g-col-1 g-col-md-5">
+<div class="card-home">
+<p><a href="./ds/index.html">📝 DS</a> <span data-count-path="/ds/">…</span> visites</p>
+</div>
+</div>
+<div class="g-col-1 g-col-md-5">
+<div class="card-home">
+<p><a href="./td/index.html">✏️ TD</a> <span data-count-path="/td/">…</span> visites</p>
+</div>
+</div>
+<div class="g-col-1 g-col-md-5">
+<div class="card-home">
+<p><a href="./annales/index.html">🎓 Annales</a> <span data-count-path="/annales/">…</span> visites</p>
+</div>
+</div>
+<div class="g-col-1 g-col-md-5">
+<div class="card-home">
+<p><a href="./tipe/index.html">🔬 TIPE</a> <span data-count-path="/tipe/">…</span> visites</p>
+</div>
+</div>
+<div class="g-col-1 g-col-md-5">
+<div class="card-home">
+<p><a href="./conseils.html">💡 Conseils</a> <span data-count-path="/conseils.html">…</span> visites</p>
+</div>
+</div>
+<div class="g-col-1 g-col-md-5">
+<div class="card-home">
+<p><a href="./contact.html">✉️ Contact</a> <span data-count-path="/contact.html">…</span> visites</p>
+</div>
 </div>
 </div>
 </section>
@@ -325,139 +336,147 @@ ul.task-list li input[type="checkbox"] {
 <tbody>
 <tr class="odd">
 <td><a href=".">Accueil</a></td>
-<td><span data-count-path="/">…</span></td>
+<td><span data-count-path="/ ">… </span></td>
 </tr>
 <tr class="even">
 <td><a href="./cours/">Cours</a></td>
-<td><span data-count-path="/cours/">…</span></td>
+<td><span data-count-path="/cours/ ">… </span></td>
 </tr>
 <tr class="odd">
 <td><a href="./cours/mpsi.html">Cours MPSI</a></td>
-<td><span data-count-path="/cours/mpsi.html">…</span></td>
+<td><span data-count-path="/cours/mpsi.html ">… </span></td>
 </tr>
 <tr class="even">
 <td><a href="./cours/mp.html">Cours MP</a></td>
-<td><span data-count-path="/cours/mp.html">…</span></td>
+<td><span data-count-path="/cours/mp.html ">… </span></td>
 </tr>
 <tr class="odd">
 <td><a href="./cours/pcsi.html">Cours PCSI</a></td>
-<td><span data-count-path="/cours/pcsi.html">…</span></td>
+<td><span data-count-path="/cours/pcsi.html ">… </span></td>
 </tr>
 <tr class="even">
 <td><a href="./cours/psi.html">Cours PSI</a></td>
-<td><span data-count-path="/cours/psi.html">…</span></td>
+<td><span data-count-path="/cours/psi.html ">… </span></td>
 </tr>
 <tr class="odd">
 <td><a href="./cours/tsi1.html">Cours TSI 1</a></td>
-<td><span data-count-path="/cours/tsi1.html">…</span></td>
+<td><span data-count-path="/cours/tsi1.html ">… </span></td>
 </tr>
 <tr class="even">
 <td><a href="./cours/tsi2.html">Cours TSI 2</a></td>
-<td><span data-count-path="/cours/tsi2.html">…</span></td>
+<td><span data-count-path="/cours/tsi2.html ">… </span></td>
 </tr>
 <tr class="odd">
 <td><a href="./cours/ect1.html">Cours ECT 1</a></td>
-<td><span data-count-path="/cours/ect1.html">…</span></td>
+<td><span data-count-path="/cours/ect1.html ">… </span></td>
 </tr>
 <tr class="even">
 <td><a href="./cours/ect2.html">Cours ECT 2</a></td>
-<td><span data-count-path="/cours/ect2.html">…</span></td>
+<td><span data-count-path="/cours/ect2.html ">… </span></td>
 </tr>
 <tr class="odd">
 <td><a href="./cours/ecs1.html">Cours ECS 1</a></td>
-<td><span data-count-path="/cours/ecs1.html">…</span></td>
+<td><span data-count-path="/cours/ecs1.html ">… </span></td>
 </tr>
 <tr class="even">
 <td><a href="./cours/ecs2.html">Cours ECS 2</a></td>
-<td><span data-count-path="/cours/ecs2.html">…</span></td>
+<td><span data-count-path="/cours/ecs2.html ">… </span></td>
 </tr>
 <tr class="odd">
 <td><a href="./td/">TD</a></td>
-<td><span data-count-path="/td/">…</span></td>
+<td><span data-count-path="/td/ ">… </span></td>
 </tr>
 <tr class="even">
 <td><a href="./td/mpsi.html">TD MPSI</a></td>
-<td><span data-count-path="/td/mpsi.html">…</span></td>
+<td><span data-count-path="/td/mpsi.html ">… </span></td>
 </tr>
 <tr class="odd">
 <td><a href="./td/mp.html">TD MP</a></td>
-<td><span data-count-path="/td/mp.html">…</span></td>
+<td><span data-count-path="/td/mp.html ">… </span></td>
 </tr>
 <tr class="even">
 <td><a href="./td/pcsi.html">TD PCSI</a></td>
-<td><span data-count-path="/td/pcsi.html">…</span></td>
+<td><span data-count-path="/td/pcsi.html ">… </span></td>
 </tr>
 <tr class="odd">
 <td><a href="./td/psi.html">TD PSI</a></td>
-<td><span data-count-path="/td/psi.html">…</span></td>
+<td><span data-count-path="/td/psi.html ">… </span></td>
 </tr>
 <tr class="even">
 <td><a href="./td/tsi1.html">TD TSI 1</a></td>
-<td><span data-count-path="/td/tsi1.html">…</span></td>
+<td><span data-count-path="/td/tsi1.html ">… </span></td>
 </tr>
 <tr class="odd">
 <td><a href="./td/tsi2.html">TD TSI 2</a></td>
-<td><span data-count-path="/td/tsi2.html">…</span></td>
+<td><span data-count-path="/td/tsi2.html ">… </span></td>
 </tr>
 <tr class="even">
 <td><a href="./td/ect1.html">TD ECT 1</a></td>
-<td><span data-count-path="/td/ect1.html">…</span></td>
+<td><span data-count-path="/td/ect1.html ">… </span></td>
 </tr>
 <tr class="odd">
 <td><a href="./td/ect2.html">TD ECT 2</a></td>
-<td><span data-count-path="/td/ect2.html">…</span></td>
+<td><span data-count-path="/td/ect2.html ">… </span></td>
 </tr>
 <tr class="even">
 <td><a href="./td/ecs1.html">TD ECS 1</a></td>
-<td><span data-count-path="/td/ecs1.html">…</span></td>
+<td><span data-count-path="/td/ecs1.html ">… </span></td>
 </tr>
 <tr class="odd">
 <td><a href="./td/ecs2.html">TD ECS 2</a></td>
-<td><span data-count-path="/td/ecs2.html">…</span></td>
+<td><span data-count-path="/td/ecs2.html ">… </span></td>
 </tr>
 <tr class="even">
 <td><a href="./annales/">Annales</a></td>
-<td><span data-count-path="/annales/">…</span></td>
+<td><span data-count-path="/annales/ ">… </span></td>
 </tr>
 <tr class="odd">
 <td><a href="./annales/mp.html">Annales MP</a></td>
-<td><span data-count-path="/annales/mp.html">…</span></td>
+<td><span data-count-path="/annales/mp.html ">… </span></td>
 </tr>
 <tr class="even">
 <td><a href="./annales/psi.html">Annales PSI</a></td>
-<td><span data-count-path="/annales/psi.html">…</span></td>
+<td><span data-count-path="/annales/psi.html ">… </span></td>
 </tr>
 <tr class="odd">
 <td><a href="./annales/tsi.html">Annales TSI</a></td>
-<td><span data-count-path="/annales/tsi.html">…</span></td>
+<td><span data-count-path="/annales/tsi.html ">… </span></td>
 </tr>
 <tr class="even">
 <td><a href="./annales/ect.html">Annales ECT</a></td>
-<td><span data-count-path="/annales/ect.html">…</span></td>
+<td><span data-count-path="/annales/ect.html ">… </span></td>
 </tr>
 <tr class="odd">
 <td><a href="./annales/ecs.html">Annales ECS</a></td>
-<td><span data-count-path="/annales/ecs.html">…</span></td>
+<td><span data-count-path="/annales/ecs.html ">… </span></td>
 </tr>
 <tr class="even">
 <td><a href="./tipe/">TIPE</a></td>
-<td><span data-count-path="/tipe/">…</span></td>
+<td><span data-count-path="/tipe/ ">… </span></td>
 </tr>
 <tr class="odd">
 <td><a href="./tipe/mp.html">TIPE MP</a></td>
-<td><span data-count-path="/tipe/mp.html">…</span></td>
+<td><span data-count-path="/tipe/mp.html ">… </span></td>
+</tr>
+<tr class="even">
+<td><a href="./dl/">DL</a></td>
+<td><span data-count-path="/dl/ ">… </span></td>
+</tr>
+<tr class="odd">
+<td><a href="./ds/">DS</a></td>
+<td><span data-count-path="/ds/ ">… </span></td>
 </tr>
 <tr class="even">
 <td><a href="./conseils.html">Conseils</a></td>
-<td><span data-count-path="/conseils.html">…</span></td>
+<td><span data-count-path="/conseils.html ">… </span></td>
 </tr>
 <tr class="odd">
 <td><a href="./contact.html">Contact</a></td>
-<td><span data-count-path="/contact.html">…</span></td>
+<td><span data-count-path="/contact.html ">… </span></td>
 </tr>
 <tr class="even">
 <td><a href="./analytics.html">Statistiques</a></td>
-<td><span data-count-path="/analytics.html">…</span></td>
+<td><span data-count-path="/analytics.html ">… </span></td>
 </tr>
 </tbody>
 </table>
