@@ -1,9 +1,8 @@
-cat > abonnes-widget.html << 'EOF'
 <div id="auth-section">
   <div id="login-form">
     <h2>Connexion</h2>
-    <input type="email" id="email" placeholder="Email" style="display:block;margin:8px 0;padding:8px;width:300px;" />
-    <input type="password" id="password" placeholder="Mot de passe" style="display:block;margin:8px 0;padding:8px;width:300px;" />
+    <input type="email" id="email" placeholder="Email" style="display:block;margin:8px 0;padding:8px;width:300px;border:1px solid #ccc;border-radius:4px;" />
+    <input type="password" id="password" placeholder="Mot de passe" style="display:block;margin:8px 0;padding:8px;width:300px;border:1px solid #ccc;border-radius:4px;" />
     <button onclick="signIn()">Se connecter</button>
     <button onclick="signUp()">Créer un compte</button>
     <p id="auth-message"></p>
@@ -43,7 +42,7 @@ cat > abonnes-widget.html << 'EOF'
     if (error) {
       document.getElementById('auth-message').textContent = '❌ ' + error.message
     } else {
-      document.getElementById('auth-message').textContent = '✅ Compte créé ! Connectez-vous.'
+      document.getElementById('auth-message').textContent = '✅ Compte créé ! Vous pouvez vous connecter.'
     }
   }
 
@@ -88,4 +87,3 @@ cat > abonnes-widget.html << 'EOF'
 
   loadUser()
 </script>
-EOF
