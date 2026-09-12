@@ -1,0 +1,91 @@
+cat > abonnes-widget.html << 'EOF'
+<div id="auth-section">
+  <div id="login-form">
+    <h2>Connexion</h2>
+    <input type="email" id="email" placeholder="Email" style="display:block;margin:8px 0;padding:8px;width:300px;" />
+    <input type="password" id="password" placeholder="Mot de passe" style="display:block;margin:8px 0;padding:8px;width:300px;" />
+    <button onclick="signIn()">Se connecter</button>
+    <button onclick="signUp()">Créer un compte</button>
+    <p id="auth-message"></p>
+  </div>
+
+  <div id="premium-zone" style="display:none;">
+    <h2>Bienvenue <span id="user-email"></span> !</h2>
+    <div id="status-badge"></div>
+    <h3>📚 Contenu Premium</h3>
+    <ul id="pdf-list"></ul>
+    <button onclick="signOut()">Déconnexion</button>
+  </div>
+</div>
+
+<script type="module">
+  import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm'
+
+  const SUPABASE_URL = 'https://zzqbigxwmukbhfwxypye.supabase.co'
+  const SUPABASE_KEY = 'sb_publishable_5w1Ikjnw4yddtKk_Z9wmmw_BtgQclVn'
+  const supabase = createClient(SUPABASE_URL, SUPABASE_KEY)
+
+  window.signIn = async () => {
+    const email = document.getElementById('email').value
+    const password = document.getElementById('password').value
+    const { error } = await supabase.auth.signInWithPassword({ email, password })
+    if (error) {
+      document.getElementById('auth-message').textContent = '❌ ' + error.message
+    } else {
+      loadUser()
+    }
+  }
+
+  window.signUp = async () => {
+    const email = document.getElementById('email').value
+    const password = document.getElementById('password').value
+    const { error } = await supabase.auth.signUp({ email, password })
+    if (error) {
+      document.getElementById('auth-message').textContent = '❌ ' + error.message
+    } else {
+      document.getElementById('auth-message').textContent = '✅ Compte créé ! Connectez-vous.'
+    }
+  }
+
+  window.signOut = async () => {
+    await supabase.auth.signOut()
+    location.reload()
+  }
+
+  async function loadUser() {
+    const { data: { user } } = await supabase.auth.getUser()
+    if (!user) return
+    document.getElementById('login-form').style.display = 'none'
+    document.getElementById('premium-zone').style.display = 'block'
+    document.getElementById('user-email').textContent = user.email
+
+    const { data: profile } = await supabase
+      .from('profiles').select('*').eq('id', user.id).single()
+
+    const badge = document.getElementById('status-badge')
+    if (profile && profile.is_premium) {
+      badge.innerHTML = '<span style="background:#10b981;color:white;padding:4px 12px;border-radius:20px;">⭐ Abonné Premium</span>'
+      loadPremiumContent()
+    } else {
+      badge.innerHTML = '<span style="background:#f59e0b;color:white;padding:4px 12px;border-radius:20px;">🎁 Essai gratuit</span>' +
+        '<p><a href="https://wa.me/212661669285?text=Bonjour, je souhaite m%27abonner" style="background:#25D366;color:white;padding:8px 16px;border-radius:8px;text-decoration:none;display:inline-block;margin-top:8px;">💬 Passer Premium via WhatsApp</a></p>'
+    }
+  }
+
+  async function loadPremiumContent() {
+    const { data: files } = await supabase.storage.from('premium-content').list()
+    const list = document.getElementById('pdf-list')
+    list.innerHTML = ''
+    if (files) {
+      for (const file of files) {
+        const { data } = await supabase.storage.from('premium-content').createSignedUrl(file.name, 3600)
+        const li = document.createElement('li')
+        li.innerHTML = '<a href="' + data.signedUrl + '" target="_blank">📄 ' + file.name + '</a>'
+        list.appendChild(li)
+      }
+    }
+  }
+
+  loadUser()
+</script>
+EOF
