@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Courbes planes - Mathématiques en CPGE – Mathématiques en CPGE</title>
+<title>Espace Abonné - Math en CPGE – Mathématiques en CPGE</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -29,23 +29,24 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../">
-<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="../site_libs/quarto-html/popper.min.js"></script>
-<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-7a8c080b55ea27eb37b467515007f9ee.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./images/logo.png" rel="icon" type="image/png">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-7a8c080b55ea27eb37b467515007f9ee.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -73,9 +74,51 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<script data-goatcounter="https://maharicpge.goatcounter.com/count" async="" src="//gc.zgo.at/count.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    function label(n) { return ' (' + n + ' téléchargement' + (n > 1 ? 's' : '') + ')'; }
+    function readCount(path, cb) {
+      var urls = [
+        'https://maharicpge.goatcounter.com/counter/' + encodeURIComponent(path) + '.json',
+        'https://maharicpge.goatcounter.com/counter' + path + '.json'
+      ];
+      (function tryNext(i) {
+        if (i >= urls.length) { cb(0); return; }
+        fetch(urls[i])
+          .then(function (r) { if (!r.ok) throw 0; return r.json(); })
+          .then(function (d) { cb(d.count || 0); })
+          .catch(function () { tryNext(i + 1); });
+      })(0);
+    }
+    document.querySelectorAll('table a[href$=".pdf"]').forEach(function (a) {
+      var url  = a.getAttribute('href');
+      var name = url.split('/').pop().replace(/\.pdf$/i, '');
+      var path = '/dl/' + name;
+      a.target = '_blank';
+      a.rel = 'noopener';
+      var span = document.createElement('span');
+      span.className = 'dl-count';
+      span.textContent = ' (…)';
+      span.dataset.n = '0';
+      a.insertAdjacentElement('afterend', span);
+      readCount(path, function (n) { span.dataset.n = String(n); span.textContent = label(n); });
+      a.addEventListener('click', function () {
+        var n = parseInt(span.dataset.n || '0', 10) + 1;
+        span.dataset.n = String(n);
+        span.textContent = label(n);
+        if (window.goatcounter && window.goatcounter.count) {
+          window.goatcounter.count({ path: path, title: 'Téléchargement : ' + name });
+        }
+      });
+    });
+  });
+</script>
 
 
-<link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="styles.css">
+<meta property="og:title" content="Espace Abonné - Math en CPGE – Mathématiques en CPGE">
+<meta property="og:site_name" content="Mathématiques en CPGE">
 </head>
 
 <body class="nav-fixed quarto-light">
@@ -85,7 +128,11 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="../index.html">
+    <a href="./index.html" class="navbar-brand navbar-brand-logo">
+    <img src="./images/logo.png" alt="" class="navbar-logo light-content">
+    <img src="./images/logo.png" alt="" class="navbar-logo dark-content">
+    </a>
+    <a class="navbar-brand" href="./index.html">
     <span class="navbar-title">Accueil</span>
     </a>
   </div>
@@ -96,28 +143,52 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../cours/index.html"> 
+    <a class="nav-link" href="./cours/index.html"> 
 <span class="menu-text">Cours</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../td/index.html"> 
+    <a class="nav-link" href="./td/index.html"> 
 <span class="menu-text">TD</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../annales/index.html"> 
+    <a class="nav-link" href="./dl/index.html"> 
+<span class="menu-text">DL</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./ds/index.html"> 
+<span class="menu-text">DS</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./annales/index.html"> 
 <span class="menu-text">Annales</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../tipe/index.html"> 
+    <a class="nav-link" href="./tipe/index.html"> 
 <span class="menu-text">TIPE</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../conseils.html"> 
+    <a class="nav-link" href="./conseils.html"> 
 <span class="menu-text">Conseils et méthode</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../contact.html"> 
+    <a class="nav-link" href="./professeurs.html"> 
+<span class="menu-text">Aux professeurs</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./analytics.html"> 
+<span class="menu-text">Statistiques</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./contribuer.html"> 
+<span class="menu-text">Contribuer</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./contact.html"> 
 <span class="menu-text">Contact</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./apropos.html"> 
+<span class="menu-text">À propos de l’auteur</span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
@@ -130,21 +201,15 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#document" id="toc-document" class="nav-link active" data-scroll-target="#document">Document</a></li>
-  </ul>
-</nav>
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Chapitre 28 : Courbes planes</h1>
+<h1 class="title">Espace Abonné - Math en CPGE</h1>
 </div>
 
 
@@ -161,34 +226,106 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p><strong>MPSI (1re année) — Chapitre 28.</strong> Courbes paramétrées, coordonnées polaires, tangentes, asymptotes.</p>
-<section id="document" class="level2">
-<h2 class="anchored" data-anchor-id="document">Document</h2>
-<p><em>PDF à venir : déposez le fichier <code>files/mpsi/chap28.pdf</code> puis régénérez la page.</em></p>
+<div id="auth-section">
+<!-- Zone de connexion -->
+<div id="login-form">
+<pre><code>&lt;h2&gt;Connexion&lt;/h2&gt;
+&lt;input type="email" id="email" placeholder="Email" /&gt;
+&lt;input type="password" id="password" placeholder="Mot de passe" /&gt;
+&lt;button onclick="signIn()"&gt;Se connecter&lt;/button&gt;
+&lt;button onclick="signUp()"&gt;Créer un compte&lt;/button&gt;
+&lt;p id="auth-message"&gt;&lt;/p&gt;</code></pre>
+</div>
+<!-- Zone abonné (cachée par défaut) -->
+<div id="premium-zone" style="display:none;">
+<pre><code>&lt;h2&gt;Bienvenue &lt;span id="user-email"&gt;&lt;/span&gt; !&lt;/h2&gt;
+&lt;div id="status-badge"&gt;&lt;/div&gt;
+&lt;h3&gt;📚 Contenu Premium&lt;/h3&gt;
+&lt;ul id="pdf-list"&gt;&lt;/ul&gt;
+&lt;button onclick="signOut()"&gt;Déconnexion&lt;/button&gt;</code></pre>
+</div>
+</div>
+<script type="module">
+  import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm'
+
+  const SUPABASE_URL = 'https://zzqbigxwmukbhfwxypye.supabase.co'
+  const SUPABASE_KEY = 'sb_publishable_5w1Ikjnw4yddtKk_Z9wmmw_BtgQclVn'
+  const supabase = createClient(SUPABASE_URL, SUPABASE_KEY)
+
+  window.signIn = async () => {
+    const email = document.getElementById('email').value
+    const password = document.getElementById('password').value
+    const { data, error } = await supabase.auth.signInWithPassword({ email, password })
+    if (error) {
+      document.getElementById('auth-message').textContent = '❌ ' + error.message
+    } else {
+      loadUser()
+    }
+  }
+
+  window.signUp = async () => {
+    const email = document.getElementById('email').value
+    const password = document.getElementById('password').value
+    const { data, error } = await supabase.auth.signUp({ email, password })
+    if (error) {
+      document.getElementById('auth-message').textContent = '❌ ' + error.message
+    } else {
+      document.getElementById('auth-message').textContent = '✅ Compte créé ! Vous pouvez vous connecter.'
+    }
+  }
+
+  window.signOut = async () => {
+    await supabase.auth.signOut()
+    location.reload()
+  }
+
+  async function loadUser() {
+    const { data: { user } } = await supabase.auth.getUser()
+    if (!user) return
+
+    document.getElementById('login-form').style.display = 'none'
+    document.getElementById('premium-zone').style.display = 'block'
+    document.getElementById('user-email').textContent = user.email
+
+    // Récupérer le profil
+    const { data: profile } = await supabase
+      .from('profiles')
+      .select('*')
+      .eq('id', user.id)
+      .single()
+
+    const badge = document.getElementById('status-badge')
+    if (profile.is_premium) {
+      badge.innerHTML = '<span style="background:#10b981;color:white;padding:4px 12px;border-radius:20px;">⭐ Abonné Premium</span>'
+      loadPremiumContent()
+    } else {
+      badge.innerHTML = `<span style="background:#f59e0b;color:white;padding:4px 12px;border-radius:20px;">🎁 Essai gratuit (${profile.credits_remaining} crédit restant)</span>
+        <p><a href="https://wa.me/212661669285?text=Bonjour, je souhaite m'abonner" style="background:#25D366;color:white;padding:8px 16px;border-radius:8px;text-decoration:none;display:inline-block;margin-top:8px;">💬 Passer Premium via WhatsApp</a></p>`
+    }
+  }
+
+  async function loadPremiumContent() {
+    // Liste les PDFs du bucket premium
+    const { data: files, error } = await supabase.storage.from('premium-content').list()
+    const list = document.getElementById('pdf-list')
+    list.innerHTML = ''
+    if (files) {
+      for (const file of files) {
+        const { data } = await supabase.storage.from('premium-content').createSignedUrl(file.name, 3600)
+        const li = document.createElement('li')
+        li.innerHTML = `<a href="${data.signedUrl}" target="_blank">📄 ${file.name}</a>`
+        list.appendChild(li)
+      }
+    }
+  }
+
+  // Au chargement, vérifier si déjà connecté
+  loadUser()
+</script>
 
 
-</section>
 
 </main> <!-- /main -->
-<!-- Compteur de visites GoatCounter -->
-<script data-goatcounter="https://maharicpge.goatcounter.com/count" async="" src="//gc.zgo.at/count.js"></script>
-
-<!-- Compteur de téléchargements : compte chaque clic sur un lien PDF -->
-<script>
-  window.addEventListener('load', function () {
-    document.querySelectorAll('a[href$=".pdf"]').forEach(function (lien) {
-      lien.addEventListener('click', function () {
-        if (window.goatcounter) {
-          window.goatcounter.count({
-            path:  'download: ' + lien.getAttribute('href'),
-            title: lien.textContent.trim(),
-            event: true
-          });
-        }
-      });
-    });
-  });
-</script>
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
@@ -262,7 +399,7 @@ ul.task-list li input[type="checkbox"] {
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp("https:\/\/maharicpge\.github\.io\/");
+        var filterRegex = new RegExp("https:\/\/mathencpge\.ma");
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }
