@@ -273,7 +273,7 @@ $$
 
 :::
 
-### Quantificateurs
+## Quantificateurs
 
 Soit $\mathcal{R}(x)$ une assertion dépendant d'une variable $x$. On écrit $(\exists x \,/\, \mathcal{R}(x))$ pour dire qu'il existe au moins un des objets $x$ pour lequel $\mathcal{R}(x)$ est vraie.
 
@@ -335,9 +335,9 @@ Soit $P(x)$ une expression dépendant d'une variable $x$. On a :
 
 :::
 
-## Types de raisonnement
+# Types de raisonnement
 
-### Raisonnement par les équivalences successives
+## Raisonnement par les équivalences successives
 
 Pour démontrer qu'une propriété $P$ est vraie, on démontre des fois qu'elle est équivalente à une propriété qu'on sait vraie à l'avance.
 
@@ -402,7 +402,7 @@ $$x^2+x+1\geq 0$$
 
 :::
 
-### Raisonnement par contre-exemple
+## Raisonnement par contre-exemple
 
 Soit $P(x)$ une propriété dépendant d'un paramètre $x$. Pour montrer que l'affirmation $(\forall x,\ P(x))$ est fausse, on démontre que sa négation $(\exists x,\ \neg P(x))$ est vraie.
 
@@ -426,7 +426,7 @@ L'affirmation $(\forall (a,b)\in (\mathbb{R}^+)^2,\ \sqrt{a+b}=\sqrt{a}+\sqrt{b}
 
 :::
 
-### Raisonnement par l'absurde
+## Raisonnement par l'absurde
 
 ::: {.callout-note title="Première forme" icon="false"}
 
@@ -495,7 +495,7 @@ D'où la propriété $\mathcal{P}(x)$ est vraie.
 
 :::
 
-### Raisonnement par contraposée
+## Raisonnement par contraposée
 
 Comme on a déjà mentionné, l'implication $A \Longrightarrow B$ se traduit par $(\neg A)\vee B$ qui est la même chose que $(\neg(\neg B))\vee(\neg A)$ et qui se traduit par $(\neg B)\Longrightarrow(\neg A)$.
 $$A \Longrightarrow B \equiv (\neg B)\Longrightarrow(\neg A)$$
