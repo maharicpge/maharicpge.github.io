@@ -1,20 +1,59 @@
-cat > abonnes-widget.html << 'EOF'
 <div id="auth-section">
+  <!-- Formulaire de Connexion / Inscription -->
   <div id="login-form">
     <h2>Connexion</h2>
+    
     <input type="email" id="email" placeholder="Email" style="display:block;margin:8px 0;padding:8px;width:300px;border:1px solid #ccc;border-radius:4px;" />
     <input type="password" id="password" placeholder="Mot de passe" style="display:block;margin:8px 0;padding:8px;width:300px;border:1px solid #ccc;border-radius:4px;" />
-    <button onclick="signIn()">Se connecter</button>
-    <button onclick="signUp()">Créer un compte</button>
-    <p id="auth-message"></p>
+    
+    <!-- Nouveaux champs pour l'inscription -->
+    <div id="signup-fields" style="display:none; margin-top: 15px; border-top: 1px dashed #ccc; padding-top: 15px;">
+      <p style="margin: 0 0 10px 0; font-size: 0.9em; color: #555;">Informations complémentaires (pour l'inscription) :</p>
+      
+      <input type="text" id="nom" placeholder="Nom" style="display:block;margin:8px 0;padding:8px;width:300px;border:1px solid #ccc;border-radius:4px;" />
+      <input type="text" id="prenom" placeholder="Prénom" style="display:block;margin:8px 0;padding:8px;width:300px;border:1px solid #ccc;border-radius:4px;" />
+      
+      <select id="niveau" style="display:block;margin:8px 0;padding:8px;width:320px;border:1px solid #ccc;border-radius:4px;">
+        <option value="">-- Niveau --</option>
+        <option value="Niveau 1">Niveau 1</option>
+        <option value="Niveau 2">Niveau 2</option>
+      </select>
+      
+      <select id="filiere" style="display:block;margin:8px 0;padding:8px;width:320px;border:1px solid #ccc;border-radius:4px;">
+        <option value="">-- Filière --</option>
+        <option value="MP">MP</option>
+        <option value="PSI">PSI</option>
+        <option value="TSI">TSI</option>
+        <option value="ECT">ECT</option>
+        <option value="ECS">ECS</option>
+      </select>
+      
+      <input type="text" id="etablissement" placeholder="Établissement / Ville" style="display:block;margin:8px 0;padding:8px;width:300px;border:1px solid #ccc;border-radius:4px;" />
+    </div>
+
+    <button onclick="signIn()" style="margin-top:10px; padding:8px 16px; cursor:pointer;">Se connecter</button>
+    <button onclick="toggleSignup()" id="toggle-signup-btn" style="margin-top:10px; padding:8px 16px; cursor:pointer; background:#f0f0f0;">Créer un compte</button>
+    <button onclick="signUp()" id="submit-signup-btn" style="display:none; margin-top:10px; padding:8px 16px; cursor:pointer; background:#10b981; color:white; border:none; border-radius:4px;">Valider l'inscription</button>
+    
+    <p id="auth-message" style="font-weight:bold; margin-top:10px;"></p>
   </div>
 
+  <!-- Espace Abonné (une fois connecté) -->
   <div id="premium-zone" style="display:none;">
     <h2>Bienvenue <span id="user-email"></span> !</h2>
+    
+    <!-- Affichage des informations du profil -->
+    <div id="profile-info" style="margin: 15px 0; padding: 15px; background: #f8f9fa; border-left: 4px solid #0ea5e9; border-radius: 4px; display: none;">
+      <p style="margin: 4px 0;"><strong>Nom :</strong> <span id="info-nom"></span> <span id="info-prenom"></span></p>
+      <p style="margin: 4px 0;"><strong>Niveau :</strong> <span id="info-niveau"></span></p>
+      <p style="margin: 4px 0;"><strong>Filière :</strong> <span id="info-filiere"></span></p>
+      <p style="margin: 4px 0;"><strong>Établissement :</strong> <span id="info-etablissement"></span></p>
+    </div>
+
     <div id="status-badge"></div>
     <h3>📚 Contenu Premium</h3>
     <ul id="pdf-list"></ul>
-    <button onclick="signOut()">Déconnexion</button>
+    <button onclick="signOut()" style="margin-top:20px; padding:8px 16px; cursor:pointer;">Déconnexion</button>
   </div>
 </div>
 
@@ -24,6 +63,23 @@ cat > abonnes-widget.html << 'EOF'
   const SUPABASE_URL = 'https://zzqbigxwmukbhfwxypye.supabase.co'
   const SUPABASE_KEY = 'sb_publishable_5w1Ikjnw4yddtKk_Z9wmmw_BtgQclVn'
   const supabase = createClient(SUPABASE_URL, SUPABASE_KEY)
+
+  // Fonction pour afficher/masquer les champs d'inscription
+  window.toggleSignup = () => {
+    const fields = document.getElementById('signup-fields');
+    const btnSignup = document.getElementById('toggle-signup-btn');
+    const btnSubmit = document.getElementById('submit-signup-btn');
+    
+    if (fields.style.display === 'none') {
+      fields.style.display = 'block';
+      btnSignup.style.display = 'none';
+      btnSubmit.style.display = 'inline-block';
+    } else {
+      fields.style.display = 'none';
+      btnSignup.style.display = 'inline-block';
+      btnSubmit.style.display = 'none';
+    }
+  }
 
   window.signIn = async () => {
     const email = document.getElementById('email').value
@@ -39,11 +95,38 @@ cat > abonnes-widget.html << 'EOF'
   window.signUp = async () => {
     const email = document.getElementById('email').value
     const password = document.getElementById('password').value
-    const { error } = await supabase.auth.signUp({ email, password })
+    const nom = document.getElementById('nom').value
+    const prenom = document.getElementById('prenom').value
+    const niveau = document.getElementById('niveau').value
+    const filiere = document.getElementById('filiere').value
+    const etablissement = document.getElementById('etablissement').value
+
+    // Vérification simple que les champs sont remplis
+    if (!nom || !prenom || !niveau || !filiere || !etablissement) {
+      document.getElementById('auth-message').textContent = '❌ Veuillez remplir tous les champs.';
+      return;
+    }
+
+    const { data, error } = await supabase.auth.signUp({
+      email,
+      password,
+      options: {
+        data: {
+          nom: nom,
+          prenom: prenom,
+          niveau: niveau,
+          filiere: filiere,
+          etablissement: etablissement
+        }
+      }
+    })
+
     if (error) {
       document.getElementById('auth-message').textContent = '❌ ' + error.message
     } else {
-      document.getElementById('auth-message').textContent = '✅ Compte créé ! Vous pouvez vous connecter.'
+      document.getElementById('auth-message').textContent = '✅ Compte créé ! Vérifiez votre email pour confirmer votre inscription.'
+      // On cache le formulaire d'inscription
+      toggleSignup();
     }
   }
 
@@ -55,6 +138,7 @@ cat > abonnes-widget.html << 'EOF'
   async function loadUser() {
     const { data: { user } } = await supabase.auth.getUser()
     if (!user) return
+
     document.getElementById('login-form').style.display = 'none'
     document.getElementById('premium-zone').style.display = 'block'
     document.getElementById('user-email').textContent = user.email
@@ -62,13 +146,28 @@ cat > abonnes-widget.html << 'EOF'
     const { data: profile } = await supabase
       .from('profiles').select('*').eq('id', user.id).single()
 
+    if (profile) {
+      // Affichage des infos du profil
+      const infoDiv = document.getElementById('profile-info');
+      infoDiv.style.display = 'block';
+      document.getElementById('info-nom').textContent = profile.nom || 'Non renseigné';
+      document.getElementById('info-prenom').textContent = profile.prenom || '';
+      document.getElementById('info-niveau').textContent = profile.niveau || 'Non renseigné';
+      document.getElementById('info-filiere').textContent = profile.filiere || 'Non renseignée';
+      document.getElementById('info-etablissement').textContent = profile.etablissement || 'Non renseigné';
+    }
+
     const badge = document.getElementById('status-badge')
     if (profile && profile.is_premium) {
       badge.innerHTML = '<span style="background:#10b981;color:white;padding:4px 12px;border-radius:20px;">⭐ Abonné Premium</span>'
       loadPremiumContent()
     } else {
-      badge.innerHTML = '<span style="background:#f59e0b;color:white;padding:4px 12px;border-radius:20px;">🎁 Essai gratuit</span>' +
-        '<p><a href="https://wa.me/212661669285?text=Bonjour, je souhaite m%27abonner" style="background:#25D366;color:white;padding:8px 16px;border-radius:8px;text-decoration:none;display:inline-block;margin-top:8px;">💬 Passer Premium via WhatsApp</a></p>'
+      let messageOffre = '🎁 Essai gratuit';
+      if (profile && profile.filiere) {
+        messageOffre = `🎁 Essai gratuit - Filière ${profile.filiere}`;
+      }
+      badge.innerHTML = `<span style="background:#f59e0b;color:white;padding:4px 12px;border-radius:20px;">${messageOffre}</span>` +
+        `<p><a href="https://wa.me/212661669285?text=Bonjour, je souhaite m'abonner (${profile.filiere || ''} - ${profile.niveau || ''})" style="background:#25D366;color:white;padding:8px 16px;border-radius:8px;text-decoration:none;display:inline-block;margin-top:8px;">💬 Passer Premium via WhatsApp</a></p>`
     }
   }
 
@@ -88,4 +187,3 @@ cat > abonnes-widget.html << 'EOF'
 
   loadUser()
 </script>
-EOF
