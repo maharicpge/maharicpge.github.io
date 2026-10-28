@@ -17,26 +17,40 @@ website:
     logo: images/logo.png
     title: "Accueil"
     left:
+      # Onglet direct (le plus fréquent)
       - href: cours/index.qmd
         text: Cours
-      - href: td/index.qmd
-        text: TD
-      - href: dl/index.qmd
-        text: DL
-      - href: ds/index.qmd
-        text: DS
-      - href: annales/index.qmd
-        text: Annales
-      - href: tipe/index.qmd
-        text: TIPE
-      - conseils.qmd
-      - professeurs.qmd
-      - href: analytics.qmd
-        text: Statistiques
-      - contribuer.qmd
-      - contact.qmd
-      - apropos.qmd
-
+        
+      # Premier menu déroulant : Les Exercices / Entraînements
+      - text: "Entraînement"
+        menu:
+          - href: td/index.qmd
+            text: Travaux Dirigés (TD)
+          - href: dl/index.qmd
+            text: Devoirs Libres (DL)
+          - href: ds/index.qmd
+            text: Devoirs Surveillés (DS)
+            
+      # Deuxième menu déroulant : Ressources & Concours
+      - text: "Ressources"
+        menu:
+          - href: annales/index.qmd
+            text: Annales de Concours
+          - href: tipe/index.qmd
+            text: Espace T.I.P.E.
+          - conseils.qmd
+         
+          
+      # Troisième menu déroulant : À propos / Infos (celui créé précédemment)
+      - text: "À propos"
+        menu:
+          - professeurs.qmd
+          - href: contribuer.qmd
+            text: Contribuer au projet
+          - contact.qmd
+          - apropos.qmd
+          - href: analytics.qmd
+            text: Statistiques
         
   page-footer: "© 2026 - Mathématiques en CPGE  ------------- Créateur : Saîd MAHARI (GSM: 0670050667)"
 
