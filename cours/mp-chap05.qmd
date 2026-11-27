@@ -1,5 +1,5 @@
 ---
-title: "Cours – Fonctions vectorielles d'une variable réelle, arcs paramétrés"
+title: "Cours – Fonctions vectorielles d'une variable réelle"
 subtitle: "Chapitre 05"
 author: "Saîd MAHARI"
 date: last-modified
@@ -11,9 +11,9 @@ sidebar:
       text: "← Tous les cours"
     - section: "MP — 2e année"
       contents:
+        - cours/mp-chap03.qmd
         - cours/mp-chap04.qmd
-        - cours/mp-chap05.qmd
-        # - cours/mp-chap06.qmd
+        # - cours/mp-chap05.qmd
 lang: fr
 format:
   html:
@@ -26,455 +26,544 @@ filters:
   - custom-numbered-blocks.lua
 ---
 
-**MP (2e année) — Chapitre 05.** Dérivation, intégration sur un segment, arc paramétré de classe $\mathcal{C}^k$.
+**MP (2ᵉ année) — Chapitre 05.** Fonctions vectorielles d'une variable réelle : dérivation, intégration sur un segment, inégalité des accroissements finis, formules de Taylor, étude modeste des arcs paramétrés.
 
 Ce chapitre a été réalisé conformément au programme marocain de mathématiques de la filière MP.
 
-Dans tout ce chapitre, $I$ désigne un intervalle de $\mathbb{R}$ non vide et non réduit à un point, $n \geq 1$ un entier, $E$ un $\mathbb{K}$-espace vectoriel normé de dimension finie $n$ ($\mathbb{K} = \mathbb{R}$ ou $\mathbb{C}$), et $\mathcal{B} = (e_1, \ldots, e_n)$ une base de $E$.
 
-# Fonctions vectorielles d'une variable réelle
 
-## Définitions
+::: {.theoreme}
+**Objectifs du chapitre.** Ce chapitre généralise à des fonctions à valeurs dans un espace vectoriel normé $(E, \|\cdot\|)$ de dimension finie $n$ les résultats d'analyse réelle étudiés en première année. Il fournit les outils nécessaires à l'étude des équations différentielles linéaires et au calcul différentiel.
 
-::: {.definition title="(Fonction vectorielle)"}
-
-On appelle **fonction vectorielle** sur $I$ toute application $f : I \to E$ où $E$ est un espace vectoriel normé de dimension finie.
-
-Si $\mathcal{B} = (e_1, \ldots, e_n)$ est une base de $E$, les **fonctions composantes** de $f$ dans $\mathcal{B}$ sont les applications $f_1, \ldots, f_n : I \to \mathbb{K}$ définies par :
-$$f(t) = f_1(t) e_1 + f_2(t) e_2 + \cdots + f_n(t) e_n$$
-
-En particulier, pour $E = \mathbb{R}^n$ muni de la base canonique, on identifie $f$ à un $n$-uplet de fonctions :
-$$f(t) = (f_1(t), f_2(t), \ldots, f_n(t))$$
-
+- Étendre la dérivation et l'intégration aux fonctions vectorielles.
+- Préciser les notions de tangente, de vitesse et d'accélération instantanées.
+- Établir l'inégalité des accroissements finis et les formules de Taylor.
+- Étudier modestement les arcs paramétrés de l'espace.
 :::
 
-::: {.example}
+**Cadre du chapitre.** Dans tout ce chapitre :
 
-1. La fonction $f : \mathbb{R} \to \mathbb{R}^2$ définie par $f(t) = (\cos t, \sin t)$ est une fonction vectorielle à deux composantes.
+- $I$ désigne un intervalle de $\mathbb{R}$ (non réduit à un point).
+- $(E, \|\cdot\|)$ et $(F, \|\cdot\|_F)$ désignent des espaces vectoriels normés de dimension finie sur $\mathbb{K} = \mathbb{R}$ ou $\mathbb{C}$.
+- $(e_1, \ldots, e_n)$ désigne une base fixée de $E$.
 
-2. La fonction $g : \mathbb{R} \to \mathbb{R}^3$ définie par $g(t) = (t, t^2, t^3)$ est une fonction vectorielle à trois composantes.
+# Rappels sur les fonctions d'une variable réelle
 
+Avant d'étendre les concepts d'analyse aux fonctions vectorielles, il est indispensable de rappeler certains résultats fondamentaux pour les fonctions numériques $f: I \to \mathbb{K}$.
+
+## Rappel de la limite de la dérivée
+
+::: {.theorem title="(**Théorème de la limite de la dérivée (TLD).**)"}
+Soit $f: I \to E$ une fonction continue sur $I$ et dérivable sur $I \setminus \{a\}$, où $a \in I$. Si la dérivée $f'$ admet une **limite finie** $L \in E$ en $a$, c'est-à-dire $\lim_{t \to a} f'(t) = L$, alors $f$ est dérivable en $a$ et :
+$$f'(a) = L$$
 :::
 
-## Continuité
+::: {.theorem title="(**Théorème de prolongement de classe $\mathcal{C}^k$.**)"}
+Soit $k \in \N^*$, $a \in I$, et $f : I \setminus \{a\} \to E$ une fonction de classe $\mathcal{C}^k$ sur $I \setminus \{a\}$. On suppose que pour tout $j \in \{0, 1, \dots, k\}$, la dérivée $f^{(j)}$ admet une **limite finie** $\ell_j \in E$ en $a$ (avec la convention $f^{(0)} = f$). Alors :
 
-::: {.definition title="(Continuité d'une fonction vectorielle)"}
-
-Une fonction vectorielle $f : I \to E$ est **continue en** $t_0 \in I$ si :
-$$\lim_{t \to t_0} \|f(t) - f(t_0)\| = 0$$
-
-$f$ est **continue sur $I$** si elle est continue en tout point de $I$.
-
+1. La fonction $\tilde{f} : I \to E$ définie par $\tilde{f}(t) = f(t)$ pour $t \neq a$ et $\tilde{f}(a) = \ell_0$ est de classe $\mathcal{C}^k$ sur $I$.
+2. Pour tout $j \in \{1, \dots, k\}$ et tout $t \in I$, on a $\tilde{f}^{(j)}(t) = \lim_{u \to t,\, u \neq a} f^{(j)}(u)$ ; en particulier, pour tout $j \in \{1, \dots, k\}$, $\tilde{f}^{(j)}(a) = \ell_j$.
 :::
 
-::: {.proposition title="(Caractérisation de la continuité par les composantes)"}
+## Construction de l'intégrale d'une fonction numérique
 
-$f : I \to E$ est continue en $t_0$ si et seulement si toutes ses fonctions composantes $f_1, \ldots, f_n$ sont continues en $t_0$.
+::: {.definition title = "(**Fonctions en escalier et fonctions continues par morceaux.**)"}
+Soient $a < b$ deux réels et $\mathbb{K} = \mathbb{R}$ ou $\mathbb{C}$.
 
+1. **Fonction en escalier :** Une fonction $\varphi : [a,b] \to \mathbb{K}$ est dite **en escalier** sur $[a,b]$ s'il existe une subdivision $\sigma = (t_0, t_1, \dots, t_m)$ de $[a,b]$ (avec $a = t_0 < t_1 < \dots < t_m = b$) telle que, pour tout $k \in \{1, \dots, m\}$, la restriction de $\varphi$ à l'intervalle ouvert $]t_{k-1}, t_k[$ soit **constante** (égale à une constante $c_k \in \mathbb{K}$).
+2. **Fonction continue par morceaux :** Une fonction $f : [a,b] \to \mathbb{K}$ est dite **continue par morceaux** sur $[a,b]$ s'il existe une subdivision $\sigma = (t_0, t_1, \dots, t_m)$ de $[a,b]$ telle que, pour tout $k \in \{1, \dots, m\}$ :
+   - la restriction de $f$ à $]t_{k-1}, t_k[$ soit **continue** ;
+   - $f$ admette une **limite finie à droite** en $t_{k-1}$ et une **limite finie à gauche** en $t_k$.
 :::
 
-::: {.example}
-
-La fonction $f(t) = (\cos t, \sin t)$ est continue sur $\mathbb{R}$ car $\cos$ et $\sin$ sont continues sur $\mathbb{R}$.
-
+::: {.definition title="(**Convergence uniforme d'une suite de fonctions.**)"}
+Soit $X$ un ensemble non vide, $(E, \|\cdot\|)$ un espace vectoriel normé, et $(f_n)_{n \in \N}$ une suite d'applications de $X$ dans $E$. On dit que $(f_n)$ **converge uniformément** sur $X$ vers une application $f : X \to E$ si :
+$$\lim_{n \to +\infty} \left(\sup_{x \in X} \|f_n(x) - f(x)\|\right) = 0$$
 :::
 
-## Dérivabilité et dérivée
+::: {.theorem title="(**Construction de l'intégrale.**)"}
+Soit $f: [a,b] \to \mathbb{K}$ une fonction continue par morceaux.
 
-::: {.definition title="(Dérivabilité et dérivée)"}
+1. **Fonctions en escalier :** Pour une fonction en escalier $\varphi$ constante égale à $c_k$ sur $]t_{k-1}, t_k[$, l'intégrale est définie par $\int_a^b \varphi(t) dt = \sum_{k=1}^m c_k (t_k - t_{k-1})$.
+2. **Fonctions continues par morceaux :** Toute fonction continue par morceaux $f$ est limite uniforme d'une suite de fonctions en escalier $(\varphi_n)$. L'intégrale de $f$ est définie par passage à la limite : $\int_a^b f(t) dt = \lim_{n \to +\infty} \int_a^b \varphi_n(t) dt$.
 
-Soit $f : I \to E$ une fonction vectorielle et $t_0 \in I$ (qui n'est pas une extrémité de $I$). On dit que $f$ est **dérivable en** $t_0$ si la limite suivante existe :
-$$f'(t_0) = \lim_{t \to t_0} \frac{f(t) - f(t_0)}{t - t_0} = \lim_{h \to 0} \frac{f(t_0 + h) - f(t_0)}{h}$$
-
-La fonction $f'$ ainsi définie (lorsqu'elle existe partout sur $I$) est appelée la **dérivée** de $f$.
-
+Cette construction garantit les propriétés de linéarité, de positivité (sur $\mathbb{R}$) et de relation de Chasles.
 :::
 
-::: {.proposition title="(Caractérisation de la dérivabilité par les composantes)"}
+## Techniques d'intégration
 
-$f : I \to E$ est dérivable en $t_0$ si et seulement si toutes ses fonctions composantes $f_1, \ldots, f_n$ sont dérivables en $t_0$. Dans ce cas :
-$$f'(t_0) = f_1'(t_0) e_1 + f_2'(t_0) e_2 + \cdots + f_n'(t_0) e_n$$
+::: {.theorem title="(**Techniques d'intégration pour les fonctions numériques.**)"}
+Pour les fonctions numériques $f: [a,b] \to \mathbb{K}$, on utilisera fréquemment les techniques suivantes, qui se transposent composante par composante pour les fonctions vectorielles :
 
+1. **Intégration par parties (IPP) :** Si $u, v$ sont de classe $\mathcal{C}^1$ sur $[a,b]$, alors :
+$$\int_a^b u(t)v'(t) dt = [u(t)v(t)]_a^b - \int_a^b u'(t)v(t) dt$$
+2. **Changement de variables :** Si $\varphi: [\alpha, \beta] \to [a,b]$ est de classe $\mathcal{C}^1$ et $f$ continue sur $[a,b]$, alors :
+$$\int_{\varphi(\alpha)}^{\varphi(\beta)} f(t) dt = \int_\alpha^\beta f(\varphi(u)) \varphi'(u) du$$
 :::
 
-::: {.example}
+## Sommes de Riemann
 
-Pour $f(t) = (\cos t, \sin t)$, on a $f'(t) = (-\sin t, \cos t)$.
-
-Pour $g(t) = (t, t^2, t^3)$, on a $g'(t) = (1, 2t, 3t^2)$.
-
+::: {.theorem title="(**Sommes de Riemann.**)"}
+Soit $f: [a,b] \to \mathbb{K}$ continue. Pour tout $n \in \N^*$, on pose la somme de Riemann associée à une subdivision de pas constant :
+$$S_n(f) = \frac{b-a}{n} \sum_{k=0}^{n-1} f\left(a + k \frac{b-a}{n}\right)$$
+Alors $\lim_{n \to +\infty} S_n(f) = \int_a^b f(t) dt$.
 :::
 
-::: {.definition title="(Dérivées à droite et à gauche)"}
+::: {.exemple title="(**Exemples d'utilisation des sommes de Riemann.**)"}
+1. Calcul de $\lim_{n \to +\infty} \sum_{k=1}^n \frac{1}{n+k}$ :
+On factorise par $n$ : $\frac{1}{n} \sum_{k=1}^n \frac{1}{1+k/n}$. On reconnaît $S_n(f)$ pour $f(x) = \frac{1}{1+x}$ sur $[0,1]$. Donc la limite est $\int_0^1 \frac{1}{1+x} dx = [\ln(1+x)]_0^1 = \ln 2$.
 
-Pour $t_0$ une extrémité de $I$, on définit la **dérivée à droite** (resp. **à gauche**) par :
-$$f'_d(t_0) = \lim_{t \to t_0^+} \frac{f(t) - f(t_0)}{t - t_0} \quad \left(\text{resp. } f'_g(t_0) = \lim_{t \to t_0^-} \frac{f(t) - f(t_0)}{t - t_0}\right)$$
+2. Calcul de $\lim_{n \to +\infty} \sum_{k=1}^n \frac{k}{n^2+k^2}$ :
+On factorise par $n^2$ au dénominateur : $\frac{1}{n} \sum_{k=1}^n \frac{k/n}{1+(k/n)^2}$. On reconnaît $S_n(f)$ pour $f(x) = \frac{x}{1+x^2}$ sur $[0,1]$. La limite est $\int_0^1 \frac{x}{1+x^2} dx = \left[\frac{1}{2}\ln(1+x^2)\right]_0^1 = \frac{\ln 2}{2}$.
 
+3. Calcul de $\lim_{n \to +\infty} \sum_{k=1}^n \sin\left(\frac{k\pi}{n}\right) \frac{1}{n}$ :
+On reconnaît $S_n(f)$ pour $f(x) = \sin(\pi x)$ sur $[0,1]$. La limite est $\int_0^1 \sin(\pi x) dx = \left[-\frac{\cos(\pi x)}{\pi}\right]_0^1 = \frac{2}{\pi}$.
 :::
 
-## Classes $\mathcal{C}^k$
+# Dérivation
 
-::: {.definition title="(Classes $\mathcal{C}^k$)"}
+## Dérivabilité en un point, sur un intervalle
 
-Soit $k \in \mathbb{N}^* \cup \{+\infty\}$.
-
-- $f : I \to E$ est de **classe $\mathcal{C}^1$** sur $I$ si $f$ est dérivable sur $I$ et $f'$ est continue sur $I$.
-- $f$ est de **classe $\mathcal{C}^k$** sur $I$ si $f^{(k)}$ existe et est continue sur $I$.
-- $f$ est de **classe $\mathcal{C}^\infty$** si $f$ est de classe $\mathcal{C}^k$ pour tout $k \in \mathbb{N}^*$.
-
-On note $\mathcal{C}^k(I, E)$ l'espace vectoriel des fonctions de classe $\mathcal{C}^k$ sur $I$ à valeurs dans $E$.
-
+::: {.definition title="(**Dérivabilité en un point.**)"}
+Soit $f : I \to E$ une application et $t_0 \in I$. On dit que $f$ est **dérivable en $t_0$** s'il existe un vecteur $\ell \in E$ et une fonction $\varepsilon : I \to E$ tels que :
+$$\forall t \in I, \quad f(t) = f(t_0) + (t-t_0)\ell + (t-t_0)\varepsilon(t) \quad \text{avec} \quad \lim_{t \to t_0} \varepsilon(t) = 0_E$$
+Le vecteur $\ell$ est unique : on l'appelle le vecteur **dérivé de $f$ en $t_0$** et on le note $f'(t_0)$ ou $\dfrac{df}{dt}(t_0)$.
 :::
 
-::: {.proposition}
+::: {.remarque title="(**Caractérisations équivalentes.**)"}
+Les deux affirmations suivantes sont équivalentes :
 
-$f$ est de classe $\mathcal{C}^k$ sur $I$ si et seulement si toutes ses composantes $f_1, \ldots, f_n$ sont de classe $\mathcal{C}^k$ sur $I$.
-
+1. $f$ est dérivable en $t_0$ de dérivé $\ell \in E$.
+2. Le taux d'accroissement admet une limite $\ell \in E$ : $\lim_{t \to t_0} \frac{f(t) - f(t_0)}{t - t_0} = \ell$.
 :::
 
-## Opérations sur les fonctions vectorielles
-
-::: {.proposition title="(Combinaison linéaire)"}
-
-Soient $f, g : I \to E$ dérivables en $t_0$ et $\lambda, \mu \in \mathbb{K}$. Alors $\lambda f + \mu g$ est dérivable en $t_0$ et :
-$$(\lambda f + \mu g)'(t_0) = \lambda f'(t_0) + \mu g'(t_0)$$
-
+::: {.remarque title="(**Caractérisation par les coordonnées.**)"}
+Soit $f(t) = \sum_{i=1}^n f_i(t)\, e_i$. Alors $f$ est dérivable en $t_0$ si et seulement si chaque composante $f_i$ est dérivable en $t_0$, et dans ce cas :
+$$f'(t_0) = \sum_{i=1}^n f_i'(t_0)\, e_i$$
 :::
 
-::: {.proposition title="(Produit par une fonction scalaire)"}
-
-Soient $f : I \to E$ dérivable en $t_0$ et $\varphi : I \to \mathbb{K}$ dérivable en $t_0$. Alors $\varphi \cdot f$ est dérivable en $t_0$ et :
-$$(\varphi \cdot f)'(t_0) = \varphi'(t_0) \cdot f(t_0) + \varphi(t_0) \cdot f'(t_0)$$
-
+::: {.definition title="(**Dérivabilité sur un intervalle.**)"}
+On dit que $f : I \to E$ est **dérivable sur $I$** si elle est dérivable en tout point de $I$. L'application $t \mapsto f'(t)$ est l'**application dérivée** de $f$, notée $f'$.
 :::
 
-::: {.proposition title="(Dérivation de $f \circ \varphi$)"}
-
-Soient $f : I \to E$ dérivable en $u_0 \in I$ et $\varphi : J \to I$ dérivable en $t_0 \in J$ avec $\varphi(t_0) = u_0$. Alors $f \circ \varphi$ est dérivable en $t_0$ et :
-$$(f \circ \varphi)'(t_0) = \varphi'(t_0) \cdot f'(u_0)$$
-
+::: {.exemple title="(**Fonction à valeurs dans $\mathbb{R}^2$ — Mouvement circulaire.**)"}
+Soit $f : \mathbb{R} \to \mathbb{R}^2$ définie par $f(t) = (\cos t, \sin t)$. Chaque composante est dérivable sur $\mathbb{R}$, donc $f$ est dérivable sur $\mathbb{R}$ et :
+$$f'(t) = (-\sin t, \cos t)$$
+**Vérifications géométriques :**
+- $\|f(t)\|^2 = \cos^2 t + \sin^2 t = 1$ : le point décrit le cercle unité.
+- $\langle f(t), f'(t) \rangle = \cos t \cdot (-\sin t) + \sin t \cdot \cos t = 0$ : la vitesse est orthogonale au rayon.
+- $\|f'(t)\|^2 = \sin^2 t + \cos^2 t = 1$ : le mouvement est uniforme.
 :::
 
-::: {.proposition title="(Dérivation d'un produit scalaire dans un espace préhilbertien)"}
+::: {.exemple title="(**Interprétation cinématique — Vitesse et accélération.**)"}
+Soit $\vec{r} : I \to \mathbb{R}^3$ la fonction qui à chaque instant $t$ associe le vecteur position $\vec{r}(t) = \vec{OM}(t)$ d'un point mobile $M$ dans un référentiel $\mathcal{R}$.
 
-Soient $f, g : I \to E$ dérivables en $t_0$, où $E$ est un espace préhilbertien réel. Alors la fonction $t \mapsto \langle f(t), g(t) \rangle$ est dérivable en $t_0$ et :
-$$\frac{d}{dt}\langle f(t), g(t) \rangle \bigg|_{t=t_0} = \langle f'(t_0), g(t_0) \rangle + \langle f(t_0), g'(t_0) \rangle$$
-
+- **Vitesse instantanée :** $\vec{v}(t_0) = \vec{r}\,'(t_0) = \lim_{t \to t_0} \frac{\vec{r}(t) - \vec{r}(t_0)}{t - t_0}$
+- **Accélération :** $\vec{a}(t_0) = \vec{v}\,'(t_0) = \vec{r}\,''(t_0)$
 :::
 
-::: {.corollary title="(Dérivation de la norme)"}
+::: {.exemple title="(**Mouvement hélicoïdal — Calcul détaillé.**)"}
+Un point $M$ a pour vecteur position dans un repère orthonormé $(O, \vec{i}, \vec{j}, \vec{k})$ :
+$$\vec{r}(t) = R\cos(\omega t)\,\vec{i} + R\sin(\omega t)\,\vec{j} + h\,\omega t\,\vec{k}$$
+où $R, \omega, h > 0$. Calculons vitesse et accélération.
 
-Si $f : I \to E$ est dérivable en $t_0$ et $f(t_0) \neq 0_E$, alors $t \mapsto \|f(t)\|$ est dérivable en $t_0$ et :
-$$\frac{d}{dt}\|f(t)\| \bigg|_{t=t_0} = \frac{\langle f'(t_0), f(t_0) \rangle}{\|f(t_0)\|}$$
+**Composantes :** $x(t) = R\cos(\omega t)$, $y(t) = R\sin(\omega t)$, $z(t) = h\omega t$.
 
+**Vitesse :** en dérivant chaque composante :
+$$\vec{v}(t) = \vec{r}\,'(t) = -R\omega\sin(\omega t)\,\vec{i} + R\omega\cos(\omega t)\,\vec{j} + h\omega\,\vec{k}$$
+
+**Accélération :** en dérivant à nouveau :
+$$\vec{a}(t) = \vec{r}\,''(t) = -R\omega^2\cos(\omega t)\,\vec{i} - R\omega^2\sin(\omega t)\,\vec{j} + \vec{0}$$
+
+**Interprétation :**
+- $\|\vec{v}(t)\|^2 = R^2\omega^2\sin^2(\omega t) + R^2\omega^2\cos^2(\omega t) + h^2\omega^2 = \omega^2(R^2 + h^2)$ : la vitesse est constante en norme.
+- $\|\vec{a}(t)\| = R\omega^2$ : accélération centripète constante.
+- $\langle \vec{v}(t), \vec{a}(t) \rangle = 0$ : accélération orthogonale à la vitesse.
+- $\vec{a}(t) = -\omega^2 \left(R\cos(\omega t)\,\vec{i} + R\sin(\omega t)\,\vec{j}\right)$ : l'accélération est dirigée vers l'axe $(Oz)$.
 :::
 
-## Interprétation géométrique et cinématique
-
-::: {.definition title="(Interprétation cinématique)"}
-
-Soit $f : I \to \mathbb{R}^n$ une fonction vectorielle.
-
-- $f(t_0)$ est la **position** à l'instant $t_0$.
-- $f'(t_0)$ est la **vitesse** à l'instant $t_0$.
-- $f''(t_0)$ est l'**accélération** à l'instant $t_0$.
-
+::: {.exemple title="(**Chute libre avec frottement — Équation différentielle.**)"}
+Un point matériel de masse $m$ chute verticalement sous l'action de la pesanteur $\vec{g} = -g\,\vec{k}$ et d'un frottement fluide $\vec{f} = -k\vec{v}$. La deuxième loi de Newton donne :
+$$m\vec{a} = m\vec{g} - k\vec{v} \quad \Longleftrightarrow \quad m\dfrac{d\vec{v}}{dt} = -mg\,\vec{k} - k\vec{v}$$
+En projection sur $\vec{k}$, avec $v = v_z$ :
+$$m\dfrac{dv}{dt} = -mg - kv \quad \Longleftrightarrow \quad \dfrac{dv}{dt} + \frac{k}{m}v = -g$$
+C'est une équation différentielle linéaire du premier ordre à coefficients constants. La solution avec $v(0) = 0$ est :
+$$v(t) = -\frac{mg}{k}\left(1 - e^{-kt/m}\right)$$
+La **vitesse limite** est $v_\infty = -\dfrac{mg}{k}$ (atteinte asymptotiquement).
 :::
 
-::: {.proposition title="(Interprétation géométrique)"}
+## Opérations sur les fonctions dérivables
 
-Si $f : I \to \mathbb{R}^n$ est dérivable en $t_0$ et $f'(t_0) \neq 0$, la droite :
-$$D : M = f(t_0) + \lambda \cdot f'(t_0), \quad \lambda \in \mathbb{R}$$
-est la **tangente** à la courbe décrite par $f$ au point $f(t_0)$.
+::: {.proposition title="(**Opérations algébriques — Linéarité.**)"}
+Soient $f, g : I \to E$ dérivables en $t_0$ et $\lambda \in \mathbb{K}$. Alors :
 
+1. $\lambda f + g$ est dérivable en $t_0$ et $(\lambda f + g)'(t_0) = \lambda f'(t_0) + g'(t_0)$.
+2. Si $\varphi : I \to \mathbb{K}$ et $f : I \to E$ sont dérivables en $t_0$, alors $\varphi f$ est dérivable en $t_0$ et :
+$$(\varphi f)'(t_0) = \varphi'(t_0) f(t_0) + \varphi(t_0) f'(t_0)$$
 :::
 
-::: {.example}
+::: {.proof}
+**1. Linéarité.** Par caractérisation du taux d'accroissement :
+$$\frac{(\lambda f + g)(t) - (\lambda f + g)(t_0)}{t - t_0} = \lambda \frac{f(t) - f(t_0)}{t - t_0} + \frac{g(t) - g(t_0)}{t - t_0} \xrightarrow[t \to t_0]{} \lambda f'(t_0) + g'(t_0)$$
 
-Pour $f(t) = (\cos t, \sin t)$, la courbe décrite est le cercle unité. La tangente en $f(t_0) = (\cos t_0, \sin t_0)$ est dirigée par $f'(t_0) = (-\sin t_0, \cos t_0)$, qui est bien perpendiculaire au rayon $f(t_0)$.
+**2. Produit scalaire $\times$ vecteur.** Écrivons l'astuce classique en ajoutant et soustrayant $\varphi(t_0)f(t)$ :
+$$\varphi(t)f(t) - \varphi(t_0)f(t_0) = \big(\varphi(t) - \varphi(t_0)\big)f(t) + \varphi(t_0)\big(f(t) - f(t_0)\big)$$
+En divisant par $t - t_0$ :
+$$\frac{\varphi(t)f(t) - \varphi(t_0)f(t_0)}{t - t_0} = \frac{\varphi(t) - \varphi(t_0)}{t - t_0} \cdot f(t) + \varphi(t_0) \cdot \frac{f(t) - f(t_0)}{t - t_0}$$
+Quand $t \to t_0$ :
+- $\dfrac{\varphi(t) - \varphi(t_0)}{t - t_0} \to \varphi'(t_0)$
+- $f(t) \to f(t_0)$ (car $f$ est dérivable donc continue)
+- $\varphi(t_0)$ est constant
+- $\dfrac{f(t) - f(t_0)}{t - t_0} \to f'(t_0)$
 
+Donc $(\varphi f)'(t_0) = \varphi'(t_0) f(t_0) + \varphi(t_0) f'(t_0)$.
 :::
 
-# Intégration d'une fonction vectorielle sur un segment
-
-## Définition
-
-::: {.definition title="(Intégrale d'une fonction vectorielle continue par morceaux)"}
-
-Soit $f : [a,b] \to E$ une fonction continue par morceaux. On définit l'**intégrale** de $f$ sur $[a,b]$ par :
-$$\int_a^b f(t)\, dt = \left(\int_a^b f_1(t)\, dt\right) e_1 + \cdots + \left(\int_a^b f_n(t)\, dt\right) e_n$$
-où $f_1, \ldots, f_n$ sont les composantes de $f$ dans la base $\mathcal{B}$.
-
+::: {.proposition title="(**Composition par une application linéaire.**)"}
+Soit $L \in \mathcal{L}(E, F)$. Si $f : I \to E$ est dérivable en $t_0$, alors $L \mathbb{C}irc f$ est dérivable en $t_0$ et :
+$$(L \mathbb{C}irc f)'(t_0) = L(f'(t_0))$$
 :::
 
-::: {.proposition}
-
-Cette définition ne dépend pas du choix de la base $\mathcal{B}$.
-
+::: {.exemple title="(**Applications de la composition par une application linéaire.*)"}
+1. **Projection sur une coordonnée :** si $p_i : E \to \mathbb{K}$ est la $i$-ème projection, alors $(p_i \mathbb{C}irc f)' = p_i \mathbb{C}irc f'$, ce qui redonne $f_i' = (f')_i$.
+2. **Trace d'une matrice :** si $M : I \to \mathcal{M}_n(\mathbb{K})$, alors $(\mathrm{tr} \mathbb{C}irc M)' = \mathrm{tr}(M')$.
+3. **Transposition :** si $M : I \to \mathcal{M}_n(\mathbb{K})$, alors $(M^T)' = (M')^T$.
 :::
 
-## Propriétés
-
-::: {.proposition title="(Linéarité)"}
-
-Soient $f, g : [a,b] \to E$ continues par morceaux et $\lambda, \mu \in \mathbb{K}$. Alors :
-$$\int_a^b (\lambda f + \mu g)(t)\, dt = \lambda \int_a^b f(t)\, dt + \mu \int_a^b g(t)\, dt$$
-
+::: {.theorem title="(**Dérivée d'une application bilinéaire.**)"}
+Soit $B : E \times F \to G$ une application bilinéaire (où $E, F, G$ sont de dimension finie). Si $f : I \to E$ et $g : I \to F$ sont dérivables en $t_0$, alors $t \mapsto B(f(t), g(t))$ est dérivable en $t_0$ et :
+$$\frac{d}{dt}\Big[B(f(t), g(t))\Big]_{t=t_0} = B(f'(t_0), g(t_0)) + B(f(t_0), g'(t_0))$$
 :::
 
-::: {.proposition title="(Relation de Chasles)"}
+::: {.proof}
+Écrivons $B(f(t), g(t)) - B(f(t_0), g(t_0))$ en ajoutant et soustrayant $B(f(t_0), g(t))$ :
+$$B(f(t), g(t)) - B(f(t_0), g(t_0)) = B(f(t) - f(t_0), g(t)) + B(f(t_0), g(t) - g(t_0))$$
+En divisant par $t - t_0$ :
+$$\frac{B(f(t), g(t)) - B(f(t_0), g(t_0))}{t - t_0} = B\!\left(\frac{f(t) - f(t_0)}{t - t_0},\, g(t)\right) + B\!\left(f(t_0),\, \frac{g(t) - g(t_0)}{t - t_0}\right)$$
+Quand $t \to t_0$, en utilisant la continuité de $B$ (dimension finie) :
+- $B\!\left(\dfrac{f(t) - f(t_0)}{t - t_0},\, g(t)\right) \to B(f'(t_0), g(t_0))$
+- $B\!\left(f(t_0),\, \dfrac{g(t) - g(t_0)}{t - t_0}\right) \to B(f(t_0), g'(t_0))$
 
-Pour tout $c \in [a,b]$ :
-$$\int_a^b f(t)\, dt = \int_a^c f(t)\, dt + \int_c^b f(t)\, dt$$
-
+D'où le résultat.
 :::
 
-::: {.proposition title="(Inégalité triangulaire)"}
-
-$$\left\|\int_a^b f(t)\, dt\right\| \leq \int_a^b \|f(t)\|\, dt$$
-
+::: {.exemple title="(**Produit scalaire — Calcul détaillé.**)"}
+Soit $(E, \langle ., . \rangle)$ un espace préhilbertien réel. Le produit scalaire $B(x,y) = \langle x, y \rangle$ est bilinéaire. Donc :
+$$\dfrac{d}{dt}\langle f(t), g(t) \rangle = \langle f'(t), g(t) \rangle + \langle f(t), g'(t) \rangle$$
+**Application numérique :** $f(t) = (t, t^2, 1)$ et $g(t) = (1, t, t^2)$.
+- $\langle f(t), g(t) \rangle = t \cdot 1 + t^2 \cdot t + 1 \cdot t^2 = t + t^3 + t^2$
+- Dérivée directe : $\dfrac{d}{dt}\langle f(t), g(t) \rangle = 1 + 3t^2 + 2t$
+- Avec la formule : $f'(t) = (1, 2t, 0)$, $g'(t) = (0, 1, 2t)$
+- $\langle f'(t), g(t) \rangle = 1 \cdot 1 + 2t \cdot t + 0 \cdot t^2 = 1 + 2t^2$
+- $\langle f(t), g'(t) \rangle = t \cdot 0 + t^2 \cdot 1 + 1 \cdot 2t = t^2 + 2t$
+- Somme : $1 + 2t^2 + t^2 + 2t = 1 + 3t^2 + 2t$ ✓
 :::
 
-::: {.proposition title="(Intégration par parties)"}
-
-Soient $f : [a,b] \to E$ de classe $\mathcal{C}^1$ et $\varphi : [a,b] \to \mathbb{K}$ de classe $\mathcal{C}^1$. Alors :
-$$\int_a^b \varphi'(t) f(t)\, dt = [\varphi(t) f(t)]_a^b - \int_a^b \varphi(t) f'(t)\, dt$$
-
+::: {.exemple title="(**Carré de la norme — Formule fondamentale.**)"}
+En prenant $g = f$ dans la formule précédente :
+$$\dfrac{d}{dt}\|f(t)\|^2 = 2\langle f'(t), f(t) \rangle$$
 :::
 
-::: {.proposition title="(Changement de variable)"}
-
-Soient $f : [a,b] \to E$ continue par morceaux et $\varphi : [c,d] \to [a,b]$ de classe $\mathcal{C}^1$. Alors :
-$$\int_a^b f(t)\, dt = \int_c^d f(\varphi(u)) \varphi'(u)\, du$$
-
+::: {.remarque title="(**Norme — Attention !**)"}
+En général, $\dfrac{d}{dt}\|f(t)\| \neq \|f'(t)\|$. La bonne formule est :
+$$\dfrac{d}{dt}\|f(t)\| = \frac{\langle f'(t), f(t) \rangle}{\|f(t)\|} \quad \text{(si } f(t) \neq 0\text{)}$$
 :::
 
-::: {.proposition title="(Théorème fondamental du calcul intégral)"}
-
-Si $f : [a,b] \to E$ est continue, la fonction :
-$$F(x) = \int_a^x f(t)\, dt$$
-est de classe $\mathcal{C}^1$ sur $[a,b]$ et $F' = f$.
-
+::: {.exemple title="(**Déterminant dans $\mathbb{R}^2$.**)"}
+Soient $f_1, f_2 : I \to \mathbb{R}^2$ dérivables. Le déterminant $\det(f_1, f_2)$ est bilinéaire. Donc :
+$$\dfrac{d}{dt}\det(f_1(t), f_2(t)) = \det(f_1'(t), f_2(t)) + \det(f_1(t), f_2'(t))$$
 :::
 
-::: {.example}
+::: {.exemple title="(**Produit vectoriel dans $\mathbb{R}^3$.**)"}
+Soient $f, g : I \to \mathbb{R}^3$ dérivables. Le produit vectoriel est bilinéaire, donc :
+$$\dfrac{d}{dt}(f(t) \wedge g(t)) = f'(t) \wedge g(t) + f(t) \wedge g'(t)$$
+**Application au moment cinétique :** $\vec{L}(t) = \vec{r}(t) \wedge m\vec{v}(t)$.
+$$\dfrac{d\vec{L}}{dt} = \vec{v} \wedge m\vec{v} + \vec{r} \wedge m\vec{a} = \vec{0} + \vec{r} \wedge \vec{F} = \vec{\mathcal{M}}_O$$
+On retrouve le théorème du moment cinétique.
+:::
 
-Calculons $\int_0^{\pi/2} (\cos t, \sin t)\, dt$.
+::: {.proposition title="(**Composition $f \circ \varphi$ — Règle de la chaîne.**)"}
+Soit $\varphi : J \to I$ dérivable en $t_0 \in J$ et $f : I \to E$ dérivable en $\varphi(t_0)$. Alors $f \circ \varphi$ est dérivable en $t_0$ et :
+$$(f \circ \varphi)'(t_0) = \varphi'(t_0) \cdot f'(\varphi(t_0))$$
+:::
 
-$$\int_0^{\pi/2} \cos t\, dt = [\sin t]_0^{\pi/2} = 1, \quad \int_0^{\pi/2} \sin t\, dt = [-\cos t]_0^{\pi/2} = 1$$
+::: {.proof}
+Écrivons $f(u) = f(\varphi(t_0)) + (u - \varphi(t_0)) f'(\varphi(t_0)) + (u - \varphi(t_0)) \varepsilon(u)$ avec $\varepsilon(u) \to 0$ quand $u \to \varphi(t_0)$.
+En posant $u = \varphi(t)$ :
+$$f(\varphi(t)) = f(\varphi(t_0)) + (\varphi(t) - \varphi(t_0)) f'(\varphi(t_0)) + (\varphi(t) - \varphi(t_0)) \varepsilon(\varphi(t))$$
+En divisant par $t - t_0$ :
+$$\frac{f(\varphi(t)) - f(\varphi(t_0))}{t - t_0} = \frac{\varphi(t) - \varphi(t_0)}{t - t_0} \cdot f'(\varphi(t_0)) + \frac{\varphi(t) - \varphi(t_0)}{t - t_0} \cdot \varepsilon(\varphi(t))$$
+Quand $t \to t_0$ :
+- $\dfrac{\varphi(t) - \varphi(t_0)}{t - t_0} \to \varphi'(t_0)$
+- $\varphi(t) \to \varphi(t_0)$ (car $\varphi$ est dérivable donc continue), donc $\varepsilon(\varphi(t)) \to 0$
+
+Donc $(f \circ \varphi)'(t_0) = \varphi'(t_0) f'(\varphi(t_0))$.
+:::
+
+## Dérivées d'ordre supérieur — Applications de classe $\mathcal{C}^k$
+
+::: {.definition title="(**Classe $\mathcal{C}^k$.**)"}
+Soit $k \in \N^*$. On dit que $f : I \to E$ est de **classe $\mathcal{C}^k$** sur $I$ si $f$ est $k$ fois dérivable sur $I$ et si $f^{(k)}$ est continue sur $I$.
+Si $f$ est de classe $\mathcal{C}^k$ pour tout $k \in \N$, on dit que $f$ est de **classe $\mathcal{C}^\infty$**.
+:::
+
+::: {.remarque title="(**Passage aux composantes.**)"}
+$f = \sum_{i=1}^n f_i\, e_i$ est de classe $\mathcal{C}^k$ si et seulement si chaque $f_i$ est de classe $\mathcal{C}^k$.
+:::
+
+::: {.proposition title="(**Composée de classe $\mathcal{C}^k$.**)"}
+Soient $J$ et $I$ deux intervalles de $\mathbb{R}$. Si $\varphi: J \to I$ est de classe $\mathcal{C}^k$ sur $J$ et $f: I \to F$ est de classe $\mathcal{C}^k$ sur $I$, alors la composée $f \circ \varphi: J \to F$ est de classe $\mathcal{C}^k$ sur $J$.
+:::
+
+::: {.theorem title="(**Formule de Leibniz.**)"}
+Soit $B : E \times F \to G$ une application bilinéaire continue. Si $f : I \to E$ et $g : I \to F$ sont de classe $\mathcal{C}^k$, alors $t \mapsto B(f(t), g(t))$ est de classe $\mathcal{C}^k$ et :
+$$\big(B(f, g)\big)^{(k)}(t) = \sum_{p=0}^{k} \binom{k}{p} B\big(f^{(p)}(t), g^{(k-p)}(t)\big)$$
+:::
+
+::: {.proof}
+Par récurrence sur $k$.
+
+- **Initialisation ($k = 1$) :** c'est le théorème précédent.
+- **Hérédité :** supposons la formule vraie au rang $k$. En dérivant :
+$$\big(B(f, g)\big)^{(k+1)} = \sum_{p=0}^{k} \binom{k}{p} \Big[ B\big(f^{(p+1)}, g^{(k-p)}\big) + B\big(f^{(p)}, g^{(k-p+1)}\big) \Big]$$
+Réindexons la première somme ($q = p+1$) :
+$$= \sum_{q=1}^{k+1} \binom{k}{q-1} B\big(f^{(q)}, g^{(k+1-q)}\big) + \sum_{p=0}^{k} \binom{k}{p} B\big(f^{(p)}, g^{(k+1-p)}\big)$$
+En réunifiant (avec $\binom{k}{-1} = \binom{k}{k+1} = 0$) :
+$$= \sum_{p=0}^{k+1} \left[\binom{k}{p-1} + \binom{k}{p}\right] B\big(f^{(p)}, g^{(k+1-p)}\big)$$
+Par la relation de Pascal $\binom{k}{p-1} + \binom{k}{p} = \binom{k+1}{p}$, on obtient la formule au rang $k+1$.
+:::
+
+::: {.exemple title="(**Application — Dérivée troisième d'un produit scalaire.**)"}
+Soit $f : I \to E$ de classe $\mathcal{C}^3$. Calculons $\dfrac{d^3}{dt^3}\|f(t)\|^2$.
+Avec $B(x,y) = \langle x, y \rangle$ et $g = f$ :
+$$\dfrac{d^3}{dt^3}\|f\|^2 = \sum_{p=0}^{3} \binom{3}{p} \langle f^{(p)}, f^{(3-p)} \rangle$$
+Détaillons :
+- $p = 0$ : $\binom{3}{0}\langle f, f''' \rangle = \langle f, f''' \rangle$
+- $p = 1$ : $\binom{3}{1}\langle f', f'' \rangle = 3\langle f', f'' \rangle$
+- $p = 2$ : $\binom{3}{2}\langle f'', f' \rangle = 3\langle f'', f' \rangle = 3\langle f', f'' \rangle$ (symétrie)
+- $p = 3$ : $\binom{3}{3}\langle f''', f \rangle = \langle f''', f \rangle$
 
 Donc :
-$$\int_0^{\pi/2} (\cos t, \sin t)\, dt = (1, 1)$$
-
+$$\dfrac{d^3}{dt^3}\|f\|^2 = 2\langle f, f''' \rangle + 6\langle f', f'' \rangle$$
 :::
 
-# Arcs paramétrés
+# Intégration sur un segment
 
-## Définitions
+## Intégrale d'une fonction continue par morceaux
 
-::: {.definition title="(Arc paramétré)"}
-
-Soit $k \in \mathbb{N}^* \cup \{+\infty\}$. Un **arc paramétré** (ou **courbe paramétrée**) de classe $\mathcal{C}^k$ dans $\mathbb{R}^n$ ($n \leq 3$) est une application $\gamma : I \to \mathbb{R}^n$ de classe $\mathcal{C}^k$, où $I$ est un intervalle de $\mathbb{R}$.
-
-- $I$ est l'**intervalle de définition** de l'arc.
-- L'**image** $\gamma(I)$ est le **support** de l'arc (ou la **courbe associée**, ou la **trajectoire**).
-
+::: {.definition title="(**Intégrale d'une fonction vectorielle.**)"}
+Soit $f : [a,b] \to E$ continue par morceaux. Soit $(e_1, \ldots, e_n)$ une base de $E$ et $f(t) = \sum_{i=1}^n f_i(t)\, e_i$. On définit :
+$$\int_{[a,b]} f = \int_a^b f(t)\, dt = \sum_{i=1}^n \left(\int_a^b f_i(t)\, dt\right) e_i$$
 :::
 
-::: {.definition title="(Arc simple)"}
-
-Un arc paramétré $\gamma$ est dit **simple** si $\gamma$ est injective, c'est-à-dire si la courbe ne se recoupe pas.
-
+::: {.remarque title="(**Indépendance vis-à-vis de la base.**)"}
+Cette définition ne dépend pas du choix de la base, car le passage d'une base à une autre est une application linéaire (qui commute avec l'intégrale).
 :::
 
-::: {.definition title="(Paramètre régulier, point singulier, point birégulier)"}
+::: {.proposition title="(**Propriétés de l'intégrale.**)"}
+Soient $f, g : [a,b] \to E$ continues par morceaux et $\lambda \in \mathbb{K}$.
 
-1. Un paramètre $t_0$ est dit **régulier** si $\gamma'(t_0) \neq 0$.
-2. Un paramètre $t_0$ est dit **singulier** si $\gamma'(t_0) = 0$.
-3. Un paramètre $t_0$ est dit **birégulier** si $\gamma'(t_0)$ et $\gamma''(t_0)$ sont linéairement indépendants.
-
+1. **Linéarité :** $\int_a^b (\lambda f + g) = \lambda \int_a^b f + \int_a^b g$.
+2. **Relation de Chasles :** pour tout $c \in [a,b]$, $\int_a^b f = \int_a^c f + \int_c^b f$.
+3. **Composition par une application linéaire :** si $L \in \mathcal{L}(E, F)$, alors $\int_a^b L \mathbb{C}irc f = L\!\left(\int_a^b f\right)$.
+4. **Inégalité triangulaire :** $\left\|\int_a^b f(t)\, dt\right\| \leqslant \int_a^b \|f(t)\|\, dt$.
 :::
 
-## Tangente en un point
-
-::: {.proposition title="(Tangente en un point régulier)"}
-
-Soit $\gamma : I \to \mathbb{R}^n$ un arc paramétré de classe $\mathcal{C}^1$ et $t_0 \in I$ un paramètre régulier ($\gamma'(t_0) \neq 0$). Alors la **tangente** à l'arc au point $\gamma(t_0)$ est la droite :
-$$D : M = \gamma(t_0) + \lambda \cdot \gamma'(t_0), \quad \lambda \in \mathbb{R}$$
-
+::: {.proposition title="(**Sommes de Riemann.**)"}
+Soit $f : [a,b] \to E$ continue. Pour tout $n \in \N^*$, on pose :
+$$S_n(f) = \frac{b-a}{n} \sum_{k=0}^{n-1} f\!\left(a + k\,\frac{b-a}{n}\right)$$
+Alors $\lim_{n \to +\infty} S_n(f) = \int_a^b f(t)\, dt$.
 :::
 
-::: {.proposition title="(Cas où $\gamma'(t_0) = 0$)"}
+## Intégrale fonction de sa borne supérieure
 
-Si $\gamma'(t_0) = 0$ mais qu'il existe un entier $p \geq 2$ tel que $\gamma^{(p)}(t_0) \neq 0$, alors la tangente est dirigée par $\gamma^{(p)}(t_0)$ (premier vecteur dérivé non nul).
-
+::: {.theorem title="(**Théorème fondamental du calcul.**)"}
+Soit $f : I \to E$ continue et $a \in I$. La fonction $F : x \mapsto \int_a^x f(t)\, dt$ est l'unique primitive de $f$ sur $I$ s'annulant en $a$, et $F$ est de classe $\mathcal{C}^1$ avec :
+$$F'(x) = f(x) \quad \text{pour tout } x \in I$$
 :::
 
-::: {.definition title="(Normale)"}
-
-Si $\gamma : I \to \mathbb{R}^2$ est un arc paramétré plan et $t_0$ un paramètre régulier, la **normale** à l'arc au point $\gamma(t_0)$ est la droite perpendiculaire à la tangente en ce point.
-
+::: {.corollary title="(**Formule de Newton–Leibniz.**)"}
+Si $f : I \to E$ est continue et admet une primitive $G$ sur $I$, alors pour tout $a, b \in I$ :
+$$\int_a^b f(t)\, dt = G(b) - G(a) = \Big[G(t)\Big]_a^b$$
 :::
 
-::: {.example}
+## Inégalité des accroissements finis
 
-Pour l'arc $\gamma(t) = (\cos t, \sin t)$, on a $\gamma'(t) = (-\sin t, \cos t) \neq 0$ pour tout $t$. La tangente en $\gamma(t_0)$ est dirigée par $\gamma'(t_0)$ et la normale est dirigée par $\gamma(t_0) = (\cos t_0, \sin t_0)$.
-
+::: {.theorem title="(**Inégalité des accroissements finis (IAF).**)"}
+Soit $f : [a,b] \to E$ de classe $\mathcal{C}^1$. Si $\|f'(t)\| \leqslant M$ pour tout $t \in [a,b]$, alors :
+$$\|f(b) - f(a)\| \leqslant M(b-a)$$
 :::
 
-## Étude locale en un point birégulier
-
-::: {.proposition title="(Étude locale en un point birégulier)"}
-
-Soit $\gamma : I \to \mathbb{R}^n$ un arc paramétré de classe $\mathcal{C}^2$ et $t_0$ un paramètre birégulier. En effectuant un développement limité à l'ordre 2 :
-$$\gamma(t_0 + h) = \gamma(t_0) + h \gamma'(t_0) + \frac{h^2}{2} \gamma''(t_0) + o(h^2)$$
-
-La courbe admet au voisinage de $\gamma(t_0)$ :
-
-- La tangente dirigée par $\gamma'(t_0)$.
-- La courbe est du côté de $\gamma''(t_0)$ par rapport à la tangente (pour $h$ petit).
-
+::: {.proof}
+Par la formule de Newton–Leibniz :
+$$f(b) - f(a) = \int_a^b f'(t)\, dt$$
+En appliquant l'inégalité triangulaire :
+$$\|f(b) - f(a)\| = \left\|\int_a^b f'(t)\, dt\right\| \leqslant \int_a^b \|f'(t)\|\, dt \leqslant \int_a^b M\, dt = M(b-a)$$
 :::
 
-::: {.example}
-
-Pour $\gamma(t) = (t, t^2)$ au point $t_0 = 0$ :
-- $\gamma(0) = (0, 0)$
-- $\gamma'(0) = (1, 0)$ (tangente : l'axe des $x$)
-- $\gamma''(0) = (0, 2)$ (la parabole s'ouvre vers le haut)
-
+::: {.remarque title="(**Différence avec le cas réel.**)"}
+Cette inégalité est **spécifique aux fonctions vectorielles**. Pour $f : [a,b] \to \mathbb{R}$, on aurait pu avoir $f(b) - f(a) \leqslant M(b-a)$ mais aussi $f(b) - f(a) \geqslant -M(b-a)$, ce qui n'a pas de sens vectoriel. L'IAF vectorielle donne directement une majoration de la norme.
 :::
 
-## Longueur d'un arc paramétré
-
-::: {.definition title="(Longueur d'un arc)"}
-
-Soit $\gamma : [a,b] \to \mathbb{R}^n$ un arc paramétré de classe $\mathcal{C}^1$. La **longueur** de l'arc est :
-$$L(\gamma) = \int_a^b \|\gamma'(t)\|\, dt$$
-
+::: {.corollary title="(**IAF avec majoration variable.**)"}
+Si $\|f'(t)\| \leqslant m(t)$ où $m : [a,b] \to \mathbb{R}^+$ est continue, alors :
+$$\|f(b) - f(a)\| \leqslant \int_a^b m(t)\, dt$$
 :::
 
-::: {.example}
+## Formules de Taylor
 
-Pour $\gamma(t) = (\cos t, \sin t)$ avec $t \in [0, 2\pi]$ :
-$$\|\gamma'(t)\| = \sqrt{(-\sin t)^2 + (\cos t)^2} = 1$$
-$$L(\gamma) = \int_0^{2\pi} 1\, dt = 2\pi$$
-C'est bien la circonférence du cercle unité.
-
+::: {.theorem title="(**Formule de Taylor avec reste intégral.**)"}
+Soit $f : [a,b] \to E$ de classe $\mathcal{C}^{n+1}$. Alors pour tout $x \in [a,b]$ :
+$$f(x) = \sum_{k=0}^{n} \frac{(x-a)^k}{k!} f^{(k)}(a) + \int_a^x \frac{(x-t)^n}{n!} f^{(n+1)}(t)\, dt$$
 :::
 
-::: {.example}
-
-Pour $\gamma(t) = (t, t^2)$ avec $t \in [0, 1]$ :
-$$\|\gamma'(t)\| = \sqrt{1 + 4t^2}$$
-$$L(\gamma) = \int_0^1 \sqrt{1 + 4t^2}\, dt = \frac{\sqrt{5}}{2} + \frac{1}{4}\ln(2 + \sqrt{5})$$
-
+::: {.theorem title="(**Inégalité de Taylor–Lagrange.**)"}
+Soit $f : [a,b] \to E$ de classe $\mathcal{C}^n$. Si $\|f^{(n)}(t)\| \leqslant M$ pour tout $t \in [a,b]$, alors :
+$$\left\|f(b) - \sum_{k=0}^{n-1} \frac{(b-a)^k}{k!} f^{(k)}(a)\right\| \leqslant M \frac{(b-a)^n}{n!}$$
 :::
 
-# Exemples d'arcs paramétrés
-
-## Cercle
-
-::: {.example}
-
-$\gamma(t) = (a\cos t, a\sin t)$, $t \in [0, 2\pi]$ décrit le cercle de centre $O$ et de rayon $a$.
-
-- $\gamma'(t) = (-a\sin t, a\cos t) \neq 0$ pour tout $t$ : arc régulier.
-- $\gamma''(t) = (-a\cos t, -a\sin t)$.
-- $\gamma'(t)$ et $\gamma''(t)$ sont linéairement indépendants : arc birégulier.
-
+::: {.theorem title="(**Formule de Taylor–Young.**)"}
+Soit $f : I \to E$ de classe $\mathcal{C}^n$ et $a \in I$. Alors lorsque $h \to 0$ :
+$$f(a+h) = \sum_{k=0}^{n} \frac{h^k}{k!} f^{(k)}(a) + h^n\, \varepsilon(h)$$
+où $\varepsilon(h) \to 0_E$ lorsque $h \to 0$.
 :::
 
-## Hélice circulaire
-
-::: {.example}
-
-$\gamma(t) = (a\cos t, a\sin t, bt)$, $t \in \mathbb{R}$ décrit une **hélice circulaire** de rayon $a$ et de pas $2\pi b$.
-
-- $\gamma'(t) = (-a\sin t, a\cos t, b) \neq 0$ : arc régulier.
-- $\|\gamma'(t)\| = \sqrt{a^2 + b^2}$ : la vitesse est constante.
-
+::: {.remarque title="(**Local vs Global.**)"}
+Contrairement aux formules de Taylor avec reste intégral et de Taylor–Lagrange qui sont **globales** (sur un segment $[a,b]$), la formule de Taylor–Young est un résultat **local** au voisinage de $a$.
 :::
 
-## Parabole
+# Étude modeste des arcs paramétrés
 
-::: {.example}
-
-$\gamma(t) = (t, t^2)$, $t \in \mathbb{R}$ décrit la parabole d'équation $y = x^2$.
-
-- $\gamma'(t) = (1, 2t) \neq 0$ : arc régulier.
-- $\gamma''(t) = (0, 2)$.
-
+::: {.definition title="(**Arc paramétré.**)"}
+Une application $f : I \to E$ de classe $\mathcal{C}^1$ (au moins) est appelée **arc paramétré**. L'image $f(I)$ est le **support** de l'arc. Le vecteur $f'(t_0)$ est le **vecteur tangent** au support au point $f(t_0)$ (s'il est non nul).
 :::
 
-## Folium de Descartes
-
-::: {.example}
-
-$\gamma(t) = \left(\frac{t}{1+t^2}, \frac{t^2}{1+t^2}\right)$ décrit une portion de cercle.
-
-On vérifie que :
-$$\gamma_1(t)^2 + \gamma_2(t)^2 = \frac{t^2 + t^4}{(1+t^2)^2} = \frac{t^2(1+t^2)}{(1+t^2)^2} = \frac{t^2}{1+t^2}$$
-
+::: {.definition title="(**Point régulier, point critique.**)"}
+On dit que $t_0$ est un **point régulier** si $f'(t_0) \neq 0$. Sinon, $t_0$ est un **point critique** (ou stationnaire).
 :::
+
+::: {.definition title="(**Tangente en un point régulier.**)"}
+Si $t_0$ est régulier, la tangente au support en $M_0 = f(t_0)$ est la droite affine de direction $f'(t_0)$ passant par $M_0$ :
+$$\mathcal{T} = \{M_0 + \lambda f'(t_0) \mid \lambda \in \mathbb{R}\}$$
+:::
+
+::: {.definition title="(**Abscisse curviligne.**)"}
+Si $f : [a, b] \to E$ est de classe $\mathcal{C}^1$, la **longueur** de l'arc est :
+$$L = \int_a^b \|f'(t)\|\, dt$$
+L'**abscisse curviligne** à partir de $t_0$ est $s(t) = \int_{t_0}^t \|f'(u)\|\, du$.
+:::
+
+::: {.remarque title="(**Paramétrage par l'abscisse curviligne.**)"}
+Si $f'(t) \neq 0$ sur $I$, alors $s$ est un $C^1$-difféomorphisme et on peut reparamétrer l'arc par $s$. Dans ce paramétrage, $\left\|\dfrac{dM}{ds}\right\| = 1$ : le vecteur tangent est unitaire.
+:::
+
+::: {.exemple title="(**Longueur d'une hélice.**)"}
+Soit $f(t) = (R\cos t, R\sin t, ht)$ pour $t \in [0, 2\pi]$.
+- $f'(t) = (-R\sin t, R\cos t, h)$
+- $\|f'(t)\| = \sqrt{R^2 + h^2}$ (constant)
+- $L = \int_0^{2\pi} \sqrt{R^2 + h^2}\, dt = 2\pi\sqrt{R^2 + h^2}$
+:::
+
+# Synthèse du chapitre
+
+| **Notion** | **Résultat clé** |
+|---|---|
+| Dérivée d'un produit bilinéaire | $(B(f,g))' = B(f',g) + B(f,g')$ |
+| Formule de Leibniz | $(B(f,g))^{(k)} = \sum_{p=0}^k \binom{k}{p} B(f^{(p)}, g^{(k-p)})$ |
+| Produit scalaire | $\dfrac{d}{dt}\langle f, g \rangle = \langle f', g \rangle + \langle f, g' \rangle$ |
+| Carré de la norme | $\dfrac{d}{dt}\|f\|^2 = 2\langle f', f \rangle$ |
+| Inégalité triangulaire | $\left\|\int_a^b f\right\| \leqslant \int_a^b \|f\|$ |
+| IAF | $\|f(b)-f(a)\| \leqslant M(b-a)$ |
+| Taylor–Young (local) | $f(a+h) = \sum_{k=0}^n \frac{h^k}{k!} f^{(k)}(a) + o(h^n)$ |
+| Taylor–Lagrange (global) | $\|R_n\| \leqslant M \frac{(b-a)^{n}}{n!}$ |
+| Taylor reste intégral | $R_n(x) = \int_a^x \frac{(x-t)^n}{n!} f^{(n+1)}(t)\, dt$ |
+
 
 # Exercices
 
-::: {.exercise}
+::: {.exercise title="(Dérivabilité et opérations)"}
+Soit $f : \mathbb{R} \to \mathbb{R}^3$ définie par $f(t) = (e^t \cos t,\; e^t \sin t,\; t e^t)$.
 
-Soit $f : \mathbb{R} \to \mathbb{R}^2$ définie par $f(t) = (e^t \cos t, e^t \sin t)$.
-
-1. Calculer $f'(t)$ et $\|f'(t)\|$.
-2. Déterminer la tangente à la courbe au point $f(0)$.
-3. Calculer la longueur de l'arc entre $t = 0$ et $t = \ln 2$.
-
+1. Montrer que $f$ est de classe $\mathcal{C}^\infty$ sur $\mathbb{R}$.
+2. Calculer $f'(t)$ et $f''(t)$.
+3. Calculer $\dfrac{d}{dt}\|f(t)\|^2$ en utilisant la formule fondamentale.
+4. Vérifier le résultat par calcul direct à partir de l'expression de $\|f(t)\|^2$.
 :::
 
-::: {.exercise}
+::: {.exercise title="(Produit vectoriel et moment cinétique)"}
+Soit $\vec{r} : \mathbb{R} \to \mathbb{R}^3$ une fonction de classe $\mathcal{C}^2$ représentant le vecteur position d'un point matériel $M$ de masse $m$. On définit le moment cinétique en $O$ par $\vec{L}(t) = \vec{r}(t) \wedge m\vec{v}(t)$ où $\vec{v}(t) = \vec{r}\,'(t)$.
 
-Soit $\gamma : [0, 2\pi] \to \mathbb{R}^2$ définie par $\gamma(t) = (\cos 2t, \sin 3t)$.
-
-1. Étudier la parité et la périodicité des composantes.
-2. Déterminer les points singuliers de l'arc.
-3. Calculer $\gamma'(t)$ et déterminer la tangente en un point régulier.
-
+1. Montrer que $\dfrac{d\vec{L}}{dt} = \vec{r}(t) \wedge m\vec{a}(t)$ où $\vec{a}(t) = \vec{r}\,''(t)$.
+2. En déduire que si le champ de forces est central (dirigé selon $\vec{r}$), alors $\vec{L}$ est constant.
 :::
 
-::: {.exercise}
+::: {.exercise title="(Inégalité des accroissements finis)"}
+Soit $f : [0,+\infty[ \to \mathbb{R}^2$ définie par $f(t) = (\cos(\sqrt{t}),\; \sin(\sqrt{t}))$ pour $t>0$ et $f(0)=(1,0)$.
 
-Soit $f : [0, 1] \to \mathbb{R}^3$ définie par $f(t) = (t, t^2, t^3)$.
+1. Montrer que $f$ est continue sur $[0,+\infty[$ et de classe $\mathcal{C}^1$ sur $]0,+\infty[$.
+2. Calculer $f'(t)$ pour $t>0$ et montrer que $\|f'(t)\| = \dfrac{1}{2\sqrt{t}}$.
+3. En déduire, à l'aide de l'IAF avec majoration variable, que pour tout $x>0$ : $\|f(x)-f(0)\| \leqslant \sqrt{x}$.
+:::
+
+::: {.exercise title="(Formule de Taylor–Lagrange)"}
+Soit $f : \mathbb{R} \to \mathbb{R}^2$ définie par $f(t) = (\cos(t^2),\; \sin(t^2))$.
 
 1. Calculer $f'(t)$ et $f''(t)$.
-2. Montrer que l'arc est régulier.
-3. Calculer la longueur de l'arc entre $t = 0$ et $t = 1$ (on pourra donner une valeur approchée).
-
+2. Montrer que pour tout $t \in [0,1]$, $\|f''(t)\| \leqslant 6$.
+3. En déduire que pour tout $x \in [0,1]$ : $\left\|f(x)-f(0)-xf'(0)\right\| \leqslant 3x^2$.
+4. Comparer avec le développement de Taylor–Young à l'ordre 2.
 :::
 
-::: {.exercise}
+::: {.exercise title="(Sommes de Riemann vectorielles)"}
+Soit $f : [0,1] \to \mathbb{R}^2$ définie par $f(t) = (e^t \cos(2\pi t),\; e^t \sin(2\pi t))$.
 
-Soient $f, g : I \to \mathbb{R}^3$ de classe $\mathcal{C}^1$. Montrer que :
-$$\frac{d}{dt}\langle f(t), g(t) \rangle = \langle f'(t), g(t) \rangle + \langle f(t), g'(t) \rangle$$
-
+1. Calculer $\displaystyle\int_0^1 f(t)\,dt$ composante par composante.
+2. Exprimer la somme de Riemann $S_n(f)$ et montrer qu'elle converge vers l'intégrale.
+3. Vérifier l'inégalité triangulaire : $\left\|\displaystyle\int_0^1 f(t)\,dt\right\| \leqslant \displaystyle\int_0^1 \|f(t)\|\,dt$.
 :::
 
-::: {.exercise}
+::: {.exercise title="(Arc paramétré : la cycloïde)"}
+La cycloïde est l'arc paramétré $f : \mathbb{R} \to \mathbb{R}^2$ défini par :
+$$f(t) = (t-\sin t,\; 1-\cos t)$$
 
-Soit $\gamma : [0, +\infty[ \to \mathbb{R}^2$ définie par $\gamma(t) = (t \cos t, t \sin t)$.
-
-1. Calculer $\gamma'(t)$ et montrer que l'arc est régulier.
-2. Calculer la longueur de l'arc entre $t = 0$ et $t = 2\pi$.
-3. Interpréter géométriquement la courbe (spirale d'Archimède).
-
+1. Calculer $f'(t)$ et déterminer les points critiques.
+2. Étudier la nature du point $f(0)$ à l'aide d'un développement limité à l'ordre 3.
+3. Calculer la longueur de l'arc pour $t \in [0,2\pi]$.
 :::
 
-::: {.exercise}
+::: {.exercise title="(Équation différentielle vectorielle)"}
+On considère l'équation différentielle vectorielle :
+$$\vec{v}\,'(t) = -\dfrac{k}{m}\,\vec{v}(t) + \vec{g}$$
+où $\vec{g} = -g\,\vec{k}$ et $k,m>0$.
 
-Soit $\gamma : \mathbb{R} \to \mathbb{R}^2$ définie par $\gamma(t) = (3\cos t, 2\sin t)$.
+1. Résoudre cette équation avec la condition initiale $\vec{v}(0) = v_0\,\vec{i}$.
+2. Déterminer la vitesse limite $\vec{v}_\infty = \displaystyle\lim_{t \to +\infty} \vec{v}(t)$.
+3. En déduire le vecteur position $\vec{r}(t)$ avec $\vec{r}(0) = \vec{0}$.
+:::
 
-1. Montrer que l'arc décrit une ellipse.
-2. Calculer $\gamma'(t)$ et déterminer les points où la tangente est horizontale.
-3. Calculer la longueur de l'arc entre $t = 0$ et $t = \pi/2$.
+::: {.exercise title="(Mouvement circulaire uniforme)"}
+Un point $M$ décrit un cercle de rayon $R$ à la vitesse angulaire constante $\omega$. Son vecteur position est :
+$$\vec{r}(t) = R\cos(\omega t)\,\vec{i} + R\sin(\omega t)\,\vec{j}$$
 
+1. Calculer $\vec{v}(t)$ et $\vec{a}(t)$.
+2. Vérifier que $\langle \vec{r}(t), \vec{v}(t)\rangle = 0$ et $\langle \vec{v}(t), \vec{a}(t)\rangle = 0$.
+3. Montrer que $\vec{a}(t) = -\omega^2\,\vec{r}(t)$ et interpréter géométriquement.
+4. Calculer la longueur de l'arc décrit pendant une période $T = \dfrac{2\pi}{\omega}$.
+:::
+
+::: {.exercise title="(Formule de Leibniz)"}
+Soient $f,g : \mathbb{R} \to \mathbb{R}^3$ deux fonctions de classe $\mathcal{C}^3$. On pose $h(t) = \langle f(t), g(t)\rangle$.
+
+1. Exprimer $h'(t)$, $h''(t)$ et $h'''(t)$ en utilisant la formule de Leibniz.
+2. Application : si $f(t) = (t,t^2,t^3)$ et $g(t) = (1,t,t^2)$, calculer $h'''(0)$.
+:::
+
+::: {.exercise title="(Convergence uniforme et IAF)"}
+Soit $(f_n)_{n \geqslant 1}$ une suite de fonctions de $[0,1]$ dans $\mathbb{R}^2$ définie par :
+$$f_n(t) = \left(\dfrac{\cos(nt)}{n^2},\; \dfrac{\sin(nt)}{n^2}\right)$$
+
+1. Calculer $f_n'(t)$ et montrer que $\|f_n'(t)\| = \dfrac{1}{n}$.
+2. En déduire, à l'aide de l'inégalité des accroissements finis, que $(f_n)$ converge uniformément vers la fonction nulle sur $[0,1]$.
 :::
 
 # Document en PDF {-}
@@ -483,7 +572,7 @@ Soit $\gamma : \mathbb{R} \to \mathbb{R}^2$ définie par $\gamma(t) = (3\cos t, 
 # Voir TD {-}
 ✍️ [**TD 05 : Fonctions vectorielles d'une variable réelle, arcs paramétrés**](../td/mp-chap05.qmd)
 
-## Navigation {-}
+# Navigation {-}
 
 ::: {.chap-nav}
 
