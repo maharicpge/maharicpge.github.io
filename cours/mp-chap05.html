@@ -8,7 +8,7 @@
 
 <meta name="author" content="Saîd MAHARI">
 
-<title>Cours – Fonctions vectorielles d’une variable réelle, arcs paramétrés – Mathématiques en CPGE</title>
+<title>Cours – Fonctions vectorielles d’une variable réelle – Mathématiques en CPGE</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -162,7 +162,7 @@ window.Quarto = {
 
 <link rel="stylesheet" href="../styles.css">
 <link rel="stylesheet" href="styles.css">
-<meta property="og:title" content="Cours – Fonctions vectorielles d’une variable réelle, arcs paramétrés – Mathématiques en CPGE">
+<meta property="og:title" content="Cours – Fonctions vectorielles d’une variable réelle – Mathématiques en CPGE">
 <meta property="og:description" content="Chapitre 05">
 <meta property="og:site_name" content="Mathématiques en CPGE">
 </head>
@@ -273,35 +273,29 @@ window.Quarto = {
     <h2 id="toc-title">Sur cette page</h2>
    
   <ul>
-  <li><a href="#fonctions-vectorielles-dune-variable-réelle" id="toc-fonctions-vectorielles-dune-variable-réelle" class="nav-link active" data-scroll-target="#fonctions-vectorielles-dune-variable-réelle"><span class="header-section-number">1</span> Fonctions vectorielles d’une variable réelle</a>
+  <li><a href="#rappels-sur-les-fonctions-dune-variable-réelle" id="toc-rappels-sur-les-fonctions-dune-variable-réelle" class="nav-link active" data-scroll-target="#rappels-sur-les-fonctions-dune-variable-réelle"><span class="header-section-number">1</span> Rappels sur les fonctions d’une variable réelle</a>
   <ul class="collapse">
-  <li><a href="#définitions" id="toc-définitions" class="nav-link" data-scroll-target="#définitions"><span class="header-section-number">1.1</span> Définitions</a></li>
-  <li><a href="#continuité" id="toc-continuité" class="nav-link" data-scroll-target="#continuité"><span class="header-section-number">1.2</span> Continuité</a></li>
-  <li><a href="#dérivabilité-et-dérivée" id="toc-dérivabilité-et-dérivée" class="nav-link" data-scroll-target="#dérivabilité-et-dérivée"><span class="header-section-number">1.3</span> Dérivabilité et dérivée</a></li>
-  <li><a href="#classes-mathcalck" id="toc-classes-mathcalck" class="nav-link" data-scroll-target="#classes-mathcalck"><span class="header-section-number">1.4</span> Classes <span class="math inline">\mathcal{C}^k</span></a></li>
-  <li><a href="#opérations-sur-les-fonctions-vectorielles" id="toc-opérations-sur-les-fonctions-vectorielles" class="nav-link" data-scroll-target="#opérations-sur-les-fonctions-vectorielles"><span class="header-section-number">1.5</span> Opérations sur les fonctions vectorielles</a></li>
-  <li><a href="#interprétation-géométrique-et-cinématique" id="toc-interprétation-géométrique-et-cinématique" class="nav-link" data-scroll-target="#interprétation-géométrique-et-cinématique"><span class="header-section-number">1.6</span> Interprétation géométrique et cinématique</a></li>
+  <li><a href="#rappel-de-la-limite-de-la-dérivée" id="toc-rappel-de-la-limite-de-la-dérivée" class="nav-link" data-scroll-target="#rappel-de-la-limite-de-la-dérivée"><span class="header-section-number">1.1</span> Rappel de la limite de la dérivée</a></li>
+  <li><a href="#construction-de-lintégrale-dune-fonction-numérique" id="toc-construction-de-lintégrale-dune-fonction-numérique" class="nav-link" data-scroll-target="#construction-de-lintégrale-dune-fonction-numérique"><span class="header-section-number">1.2</span> Construction de l’intégrale d’une fonction numérique</a></li>
+  <li><a href="#techniques-dintégration" id="toc-techniques-dintégration" class="nav-link" data-scroll-target="#techniques-dintégration"><span class="header-section-number">1.3</span> Techniques d’intégration</a></li>
+  <li><a href="#sommes-de-riemann" id="toc-sommes-de-riemann" class="nav-link" data-scroll-target="#sommes-de-riemann"><span class="header-section-number">1.4</span> Sommes de Riemann</a></li>
   </ul></li>
-  <li><a href="#intégration-dune-fonction-vectorielle-sur-un-segment" id="toc-intégration-dune-fonction-vectorielle-sur-un-segment" class="nav-link" data-scroll-target="#intégration-dune-fonction-vectorielle-sur-un-segment"><span class="header-section-number">2</span> Intégration d’une fonction vectorielle sur un segment</a>
+  <li><a href="#dérivation" id="toc-dérivation" class="nav-link" data-scroll-target="#dérivation"><span class="header-section-number">2</span> Dérivation</a>
   <ul class="collapse">
-  <li><a href="#définition" id="toc-définition" class="nav-link" data-scroll-target="#définition"><span class="header-section-number">2.1</span> Définition</a></li>
-  <li><a href="#propriétés" id="toc-propriétés" class="nav-link" data-scroll-target="#propriétés"><span class="header-section-number">2.2</span> Propriétés</a></li>
+  <li><a href="#dérivabilité-en-un-point-sur-un-intervalle" id="toc-dérivabilité-en-un-point-sur-un-intervalle" class="nav-link" data-scroll-target="#dérivabilité-en-un-point-sur-un-intervalle"><span class="header-section-number">2.1</span> Dérivabilité en un point, sur un intervalle</a></li>
+  <li><a href="#opérations-sur-les-fonctions-dérivables" id="toc-opérations-sur-les-fonctions-dérivables" class="nav-link" data-scroll-target="#opérations-sur-les-fonctions-dérivables"><span class="header-section-number">2.2</span> Opérations sur les fonctions dérivables</a></li>
+  <li><a href="#dérivées-dordre-supérieur-applications-de-classe-mathcalck" id="toc-dérivées-dordre-supérieur-applications-de-classe-mathcalck" class="nav-link" data-scroll-target="#dérivées-dordre-supérieur-applications-de-classe-mathcalck"><span class="header-section-number">2.3</span> Dérivées d’ordre supérieur — Applications de classe <span class="math inline">\mathcal{C}^k</span></a></li>
   </ul></li>
-  <li><a href="#arcs-paramétrés" id="toc-arcs-paramétrés" class="nav-link" data-scroll-target="#arcs-paramétrés"><span class="header-section-number">3</span> Arcs paramétrés</a>
+  <li><a href="#intégration-sur-un-segment" id="toc-intégration-sur-un-segment" class="nav-link" data-scroll-target="#intégration-sur-un-segment"><span class="header-section-number">3</span> Intégration sur un segment</a>
   <ul class="collapse">
-  <li><a href="#définitions-1" id="toc-définitions-1" class="nav-link" data-scroll-target="#définitions-1"><span class="header-section-number">3.1</span> Définitions</a></li>
-  <li><a href="#tangente-en-un-point" id="toc-tangente-en-un-point" class="nav-link" data-scroll-target="#tangente-en-un-point"><span class="header-section-number">3.2</span> Tangente en un point</a></li>
-  <li><a href="#étude-locale-en-un-point-birégulier" id="toc-étude-locale-en-un-point-birégulier" class="nav-link" data-scroll-target="#étude-locale-en-un-point-birégulier"><span class="header-section-number">3.3</span> Étude locale en un point birégulier</a></li>
-  <li><a href="#longueur-dun-arc-paramétré" id="toc-longueur-dun-arc-paramétré" class="nav-link" data-scroll-target="#longueur-dun-arc-paramétré"><span class="header-section-number">3.4</span> Longueur d’un arc paramétré</a></li>
+  <li><a href="#intégrale-dune-fonction-continue-par-morceaux" id="toc-intégrale-dune-fonction-continue-par-morceaux" class="nav-link" data-scroll-target="#intégrale-dune-fonction-continue-par-morceaux"><span class="header-section-number">3.1</span> Intégrale d’une fonction continue par morceaux</a></li>
+  <li><a href="#intégrale-fonction-de-sa-borne-supérieure" id="toc-intégrale-fonction-de-sa-borne-supérieure" class="nav-link" data-scroll-target="#intégrale-fonction-de-sa-borne-supérieure"><span class="header-section-number">3.2</span> Intégrale fonction de sa borne supérieure</a></li>
+  <li><a href="#inégalité-des-accroissements-finis" id="toc-inégalité-des-accroissements-finis" class="nav-link" data-scroll-target="#inégalité-des-accroissements-finis"><span class="header-section-number">3.3</span> Inégalité des accroissements finis</a></li>
+  <li><a href="#formules-de-taylor" id="toc-formules-de-taylor" class="nav-link" data-scroll-target="#formules-de-taylor"><span class="header-section-number">3.4</span> Formules de Taylor</a></li>
   </ul></li>
-  <li><a href="#exemples-darcs-paramétrés" id="toc-exemples-darcs-paramétrés" class="nav-link" data-scroll-target="#exemples-darcs-paramétrés"><span class="header-section-number">4</span> Exemples d’arcs paramétrés</a>
-  <ul class="collapse">
-  <li><a href="#cercle" id="toc-cercle" class="nav-link" data-scroll-target="#cercle"><span class="header-section-number">4.1</span> Cercle</a></li>
-  <li><a href="#hélice-circulaire" id="toc-hélice-circulaire" class="nav-link" data-scroll-target="#hélice-circulaire"><span class="header-section-number">4.2</span> Hélice circulaire</a></li>
-  <li><a href="#parabole" id="toc-parabole" class="nav-link" data-scroll-target="#parabole"><span class="header-section-number">4.3</span> Parabole</a></li>
-  <li><a href="#folium-de-descartes" id="toc-folium-de-descartes" class="nav-link" data-scroll-target="#folium-de-descartes"><span class="header-section-number">4.4</span> Folium de Descartes</a></li>
-  </ul></li>
-  <li><a href="#exercices" id="toc-exercices" class="nav-link" data-scroll-target="#exercices"><span class="header-section-number">5</span> Exercices</a></li>
+  <li><a href="#étude-modeste-des-arcs-paramétrés" id="toc-étude-modeste-des-arcs-paramétrés" class="nav-link" data-scroll-target="#étude-modeste-des-arcs-paramétrés"><span class="header-section-number">4</span> Étude modeste des arcs paramétrés</a></li>
+  <li><a href="#synthèse-du-chapitre" id="toc-synthèse-du-chapitre" class="nav-link" data-scroll-target="#synthèse-du-chapitre"><span class="header-section-number">5</span> Synthèse du chapitre</a></li>
+  <li><a href="#exercices" id="toc-exercices" class="nav-link" data-scroll-target="#exercices"><span class="header-section-number">6</span> Exercices</a></li>
   <li><a href="#document-en-pdf" id="toc-document-en-pdf" class="nav-link" data-scroll-target="#document-en-pdf">Document en PDF</a></li>
   <li><a href="#voir-td" id="toc-voir-td" class="nav-link" data-scroll-target="#voir-td">Voir TD</a></li>
   </ul>
@@ -312,7 +306,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Cours – Fonctions vectorielles d’une variable réelle, arcs paramétrés</h1>
+<h1 class="title">Cours – Fonctions vectorielles d’une variable réelle</h1>
 <p class="subtitle lead">Chapitre 05</p>
 </div>
 
@@ -330,7 +324,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Date de publication</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">18 septembre 2026</p>
+      <p class="date">27 novembre 2026</p>
     </div>
   </div>
   
@@ -342,342 +336,467 @@ window.Quarto = {
 </header>
 
 
-<p><strong>MP (2e année) — Chapitre 05.</strong> Dérivation, intégration sur un segment, arc paramétré de classe <span class="math inline">\mathcal{C}^k</span>.</p>
+<p><strong>MP (2ᵉ année) — Chapitre 05.</strong> Fonctions vectorielles d’une variable réelle : dérivation, intégration sur un segment, inégalité des accroissements finis, formules de Taylor, étude modeste des arcs paramétrés.</p>
 <p>Ce chapitre a été réalisé conformément au programme marocain de mathématiques de la filière MP.</p>
-<p>Dans tout ce chapitre, <span class="math inline">I</span> désigne un intervalle de <span class="math inline">\mathbb{R}</span> non vide et non réduit à un point, <span class="math inline">n \geq 1</span> un entier, <span class="math inline">E</span> un <span class="math inline">\mathbb{K}</span>-espace vectoriel normé de dimension finie <span class="math inline">n</span> (<span class="math inline">\mathbb{K} = \mathbb{R}</span> ou <span class="math inline">\mathbb{C}</span>), et <span class="math inline">\mathcal{B} = (e_1, \ldots, e_n)</span> une base de <span class="math inline">E</span>.</p>
-<section id="fonctions-vectorielles-dune-variable-réelle" class="level1" data-number="1">
-<h1 data-number="1"><span class="header-section-number">1</span> Fonctions vectorielles d’une variable réelle</h1>
-<section id="définitions" class="level2" data-number="1.1">
-<h2 data-number="1.1" class="anchored" data-anchor-id="définitions"><span class="header-section-number">1.1</span> Définitions</h2>
-<div class="custom-numbered-block custom-definition">
-<p><strong>Définition 1.1 — (Fonction vectorielle)</strong></p>
-<p>On appelle <strong>fonction vectorielle</strong> sur <span class="math inline">I</span> toute application <span class="math inline">f : I \to E</span> où <span class="math inline">E</span> est un espace vectoriel normé de dimension finie.</p>
-<p>Si <span class="math inline">\mathcal{B} = (e_1, \ldots, e_n)</span> est une base de <span class="math inline">E</span>, les <strong>fonctions composantes</strong> de <span class="math inline">f</span> dans <span class="math inline">\mathcal{B}</span> sont les applications <span class="math inline">f_1, \ldots, f_n : I \to \mathbb{K}</span> définies par : <span class="math display">f(t) = f_1(t) e_1 + f_2(t) e_2 + \cdots + f_n(t) e_n</span></p>
-<p>En particulier, pour <span class="math inline">E = \mathbb{R}^n</span> muni de la base canonique, on identifie <span class="math inline">f</span> à un <span class="math inline">n</span>-uplet de fonctions : <span class="math display">f(t) = (f_1(t), f_2(t), \ldots, f_n(t))</span></p>
+<div class="theoreme">
+<p><strong>Objectifs du chapitre.</strong> Ce chapitre généralise à des fonctions à valeurs dans un espace vectoriel normé <span class="math inline">(E, \|\cdot\|)</span> de dimension finie <span class="math inline">n</span> les résultats d’analyse réelle étudiés en première année. Il fournit les outils nécessaires à l’étude des équations différentielles linéaires et au calcul différentiel.</p>
+<ul>
+<li>Étendre la dérivation et l’intégration aux fonctions vectorielles.</li>
+<li>Préciser les notions de tangente, de vitesse et d’accélération instantanées.</li>
+<li>Établir l’inégalité des accroissements finis et les formules de Taylor.</li>
+<li>Étudier modestement les arcs paramétrés de l’espace.</li>
+</ul>
 </div>
-<div class="custom-numbered-block custom-example">
-<p><strong>Exemple 1.1</strong></p>
+<p><strong>Cadre du chapitre.</strong> Dans tout ce chapitre :</p>
+<ul>
+<li><span class="math inline">I</span> désigne un intervalle de <span class="math inline">\mathbb{R}</span> (non réduit à un point).</li>
+<li><span class="math inline">(E, \|\cdot\|)</span> et <span class="math inline">(F, \|\cdot\|_F)</span> désignent des espaces vectoriels normés de dimension finie sur <span class="math inline">\mathbb{K} = \mathbb{R}</span> ou <span class="math inline">\mathbb{C}</span>.</li>
+<li><span class="math inline">(e_1, \ldots, e_n)</span> désigne une base fixée de <span class="math inline">E</span>.</li>
+</ul>
+<section id="rappels-sur-les-fonctions-dune-variable-réelle" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Rappels sur les fonctions d’une variable réelle</h1>
+<p>Avant d’étendre les concepts d’analyse aux fonctions vectorielles, il est indispensable de rappeler certains résultats fondamentaux pour les fonctions numériques <span class="math inline">f: I \to \mathbb{K}</span>.</p>
+<section id="rappel-de-la-limite-de-la-dérivée" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="rappel-de-la-limite-de-la-dérivée"><span class="header-section-number">1.1</span> Rappel de la limite de la dérivée</h2>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 1.1 — (<strong>Théorème de la limite de la dérivée (TLD).</strong>)</strong></p>
+<p>Soit <span class="math inline">f: I \to E</span> une fonction continue sur <span class="math inline">I</span> et dérivable sur <span class="math inline">I \setminus \{a\}</span>, où <span class="math inline">a \in I</span>. Si la dérivée <span class="math inline">f'</span> admet une <strong>limite finie</strong> <span class="math inline">L \in E</span> en <span class="math inline">a</span>, c’est-à-dire <span class="math inline">\lim_{t \to a} f'(t) = L</span>, alors <span class="math inline">f</span> est dérivable en <span class="math inline">a</span> et : <span class="math display">f'(a) = L</span></p>
+</div>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 1.2 — (<strong>Théorème de prolongement de classe <span class="math inline">\mathcal{C}^k</span>.</strong>)</strong></p>
+<p>Soit <span class="math inline">k \in \N^*</span>, <span class="math inline">a \in I</span>, et <span class="math inline">f : I \setminus \{a\} \to E</span> une fonction de classe <span class="math inline">\mathcal{C}^k</span> sur <span class="math inline">I \setminus \{a\}</span>. On suppose que pour tout <span class="math inline">j \in \{0, 1, \dots, k\}</span>, la dérivée <span class="math inline">f^{(j)}</span> admet une <strong>limite finie</strong> <span class="math inline">\ell_j \in E</span> en <span class="math inline">a</span> (avec la convention <span class="math inline">f^{(0)} = f</span>). Alors :</p>
 <ol type="1">
-<li><p>La fonction <span class="math inline">f : \mathbb{R} \to \mathbb{R}^2</span> définie par <span class="math inline">f(t) = (\cos t, \sin t)</span> est une fonction vectorielle à deux composantes.</p></li>
-<li><p>La fonction <span class="math inline">g : \mathbb{R} \to \mathbb{R}^3</span> définie par <span class="math inline">g(t) = (t, t^2, t^3)</span> est une fonction vectorielle à trois composantes.</p></li>
+<li>La fonction <span class="math inline">\tilde{f} : I \to E</span> définie par <span class="math inline">\tilde{f}(t) = f(t)</span> pour <span class="math inline">t \neq a</span> et <span class="math inline">\tilde{f}(a) = \ell_0</span> est de classe <span class="math inline">\mathcal{C}^k</span> sur <span class="math inline">I</span>.</li>
+<li>Pour tout <span class="math inline">j \in \{1, \dots, k\}</span> et tout <span class="math inline">t \in I</span>, on a <span class="math inline">\tilde{f}^{(j)}(t) = \lim_{u \to t,\, u \neq a} f^{(j)}(u)</span> ; en particulier, pour tout <span class="math inline">j \in \{1, \dots, k\}</span>, <span class="math inline">\tilde{f}^{(j)}(a) = \ell_j</span>.</li>
 </ol>
 </div>
 </section>
-<section id="continuité" class="level2" data-number="1.2">
-<h2 data-number="1.2" class="anchored" data-anchor-id="continuité"><span class="header-section-number">1.2</span> Continuité</h2>
+<section id="construction-de-lintégrale-dune-fonction-numérique" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="construction-de-lintégrale-dune-fonction-numérique"><span class="header-section-number">1.2</span> Construction de l’intégrale d’une fonction numérique</h2>
 <div class="custom-numbered-block custom-definition">
-<p><strong>Définition 1.2 — (Continuité d’une fonction vectorielle)</strong></p>
-<p>Une fonction vectorielle <span class="math inline">f : I \to E</span> est <strong>continue en</strong> <span class="math inline">t_0 \in I</span> si : <span class="math display">\lim_{t \to t_0} \|f(t) - f(t_0)\| = 0</span></p>
-<p><span class="math inline">f</span> est <strong>continue sur <span class="math inline">I</span></strong> si elle est continue en tout point de <span class="math inline">I</span>.</p>
-</div>
-<div class="custom-numbered-block custom-proposition">
-<p><strong>Proposition 1.1 — (Caractérisation de la continuité par les composantes)</strong></p>
-<p><span class="math inline">f : I \to E</span> est continue en <span class="math inline">t_0</span> si et seulement si toutes ses fonctions composantes <span class="math inline">f_1, \ldots, f_n</span> sont continues en <span class="math inline">t_0</span>.</p>
-</div>
-<div class="custom-numbered-block custom-example">
-<p><strong>Exemple 1.2</strong></p>
-<p>La fonction <span class="math inline">f(t) = (\cos t, \sin t)</span> est continue sur <span class="math inline">\mathbb{R}</span> car <span class="math inline">\cos</span> et <span class="math inline">\sin</span> sont continues sur <span class="math inline">\mathbb{R}</span>.</p>
-</div>
-</section>
-<section id="dérivabilité-et-dérivée" class="level2" data-number="1.3">
-<h2 data-number="1.3" class="anchored" data-anchor-id="dérivabilité-et-dérivée"><span class="header-section-number">1.3</span> Dérivabilité et dérivée</h2>
-<div class="custom-numbered-block custom-definition">
-<p><strong>Définition 1.3 — (Dérivabilité et dérivée)</strong></p>
-<p>Soit <span class="math inline">f : I \to E</span> une fonction vectorielle et <span class="math inline">t_0 \in I</span> (qui n’est pas une extrémité de <span class="math inline">I</span>). On dit que <span class="math inline">f</span> est <strong>dérivable en</strong> <span class="math inline">t_0</span> si la limite suivante existe : <span class="math display">f'(t_0) = \lim_{t \to t_0} \frac{f(t) - f(t_0)}{t - t_0} = \lim_{h \to 0} \frac{f(t_0 + h) - f(t_0)}{h}</span></p>
-<p>La fonction <span class="math inline">f'</span> ainsi définie (lorsqu’elle existe partout sur <span class="math inline">I</span>) est appelée la <strong>dérivée</strong> de <span class="math inline">f</span>.</p>
-</div>
-<div class="custom-numbered-block custom-proposition">
-<p><strong>Proposition 1.2 — (Caractérisation de la dérivabilité par les composantes)</strong></p>
-<p><span class="math inline">f : I \to E</span> est dérivable en <span class="math inline">t_0</span> si et seulement si toutes ses fonctions composantes <span class="math inline">f_1, \ldots, f_n</span> sont dérivables en <span class="math inline">t_0</span>. Dans ce cas : <span class="math display">f'(t_0) = f_1'(t_0) e_1 + f_2'(t_0) e_2 + \cdots + f_n'(t_0) e_n</span></p>
-</div>
-<div class="custom-numbered-block custom-example">
-<p><strong>Exemple 1.3</strong></p>
-<p>Pour <span class="math inline">f(t) = (\cos t, \sin t)</span>, on a <span class="math inline">f'(t) = (-\sin t, \cos t)</span>.</p>
-<p>Pour <span class="math inline">g(t) = (t, t^2, t^3)</span>, on a <span class="math inline">g'(t) = (1, 2t, 3t^2)</span>.</p>
-</div>
-<div class="custom-numbered-block custom-definition">
-<p><strong>Définition 1.4 — (Dérivées à droite et à gauche)</strong></p>
-<p>Pour <span class="math inline">t_0</span> une extrémité de <span class="math inline">I</span>, on définit la <strong>dérivée à droite</strong> (resp. <strong>à gauche</strong>) par : <span class="math display">f'_d(t_0) = \lim_{t \to t_0^+} \frac{f(t) - f(t_0)}{t - t_0} \quad \left(\text{resp. } f'_g(t_0) = \lim_{t \to t_0^-} \frac{f(t) - f(t_0)}{t - t_0}\right)</span></p>
-</div>
-</section>
-<section id="classes-mathcalck" class="level2" data-number="1.4">
-<h2 data-number="1.4" class="anchored" data-anchor-id="classes-mathcalck"><span class="header-section-number">1.4</span> Classes <span class="math inline">\mathcal{C}^k</span></h2>
-<div class="custom-numbered-block custom-definition">
-<p><strong>Définition 1.5 — (Classes <span class="math inline">\boldsymbol{\mathcal{C}^k}</span>)</strong></p>
-<p>Soit <span class="math inline">k \in \mathbb{N}^* \cup \{+\infty\}</span>.</p>
+<p><strong>Définition 1.1 — (<strong>Fonctions en escalier et fonctions continues par morceaux.</strong>)</strong></p>
+<p>Soient <span class="math inline">a &lt; b</span> deux réels et <span class="math inline">\mathbb{K} = \mathbb{R}</span> ou <span class="math inline">\mathbb{C}</span>.</p>
+<ol type="1">
+<li><strong>Fonction en escalier :</strong> Une fonction <span class="math inline">\varphi : [a,b] \to \mathbb{K}</span> est dite <strong>en escalier</strong> sur <span class="math inline">[a,b]</span> s’il existe une subdivision <span class="math inline">\sigma = (t_0, t_1, \dots, t_m)</span> de <span class="math inline">[a,b]</span> (avec <span class="math inline">a = t_0 &lt; t_1 &lt; \dots &lt; t_m = b</span>) telle que, pour tout <span class="math inline">k \in \{1, \dots, m\}</span>, la restriction de <span class="math inline">\varphi</span> à l’intervalle ouvert <span class="math inline">]t_{k-1}, t_k[</span> soit <strong>constante</strong> (égale à une constante <span class="math inline">c_k \in \mathbb{K}</span>).</li>
+<li><strong>Fonction continue par morceaux :</strong> Une fonction <span class="math inline">f : [a,b] \to \mathbb{K}</span> est dite <strong>continue par morceaux</strong> sur <span class="math inline">[a,b]</span> s’il existe une subdivision <span class="math inline">\sigma = (t_0, t_1, \dots, t_m)</span> de <span class="math inline">[a,b]</span> telle que, pour tout <span class="math inline">k \in \{1, \dots, m\}</span> :
 <ul>
-<li><span class="math inline">f : I \to E</span> est de <strong>classe <span class="math inline">\mathcal{C}^1</span></strong> sur <span class="math inline">I</span> si <span class="math inline">f</span> est dérivable sur <span class="math inline">I</span> et <span class="math inline">f'</span> est continue sur <span class="math inline">I</span>.</li>
-<li><span class="math inline">f</span> est de <strong>classe <span class="math inline">\mathcal{C}^k</span></strong> sur <span class="math inline">I</span> si <span class="math inline">f^{(k)}</span> existe et est continue sur <span class="math inline">I</span>.</li>
-<li><span class="math inline">f</span> est de <strong>classe <span class="math inline">\mathcal{C}^\infty</span></strong> si <span class="math inline">f</span> est de classe <span class="math inline">\mathcal{C}^k</span> pour tout <span class="math inline">k \in \mathbb{N}^*</span>.</li>
-</ul>
-<p>On note <span class="math inline">\mathcal{C}^k(I, E)</span> l’espace vectoriel des fonctions de classe <span class="math inline">\mathcal{C}^k</span> sur <span class="math inline">I</span> à valeurs dans <span class="math inline">E</span>.</p>
+<li>la restriction de <span class="math inline">f</span> à <span class="math inline">]t_{k-1}, t_k[</span> soit <strong>continue</strong> ;</li>
+<li><span class="math inline">f</span> admette une <strong>limite finie à droite</strong> en <span class="math inline">t_{k-1}</span> et une <strong>limite finie à gauche</strong> en <span class="math inline">t_k</span>.</li>
+</ul></li>
+</ol>
 </div>
-<div class="custom-numbered-block custom-proposition">
-<p><strong>Proposition 1.3</strong></p>
-<p><span class="math inline">f</span> est de classe <span class="math inline">\mathcal{C}^k</span> sur <span class="math inline">I</span> si et seulement si toutes ses composantes <span class="math inline">f_1, \ldots, f_n</span> sont de classe <span class="math inline">\mathcal{C}^k</span> sur <span class="math inline">I</span>.</p>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 1.2 — (<strong>Convergence uniforme d’une suite de fonctions.</strong>)</strong></p>
+<p>Soit <span class="math inline">X</span> un ensemble non vide, <span class="math inline">(E, \|\cdot\|)</span> un espace vectoriel normé, et <span class="math inline">(f_n)_{n \in \N}</span> une suite d’applications de <span class="math inline">X</span> dans <span class="math inline">E</span>. On dit que <span class="math inline">(f_n)</span> <strong>converge uniformément</strong> sur <span class="math inline">X</span> vers une application <span class="math inline">f : X \to E</span> si : <span class="math display">\lim_{n \to +\infty} \left(\sup_{x \in X} \|f_n(x) - f(x)\|\right) = 0</span></p>
+</div>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 1.3 — (<strong>Construction de l’intégrale.</strong>)</strong></p>
+<p>Soit <span class="math inline">f: [a,b] \to \mathbb{K}</span> une fonction continue par morceaux.</p>
+<ol type="1">
+<li><strong>Fonctions en escalier :</strong> Pour une fonction en escalier <span class="math inline">\varphi</span> constante égale à <span class="math inline">c_k</span> sur <span class="math inline">]t_{k-1}, t_k[</span>, l’intégrale est définie par <span class="math inline">\int_a^b \varphi(t) dt = \sum_{k=1}^m c_k (t_k - t_{k-1})</span>.</li>
+<li><strong>Fonctions continues par morceaux :</strong> Toute fonction continue par morceaux <span class="math inline">f</span> est limite uniforme d’une suite de fonctions en escalier <span class="math inline">(\varphi_n)</span>. L’intégrale de <span class="math inline">f</span> est définie par passage à la limite : <span class="math inline">\int_a^b f(t) dt = \lim_{n \to +\infty} \int_a^b \varphi_n(t) dt</span>.</li>
+</ol>
+<p>Cette construction garantit les propriétés de linéarité, de positivité (sur <span class="math inline">\mathbb{R}</span>) et de relation de Chasles.</p>
 </div>
 </section>
-<section id="opérations-sur-les-fonctions-vectorielles" class="level2" data-number="1.5">
-<h2 data-number="1.5" class="anchored" data-anchor-id="opérations-sur-les-fonctions-vectorielles"><span class="header-section-number">1.5</span> Opérations sur les fonctions vectorielles</h2>
+<section id="techniques-dintégration" class="level2" data-number="1.3">
+<h2 data-number="1.3" class="anchored" data-anchor-id="techniques-dintégration"><span class="header-section-number">1.3</span> Techniques d’intégration</h2>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 1.4 — (<strong>Techniques d’intégration pour les fonctions numériques.</strong>)</strong></p>
+<p>Pour les fonctions numériques <span class="math inline">f: [a,b] \to \mathbb{K}</span>, on utilisera fréquemment les techniques suivantes, qui se transposent composante par composante pour les fonctions vectorielles :</p>
+<ol type="1">
+<li><strong>Intégration par parties (IPP) :</strong> Si <span class="math inline">u, v</span> sont de classe <span class="math inline">\mathcal{C}^1</span> sur <span class="math inline">[a,b]</span>, alors : <span class="math display">\int_a^b u(t)v'(t) dt = [u(t)v(t)]_a^b - \int_a^b u'(t)v(t) dt</span></li>
+<li><strong>Changement de variables :</strong> Si <span class="math inline">\varphi: [\alpha, \beta] \to [a,b]</span> est de classe <span class="math inline">\mathcal{C}^1</span> et <span class="math inline">f</span> continue sur <span class="math inline">[a,b]</span>, alors : <span class="math display">\int_{\varphi(\alpha)}^{\varphi(\beta)} f(t) dt = \int_\alpha^\beta f(\varphi(u)) \varphi'(u) du</span></li>
+</ol>
+</div>
+</section>
+<section id="sommes-de-riemann" class="level2" data-number="1.4">
+<h2 data-number="1.4" class="anchored" data-anchor-id="sommes-de-riemann"><span class="header-section-number">1.4</span> Sommes de Riemann</h2>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 1.5 — (<strong>Sommes de Riemann.</strong>)</strong></p>
+<p>Soit <span class="math inline">f: [a,b] \to \mathbb{K}</span> continue. Pour tout <span class="math inline">n \in \N^*</span>, on pose la somme de Riemann associée à une subdivision de pas constant : <span class="math display">S_n(f) = \frac{b-a}{n} \sum_{k=0}^{n-1} f\left(a + k \frac{b-a}{n}\right)</span> Alors <span class="math inline">\lim_{n \to +\infty} S_n(f) = \int_a^b f(t) dt</span>.</p>
+</div>
+<div class="exemple" title="(**Exemples d'utilisation des sommes de Riemann.**)">
+<ol type="1">
+<li><p>Calcul de <span class="math inline">\lim_{n \to +\infty} \sum_{k=1}^n \frac{1}{n+k}</span> : On factorise par <span class="math inline">n</span> : <span class="math inline">\frac{1}{n} \sum_{k=1}^n \frac{1}{1+k/n}</span>. On reconnaît <span class="math inline">S_n(f)</span> pour <span class="math inline">f(x) = \frac{1}{1+x}</span> sur <span class="math inline">[0,1]</span>. Donc la limite est <span class="math inline">\int_0^1 \frac{1}{1+x} dx = [\ln(1+x)]_0^1 = \ln 2</span>.</p></li>
+<li><p>Calcul de <span class="math inline">\lim_{n \to +\infty} \sum_{k=1}^n \frac{k}{n^2+k^2}</span> : On factorise par <span class="math inline">n^2</span> au dénominateur : <span class="math inline">\frac{1}{n} \sum_{k=1}^n \frac{k/n}{1+(k/n)^2}</span>. On reconnaît <span class="math inline">S_n(f)</span> pour <span class="math inline">f(x) = \frac{x}{1+x^2}</span> sur <span class="math inline">[0,1]</span>. La limite est <span class="math inline">\int_0^1 \frac{x}{1+x^2} dx = \left[\frac{1}{2}\ln(1+x^2)\right]_0^1 = \frac{\ln 2}{2}</span>.</p></li>
+<li><p>Calcul de <span class="math inline">\lim_{n \to +\infty} \sum_{k=1}^n \sin\left(\frac{k\pi}{n}\right) \frac{1}{n}</span> : On reconnaît <span class="math inline">S_n(f)</span> pour <span class="math inline">f(x) = \sin(\pi x)</span> sur <span class="math inline">[0,1]</span>. La limite est <span class="math inline">\int_0^1 \sin(\pi x) dx = \left[-\frac{\cos(\pi x)}{\pi}\right]_0^1 = \frac{2}{\pi}</span>.</p></li>
+</ol>
+</div>
+</section>
+</section>
+<section id="dérivation" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> Dérivation</h1>
+<section id="dérivabilité-en-un-point-sur-un-intervalle" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="dérivabilité-en-un-point-sur-un-intervalle"><span class="header-section-number">2.1</span> Dérivabilité en un point, sur un intervalle</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 2.1 — (<strong>Dérivabilité en un point.</strong>)</strong></p>
+<p>Soit <span class="math inline">f : I \to E</span> une application et <span class="math inline">t_0 \in I</span>. On dit que <span class="math inline">f</span> est <strong>dérivable en <span class="math inline">t_0</span></strong> s’il existe un vecteur <span class="math inline">\ell \in E</span> et une fonction <span class="math inline">\varepsilon : I \to E</span> tels que : <span class="math display">\forall t \in I, \quad f(t) = f(t_0) + (t-t_0)\ell + (t-t_0)\varepsilon(t) \quad \text{avec} \quad \lim_{t \to t_0} \varepsilon(t) = 0_E</span> Le vecteur <span class="math inline">\ell</span> est unique : on l’appelle le vecteur <strong>dérivé de <span class="math inline">f</span> en <span class="math inline">t_0</span></strong> et on le note <span class="math inline">f'(t_0)</span> ou <span class="math inline">\dfrac{df}{dt}(t_0)</span>.</p>
+</div>
+<div class="remarque" title="(**Caractérisations équivalentes.**)">
+<p>Les deux affirmations suivantes sont équivalentes :</p>
+<ol type="1">
+<li><span class="math inline">f</span> est dérivable en <span class="math inline">t_0</span> de dérivé <span class="math inline">\ell \in E</span>.</li>
+<li>Le taux d’accroissement admet une limite <span class="math inline">\ell \in E</span> : <span class="math inline">\lim_{t \to t_0} \frac{f(t) - f(t_0)}{t - t_0} = \ell</span>.</li>
+</ol>
+</div>
+<div class="remarque" title="(**Caractérisation par les coordonnées.**)">
+<p>Soit <span class="math inline">f(t) = \sum_{i=1}^n f_i(t)\, e_i</span>. Alors <span class="math inline">f</span> est dérivable en <span class="math inline">t_0</span> si et seulement si chaque composante <span class="math inline">f_i</span> est dérivable en <span class="math inline">t_0</span>, et dans ce cas : <span class="math display">f'(t_0) = \sum_{i=1}^n f_i'(t_0)\, e_i</span></p>
+</div>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 2.2 — (<strong>Dérivabilité sur un intervalle.</strong>)</strong></p>
+<p>On dit que <span class="math inline">f : I \to E</span> est <strong>dérivable sur <span class="math inline">I</span></strong> si elle est dérivable en tout point de <span class="math inline">I</span>. L’application <span class="math inline">t \mapsto f'(t)</span> est l’<strong>application dérivée</strong> de <span class="math inline">f</span>, notée <span class="math inline">f'</span>.</p>
+</div>
+<div class="exemple" title="(**Fonction à valeurs dans $\mathbb{R}^2$ — Mouvement circulaire.**)">
+<p>Soit <span class="math inline">f : \mathbb{R} \to \mathbb{R}^2</span> définie par <span class="math inline">f(t) = (\cos t, \sin t)</span>. Chaque composante est dérivable sur <span class="math inline">\mathbb{R}</span>, donc <span class="math inline">f</span> est dérivable sur <span class="math inline">\mathbb{R}</span> et : <span class="math display">f'(t) = (-\sin t, \cos t)</span> <strong>Vérifications géométriques :</strong> - <span class="math inline">\|f(t)\|^2 = \cos^2 t + \sin^2 t = 1</span> : le point décrit le cercle unité. - <span class="math inline">\langle f(t), f'(t) \rangle = \cos t \cdot (-\sin t) + \sin t \cdot \cos t = 0</span> : la vitesse est orthogonale au rayon. - <span class="math inline">\|f'(t)\|^2 = \sin^2 t + \cos^2 t = 1</span> : le mouvement est uniforme.</p>
+</div>
+<div class="exemple" title="(**Interprétation cinématique — Vitesse et accélération.**)">
+<p>Soit <span class="math inline">\vec{r} : I \to \mathbb{R}^3</span> la fonction qui à chaque instant <span class="math inline">t</span> associe le vecteur position <span class="math inline">\vec{r}(t) = \vec{OM}(t)</span> d’un point mobile <span class="math inline">M</span> dans un référentiel <span class="math inline">\mathcal{R}</span>.</p>
+<ul>
+<li><strong>Vitesse instantanée :</strong> <span class="math inline">\vec{v}(t_0) = \vec{r}\,'(t_0) = \lim_{t \to t_0} \frac{\vec{r}(t) - \vec{r}(t_0)}{t - t_0}</span></li>
+<li><strong>Accélération :</strong> <span class="math inline">\vec{a}(t_0) = \vec{v}\,'(t_0) = \vec{r}\,''(t_0)</span></li>
+</ul>
+</div>
+<div class="exemple" title="(**Mouvement hélicoïdal — Calcul détaillé.**)">
+<p>Un point <span class="math inline">M</span> a pour vecteur position dans un repère orthonormé <span class="math inline">(O, \vec{i}, \vec{j}, \vec{k})</span> : <span class="math display">\vec{r}(t) = R\cos(\omega t)\,\vec{i} + R\sin(\omega t)\,\vec{j} + h\,\omega t\,\vec{k}</span> où <span class="math inline">R, \omega, h &gt; 0</span>. Calculons vitesse et accélération.</p>
+<p><strong>Composantes :</strong> <span class="math inline">x(t) = R\cos(\omega t)</span>, <span class="math inline">y(t) = R\sin(\omega t)</span>, <span class="math inline">z(t) = h\omega t</span>.</p>
+<p><strong>Vitesse :</strong> en dérivant chaque composante : <span class="math display">\vec{v}(t) = \vec{r}\,'(t) = -R\omega\sin(\omega t)\,\vec{i} + R\omega\cos(\omega t)\,\vec{j} + h\omega\,\vec{k}</span></p>
+<p><strong>Accélération :</strong> en dérivant à nouveau : <span class="math display">\vec{a}(t) = \vec{r}\,''(t) = -R\omega^2\cos(\omega t)\,\vec{i} - R\omega^2\sin(\omega t)\,\vec{j} + \vec{0}</span></p>
+<p><strong>Interprétation :</strong> - <span class="math inline">\|\vec{v}(t)\|^2 = R^2\omega^2\sin^2(\omega t) + R^2\omega^2\cos^2(\omega t) + h^2\omega^2 = \omega^2(R^2 + h^2)</span> : la vitesse est constante en norme. - <span class="math inline">\|\vec{a}(t)\| = R\omega^2</span> : accélération centripète constante. - <span class="math inline">\langle \vec{v}(t), \vec{a}(t) \rangle = 0</span> : accélération orthogonale à la vitesse. - <span class="math inline">\vec{a}(t) = -\omega^2 \left(R\cos(\omega t)\,\vec{i} + R\sin(\omega t)\,\vec{j}\right)</span> : l’accélération est dirigée vers l’axe <span class="math inline">(Oz)</span>.</p>
+</div>
+<div class="exemple" title="(**Chute libre avec frottement — Équation différentielle.**)">
+<p>Un point matériel de masse <span class="math inline">m</span> chute verticalement sous l’action de la pesanteur <span class="math inline">\vec{g} = -g\,\vec{k}</span> et d’un frottement fluide <span class="math inline">\vec{f} = -k\vec{v}</span>. La deuxième loi de Newton donne : <span class="math display">m\vec{a} = m\vec{g} - k\vec{v} \quad \Longleftrightarrow \quad m\dfrac{d\vec{v}}{dt} = -mg\,\vec{k} - k\vec{v}</span> En projection sur <span class="math inline">\vec{k}</span>, avec <span class="math inline">v = v_z</span> : <span class="math display">m\dfrac{dv}{dt} = -mg - kv \quad \Longleftrightarrow \quad \dfrac{dv}{dt} + \frac{k}{m}v = -g</span> C’est une équation différentielle linéaire du premier ordre à coefficients constants. La solution avec <span class="math inline">v(0) = 0</span> est : <span class="math display">v(t) = -\frac{mg}{k}\left(1 - e^{-kt/m}\right)</span> La <strong>vitesse limite</strong> est <span class="math inline">v_\infty = -\dfrac{mg}{k}</span> (atteinte asymptotiquement).</p>
+</div>
+</section>
+<section id="opérations-sur-les-fonctions-dérivables" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="opérations-sur-les-fonctions-dérivables"><span class="header-section-number">2.2</span> Opérations sur les fonctions dérivables</h2>
 <div class="custom-numbered-block custom-proposition">
-<p><strong>Proposition 1.4 — (Combinaison linéaire)</strong></p>
-<p>Soient <span class="math inline">f, g : I \to E</span> dérivables en <span class="math inline">t_0</span> et <span class="math inline">\lambda, \mu \in \mathbb{K}</span>. Alors <span class="math inline">\lambda f + \mu g</span> est dérivable en <span class="math inline">t_0</span> et : <span class="math display">(\lambda f + \mu g)'(t_0) = \lambda f'(t_0) + \mu g'(t_0)</span></p>
+<p><strong>Proposition 2.1 — (<strong>Opérations algébriques — Linéarité.</strong>)</strong></p>
+<p>Soient <span class="math inline">f, g : I \to E</span> dérivables en <span class="math inline">t_0</span> et <span class="math inline">\lambda \in \mathbb{K}</span>. Alors :</p>
+<ol type="1">
+<li><span class="math inline">\lambda f + g</span> est dérivable en <span class="math inline">t_0</span> et <span class="math inline">(\lambda f + g)'(t_0) = \lambda f'(t_0) + g'(t_0)</span>.</li>
+<li>Si <span class="math inline">\varphi : I \to \mathbb{K}</span> et <span class="math inline">f : I \to E</span> sont dérivables en <span class="math inline">t_0</span>, alors <span class="math inline">\varphi f</span> est dérivable en <span class="math inline">t_0</span> et : <span class="math display">(\varphi f)'(t_0) = \varphi'(t_0) f(t_0) + \varphi(t_0) f'(t_0)</span></li>
+</ol>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Preuve</em>. </span><strong>1. Linéarité.</strong> Par caractérisation du taux d’accroissement : <span class="math display">\frac{(\lambda f + g)(t) - (\lambda f + g)(t_0)}{t - t_0} = \lambda \frac{f(t) - f(t_0)}{t - t_0} + \frac{g(t) - g(t_0)}{t - t_0} \xrightarrow[t \to t_0]{} \lambda f'(t_0) + g'(t_0)</span></p>
+<p><strong>2. Produit scalaire <span class="math inline">\times</span> vecteur.</strong> Écrivons l’astuce classique en ajoutant et soustrayant <span class="math inline">\varphi(t_0)f(t)</span> : <span class="math display">\varphi(t)f(t) - \varphi(t_0)f(t_0) = \big(\varphi(t) - \varphi(t_0)\big)f(t) + \varphi(t_0)\big(f(t) - f(t_0)\big)</span> En divisant par <span class="math inline">t - t_0</span> : <span class="math display">\frac{\varphi(t)f(t) - \varphi(t_0)f(t_0)}{t - t_0} = \frac{\varphi(t) - \varphi(t_0)}{t - t_0} \cdot f(t) + \varphi(t_0) \cdot \frac{f(t) - f(t_0)}{t - t_0}</span> Quand <span class="math inline">t \to t_0</span> : - <span class="math inline">\dfrac{\varphi(t) - \varphi(t_0)}{t - t_0} \to \varphi'(t_0)</span> - <span class="math inline">f(t) \to f(t_0)</span> (car <span class="math inline">f</span> est dérivable donc continue) - <span class="math inline">\varphi(t_0)</span> est constant - <span class="math inline">\dfrac{f(t) - f(t_0)}{t - t_0} \to f'(t_0)</span></p>
+<p>Donc <span class="math inline">(\varphi f)'(t_0) = \varphi'(t_0) f(t_0) + \varphi(t_0) f'(t_0)</span>.</p>
 </div>
 <div class="custom-numbered-block custom-proposition">
-<p><strong>Proposition 1.5 — (Produit par une fonction scalaire)</strong></p>
-<p>Soient <span class="math inline">f : I \to E</span> dérivable en <span class="math inline">t_0</span> et <span class="math inline">\varphi : I \to \mathbb{K}</span> dérivable en <span class="math inline">t_0</span>. Alors <span class="math inline">\varphi \cdot f</span> est dérivable en <span class="math inline">t_0</span> et : <span class="math display">(\varphi \cdot f)'(t_0) = \varphi'(t_0) \cdot f(t_0) + \varphi(t_0) \cdot f'(t_0)</span></p>
+<p><strong>Proposition 2.2 — (<strong>Composition par une application linéaire.</strong>)</strong></p>
+<p>Soit <span class="math inline">L \in \mathcal{L}(E, F)</span>. Si <span class="math inline">f : I \to E</span> est dérivable en <span class="math inline">t_0</span>, alors <span class="math inline">L \mathbb{C}irc f</span> est dérivable en <span class="math inline">t_0</span> et : <span class="math display">(L \mathbb{C}irc f)'(t_0) = L(f'(t_0))</span></p>
+</div>
+<div class="exemple" title="(**Applications de la composition par une application linéaire.*)">
+<ol type="1">
+<li><strong>Projection sur une coordonnée :</strong> si <span class="math inline">p_i : E \to \mathbb{K}</span> est la <span class="math inline">i</span>-ème projection, alors <span class="math inline">(p_i \mathbb{C}irc f)' = p_i \mathbb{C}irc f'</span>, ce qui redonne <span class="math inline">f_i' = (f')_i</span>.</li>
+<li><strong>Trace d’une matrice :</strong> si <span class="math inline">M : I \to \mathcal{M}_n(\mathbb{K})</span>, alors <span class="math inline">(\mathrm{tr} \mathbb{C}irc M)' = \mathrm{tr}(M')</span>.</li>
+<li><strong>Transposition :</strong> si <span class="math inline">M : I \to \mathcal{M}_n(\mathbb{K})</span>, alors <span class="math inline">(M^T)' = (M')^T</span>.</li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 2.1 — (<strong>Dérivée d’une application bilinéaire.</strong>)</strong></p>
+<p>Soit <span class="math inline">B : E \times F \to G</span> une application bilinéaire (où <span class="math inline">E, F, G</span> sont de dimension finie). Si <span class="math inline">f : I \to E</span> et <span class="math inline">g : I \to F</span> sont dérivables en <span class="math inline">t_0</span>, alors <span class="math inline">t \mapsto B(f(t), g(t))</span> est dérivable en <span class="math inline">t_0</span> et : <span class="math display">\frac{d}{dt}\Big[B(f(t), g(t))\Big]_{t=t_0} = B(f'(t_0), g(t_0)) + B(f(t_0), g'(t_0))</span></p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Preuve</em>. </span>Écrivons <span class="math inline">B(f(t), g(t)) - B(f(t_0), g(t_0))</span> en ajoutant et soustrayant <span class="math inline">B(f(t_0), g(t))</span> : <span class="math display">B(f(t), g(t)) - B(f(t_0), g(t_0)) = B(f(t) - f(t_0), g(t)) + B(f(t_0), g(t) - g(t_0))</span> En divisant par <span class="math inline">t - t_0</span> : <span class="math display">\frac{B(f(t), g(t)) - B(f(t_0), g(t_0))}{t - t_0} = B\!\left(\frac{f(t) - f(t_0)}{t - t_0},\, g(t)\right) + B\!\left(f(t_0),\, \frac{g(t) - g(t_0)}{t - t_0}\right)</span> Quand <span class="math inline">t \to t_0</span>, en utilisant la continuité de <span class="math inline">B</span> (dimension finie) : - <span class="math inline">B\!\left(\dfrac{f(t) - f(t_0)}{t - t_0},\, g(t)\right) \to B(f'(t_0), g(t_0))</span> - <span class="math inline">B\!\left(f(t_0),\, \dfrac{g(t) - g(t_0)}{t - t_0}\right) \to B(f(t_0), g'(t_0))</span></p>
+<p>D’où le résultat.</p>
+</div>
+<div class="exemple" title="(**Produit scalaire — Calcul détaillé.**)">
+<p>Soit <span class="math inline">(E, \langle ., . \rangle)</span> un espace préhilbertien réel. Le produit scalaire <span class="math inline">B(x,y) = \langle x, y \rangle</span> est bilinéaire. Donc : <span class="math display">\dfrac{d}{dt}\langle f(t), g(t) \rangle = \langle f'(t), g(t) \rangle + \langle f(t), g'(t) \rangle</span> <strong>Application numérique :</strong> <span class="math inline">f(t) = (t, t^2, 1)</span> et <span class="math inline">g(t) = (1, t, t^2)</span>. - <span class="math inline">\langle f(t), g(t) \rangle = t \cdot 1 + t^2 \cdot t + 1 \cdot t^2 = t + t^3 + t^2</span> - Dérivée directe : <span class="math inline">\dfrac{d}{dt}\langle f(t), g(t) \rangle = 1 + 3t^2 + 2t</span> - Avec la formule : <span class="math inline">f'(t) = (1, 2t, 0)</span>, <span class="math inline">g'(t) = (0, 1, 2t)</span> - <span class="math inline">\langle f'(t), g(t) \rangle = 1 \cdot 1 + 2t \cdot t + 0 \cdot t^2 = 1 + 2t^2</span> - <span class="math inline">\langle f(t), g'(t) \rangle = t \cdot 0 + t^2 \cdot 1 + 1 \cdot 2t = t^2 + 2t</span> - Somme : <span class="math inline">1 + 2t^2 + t^2 + 2t = 1 + 3t^2 + 2t</span> ✓</p>
+</div>
+<div class="exemple" title="(**Carré de la norme — Formule fondamentale.**)">
+<p>En prenant <span class="math inline">g = f</span> dans la formule précédente : <span class="math display">\dfrac{d}{dt}\|f(t)\|^2 = 2\langle f'(t), f(t) \rangle</span></p>
+</div>
+<div class="remarque" title="(**Norme — Attention !**)">
+<p>En général, <span class="math inline">\dfrac{d}{dt}\|f(t)\| \neq \|f'(t)\|</span>. La bonne formule est : <span class="math display">\dfrac{d}{dt}\|f(t)\| = \frac{\langle f'(t), f(t) \rangle}{\|f(t)\|} \quad \text{(si } f(t) \neq 0\text{)}</span></p>
+</div>
+<div class="exemple" title="(**Déterminant dans $\mathbb{R}^2$.**)">
+<p>Soient <span class="math inline">f_1, f_2 : I \to \mathbb{R}^2</span> dérivables. Le déterminant <span class="math inline">\det(f_1, f_2)</span> est bilinéaire. Donc : <span class="math display">\dfrac{d}{dt}\det(f_1(t), f_2(t)) = \det(f_1'(t), f_2(t)) + \det(f_1(t), f_2'(t))</span></p>
+</div>
+<div class="exemple" title="(**Produit vectoriel dans $\mathbb{R}^3$.**)">
+<p>Soient <span class="math inline">f, g : I \to \mathbb{R}^3</span> dérivables. Le produit vectoriel est bilinéaire, donc : <span class="math display">\dfrac{d}{dt}(f(t) \wedge g(t)) = f'(t) \wedge g(t) + f(t) \wedge g'(t)</span> <strong>Application au moment cinétique :</strong> <span class="math inline">\vec{L}(t) = \vec{r}(t) \wedge m\vec{v}(t)</span>. <span class="math display">\dfrac{d\vec{L}}{dt} = \vec{v} \wedge m\vec{v} + \vec{r} \wedge m\vec{a} = \vec{0} + \vec{r} \wedge \vec{F} = \vec{\mathcal{M}}_O</span> On retrouve le théorème du moment cinétique.</p>
 </div>
 <div class="custom-numbered-block custom-proposition">
-<p><strong>Proposition 1.6 — (Dérivation de <span class="math inline">\boldsymbol{f \circ \varphi}</span>)</strong></p>
-<p>Soient <span class="math inline">f : I \to E</span> dérivable en <span class="math inline">u_0 \in I</span> et <span class="math inline">\varphi : J \to I</span> dérivable en <span class="math inline">t_0 \in J</span> avec <span class="math inline">\varphi(t_0) = u_0</span>. Alors <span class="math inline">f \circ \varphi</span> est dérivable en <span class="math inline">t_0</span> et : <span class="math display">(f \circ \varphi)'(t_0) = \varphi'(t_0) \cdot f'(u_0)</span></p>
+<p><strong>Proposition 2.3 — (<strong>Composition <span class="math inline">f \circ \varphi</span> — Règle de la chaîne.</strong>)</strong></p>
+<p>Soit <span class="math inline">\varphi : J \to I</span> dérivable en <span class="math inline">t_0 \in J</span> et <span class="math inline">f : I \to E</span> dérivable en <span class="math inline">\varphi(t_0)</span>. Alors <span class="math inline">f \circ \varphi</span> est dérivable en <span class="math inline">t_0</span> et : <span class="math display">(f \circ \varphi)'(t_0) = \varphi'(t_0) \cdot f'(\varphi(t_0))</span></p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Preuve</em>. </span>Écrivons <span class="math inline">f(u) = f(\varphi(t_0)) + (u - \varphi(t_0)) f'(\varphi(t_0)) + (u - \varphi(t_0)) \varepsilon(u)</span> avec <span class="math inline">\varepsilon(u) \to 0</span> quand <span class="math inline">u \to \varphi(t_0)</span>. En posant <span class="math inline">u = \varphi(t)</span> : <span class="math display">f(\varphi(t)) = f(\varphi(t_0)) + (\varphi(t) - \varphi(t_0)) f'(\varphi(t_0)) + (\varphi(t) - \varphi(t_0)) \varepsilon(\varphi(t))</span> En divisant par <span class="math inline">t - t_0</span> : <span class="math display">\frac{f(\varphi(t)) - f(\varphi(t_0))}{t - t_0} = \frac{\varphi(t) - \varphi(t_0)}{t - t_0} \cdot f'(\varphi(t_0)) + \frac{\varphi(t) - \varphi(t_0)}{t - t_0} \cdot \varepsilon(\varphi(t))</span> Quand <span class="math inline">t \to t_0</span> : - <span class="math inline">\dfrac{\varphi(t) - \varphi(t_0)}{t - t_0} \to \varphi'(t_0)</span> - <span class="math inline">\varphi(t) \to \varphi(t_0)</span> (car <span class="math inline">\varphi</span> est dérivable donc continue), donc <span class="math inline">\varepsilon(\varphi(t)) \to 0</span></p>
+<p>Donc <span class="math inline">(f \circ \varphi)'(t_0) = \varphi'(t_0) f'(\varphi(t_0))</span>.</p>
+</div>
+</section>
+<section id="dérivées-dordre-supérieur-applications-de-classe-mathcalck" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="dérivées-dordre-supérieur-applications-de-classe-mathcalck"><span class="header-section-number">2.3</span> Dérivées d’ordre supérieur — Applications de classe <span class="math inline">\mathcal{C}^k</span></h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 2.3 — (<strong>Classe <span class="math inline">\mathcal{C}^k</span>.</strong>)</strong></p>
+<p>Soit <span class="math inline">k \in \N^*</span>. On dit que <span class="math inline">f : I \to E</span> est de <strong>classe <span class="math inline">\mathcal{C}^k</span></strong> sur <span class="math inline">I</span> si <span class="math inline">f</span> est <span class="math inline">k</span> fois dérivable sur <span class="math inline">I</span> et si <span class="math inline">f^{(k)}</span> est continue sur <span class="math inline">I</span>. Si <span class="math inline">f</span> est de classe <span class="math inline">\mathcal{C}^k</span> pour tout <span class="math inline">k \in \N</span>, on dit que <span class="math inline">f</span> est de <strong>classe <span class="math inline">\mathcal{C}^\infty</span></strong>.</p>
+</div>
+<div class="remarque" title="(**Passage aux composantes.**)">
+<p><span class="math inline">f = \sum_{i=1}^n f_i\, e_i</span> est de classe <span class="math inline">\mathcal{C}^k</span> si et seulement si chaque <span class="math inline">f_i</span> est de classe <span class="math inline">\mathcal{C}^k</span>.</p>
 </div>
 <div class="custom-numbered-block custom-proposition">
-<p><strong>Proposition 1.7 — (Dérivation d’un produit scalaire dans un espace préhilbertien)</strong></p>
-<p>Soient <span class="math inline">f, g : I \to E</span> dérivables en <span class="math inline">t_0</span>, où <span class="math inline">E</span> est un espace préhilbertien réel. Alors la fonction <span class="math inline">t \mapsto \langle f(t), g(t) \rangle</span> est dérivable en <span class="math inline">t_0</span> et : <span class="math display">\frac{d}{dt}\langle f(t), g(t) \rangle \bigg|_{t=t_0} = \langle f'(t_0), g(t_0) \rangle + \langle f(t_0), g'(t_0) \rangle</span></p>
+<p><strong>Proposition 2.4 — (<strong>Composée de classe <span class="math inline">\mathcal{C}^k</span>.</strong>)</strong></p>
+<p>Soient <span class="math inline">J</span> et <span class="math inline">I</span> deux intervalles de <span class="math inline">\mathbb{R}</span>. Si <span class="math inline">\varphi: J \to I</span> est de classe <span class="math inline">\mathcal{C}^k</span> sur <span class="math inline">J</span> et <span class="math inline">f: I \to F</span> est de classe <span class="math inline">\mathcal{C}^k</span> sur <span class="math inline">I</span>, alors la composée <span class="math inline">f \circ \varphi: J \to F</span> est de classe <span class="math inline">\mathcal{C}^k</span> sur <span class="math inline">J</span>.</p>
+</div>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 2.2 — (<strong>Formule de Leibniz.</strong>)</strong></p>
+<p>Soit <span class="math inline">B : E \times F \to G</span> une application bilinéaire continue. Si <span class="math inline">f : I \to E</span> et <span class="math inline">g : I \to F</span> sont de classe <span class="math inline">\mathcal{C}^k</span>, alors <span class="math inline">t \mapsto B(f(t), g(t))</span> est de classe <span class="math inline">\mathcal{C}^k</span> et : <span class="math display">\big(B(f, g)\big)^{(k)}(t) = \sum_{p=0}^{k} \binom{k}{p} B\big(f^{(p)}(t), g^{(k-p)}(t)\big)</span></p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Preuve</em>. </span>Par récurrence sur <span class="math inline">k</span>.</p>
+<ul>
+<li><strong>Initialisation (<span class="math inline">k = 1</span>) :</strong> c’est le théorème précédent.</li>
+<li><strong>Hérédité :</strong> supposons la formule vraie au rang <span class="math inline">k</span>. En dérivant : <span class="math display">\big(B(f, g)\big)^{(k+1)} = \sum_{p=0}^{k} \binom{k}{p} \Big[ B\big(f^{(p+1)}, g^{(k-p)}\big) + B\big(f^{(p)}, g^{(k-p+1)}\big) \Big]</span> Réindexons la première somme (<span class="math inline">q = p+1</span>) : <span class="math display">= \sum_{q=1}^{k+1} \binom{k}{q-1} B\big(f^{(q)}, g^{(k+1-q)}\big) + \sum_{p=0}^{k} \binom{k}{p} B\big(f^{(p)}, g^{(k+1-p)}\big)</span> En réunifiant (avec <span class="math inline">\binom{k}{-1} = \binom{k}{k+1} = 0</span>) : <span class="math display">= \sum_{p=0}^{k+1} \left[\binom{k}{p-1} + \binom{k}{p}\right] B\big(f^{(p)}, g^{(k+1-p)}\big)</span> Par la relation de Pascal <span class="math inline">\binom{k}{p-1} + \binom{k}{p} = \binom{k+1}{p}</span>, on obtient la formule au rang <span class="math inline">k+1</span>.</li>
+</ul>
+</div>
+<div class="exemple" title="(**Application — Dérivée troisième d'un produit scalaire.**)">
+<p>Soit <span class="math inline">f : I \to E</span> de classe <span class="math inline">\mathcal{C}^3</span>. Calculons <span class="math inline">\dfrac{d^3}{dt^3}\|f(t)\|^2</span>. Avec <span class="math inline">B(x,y) = \langle x, y \rangle</span> et <span class="math inline">g = f</span> : <span class="math display">\dfrac{d^3}{dt^3}\|f\|^2 = \sum_{p=0}^{3} \binom{3}{p} \langle f^{(p)}, f^{(3-p)} \rangle</span> Détaillons : - <span class="math inline">p = 0</span> : <span class="math inline">\binom{3}{0}\langle f, f''' \rangle = \langle f, f''' \rangle</span> - <span class="math inline">p = 1</span> : <span class="math inline">\binom{3}{1}\langle f', f'' \rangle = 3\langle f', f'' \rangle</span> - <span class="math inline">p = 2</span> : <span class="math inline">\binom{3}{2}\langle f'', f' \rangle = 3\langle f'', f' \rangle = 3\langle f', f'' \rangle</span> (symétrie) - <span class="math inline">p = 3</span> : <span class="math inline">\binom{3}{3}\langle f''', f \rangle = \langle f''', f \rangle</span></p>
+<p>Donc : <span class="math display">\dfrac{d^3}{dt^3}\|f\|^2 = 2\langle f, f''' \rangle + 6\langle f', f'' \rangle</span></p>
+</div>
+</section>
+</section>
+<section id="intégration-sur-un-segment" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Intégration sur un segment</h1>
+<section id="intégrale-dune-fonction-continue-par-morceaux" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="intégrale-dune-fonction-continue-par-morceaux"><span class="header-section-number">3.1</span> Intégrale d’une fonction continue par morceaux</h2>
+<div class="custom-numbered-block custom-definition">
+<p><strong>Définition 3.1 — (<strong>Intégrale d’une fonction vectorielle.</strong>)</strong></p>
+<p>Soit <span class="math inline">f : [a,b] \to E</span> continue par morceaux. Soit <span class="math inline">(e_1, \ldots, e_n)</span> une base de <span class="math inline">E</span> et <span class="math inline">f(t) = \sum_{i=1}^n f_i(t)\, e_i</span>. On définit : <span class="math display">\int_{[a,b]} f = \int_a^b f(t)\, dt = \sum_{i=1}^n \left(\int_a^b f_i(t)\, dt\right) e_i</span></p>
+</div>
+<div class="remarque" title="(**Indépendance vis-à-vis de la base.**)">
+<p>Cette définition ne dépend pas du choix de la base, car le passage d’une base à une autre est une application linéaire (qui commute avec l’intégrale).</p>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 3.1 — (<strong>Propriétés de l’intégrale.</strong>)</strong></p>
+<p>Soient <span class="math inline">f, g : [a,b] \to E</span> continues par morceaux et <span class="math inline">\lambda \in \mathbb{K}</span>.</p>
+<ol type="1">
+<li><strong>Linéarité :</strong> <span class="math inline">\int_a^b (\lambda f + g) = \lambda \int_a^b f + \int_a^b g</span>.</li>
+<li><strong>Relation de Chasles :</strong> pour tout <span class="math inline">c \in [a,b]</span>, <span class="math inline">\int_a^b f = \int_a^c f + \int_c^b f</span>.</li>
+<li><strong>Composition par une application linéaire :</strong> si <span class="math inline">L \in \mathcal{L}(E, F)</span>, alors <span class="math inline">\int_a^b L \mathbb{C}irc f = L\!\left(\int_a^b f\right)</span>.</li>
+<li><strong>Inégalité triangulaire :</strong> <span class="math inline">\left\|\int_a^b f(t)\, dt\right\| \leqslant \int_a^b \|f(t)\|\, dt</span>.</li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-proposition">
+<p><strong>Proposition 3.2 — (<strong>Sommes de Riemann.</strong>)</strong></p>
+<p>Soit <span class="math inline">f : [a,b] \to E</span> continue. Pour tout <span class="math inline">n \in \N^*</span>, on pose : <span class="math display">S_n(f) = \frac{b-a}{n} \sum_{k=0}^{n-1} f\!\left(a + k\,\frac{b-a}{n}\right)</span> Alors <span class="math inline">\lim_{n \to +\infty} S_n(f) = \int_a^b f(t)\, dt</span>.</p>
+</div>
+</section>
+<section id="intégrale-fonction-de-sa-borne-supérieure" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="intégrale-fonction-de-sa-borne-supérieure"><span class="header-section-number">3.2</span> Intégrale fonction de sa borne supérieure</h2>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 3.1 — (<strong>Théorème fondamental du calcul.</strong>)</strong></p>
+<p>Soit <span class="math inline">f : I \to E</span> continue et <span class="math inline">a \in I</span>. La fonction <span class="math inline">F : x \mapsto \int_a^x f(t)\, dt</span> est l’unique primitive de <span class="math inline">f</span> sur <span class="math inline">I</span> s’annulant en <span class="math inline">a</span>, et <span class="math inline">F</span> est de classe <span class="math inline">\mathcal{C}^1</span> avec : <span class="math display">F'(x) = f(x) \quad \text{pour tout } x \in I</span></p>
 </div>
 <div class="custom-numbered-block custom-corollary">
-<p><strong>Corollaire 1.1 — (Dérivation de la norme)</strong></p>
-<p>Si <span class="math inline">f : I \to E</span> est dérivable en <span class="math inline">t_0</span> et <span class="math inline">f(t_0) \neq 0_E</span>, alors <span class="math inline">t \mapsto \|f(t)\|</span> est dérivable en <span class="math inline">t_0</span> et : <span class="math display">\frac{d}{dt}\|f(t)\| \bigg|_{t=t_0} = \frac{\langle f'(t_0), f(t_0) \rangle}{\|f(t_0)\|}</span></p>
+<p><strong>Corollaire 3.1 — (<strong>Formule de Newton–Leibniz.</strong>)</strong></p>
+<p>Si <span class="math inline">f : I \to E</span> est continue et admet une primitive <span class="math inline">G</span> sur <span class="math inline">I</span>, alors pour tout <span class="math inline">a, b \in I</span> : <span class="math display">\int_a^b f(t)\, dt = G(b) - G(a) = \Big[G(t)\Big]_a^b</span></p>
 </div>
 </section>
-<section id="interprétation-géométrique-et-cinématique" class="level2" data-number="1.6">
-<h2 data-number="1.6" class="anchored" data-anchor-id="interprétation-géométrique-et-cinématique"><span class="header-section-number">1.6</span> Interprétation géométrique et cinématique</h2>
+<section id="inégalité-des-accroissements-finis" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="inégalité-des-accroissements-finis"><span class="header-section-number">3.3</span> Inégalité des accroissements finis</h2>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 3.2 — (<strong>Inégalité des accroissements finis (IAF).</strong>)</strong></p>
+<p>Soit <span class="math inline">f : [a,b] \to E</span> de classe <span class="math inline">\mathcal{C}^1</span>. Si <span class="math inline">\|f'(t)\| \leqslant M</span> pour tout <span class="math inline">t \in [a,b]</span>, alors : <span class="math display">\|f(b) - f(a)\| \leqslant M(b-a)</span></p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Preuve</em>. </span>Par la formule de Newton–Leibniz : <span class="math display">f(b) - f(a) = \int_a^b f'(t)\, dt</span> En appliquant l’inégalité triangulaire : <span class="math display">\|f(b) - f(a)\| = \left\|\int_a^b f'(t)\, dt\right\| \leqslant \int_a^b \|f'(t)\|\, dt \leqslant \int_a^b M\, dt = M(b-a)</span></p>
+</div>
+<div class="remarque" title="(**Différence avec le cas réel.**)">
+<p>Cette inégalité est <strong>spécifique aux fonctions vectorielles</strong>. Pour <span class="math inline">f : [a,b] \to \mathbb{R}</span>, on aurait pu avoir <span class="math inline">f(b) - f(a) \leqslant M(b-a)</span> mais aussi <span class="math inline">f(b) - f(a) \geqslant -M(b-a)</span>, ce qui n’a pas de sens vectoriel. L’IAF vectorielle donne directement une majoration de la norme.</p>
+</div>
+<div class="custom-numbered-block custom-corollary">
+<p><strong>Corollaire 3.2 — (<strong>IAF avec majoration variable.</strong>)</strong></p>
+<p>Si <span class="math inline">\|f'(t)\| \leqslant m(t)</span> où <span class="math inline">m : [a,b] \to \mathbb{R}^+</span> est continue, alors : <span class="math display">\|f(b) - f(a)\| \leqslant \int_a^b m(t)\, dt</span></p>
+</div>
+</section>
+<section id="formules-de-taylor" class="level2" data-number="3.4">
+<h2 data-number="3.4" class="anchored" data-anchor-id="formules-de-taylor"><span class="header-section-number">3.4</span> Formules de Taylor</h2>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 3.3 — (<strong>Formule de Taylor avec reste intégral.</strong>)</strong></p>
+<p>Soit <span class="math inline">f : [a,b] \to E</span> de classe <span class="math inline">\mathcal{C}^{n+1}</span>. Alors pour tout <span class="math inline">x \in [a,b]</span> : <span class="math display">f(x) = \sum_{k=0}^{n} \frac{(x-a)^k}{k!} f^{(k)}(a) + \int_a^x \frac{(x-t)^n}{n!} f^{(n+1)}(t)\, dt</span></p>
+</div>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 3.4 — (<strong>Inégalité de Taylor–Lagrange.</strong>)</strong></p>
+<p>Soit <span class="math inline">f : [a,b] \to E</span> de classe <span class="math inline">\mathcal{C}^n</span>. Si <span class="math inline">\|f^{(n)}(t)\| \leqslant M</span> pour tout <span class="math inline">t \in [a,b]</span>, alors : <span class="math display">\left\|f(b) - \sum_{k=0}^{n-1} \frac{(b-a)^k}{k!} f^{(k)}(a)\right\| \leqslant M \frac{(b-a)^n}{n!}</span></p>
+</div>
+<div class="custom-numbered-block custom-theorem">
+<p><strong>Théorème 3.5 — (<strong>Formule de Taylor–Young.</strong>)</strong></p>
+<p>Soit <span class="math inline">f : I \to E</span> de classe <span class="math inline">\mathcal{C}^n</span> et <span class="math inline">a \in I</span>. Alors lorsque <span class="math inline">h \to 0</span> : <span class="math display">f(a+h) = \sum_{k=0}^{n} \frac{h^k}{k!} f^{(k)}(a) + h^n\, \varepsilon(h)</span> où <span class="math inline">\varepsilon(h) \to 0_E</span> lorsque <span class="math inline">h \to 0</span>.</p>
+</div>
+<div class="remarque" title="(**Local vs Global.**)">
+<p>Contrairement aux formules de Taylor avec reste intégral et de Taylor–Lagrange qui sont <strong>globales</strong> (sur un segment <span class="math inline">[a,b]</span>), la formule de Taylor–Young est un résultat <strong>local</strong> au voisinage de <span class="math inline">a</span>.</p>
+</div>
+</section>
+</section>
+<section id="étude-modeste-des-arcs-paramétrés" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> Étude modeste des arcs paramétrés</h1>
 <div class="custom-numbered-block custom-definition">
-<p><strong>Définition 1.6 — (Interprétation cinématique)</strong></p>
-<p>Soit <span class="math inline">f : I \to \mathbb{R}^n</span> une fonction vectorielle.</p>
-<ul>
-<li><span class="math inline">f(t_0)</span> est la <strong>position</strong> à l’instant <span class="math inline">t_0</span>.</li>
-<li><span class="math inline">f'(t_0)</span> est la <strong>vitesse</strong> à l’instant <span class="math inline">t_0</span>.</li>
-<li><span class="math inline">f''(t_0)</span> est l’<strong>accélération</strong> à l’instant <span class="math inline">t_0</span>.</li>
-</ul>
-</div>
-<div class="custom-numbered-block custom-proposition">
-<p><strong>Proposition 1.8 — (Interprétation géométrique)</strong></p>
-<p>Si <span class="math inline">f : I \to \mathbb{R}^n</span> est dérivable en <span class="math inline">t_0</span> et <span class="math inline">f'(t_0) \neq 0</span>, la droite : <span class="math display">D : M = f(t_0) + \lambda \cdot f'(t_0), \quad \lambda \in \mathbb{R}</span> est la <strong>tangente</strong> à la courbe décrite par <span class="math inline">f</span> au point <span class="math inline">f(t_0)</span>.</p>
-</div>
-<div class="custom-numbered-block custom-example">
-<p><strong>Exemple 1.4</strong></p>
-<p>Pour <span class="math inline">f(t) = (\cos t, \sin t)</span>, la courbe décrite est le cercle unité. La tangente en <span class="math inline">f(t_0) = (\cos t_0, \sin t_0)</span> est dirigée par <span class="math inline">f'(t_0) = (-\sin t_0, \cos t_0)</span>, qui est bien perpendiculaire au rayon <span class="math inline">f(t_0)</span>.</p>
-</div>
-</section>
-</section>
-<section id="intégration-dune-fonction-vectorielle-sur-un-segment" class="level1" data-number="2">
-<h1 data-number="2"><span class="header-section-number">2</span> Intégration d’une fonction vectorielle sur un segment</h1>
-<section id="définition" class="level2" data-number="2.1">
-<h2 data-number="2.1" class="anchored" data-anchor-id="définition"><span class="header-section-number">2.1</span> Définition</h2>
-<div class="custom-numbered-block custom-definition">
-<p><strong>Définition 2.1 — (Intégrale d’une fonction vectorielle continue par morceaux)</strong></p>
-<p>Soit <span class="math inline">f : [a,b] \to E</span> une fonction continue par morceaux. On définit l’<strong>intégrale</strong> de <span class="math inline">f</span> sur <span class="math inline">[a,b]</span> par : <span class="math display">\int_a^b f(t)\, dt = \left(\int_a^b f_1(t)\, dt\right) e_1 + \cdots + \left(\int_a^b f_n(t)\, dt\right) e_n</span> où <span class="math inline">f_1, \ldots, f_n</span> sont les composantes de <span class="math inline">f</span> dans la base <span class="math inline">\mathcal{B}</span>.</p>
-</div>
-<div class="custom-numbered-block custom-proposition">
-<p><strong>Proposition 2.1</strong></p>
-<p>Cette définition ne dépend pas du choix de la base <span class="math inline">\mathcal{B}</span>.</p>
-</div>
-</section>
-<section id="propriétés" class="level2" data-number="2.2">
-<h2 data-number="2.2" class="anchored" data-anchor-id="propriétés"><span class="header-section-number">2.2</span> Propriétés</h2>
-<div class="custom-numbered-block custom-proposition">
-<p><strong>Proposition 2.2 — (Linéarité)</strong></p>
-<p>Soient <span class="math inline">f, g : [a,b] \to E</span> continues par morceaux et <span class="math inline">\lambda, \mu \in \mathbb{K}</span>. Alors : <span class="math display">\int_a^b (\lambda f + \mu g)(t)\, dt = \lambda \int_a^b f(t)\, dt + \mu \int_a^b g(t)\, dt</span></p>
-</div>
-<div class="custom-numbered-block custom-proposition">
-<p><strong>Proposition 2.3 — (Relation de Chasles)</strong></p>
-<p>Pour tout <span class="math inline">c \in [a,b]</span> : <span class="math display">\int_a^b f(t)\, dt = \int_a^c f(t)\, dt + \int_c^b f(t)\, dt</span></p>
-</div>
-<div class="custom-numbered-block custom-proposition">
-<p><strong>Proposition 2.4 — (Inégalité triangulaire)</strong></p>
-<p><span class="math display">\left\|\int_a^b f(t)\, dt\right\| \leq \int_a^b \|f(t)\|\, dt</span></p>
-</div>
-<div class="custom-numbered-block custom-proposition">
-<p><strong>Proposition 2.5 — (Intégration par parties)</strong></p>
-<p>Soient <span class="math inline">f : [a,b] \to E</span> de classe <span class="math inline">\mathcal{C}^1</span> et <span class="math inline">\varphi : [a,b] \to \mathbb{K}</span> de classe <span class="math inline">\mathcal{C}^1</span>. Alors : <span class="math display">\int_a^b \varphi'(t) f(t)\, dt = [\varphi(t) f(t)]_a^b - \int_a^b \varphi(t) f'(t)\, dt</span></p>
-</div>
-<div class="custom-numbered-block custom-proposition">
-<p><strong>Proposition 2.6 — (Changement de variable)</strong></p>
-<p>Soient <span class="math inline">f : [a,b] \to E</span> continue par morceaux et <span class="math inline">\varphi : [c,d] \to [a,b]</span> de classe <span class="math inline">\mathcal{C}^1</span>. Alors : <span class="math display">\int_a^b f(t)\, dt = \int_c^d f(\varphi(u)) \varphi'(u)\, du</span></p>
-</div>
-<div class="custom-numbered-block custom-proposition">
-<p><strong>Proposition 2.7 — (Théorème fondamental du calcul intégral)</strong></p>
-<p>Si <span class="math inline">f : [a,b] \to E</span> est continue, la fonction : <span class="math display">F(x) = \int_a^x f(t)\, dt</span> est de classe <span class="math inline">\mathcal{C}^1</span> sur <span class="math inline">[a,b]</span> et <span class="math inline">F' = f</span>.</p>
-</div>
-<div class="custom-numbered-block custom-example">
-<p><strong>Exemple 2.1</strong></p>
-<p>Calculons <span class="math inline">\int_0^{\pi/2} (\cos t, \sin t)\, dt</span>.</p>
-<p><span class="math display">\int_0^{\pi/2} \cos t\, dt = [\sin t]_0^{\pi/2} = 1, \quad \int_0^{\pi/2} \sin t\, dt = [-\cos t]_0^{\pi/2} = 1</span></p>
-<p>Donc : <span class="math display">\int_0^{\pi/2} (\cos t, \sin t)\, dt = (1, 1)</span></p>
-</div>
-</section>
-</section>
-<section id="arcs-paramétrés" class="level1" data-number="3">
-<h1 data-number="3"><span class="header-section-number">3</span> Arcs paramétrés</h1>
-<section id="définitions-1" class="level2" data-number="3.1">
-<h2 data-number="3.1" class="anchored" data-anchor-id="définitions-1"><span class="header-section-number">3.1</span> Définitions</h2>
-<div class="custom-numbered-block custom-definition">
-<p><strong>Définition 3.1 — (Arc paramétré)</strong></p>
-<p>Soit <span class="math inline">k \in \mathbb{N}^* \cup \{+\infty\}</span>. Un <strong>arc paramétré</strong> (ou <strong>courbe paramétrée</strong>) de classe <span class="math inline">\mathcal{C}^k</span> dans <span class="math inline">\mathbb{R}^n</span> (<span class="math inline">n \leq 3</span>) est une application <span class="math inline">\gamma : I \to \mathbb{R}^n</span> de classe <span class="math inline">\mathcal{C}^k</span>, où <span class="math inline">I</span> est un intervalle de <span class="math inline">\mathbb{R}</span>.</p>
-<ul>
-<li><span class="math inline">I</span> est l’<strong>intervalle de définition</strong> de l’arc.</li>
-<li>L’<strong>image</strong> <span class="math inline">\gamma(I)</span> est le <strong>support</strong> de l’arc (ou la <strong>courbe associée</strong>, ou la <strong>trajectoire</strong>).</li>
-</ul>
+<p><strong>Définition 4.1 — (<strong>Arc paramétré.</strong>)</strong></p>
+<p>Une application <span class="math inline">f : I \to E</span> de classe <span class="math inline">\mathcal{C}^1</span> (au moins) est appelée <strong>arc paramétré</strong>. L’image <span class="math inline">f(I)</span> est le <strong>support</strong> de l’arc. Le vecteur <span class="math inline">f'(t_0)</span> est le <strong>vecteur tangent</strong> au support au point <span class="math inline">f(t_0)</span> (s’il est non nul).</p>
 </div>
 <div class="custom-numbered-block custom-definition">
-<p><strong>Définition 3.2 — (Arc simple)</strong></p>
-<p>Un arc paramétré <span class="math inline">\gamma</span> est dit <strong>simple</strong> si <span class="math inline">\gamma</span> est injective, c’est-à-dire si la courbe ne se recoupe pas.</p>
+<p><strong>Définition 4.2 — (<strong>Point régulier, point critique.</strong>)</strong></p>
+<p>On dit que <span class="math inline">t_0</span> est un <strong>point régulier</strong> si <span class="math inline">f'(t_0) \neq 0</span>. Sinon, <span class="math inline">t_0</span> est un <strong>point critique</strong> (ou stationnaire).</p>
 </div>
 <div class="custom-numbered-block custom-definition">
-<p><strong>Définition 3.3 — (Paramètre régulier, point singulier, point birégulier)</strong></p>
-<ol type="1">
-<li>Un paramètre <span class="math inline">t_0</span> est dit <strong>régulier</strong> si <span class="math inline">\gamma'(t_0) \neq 0</span>.</li>
-<li>Un paramètre <span class="math inline">t_0</span> est dit <strong>singulier</strong> si <span class="math inline">\gamma'(t_0) = 0</span>.</li>
-<li>Un paramètre <span class="math inline">t_0</span> est dit <strong>birégulier</strong> si <span class="math inline">\gamma'(t_0)</span> et <span class="math inline">\gamma''(t_0)</span> sont linéairement indépendants.</li>
-</ol>
-</div>
-</section>
-<section id="tangente-en-un-point" class="level2" data-number="3.2">
-<h2 data-number="3.2" class="anchored" data-anchor-id="tangente-en-un-point"><span class="header-section-number">3.2</span> Tangente en un point</h2>
-<div class="custom-numbered-block custom-proposition">
-<p><strong>Proposition 3.1 — (Tangente en un point régulier)</strong></p>
-<p>Soit <span class="math inline">\gamma : I \to \mathbb{R}^n</span> un arc paramétré de classe <span class="math inline">\mathcal{C}^1</span> et <span class="math inline">t_0 \in I</span> un paramètre régulier (<span class="math inline">\gamma'(t_0) \neq 0</span>). Alors la <strong>tangente</strong> à l’arc au point <span class="math inline">\gamma(t_0)</span> est la droite : <span class="math display">D : M = \gamma(t_0) + \lambda \cdot \gamma'(t_0), \quad \lambda \in \mathbb{R}</span></p>
-</div>
-<div class="custom-numbered-block custom-proposition">
-<p><strong>Proposition 3.2 — (Cas où <span class="math inline">\boldsymbol{\gamma'(t_0) = 0}</span>)</strong></p>
-<p>Si <span class="math inline">\gamma'(t_0) = 0</span> mais qu’il existe un entier <span class="math inline">p \geq 2</span> tel que <span class="math inline">\gamma^{(p)}(t_0) \neq 0</span>, alors la tangente est dirigée par <span class="math inline">\gamma^{(p)}(t_0)</span> (premier vecteur dérivé non nul).</p>
+<p><strong>Définition 4.3 — (<strong>Tangente en un point régulier.</strong>)</strong></p>
+<p>Si <span class="math inline">t_0</span> est régulier, la tangente au support en <span class="math inline">M_0 = f(t_0)</span> est la droite affine de direction <span class="math inline">f'(t_0)</span> passant par <span class="math inline">M_0</span> : <span class="math display">\mathcal{T} = \{M_0 + \lambda f'(t_0) \mid \lambda \in \mathbb{R}\}</span></p>
 </div>
 <div class="custom-numbered-block custom-definition">
-<p><strong>Définition 3.4 — (Normale)</strong></p>
-<p>Si <span class="math inline">\gamma : I \to \mathbb{R}^2</span> est un arc paramétré plan et <span class="math inline">t_0</span> un paramètre régulier, la <strong>normale</strong> à l’arc au point <span class="math inline">\gamma(t_0)</span> est la droite perpendiculaire à la tangente en ce point.</p>
+<p><strong>Définition 4.4 — (<strong>Abscisse curviligne.</strong>)</strong></p>
+<p>Si <span class="math inline">f : [a, b] \to E</span> est de classe <span class="math inline">\mathcal{C}^1</span>, la <strong>longueur</strong> de l’arc est : <span class="math display">L = \int_a^b \|f'(t)\|\, dt</span> L’<strong>abscisse curviligne</strong> à partir de <span class="math inline">t_0</span> est <span class="math inline">s(t) = \int_{t_0}^t \|f'(u)\|\, du</span>.</p>
 </div>
-<div class="custom-numbered-block custom-example">
-<p><strong>Exemple 3.1</strong></p>
-<p>Pour l’arc <span class="math inline">\gamma(t) = (\cos t, \sin t)</span>, on a <span class="math inline">\gamma'(t) = (-\sin t, \cos t) \neq 0</span> pour tout <span class="math inline">t</span>. La tangente en <span class="math inline">\gamma(t_0)</span> est dirigée par <span class="math inline">\gamma'(t_0)</span> et la normale est dirigée par <span class="math inline">\gamma(t_0) = (\cos t_0, \sin t_0)</span>.</p>
+<div class="remarque" title="(**Paramétrage par l'abscisse curviligne.**)">
+<p>Si <span class="math inline">f'(t) \neq 0</span> sur <span class="math inline">I</span>, alors <span class="math inline">s</span> est un <span class="math inline">C^1</span>-difféomorphisme et on peut reparamétrer l’arc par <span class="math inline">s</span>. Dans ce paramétrage, <span class="math inline">\left\|\dfrac{dM}{ds}\right\| = 1</span> : le vecteur tangent est unitaire.</p>
 </div>
-</section>
-<section id="étude-locale-en-un-point-birégulier" class="level2" data-number="3.3">
-<h2 data-number="3.3" class="anchored" data-anchor-id="étude-locale-en-un-point-birégulier"><span class="header-section-number">3.3</span> Étude locale en un point birégulier</h2>
-<div class="custom-numbered-block custom-proposition">
-<p><strong>Proposition 3.3 — (Étude locale en un point birégulier)</strong></p>
-<p>Soit <span class="math inline">\gamma : I \to \mathbb{R}^n</span> un arc paramétré de classe <span class="math inline">\mathcal{C}^2</span> et <span class="math inline">t_0</span> un paramètre birégulier. En effectuant un développement limité à l’ordre 2 : <span class="math display">\gamma(t_0 + h) = \gamma(t_0) + h \gamma'(t_0) + \frac{h^2}{2} \gamma''(t_0) + o(h^2)</span></p>
-<p>La courbe admet au voisinage de <span class="math inline">\gamma(t_0)</span> :</p>
-<ul>
-<li>La tangente dirigée par <span class="math inline">\gamma'(t_0)</span>.</li>
-<li>La courbe est du côté de <span class="math inline">\gamma''(t_0)</span> par rapport à la tangente (pour <span class="math inline">h</span> petit).</li>
-</ul>
-</div>
-<div class="custom-numbered-block custom-example">
-<p><strong>Exemple 3.2</strong></p>
-<p>Pour <span class="math inline">\gamma(t) = (t, t^2)</span> au point <span class="math inline">t_0 = 0</span> : - <span class="math inline">\gamma(0) = (0, 0)</span> - <span class="math inline">\gamma'(0) = (1, 0)</span> (tangente : l’axe des <span class="math inline">x</span>) - <span class="math inline">\gamma''(0) = (0, 2)</span> (la parabole s’ouvre vers le haut)</p>
+<div class="exemple" title="(**Longueur d'une hélice.**)">
+<p>Soit <span class="math inline">f(t) = (R\cos t, R\sin t, ht)</span> pour <span class="math inline">t \in [0, 2\pi]</span>. - <span class="math inline">f'(t) = (-R\sin t, R\cos t, h)</span> - <span class="math inline">\|f'(t)\| = \sqrt{R^2 + h^2}</span> (constant) - <span class="math inline">L = \int_0^{2\pi} \sqrt{R^2 + h^2}\, dt = 2\pi\sqrt{R^2 + h^2}</span></p>
 </div>
 </section>
-<section id="longueur-dun-arc-paramétré" class="level2" data-number="3.4">
-<h2 data-number="3.4" class="anchored" data-anchor-id="longueur-dun-arc-paramétré"><span class="header-section-number">3.4</span> Longueur d’un arc paramétré</h2>
-<div class="custom-numbered-block custom-definition">
-<p><strong>Définition 3.5 — (Longueur d’un arc)</strong></p>
-<p>Soit <span class="math inline">\gamma : [a,b] \to \mathbb{R}^n</span> un arc paramétré de classe <span class="math inline">\mathcal{C}^1</span>. La <strong>longueur</strong> de l’arc est : <span class="math display">L(\gamma) = \int_a^b \|\gamma'(t)\|\, dt</span></p>
-</div>
-<div class="custom-numbered-block custom-example">
-<p><strong>Exemple 3.3</strong></p>
-<p>Pour <span class="math inline">\gamma(t) = (\cos t, \sin t)</span> avec <span class="math inline">t \in [0, 2\pi]</span> : <span class="math display">\|\gamma'(t)\| = \sqrt{(-\sin t)^2 + (\cos t)^2} = 1</span> <span class="math display">L(\gamma) = \int_0^{2\pi} 1\, dt = 2\pi</span> C’est bien la circonférence du cercle unité.</p>
-</div>
-<div class="custom-numbered-block custom-example">
-<p><strong>Exemple 3.4</strong></p>
-<p>Pour <span class="math inline">\gamma(t) = (t, t^2)</span> avec <span class="math inline">t \in [0, 1]</span> : <span class="math display">\|\gamma'(t)\| = \sqrt{1 + 4t^2}</span> <span class="math display">L(\gamma) = \int_0^1 \sqrt{1 + 4t^2}\, dt = \frac{\sqrt{5}}{2} + \frac{1}{4}\ln(2 + \sqrt{5})</span></p>
-</div>
+<section id="synthèse-du-chapitre" class="level1" data-number="5">
+<h1 data-number="5"><span class="header-section-number">5</span> Synthèse du chapitre</h1>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Notion</strong></th>
+<th><strong>Résultat clé</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Dérivée d’un produit bilinéaire</td>
+<td><span class="math inline">(B(f,g))' = B(f',g) + B(f,g')</span></td>
+</tr>
+<tr class="even">
+<td>Formule de Leibniz</td>
+<td><span class="math inline">(B(f,g))^{(k)} = \sum_{p=0}^k \binom{k}{p} B(f^{(p)}, g^{(k-p)})</span></td>
+</tr>
+<tr class="odd">
+<td>Produit scalaire</td>
+<td><span class="math inline">\dfrac{d}{dt}\langle f, g \rangle = \langle f', g \rangle + \langle f, g' \rangle</span></td>
+</tr>
+<tr class="even">
+<td>Carré de la norme</td>
+<td><span class="math inline">\dfrac{d}{dt}\|f\|^2 = 2\langle f', f \rangle</span></td>
+</tr>
+<tr class="odd">
+<td>Inégalité triangulaire</td>
+<td><span class="math inline">\left\|\int_a^b f\right\| \leqslant \int_a^b \|f\|</span></td>
+</tr>
+<tr class="even">
+<td>IAF</td>
+<td><span class="math inline">\|f(b)-f(a)\| \leqslant M(b-a)</span></td>
+</tr>
+<tr class="odd">
+<td>Taylor–Young (local)</td>
+<td><span class="math inline">f(a+h) = \sum_{k=0}^n \frac{h^k}{k!} f^{(k)}(a) + o(h^n)</span></td>
+</tr>
+<tr class="even">
+<td>Taylor–Lagrange (global)</td>
+<td><span class="math inline">\|R_n\| \leqslant M \frac{(b-a)^{n}}{n!}</span></td>
+</tr>
+<tr class="odd">
+<td>Taylor reste intégral</td>
+<td><span class="math inline">R_n(x) = \int_a^x \frac{(x-t)^n}{n!} f^{(n+1)}(t)\, dt</span></td>
+</tr>
+</tbody>
+</table>
 </section>
-</section>
-<section id="exemples-darcs-paramétrés" class="level1" data-number="4">
-<h1 data-number="4"><span class="header-section-number">4</span> Exemples d’arcs paramétrés</h1>
-<section id="cercle" class="level2" data-number="4.1">
-<h2 data-number="4.1" class="anchored" data-anchor-id="cercle"><span class="header-section-number">4.1</span> Cercle</h2>
-<div class="custom-numbered-block custom-example">
-<p><strong>Exemple 4.1</strong></p>
-<p><span class="math inline">\gamma(t) = (a\cos t, a\sin t)</span>, <span class="math inline">t \in [0, 2\pi]</span> décrit le cercle de centre <span class="math inline">O</span> et de rayon <span class="math inline">a</span>.</p>
-<ul>
-<li><span class="math inline">\gamma'(t) = (-a\sin t, a\cos t) \neq 0</span> pour tout <span class="math inline">t</span> : arc régulier.</li>
-<li><span class="math inline">\gamma''(t) = (-a\cos t, -a\sin t)</span>.</li>
-<li><span class="math inline">\gamma'(t)</span> et <span class="math inline">\gamma''(t)</span> sont linéairement indépendants : arc birégulier.</li>
-</ul>
-</div>
-</section>
-<section id="hélice-circulaire" class="level2" data-number="4.2">
-<h2 data-number="4.2" class="anchored" data-anchor-id="hélice-circulaire"><span class="header-section-number">4.2</span> Hélice circulaire</h2>
-<div class="custom-numbered-block custom-example">
-<p><strong>Exemple 4.2</strong></p>
-<p><span class="math inline">\gamma(t) = (a\cos t, a\sin t, bt)</span>, <span class="math inline">t \in \mathbb{R}</span> décrit une <strong>hélice circulaire</strong> de rayon <span class="math inline">a</span> et de pas <span class="math inline">2\pi b</span>.</p>
-<ul>
-<li><span class="math inline">\gamma'(t) = (-a\sin t, a\cos t, b) \neq 0</span> : arc régulier.</li>
-<li><span class="math inline">\|\gamma'(t)\| = \sqrt{a^2 + b^2}</span> : la vitesse est constante.</li>
-</ul>
-</div>
-</section>
-<section id="parabole" class="level2" data-number="4.3">
-<h2 data-number="4.3" class="anchored" data-anchor-id="parabole"><span class="header-section-number">4.3</span> Parabole</h2>
-<div class="custom-numbered-block custom-example">
-<p><strong>Exemple 4.3</strong></p>
-<p><span class="math inline">\gamma(t) = (t, t^2)</span>, <span class="math inline">t \in \mathbb{R}</span> décrit la parabole d’équation <span class="math inline">y = x^2</span>.</p>
-<ul>
-<li><span class="math inline">\gamma'(t) = (1, 2t) \neq 0</span> : arc régulier.</li>
-<li><span class="math inline">\gamma''(t) = (0, 2)</span>.</li>
-</ul>
-</div>
-</section>
-<section id="folium-de-descartes" class="level2" data-number="4.4">
-<h2 data-number="4.4" class="anchored" data-anchor-id="folium-de-descartes"><span class="header-section-number">4.4</span> Folium de Descartes</h2>
-<div class="custom-numbered-block custom-example">
-<p><strong>Exemple 4.4</strong></p>
-<p><span class="math inline">\gamma(t) = \left(\frac{t}{1+t^2}, \frac{t^2}{1+t^2}\right)</span> décrit une portion de cercle.</p>
-<p>On vérifie que : <span class="math display">\gamma_1(t)^2 + \gamma_2(t)^2 = \frac{t^2 + t^4}{(1+t^2)^2} = \frac{t^2(1+t^2)}{(1+t^2)^2} = \frac{t^2}{1+t^2}</span></p>
-</div>
-</section>
-</section>
-<section id="exercices" class="level1" data-number="5">
-<h1 data-number="5"><span class="header-section-number">5</span> Exercices</h1>
+<section id="exercices" class="level1" data-number="6">
+<h1 data-number="6"><span class="header-section-number">6</span> Exercices</h1>
 <div class="custom-numbered-block custom-exercise">
-<p><strong>Exercice 5.1</strong></p>
-<p>Soit <span class="math inline">f : \mathbb{R} \to \mathbb{R}^2</span> définie par <span class="math inline">f(t) = (e^t \cos t, e^t \sin t)</span>.</p>
+<p><strong>Exercice 6.1 — (Dérivabilité et opérations)</strong></p>
+<p>Soit <span class="math inline">f : \mathbb{R} \to \mathbb{R}^3</span> définie par <span class="math inline">f(t) = (e^t \cos t,\; e^t \sin t,\; t e^t)</span>.</p>
 <ol type="1">
-<li>Calculer <span class="math inline">f'(t)</span> et <span class="math inline">\|f'(t)\|</span>.</li>
-<li>Déterminer la tangente à la courbe au point <span class="math inline">f(0)</span>.</li>
-<li>Calculer la longueur de l’arc entre <span class="math inline">t = 0</span> et <span class="math inline">t = \ln 2</span>.</li>
+<li>Montrer que <span class="math inline">f</span> est de classe <span class="math inline">\mathcal{C}^\infty</span> sur <span class="math inline">\mathbb{R}</span>.</li>
+<li>Calculer <span class="math inline">f'(t)</span> et <span class="math inline">f''(t)</span>.</li>
+<li>Calculer <span class="math inline">\dfrac{d}{dt}\|f(t)\|^2</span> en utilisant la formule fondamentale.</li>
+<li>Vérifier le résultat par calcul direct à partir de l’expression de <span class="math inline">\|f(t)\|^2</span>.</li>
 </ol>
 </div>
 <div class="custom-numbered-block custom-exercise">
-<p><strong>Exercice 5.2</strong></p>
-<p>Soit <span class="math inline">\gamma : [0, 2\pi] \to \mathbb{R}^2</span> définie par <span class="math inline">\gamma(t) = (\cos 2t, \sin 3t)</span>.</p>
+<p><strong>Exercice 6.2 — (Produit vectoriel et moment cinétique)</strong></p>
+<p>Soit <span class="math inline">\vec{r} : \mathbb{R} \to \mathbb{R}^3</span> une fonction de classe <span class="math inline">\mathcal{C}^2</span> représentant le vecteur position d’un point matériel <span class="math inline">M</span> de masse <span class="math inline">m</span>. On définit le moment cinétique en <span class="math inline">O</span> par <span class="math inline">\vec{L}(t) = \vec{r}(t) \wedge m\vec{v}(t)</span> où <span class="math inline">\vec{v}(t) = \vec{r}\,'(t)</span>.</p>
 <ol type="1">
-<li>Étudier la parité et la périodicité des composantes.</li>
-<li>Déterminer les points singuliers de l’arc.</li>
-<li>Calculer <span class="math inline">\gamma'(t)</span> et déterminer la tangente en un point régulier.</li>
+<li>Montrer que <span class="math inline">\dfrac{d\vec{L}}{dt} = \vec{r}(t) \wedge m\vec{a}(t)</span> où <span class="math inline">\vec{a}(t) = \vec{r}\,''(t)</span>.</li>
+<li>En déduire que si le champ de forces est central (dirigé selon <span class="math inline">\vec{r}</span>), alors <span class="math inline">\vec{L}</span> est constant.</li>
 </ol>
 </div>
 <div class="custom-numbered-block custom-exercise">
-<p><strong>Exercice 5.3</strong></p>
-<p>Soit <span class="math inline">f : [0, 1] \to \mathbb{R}^3</span> définie par <span class="math inline">f(t) = (t, t^2, t^3)</span>.</p>
+<p><strong>Exercice 6.3 — (Inégalité des accroissements finis)</strong></p>
+<p>Soit <span class="math inline">f : [0,+\infty[ \to \mathbb{R}^2</span> définie par <span class="math inline">f(t) = (\cos(\sqrt{t}),\; \sin(\sqrt{t}))</span> pour <span class="math inline">t&gt;0</span> et <span class="math inline">f(0)=(1,0)</span>.</p>
+<ol type="1">
+<li>Montrer que <span class="math inline">f</span> est continue sur <span class="math inline">[0,+\infty[</span> et de classe <span class="math inline">\mathcal{C}^1</span> sur <span class="math inline">]0,+\infty[</span>.</li>
+<li>Calculer <span class="math inline">f'(t)</span> pour <span class="math inline">t&gt;0</span> et montrer que <span class="math inline">\|f'(t)\| = \dfrac{1}{2\sqrt{t}}</span>.</li>
+<li>En déduire, à l’aide de l’IAF avec majoration variable, que pour tout <span class="math inline">x&gt;0</span> : <span class="math inline">\|f(x)-f(0)\| \leqslant \sqrt{x}</span>.</li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 6.4 — (Formule de Taylor–Lagrange)</strong></p>
+<p>Soit <span class="math inline">f : \mathbb{R} \to \mathbb{R}^2</span> définie par <span class="math inline">f(t) = (\cos(t^2),\; \sin(t^2))</span>.</p>
 <ol type="1">
 <li>Calculer <span class="math inline">f'(t)</span> et <span class="math inline">f''(t)</span>.</li>
-<li>Montrer que l’arc est régulier.</li>
-<li>Calculer la longueur de l’arc entre <span class="math inline">t = 0</span> et <span class="math inline">t = 1</span> (on pourra donner une valeur approchée).</li>
+<li>Montrer que pour tout <span class="math inline">t \in [0,1]</span>, <span class="math inline">\|f''(t)\| \leqslant 6</span>.</li>
+<li>En déduire que pour tout <span class="math inline">x \in [0,1]</span> : <span class="math inline">\left\|f(x)-f(0)-xf'(0)\right\| \leqslant 3x^2</span>.</li>
+<li>Comparer avec le développement de Taylor–Young à l’ordre 2.</li>
 </ol>
 </div>
 <div class="custom-numbered-block custom-exercise">
-<p><strong>Exercice 5.4</strong></p>
-<p>Soient <span class="math inline">f, g : I \to \mathbb{R}^3</span> de classe <span class="math inline">\mathcal{C}^1</span>. Montrer que : <span class="math display">\frac{d}{dt}\langle f(t), g(t) \rangle = \langle f'(t), g(t) \rangle + \langle f(t), g'(t) \rangle</span></p>
-</div>
-<div class="custom-numbered-block custom-exercise">
-<p><strong>Exercice 5.5</strong></p>
-<p>Soit <span class="math inline">\gamma : [0, +\infty[ \to \mathbb{R}^2</span> définie par <span class="math inline">\gamma(t) = (t \cos t, t \sin t)</span>.</p>
+<p><strong>Exercice 6.5 — (Sommes de Riemann vectorielles)</strong></p>
+<p>Soit <span class="math inline">f : [0,1] \to \mathbb{R}^2</span> définie par <span class="math inline">f(t) = (e^t \cos(2\pi t),\; e^t \sin(2\pi t))</span>.</p>
 <ol type="1">
-<li>Calculer <span class="math inline">\gamma'(t)</span> et montrer que l’arc est régulier.</li>
-<li>Calculer la longueur de l’arc entre <span class="math inline">t = 0</span> et <span class="math inline">t = 2\pi</span>.</li>
-<li>Interpréter géométriquement la courbe (spirale d’Archimède).</li>
+<li>Calculer <span class="math inline">\displaystyle\int_0^1 f(t)\,dt</span> composante par composante.</li>
+<li>Exprimer la somme de Riemann <span class="math inline">S_n(f)</span> et montrer qu’elle converge vers l’intégrale.</li>
+<li>Vérifier l’inégalité triangulaire : <span class="math inline">\left\|\displaystyle\int_0^1 f(t)\,dt\right\| \leqslant \displaystyle\int_0^1 \|f(t)\|\,dt</span>.</li>
 </ol>
 </div>
 <div class="custom-numbered-block custom-exercise">
-<p><strong>Exercice 5.6</strong></p>
-<p>Soit <span class="math inline">\gamma : \mathbb{R} \to \mathbb{R}^2</span> définie par <span class="math inline">\gamma(t) = (3\cos t, 2\sin t)</span>.</p>
+<p><strong>Exercice 6.6 — (Arc paramétré : la cycloïde)</strong></p>
+<p>La cycloïde est l’arc paramétré <span class="math inline">f : \mathbb{R} \to \mathbb{R}^2</span> défini par : <span class="math display">f(t) = (t-\sin t,\; 1-\cos t)</span></p>
 <ol type="1">
-<li>Montrer que l’arc décrit une ellipse.</li>
-<li>Calculer <span class="math inline">\gamma'(t)</span> et déterminer les points où la tangente est horizontale.</li>
-<li>Calculer la longueur de l’arc entre <span class="math inline">t = 0</span> et <span class="math inline">t = \pi/2</span>.</li>
+<li>Calculer <span class="math inline">f'(t)</span> et déterminer les points critiques.</li>
+<li>Étudier la nature du point <span class="math inline">f(0)</span> à l’aide d’un développement limité à l’ordre 3.</li>
+<li>Calculer la longueur de l’arc pour <span class="math inline">t \in [0,2\pi]</span>.</li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 6.7 — (Équation différentielle vectorielle)</strong></p>
+<p>On considère l’équation différentielle vectorielle : <span class="math display">\vec{v}\,'(t) = -\dfrac{k}{m}\,\vec{v}(t) + \vec{g}</span> où <span class="math inline">\vec{g} = -g\,\vec{k}</span> et <span class="math inline">k,m&gt;0</span>.</p>
+<ol type="1">
+<li>Résoudre cette équation avec la condition initiale <span class="math inline">\vec{v}(0) = v_0\,\vec{i}</span>.</li>
+<li>Déterminer la vitesse limite <span class="math inline">\vec{v}_\infty = \displaystyle\lim_{t \to +\infty} \vec{v}(t)</span>.</li>
+<li>En déduire le vecteur position <span class="math inline">\vec{r}(t)</span> avec <span class="math inline">\vec{r}(0) = \vec{0}</span>.</li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 6.8 — (Mouvement circulaire uniforme)</strong></p>
+<p>Un point <span class="math inline">M</span> décrit un cercle de rayon <span class="math inline">R</span> à la vitesse angulaire constante <span class="math inline">\omega</span>. Son vecteur position est : <span class="math display">\vec{r}(t) = R\cos(\omega t)\,\vec{i} + R\sin(\omega t)\,\vec{j}</span></p>
+<ol type="1">
+<li>Calculer <span class="math inline">\vec{v}(t)</span> et <span class="math inline">\vec{a}(t)</span>.</li>
+<li>Vérifier que <span class="math inline">\langle \vec{r}(t), \vec{v}(t)\rangle = 0</span> et <span class="math inline">\langle \vec{v}(t), \vec{a}(t)\rangle = 0</span>.</li>
+<li>Montrer que <span class="math inline">\vec{a}(t) = -\omega^2\,\vec{r}(t)</span> et interpréter géométriquement.</li>
+<li>Calculer la longueur de l’arc décrit pendant une période <span class="math inline">T = \dfrac{2\pi}{\omega}</span>.</li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 6.9 — (Formule de Leibniz)</strong></p>
+<p>Soient <span class="math inline">f,g : \mathbb{R} \to \mathbb{R}^3</span> deux fonctions de classe <span class="math inline">\mathcal{C}^3</span>. On pose <span class="math inline">h(t) = \langle f(t), g(t)\rangle</span>.</p>
+<ol type="1">
+<li>Exprimer <span class="math inline">h'(t)</span>, <span class="math inline">h''(t)</span> et <span class="math inline">h'''(t)</span> en utilisant la formule de Leibniz.</li>
+<li>Application : si <span class="math inline">f(t) = (t,t^2,t^3)</span> et <span class="math inline">g(t) = (1,t,t^2)</span>, calculer <span class="math inline">h'''(0)</span>.</li>
+</ol>
+</div>
+<div class="custom-numbered-block custom-exercise">
+<p><strong>Exercice 6.10 — (Convergence uniforme et IAF)</strong></p>
+<p>Soit <span class="math inline">(f_n)_{n \geqslant 1}</span> une suite de fonctions de <span class="math inline">[0,1]</span> dans <span class="math inline">\mathbb{R}^2</span> définie par : <span class="math display">f_n(t) = \left(\dfrac{\cos(nt)}{n^2},\; \dfrac{\sin(nt)}{n^2}\right)</span></p>
+<ol type="1">
+<li>Calculer <span class="math inline">f_n'(t)</span> et montrer que <span class="math inline">\|f_n'(t)\| = \dfrac{1}{n}</span>.</li>
+<li>En déduire, à l’aide de l’inégalité des accroissements finis, que <span class="math inline">(f_n)</span> converge uniformément vers la fonction nulle sur <span class="math inline">[0,1]</span>.</li>
 </ol>
 </div>
 </section>
@@ -688,7 +807,7 @@ window.Quarto = {
 <section id="voir-td" class="level1 unnumbered">
 <h1 class="unnumbered">Voir TD</h1>
 <p>✍️ <a href="../td/mp-chap05.html"><strong>TD 05 : Fonctions vectorielles d’une variable réelle, arcs paramétrés</strong></a></p>
-<p>##&nbsp;Navigation {-}</p>
+<p>#&nbsp;Navigation {-}</p>
 <div class="chap-nav">
 <p><a href="../cours/mp-chap04.html" class="prev">Chapitre 04 : Séries dans un espace vectoriel normé et familles sommables</a> <a href="../cours/mp.html" class="home">Menu MP</a> <a href="../cours/mp-chap06.html" class="next">Chapitre 06 : Suites et séries de fonctions</a></p>
 </div>
